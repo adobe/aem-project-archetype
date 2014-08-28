@@ -34,7 +34,7 @@
       <connection>scm:git:git@github.com/Adobe-Marketing-Cloud/aem-project-archetype.git</connection>
       <developerConnection>scm:git:git@github.com/Adobe-Marketing-Cloud/aem-project-archetype.git</developerConnection>
       <url>https://github.com/Adobe-Marketing-Cloud/aem-project-archetype/tree/master/</url>
-      <tag>sample-project-archetype-7</tag>
+      <tag>HEAD</tag>
   </scm>
 
   <build>
