@@ -1,4 +1,4 @@
-# Granite sample project archetype
+# AEM project archetype
 
 To use a released version of this archetype:
 
