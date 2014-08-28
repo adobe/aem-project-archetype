@@ -24,8 +24,8 @@
   </parent>
 
   <groupId>com.adobe.granite.archetypes</groupId>
-  <artifactId>sample-project-archetype</artifactId>
-  <version>7</version>
+  <artifactId>aem-project-archetype</artifactId>
+  <version>8-SNAPSHOT</version>
   <packaging>maven-archetype</packaging>
 
   <name>Sample Multi-module Archetype</name>
