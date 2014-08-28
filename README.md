@@ -17,7 +17,7 @@ groupId            | Base Maven groupId
 artifactId         | Base Maven ArtifactId
 version            | Version
 package            | Java Source Package
-appsFolderName     | /app folder name
+appsFolderName     | /apps folder name
 artifactName       | Maven Project Name
 componentGroupName | AEM component group name
 contentFolderName  | /content folder name
