@@ -1,4 +1,28 @@
+# Granite sample project archetype
 
-We aim to commit the archetype to this repository during the week of Mon Aug 25th.
+To use a released version of this archetype:
 
-Thanks for your patience! :)
+    mvn archetype:generate \
+     -DarchetypeGroupId=com.adobe.granite.archetypes \
+     -DarchetypeArtifactId=sample-project-archetype \
+     -DarchetypeVersion=5
+
+Where 7 is the archetype version number that you want to use.
+
+The following properties are supported to generate the sample projects:
+
+--------------------------------------------------
+groupId            | Maven GroupId
+-------------------|------------------------------
+groupId            | Base Maven groupId
+artifactId         | Base Maven ArtifactId
+version            | Version
+package            | Java Source Package
+appsFolderName     | /app folder name
+artifactName       | Maven Project Name
+componentGroupName | AEM component group name
+contentFolderName  | /content folder name
+cssId              | prefix used in generated css
+packageGroup       | Content Package Group name
+siteName           | AEM site name
+--------------------------------------------------

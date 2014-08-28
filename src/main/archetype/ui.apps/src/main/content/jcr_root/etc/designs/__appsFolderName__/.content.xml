@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <clientlib/>
+    <jcr:content
+        cq:doctype="html_5"
+        cq:lastModified="{Date}2014-05-26T11:36:23.166+02:00"
+        cq:lastModifiedBy="admin"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="NewArchetype Demo Site"
+        sling:resourceType="wcm/core/components/designer">
+        <page-home jcr:primaryType="nt:unstructured">
+            <par
+                jcr:lastModified="{Date}2011-01-25T11:28:02.432+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+                components="[/libs/foundation/components/download,/libs/foundation/components/image,/libs/foundation/components/mvt,/libs/foundation/components/table,/libs/foundation/components/textimage,/libs/foundation/components/parsys/colctrl,/libs/foundation/components/text,/apps/${appsFolderName}/components/content/title,/apps/${appsFolderName}/components/servicecomponent]">
+                <section
+                    jcr:primaryType="nt:unstructured"
+                    div.padding="0"/>
+                <colctrl
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="foundation/components/parsys/colctrl"
+                    layouts="2;cq-colctrl-lt0&#x9;2 Columns (50%, 50%)&#xa;"/>
+            </par>
+            <logo
+                jcr:lastModified="{Date}2014-05-26T11:36:23.164+02:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/logo"
+                imageRotate="0"
+                maxWidth="165">
+                <image/>
+            </logo>
+        </page-home>
+        <page jcr:primaryType="nt:unstructured">
+            <par
+                jcr:lastModified="{Date}2011-01-25T11:28:02.432+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+                components="[/libs/foundation/components/download,/libs/foundation/components/image,/libs/foundation/components/mvt,/libs/foundation/components/table,/libs/foundation/components/textimage,/libs/foundation/components/parsys/colctrl,/libs/foundation/components/text,/apps/${appsFolderName}/components/content/title,/apps/${appsFolderName}/components/servicecomponent]">
+                <section
+                    jcr:primaryType="nt:unstructured"
+                    div.padding="0"/>
+                <colctrl
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="foundation/components/parsys/colctrl"
+                    layouts="2;cq-colctrl-lt0&#x9;2 Columns (50%, 50%)&#xa;"/>
+            </par>
+            <logo
+                jcr:lastModified="{Date}2014-05-26T11:36:23.164+02:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/logo"
+                imageRotate="0"
+                maxWidth="165">
+                <image/>
+            </logo>
+        </page>
+    </jcr:content>
+    <images/>
+    <favicon.ico/>
+</jcr:root>

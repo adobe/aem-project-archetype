@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:description="Generic template for ${siteName} Home Pages"
+    jcr:primaryType="cq:Template"
+    jcr:title="${siteName} Home Page"
+    allowedPaths="[/content/${contentFolderName}(/.*)?]"
+    ranking="{Long}90">
+    <jcr:content
+        cq:allowedTemplates="[/apps/${appsFolderName}/templates/page]"
+        cq:template="/apps/${appsFolderName}/templates/homepage"
+        cq:designPath="/etc/designs/${appsFolderName}"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="${appsFolderName}/components/page/page-home">
+        <par
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys"/>
+    </jcr:content>
+</jcr:root>

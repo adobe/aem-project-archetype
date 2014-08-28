@@ -1,0 +1,48 @@
+<!--/*
+    Copyright 2014 Adobe Systems Incorporated
+  
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+  
+        http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/-->
+#set( $symbol_dollar = '$' )
+<!DOCTYPE html>
+<html lang="en" data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	    <meta http-equiv="keywords" content="<%= WCMUtils.getKeywords(currentPage) %>">
+    	<meta name="viewport" content="user-scalable=no">
+
+		<title>${symbol_dollar}{properties.jcr:title}</title>
+        <output data-sly-call="${symbol_dollar}{clientLib.css @ categories='${cssId}'}" data-sly-unwrap>
+	</head>
+
+	<body class="${cssId}-body">
+		<div class="${cssId}-panel">
+
+			<!-- include the header.html -->
+			<div data-sly-include="header.html" data-sly-unwrap/>
+
+			<!-- include the main.html -->
+			<div data-sly-include="main.html" data-sly-unwrap/>
+
+			<!-- include the footer.html -->
+			<div data-sly-include="footer.html" data-sly-unwrap/>
+		</div>
+
+		
+		<div data-sly-resource="${symbol_dollar}{ @path='timing', resourceType='foundation/components/timing'}"></div>
+		<div data-sly-resource="${symbol_dollar}{ @path='cloudservices', resourceType='cq/cloudserviceconfigs/components/servicecomponents'}"></div>
+        <output data-sly-call="${symbol_dollar}{clientLib.js @ categories='${cssId}'}" data-sly-unwrap>
+	</body>
+</html>
