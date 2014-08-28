@@ -5,7 +5,7 @@ To use a released version of this archetype:
     mvn archetype:generate \
      -DarchetypeGroupId=com.adobe.granite.archetypes \
      -DarchetypeArtifactId=sample-project-archetype \
-     -DarchetypeVersion=5
+     -DarchetypeVersion=7
 
 Where 7 is the archetype version number that you want to use.
 
