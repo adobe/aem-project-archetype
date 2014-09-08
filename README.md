@@ -9,7 +9,7 @@ To use a released version of this archetype:
 
 Where 7 is the archetype version number that you want to use.
 
-The following properties are supported to generate the sample projects:
+### Available properties
 
 groupId            | Maven GroupId
 -------------------|------------------------------
@@ -24,3 +24,8 @@ contentFolderName  | /content folder name
 cssId              | prefix used in generated css
 packageGroup       | Content Package Group name
 siteName           | AEM site name
+
+### Requirements
+
+* Adobe Experience Manager 6 or higher
+* Apache Maven (3.x should do)
