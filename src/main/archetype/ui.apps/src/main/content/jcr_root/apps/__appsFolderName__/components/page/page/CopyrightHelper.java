@@ -23,10 +23,10 @@ public class CopyrightHelper implements Use {
     
     @Override
     public void init(Bindings bindings) {
-    	// nothing to be done here in this case
+        // nothing to be done here in this case
     }
      
     public String getYear() {
-    	return String.valueOf(Calendar.getInstance().get(Calendar.YEAR));
+        return String.valueOf(Calendar.getInstance().get(Calendar.YEAR));
     }
 }

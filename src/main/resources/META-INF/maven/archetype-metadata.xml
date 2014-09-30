@@ -75,9 +75,9 @@
                         <include>**/*.*</include>
                     </includes>
                     <excludes>
-                    	<exclude>**/*.png</exclude>
-                    	<exclude>**/image</exclude>
-                    	<exclude>**/file</exclude>
+                        <exclude>**/*.png</exclude>
+                        <exclude>**/image</exclude>
+                        <exclude>**/file</exclude>
                     </excludes>
                 </fileSet>
                 <fileSet filtered="false" packaged="false"
@@ -90,7 +90,7 @@
                     </includes>
                 </fileSet>
                 <fileSet filtered="false" packaged="false"
-                	encoding="UTF-8">
+                    encoding="UTF-8">
                     <directory>src/main/content/jcr_root</directory>
                     <includes>
                         <include>**/*</include>
@@ -115,9 +115,9 @@
                         <include>**/*.*</include>
                     </includes>
                     <excludes>
-                    	<exclude>**/*.png</exclude>
-                    	<exclude>**/image</exclude>
-                    	<exclude>**/file</exclude>
+                        <exclude>**/*.png</exclude>
+                        <exclude>**/image</exclude>
+                        <exclude>**/file</exclude>
                     </excludes>
                 </fileSet>
                 <fileSet filtered="false" packaged="false"
@@ -130,7 +130,7 @@
                     </includes>
                 </fileSet>
                 <fileSet filtered="false" packaged="false"
-                	encoding="UTF-8">
+                    encoding="UTF-8">
                     <directory>src/main/content/jcr_root</directory>
                     <includes>
                         <include>**/*</include>

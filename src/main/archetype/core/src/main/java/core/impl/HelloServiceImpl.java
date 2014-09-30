@@ -33,12 +33,12 @@ import ${package}.core.HelloService;
 @Component(immediate = true)
 public class HelloServiceImpl implements HelloService {
 
-	@Reference
-	private SlingSettingsService settings;
-	
-	@Override
-	public String getMessage() {
-		return "Hello World, this is instance " + settings.getSlingId();
-	}
+    @Reference
+    private SlingSettingsService settings;
+    
+    @Override
+    public String getMessage() {
+        return "Hello World, this is instance " + settings.getSlingId();
+    }
 
 }

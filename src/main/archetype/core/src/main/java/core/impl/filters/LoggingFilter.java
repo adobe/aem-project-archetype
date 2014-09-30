@@ -39,24 +39,24 @@ import org.slf4j.LoggerFactory;
 @SlingFilter(order = -700, scope = SlingFilterScope.REQUEST)
 public class LoggingFilter implements Filter {
 
-	private final Logger logger = LoggerFactory.getLogger(LoggingFilter.class);
+    private final Logger logger = LoggerFactory.getLogger(LoggingFilter.class);
 
-	@Override
-	public void doFilter(final ServletRequest request, final ServletResponse response,
-			final FilterChain filterChain) throws IOException, ServletException {
+    @Override
+    public void doFilter(final ServletRequest request, final ServletResponse response,
+            final FilterChain filterChain) throws IOException, ServletException {
 
-		final SlingHttpServletRequest slingRequest = (SlingHttpServletRequest) request;
-		logger.debug("request for {}, with selector {}", slingRequest
-				.getRequestPathInfo().getResourcePath(), slingRequest
-				.getRequestPathInfo().getSelectorString());
+        final SlingHttpServletRequest slingRequest = (SlingHttpServletRequest) request;
+        logger.debug("request for {}, with selector {}", slingRequest
+                .getRequestPathInfo().getResourcePath(), slingRequest
+                .getRequestPathInfo().getSelectorString());
 
-		filterChain.doFilter(request, response);
-	}
+        filterChain.doFilter(request, response);
+    }
 
-	@Override
-	public void init(FilterConfig filterConfig) {}
+    @Override
+    public void init(FilterConfig filterConfig) {}
 
-	@Override
-	public void destroy() {}
+    @Override
+    public void destroy() {}
 
 }
