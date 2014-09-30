@@ -116,8 +116,8 @@
                 <extensions>true</extensions>
                 <configuration>
                     <filterSource>${basedir}/META-INF/vault/filter.xml</filterSource>
-					<verbose>true</verbose>
-					<failOnError>true</failOnError>
+                    <verbose>true</verbose>
+                    <failOnError>true</failOnError>
                     <group>${packageGroup}</group>
                     <embeddeds>
                         <embedded>
@@ -142,7 +142,7 @@
             </activation>
             <build>
                 <plugins>
-	                <plugin>
+                    <plugin>
                         <groupId>com.day.jcr.vault</groupId>
                         <artifactId>content-package-maven-plugin</artifactId>
                         <executions>
@@ -169,7 +169,7 @@
             </activation>
             <build>
                 <plugins>
-	                <plugin>
+                    <plugin>
                         <groupId>com.day.jcr.vault</groupId>
                         <artifactId>content-package-maven-plugin</artifactId>
                         <executions>
@@ -195,7 +195,7 @@
     <!-- D E P E N D E N C I E S                                                -->
     <!-- ====================================================================== -->
     <dependencies>
-		<dependency>
+        <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${rootArtifactId}.core</artifactId>
             <version>${version}</version>

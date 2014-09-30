@@ -35,26 +35,26 @@ import org.junit.Test;
  * Simple JUnit test verifying the HelloServiceImpl
  */
 public class TestHelloServiceImpl {
-	
-	private HelloServiceImpl helloService;
-	
-	private String slingId;
-	
-	@Before
-	public void setup() throws Exception {
-		helloService = new HelloServiceImpl();
-		SlingSettingsService settings = mock(SlingSettingsService.class);
-		PrivateAccessor.setField(helloService, "settings", settings);
-		slingId = UUID.randomUUID().toString();
-		when(settings.getSlingId()).thenReturn(slingId);
-	}
-	
-	@Test
-	public void testGetMessage() throws Exception {
-		// some very basic junit tests
-		String msg = helloService.getMessage();
-		assertNotNull(msg);
-		assertTrue(msg.length()>0);
-	}
+    
+    private HelloServiceImpl helloService;
+    
+    private String slingId;
+    
+    @Before
+    public void setup() throws Exception {
+        helloService = new HelloServiceImpl();
+        SlingSettingsService settings = mock(SlingSettingsService.class);
+        PrivateAccessor.setField(helloService, "settings", settings);
+        slingId = UUID.randomUUID().toString();
+        when(settings.getSlingId()).thenReturn(slingId);
+    }
+    
+    @Test
+    public void testGetMessage() throws Exception {
+        // some very basic junit tests
+        String msg = helloService.getMessage();
+        assertNotNull(msg);
+        assertTrue(msg.length()>0);
+    }
 
 }

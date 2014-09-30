@@ -29,29 +29,29 @@ import com.day.cq.wcm.api.PageFilter;
 
 public class Topnav extends WCMUse {
     
-	@Override
-	public void activate() throws Exception {
-		// nothing to be done here in this case
-	}
-	
-	public Iterator<Map<String, Object>> listPageInfos() {
-		Page homePage = getCurrentPage().getAbsoluteParent(1);
-		Iterator<Page> it = homePage.listChildren((Filter<Page>) new PageFilter());
-		List<Map<String, Object>> infos = new LinkedList<Map<String,Object>>();
-		while(it.hasNext()) {
-			Page p = it.next();
-			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("path", p.getPath());
-			map.put("title", p.getTitle());
-			if (p.getPath().equals(
-					getCurrentPage().getAbsoluteParent(2).getPath())) {
-				map.put("selected", true);
-			} else {
-				map.put("selected", false);
-			}
-			infos.add(map);
-		}
-		return infos.iterator();
-	}
-	
+    @Override
+    public void activate() throws Exception {
+        // nothing to be done here in this case
+    }
+    
+    public Iterator<Map<String, Object>> listPageInfos() {
+        Page homePage = getCurrentPage().getAbsoluteParent(1);
+        Iterator<Page> it = homePage.listChildren((Filter<Page>) new PageFilter());
+        List<Map<String, Object>> infos = new LinkedList<Map<String,Object>>();
+        while(it.hasNext()) {
+            Page p = it.next();
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("path", p.getPath());
+            map.put("title", p.getTitle());
+            if (p.getPath().equals(
+                    getCurrentPage().getAbsoluteParent(2).getPath())) {
+                map.put("selected", true);
+            } else {
+                map.put("selected", false);
+            }
+            infos.add(map);
+        }
+        return infos.iterator();
+    }
+    
 }

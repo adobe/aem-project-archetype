@@ -26,9 +26,9 @@ import aQute.bnd.annotation.ConsumerType;
 @ConsumerType
 public interface HelloService {
 
-	/**
-	 * @return Some information about the current instance
-	 */
+    /**
+     * @return Some information about the current instance
+     */
     String getMessage();
-	
+    
 }
