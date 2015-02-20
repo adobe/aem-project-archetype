@@ -59,7 +59,6 @@
                 <inherited>true</inherited>
                     <configuration>
                         <instructions>
-                            <Export-Package>${rootArtifactId}.it.tests.*</Export-Package>
                             <Sling-Test-Regexp>.*Test</Sling-Test-Regexp>
                         </instructions>
                     </configuration>
