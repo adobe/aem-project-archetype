@@ -16,11 +16,4 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-<html>
-<head>
-<title>File not found</title>
-</head>
-<body>
-    <p>A custom errorhandler for 404 responses</p>
-</body>
-</html>
+<%@include file="/libs/sling/servlet/errorhandler/404.jsp"%>
