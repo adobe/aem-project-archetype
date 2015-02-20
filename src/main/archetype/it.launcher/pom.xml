@@ -93,7 +93,6 @@
         <plugins>
            <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
-                <version>2.5</version>
                 <configuration>
                     <filesets>
                         <fileset>
@@ -116,7 +115,6 @@
            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.8</version>
                 <executions>
                     <execution>
                         <id>copy-runnable-jar</id>
@@ -155,7 +153,6 @@
                 <!-- Find free ports to run our server -->
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
-                <version>1.9</version>
                 <executions>
                     <execution>
                         <id>reserve-server-port</id>
