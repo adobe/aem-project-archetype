@@ -22,9 +22,9 @@
         <meta name="viewport" content="user-scalable=no">
         
         <!-- Include head.html from wcm/foundation/components/page -->
-        <output data-sly-include="head.html" data-sly-unwrap></output>
+        <meta data-sly-include="head.html" data-sly-unwrap></meta>
     
-        <output data-sly-call="${symbol_dollar}{clientLib.css @ categories='${cssId}'}" data-sly-unwrap></output>
+        <meta data-sly-call="${symbol_dollar}{clientLib.css @ categories='${cssId}'}" data-sly-unwrap></meta>
     </head>
     <div data-sly-include="head.html" data-sly-unwrap></div>
 
