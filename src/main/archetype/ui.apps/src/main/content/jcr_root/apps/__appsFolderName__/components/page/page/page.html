@@ -16,33 +16,35 @@
 #set( $symbol_dollar = '$' )
 <!DOCTYPE html>
 <html lang="en" data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
-    <head data-sly-include="/libs/wcm/foundation/components/page/head.html" data-sly-unwrap/>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    	<meta name="viewport" content="user-scalable=no">
-
-		<title>${symbol_dollar}{properties.jcr:title}</title>
-        <output data-sly-call="${symbol_dollar}{clientLib.css @ categories='${cssId}'}" data-sly-unwrap>
-	</head>
+    
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="user-scalable=no">
+        
+        <!-- Include head.html from wcm/foundation/components/page -->
+        <output data-sly-include="head.html" data-sly-unwrap></output>
+    
+        <output data-sly-call="${symbol_dollar}{clientLib.css @ categories='${cssId}'}" data-sly-unwrap></output>
+    </head>
+    <div data-sly-include="head.html" data-sly-unwrap></div>
 
 	<body class="${cssId}-body">
-		<div class="${cssId}-panel">
+		
+        <div class="${cssId}-panel">
 
 			<!-- include the header.html -->
-			<div data-sly-include="header.html" data-sly-unwrap/>
+			<div data-sly-include="header.html" data-sly-unwrap></div>
 
 			<!-- include the main.html -->
-			<div data-sly-include="main.html" data-sly-unwrap/>
+			<div data-sly-include="main.html" data-sly-unwrap></div>
 
 			<!-- include the footer.html -->
-			<div data-sly-include="footer.html" data-sly-unwrap/>
+			<div data-sly-include="footer.html" data-sly-unwrap></div>
 		</div>
 
 		
 		<div data-sly-resource="${symbol_dollar}{ @path='timing', resourceType='foundation/components/timing'}"></div>
 		<div data-sly-resource="${symbol_dollar}{ @path='cloudservices', resourceType='cq/cloudserviceconfigs/components/servicecomponents'}"></div>
-        <output data-sly-call="${symbol_dollar}{clientLib.js @ categories='${cssId}'}" data-sly-unwrap>
+        <output data-sly-call="${symbol_dollar}{clientLib.js @ categories='${cssId}'}" data-sly-unwrap></output>
 	</body>
 </html>
