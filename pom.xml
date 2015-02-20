@@ -80,5 +80,5 @@
     </pluginManagement>
   </build>
 
-  <description>Parent and Reactor for 'my-granite-project'</description>
+  <description>AEM archetype</description>
 </project>
