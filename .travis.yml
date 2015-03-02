@@ -1,4 +1,4 @@
 language: java
 install: true
 jdk: openjdk7
-script: mvn verify
+script: mvn verify -s travis/settings.xml

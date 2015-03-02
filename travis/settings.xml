@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<settings>
+  <!-- See https://helpx.adobe.com/experience-manager/kb/SetUpTheAdobeMavenRepository.html -->
+  <profile>
+    <id>adobe-public</id>
+    <activation>
+      <activeByDefault>false</activeByDefault>
+    </activation>
+    <properties>
+      <releaseRepository-Id>adobe-public-releases</releaseRepository-Id>
+      <releaseRepository-Name>Adobe Public Releases</releaseRepository-Name>
+      <releaseRepository-URL>http://repo.adobe.com/nexus/content/groups/public</releaseRepository-URL>
+    </properties>
+    <repositories>
+      <repository>
+        <id>adobe-public-releases</id>
+        <name>Adobe Basel Public Repository</name>
+        <url>http://repo.adobe.com/nexus/content/groups/public</url>
+        <releases>
+          <enabled>true</enabled>
+          <updatePolicy>never</updatePolicy>
+        </releases>
+        <snapshots>
+          <enabled>false</enabled>
+        </snapshots>
+      </repository>
+    </repositories>
+    <pluginRepositories>
+      <pluginRepository>
+        <id>adobe-public-releases</id>
+        <name>Adobe Basel Public Repository</name>
+        <url>http://repo.adobe.com/nexus/content/groups/public</url>
+        <releases>
+          <enabled>true</enabled>
+          <updatePolicy>never</updatePolicy>
+        </releases>
+        <snapshots>
+          <enabled>false</enabled>
+        </snapshots>
+      </pluginRepository>
+    </pluginRepositories>
+  </profile>
+</settings>
