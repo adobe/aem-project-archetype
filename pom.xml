@@ -22,7 +22,8 @@
   <version>9-SNAPSHOT</version>
   <packaging>maven-archetype</packaging>
 
-  <name>Sample Multi-module Archetype</name>
+  <name>AEM Multi-Module Archetype</name>
+  <description>AEM multi-module archetype.</description>
 
   <scm>
       <connection>scm:git:https://github.com/Adobe-Marketing-Cloud/aem-project-archetype.git</connection>
@@ -74,8 +75,6 @@
       </plugins>
     </pluginManagement>
   </build>
-
-  <description>AEM archetype</description>
 
   <distributionManagement>
     <repository>
