@@ -5,7 +5,7 @@
     <profile>
       <id>adobe-public</id>
       <activation>
-        <activeByDefault>false</activeByDefault>
+        <activeByDefault>true</activeByDefault>
       </activation>
       <properties>
         <releaseRepository-Id>adobe-public-releases</releaseRepository-Id>
