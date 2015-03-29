@@ -23,15 +23,17 @@ import ${package}.core.HelloService;
 import com.adobe.cq.sightly.WCMUse;
 
 public class HelloServiceProxy extends WCMUse {
+	
+	private String helloMessage;
     
     @Override
-    public void activate() throws Exception {
-        // nothing to be done here in this case
+    public void activate() {
+        SlingScriptHelper ssh = getSlingScriptHelper();
+        HelloService helloService = ssh.getService(HelloService.class);
+        helloMessage = helloService.getMessage();
     }
     
     public String getHelloMessage() {
-        SlingScriptHelper ssh = getSlingScriptHelper();
-        HelloService helloService = ssh.getService(HelloService.class);
-        return helloService.getMessage();
+    	return helloMessage;
     }
 }

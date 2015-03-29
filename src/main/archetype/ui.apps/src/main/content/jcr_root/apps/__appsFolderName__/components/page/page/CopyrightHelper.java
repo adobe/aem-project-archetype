@@ -21,12 +21,14 @@ import java.util.Calendar;
 
 public class CopyrightHelper implements Use {
     
+	private String currentYear;
+	
     @Override
     public void init(Bindings bindings) {
-        // nothing to be done here in this case
+        currentYear = String.valueOf(Calendar.getInstance().get(Calendar.YEAR));
     }
      
     public String getYear() {
-        return String.valueOf(Calendar.getInstance().get(Calendar.YEAR));
+    	return currentYear;
     }
 }
