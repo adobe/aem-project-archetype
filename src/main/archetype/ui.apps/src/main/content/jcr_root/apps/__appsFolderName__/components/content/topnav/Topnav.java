@@ -28,13 +28,11 @@ import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageFilter;
 
 public class Topnav extends WCMUse {
+	
+	private Iterator<Map<String, Object>> pageInfos;
     
     @Override
-    public void activate() throws Exception {
-        // nothing to be done here in this case
-    }
-    
-    public Iterator<Map<String, Object>> listPageInfos() {
+    public void activate() {
         Page homePage = getCurrentPage().getAbsoluteParent(1);
         Iterator<Page> it = homePage.listChildren((Filter<Page>) new PageFilter());
         List<Map<String, Object>> infos = new LinkedList<Map<String,Object>>();
@@ -51,7 +49,11 @@ public class Topnav extends WCMUse {
             }
             infos.add(map);
         }
-        return infos.iterator();
+        pageInfos = infos.iterator();
+    }
+    
+    public Iterator<Map<String, Object>> listPageInfos() {
+    	return pageInfos;
     }
     
 }
