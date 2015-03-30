@@ -49,7 +49,7 @@
                         </Embed-Dependency>
                         -->
                         <Sling-Model-Packages>
-							${package}.core.impl
+							${package}.core
 						</Sling-Model-Packages>
                     </instructions>
                 </configuration>
