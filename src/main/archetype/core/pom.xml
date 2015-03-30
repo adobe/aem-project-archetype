@@ -48,6 +48,9 @@
                             artifactId2;inline=true
                         </Embed-Dependency>
                         -->
+                        <Sling-Model-Packages>
+							${package}.core.impl
+						</Sling-Model-Packages>
                     </instructions>
                 </configuration>
             </plugin>
