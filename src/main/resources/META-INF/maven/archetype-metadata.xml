@@ -37,6 +37,9 @@
         <requiredProperty key="cssId" />
         <requiredProperty key="componentGroupName" />
         <requiredProperty key="siteName"/>
+        <requiredProperty key="version">
+            <defaultValue>0.1.0-SNAPSHOT</defaultValue>
+        </requiredProperty>
     </requiredProperties>
 
     <modules>
