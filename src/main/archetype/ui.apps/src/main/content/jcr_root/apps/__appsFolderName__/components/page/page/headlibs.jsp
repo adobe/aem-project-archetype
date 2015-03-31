@@ -16,5 +16,12 @@
     This script is loaded from head.html in /libs/foundation/components/page
 
 --%><%@include file="/libs/foundation/global.jsp" %>
+
+<%-- Include the client libraries located at /etc/designs/${appsFolderName}/clientlib-all --%>
 <cq:includeClientLib css="${cssId}.all"/>
+
+<%-- Include Adobe Dynamic Tag Management header embeds --%>
 <cq:include script="/libs/cq/cloudserviceconfigs/components/servicelibs/servicelibs.jsp"/>
+
+<%-- Following include is needed for the mobile emulators to work on 6.0 in Classic UI --%>
+<cq:include script="/libs/wcm/mobile/components/simulator/simulator.jsp"/>

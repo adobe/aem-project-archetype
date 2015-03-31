@@ -24,8 +24,8 @@
         
         <!--/* Include JS client libraries in the footer */-->
         <sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}" data-sly-call="${symbol_dollar}{clientLib.js @ categories='${cssId}.all'}" data-sly-unwrap/>
+        
         <!--/* Include Adobe Dynamic Tag Management footer embeds */-->
         <sly data-sly-resource="${symbol_dollar}{@ resourceType='cq/cloudserviceconfigs/components/servicecomponents'}" data-sly-unwrap/>
-        <sly data-sly-resource="${symbol_dollar}{@ resourceType='foundation/components/timing'}" data-sly-unwrap/>
     </body>
 </html>

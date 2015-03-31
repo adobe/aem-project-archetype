@@ -4,6 +4,7 @@
     <jcr:content
         cq:allowedTemplates="[/apps/${appsFolderName}/templates/page-home]"
         cq:designPath="/etc/designs/${appsFolderName}"
+        cq:deviceGroups="[/etc/mobile/groups/responsive]"
         jcr:primaryType="nt:unstructured"
         jcr:title="${siteName}"
         sling:redirect="{Boolean}true"
