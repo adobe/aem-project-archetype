@@ -14,14 +14,14 @@
                 jcr:lastModified="{Date}2011-01-25T11:28:02.432+01:00"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="foundation/components/parsys"
-                components="[/libs/foundation/components/download,/libs/foundation/components/image,/libs/foundation/components/mvt,/libs/foundation/components/table,/libs/foundation/components/textimage,/libs/foundation/components/parsys/colctrl,/libs/foundation/components/text,/apps/${appsFolderName}/components/content/title,/apps/${appsFolderName}/components/content/servicecomponent]">
+                sling:resourceType="wcm/foundation/components/parsys"
+                components="[/libs/foundation/components/download,/libs/foundation/components/image,/libs/foundation/components/mvt,/libs/foundation/components/table,/libs/wcm/foundation/components/textimage,/libs/wcm/foundation/components/parsys/colctrl,/libs/wcm/foundation/components/text,/libs/wcm/foundation/components/title,/apps/${appsFolderName}/components/content/servicecomponent]">
                 <section
                     jcr:primaryType="nt:unstructured"
                     div.padding="0"/>
                 <colctrl
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="foundation/components/parsys/colctrl"
+                    sling:resourceType="wcm/foundation/components/parsys/colctrl"
                     layouts="2;cq-colctrl-lt0&#x9;2 Columns (50%, 50%)&#xa;"/>
             </par>
             <logo
@@ -39,14 +39,14 @@
                 jcr:lastModified="{Date}2011-01-25T11:28:02.432+01:00"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="foundation/components/parsys"
-                components="[/libs/foundation/components/download,/libs/foundation/components/image,/libs/foundation/components/mvt,/libs/foundation/components/table,/libs/foundation/components/textimage,/libs/foundation/components/parsys/colctrl,/libs/foundation/components/text,/apps/${appsFolderName}/components/content/title,/apps/${appsFolderName}/components/content/servicecomponent]">
+                sling:resourceType="wcm/foundation/components/parsys"
+                components="[/libs/foundation/components/download,/libs/foundation/components/image,/libs/foundation/components/mvt,/libs/foundation/components/table,/libs/wcm/foundation/components/textimage,/libs/wcm/foundation/components/parsys/colctrl,/libs/wcm/foundation/components/text,/libs/wcm/foundation/components/content/title,/apps/${appsFolderName}/components/content/servicecomponent]">
                 <section
                     jcr:primaryType="nt:unstructured"
                     div.padding="0"/>
                 <colctrl
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="foundation/components/parsys/colctrl"
+                    sling:resourceType="wcm/foundation/components/parsys/colctrl"
                     layouts="2;cq-colctrl-lt0&#x9;2 Columns (50%, 50%)&#xa;"/>
             </par>
             <logo

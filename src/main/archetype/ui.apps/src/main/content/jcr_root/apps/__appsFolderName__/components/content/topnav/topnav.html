@@ -14,8 +14,8 @@
     limitations under the License.
 */-->
 #set( $symbol_dollar = '$' )
-<ul class="topnav" data-sly-use.topnav="topnav.js" data-sly-list="${topnav.items}">
-    <li class="${item.selected && 'selected'}">
-        <a href="${item.page.path}.html">${item.page.title}</a> 
+<ul class="topnav" data-sly-use.topnav="topnav.js" data-sly-list="${symbol_dollar}{topnav.items}">
+    <li class="${symbol_dollar}{item.selected && 'selected'}">
+        <a href="${symbol_dollar}{item.page.path}.html">${symbol_dollar}{item.page.title}</a> 
     </li>
 </ul>

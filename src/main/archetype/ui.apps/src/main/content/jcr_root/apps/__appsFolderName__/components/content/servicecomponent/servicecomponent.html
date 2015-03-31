@@ -13,12 +13,13 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
+#set( $symbol_dollar = '$' )
 <div>Service Component uses the HelloService:</div>
 
 <div data-sly-use.helloService="helloServiceProxy.js">
-    HelloService says: ${helloService.message}
+    HelloService says: ${symbol_dollar}{helloService.message}
 </div>
 
 <div data-sly-use.helloModel="${package}.core.HelloServiceModel">
-    HelloServiceModel says: ${helloModel.message}
+    HelloServiceModel says: ${symbol_dollar}{helloModel.message}
 </div>
