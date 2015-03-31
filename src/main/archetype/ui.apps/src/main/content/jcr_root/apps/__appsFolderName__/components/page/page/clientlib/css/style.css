@@ -14,10 +14,11 @@
  *  limitations under the License.
  */
 
-.page__panel {
+.page__main {
+    position: relative;
+    max-width: 960px;
     margin: 0 auto;
-    padding: 0 10px 10px;
-    max-width: 940px;
+    padding: 0 1em 1em;
     background-color: #fff;
     box-shadow: 0 0 9px 1px rgba(0,0,0,.2);
     -moz-box-shadow: 0 0 9px 1px -moz-rgba(0,0,0,.2);
@@ -26,26 +27,19 @@
 }
 
 .page__topnav {
-    float: right;
-    position: relative;
-    top: -50px;
+    position: absolute;
+    top: 20px;
+    right: 1em;
 }
-
 .page__topnav ul {
     list-style: none;
 }
-
 .page__topnav ul li {
     float: left;
     margin-left: 15px;
 }
-
 .page__topnav ul li.selected {
     font-weight: bold;
-}
-
-.page__footer {
-    bottotype="h1"rgin-top: 10px;
 }
 
 .page__copyright {

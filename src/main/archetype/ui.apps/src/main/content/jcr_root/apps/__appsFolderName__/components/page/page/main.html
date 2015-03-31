@@ -13,4 +13,17 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-<div class="page__main" data-sly-resource="par"></div>
+#set( $symbol_dollar = '$' )
+<div class="page__main" data-sly-use.main="main.js">
+    <header class="page__header">
+        <div class="page__logo" data-sly-resource="logo"></div>
+        <nav class="page__topnav" data-sly-resource="topnav"></nav>
+    </header>
+    
+    <div class="page__title" data-sly-resource="title"></div>
+    <div class="page__par" data-sly-resource="par"></div>
+    
+    <footer class="page__footer">
+        <p class="page__copyright">${symbol_dollar}{"&copy; {0} Summit Lab Site. All rights reserved." @ i18n, format=main.year, context='html'}</p>
+    </footer>
+</div>

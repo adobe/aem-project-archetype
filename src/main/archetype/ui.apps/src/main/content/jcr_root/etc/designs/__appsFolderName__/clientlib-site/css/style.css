@@ -17,16 +17,16 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #d3d3d3;
     font-family: sans-serif;
-    font-size: 13px;
+    font-size: 0.875em;
+    line-height: 1.2;
+    background-color: #d3d3d3;
 }
 
 a {
     text-decoration: none;
     color: #025c1f;
 }
-
 a:hover {
     text-decoration: underline;
 }
@@ -34,4 +34,8 @@ a:hover {
 h1 {
     color: #025c1f;
     text-transform: uppercase;
+}
+
+img {
+    vertical-align: top;
 }

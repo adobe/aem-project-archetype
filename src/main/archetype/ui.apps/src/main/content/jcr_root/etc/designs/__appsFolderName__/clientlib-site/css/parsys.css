@@ -14,53 +14,41 @@
  *  limitations under the License.
  */
 
-.par {
+/* Scale down too wide images */
+.page__par img {
+    max-width: 100%;
+}
+
+/* Column Control component */
+@media (min-width: 600px) {
+    .parsys_column {
+        float: left;
+        margin: 0;
+    }
+    .cq-colctrl-lt0-c0 {
+        width: calc(50% - 1em);
+        margin-right: 1em;
+    }
+    .cq-colctrl-lt0-c1 {
+        width: calc(50% - 1em);
+        margin-left: 1em;
+    }
+}
+
+/* Text-Image component */
+.textimage-left {
+    float: left;
+    margin: 0 1em 1em 0;
+}
+.textimage-right {
+    float: right;
+    margin: 0 0 1em 1em;
+}
+.textimage-text {
+    margin-bottom: -1em;
+}
+.textimage-text:after {
+    content: "";
+    display: table;
     clear: both;
-}
-
-.parsys_column {
-    height: 100%;
-    width: 100%;
-    float: left;
-    border: 0;
-    vertical-align: top;
-    padding: 0;
-    margin: 0;
-}
-
-.parsys_column .section {
-    overflow: hidden;
-    width: 100%;
-}
-
-/* column control layouts */
-.cq-colctrl-cols {
-    width: 100%;
-    float: left;
-}
-
-.cq-colctrl-default {
-    width: 100%;
-}
-
-/* layout 0: 50% 50% */
-.cq-colctrl-lt0 {
-}
-.cq-colctrl-lt0-c0 {
-    width: calc(50% - 10px);
-    margin-right: 10px;
-}
-.cq-colctrl-lt0-c1 {
-    width: calc(50% - 10px);
-    margin-left: 10px
-}
-
-.parbase.image {
-    text-align: center;
-}
-
-.parbase.textimage .text {
-    margin-left: 35px;
-    position: relative;
-    top: -38px;
 }

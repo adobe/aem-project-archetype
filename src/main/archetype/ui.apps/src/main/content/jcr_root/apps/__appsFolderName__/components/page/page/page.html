@@ -15,29 +15,16 @@
 */-->
 #set( $symbol_dollar = '$' )
 <!DOCTYPE html>
-<html lang="en" data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
-    <head>
-        <!--/* Include head.html from wcm/foundation/components/page */-->
-        <sly data-sly-include="head.html" data-sly-unwrap/>
-        
-        <!--/* Include CSS client libraries in the header */-->
-        <sly data-sly-call="${symbol_dollar}{clientLib.css @ categories='${cssId}.all'}" data-sly-unwrap/>
-    </head>
+<html lang="en">
+    <!--/* Include head.html from /libs/foundation/components/page */-->
+    <sly data-sly-include="head.jsp" data-sly-unwrap/>
     
     <body>
-        <div class="page__panel">
-            <!--/* include the header.html */-->
-            <sly data-sly-include="header.html" data-sly-unwrap/>
-            
-            <!--/* include the main.html */-->
-            <sly data-sly-include="main.html" data-sly-unwrap/>
-            
-            <!--/* include the footer.html */-->
-            <sly data-sly-include="footer.html" data-sly-unwrap/>
-        </div>
+        <sly data-sly-include="main.html" data-sly-unwrap/>
         
         <!--/* Include JS client libraries in the footer */-->
-        <sly data-sly-call="${symbol_dollar}{clientLib.js @ categories='${cssId}.all'}" data-sly-unwrap/>
+        <sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}" data-sly-call="${symbol_dollar}{clientLib.js @ categories='${cssId}.all'}" data-sly-unwrap/>
+        <!--/* Include Adobe Dynamic Tag Management footer embeds */-->
         <sly data-sly-resource="${symbol_dollar}{@ resourceType='cq/cloudserviceconfigs/components/servicecomponents'}" data-sly-unwrap/>
         <sly data-sly-resource="${symbol_dollar}{@ resourceType='foundation/components/timing'}" data-sly-unwrap/>
     </body>

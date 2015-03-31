@@ -1,4 +1,4 @@
-<!--/*
+<%--
     Copyright 2015 Adobe Systems Incorporated
   
     Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,8 +12,9 @@
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-*/-->
-#set( $symbol_dollar = '$' )
-<footer class="page__footer" data-sly-use.footer="footer.js">
-	<p class="page__copyright">${symbol_dollar}{"&copy; {0} Summit Lab Site. All rights reserved." @ i18n, format=footer.year, context='html'}</p>
-</footer>
+
+    This script is loaded from head.html in /libs/foundation/components/page
+
+--%><%@include file="/libs/foundation/global.jsp" %>
+<cq:includeClientLib css="${cssId}.all"/>
+<cq:include script="/libs/cq/cloudserviceconfigs/components/servicelibs/servicelibs.jsp"/>
