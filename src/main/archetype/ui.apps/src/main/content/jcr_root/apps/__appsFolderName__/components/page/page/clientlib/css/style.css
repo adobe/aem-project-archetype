@@ -13,22 +13,41 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package apps.${appsFolderName}.components.page.page;
 
-import io.sightly.java.api.Use;
-import javax.script.Bindings;
-import java.util.Calendar;
+.page__panel {
+    margin: 0 auto;
+    padding: 0 10px 10px;
+    max-width: 940px;
+    background-color: #fff;
+    box-shadow: 0 0 9px 1px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 0 9px 1px -moz-rgba(0,0,0,.2);
+    -webkit-box-shadow: 0 0 9px 1px rgba(0,0,0,.2);
+    zoom: 100%;
+}
 
-public class CopyrightHelper implements Use {
-    
-	private String currentYear;
-	
-    @Override
-    public void init(Bindings bindings) {
-        currentYear = String.valueOf(Calendar.getInstance().get(Calendar.YEAR));
-    }
-     
-    public String getYear() {
-    	return currentYear;
-    }
+.page__topnav {
+    float: right;
+    position: relative;
+    top: -50px;
+}
+
+.page__topnav ul {
+    list-style: none;
+}
+
+.page__topnav ul li {
+    float: left;
+    margin-left: 15px;
+}
+
+.page__topnav ul li.selected {
+    font-weight: bold;
+}
+
+.page__footer {
+    bottotype="h1"rgin-top: 10px;
+}
+
+.page__copyright {
+    margin-bottom: 0;
 }

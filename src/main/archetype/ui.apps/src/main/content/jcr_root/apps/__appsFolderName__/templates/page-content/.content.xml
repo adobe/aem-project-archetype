@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-    jcr:description="Template for initial or main page of the site."
+    jcr:description="Template with focus on content."
     jcr:primaryType="cq:Template"
-    jcr:title="${siteName} Home Page"
+    jcr:title="${siteName} Content Page"
     allowedPaths="[/content/${contentFolderName}(/.*)?]"
-    ranking="{Long}90">
+    ranking="{Long}80">
     <jcr:content
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="${appsFolderName}/components/page/page-home">
+        sling:resourceType="${appsFolderName}/components/page/page-content">
         <logo
             jcr:primaryType="nt:unstructured"
             sling:resourceType="foundation/components/logo"/>

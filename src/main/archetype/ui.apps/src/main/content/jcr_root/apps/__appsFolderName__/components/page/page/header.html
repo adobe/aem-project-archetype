@@ -13,9 +13,8 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-<div class="${cssId}-header">
-	<header>
-		<div class="logo" data-sly-resource="${ @path='logo', resourceType='foundation/components/logo'}"></div>
-		<div data-sly-resource="${ @path='topnav', resourceType='${appsFolderName}/components/content/topnav'}" data-sly-unwrap></div>
-	</header>
-</div>
+<header class="page__header">
+    <div class="page__logo" data-sly-resource="logo"></div>
+    <nav class="page__topnav" data-sly-resource="topnav"></nav>
+    <div class="page__title" data-sly-resource="title"></div>
+</header>

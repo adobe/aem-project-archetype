@@ -13,10 +13,6 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-<div class="page-footer">
-	<footer class="${cssId}-footer">
-		<!-- include the <nav> toolbar component -->
-		<nav data-sly-resource="${ @path='toolbar', resourceType='foundation/components/toolbar'}"></nav>
-		<p data-sly-use.copyright="CopyrightHelper" class="copyright">&copy; ${copyright.year} ${"${siteName}. All rights reserved." @ i18n}</p>
-	</footer>
-</div>
+<footer class="page__footer" data-sly-use.footer="footer.js">
+	<p class="page__copyright">${"&copy; {0} Summit Lab Site. All rights reserved." @ i18n, format=footer.year, context='html'}</p>
+</footer>

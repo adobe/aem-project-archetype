@@ -16,34 +16,29 @@
 #set( $symbol_dollar = '$' )
 <!DOCTYPE html>
 <html lang="en" data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
-    
     <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="user-scalable=no">
-        
         <!-- Include head.html from wcm/foundation/components/page -->
-        <meta data-sly-include="head.html" data-sly-unwrap></meta>
-    
-        <meta data-sly-call="${symbol_dollar}{clientLib.css @ categories='${cssId}'}" data-sly-unwrap></meta>
+        <sly data-sly-include="head.html" data-sly-unwrap/>
+        
+        <!-- Include CSS client libraries in the header -->
+        <sly data-sly-call="${symbol_dollar}{clientLib.css @ categories='${cssId}.all'}" data-sly-unwrap/>
     </head>
-
-	<body class="${cssId}-body">
-		
-        <div class="${cssId}-panel">
-
-			<!-- include the header.html -->
-			<div data-sly-include="header.html" data-sly-unwrap></div>
-
-			<!-- include the main.html -->
-			<div data-sly-include="main.html" data-sly-unwrap></div>
-
-			<!-- include the footer.html -->
-			<div data-sly-include="footer.html" data-sly-unwrap></div>
-		</div>
-
-		
-		<div data-sly-resource="${symbol_dollar}{ @path='timing', resourceType='foundation/components/timing'}"></div>
-		<div data-sly-resource="${symbol_dollar}{ @path='cloudservices', resourceType='cq/cloudserviceconfigs/components/servicecomponents'}"></div>
-        <output data-sly-call="${symbol_dollar}{clientLib.js @ categories='${cssId}'}" data-sly-unwrap></output>
-	</body>
+    
+    <body>
+        <div class="page__panel">
+            <!-- include the header.html -->
+            <sly data-sly-include="header.html" data-sly-unwrap/>
+            
+            <!-- include the main.html -->
+            <sly data-sly-include="main.html" data-sly-unwrap/>
+            
+            <!-- include the footer.html -->
+            <sly data-sly-include="footer.html" data-sly-unwrap/>
+        </div>
+        
+        <!-- Include JS client libraries in the footer -->
+        <sly data-sly-call="${symbol_dollar}{clientLib.js @ categories='${cssId}.all'}" data-sly-unwrap/>
+        <sly data-sly-resource="${symbol_dollar}{@ resourceType='cq/cloudserviceconfigs/components/servicecomponents'}" data-sly-unwrap/>
+        <sly data-sly-resource="${symbol_dollar}{@ resourceType='foundation/components/timing'}" data-sly-unwrap/>
+    </body>
 </html>

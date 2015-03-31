@@ -13,27 +13,11 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package apps.${appsFolderName}.components.content.servicecomponent;
+use(function () {
+    var Calendar = Packages.java.util.Calendar;
+    var currentYear = Calendar.getInstance().get(Calendar.YEAR);
 
-import javax.script.Bindings;
-
-import org.apache.sling.api.scripting.SlingScriptHelper;
-import ${package}.core.HelloService;
-
-import com.adobe.cq.sightly.WCMUse;
-
-public class HelloServiceProxy extends WCMUse {
-	
-	private String helloMessage;
-    
-    @Override
-    public void activate() {
-        SlingScriptHelper ssh = getSlingScriptHelper();
-        HelloService helloService = ssh.getService(HelloService.class);
-        helloMessage = helloService.getMessage();
-    }
-    
-    public String getHelloMessage() {
-    	return helloMessage;
-    }
-}
+    return {
+        year: currentYear
+    };
+});
