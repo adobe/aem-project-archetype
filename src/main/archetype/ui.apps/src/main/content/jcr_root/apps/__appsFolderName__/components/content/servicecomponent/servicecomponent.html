@@ -15,3 +15,6 @@
 */-->
 <div>Service Component uses the HelloService:</div>
 <div data-sly-use.helloservice="apps.${appsFolderName}.components.content.servicecomponent.HelloServiceProxy">HelloService says: ${helloservice.helloMessage}</div>
+<div data-sly-use.helloModel="${package}.core.models.HelloModel">
+    HelloModel says: ${helloModel.message} from resource type: ${helloModel.type}
+</div>

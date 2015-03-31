@@ -35,6 +35,9 @@
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-scr-plugin</artifactId>
+                <configuration>
+                    <scanClasses>true</scanClasses>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.felix</groupId>
@@ -42,12 +45,29 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <!--
+                        <Export-Package>
+                            ${groupId}.*;version=${version}
+                        </Export-Package>
+                        <Private-Package>
+                            org.apache.sling.models.*
+                        </Private-Package>
+                        <Require-Bundle>
+                            org.apache.sling.models.api
+                        </Require-Bundle>
+                        <Include-Resource>
+                            {maven-resources}
+                        </Include-Resource>
+                        <Sling-Model-Packages>
+                            ${groupId}.core.models,
+                            ${groupId}.core.impl.models
+                        </Sling-Model-Packages>
                         <Embed-Dependency>
-                            artifactId1,
-                            artifactId2;inline=true
+                            commons-beanutils;groupId=commons-beanutils;scope=compile|runtime
+                            <!--
+                                artifactId1,
+                                artifactId2;inline=true
+                            -->
                         </Embed-Dependency>
-                        -->
                     </instructions>
                 </configuration>
             </plugin>
@@ -115,6 +135,18 @@
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>aem-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.models.api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.models.impl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
