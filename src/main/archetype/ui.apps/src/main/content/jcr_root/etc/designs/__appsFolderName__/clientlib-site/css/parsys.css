@@ -22,16 +22,18 @@
 /* Column Control component */
 @media (min-width: 600px) {
     .parsys_column {
-        float: left;
         margin: 0;
     }
+    .cq-colctrl-lt0-c0,
+    .cq-colctrl-lt0-c1 {
+        float: left;
+        width: 48%;
+    }
     .cq-colctrl-lt0-c0 {
-        width: calc(50% - 1em);
-        margin-right: 1em;
+        margin-right: 2%;
     }
     .cq-colctrl-lt0-c1 {
-        width: calc(50% - 1em);
-        margin-left: 1em;
+        margin-left: 2%;
     }
 }
 
@@ -45,7 +47,7 @@
     margin: 0 0 1em 1em;
 }
 .textimage-text {
-    margin-bottom: -1em;
+    margin: 0 0 -1em;
 }
 .textimage-text:after {
     content: "";
