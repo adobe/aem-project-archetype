@@ -39,7 +39,7 @@ import org.slf4j.LoggerFactory;
 @SlingFilter(order = -700, scope = SlingFilterScope.REQUEST)
 public class LoggingFilter implements Filter {
 
-    private final Logger logger = LoggerFactory.getLogger(LoggingFilter.class);
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Override
     public void doFilter(final ServletRequest request, final ServletResponse response,

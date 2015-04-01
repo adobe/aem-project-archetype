@@ -45,11 +45,11 @@ import org.slf4j.LoggerFactory;
 })
 public class SimpleScheduledTask implements Runnable {
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(getClass());
     
     @Override
     public void run() {
-        logger.debug("SimpleScheduledTask is now running, myParameter='{}'", this.myParameter);
+        logger.debug("SimpleScheduledTask is now running, myParameter='{}'", myParameter);
     }
     
     @Property(label = "A parameter", description = "Can be configured in /system/console/configMgr")
@@ -62,7 +62,7 @@ public class SimpleScheduledTask implements Runnable {
     }
 
     private void configure(final Map<String, Object> config) {
-        this.myParameter = PropertiesUtil.toString(config.get(MY_PARAMETER), null);
-        logger.debug("configure: myParameter='{}''", this.myParameter);
+        myParameter = PropertiesUtil.toString(config.get(MY_PARAMETER), null);
+        logger.debug("configure: myParameter='{}''", myParameter);
     }
 }
