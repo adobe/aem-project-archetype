@@ -3,6 +3,7 @@
     jcr:description="Template for initial or main page of the site."
     jcr:primaryType="cq:Template"
     jcr:title="${siteName} Home Page"
+    allowedChildren="[/apps/${appsFolderName}/templates/page-content]"
     allowedPaths="[/content/${contentFolderName}(/.*)?]"
     ranking="{Long}90">
     <jcr:content
@@ -10,19 +11,19 @@
         sling:resourceType="${appsFolderName}/components/page/page-home">
         <logo
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="foundation/components/logo"/>
+            sling:resourceType="${appsFolderName}/components/page/logo"/>
         <title
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="wcm/foundation/components/title"/>
+            sling:resourceType="${appsFolderName}/components/content/title"/>
         <topnav
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="${appsFolderName}/components/content/topnav"/>
+            sling:resourceType="${appsFolderName}/components/page/topnav"/>
         <par
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/parsys">
             <text
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="wcm/foundation/components/text"/>
+                sling:resourceType="${appsFolderName}/components/content/text"/>
         </par>
     </jcr:content>
 </jcr:root>

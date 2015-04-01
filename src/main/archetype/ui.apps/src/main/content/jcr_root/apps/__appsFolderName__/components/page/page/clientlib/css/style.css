@@ -16,7 +16,7 @@
 
 .page__main {
     position: relative;
-    max-width: 960px;
+    max-width: 940px;
     margin: 0 auto;
     padding: 0 1em 1em;
     background-color: #fff;
@@ -40,6 +40,16 @@
 }
 .page__topnav ul li.selected {
     font-weight: bold;
+}
+
+.page__title h1 {
+    color: #025c1f;
+    text-transform: uppercase;
+}
+
+/* Scale down too wide images from the parsys */
+.page__par img {
+    max-width: 100%;
 }
 
 .page__copyright {

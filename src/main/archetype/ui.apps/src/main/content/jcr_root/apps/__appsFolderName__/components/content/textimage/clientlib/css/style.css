@@ -14,29 +14,6 @@
  *  limitations under the License.
  */
 
-/* Scale down too wide images */
-.page__par img {
-    max-width: 100%;
-}
-
-/* Column Control component */
-@media (min-width: 600px) {
-    .parsys_column {
-        margin: 0;
-    }
-    .cq-colctrl-lt0-c0,
-    .cq-colctrl-lt0-c1 {
-        float: left;
-        width: 48%;
-    }
-    .cq-colctrl-lt0-c0 {
-        margin-right: 2%;
-    }
-    .cq-colctrl-lt0-c1 {
-        margin-left: 2%;
-    }
-}
-
 /* Text-Image component */
 .textimage-left {
     float: left;

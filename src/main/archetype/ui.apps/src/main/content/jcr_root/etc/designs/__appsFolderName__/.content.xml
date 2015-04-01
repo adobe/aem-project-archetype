@@ -9,15 +9,27 @@
             <par
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/foundation/components/parsys"
-                components="[/libs/foundation/components/image,/libs/wcm/foundation/components/textimage,/libs/wcm/foundation/components/parsys/colctrl,/libs/wcm/foundation/components/text,/libs/wcm/foundation/components/content/title,/apps/${appsFolderName}/components/content/servicecomponent]">
+                components="[group:${componentGroupName}]">
                 <colctrl
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="wcm/foundation/components/parsys/colctrl"
+                    sling:resourceType="${appsFolderName}/components/content/colctrl"
                     layouts="2;cq-colctrl-lt0&#x9;2 Columns (50%, 50%)&#xa;"/>
+                <cq:authoring
+                    jcr:primaryType="nt:unstructured">
+                    <assetToComponentMapping jcr:primaryType="nt:unstructured">
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            assetGroup="media"
+                            assetMimetype="image/*"
+                            droptarget="image"
+                            resourceType="${appsFolderName}/components/content/image"
+                            type="Images"/>
+                    </assetToComponentMapping>
+                </cq:authoring>
             </par>
             <logo
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="foundation/components/logo"
+                sling:resourceType="${appsFolderName}/components/page/logo"
                 absParent="2">
                 <image/>
             </logo>
