@@ -18,7 +18,7 @@
             <logo
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/logo"
-                absParent="1">
+                absParent="2">
                 <image/>
             </logo>
         </page>
