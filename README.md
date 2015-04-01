@@ -31,3 +31,14 @@ siteName           | AEM site name
 
 * Adobe Experience Manager 6 or higher
 * Apache Maven (3.x should do)
+
+### Building
+To compile and use an edge, local version of this archetype:
+
+    mvn clean install archetype:update-local-catalog
+    
+    mvn archetype:generate \
+     -DarchetypeCatalog=local
+     -DarchetypeGroupId=com.adobe.granite.archetypes \
+     -DarchetypeArtifactId=aem-project-archetype \
+     -DarchetypeVersion=9-SNAPSHOT
