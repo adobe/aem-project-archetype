@@ -28,21 +28,21 @@ import org.apache.sling.models.annotations.Model;
 
 @Model(adaptables=Resource.class)
 public class HelloServiceModel {
-	
-	@Inject
-	protected HelloService helloService;
-	
-	@Inject @Named("sling:resourceType") @Default(values="No resourceType")
-	protected String resourceType;
-	
-	private String message;
-	
-	@PostConstruct
-	protected void init() {
-		message = helloService.getMessage() + ", with the resourceType " + resourceType;
-	}
-	
-	public String getMessage() {
-		return message;
-	}
+
+    @Inject
+    protected HelloService helloService;
+
+    @Inject @Named("sling:resourceType") @Default(values="No resourceType")
+    protected String resourceType;
+
+    private String message;
+
+    @PostConstruct
+    protected void init() {
+        message = helloService.getMessage() + ", with the resourceType " + resourceType;
+    }
+
+    public String getMessage() {
+        return message;
+    }
 }
