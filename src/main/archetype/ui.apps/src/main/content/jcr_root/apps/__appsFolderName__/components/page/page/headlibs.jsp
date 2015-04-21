@@ -15,7 +15,7 @@
 
     This script is loaded from head.html in /libs/foundation/components/page
 
---%><%@include file="/libs/foundation/global.jsp" %>
+--%><%@taglib prefix="cq" uri=" http://www.day.com/taglibs/cq/1.0"%>
 
 <%-- Include the client libraries located at /etc/designs/${appsFolderName}/clientlib-all --%>
 <cq:includeClientLib css="${cssId}.all"/>
