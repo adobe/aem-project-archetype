@@ -13,9 +13,6 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 package ${package}.core;
 
 import javax.annotation.PostConstruct;
@@ -25,12 +22,13 @@ import javax.inject.Named;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.settings.SlingSettingsService;
 
 @Model(adaptables=Resource.class)
-public class HelloServiceModel {
+public class HelloWorldModel {
 
     @Inject
-    protected HelloService helloService;
+    private SlingSettingsService settings;
 
     @Inject @Named("sling:resourceType") @Default(values="No resourceType")
     protected String resourceType;
@@ -39,7 +37,9 @@ public class HelloServiceModel {
 
     @PostConstruct
     protected void init() {
-        message = helloService.getMessage() + ", with the resourceType " + resourceType;
+        message = "\tHello World!\n";
+        message += "\tThis is instance: " + settings.getSlingId() + "\n";
+        message += "\tResource type is: " + resourceType + "\n";
     }
 
     public String getMessage() {

@@ -13,16 +13,13 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 new hobs.TestSuite("${artifactName} Tests", {path:"/apps/${appsFolderName}l/tests/SampleTests.js", register: true})
 
     .addTestCase(new hobs.TestCase("Navigate to root page")
         .navigateTo("/content/${contentFolderName}.html")
         .asserts.location("/content/${contentFolderName}.html", true)
         .asserts.isTrue(function() {
-			return hobs.find("p").text().contains("This page redirects to English");
+            return hobs.find("p").text().contains("This page redirects to English");
         })
     )
 

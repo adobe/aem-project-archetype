@@ -3,7 +3,7 @@
     jcr:primaryType="sling:OrderedFolder">
     <jcr:content
         jcr:primaryType="nt:unstructured"
-        jcr:title="${siteName}">
+        jcr:title="Summit Lab Site">
         <folderThumbnail/>
     </jcr:content>
     <asset.jpg/>

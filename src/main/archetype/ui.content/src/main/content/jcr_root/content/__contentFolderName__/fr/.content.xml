@@ -25,7 +25,7 @@
                 sling:resourceType="${appsFolderName}/components/content/title"/>
             <servicecomponent
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="${appsFolderName}/components/content/servicecomponent"/>
+                sling:resourceType="${appsFolderName}/components/content/helloworld"/>
             <title_1
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Lorem ipsum"
@@ -39,6 +39,7 @@
             <colctrl
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="${appsFolderName}/components/content/colctrl"
+                controlType="start"
                 layout="2;cq-colctrl-lt0"/>
             <text_0
                 jcr:primaryType="nt:unstructured"
@@ -59,14 +60,12 @@
                 sling:resourceType="${appsFolderName}/components/content/colctrl"
                 controlType="end"/>
             <image_1
+                jcr:created="{Date}2015-01-01T00:00:00.000Z"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="${appsFolderName}/components/content/image"
-                fileName="banner.png">
-                <file/>
-            </image_1>
+                fileReference="/content/dam/summitlab/asset.jpg"/>
         </par>
-        <image
-            jcr:primaryType="nt:unstructured">
+        <image jcr:primaryType="nt:unstructured">
             <file/>
         </image>
     </jcr:content>

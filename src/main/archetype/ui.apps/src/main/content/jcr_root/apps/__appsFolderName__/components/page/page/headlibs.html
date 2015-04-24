@@ -14,9 +14,11 @@
     limitations under the License.
 */-->
 #set( $symbol_dollar = '$' )
-<div data-sly-use.helloService="helloServiceProxy.js">
-    HelloService says: ${symbol_dollar}{helloService.message}
-</div>
-<div data-sly-use.helloModel="${package}.core.HelloServiceModel">
-    HelloServiceModel says: ${symbol_dollar}{helloModel.message}
-</div>
+<!--/* Initializes the Experience Manager authoring UI */-->
+<sly data-sly-include="/libs/wcm/core/components/init/init.jsp" data-sly-unwrap/>
+
+<!--/* Include Adobe Dynamic Tag Management header embeds */-->
+<sly data-sly-include="/libs/cq/cloudserviceconfigs/components/servicelibs/servicelibs.jsp" data-sly-unwrap/>
+
+<!--/* Include CSS client libraries in the footer */-->
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${symbol_dollar}{clientLib.css @ categories='${cssId}.all'}" data-sly-unwrap/>

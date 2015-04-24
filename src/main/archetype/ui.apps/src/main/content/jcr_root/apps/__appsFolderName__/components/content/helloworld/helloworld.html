@@ -1,4 +1,4 @@
-<%--
+<!--/*
     Copyright 2015 Adobe Systems Incorporated
   
     Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,16 +12,11 @@
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+*/-->
+#set( $symbol_dollar = '$' )
+<p data-sly-test="${symbol_dollar}{properties.text}">Text property: ${symbol_dollar}{properties.text}</p>
 
-    This script is loaded from head.html in /libs/foundation/components/page
-
---%><%@taglib prefix="cq" uri=" http://www.day.com/taglibs/cq/1.0"%>
-
-<%-- Include the client libraries located at /etc/designs/${appsFolderName}/clientlib-all --%>
-<cq:includeClientLib css="${cssId}.all"/>
-
-<%-- Include Adobe Dynamic Tag Management header embeds --%>
-<cq:include script="/libs/cq/cloudserviceconfigs/components/servicelibs/servicelibs.jsp"/>
-
-<%-- Following include is needed for the mobile emulators to work on 6.0 in Classic UI --%>
-<cq:include script="/libs/wcm/mobile/components/simulator/simulator.jsp"/>
+<pre data-sly-use.hello="${package}.core.HelloWorldModel">
+HelloWorldModel says:
+${symbol_dollar}{hello.message}
+</pre>

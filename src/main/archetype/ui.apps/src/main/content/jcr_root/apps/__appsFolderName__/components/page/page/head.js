@@ -14,5 +14,11 @@
  *  limitations under the License.
  */
 use(function () {
-    return sling.getService(Packages.${package}.core.HelloService);
+    var WCMUtils = Packages.com.day.cq.wcm.commons.WCMUtils;
+    var resourceResolver = resource.getResourceResolver();
+    
+    return {
+        keywords: WCMUtils.getKeywords(currentPage, false),
+        favIcon: resourceResolver.getResource(currentDesign.getPath() + "/favicon.ico")
+    };
 });

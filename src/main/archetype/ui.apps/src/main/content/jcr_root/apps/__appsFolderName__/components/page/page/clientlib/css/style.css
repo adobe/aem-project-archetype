@@ -26,12 +26,17 @@
     zoom: 100%;
 }
 
+.page__logo {
+    display: inline-block;
+}
+
 .page__topnav {
     position: absolute;
     top: 20px;
     right: 1em;
 }
 .page__topnav ul {
+    float: right;
     list-style: none;
 }
 .page__topnav ul li {

@@ -13,10 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
-package ${package}.core.impl;
+package ${package}.core;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -32,29 +29,32 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Simple JUnit test verifying the HelloServiceImpl
+ * Simple JUnit test verifying the HelloWorldModel
  */
-public class TestHelloServiceImpl {
-    
-    private HelloServiceImpl helloService;
+public class TestHelloWorldModel {
+
+    //@Inject
+    private HelloWorldModel hello;
     
     private String slingId;
     
     @Before
     public void setup() throws Exception {
-        helloService = new HelloServiceImpl();
         SlingSettingsService settings = mock(SlingSettingsService.class);
-        PrivateAccessor.setField(helloService, "settings", settings);
         slingId = UUID.randomUUID().toString();
         when(settings.getSlingId()).thenReturn(slingId);
+
+        hello = new HelloWorldModel();
+        PrivateAccessor.setField(hello, "settings", settings);
+        hello.init();
     }
     
     @Test
     public void testGetMessage() throws Exception {
         // some very basic junit tests
-        String msg = helloService.getMessage();
+        String msg = hello.getMessage();
         assertNotNull(msg);
-        assertTrue(msg.length()>0);
+        assertTrue(msg.length() > 0);
     }
 
 }

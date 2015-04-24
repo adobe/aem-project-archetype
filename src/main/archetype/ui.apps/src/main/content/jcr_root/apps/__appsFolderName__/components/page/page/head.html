@@ -14,16 +14,9 @@
     limitations under the License.
 */-->
 #set( $symbol_dollar = '$' )
-<!doctype html>
-<html lang="en">
-    <head data-sly-include="head.html"></head>
-    <body>
-        <sly data-sly-include="main.html" data-sly-unwrap/>
-        
-        <!--/* Include JS client libraries in the footer */-->
-        <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${symbol_dollar}{clientLib.js @ categories='${cssId}.all'}" data-sly-unwrap/>
-        
-        <!--/* Include Adobe Dynamic Tag Management footer embeds */-->
-        <sly data-sly-resource="${symbol_dollar}{@ resourceType='cq/cloudserviceconfigs/components/servicecomponents'}" data-sly-unwrap/>
-    </body>
-</html>
+<meta charset="utf-8" data-sly-use.head="head.js">
+<title>${symbol_dollar}{currentPage.title || currentPage.name}</title>
+<meta name="keywords" content="${symbol_dollar}{head.keywords}"/>
+<meta name="description" content="${symbol_dollar}{properties.jcr:description}"/>
+<link data-sly-test="${symbol_dollar}{head.favIcon}" rel="icon" href="${symbol_dollar}{head.favIcon}"/>
+<sly data-sly-include="headlibs.html" data-sly-unwrap/>

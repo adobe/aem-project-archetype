@@ -13,9 +13,6 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
 package ${package}.it.tests;
 
 import static org.junit.Assert.assertNotNull;
@@ -26,31 +23,31 @@ import org.apache.sling.junit.annotations.TestReference;
 import org.apache.sling.settings.SlingSettingsService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import ${package}.core.HelloService;
+import ${package}.core.HelloWorldModel;
 
 /** 
  *  Test case which uses OSGi services injection
- *  to get hold of the HelloService which 
+ *  to get hold of the HelloWorldModelServerSideTest which 
  *  it wants to test server-side. 
  */
 @RunWith(SlingAnnotationsTestRunner.class)
-public class HelloServiceServerSideTest {
+public class HelloWorldModelServerSideTest {
 
     @TestReference
-    private HelloService helloService;
+    private HelloWorldModel hello;
 
     @TestReference
     private SlingSettingsService settings;
-    
+
     @Test
-    public void testHelloServiceServerSide() throws Exception {
+    public void testHelloWorldModelServerSide() throws Exception {
         assertNotNull(
-                "Expecting HelloService to be injected by Sling test runner",
-                helloService);
+                "Expecting HelloWorldModel to be injected by Sling test runner",
+                hello);
 
         assertNotNull("Expecting the slingsettings to be injected by Sling test runner", settings);
-        
-        assertTrue("Expecting the HelloService to return the slingId as part of the message", 
-                helloService.getMessage().contains(settings.getSlingId()));
+
+        assertTrue("Expecting the HelloWorldModel to return the slingId as part of the message", 
+                hello.getMessage().contains(settings.getSlingId()));
     }
 }

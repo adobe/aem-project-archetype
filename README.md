@@ -35,10 +35,9 @@ siteName           | AEM site name
 ### Building
 To compile and use an edge, local version of this archetype:
 
-    mvn clean install archetype:update-local-catalog
+    mvn clean install
     
     mvn archetype:generate \
-     -DarchetypeCatalog=local
      -DarchetypeGroupId=com.adobe.granite.archetypes \
      -DarchetypeArtifactId=aem-project-archetype \
      -DarchetypeVersion=9-SNAPSHOT
