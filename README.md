@@ -9,7 +9,7 @@ To use a released version of this archetype:
      -DarchetypeArtifactId=aem-project-archetype \
      -DarchetypeVersion=8
 
-Where 7 is the archetype version number that you want to use.
+Where 8 is the archetype version number that you want to use.
 
 ### Available properties
 
