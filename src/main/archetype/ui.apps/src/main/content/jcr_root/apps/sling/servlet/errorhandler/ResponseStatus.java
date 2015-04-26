@@ -15,16 +15,12 @@
  */
 package apps.sling.servlet.errorhandler;
 
-import javax.script.Bindings;
-
-import org.apache.sling.api.scripting.SlingScriptHelper;
-
 import com.adobe.cq.sightly.WCMUse;
 
 public class ResponseStatus extends WCMUse {
     
     @Override
     public void activate() throws Exception {
-        getSlingScriptHelper().getResponse().setStatus(404);
+        getResponse().setStatus(404);
     }
 }
