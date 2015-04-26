@@ -64,7 +64,7 @@
                 jcr:created="{Date}2015-01-01T00:00:00.000Z"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="${appsFolderName}/components/content/image"
-                fileReference="/content/dam/summitlab/asset.jpg"/>
+                fileReference="/content/dam/${contentFolderName}/asset.jpg"/>
         </par>
         <image jcr:primaryType="nt:unstructured">
             <file/>
