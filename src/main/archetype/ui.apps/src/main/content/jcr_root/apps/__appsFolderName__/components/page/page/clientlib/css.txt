@@ -1,4 +1,0 @@
-#set( $symbol_pound = '#' )
-${symbol_pound}base=css
-
-style.css

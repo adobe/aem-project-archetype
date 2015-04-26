@@ -14,9 +14,8 @@
     limitations under the License.
 */-->
 #set( $symbol_dollar = '$' )
-<p data-sly-test="${symbol_dollar}{properties.text}">Text property: ${symbol_dollar}{properties.text}</p>
-
-<pre data-sly-use.hello="${package}.core.models.HelloWorldModel">
-HelloWorldModel says:
-${symbol_dollar}{hello.message}
-</pre>
+<meta charset="utf-8" data-sly-use.head="head.js">
+<title>${symbol_dollar}{currentPage.title || currentPage.name}</title>
+<meta name="keywords" content="${symbol_dollar}{head.keywords}"/>
+<meta name="description" content="${symbol_dollar}{properties.jcr:description}"/>
+<link data-sly-test="${symbol_dollar}{head.favIcon}" rel="icon" href="${symbol_dollar}{head.favIcon}"/>

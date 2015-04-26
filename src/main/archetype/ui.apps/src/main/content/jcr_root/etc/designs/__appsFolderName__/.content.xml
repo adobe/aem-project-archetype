@@ -13,7 +13,7 @@
                 <colctrl
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="${appsFolderName}/components/content/colctrl"
-                    layouts="2;cq-colctrl-lt0&#x9;2 Columns (50%, 50%)&#xa;"/>
+                    layouts="2;cq-colctrl-lt0&#x9;2 Columns (50%, 50%)"/>
                 <cq:authoring
                     jcr:primaryType="nt:unstructured">
                     <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -29,7 +29,7 @@
             </par>
             <logo
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="${appsFolderName}/components/page/logo"
+                sling:resourceType="${appsFolderName}/components/structure/logo"
                 absParent="2">
                 <image/>
             </logo>

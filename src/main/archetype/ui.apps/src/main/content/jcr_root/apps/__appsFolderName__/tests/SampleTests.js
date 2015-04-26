@@ -15,22 +15,14 @@
  */
 new hobs.TestSuite("${artifactName} Tests", {path:"/apps/${appsFolderName}l/tests/SampleTests.js", register: true})
 
-    .addTestCase(new hobs.TestCase("Navigate to root page")
-        .navigateTo("/content/${contentFolderName}.html")
-        .asserts.location("/content/${contentFolderName}.html", true)
-        .asserts.isTrue(function() {
-            return hobs.find("p").text().contains("This page redirects to English");
-        })
-    )
-
-    .addTestCase(new hobs.TestCase("Navigate to english page")
+    .addTestCase(new hobs.TestCase("Hello World component on english page")
         .navigateTo("/content/${contentFolderName}/en.html")
         .asserts.location("/content/${contentFolderName}/en.html", true)
-        .asserts.visible(".servicecomponent", true)
+        .asserts.visible(".helloworld", true)
     )
 
-    .addTestCase(new hobs.TestCase("Navigate to french page")
+    .addTestCase(new hobs.TestCase("Hello World component on french page")
         .navigateTo("/content/${contentFolderName}/fr.html")
         .asserts.location("/content/${contentFolderName}/fr.html", true)
-        .asserts.visible(".servicecomponent", true)
+        .asserts.visible(".helloworld", true)
     );

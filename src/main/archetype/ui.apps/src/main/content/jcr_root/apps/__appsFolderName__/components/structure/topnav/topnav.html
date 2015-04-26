@@ -14,9 +14,8 @@
     limitations under the License.
 */-->
 #set( $symbol_dollar = '$' )
-<p data-sly-test="${symbol_dollar}{properties.text}">Text property: ${symbol_dollar}{properties.text}</p>
-
-<pre data-sly-use.hello="${package}.core.models.HelloWorldModel">
-HelloWorldModel says:
-${symbol_dollar}{hello.message}
-</pre>
+<ul class="topnav" data-sly-use.topnav="topnav.js" data-sly-list="${symbol_dollar}{topnav.items}">
+    <li class="topnav__item ${symbol_dollar}{item.selected && 'topnav__item--selected'}">
+        <a class="topnav__link" href="${symbol_dollar}{item.page.path}.html">${symbol_dollar}{item.page.title}</a> 
+    </li>
+</ul>

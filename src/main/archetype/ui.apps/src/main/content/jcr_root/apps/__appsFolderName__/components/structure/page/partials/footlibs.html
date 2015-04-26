@@ -14,9 +14,8 @@
     limitations under the License.
 */-->
 #set( $symbol_dollar = '$' )
-<p data-sly-test="${symbol_dollar}{properties.text}">Text property: ${symbol_dollar}{properties.text}</p>
+<!--/* Include the site client libraries (loading only the JS in the footer, CSS was loaded in the header) */-->
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${symbol_dollar}{clientLib.js @ categories='${cssId}.all'}" data-sly-unwrap/>
 
-<pre data-sly-use.hello="${package}.core.models.HelloWorldModel">
-HelloWorldModel says:
-${symbol_dollar}{hello.message}
-</pre>
+<!--/* Include Adobe Dynamic Tag Management libraries for the footer */-->
+<sly data-sly-resource="${symbol_dollar}{@ resourceType='cq/cloudserviceconfigs/components/servicecomponents'}" data-sly-unwrap/>

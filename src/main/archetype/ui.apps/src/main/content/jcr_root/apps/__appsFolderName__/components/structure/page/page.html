@@ -14,9 +14,14 @@
     limitations under the License.
 */-->
 #set( $symbol_dollar = '$' )
-<p data-sly-test="${symbol_dollar}{properties.text}">Text property: ${symbol_dollar}{properties.text}</p>
-
-<pre data-sly-use.hello="${package}.core.models.HelloWorldModel">
-HelloWorldModel says:
-${symbol_dollar}{hello.message}
-</pre>
+<!doctype html>
+<html lang="en">
+    <head>
+        <sly data-sly-include="partials/head.html" data-sly-unwrap/>
+        <sly data-sly-include="partials/headlibs.html" data-sly-unwrap/>
+    </head>
+    <body class="page ${symbol_dollar}{currentPage.template.name}">
+        <sly data-sly-include="partials/main.html" data-sly-unwrap/>
+        <sly data-sly-include="partials/footlibs.html" data-sly-unwrap/>
+    </body>
+</html>

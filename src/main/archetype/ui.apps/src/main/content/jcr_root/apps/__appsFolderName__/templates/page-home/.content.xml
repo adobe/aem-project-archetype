@@ -3,27 +3,28 @@
     jcr:description="Template for initial or main page of the site."
     jcr:primaryType="cq:Template"
     jcr:title="${siteName} Home Page"
-    allowedChildren="[/apps/${appsFolderName}/templates/page-content]"
-    allowedPaths="[/content/${contentFolderName}(/.*)?]"
-    ranking="{Long}90">
+    allowedPaths="[/content/${contentFolderName}]"
+    ranking="{Long}100">
     <jcr:content
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="${appsFolderName}/components/page/page-home">
+        sling:resourceType="${appsFolderName}/components/structure/page">
         <logo
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="${appsFolderName}/components/page/logo"/>
+            sling:resourceType="${appsFolderName}/components/structure/logo"/>
         <title
             jcr:primaryType="nt:unstructured"
             sling:resourceType="${appsFolderName}/components/content/title"/>
         <topnav
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="${appsFolderName}/components/page/topnav"/>
+            sling:resourceType="${appsFolderName}/components/structure/topnav"/>
         <par
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/parsys">
             <text
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="${appsFolderName}/components/content/text"/>
+                sling:resourceType="${appsFolderName}/components/content/text"
+                text="&lt;p>This is a home page&lt;/p>"
+                textIsRich="true"/>
         </par>
     </jcr:content>
 </jcr:root>
