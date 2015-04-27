@@ -19,7 +19,7 @@
 
   <groupId>com.adobe.granite.archetypes</groupId>
   <artifactId>aem-project-archetype</artifactId>
-  <version>9-SNAPSHOT</version>
+  <version>10-SNAPSHOT</version>
   <packaging>maven-archetype</packaging>
 
   <name>AEM Multi-Module Archetype</name>
@@ -86,6 +86,11 @@
                     </goals>
                 </execution>
             </executions>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-release-plugin</artifactId>
+            <version>2.5.2</version>
         </plugin>
     </plugins>
 
