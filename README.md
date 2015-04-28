@@ -49,9 +49,9 @@ To use a released version of this archetype:
     mvn archetype:generate \
      -DarchetypeGroupId=com.adobe.granite.archetypes \
      -DarchetypeArtifactId=aem-project-archetype \
-     -DarchetypeVersion=9
+     -DarchetypeVersion=10
 
-Where 9 is the archetype version number that you want to use.
+Where 10 is the archetype version number that you want to use.
 
 ### Available properties
 
@@ -83,4 +83,4 @@ To compile and use an edge, local version of this archetype:
     mvn archetype:generate \
      -DarchetypeGroupId=com.adobe.granite.archetypes \
      -DarchetypeArtifactId=aem-project-archetype \
-     -DarchetypeVersion=10-SNAPSHOT
+     -DarchetypeVersion=11-SNAPSHOT
