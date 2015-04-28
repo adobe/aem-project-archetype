@@ -14,26 +14,26 @@ This project has a number features that are intended to offer a convenient start
   * For homepage and content pages
   * Homepages are only allowed on top level, and content pages below
 * Page component
-  * Built with Sightly template and simple server-side JavaScript logic
-  * CSS class on the body element changes based on page template
-  * Footer text is internationalized
+  * Built with Sightly templates and simple server-side JavaScript logic
+  * The CSS class on the body element changes based on page template
+  * Internationalized footer text as example
 * Structure Components
-  * Topnav: custom Sightly component
+  * Topnav: simple custom Sightly component
   * Logo: based on foundation
 * Content Components
   * helloworld: example of custom Sightly component with SlingModels for the logic
   * colctrl, textimage, text, image, title: use the Sightly foundation components
 * Configurations
   * Device emulators displayed in the authoring interface
-  * Allow direct drag & drop of assets from the content finder into parsys (6.1 only)
+  * Allow direct drag & drop of assets from the content finder into parsys (6.1 TouchUI)
   * Dictionnary structure for internationalizing hardcoded strings
 * Client libraries
   * Responsive layout with colctr that break for narrow pages
   * CSS class names follow BEM naming conventions
-  * Granular CSS with component-specific rules store within each component
-  * Master ClientLib under /etc/designs that merges all client libraries into one file
+  * Component-specific styles stored within each component
+  * Master ClientLib under /etc/designs merges all client libraries into one file
 * Bundle with some examples
-  * Models: Models for the more complex model logic of the components
+  * Models: Models for more complex business logic of components
   * Servlets: Rendering the output of specific requests
   * Filters: Applied to the requests before dispatching to the servlet or script
   * Schedulers: Cron-job like tasks
@@ -45,6 +45,10 @@ This project has a number features that are intended to offer a convenient start
 ## Usage
 
 To use a released version of this archetype:
+
+Either use the [AEM Eclipse extension](https://docs.adobe.com/docs/en/dev-tools/aem-eclipse.html) and follow the New Project wizard (choosing AEM Sample Multi-Module Project)...
+
+Or use your mvn skills:
 
     mvn archetype:generate \
      -DarchetypeGroupId=com.adobe.granite.archetypes \
