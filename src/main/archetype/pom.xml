@@ -21,7 +21,7 @@
     <packaging>pom</packaging>
     <version>${version}</version>
     <description>${artifactName}</description>
-    
+
     <modules>
         <module>core</module>
         <module>ui.apps</module>
@@ -39,7 +39,10 @@
         <sling.password>admin</sling.password>
         <vault.user>admin</vault.user>
         <vault.password>admin</vault.password>
+
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
+
     <build>
         <plugins>
             <!-- Maven Release Plugin -->
@@ -231,6 +234,8 @@
                         <targetURL>http://${aem.host}:${aem.port}/crx/packmgr/service.jsp</targetURL>
                         <failOnError>true</failOnError>
                         <failOnMissingEmbed>true</failOnMissingEmbed>
+                        <userId>${vault.user}</userId>
+                        <password>${vault.password}</password>
                     </configuration>
                 </plugin>
                 <!-- Apache Felix Bundle Plugin -->
@@ -323,7 +328,7 @@
                             </pluginExecutions>
                         </lifecycleMappingMetadata>
                     </configuration>
-                </plugin>  
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
@@ -428,7 +433,7 @@
                 <version>6.0.0.1</version>
                 <scope>provided</scope>
             </dependency>
-            
+
             <dependency>
                 <groupId>org.apache.sling</groupId>
                 <artifactId>org.apache.sling.models.api</artifactId>
@@ -462,7 +467,7 @@
                 <artifactId>cq-wcm-taglib</artifactId>
                 <version>5.7.4</version>
                 <scope>provided</scope>
-            </dependency>            
+            </dependency>
             <!-- Testing -->
             <dependency>
                 <groupId>junit</groupId>
