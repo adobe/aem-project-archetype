@@ -40,6 +40,7 @@
         <vault.user>admin</vault.user>
         <vault.password>admin</vault.password>
 
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
@@ -63,14 +64,6 @@
                 <artifactId>maven-source-plugin</artifactId>
                 <version>2.4</version>
                 <inherited>true</inherited>
-            </plugin>
-            <!-- Maven Resources Plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                </configuration>
             </plugin>
             <!-- Maven Jar Plugin -->
             <plugin>
@@ -109,7 +102,6 @@
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
-                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
             <!-- Maven IntelliJ IDEA Plugin -->
