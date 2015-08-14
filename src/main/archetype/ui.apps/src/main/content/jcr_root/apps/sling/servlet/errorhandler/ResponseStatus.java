@@ -21,6 +21,7 @@ public class ResponseStatus extends WCMUse {
     
     @Override
     public void activate() throws Exception {
-        getResponse().setStatus(404);
+    	getResponse().setStatus(404);
+    	getResponse().setContentType("text/html");
     }
 }
