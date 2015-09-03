@@ -21,6 +21,6 @@ use(function () {
 
     return {
         keywords: WCMUtils.getKeywords(currentPage, false),
-        favIcon: resourceResolver.getResource(currentDesign.getPath() + "/favicon.ico")
+        favIcon: resourceResolver.getResource(currentDesign.getPath() + "/favicon.ico").getPath()
     };
 });
