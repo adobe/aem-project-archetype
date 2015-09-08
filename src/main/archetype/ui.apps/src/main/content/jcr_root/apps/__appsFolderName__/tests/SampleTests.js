@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-new hobs.TestSuite("${artifactName} Tests", {path:"/apps/${appsFolderName}l/tests/SampleTests.js", register: true})
+new hobs.TestSuite("${artifactName} Tests", {path:"/apps/${appsFolderName}/tests/SampleTests.js", register: true})
 
     .addTestCase(new hobs.TestCase("Hello World component on english page")
         .navigateTo("/content/${contentFolderName}/en.html")
