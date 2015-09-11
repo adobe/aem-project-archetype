@@ -84,7 +84,10 @@ siteName           | AEM site name
 To compile and use an edge, local version of this archetype:
 
     mvn clean install
-    
+
+
+Then change to the directory in which you want to create the project and run:
+
     mvn archetype:generate \
      -DarchetypeGroupId=com.adobe.granite.archetypes \
      -DarchetypeArtifactId=aem-project-archetype \
