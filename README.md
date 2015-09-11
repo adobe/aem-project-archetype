@@ -53,7 +53,8 @@ Or use your mvn skills:
     mvn archetype:generate \
      -DarchetypeGroupId=com.adobe.granite.archetypes \
      -DarchetypeArtifactId=aem-project-archetype \
-     -DarchetypeVersion=10
+     -DarchetypeVersion=10 \
+     -DarchetypeRepository=https://repo.adobe.com/nexus/content/groups/public/
 
 Where 10 is the archetype version number that you want to use.
 
