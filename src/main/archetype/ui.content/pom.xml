@@ -130,7 +130,7 @@
             </plugin>
         </plugins>
     </build>
-    
+
     <!-- ====================================================================== -->
     <!-- P R O F I L E S                                                        -->
     <!-- ====================================================================== -->
@@ -151,13 +151,11 @@
                                 <goals>
                                     <goal>install</goal>
                                 </goals>
+                                <configuration>
+                                    <targetURL>http://${aem.host}:${aem.port}/crx/packmgr/service.jsp</targetURL>
+                                </configuration>
                             </execution>
                         </executions>
-                        <configuration>
-                            <targetURL>http://${aem.host}:${aem.port}/crx/packmgr/service.jsp</targetURL>
-                            <failOnError>true</failOnError>
-                            <failOnMissingEmbed>true</failOnMissingEmbed>
-                        </configuration>
                      </plugin>
                  </plugins>
             </build>
@@ -178,13 +176,11 @@
                                 <goals>
                                     <goal>install</goal>
                                 </goals>
+                                <configuration>
+                                    <targetURL>http://${aem.publish.host}:${aem.publish.port}/crx/packmgr/service.jsp</targetURL>
+                                </configuration>
                             </execution>
                         </executions>
-                        <configuration>
-                            <targetURL>http://${aem.publish.host}:${aem.publish.port}/crx/packmgr/service.jsp</targetURL>
-                            <failOnError>true</failOnError>
-                            <failOnMissingEmbed>true</failOnMissingEmbed>
-                        </configuration>
                      </plugin>
                  </plugins>
             </build>
