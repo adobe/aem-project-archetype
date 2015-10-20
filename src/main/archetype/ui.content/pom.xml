@@ -172,7 +172,7 @@
                         <artifactId>content-package-maven-plugin</artifactId>
                         <executions>
                             <execution>
-                                <id>install-package</id>
+                                <id>install-package-publish</id>
                                 <goals>
                                     <goal>install</goal>
                                 </goals>
