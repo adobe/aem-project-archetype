@@ -13,14 +13,13 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-#set( $symbol_dollar = '$' )
 <!doctype html>
 <html lang="en">
     <head>
         <sly data-sly-include="partials/head.html" data-sly-unwrap/>
         <sly data-sly-include="partials/headlibs.html" data-sly-unwrap/>
     </head>
-    <body class="page ${symbol_dollar}{currentPage.template.name}">
+    <body class="page">
         <sly data-sly-include="partials/main.html" data-sly-unwrap/>
         <sly data-sly-include="partials/footlibs.html" data-sly-unwrap/>
     </body>
