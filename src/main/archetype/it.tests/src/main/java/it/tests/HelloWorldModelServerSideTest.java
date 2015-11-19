@@ -18,36 +18,106 @@ package ${package}.it.tests;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.Collections;
+import java.util.concurrent.Callable;
+
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.junit.annotations.SlingAnnotationsTestRunner;
 import org.apache.sling.junit.annotations.TestReference;
 import org.apache.sling.settings.SlingSettingsService;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
 import ${package}.core.models.HelloWorldModel;
 
 /** 
  *  Test case which uses OSGi services injection
- *  to get hold of the HelloWorldModelServerSideTest which 
- *  it wants to test server-side. 
+ *  
+ *  <p>It relies on the <tt>ResourceResolverFactory</tt> to create test resources
+ *  and then adapt them to the class under test - <tt>HelloWorldModel</tt>.</p>
  */
 @RunWith(SlingAnnotationsTestRunner.class)
 public class HelloWorldModelServerSideTest {
 
     @TestReference
-    private HelloWorldModel hello;
+    private ResourceResolverFactory rrf;
 
     @TestReference
     private SlingSettingsService settings;
-
+   
+    
+    @Before
+    public void prepareData() throws Exception {
+        new AdminResolverCallable() {
+            @Override
+            protected void call0(ResourceResolver rr) throws Exception {
+                rr.create(rr.getResource("/tmp"), "testResource", Collections.<String, Object> emptyMap());
+            }
+        }.call();
+    }
+    
+    @After
+    public void cleanupData() throws Exception {
+        new AdminResolverCallable() {
+            @Override
+            protected void call0(ResourceResolver rr) throws Exception {
+                Resource testResource = rr.getResource("/tmp/testResource");
+                if ( testResource != null ) {
+                    rr.delete(testResource);
+                }
+            }
+        }.call();
+    }
+    
     @Test
     public void testHelloWorldModelServerSide() throws Exception {
-        assertNotNull(
-                "Expecting HelloWorldModel to be injected by Sling test runner",
-                hello);
+        
+        assertNotNull("Expecting the ResourceResolverFactory to be injected by Sling test runner", rrf);
+        assertNotNull("Expecting the SlingSettingsService to be injected by Sling test runner", settings);
+        
+        new AdminResolverCallable() {
+            @Override
+            protected void call0(ResourceResolver rr) throws Exception {
+                Resource testResource = rr.getResource("/tmp/testResource");
+                
+                HelloWorldModel hello = testResource.adaptTo(HelloWorldModel.class);
+                
+                assertNotNull("Expecting HelloWorldModel to be adapted from Resource", hello);
 
-        assertNotNull("Expecting the slingsettings to be injected by Sling test runner", settings);
-
-        assertTrue("Expecting the HelloWorldModel to return the slingId as part of the message", 
-                hello.getMessage().contains(settings.getSlingId()));
+                assertTrue("Expecting the HelloWorldModel to return the slingId as part of the message", 
+                        hello.getMessage().contains(settings.getSlingId()));
+            }
+        }.call();        
     }
+    
+    
+    private abstract class AdminResolverCallable implements Callable<Void> {
+
+        @Override
+        public Void call() throws Exception {
+            
+            if ( rrf == null ) {
+                throw new IllegalStateException("ResourceResolverFactory not injected");
+            }
+            
+            @SuppressWarnings("deprecation") // fine for testing
+            ResourceResolver rr = rrf.getAdministrativeResourceResolver(null);
+            try {
+                call0(rr);
+                rr.commit();
+            } finally {
+                if ( rr != null ) {
+                    rr.close();
+                }
+            }               
+            return null;
+        }
+        
+        protected abstract void call0(ResourceResolver rr) throws Exception;
+        
+    }    
 }
