@@ -26,6 +26,10 @@ Or to deploy it to a publish instance, run
 
     mvn clean install -PautoInstallPackagePublish
     
+Or alternatively
+
+    mvn clean install -PautoInstallPackage -Daem.port=4503
+
 Or to deploy only the bundle to the author, run
 
     mvn clean install -PautoInstallBundle
