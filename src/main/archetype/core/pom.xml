@@ -43,12 +43,8 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <!--
-                        <Embed-Dependency>
-                            artifactId1,
-                            artifactId2;inline=true
-                        </Embed-Dependency>
-                        -->
+                        <!-- Import any version of javax.inject, to allow running on multiple versions of AEM -->
+                        <Import-Package>javax.inject;version=0.0.0,*</Import-Package>
                         <Sling-Model-Packages>
                             ${package}.core
                         </Sling-Model-Packages>
