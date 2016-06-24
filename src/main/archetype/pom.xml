@@ -521,8 +521,9 @@
             <!-- Apache Sling Dependencies -->
             <dependency>
                 <groupId>com.adobe.aem</groupId>
-                <artifactId>aem-api</artifactId>
-                <version>6.0.0.1</version>
+                <artifactId>uber-jar</artifactId>
+                <version>6.2.0</version>
+                <classifier>apis</classifier>
                 <scope>provided</scope>
             </dependency>
 
