@@ -108,7 +108,8 @@
         
         <dependency>
             <groupId>com.adobe.aem</groupId>
-            <artifactId>aem-api</artifactId>
+            <artifactId>uber-jar</artifactId>
+            <classifier>obfuscated-apis</classifier>
             <scope>provided</scope>
         </dependency>
     </dependencies>
