@@ -44,7 +44,7 @@ There are three levels of testing contained in the project:
 
 * server-side integration tests: this allows to run unit-like tests in the AEM-environment, ie on the AEM server. To test, execute:
 
-    mvn clean integration-test -PintegrationTests
+    mvn clean verify -PintegrationTests
 
 * client-side Hobbes.js tests: JavaScript-based browser-side tests that verify browser-side behavior. To test:
 
