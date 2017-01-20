@@ -49,14 +49,6 @@
         <resources>
             <!-- define the resources that will go into the package -->
             <resource>
-                <!--
-                    we want to keep some of the META-INF files and not configure
-                    everything in the plugin.
-                -->
-                <directory>${basedir}/src/main/content/META-INF</directory>
-                <targetPath>../vault-work/META-INF</targetPath>
-            </resource>
-            <resource>
                 <directory>${basedir}/src/main/content/jcr_root</directory>
                 <excludes>
                     <!-- exclude .vlt control files in the package -->
@@ -86,25 +78,6 @@
                 <configuration>
                     <includeEmptyDirs>true</includeEmptyDirs>
                 </configuration>
-
-                <executions>
-                    <execution>
-                        <id>copy-metainf-vault-resources</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.build.directory}/vault-work/META-INF</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>${basedir}/META-INF</directory>
-                                    <filtering>false</filtering>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
 
             <!-- ====================================================================== -->
@@ -115,7 +88,7 @@
                 <artifactId>content-package-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
-                    <filterSource>${basedir}/META-INF/vault/filter.xml</filterSource>
+                    <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
                     <verbose>true</verbose>
                     <failOnError>true</failOnError>
                     <group>${packageGroup}</group>
