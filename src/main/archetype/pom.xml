@@ -203,11 +203,10 @@
                 <plugin>
                     <groupId>org.apache.sling</groupId>
                     <artifactId>maven-sling-plugin</artifactId>
-                    <version>2.1.0</version>
+                    <version>2.1.8</version>
                     <configuration>
-                        <slingUrl>http://${aem.host}:${aem.port}/crx/repository/crx.default</slingUrl>
-                        <usePut>true</usePut>
-                        <failOnError>true</failOnError>
+                        <slingUrl>http://${aem.host}:${aem.port}/system/console</slingUrl>
+                        <deploymentMethod>WebConsole</deploymentMethod>
                     </configuration>
                 </plugin>
                 <!-- Content Package Plugin -->
@@ -393,12 +392,6 @@
                                     <goals>
                                         <goal>install</goal>
                                     </goals>
-                                    <configuration>
-                                        <!-- Note that this requires /apps/${appsFolderName}/install to exist!!          -->
-                                        <!--    This is typically the case when ui.apps is deployed first                -->
-                                        <!--    Otherwise, create /apps/${appsFolderName}/install manually (CRXDE|Lite)  -->
-                                        <slingUrlSuffix>/apps/${appsFolderName}/install/</slingUrlSuffix>
-                                    </configuration>
                                 </execution>
                             </executions>
                         </plugin>
