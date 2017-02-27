@@ -50,11 +50,11 @@ Either use the [AEM Eclipse extension](https://docs.adobe.com/docs/en/dev-tools/
 
 Or use your mvn skills:
 
-    mvn archetype:generate \
+    mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate \
      -DarchetypeGroupId=com.adobe.granite.archetypes \
      -DarchetypeArtifactId=aem-project-archetype \
      -DarchetypeVersion=10 \
-     -DarchetypeRepository=https://repo.adobe.com/nexus/content/groups/public/
+     -DarchetypeCatalog=https://repo.adobe.com/nexus/content/groups/public/
 
 Where 10 is the archetype version number that you want to use.
 
