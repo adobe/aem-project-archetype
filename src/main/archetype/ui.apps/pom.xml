@@ -46,6 +46,7 @@
     <!-- B U I L D   D E F I N I T I O N                                        -->
     <!-- ====================================================================== -->
     <build>
+        <sourceDirectory>src/main/content/jcr_root</sourceDirectory>
         <resources>
             <!-- define the resources that will go into the package -->
             <resource>
@@ -100,6 +101,11 @@
                         </embedded>
                     </embeddeds>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>htl-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
