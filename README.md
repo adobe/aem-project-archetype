@@ -84,7 +84,7 @@ The latest version of the archetype has the following requirements
 See below for support for older versions of AEM.
 
 Archetype Version | AEM Version
---------------------------------
+------------------|-------------
 7                 | 6.0 or newer
 8                 | 6.0 or newer
 9                 | 6.0 or newer
