@@ -77,7 +77,7 @@ siteName           | AEM site name
 ### Requirements
 
 * Adobe Experience Manager 6 or higher
-* Apache Maven (3.x should do)
+* Apache Maven (3.3.9 or newer)
 
 ## Building
 
