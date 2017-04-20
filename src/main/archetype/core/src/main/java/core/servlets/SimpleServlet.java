@@ -15,14 +15,17 @@
  */
 package ${package}.core.servlets;
 
-import org.apache.felix.scr.annotations.sling.SlingServlet;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.apache.sling.api.resource.ValueMap;
+import org.osgi.framework.Constants;
+import org.osgi.service.component.annotations.Component;
 
+import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import java.io.IOException;
 
@@ -32,9 +35,13 @@ import java.io.IOException;
  * {@link SlingSafeMethodsServlet} shall be used for HTTP methods that are
  * idempotent. For write operations use the {@link SlingAllMethodsServlet}.
  */
-@SuppressWarnings("serial")
-@SlingServlet(resourceTypes = "${appsFolderName}/components/structure/page",
-    extensions = "txt", methods = "GET")
+@Component(service=Servlet.class,
+           property={
+                   Constants.SERVICE_DESCRIPTION + "=Simple Demo Servlet",
+                   "sling.servlet.methods=" + HttpConstants.METHOD_GET,
+                   "sling.servlet.resourceTypes="+ "${appsFolderName}/components/structure/page",
+                   "sling.servlet.extensions=" + "txt"
+           })
 public class SimpleServlet extends SlingSafeMethodsServlet {
 
     private static final long serialVersionUid = 1L;

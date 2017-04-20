@@ -145,36 +145,6 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.6.1</version>
                 </plugin>
-                <!-- Apache Felix SCR Plugin -->
-                <plugin>
-                    <groupId>org.apache.felix</groupId>
-                    <artifactId>maven-scr-plugin</artifactId>
-                    <version>1.24.0</version>
-                    <executions>
-                        <execution>
-                            <id>generate-scr-scrdescriptor</id>
-                            <goals>
-                                <goal>scr</goal>
-                            </goals>
-                            <configuration>
-                                <!-- Private service properties for all services. -->
-                                <properties>
-                                    <service.vendor>Adobe</service.vendor>
-                                </properties>
-                            </configuration>
-                        </execution>
-                    </executions>
-                    <configuration>
-                               <outputDirectory>${project.build.directory}/classes</outputDirectory>
-                    </configuration>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.slf4j</groupId>
-                            <artifactId>slf4j-simple</artifactId>
-                            <version>1.5.11</version>
-                        </dependency>
-                    </dependencies>
-                </plugin>
                 <!-- Maven Installer Plugin -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -482,33 +452,21 @@
         <dependencies>
             <!-- OSGi Dependencies -->
             <dependency>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>org.apache.felix.scr</artifactId>
-                <version>1.6.0</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>org.apache.felix.scr.annotations</artifactId>
-                <version>1.9.6</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-        <groupId>biz.aQute</groupId>
-        <artifactId>bndlib</artifactId>
-        <version>1.50.0</version>
-        <scope>provided</scope>
-            </dependency>
-            <dependency>
                 <groupId>org.osgi</groupId>
-                <artifactId>org.osgi.core</artifactId>
-                <version>4.2.0</version>
+                <artifactId>osgi.core</artifactId>
+                <version>6.0.0</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>org.osgi</groupId>
-                <artifactId>org.osgi.compendium</artifactId>
-                <version>4.2.0</version>
+                <artifactId>osgi.cmpn</artifactId>
+                <version>6.0.0</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.osgi</groupId>
+                <artifactId>osgi.annotation</artifactId>
+                <version>6.0.1</version>
                 <scope>provided</scope>
             </dependency>
             <!-- Logging Dependencies -->
