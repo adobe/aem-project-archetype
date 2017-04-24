@@ -58,7 +58,7 @@
                         <Sling-Test-Regexp>.*Test</Sling-Test-Regexp>
                     </instructions>
                 </configuration>
-                </plugin>
+            </plugin>
         </plugins>
     </build>
 
