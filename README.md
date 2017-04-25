@@ -53,10 +53,10 @@ Or use your mvn skills:
     mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate \
      -DarchetypeGroupId=com.adobe.granite.archetypes \
      -DarchetypeArtifactId=aem-project-archetype \
-     -DarchetypeVersion=10 \
+     -DarchetypeVersion=11 \
      -DarchetypeCatalog=https://repo.adobe.com/nexus/content/groups/public/
 
-Where 10 is the archetype version number that you want to use.
+Where 11 is the archetype version number that you want to use.
 
 ### Available properties
 
@@ -103,4 +103,4 @@ Then change to the directory in which you want to create the project and run:
     mvn archetype:generate \
      -DarchetypeGroupId=com.adobe.granite.archetypes \
      -DarchetypeArtifactId=aem-project-archetype \
-     -DarchetypeVersion=11-SNAPSHOT
+     -DarchetypeVersion=12-SNAPSHOT
