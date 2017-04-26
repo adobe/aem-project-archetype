@@ -3,6 +3,12 @@ language: java
 install: true
 jdk: oraclejdk8
 script: mvn verify
+# see https://gist.github.com/ppatierno/a50396b19c83554fe5f43a71c12c70c6
+before_install:
+ - wget https://archive.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+ - unzip -qq apache-maven-3.3.9-bin.zip
+ - export M2_HOME=$PWD/apache-maven-3.3.9
+ - export PATH=$M2_HOME/bin:$PATH
 cache:
   directories:
     - $HOME/.m2
