@@ -37,7 +37,7 @@ import org.slf4j.LoggerFactory;
            property = {
                    Constants.SERVICE_DESCRIPTION + "=Demo to filter incoming requests",
                    EngineConstants.SLING_FILTER_SCOPE + "=" + EngineConstants.FILTER_SCOPE_REQUEST,
-                   Constants.SERVICE_RANKING + "=-700"
+                   Constants.SERVICE_RANKING + ":Integer=-700"
 
            })
 public class LoggingFilter implements Filter {
