@@ -90,6 +90,7 @@ Archetype Version | AEM Version
 9                 | 6.0 or newer
 10                | 6.0 or newer
 11                | 6.2 or newer
+12                | 6.3 or newer
 
 ## Building
 
