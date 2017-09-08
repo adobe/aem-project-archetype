@@ -78,7 +78,7 @@ siteName           | AEM site name
 
 The latest version of the archetype has the following requirements
 
-* Adobe Experience Manager 6.2 or higher
+* Adobe Experience Manager 6.3 or higher
 * Apache Maven (3.3.9 or newer)
 
 See below for support for older versions of AEM.
