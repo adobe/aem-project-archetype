@@ -42,6 +42,9 @@
         <requiredProperty key="contentFolderName">
             <defaultValue>${artifactId}</defaultValue>
         </requiredProperty>
+        <requiredProperty key="confFolderName">
+            <defaultValue>${artifactId}</defaultValue>
+        </requiredProperty>
         <requiredProperty key="cssId">
             <defaultValue>${artifactId}</defaultValue>
         </requiredProperty>

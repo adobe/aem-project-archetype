@@ -476,7 +476,7 @@
                 <version>1.5.11</version>
                 <scope>provided</scope>
             </dependency>
-            <!-- Apache Sling Dependencies -->
+            <!-- Adobe AEM Dependencies -->
             <dependency>
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>uber-jar</artifactId>
@@ -484,14 +484,19 @@
                 <classifier>apis</classifier>
                 <scope>provided</scope>
             </dependency>
-
+            <dependency>
+                <groupId>com.adobe.cq</groupId>
+                <artifactId>core.wcm.components.all</artifactId>
+                <type>zip</type>
+                <version>1.0.4</version>
+            </dependency>
+            <!-- Apache Sling Dependencies -->
             <dependency>
                 <groupId>org.apache.sling</groupId>
                 <artifactId>org.apache.sling.models.api</artifactId>
                 <version>1.0.0</version>
                 <scope>provided</scope>
             </dependency>
-
             <!-- Servlet API -->
             <dependency>
                 <groupId>javax.servlet</groupId>
@@ -519,6 +524,7 @@
                 <version>5.7.4</version>
                 <scope>provided</scope>
             </dependency>
+
             <!-- Testing -->
             <dependency>
                 <groupId>junit</groupId>
