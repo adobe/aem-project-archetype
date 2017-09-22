@@ -2,10 +2,8 @@
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Template">
     <jcr:content
-        cq:lastModified="{Date}2017-09-13T07:22:35.202+02:00"
-        cq:lastModifiedBy="admin"
-        cq:templateType="/conf/cmp/settings/wcm/template-types/empty-page"
-        jcr:description="Simple content page for the adaptTo Site"
+        cq:templateType="/conf/${confFolderName}/settings/wcm/template-types/content-page"
+        jcr:description="Simple content page for ${siteName}"
         jcr:primaryType="cq:PageContent"
         jcr:title="Content Page"
         status="enabled"/>

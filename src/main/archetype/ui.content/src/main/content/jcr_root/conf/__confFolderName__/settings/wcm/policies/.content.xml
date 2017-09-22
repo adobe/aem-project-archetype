@@ -12,7 +12,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="${siteName} Default"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[group:${componentGroupName},group:${componentGroupName} Form,/libs/wcm/foundation/components/responsivegrid]"
+                        components="[group:${componentGroupName},/apps/${appsFolderName}/components/form/container]"
                         policyResourceType="wcm/foundation/components/responsivegrid">
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -33,4 +33,19 @@
             </components>
         </foundation>
     </wcm>
+    <${appsFolderName} jcr:primaryType="nt:unstructured">
+        <components jcr:primaryType="nt:unstructured">
+            <form jcr:primaryType="nt:unstructured">
+                <container jcr:primaryType="nt:unstructured">
+                    <form-container
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="${siteName} Form"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[/apps/${appsFolderName}/components/form/button,/apps/${appsFolderName}/components/form/hidden,/apps/${appsFolderName}/components/form/options,/apps/${appsFolderName}/components/form/text]">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </form-container>
+                </container>
+            </form>
+        </components>
+    </${appsFolderName}>
 </jcr:root>

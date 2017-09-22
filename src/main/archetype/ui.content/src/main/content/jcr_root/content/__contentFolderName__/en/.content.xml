@@ -8,14 +8,85 @@
         jcr:primaryType="cq:PageContent"
         jcr:title="English"
         sling:resourceType="${appsFolderName}/components/structure/page"
-        pageTitle="New Project">
+        pageTitle="New Project"
+        socialMedia="[facebook]">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid">
             <responsivegrid
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="wcm/foundation/components/responsivegrid"/>
+                sling:resourceType="wcm/foundation/components/responsivegrid">
+                <title
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="What is Lorem Ipsum?"
+                    sling:resourceType="${appsFolderName}/components/content/title"/>
+                <text
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/content/text"
+                    text="&lt;p>&lt;b>Lorem Ipsum&lt;/b>&amp;nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&amp;#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.&lt;br>&#xa;&lt;/p>&#xa;"
+                    textIsRich="true"/>
+                <image
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/content/image"
+                    fileReference="/content/dam/${contentFolderName}/asset.jpg"/>
+                <list
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/content/list"
+                    childDepth="1"
+                    linkItems="true"
+                    listFrom="static"
+                    pages="[/content/${contentFolderName}/en,/content/${contentFolderName}/fr]"
+                    showDescription="false"
+                    showModificationDate="false"
+                    sortOrder="asc"
+                    tagsMatch="any"/>
+                <helloworld
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/content/helloworld"/>
+                <container
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/form/container"
+                    action="/content/usergenerated/${contentFolderName}/en/cq-gen1506071823762/"
+                    actionType="foundation/components/form/actions/store">
+                    <text
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Lorem"
+                        sling:resourceType="${appsFolderName}/components/form/text"
+                        name="lorem"
+                        rows="2"
+                        type="text"/>
+                    <options
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Where does it come from?"
+                        sling:resourceType="${appsFolderName}/components/form/options"
+                        name="come-from"
+                        source="local"
+                        type="checkbox">
+                        <items jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                selected="false"
+                                text="A"
+                                value="a"/>
+                            <item1
+                                jcr:primaryType="nt:unstructured"
+                                selected="false"
+                                text="B"
+                                value="b"/>
+                        </items>
+                    </options>
+                    <button
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/form/button"/>
+                </container>
+                <sharing
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/content/sharing"/>
+            </responsivegrid>
         </root>
     </jcr:content>
 </jcr:root>

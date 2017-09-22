@@ -5,11 +5,11 @@
         cq:allowedTemplates="[/conf/${confFolderName}/settings/wcm/templates/.*]"
         cq:deviceGroups="[/etc/mobile/groups/responsive]"
         jcr:primaryType="nt:unstructured"
-        jcr:title="adaptTo Site"
+        jcr:title="${siteName}"
         sling:redirect="{Boolean}true"
         sling:redirectStatus="{Long}302"
         sling:resourceType="foundation/components/redirect"
-        redirectTarget="/content/cmp/en">
+        redirectTarget="/content/${contentFolderName}/en">
         <image jcr:primaryType="nt:unstructured">
             <file/>
         </image>
