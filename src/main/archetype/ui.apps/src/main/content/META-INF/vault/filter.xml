@@ -2,5 +2,4 @@
 <workspaceFilter version="1.0">
     <filter root="/apps/${appsFolderName}"/>
     <filter root="/apps/sling" />
-    <filter root="/etc/designs/${appsFolderName}"/>
 </workspaceFilter>
