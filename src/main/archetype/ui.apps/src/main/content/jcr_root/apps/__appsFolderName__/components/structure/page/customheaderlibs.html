@@ -14,7 +14,7 @@
     limitations under the License.
 */-->
 <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
-     data-sly-call="${clientlib.css @ categories='${cssId}.base'}"/>
+     data-sly-call="${symbol_dollar}{clientlib.css @ categories='${cssId}.base'}"/>
 
 <!--/* Include Context Hub */-->
-<sly data-sly-resource="${'contexthub' @ resourceType='granite/contexthub/components/contexthub'}"/>
+<sly data-sly-resource="${symbol_dollar}{'contexthub' @ resourceType='granite/contexthub/components/contexthub'}"/>
