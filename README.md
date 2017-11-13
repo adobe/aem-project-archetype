@@ -66,7 +66,7 @@ Or use your mvn skills:
      -DarchetypeVersion=12 \
      -DarchetypeCatalog=https://repo.adobe.com/nexus/content/groups/public/
 
-Where 11 is the archetype version number that you want to use.
+Where 12 is the archetype version number that you want to use (see archetype versions below).
 
 ### Available properties
 
@@ -116,3 +116,6 @@ Then change to the directory in which you want to create the project and run:
      -DarchetypeGroupId=com.adobe.granite.archetypes \
      -DarchetypeArtifactId=aem-project-archetype \
      -DarchetypeVersion=13-SNAPSHOT
+     
+     
+Side note: The profile "adobe-public" must be activated when using profiles like "autoInstallPackage" mentioned above.
