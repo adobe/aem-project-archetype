@@ -195,15 +195,23 @@
                         </execution>
                     </executions>
                 </plugin>
+                <!-- Jackrabbit FileVault Package Plugin -->
+                <plugin>
+                    <groupId>org.apache.jackrabbit</groupId>
+                    <artifactId>filevault-package-maven-plugin</artifactId>
+                    <version>1.0.1</version>
+                    <configuration>
+                        <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
+                    </configuration>
+                </plugin>
                 <!-- Content Package Plugin -->
                 <plugin>
                     <groupId>com.day.jcr.vault</groupId>
                     <artifactId>content-package-maven-plugin</artifactId>
-                    <version>0.5.1</version>
+                    <version>1.0.2</version>
                     <configuration>
                         <targetURL>http://${aem.host}:${aem.port}/crx/packmgr/service.jsp</targetURL>
                         <failOnError>true</failOnError>
-                        <failOnMissingEmbed>true</failOnMissingEmbed>
                         <userId>${vault.user}</userId>
                         <password>${vault.password}</password>
                     </configuration>
@@ -395,6 +403,18 @@
                 <pluginManagement>
                     <plugins>
                         <plugin>
+                            <groupId>org.apache.jackrabbit</groupId>
+                            <artifactId>filevault-package-maven-plugin</artifactId>
+                            <executions>
+                                <execution>
+                                    <id>create-package</id>
+                                    <goals>
+                                        <goal>package</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                        </plugin>
+                        <plugin>
                             <groupId>com.day.jcr.vault</groupId>
                             <artifactId>content-package-maven-plugin</artifactId>
                             <executions>
@@ -422,6 +442,18 @@
             <build>
                 <pluginManagement>
                     <plugins>
+                        <plugin>
+                            <groupId>org.apache.jackrabbit</groupId>
+                            <artifactId>filevault-package-maven-plugin</artifactId>
+                            <executions>
+                                <execution>
+                                    <id>create-package</id>
+                                    <goals>
+                                        <goal>package</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                        </plugin>
                         <plugin>
                             <groupId>com.day.jcr.vault</groupId>
                             <artifactId>content-package-maven-plugin</artifactId>
