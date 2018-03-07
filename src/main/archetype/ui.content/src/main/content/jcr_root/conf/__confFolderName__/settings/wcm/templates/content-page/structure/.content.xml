@@ -9,6 +9,15 @@
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid">
+            <languagenavigation
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/content/languagenavigation"/>
+            <search
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/content/search"/>
+            <navigation
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/content/navigation"/>
             <breadcrumb
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="${appsFolderName}/components/content/breadcrumb"/>

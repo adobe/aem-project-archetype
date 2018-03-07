@@ -2,5 +2,5 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Component"
     jcr:title="Form Button"
-    sling:resourceSuperType="core/wcm/components/form/button/v1/button"
+    sling:resourceSuperType="core/wcm/components/form/button/v2/button"
     componentGroup="${componentGroupName} Form"/>
