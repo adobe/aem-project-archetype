@@ -13,18 +13,11 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-.breadcrumb {
-    display: inline-block;
-    list-style: none;
-    padding: 0;
+.cmp-breadcrumb__item {
+    &:before {
+        content: "\003e";
 
-    & .breadcrumb-item {
-        float: left;
-
-        & + .breadcrumb-item::before {
-            display: inline-block; //
-            padding: 0 10px;
-            content: "\003e";
-        }
+        display: inline-block;
+        padding: 0 10px;
     }
 }
