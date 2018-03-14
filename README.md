@@ -63,7 +63,7 @@ Or use your mvn skills:
     mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate \
      -DarchetypeGroupId=com.adobe.granite.archetypes \
      -DarchetypeArtifactId=aem-project-archetype \
-     -DarchetypeVersion=12 \
+     -DarchetypeVersion=13 \
      -DarchetypeCatalog=https://repo.adobe.com/nexus/content/groups/public/
 
 Where 12 is the archetype version number that you want to use (see archetype versions below).
@@ -102,6 +102,7 @@ Archetype Version | AEM Version
 10                | 6.0 or newer
 11                | 6.2 or newer
 12                | 6.3 or newer
+13                | 6.4, 6.3 SP2 or newer
 
 ## Building
 
@@ -115,7 +116,7 @@ Then change to the directory in which you want to create the project and run:
     mvn archetype:generate \
      -DarchetypeGroupId=com.adobe.granite.archetypes \
      -DarchetypeArtifactId=aem-project-archetype \
-     -DarchetypeVersion=13-SNAPSHOT
+     -DarchetypeVersion=14-SNAPSHOT
      
      
 Side note: The profile "adobe-public" must be activated when using profiles like "autoInstallPackage" mentioned above.
