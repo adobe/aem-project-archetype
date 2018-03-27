@@ -102,7 +102,9 @@ Archetype Version | AEM Version
 10                | 6.0 or newer
 11                | 6.2 or newer
 12                | 6.3 or newer
-13                | 6.4, 6.3 SP2 or newer
+13                | 6.4, 6.3 + SP1 + CFP2 + FP20593 + FP20696 \*
+
+\* The AEM 6.3 requirements of Archetype Version 13 will be consolidated with the release of AEM 6.3 SP2.
 
 ## Building
 
