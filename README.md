@@ -66,7 +66,7 @@ Or use your mvn skills:
      -DarchetypeVersion=13 \
      -DarchetypeCatalog=https://repo.adobe.com/nexus/content/groups/public/
 
-Where 12 is the archetype version number that you want to use (see archetype versions below).
+Where 13 is the archetype version number that you want to use (see archetype versions below).
 
 ### Available properties
 
