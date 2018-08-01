@@ -41,6 +41,8 @@ import ${package}.core.models.HelloWorldModel;
  *  and then adapt them to the class under test - <tt>HelloWorldModel</tt>.</p>
  */
 @RunWith(SlingAnnotationsTestRunner.class)
+// ignore possible null pointer exceptions, deprecation warnings, loginAdmin usage, and generic exceptions
+@SuppressWarnings({"squid:S2259", "squid:CallToDeprecatedMethod", "AEM Rules:AEM-11", "squid:S00112"})
 public class HelloWorldModelServerSideTest {
 
     @TestReference

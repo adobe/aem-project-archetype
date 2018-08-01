@@ -473,7 +473,7 @@
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
-                <version>1.5.11</version>
+                <version>1.7.21</version>
                 <scope>provided</scope>
             </dependency>
             <!-- Adobe AEM Dependencies -->
@@ -535,7 +535,7 @@
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-simple</artifactId>
-                <version>1.5.11</version>
+                <version>1.7.21</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -548,6 +548,18 @@
                 <groupId>junit-addons</groupId>
                 <artifactId>junit-addons</artifactId>
                 <version>1.4</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>org.apache.sling.testing.sling-mock</artifactId>
+                <version>2.2.18</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>uk.org.lidalia</groupId>
+                <artifactId>slf4j-test</artifactId>
+                <version>1.0.1</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>
