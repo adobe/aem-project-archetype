@@ -31,7 +31,7 @@ import org.junit.Test;
 /**
  * Simple JUnit test verifying the HelloWorldModel
  */
-public class TestHelloWorldModel {
+public class HelloWorldModelTest {
 
     //@Inject
     private HelloWorldModel hello;
