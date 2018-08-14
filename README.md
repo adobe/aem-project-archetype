@@ -70,7 +70,7 @@ Where 14 is the archetype version number that you want to use (see archetype ver
 
 ### Available properties
 
-groupId            | Maven GroupId
+Name               | Description
 -------------------|------------------------------
 groupId            | Base Maven groupId
 artifactId         | Base Maven ArtifactId
