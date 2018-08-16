@@ -88,13 +88,6 @@
                 <artifactId>filevault-package-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
-                    <embeddeds>
-                        <embedded>
-                            <groupId>${groupId}</groupId>
-                            <artifactId>${rootArtifactId}.core</artifactId>
-                            <target>/apps/${appsFolderName}/install</target>
-                        </embedded>
-                    </embeddeds>
                     <acHandling>merge_preserve</acHandling>
                 </configuration>
             </plugin>
