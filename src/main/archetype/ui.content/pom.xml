@@ -95,6 +95,7 @@
                             <target>/apps/${appsFolderName}/install</target>
                         </embedded>
                     </embeddeds>
+                    <acHandling>merge_preserve</acHandling>
                 </configuration>
             </plugin>
             <plugin>
