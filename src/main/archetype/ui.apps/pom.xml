@@ -82,17 +82,13 @@
             </plugin>
 
             <!-- ====================================================================== -->
-            <!-- V A U L T   P A C K A G E   P L U G I N                                -->
+            <!-- V A U L T   P A C K A G E   P L U G I N S                              -->
             <!-- ====================================================================== -->
             <plugin>
-                <groupId>com.day.jcr.vault</groupId>
-                <artifactId>content-package-maven-plugin</artifactId>
+                <groupId>org.apache.jackrabbit</groupId>
+                <artifactId>filevault-package-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
-                    <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
-                    <verbose>true</verbose>
-                    <failOnError>true</failOnError>
-                    <group>${packageGroup}</group>
                     <embeddeds>
                         <embedded>
                             <groupId>${groupId}</groupId>
@@ -107,6 +103,16 @@
                             <filter>true</filter>
                         </subPackage>
                     </subPackages>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.day.jcr.vault</groupId>
+                <artifactId>content-package-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <verbose>true</verbose>
+                    <failOnError>true</failOnError>
+                    <group>${packageGroup}</group>
                 </configuration>
             </plugin>
 
