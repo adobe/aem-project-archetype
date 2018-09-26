@@ -255,7 +255,7 @@
         <dependency>
             <groupId>org.apache.sling</groupId>
             <artifactId>org.apache.sling.junit.scriptable</artifactId>
-            <version>1.0.8</version>
+            <version>1.0.12</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
