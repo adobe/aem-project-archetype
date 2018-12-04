@@ -20,39 +20,57 @@
 
     <requiredProperties>
         <!--
+            This is the folder under /apps into which the bundle and package content will be installed.
+        -->
+        <requiredProperty key="appsFolderName">
+            <validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
+        </requiredProperty>
+        <!--
+            Maven artifact groupId for all projects
+        -->
+        <requiredProperty key="groupId">
+            <validationRegex>^[a-zA-Z0-9\.\-_]+$</validationRegex>
+        </requiredProperty>
+        <!--
+            Maven artifact "root" artifactId, is suffixed for the individual modules
+        -->
+        <requiredProperty key="artifactId">
+            <defaultValue>${groupId}.${appsFolderName}</defaultValue>
+            <validationRegex>^[a-zA-Z0-9\.\-_]+$</validationRegex>
+        </requiredProperty>
+        <!--
            This is the name which will be set as the artifact name and used to derive the bundle
            and package names.
         -->
         <requiredProperty key="artifactName">
-            <defaultValue>${artifactId}</defaultValue>
+            <defaultValue>${appsFolderName}</defaultValue>
         </requiredProperty>
             <!--
                This is the group identifier for the package. Used with the
                Package Manager and Package Share.
             -->
         <requiredProperty key="packageGroup">
-        	<defaultValue>${artifactId}</defaultValue>
+        	<defaultValue>${appsFolderName}</defaultValue>
+            <validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
         </requiredProperty>
-        <!--
-           This is the folder under /apps into which the bundle and package content will be installed.
-        -->
-        <requiredProperty key="appsFolderName">
-            <defaultValue>${artifactId}</defaultValue>
-        </requiredProperty>        
         <requiredProperty key="contentFolderName">
-            <defaultValue>${artifactId}</defaultValue>
+            <defaultValue>${appsFolderName}</defaultValue>
+            <validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
         </requiredProperty>
         <requiredProperty key="confFolderName">
-            <defaultValue>${artifactId}</defaultValue>
+            <defaultValue>${appsFolderName}</defaultValue>
+            <validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
         </requiredProperty>
         <requiredProperty key="cssId">
-            <defaultValue>${artifactId}</defaultValue>
+            <defaultValue>${appsFolderName}</defaultValue>
+            <validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
         </requiredProperty>
         <requiredProperty key="componentGroupName">
-            <defaultValue>${artifactId}</defaultValue>
+            <defaultValue>${appsFolderName}</defaultValue>
+            <validationRegex>^[a-zA-Z0-9\.\-_]+$</validationRegex>
         </requiredProperty>
         <requiredProperty key="siteName">
-            <defaultValue>${artifactId}</defaultValue>
+            <defaultValue>${appsFolderName}</defaultValue>
         </requiredProperty>
     </requiredProperties>
 

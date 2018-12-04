@@ -62,11 +62,10 @@ Either use the [AEM Eclipse extension](https://docs.adobe.com/docs/en/dev-tools/
 
 Or use your mvn skills:
 
-    mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate \
+    mvn archetype:generate \
      -DarchetypeGroupId=com.adobe.granite.archetypes \
      -DarchetypeArtifactId=aem-project-archetype \
-     -DarchetypeVersion=15 \
-     -DarchetypeCatalog=https://repo.adobe.com/nexus/content/groups/public/
+     -DarchetypeVersion=15
 
 Where 15 is the archetype version number that you want to use (see archetype versions below).
 
@@ -93,6 +92,7 @@ The latest version of the archetype has the following requirements
 
 * Adobe Experience Manager 6.3 SP2 or higher
 * Apache Maven (3.3.9 or newer)
+* Adobe Public Maven Repository in maven settings, see [Knowledge Base](https://helpx.adobe.com/experience-manager/kb/SetUpTheAdobeMavenRepository.html) article for details.
 
 See below for support for older versions of AEM.
 
