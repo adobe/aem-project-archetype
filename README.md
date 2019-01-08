@@ -21,7 +21,8 @@ This project has a number features that are intended to offer a convenient start
   * customfooterlibs.html and customheaderlibs.html snippet to load additional JS and CSS clientlibs according to the {cssId} property
 * Content Components
   * Example: helloworld example of custom HTL component with SlingModels for the logic
-  * breadcrumb, image, list, sharing, text and title use the latest released version of the [AEM Core WCM Components](https://github.com/Adobe-Marketing-Cloud/aem-core-wcm-components) with the recommended proxy pattern 
+  * breadcrumb, image, list, sharing, text, title, tab and carousel use the latest released version of the [AEM Core WCM Components]
+  (https://github.com/Adobe-Marketing-Cloud/aem-core-wcm-components) with the recommended proxy pattern 
 * Form Components
   * button, container, hidden, options and text based on the AEM Core WCM Components
 
@@ -65,9 +66,9 @@ Or use your mvn skills:
     mvn archetype:generate \
      -DarchetypeGroupId=com.adobe.granite.archetypes \
      -DarchetypeArtifactId=aem-project-archetype \
-     -DarchetypeVersion=15
+     -DarchetypeVersion=16
 
-Where 15 is the archetype version number that you want to use (see archetype versions below).
+Where 16 is the archetype version number that you want to use (see archetype versions below).
 
 ### Available properties
 
@@ -107,6 +108,7 @@ Archetype Version | AEM Version
 13                | 6.4, 6.3 + SP2
 14                | 6.4, 6.3 + SP2
 15                | 6.4, 6.3 + SP2
+16                | 6.4, 6.3 + SP2
 
 ## Building
 
@@ -120,7 +122,7 @@ Then change to the directory in which you want to create the project and run:
     mvn archetype:generate \
      -DarchetypeGroupId=com.adobe.granite.archetypes \
      -DarchetypeArtifactId=aem-project-archetype \
-     -DarchetypeVersion=16-SNAPSHOT
+     -DarchetypeVersion=17-SNAPSHOT
      
      
 Side note: The profile "adobe-public" must be activated when using profiles like "autoInstallPackage" mentioned above.
