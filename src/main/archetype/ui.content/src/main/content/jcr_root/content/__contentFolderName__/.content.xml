@@ -4,7 +4,7 @@
     <jcr:content
         cq:allowedTemplates="[/conf/${confFolderName}/settings/wcm/templates/.*]"
         cq:deviceGroups="[/etc/mobile/groups/responsive]"
-        jcr:primaryType="nt:unstructured"
+        jcr:primaryType="cq:PageContent"
         jcr:title="${siteName}"
         sling:redirect="{Boolean}true"
         sling:redirectStatus="{Long}302"
