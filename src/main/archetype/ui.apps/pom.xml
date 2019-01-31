@@ -89,6 +89,7 @@
                 <artifactId>filevault-package-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
+                    <group>${packageGroup}</group>
                     <embeddeds>
                         <embedded>
                             <groupId>${groupId}</groupId>
@@ -112,7 +113,6 @@
                 <configuration>
                     <verbose>true</verbose>
                     <failOnError>true</failOnError>
-                    <group>${packageGroup}</group>
                 </configuration>
             </plugin>
 
