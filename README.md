@@ -72,20 +72,21 @@ Where 16 is the archetype version number that you want to use (see archetype ver
 
 ### Available properties
 
-Name               | Description
--------------------|------------------------------
-groupId            | Base Maven groupId
-artifactId         | Base Maven ArtifactId
-version            | Version
-package            | Java Source Package
-appsFolderName     | /apps folder name
-artifactName       | Maven Project Name
-componentGroupName | AEM component group name
-contentFolderName  | /content folder name
-confFolderName     | /conf folder name
-cssId              | prefix used in generated css
-packageGroup       | Content Package Group name
-siteName           | AEM site name
+Name                  | Default | Description
+----------------------|------------------------------
+groupId               |         | Base Maven groupId
+artifactId            |         | Base Maven ArtifactId
+version               |         | Version
+package               |         | Java Source Package
+appsFolderName        |         | /apps folder name
+artifactName          |         | Maven Project Name
+componentGroupName    |         | AEM component group name
+contentFolderName     |         | /content folder name
+confFolderName        |         | /conf folder name
+cssId                 |         | prefix used in generated css
+packageGroup          |         | Content Package Group name
+siteName              |         | AEM site name
+optionIncludeExamples |    y    | Include Component Library examples
 
 ### Requirements
 
