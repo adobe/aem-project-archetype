@@ -531,7 +531,7 @@
                 <type>zip</type>
                 <version>2.3.0</version>
             </dependency>
-#if ( $optionIncludeExample == "y" )
+#if ( $optionIncludeExamples == "y" )
             <dependency>
                 <groupId>com.adobe.cq</groupId>
                 <artifactId>core.wcm.components.examples</artifactId>

@@ -73,10 +73,10 @@
             <defaultValue>${appsFolderName}</defaultValue>
         </requiredProperty>
         <!--
-            Option to include example component library as subpackage in the
+            Option to include Component Library examples as subpackage in the
             ui.apps content package.
         -->
-        <requiredProperty key="optionIncludeExample">
+        <requiredProperty key="optionIncludeExamples">
             <defaultValue>y</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>

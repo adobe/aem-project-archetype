@@ -102,7 +102,7 @@
                             <artifactId>core.wcm.components.all</artifactId>
                             <filter>true</filter>
                         </subPackage>
-#if ( $optionIncludeExample == "y" )
+#if ( $optionIncludeExamples == "y" )
                         <subPackage>
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.examples</artifactId>
@@ -151,7 +151,7 @@
             <artifactId>core.wcm.components.all</artifactId>
             <type>zip</type>
         </dependency>
-#if ( $optionIncludeExample == "y" )
+#if ( $optionIncludeExamples == "y" )
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.examples</artifactId>
