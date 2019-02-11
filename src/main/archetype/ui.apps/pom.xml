@@ -102,11 +102,13 @@
                             <artifactId>core.wcm.components.all</artifactId>
                             <filter>true</filter>
                         </subPackage>
+#if ( $optionIncludeExample == "y" )
                         <subPackage>
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.examples</artifactId>
                             <filter>true</filter>
                         </subPackage>
+#end
                     </subPackages>
                 </configuration>
             </plugin>
@@ -149,13 +151,13 @@
             <artifactId>core.wcm.components.all</artifactId>
             <type>zip</type>
         </dependency>
-
+#if ( $optionIncludeExample == "y" )
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.examples</artifactId>
             <type>zip</type>
         </dependency>
-
+#end
         <dependency>
             <groupId>javax.jcr</groupId>
             <artifactId>jcr</artifactId>
