@@ -89,6 +89,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <acHandling>merge_preserve</acHandling>
+                    <group>${packageGroup}</group>
                 </configuration>
             </plugin>
             <plugin>
@@ -98,7 +99,6 @@
                 <configuration>
                     <verbose>true</verbose>
                     <failOnError>true</failOnError>
-                    <group>${packageGroup}</group>
                 </configuration>
             </plugin>
         </plugins>
