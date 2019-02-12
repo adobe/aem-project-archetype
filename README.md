@@ -68,12 +68,12 @@ Or use your mvn skills:
      -DarchetypeArtifactId=aem-project-archetype \
      -DarchetypeVersion=17
 
-Where 16 is the archetype version number that you want to use (see archetype versions below).
+Where 17 is the archetype version number that you want to use (see archetype versions below).
 
 ### Available properties
 
 Name                  | Default | Description
-----------------------|------------------------------
+----------------------|---------|--------------------
 groupId               |         | Base Maven groupId
 artifactId            |         | Base Maven ArtifactId
 version               |         | Version
