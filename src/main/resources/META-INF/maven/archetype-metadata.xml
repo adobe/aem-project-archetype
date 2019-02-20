@@ -72,12 +72,23 @@
         <requiredProperty key="siteName">
             <defaultValue>${appsFolderName}</defaultValue>
         </requiredProperty>
+
+        <!--
+            *** Feature Flags ***
+        -->
         <!--
             Option to include Component Library examples as subpackage in the
             ui.apps content package.
         -->
         <requiredProperty key="optionIncludeExamples">
             <defaultValue>y</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
+        <!--
+            Option to include server wide error handler for 404 response code
+         -->
+        <requiredProperty key="optionIncludeErrorHandler">
+            <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
     </requiredProperties>
