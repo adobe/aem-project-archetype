@@ -72,24 +72,27 @@ Where 17 is the archetype version number that you want to use (see archetype ver
 
 ### Available properties
 
-Name                  | Default | Description
-----------------------|---------|--------------------
-groupId               |         | Base Maven groupId
-artifactId            |         | Base Maven ArtifactId
-version               |         | Version
-package               |         | Java Source Package
-appsFolderName        |         | /apps folder name
-artifactName          |         | Maven Project Name
-componentGroupName    |         | AEM component group name
-contentFolderName     |         | /content folder name
-confFolderName        |         | /conf folder name
-cssId                 |         | prefix used in generated css
-packageGroup          |         | Content Package Group name
-siteName              |         | AEM site name
-optionIncludeExamples |    y    | Include Component Library examples
+Name                      | Default | Description
+--------------------------|---------|--------------------
+groupId                   |         | Base Maven groupId
+artifactId                |         | Base Maven ArtifactId
+version                   |         | Version
+package                   |         | Java Source Package
+appsFolderName            |         | /apps folder name
+artifactName              |         | Maven Project Name
+componentGroupName        |         | AEM component group name
+contentFolderName         |         | /content folder name
+confFolderName            |         | /conf folder name
+cssId                     |         | prefix used in generated css
+packageGroup              |         | Content Package Group name
+siteName                  |         | AEM site name
+optionIncludeExamples     |    y    | Include Component Library examples
+optionIncludeErrorHandler |    n    | Add custom 404 response page
 
-Note: If the archetype is executed in interactive mode the property `optionIncludeExamples` will be set to `y` because of the default 
-value (see [ARCHETYPE-308](https://issues.apache.org/jira/browse/ARCHETYPE-308) for more details). The value can be changed when the property confirmation at the end is denied and the questionnaire gets repeated or by passing the parameter in the command line (e.g. `-DoptionIncludeExamples=n`).
+Note: If the archetype is executed in interactive mode the first time properties with default  values can't be changed (see 
+[ARCHETYPE-308](https://issues.apache.org/jira/browse/ARCHETYPE-308) for more details). The value can be  changed when the property 
+confirmation at the end is denied and the questionnaire gets repeated or by passing the parameter in the command line (e.g. 
+`-DoptionIncludeExamples=n`).
 
 ### Requirements
 
