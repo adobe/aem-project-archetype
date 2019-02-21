@@ -4,7 +4,7 @@
     <cq:dropTargets jcr:primaryType="nt:unstructured">
         <image
             jcr:primaryType="cq:DropTargetConfig"
-            accept="[image/.*]"
+            accept="[image/gif,image/jpeg,image/png,image/webp,image/tiff,image/svg+xml]"
             groups="[media]"
             propertyName="./fileReference">
             <parameters
@@ -26,15 +26,19 @@
                     features="*"/>
                 <flip
                     jcr:primaryType="nt:unstructured"
+                    supportedMimeTypes="[image/jpeg,image/png,image/webp,image/tiff]"
                     features="-"/>
                 <map
                     jcr:primaryType="nt:unstructured"
+                    supportedMimeTypes="[image/jpeg,image/png,image/webp,image/tiff,image/svg+xml]"
                     features="*"/>
                 <rotate
                     jcr:primaryType="nt:unstructured"
+                    supportedMimeTypes="[image/jpeg,image/png,image/webp,image/tiff]"
                     features="*"/>
                 <zoom
                     jcr:primaryType="nt:unstructured"
+                    supportedMimeTypes="[image/jpeg,image/png,image/webp,image/tiff,image/svg+xml]"
                     features="*"/>
             </plugins>
             <ui jcr:primaryType="nt:unstructured">
