@@ -23,7 +23,27 @@
             <plugins jcr:primaryType="nt:unstructured">
                 <crop
                     jcr:primaryType="nt:unstructured"
-                    features="*"/>
+                    supportedMimeTypes="[image/jpeg,image/png,image/webp,image/tiff]"
+                    features="*">
+                    <aspectRatios jcr:primaryType="nt:unstructured">
+                        <wideLandscape
+                            jcr:primaryType="nt:unstructured"
+                            name="Wide Landscape"
+                            ratio="0.6180"/>
+                        <landscape
+                            jcr:primaryType="nt:unstructured"
+                            name="Landscape"
+                            ratio="0.8284"/>
+                        <square
+                            jcr:primaryType="nt:unstructured"
+                            name="Square"
+                            ratio="1"/>
+                        <portrait
+                            jcr:primaryType="nt:unstructured"
+                            name="Portrait"
+                            ratio="1.6180"/>
+                    </aspectRatios>
+                </crop>
                 <flip
                     jcr:primaryType="nt:unstructured"
                     supportedMimeTypes="[image/jpeg,image/png,image/webp,image/tiff]"
@@ -38,7 +58,7 @@
                     features="*"/>
                 <zoom
                     jcr:primaryType="nt:unstructured"
-                    supportedMimeTypes="[image/jpeg,image/png,image/webp,image/tiff,image/svg+xml]"
+                    supportedMimeTypes="[image/jpeg,image/png,image/webp,image/tiff]"
                     features="*"/>
             </plugins>
             <ui jcr:primaryType="nt:unstructured">
