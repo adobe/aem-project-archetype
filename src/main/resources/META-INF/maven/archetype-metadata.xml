@@ -77,6 +77,13 @@
             *** Feature Flags ***
         -->
         <!--
+            Option to set target AEM version.
+        -->
+        <requiredProperty key="optionAemVersion">
+            <defaultValue>6.4</defaultValue>
+            <validationRegex>^(6\.3|6\.4)$</validationRegex>
+        </requiredProperty>
+        <!--
             Option to include Component Library examples as subpackage in the
             ui.apps content package.
         -->
