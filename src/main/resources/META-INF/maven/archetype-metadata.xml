@@ -250,5 +250,17 @@
         <include>.gitignore</include>
       </includes>
     </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>ui.apps</directory>
+      <includes>
+        <include>.babelrc</include>
+        <include>package.json</include>
+        <include>tsconfig.json</include>
+        <include>tslint.json</include>
+        <include>webpack.config.js</include>
+        <include>webpack.prod.config.js</include>
+        <include>.gitignore</include>
+      </includes>
+    </fileSet>
   </fileSets>
 </archetype-descriptor>
