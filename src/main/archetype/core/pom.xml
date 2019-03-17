@@ -127,8 +127,8 @@
             <artifactId>junit-addons</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.apache.sling</groupId>
-            <artifactId>org.apache.sling.testing.sling-mock.junit4</artifactId>
+            <groupId>io.wcm.</groupId>
+            <artifactId>io.wcm.testing.aem-mock.junit4</artifactId>
         </dependency>
         <dependency>
             <groupId>uk.org.lidalia</groupId>
