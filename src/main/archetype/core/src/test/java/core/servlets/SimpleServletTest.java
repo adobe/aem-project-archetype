@@ -15,7 +15,6 @@
  */
 package ${package}.core.servlets;
 
-import org.apache.sling.testing.mock.sling.junit.SlingContext;
 import org.apache.sling.testing.mock.sling.servlet.MockSlingHttpServletRequest;
 import org.apache.sling.testing.mock.sling.servlet.MockSlingHttpServletResponse;
 import org.junit.Rule;
@@ -24,12 +23,14 @@ import org.junit.Test;
 import javax.servlet.ServletException;
 import java.io.IOException;
 
+import io.wcm.testing.mock.aem.junit.AemContext;
+
 import static org.junit.Assert.*;
 
 public class SimpleServletTest {
 
     @Rule
-    public final SlingContext context = new SlingContext();
+    public final AemContext context = new AemContext();
 
     private SimpleServlet fixture = new SimpleServlet();
 

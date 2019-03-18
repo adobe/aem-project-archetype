@@ -17,44 +17,49 @@ package ${package}.core.models;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
-import java.util.UUID;
-
-import junitx.util.PrivateAccessor;
-
-import org.apache.sling.settings.SlingSettingsService;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.sling.api.resource.Resource;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+
+import com.day.cq.wcm.api.Page;
+
+import io.wcm.testing.mock.aem.junit.AemContext;
 
 /**
  * Simple JUnit test verifying the HelloWorldModel
  */
 public class HelloWorldModelTest {
 
-    //@Inject
+    @Rule
+    public final AemContext context = new AemContext();
+
     private HelloWorldModel hello;
-    
-    private String slingId;
-    
+
+    private Page page;
+    private Resource resource;
+
     @Before
     public void setup() throws Exception {
-        SlingSettingsService settings = mock(SlingSettingsService.class);
-        slingId = UUID.randomUUID().toString();
-        when(settings.getSlingId()).thenReturn(slingId);
 
-        hello = new HelloWorldModel();
-        PrivateAccessor.setField(hello, "settings", settings);
-        hello.init();
+        // prepare a page with a test resource
+        page = context.create().page("/content/mypage");
+        resource = context.create().resource(page, "hello",
+            "sling:resourceType", "${appsFolderName}/components/content/helloworld");
+
+        // create sling model
+        hello = resource.adaptTo(HelloWorldModel.class);
     }
-    
+
     @Test
     public void testGetMessage() throws Exception {
         // some very basic junit tests
         String msg = hello.getMessage();
         assertNotNull(msg);
-        assertTrue(msg.length() > 0);
+        assertTrue(StringUtils.contains(msg, resource.getResourceType()));
+        assertTrue(StringUtils.contains(msg, page.getPath()));
     }
 
 }
