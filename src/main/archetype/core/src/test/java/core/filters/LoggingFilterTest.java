@@ -15,12 +15,12 @@
  */
 package ${package}.core.filters;
 
-import org.apache.sling.testing.mock.sling.junit.SlingContext;
 import org.apache.sling.testing.mock.sling.servlet.MockRequestPathInfo;
 import org.apache.sling.testing.mock.sling.servlet.MockSlingHttpServletRequest;
 import org.apache.sling.testing.mock.sling.servlet.MockSlingHttpServletResponse;
 import org.junit.Rule;
 import org.junit.Test;
+import io.wcm.testing.mock.aem.junit.AemContext;
 import uk.org.lidalia.slf4jext.Level;
 import uk.org.lidalia.slf4jtest.LoggingEvent;
 import uk.org.lidalia.slf4jtest.TestLogger;
@@ -40,7 +40,7 @@ import static org.junit.Assert.*;
 public class LoggingFilterTest {
 
     @Rule
-    public final SlingContext context = new SlingContext();
+    public final AemContext context = new AemContext();
 
     @Rule
     public final TestLoggerFactoryResetRule testLoggerFactoryResetRule = new TestLoggerFactoryResetRule();
