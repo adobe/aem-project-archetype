@@ -610,7 +610,7 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>io.wcm.</groupId>
+                <groupId>io.wcm</groupId>
                 <artifactId>io.wcm.testing.aem-mock.junit4</artifactId>
                 <version>2.4.4</version>
                 <scope>test</scope>
