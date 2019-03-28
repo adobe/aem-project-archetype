@@ -45,10 +45,10 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - aem-project-archetype-
 
+      - run: mkdir -p test-results
+
       # run tests!
       - run: mvn clean verify -B -U
-
-      - run: mkdir -p test-results
 
       - store_test_results:
           path: test-results
