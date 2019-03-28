@@ -48,6 +48,9 @@ jobs:
       # run tests!
       - run: mvn clean verify -B -U
 
+      - store_test_results:
+          path: test-results
+
       - save_cache: # saves the project dependencies
           paths:
             - ~/.m2
