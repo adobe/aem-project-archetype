@@ -48,8 +48,14 @@ jobs:
       # run tests!
       - run: mvn clean verify -B -U
 
+      - run: mkdir -p test-results
+
       - store_test_results:
           path: test-results
+
+      - store_artifacts:
+          path: test-results
+          prefix: test-results
 
       - save_cache: # saves the project dependencies
           paths:
