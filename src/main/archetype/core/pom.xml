@@ -45,6 +45,15 @@
                         </goals>
                         <phase>process-classes</phase>
                     </execution>
+                    <execution>
+                        <id>scr-metadata</id>
+                        <goals>
+                            <goal>manifest</goal>
+                        </goals>
+                        <configuration>
+                            <supportIncrementalBuild>true</supportIncrementalBuild>
+                        </configuration>
+                    </execution>
                 </executions>
                 <configuration>
                     <exportScr>true</exportScr>
