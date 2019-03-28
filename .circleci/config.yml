@@ -46,7 +46,7 @@ jobs:
             - aem-project-archetype-
 
       # run tests!
-      - run: mvn clean verify -B -U
+      - run: mvn clean verify -B
 
       - run:
           name: Save test results
