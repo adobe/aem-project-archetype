@@ -39,14 +39,22 @@ jobs:
     steps:
       - checkout
 
-      - restore_cache: # restore the saved cache
+      # Download and cache dependencies
+      - restore_cache:
           keys:
-            - aem-project-archetype-{{ checksum "pom.xml" }}
+            - v1-dependencies-{{ checksum "pom.xml" }}
             # fallback to using the latest cache if no exact match is found
-            - aem-project-archetype-
+            - v1-dependencies-
+
+      - run: mvn dependency:go-offline
+
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: v1-dependencies-{{ checksum "pom.xml" }}
 
       # run tests!
-      - run: mvn clean verify -B
+      - run: mvn integration-test
 
       - run:
           name: Save test results
@@ -59,7 +67,3 @@ jobs:
       - store_artifacts:
           path: ~/test-results/junit
 
-      - save_cache: # saves the project dependencies
-          paths:
-            - ~/.m2
-          key: aem-project-archetype-{{ checksum "pom.xml" }}
