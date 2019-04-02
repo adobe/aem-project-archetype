@@ -15,17 +15,19 @@
  */
 package ${package}.core.listeners;
 
+import java.util.Collections;
+import java.util.List;
+
 import org.apache.sling.api.SlingConstants;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.osgi.service.event.Event;
+
 import uk.org.lidalia.slf4jext.Level;
 import uk.org.lidalia.slf4jtest.LoggingEvent;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 
-import java.util.Collections;
-import java.util.List;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SimpleResourceListenerTest {
 

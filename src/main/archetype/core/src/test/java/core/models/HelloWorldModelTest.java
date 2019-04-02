@@ -15,25 +15,25 @@
  */
 package ${package}.core.models;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import com.day.cq.wcm.api.Page;
+import io.wcm.testing.mock.aem.junit5.AemContext;
+import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
-import io.wcm.testing.mock.aem.junit.AemContext;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Simple JUnit test verifying the HelloWorldModel
  */
+@ExtendWith(AemContextExtension.class)
 public class HelloWorldModelTest {
 
-    @Rule
     public final AemContext context = new AemContext();
 
     private HelloWorldModel hello;
@@ -41,7 +41,7 @@ public class HelloWorldModelTest {
     private Page page;
     private Resource resource;
 
-    @Before
+    @BeforeEach
     public void setup() throws Exception {
 
         // prepare a page with a test resource
