@@ -32,9 +32,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * Simple JUnit test verifying the HelloWorldModel
  */
 @ExtendWith(AemContextExtension.class)
-public class HelloWorldModelTest {
-
-    public final AemContext context = new AemContext();
+class HelloWorldModelTest {
 
     private HelloWorldModel hello;
 
@@ -42,7 +40,7 @@ public class HelloWorldModelTest {
     private Resource resource;
 
     @BeforeEach
-    public void setup() throws Exception {
+    public void setup(AemContext context) throws Exception {
 
         // prepare a page with a test resource
         page = context.create().page("/content/mypage");
@@ -54,7 +52,7 @@ public class HelloWorldModelTest {
     }
 
     @Test
-    public void testGetMessage() throws Exception {
+    void testGetMessage() throws Exception {
         // some very basic junit tests
         String msg = hello.getMessage();
         assertNotNull(msg);

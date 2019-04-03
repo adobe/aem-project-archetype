@@ -32,19 +32,19 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(AemContextExtension.class)
-public class SimpleScheduledTaskTest {
+class SimpleScheduledTaskTest {
 
     private SimpleScheduledTask fixture = new SimpleScheduledTask();
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(fixture.getClass());
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         TestLoggerFactory.clear();
     }
 
     @Test
-    public void run() {
+    void run() {
         SimpleScheduledTask.Config config = mock(SimpleScheduledTask.Config.class);
         when(config.myParameter()).thenReturn("parameter value");
 

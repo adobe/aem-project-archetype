@@ -27,16 +27,17 @@ import uk.org.lidalia.slf4jtest.LoggingEvent;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SimpleResourceListenerTest {
+class SimpleResourceListenerTest {
 
     private SimpleResourceListener fixture = new SimpleResourceListener();
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(fixture.getClass());
 
     @Test
-    public void handleEvent() {
+    void handleEvent() {
         Event resourceEvent = new Event("event/topic", Collections.singletonMap(SlingConstants.PROPERTY_PATH, "/content/test"));
 
         fixture.handleEvent(resourceEvent);
@@ -44,9 +45,12 @@ public class SimpleResourceListenerTest {
         List<LoggingEvent> events = logger.getLoggingEvents();
         assertEquals(1, events.size());
         LoggingEvent event = events.get(0);
-        assertEquals(Level.DEBUG, event.getLevel());
-        assertEquals(2, event.getArguments().size());
-        assertEquals("event/topic", event.getArguments().get(0));
-        assertEquals("/content/test", event.getArguments().get(1));
+
+        assertAll(
+                () -> assertEquals(Level.DEBUG, event.getLevel()),
+                () -> assertEquals(2, event.getArguments().size()),
+                () -> assertEquals("event/topic", event.getArguments().get(0)),
+                () -> assertEquals("/content/test", event.getArguments().get(1))
+        );
     }
 }

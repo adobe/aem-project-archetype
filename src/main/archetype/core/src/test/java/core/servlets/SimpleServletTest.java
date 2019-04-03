@@ -30,14 +30,12 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(AemContextExtension.class)
-public class SimpleServletTest {
-
-    public final AemContext context = new AemContext();
+class SimpleServletTest {
 
     private SimpleServlet fixture = new SimpleServlet();
 
     @Test
-    public void doGet() throws ServletException, IOException {
+    void doGet(AemContext context) throws ServletException, IOException {
         context.build().resource("/content/test", "jcr:title", "resource title").commit();
         context.currentResource("/content/test");
 

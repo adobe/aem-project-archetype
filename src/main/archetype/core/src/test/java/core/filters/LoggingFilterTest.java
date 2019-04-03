@@ -40,22 +40,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 
 @ExtendWith(AemContextExtension.class)
-public class LoggingFilterTest {
-
-    public final AemContext context = new AemContext();
+class LoggingFilterTest {
 
     private LoggingFilter fixture = new LoggingFilter();
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(fixture.getClass());
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         TestLoggerFactory.clear();
     }
 
 
     @Test
-    public void doFilter() throws IOException, ServletException {
+    void doFilter(AemContext context) throws IOException, ServletException {
         MockSlingHttpServletRequest request = context.request();
         MockSlingHttpServletResponse response = context.response();
 
