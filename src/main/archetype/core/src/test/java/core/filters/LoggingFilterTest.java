@@ -25,6 +25,7 @@ import javax.servlet.ServletException;
 import org.apache.sling.testing.mock.sling.servlet.MockRequestPathInfo;
 import org.apache.sling.testing.mock.sling.servlet.MockSlingHttpServletRequest;
 import org.apache.sling.testing.mock.sling.servlet.MockSlingHttpServletResponse;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -46,6 +47,12 @@ public class LoggingFilterTest {
     private LoggingFilter fixture = new LoggingFilter();
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(fixture.getClass());
+
+    @BeforeEach
+    public void setup() {
+        TestLoggerFactory.clear();
+    }
+
 
     @Test
     public void doFilter() throws IOException, ServletException {

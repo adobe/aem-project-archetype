@@ -230,8 +230,8 @@
                                 -->
                                 <sling.additional.bundle.1>org.apache.sling.junit.core</sling.additional.bundle.1>
                                 <sling.additional.bundle.2>org.apache.sling.junit.scriptable</sling.additional.bundle.2>
-                                <sling.additional.bundle.3>test.mytest.it.tests</sling.additional.bundle.3>
-                                <sling.additional.bundle.4>test.mytest.core</sling.additional.bundle.4>
+                                <sling.additional.bundle.3>${rootArtifactId}.it.tests</sling.additional.bundle.3>
+                                <sling.additional.bundle.4>${rootArtifactId}.core</sling.additional.bundle.4>
                                 <sling.additional.bundle.5>org.apache.sling.junit.remote</sling.additional.bundle.5>
                                 <sling.additional.bundle.6>org.apache.sling.testing.tools</sling.additional.bundle.6>
                             </systemPropertyVariables>
@@ -303,17 +303,7 @@
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-params</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
+            <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
