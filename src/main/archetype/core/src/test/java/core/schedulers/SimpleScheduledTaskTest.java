@@ -15,31 +15,36 @@
  */
 package ${package}.core.schedulers;
 
-import org.junit.Rule;
-import org.junit.Test;
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+
+import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 import uk.org.lidalia.slf4jext.Level;
 import uk.org.lidalia.slf4jtest.LoggingEvent;
 import uk.org.lidalia.slf4jtest.TestLogger;
 import uk.org.lidalia.slf4jtest.TestLoggerFactory;
-import uk.org.lidalia.slf4jtest.TestLoggerFactoryResetRule;
 
-import java.util.List;
-
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import static org.junit.Assert.*;
 
-public class SimpleScheduledTaskTest {
-
-    @Rule
-    public final TestLoggerFactoryResetRule testLoggerFactoryResetRule = new TestLoggerFactoryResetRule();
+@ExtendWith(AemContextExtension.class)
+class SimpleScheduledTaskTest {
 
     private SimpleScheduledTask fixture = new SimpleScheduledTask();
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(fixture.getClass());
 
+    @BeforeEach
+    void setup() {
+        TestLoggerFactory.clear();
+    }
+
     @Test
-    public void run() {
+    void run() {
         SimpleScheduledTask.Config config = mock(SimpleScheduledTask.Config.class);
         when(config.myParameter()).thenReturn("parameter value");
 

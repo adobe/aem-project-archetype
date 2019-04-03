@@ -15,34 +15,32 @@
  */
 package ${package}.core.models;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import com.day.cq.wcm.api.Page;
+import io.wcm.testing.mock.aem.junit5.AemContext;
+import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
-import io.wcm.testing.mock.aem.junit.AemContext;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Simple JUnit test verifying the HelloWorldModel
  */
-public class HelloWorldModelTest {
-
-    @Rule
-    public final AemContext context = new AemContext();
+@ExtendWith(AemContextExtension.class)
+class HelloWorldModelTest {
 
     private HelloWorldModel hello;
 
     private Page page;
     private Resource resource;
 
-    @Before
-    public void setup() throws Exception {
+    @BeforeEach
+    public void setup(AemContext context) throws Exception {
 
         // prepare a page with a test resource
         page = context.create().page("/content/mypage");
@@ -54,7 +52,7 @@ public class HelloWorldModelTest {
     }
 
     @Test
-    public void testGetMessage() throws Exception {
+    void testGetMessage() throws Exception {
         // some very basic junit tests
         String msg = hello.getMessage();
         assertNotNull(msg);
