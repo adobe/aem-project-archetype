@@ -59,12 +59,19 @@ shared: &shared
         path: ~/test-results/junit
 
 jobs:
-  build:
+  build-java-8:
     docker:
       - image: circleci/openjdk:8-jdk
     <<: *shared
 
-  java-11:
+  build-java-11:
     docker:
       - image: circleci/openjdk:11-jdk
     <<: *shared
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build-java-8
+      - build-java-11
