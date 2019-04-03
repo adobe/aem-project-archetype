@@ -17,6 +17,7 @@ package ${package}.core.schedulers;
 
 import java.util.List;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -36,6 +37,11 @@ public class SimpleScheduledTaskTest {
     private SimpleScheduledTask fixture = new SimpleScheduledTask();
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(fixture.getClass());
+
+    @BeforeEach
+    public void setup() {
+        TestLoggerFactory.clear();
+    }
 
     @Test
     public void run() {

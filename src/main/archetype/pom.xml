@@ -159,6 +159,9 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>2.22.1</version>
+                    <configuration>
+                        <useSystemClassLoader>false</useSystemClassLoader>
+                    </configuration>
                 </plugin>
                 <!-- Maven Failsafe Plugin -->
                 <plugin>
@@ -614,6 +617,7 @@
                 <groupId>junit-addons</groupId>
                 <artifactId>junit-addons</artifactId>
                 <version>1.4</version>
+                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>io.wcm</groupId>
