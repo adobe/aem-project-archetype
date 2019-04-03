@@ -59,7 +59,7 @@ shared: &shared
         path: ~/test-results/junit
 
 jobs:
-  java-8:
+  build:
     docker:
       - image: circleci/openjdk:8-jdk
     <<: *shared
