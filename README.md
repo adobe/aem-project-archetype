@@ -86,7 +86,7 @@ confFolderName            |         | /conf folder name
 cssId                     |         | prefix used in generated css
 packageGroup              |         | Content Package Group name
 siteName                  |         | AEM site name
-optionAemVersion          |   6.4   | Target AEM version
+optionAemVersion          |   6.5   | Target AEM version
 optionIncludeExamples     |    y    | Include Component Library examples
 optionIncludeErrorHandler |    n    | Add custom 404 response page
 
