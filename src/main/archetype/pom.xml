@@ -527,31 +527,13 @@
                 <scope>provided</scope>
             </dependency>
             <!-- Adobe AEM Dependencies -->
-#if ( $optionAemVersion == "6.3" )
             <dependency>
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>uber-jar</artifactId>
-                <version>6.3.3</version>
+                <version>$optionAemVersion</version>
                 <classifier>apis</classifier>
                 <scope>provided</scope>
             </dependency>
-#elseif ( $optionAemVersion == "6.4" )
-            <dependency>
-                <groupId>com.adobe.aem</groupId>
-                <artifactId>uber-jar</artifactId>
-                <version>6.4.4</version>
-                <classifier>apis</classifier>
-                <scope>provided</scope>
-            </dependency>
-#else
-            <dependency>
-                <groupId>com.adobe.aem</groupId>
-                <artifactId>uber-jar</artifactId>
-                <version>6.5.0</version>
-                <classifier>apis</classifier>
-                <scope>provided</scope>
-            </dependency>
-#end
             <dependency>
                 <groupId>com.adobe.cq</groupId>
                 <artifactId>core.wcm.components.all</artifactId>

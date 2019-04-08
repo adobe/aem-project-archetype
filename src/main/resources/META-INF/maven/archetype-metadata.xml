@@ -80,8 +80,8 @@
             Option to set target AEM version.
         -->
         <requiredProperty key="optionAemVersion">
-            <defaultValue>6.5</defaultValue>
-            <validationRegex>^(6\.3|6\.4|6\.5)$</validationRegex>
+            <defaultValue>6.5.0</defaultValue>
+            <validationRegex>^(6\.3\.3|6\.4\.4|6\.5\.0)$</validationRegex>
         </requiredProperty>
         <!--
             Option to include Component Library examples as subpackage in the
