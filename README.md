@@ -66,9 +66,9 @@ Or use your mvn skills:
     mvn archetype:generate \
      -DarchetypeGroupId=com.adobe.granite.archetypes \
      -DarchetypeArtifactId=aem-project-archetype \
-     -DarchetypeVersion=17
+     -DarchetypeVersion=18
 
-Where 17 is the archetype version number that you want to use (see archetype versions below).
+Where 18 is the archetype version number that you want to use (see archetype versions below).
 
 ### Available properties
 
@@ -99,25 +99,11 @@ confirmation at the end is denied and the questionnaire gets repeated or by pass
 
 The latest version of the archetype has the following requirements
 
-* Adobe Experience Manager 6.3 SP2 or higher
+* Adobe Experience Manager 6.3 SP3 or higher
 * Apache Maven (3.3.9 or newer)
 * Adobe Public Maven Repository in maven settings, see [Knowledge Base](https://helpx.adobe.com/experience-manager/kb/SetUpTheAdobeMavenRepository.html) article for details.
 
-See below for support for older versions of AEM.
-
-Archetype Version | AEM Version
-------------------|-------------
-7                 | 6.0 or newer
-8                 | 6.0 or newer
-9                 | 6.0 or newer
-10                | 6.0 or newer
-11                | 6.2 or newer
-12                | 6.3 or newer
-13                | 6.4, 6.3 + SP2
-14                | 6.4, 6.3 + SP2
-15                | 6.4, 6.3 + SP2
-16                | 6.4, 6.3 + SP2
-17                | 6.4, 6.3 + SP2
+For a list of supported AEM versions of previous archetype versions, see [historical supported AEM versions](VERSIONS.md).
 
 ## Building
 
@@ -131,7 +117,7 @@ Then change to the directory in which you want to create the project and run:
     mvn archetype:generate \
      -DarchetypeGroupId=com.adobe.granite.archetypes \
      -DarchetypeArtifactId=aem-project-archetype \
-     -DarchetypeVersion=18-SNAPSHOT
+     -DarchetypeVersion=19-SNAPSHOT
      
      
 Side note: The profile "adobe-public" must be activated when using profiles like "autoInstallPackage" mentioned above.
