@@ -41,6 +41,7 @@
         <sling.password>admin</sling.password>
         <vault.user>admin</vault.user>
         <vault.password>admin</vault.password>
+        <core.wcm.components.version>2.3.2</core.wcm.components.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -538,14 +539,14 @@
                 <groupId>com.adobe.cq</groupId>
                 <artifactId>core.wcm.components.all</artifactId>
                 <type>zip</type>
-                <version>2.3.2</version>
+                <version>${core.wcm.components.version}</version>
             </dependency>
 #if ( $optionIncludeExamples == "y" )
             <dependency>
                 <groupId>com.adobe.cq</groupId>
                 <artifactId>core.wcm.components.examples</artifactId>
                 <type>zip</type>
-                <version>2.3.2</version>
+                <version>${core.wcm.components.version}</version>
             </dependency>
 #end
             <!-- Apache Sling Dependencies -->
