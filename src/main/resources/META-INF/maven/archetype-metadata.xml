@@ -102,7 +102,7 @@
             Option to include url mapping
          -->
         <requiredProperty key="optionIncludeUrlMapping">
-            <defaultValue>n</defaultValue>
+            <defaultValue>y</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
     </requiredProperties>
