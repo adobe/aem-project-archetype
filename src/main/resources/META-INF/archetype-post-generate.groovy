@@ -9,5 +9,5 @@ if (optionIncludeErrorHandler == "n") {
 }
 
 if (optionIncludeUrlMapping == "n") {
-    assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/${appsFolderName}/config/org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl.config").delete()
+    assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/${appsFolderName}/config.publish").deleteDir()
 }
