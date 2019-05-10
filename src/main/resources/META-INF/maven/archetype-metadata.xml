@@ -121,14 +121,18 @@
         </module>
         <module id="${rootArtifactId}.ui.apps" dir="ui.apps" name="ui.apps">
             <fileSets>
-                <!--
-                <fileSet packaged="false" encoding="UTF-8">
-                    <directory></directory>
-                    <includes>
-                        <include>README.txt</include>
-                    </includes>
+                <fileSet filtered="true" encoding="UTF-8">
+                <directory></directory>
+                <includes>
+                    <include>.babelrc</include>
+                    <include>package.json</include>
+                    <include>tsconfig.json</include>
+                    <include>tslint.json</include>
+                    <include>webpack.config.js</include>
+                    <include>webpack.prod.config.js</include>
+                    <include>.gitignore</include>
+                </includes>
                 </fileSet>
-                -->
                 <fileSet filtered="true" packaged="false"
                     encoding="UTF-8">
                     <directory>src/main/content</directory>
@@ -247,18 +251,6 @@
     <fileSet encoding="UTF-8">
       <directory></directory>
       <includes>
-        <include>.gitignore</include>
-      </includes>
-    </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory>ui.apps</directory>
-      <includes>
-        <include>.babelrc</include>
-        <include>package.json</include>
-        <include>tsconfig.json</include>
-        <include>tslint.json</include>
-        <include>webpack.config.js</include>
-        <include>webpack.prod.config.js</include>
         <include>.gitignore</include>
       </includes>
     </fileSet>
