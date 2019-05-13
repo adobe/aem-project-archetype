@@ -7,7 +7,30 @@
         sling:resourceType="${appsFolderName}/components/structure/flexible-page">
         <root
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="wcm/foundation/components/responsivegrid"/>
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <experiencefragment_header
+                jcr:created="{Date}2019-05-13T17:23:28.768+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2019-05-13T17:23:28.768+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cq/experience-fragments/editor/components/experiencefragment"
+                text=""/>
+            <responsivegrid
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/responsivegrid"
+                editable="{Boolean}true">
+                <cq:responsive jcr:primaryType="nt:unstructured"/>
+            </responsivegrid>
+            <experiencefragment_footer
+                jcr:created="{Date}2019-05-13T17:23:58.543+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2019-05-13T17:23:58.543+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cq/experience-fragments/editor/components/experiencefragment"
+                text=""/>
+        </root>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">
                 <phone
