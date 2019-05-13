@@ -102,13 +102,6 @@
             Option to include domain mapping
          -->
         <requiredProperty key="optionDomainName">
-        
-        </requiredProperty>
-        <!--
-            Option to include url mapping
-         -->
-        <requiredProperty key="optionIncludeUrlMapping">
-            <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
     </requiredProperties>
 
