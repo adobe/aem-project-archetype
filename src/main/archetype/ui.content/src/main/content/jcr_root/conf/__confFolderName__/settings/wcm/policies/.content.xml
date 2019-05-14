@@ -12,7 +12,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="${siteName} Default"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[group:${componentGroupName},/apps/${appsFolderName}/components/form/container]"
+                        components="[group:${componentGroupName},/apps/${appsFolderName}/components/form/container,/libs/dam/cfm/components/contentfragment,/libs/cq/experience-fragments/editor/components/experiencefragment,/libs/wcm/foundation/components/responsivegrid]"
                         policyResourceType="wcm/foundation/components/responsivegrid">
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">

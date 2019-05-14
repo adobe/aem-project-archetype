@@ -8,29 +8,7 @@
         sling:resourceType="${appsFolderName}/components/structure/page">
         <root
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="wcm/foundation/components/responsivegrid">
-            <languagenavigation
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="${appsFolderName}/components/content/languagenavigation"
-                navigationRoot="/content/${contentFolderName}/"
-                structureDepth="1"/>
-            <search
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="${appsFolderName}/components/content/search"
-                searchRoot="/content/${contentFolderName}/"/>
-            <navigation
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="${appsFolderName}/components/content/navigation"
-                navigationRoot="/content/${contentFolderName}/"/>
-            <breadcrumb
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="${appsFolderName}/components/content/breadcrumb"/>
-            <responsivegrid
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="wcm/foundation/components/responsivegrid"
-                editable="{Boolean}true">
-                <cq:responsive jcr:primaryType="nt:unstructured"/>
-            </responsivegrid>
+            sling:resourceType="wcm/foundation/components/responsivegrid"/>
         </root>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">
