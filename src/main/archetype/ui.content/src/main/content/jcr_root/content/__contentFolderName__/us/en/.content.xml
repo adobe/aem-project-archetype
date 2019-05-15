@@ -5,7 +5,7 @@
         cq:template="/conf/${confFolderName}/settings/wcm/templates/homepage"
         jcr:primaryType="cq:PageContent"
         jcr:title="English"
-        sling:resourceType="${appsFolderName}/components/structure/flexible-page"
+        sling:resourceType="${appsFolderName}/components/structure/page"
         pageTitle="English">
         <root
             jcr:primaryType="nt:unstructured"

@@ -18,3 +18,19 @@
 
 <!--/* Include Context Hub */-->
 <sly data-sly-resource="${symbol_dollar}{'contexthub' @ resourceType='granite/contexthub/components/contexthub'}"/>
+<!--/* Data layer JavaScript object: */-->
+<script  data-sly-use.data="/apps/${appsFolderName}/components/structure/page/datalayer.js"
+         data-sly-use.page="com.adobe.cq.wcm.core.components.models.Page">
+	
+  var siteData = {
+		  		  page: {
+		  			  pageInfo: {
+		  				  pageName: '${symbol_dollar}{data.pageName @context="scriptString"}',
+		  				  pageURL : '${symbol_dollar}{data.path @context="uri"}',
+		  				  pageType: '${symbol_dollar}{data.pageName @context="scriptString"}',
+		  				  siteName: '${symbol_dollar}{request.serverName @context="scriptString"}'
+		  			  },
+  visitorProfile: {}
+   }
+
+</script>
