@@ -2,4 +2,4 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="sling:Mapping"
     sling:internalRedirect="/content/${contentFolderName}/us/en"
-    sling:match="${optionDomainName}\\.\\d*/en"/>
+    sling:match="^[^/]+/[^/]+/en"/>
