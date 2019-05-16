@@ -6,7 +6,3 @@ def uiAppsPackage = new File(rootDir, "ui.apps")
 if (optionIncludeErrorHandler == "n") {
     assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/sling").deleteDir()
 }
-
-if (optionDomainName == "") {
-    assert new File(uiAppsPackage, "src/main/content/jcr_root/etc/map.publish").deleteDir()
-}

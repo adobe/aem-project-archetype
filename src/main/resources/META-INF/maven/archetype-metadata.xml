@@ -101,8 +101,7 @@
         <!--
             Option to include domain mapping
          -->
-        <requiredProperty key="optionDomainName">
-        </requiredProperty>
+        <requiredProperty key="optionDomainName"/>
     </requiredProperties>
 
     <modules>
