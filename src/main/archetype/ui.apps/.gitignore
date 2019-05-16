@@ -1,0 +1,14 @@
+# Created by https://www.gitignore.io/api/eclipse,java,maven
+
+### Node ###
+node_modules/
+npm-debug.log
+package-lock.json
+install.js
+### FE generated files ###
+src/main/content/jcr_root/apps/${appsFolderName}/clientlibs/clientlib-site/site.js
+src/main/content/jcr_root/apps/${appsFolderName}/clientlibs/clientlib-site/site.js.map
+src/main/content/jcr_root/apps/${appsFolderName}/clientlibs/clientlib-site/site.css
+src/main/content/jcr_root/apps/${appsFolderName}/clientlibs/clientlib-dependencies/dependencies.js
+src/main/content/jcr_root/apps/${appsFolderName}/clientlibs/clientlib-dependencies/dependencies.js.map
+src/main/content/jcr_root/apps/${appsFolderName}/clientlibs/clientlib-dependencies/dependencies.css
