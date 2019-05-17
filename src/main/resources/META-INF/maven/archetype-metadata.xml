@@ -1,258 +1,220 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
- |  Copyright 2015 Adobe Systems Incorporated
- |
- |  Licensed under the Apache License, Version 2.0 (the "License");
- |  you may not use this file except in compliance with the License.
- |  You may obtain a copy of the License at
- |
- |      http://www.apache.org/licenses/LICENSE-2.0
- |
- |  Unless required by applicable law or agreed to in writing, software
- |  distributed under the License is distributed on an "AS IS" BASIS,
- |  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- |  See the License for the specific language governing permissions and
- |  limitations under the License.
--->
-<archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" name="aem-archetype"
-    xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<!-- | Copyright 2015 Adobe Systems Incorporated | | Licensed under the Apache 
+	License, Version 2.0 (the "License"); | you may not use this file except 
+	in compliance with the License. | You may obtain a copy of the License at 
+	| | http://www.apache.org/licenses/LICENSE-2.0 | | Unless required by applicable 
+	law or agreed to in writing, software | distributed under the License is 
+	distributed on an "AS IS" BASIS, | WITHOUT WARRANTIES OR CONDITIONS OF ANY 
+	KIND, either express or implied. | See the License for the specific language 
+	governing permissions and | limitations under the License. -->
+<archetype-descriptor
+	xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
+	name="aem-archetype"
+	xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-    <requiredProperties>
-        <!--
-            This is the folder under /apps into which the bundle and package content will be installed.
-        -->
-        <requiredProperty key="appsFolderName">
-            <validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
-        </requiredProperty>
-        <!--
-            Maven artifact groupId for all projects
-        -->
-        <requiredProperty key="groupId">
-            <validationRegex>^[a-zA-Z0-9\.\-_]+$</validationRegex>
-        </requiredProperty>
-        <!--
-            Maven artifact "root" artifactId, is suffixed for the individual modules
-        -->
-        <requiredProperty key="artifactId">
-            <defaultValue>${groupId}.${appsFolderName}</defaultValue>
-            <validationRegex>^[a-zA-Z0-9\.\-_]+$</validationRegex>
-        </requiredProperty>
-        <!--
-           This is the name which will be set as the artifact name and used to derive the bundle
-           and package names.
-        -->
-        <requiredProperty key="artifactName">
-            <defaultValue>${appsFolderName}</defaultValue>
-        </requiredProperty>
-            <!--
-               This is the group identifier for the package. Used with the
-               Package Manager and Package Share.
-            -->
-        <requiredProperty key="packageGroup">
-        	<defaultValue>${appsFolderName}</defaultValue>
-            <validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
-        </requiredProperty>
-        <requiredProperty key="contentFolderName">
-            <defaultValue>${appsFolderName}</defaultValue>
-            <validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
-        </requiredProperty>
-        <requiredProperty key="confFolderName">
-            <defaultValue>${appsFolderName}</defaultValue>
-            <validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
-        </requiredProperty>
-        <requiredProperty key="cssId">
-            <defaultValue>${appsFolderName}</defaultValue>
-            <validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
-        </requiredProperty>
-        <requiredProperty key="componentGroupName">
-            <defaultValue>${appsFolderName}</defaultValue>
-            <validationRegex>^[a-zA-Z0-9\.\-_]+$</validationRegex>
-        </requiredProperty>
-        <requiredProperty key="siteName">
-            <defaultValue>${appsFolderName}</defaultValue>
-        </requiredProperty>
+	<requiredProperties>
+		<!-- This is the folder under /apps into which the bundle and package content 
+			will be installed. -->
+		<requiredProperty key="appsFolderName">
+			<validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
+		</requiredProperty>
+		<!-- Maven artifact groupId for all projects -->
+		<requiredProperty key="groupId">
+			<validationRegex>^[a-zA-Z0-9\.\-_]+$</validationRegex>
+		</requiredProperty>
+		<!-- Maven artifact "root" artifactId, is suffixed for the individual modules -->
+		<requiredProperty key="artifactId">
+			<defaultValue>${groupId}.${appsFolderName}</defaultValue>
+			<validationRegex>^[a-zA-Z0-9\.\-_]+$</validationRegex>
+		</requiredProperty>
+		<!-- This is the name which will be set as the artifact name and used to 
+			derive the bundle and package names. -->
+		<requiredProperty key="artifactName">
+			<defaultValue>${appsFolderName}</defaultValue>
+		</requiredProperty>
+		<!-- This is the group identifier for the package. Used with the Package 
+			Manager and Package Share. -->
+		<requiredProperty key="packageGroup">
+			<defaultValue>${appsFolderName}</defaultValue>
+			<validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
+		</requiredProperty>
+		<requiredProperty key="contentFolderName">
+			<defaultValue>${appsFolderName}</defaultValue>
+			<validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
+		</requiredProperty>
+		<requiredProperty key="confFolderName">
+			<defaultValue>${appsFolderName}</defaultValue>
+			<validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
+		</requiredProperty>
+		<requiredProperty key="cssId">
+			<defaultValue>${appsFolderName}</defaultValue>
+			<validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
+		</requiredProperty>
+		<requiredProperty key="componentGroupName">
+			<defaultValue>${appsFolderName}</defaultValue>
+			<validationRegex>^[a-zA-Z0-9\.\-_]+$</validationRegex>
+		</requiredProperty>
+		<requiredProperty key="siteName">
+			<defaultValue>${appsFolderName}</defaultValue>
+		</requiredProperty>
 
-        <!--
-            *** Feature Flags ***
-        -->
-        <!--
-            Option to set target AEM version.
-        -->
-        <requiredProperty key="optionAemVersion">
-            <defaultValue>6.5.0</defaultValue>
-            <validationRegex>^(6\.3\.3|6\.4\.4|6\.5\.0)$</validationRegex>
-        </requiredProperty>
-        <!--
-            Option to include Component Library examples as subpackage in the
-            ui.apps content package.
-        -->
-        <requiredProperty key="optionIncludeExamples">
-            <defaultValue>y</defaultValue>
-            <validationRegex>^(y|n)$</validationRegex>
-        </requiredProperty>
-        <!--
-            Option to include server wide error handler for 404 response code
-         -->
-        <requiredProperty key="optionIncludeErrorHandler">
-            <defaultValue>n</defaultValue>
-            <validationRegex>^(y|n)$</validationRegex>
-        </requiredProperty>
-        <!--
-            Option to include domain mapping
-         -->
-        <requiredProperty key="optionDomainName"/>
-    </requiredProperties>
+		<!-- *** Feature Flags *** -->
+		<!-- Option to set target AEM version. -->
+		<requiredProperty key="optionAemVersion">
+			<defaultValue>6.5.0</defaultValue>
+			<validationRegex>^(6\.3\.3|6\.4\.4|6\.5\.0)$</validationRegex>
+		</requiredProperty>
+		<!-- Option to include Component Library examples as subpackage in the 
+			ui.apps content package. -->
+		<requiredProperty key="optionIncludeExamples">
+			<defaultValue>y</defaultValue>
+			<validationRegex>^(y|n)$</validationRegex>
+		</requiredProperty>
+		<!-- Option to include server wide error handler for 404 response code -->
+		<requiredProperty key="optionIncludeErrorHandler">
+			<defaultValue>n</defaultValue>
+			<validationRegex>^(y|n)$</validationRegex>
+		</requiredProperty>
+		<!-- Option to include domain mapping -->
+		<requiredProperty key="optionDomainName" />
+		<requiredProperty key="optionRunmodeConfigs">
+			<validationRegex>^(y|n)$</validationRegex>
+		</requiredProperty>
+		<requiredProperty key="envNames">
+		<validationRegex>(([a-z])+\,*)*</validationRegex>
+		</requiredProperty>
+		</requiredProperties>
 
-    <modules>
-        <module id="${rootArtifactId}.core" dir="core" name="core">
-            <fileSets>
-                <fileSet filtered="true" packaged="true"
-                    encoding="UTF-8">
-                    <directory>src/main/java</directory>
-                    <includes>
-                        <include>**/*.java</include>
-                    </includes>
-                </fileSet>
-                <fileSet filtered="true" packaged="true"
-                    encoding="UTF-8">
-                    <directory>src/test/java</directory>
-                    <includes>
-                        <include>**/*.java</include>
-                    </includes>
-                </fileSet>
-            </fileSets>
-        </module>
-        <module id="${rootArtifactId}.ui.apps" dir="ui.apps" name="ui.apps">
-            <fileSets>
-                <!--
-                <fileSet packaged="false" encoding="UTF-8">
-                    <directory></directory>
-                    <includes>
-                        <include>README.txt</include>
-                    </includes>
-                </fileSet>
-                -->
-                <fileSet filtered="true" packaged="false"
-                    encoding="UTF-8">
-                    <directory>src/main/content</directory>
-                    <includes>
-                        <include>**/*.*</include>
-                    </includes>
-                    <excludes>
-                        <exclude>**/*.png</exclude>
-                        <exclude>**/image</exclude>
-                        <exclude>**/file</exclude>
-                    </excludes>
-                </fileSet>
-                <fileSet filtered="false" packaged="false"
-                    encoding="UTF-8">
-                    <directory>src/main/content</directory>
-                    <includes>
-                        <include>**/*.png</include>
-                        <include>**/image</include>
-                        <include>**/file</include>
-                    </includes>
-                </fileSet>
-                <fileSet filtered="false" packaged="false"
-                    encoding="UTF-8">
-                    <directory>src/main/content/jcr_root</directory>
-                    <includes>
-                        <include>**/*</include>
-                    </includes>
-                </fileSet>
-            </fileSets>
-        </module>
-        <module id="${rootArtifactId}.ui.content" dir="ui.content" name="ui.content">
-            <fileSets>
-                <!--
-                <fileSet packaged="false" encoding="UTF-8">
-                    <directory></directory>
-                    <includes>
-                        <include>README.txt</include>
-                    </includes>
-                </fileSet>
-                -->
-                <fileSet filtered="true" packaged="false"
-                    encoding="UTF-8">
-                    <directory>src/main/content</directory>
-                    <includes>
-                        <include>**/*.*</include>
-                    </includes>
-                    <excludes>
-                        <exclude>**/*.png</exclude>
-                        <exclude>**/image</exclude>
-                        <exclude>**/file</exclude>
-                    </excludes>
-                </fileSet>
-                <fileSet filtered="false" packaged="false"
-                    encoding="UTF-8">
-                    <directory>src/main/content</directory>
-                    <includes>
-                        <include>**/*.png</include>
-                        <include>**/image</include>
-                        <include>**/file</include>
-                    </includes>
-                </fileSet>
-                <fileSet filtered="false" packaged="false"
-                    encoding="UTF-8">
-                    <directory>src/main/content/jcr_root</directory>
-                    <includes>
-                        <include>**/*</include>
-                    </includes>
-                </fileSet>
-            </fileSets>
-        </module>
-        <module id="${rootArtifactId}.it.tests" dir="it.tests" name="it.tests">
-            <fileSets>
-                <fileSet filtered="true" packaged="true"
-                    encoding="UTF-8">
-                    <directory>src/main/java</directory>
-                    <includes>
-                        <include>**/*.java</include>
-                    </includes>
-                </fileSet>
-                <fileSet filtered="true" packaged="true"
-                    encoding="UTF-8">
-                    <directory>src/test/java</directory>
-                    <includes>
-                        <include>**/*.java</include>
-                    </includes>
-                </fileSet>
-            </fileSets>
-        </module>
-        <module id="${rootArtifactId}.it.launcher" dir="it.launcher" name="it.launcher">
-            <fileSets>
-                <fileSet filtered="true" packaged="true"
-                    encoding="UTF-8">
-                    <directory>src/main/java</directory>
-                    <includes>
-                        <include>**/*.java</include>
-                    </includes>
-                </fileSet>
-                <fileSet filtered="true" packaged="true"
-                    encoding="UTF-8">
-                    <directory>src/test/java</directory>
-                    <includes>
-                        <include>**/*.java</include>
-                    </includes>
-                </fileSet>
-            </fileSets>
-        </module>
-    </modules>
+	<modules>
+		<module id="${rootArtifactId}.core" dir="core" name="core">
+			<fileSets>
+				<fileSet filtered="true" packaged="true" encoding="UTF-8">
+					<directory>src/main/java</directory>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" packaged="true" encoding="UTF-8">
+					<directory>src/test/java</directory>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+		<module id="${rootArtifactId}.ui.apps" dir="ui.apps"
+			name="ui.apps">
+			<fileSets>
+				<!-- <fileSet packaged="false" encoding="UTF-8"> <directory></directory> 
+					<includes> <include>README.txt</include> </includes> </fileSet> -->
+				<fileSet filtered="true" packaged="false" encoding="UTF-8">
+					<directory>src/main/content</directory>
+					<includes>
+						<include>**/*.*</include>
+					</includes>
+					<excludes>
+						<exclude>**/*.png</exclude>
+						<exclude>**/image</exclude>
+						<exclude>**/file</exclude>
+					</excludes>
+				</fileSet>
+				<fileSet filtered="false" packaged="false" encoding="UTF-8">
+					<directory>src/main/content</directory>
+					<includes>
+						<include>**/*.png</include>
+						<include>**/image</include>
+						<include>**/file</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="false" packaged="false" encoding="UTF-8">
+					<directory>src/main/content/jcr_root</directory>
+					<includes>
+						<include>**/*</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+		<module id="${rootArtifactId}.ui.content" dir="ui.content"
+			name="ui.content">
+			<fileSets>
+				<!-- <fileSet packaged="false" encoding="UTF-8"> <directory></directory> 
+					<includes> <include>README.txt</include> </includes> </fileSet> -->
+				<fileSet filtered="true" packaged="false" encoding="UTF-8">
+					<directory>src/main/content</directory>
+					<includes>
+						<include>**/*.*</include>
+					</includes>
+					<excludes>
+						<exclude>**/*.png</exclude>
+						<exclude>**/image</exclude>
+						<exclude>**/file</exclude>
+					</excludes>
+				</fileSet>
+				<fileSet filtered="false" packaged="false" encoding="UTF-8">
+					<directory>src/main/content</directory>
+					<includes>
+						<include>**/*.png</include>
+						<include>**/image</include>
+						<include>**/file</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="false" packaged="false" encoding="UTF-8">
+					<directory>src/main/content/jcr_root</directory>
+					<includes>
+						<include>**/*</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+		<module id="${rootArtifactId}.it.tests" dir="it.tests"
+			name="it.tests">
+			<fileSets>
+				<fileSet filtered="true" packaged="true" encoding="UTF-8">
+					<directory>src/main/java</directory>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" packaged="true" encoding="UTF-8">
+					<directory>src/test/java</directory>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+		<module id="${rootArtifactId}.it.launcher" dir="it.launcher"
+			name="it.launcher">
+			<fileSets>
+				<fileSet filtered="true" packaged="true" encoding="UTF-8">
+					<directory>src/main/java</directory>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" packaged="true" encoding="UTF-8">
+					<directory>src/test/java</directory>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+	</modules>
 
-  <fileSets>
-    <fileSet encoding="UTF-8">
-      <directory></directory>
-      <includes>
-        <include>README.md</include>
-      </includes>
-    </fileSet>
-    <fileSet encoding="UTF-8">
-      <directory></directory>
-      <includes>
-        <include>.gitignore</include>
-      </includes>
-    </fileSet>
-  </fileSets>
+	<fileSets>
+		<fileSet encoding="UTF-8">
+			<directory></directory>
+			<includes>
+				<include>README.md</include>
+			</includes>
+		</fileSet>
+		<fileSet encoding="UTF-8">
+			<directory></directory>
+			<includes>
+				<include>.gitignore</include>
+			</includes>
+		</fileSet>
+	</fileSets>
 </archetype-descriptor>
