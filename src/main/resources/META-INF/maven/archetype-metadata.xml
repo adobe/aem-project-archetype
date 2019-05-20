@@ -76,13 +76,8 @@
 			<defaultValue>n</defaultValue>
 			<validationRegex>^(y|n)$</validationRegex>
 		</requiredProperty>
-		<!-- Option to include domain mapping -->
-		<requiredProperty key="optionDomainName" />
 		<requiredProperty key="optionRunmodeConfigs">
 			<validationRegex>^(y|n)$</validationRegex>
-		</requiredProperty>
-		<requiredProperty key="envNames">
-		<validationRegex>(([a-z])+\,*)*</validationRegex>
 		</requiredProperty>
 		</requiredProperties>
 
