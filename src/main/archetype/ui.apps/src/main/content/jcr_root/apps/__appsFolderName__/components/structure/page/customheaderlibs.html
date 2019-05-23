@@ -19,10 +19,10 @@
 <!--/* Include Context Hub */-->
 <sly data-sly-resource="${symbol_dollar}{'contexthub' @ resourceType='granite/contexthub/components/contexthub'}"/>
 <!--/* Data layer JavaScript object: */-->
-<script  data-sly-use.data="/apps/${appsFolderName}/components/structure/page/datalayer.js"
+<script  data-sly-use.data="/apps/${appsFolderName}/components/structure/page/digital.js"
          data-sly-use.page="com.adobe.cq.wcm.core.components.models.Page">
 	
-  var siteData = {
+  var digitalData = {
 		  		  page: {
 		  			  pageInfo: {
 		  				  pageName: '${symbol_dollar}{data.pageName @context="scriptString"}',
