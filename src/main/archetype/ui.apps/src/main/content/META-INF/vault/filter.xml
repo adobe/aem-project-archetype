@@ -4,7 +4,5 @@
 #if ( $optionIncludeErrorHandler == "y" )
     <filter root="/apps/sling" />
 #end
-#if ( $optionDomainName != "" )
     <filter root="/etc/map.publish" />
-#end
 </workspaceFilter>
