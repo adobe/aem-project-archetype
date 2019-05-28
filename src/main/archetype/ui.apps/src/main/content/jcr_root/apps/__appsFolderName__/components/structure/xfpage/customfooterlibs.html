@@ -1,0 +1,5 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${symbol_dollar}{clientlib.js @ categories='${cssId}.base'}"/>
+    <!--/* Load authoring related client libraries */-->
+    <sly data-sly-test="${symbol_dollar}{wcmmode.preview || wcmmode.edit}" data-sly-call="${symbol_dollar}{clientLib.js @ categories='${cssId}.authoring'}"/>
+</sly>

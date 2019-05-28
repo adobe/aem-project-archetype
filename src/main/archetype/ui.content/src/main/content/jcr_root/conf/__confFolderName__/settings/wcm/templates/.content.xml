@@ -3,5 +3,8 @@
     jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="cq:Page">
     <content-page/>
+    <landing-page/>
+    <homepage/>
+    <experience-fragment-web-variation/>
     <rep:policy/>
 </jcr:root>
