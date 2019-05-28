@@ -98,6 +98,9 @@
             <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
+        <requiredProperty key="optionRunmodeConfigs">
+			<validationRegex>^(y|n)$</validationRegex>
+		</requiredProperty>
     </requiredProperties>
 
     <modules>
