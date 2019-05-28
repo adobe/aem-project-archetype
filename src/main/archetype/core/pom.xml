@@ -31,7 +31,7 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.sling</groupId>
-                <artifactId>maven-sling-plugin</artifactId>
+                <artifactId>sling-maven-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>org.apache.felix</groupId>
