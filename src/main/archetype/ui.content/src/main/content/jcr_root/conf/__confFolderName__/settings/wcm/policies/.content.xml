@@ -46,6 +46,206 @@
                     </form-container>
                 </container>
             </form>
+            <content jcr:primaryType="nt:unstructured">
+                <carousel jcr:primaryType="nt:unstructured">
+                    <policy_1558955398911
+                        jcr:description="Carousel component policy"
+                        jcr:lastModified="{Date}2019-05-27T16:40:43.304+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Carousel component policy"
+                        sling:resourceType="wcm/core/components/policy/policy">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0 jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item1
+                                        cq:styleClasses="cmp-carousel--custom"
+                                        cq:styleId="1558955415112"
+                                        cq:styleLabel="Custom"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                        </cq:styleGroups>
+                    </policy_1558955398911>
+                </carousel>
+                <image jcr:primaryType="nt:unstructured">
+                    <policy_1558955398922
+                        jcr:description="Image component policy"
+                        jcr:lastModified="{Date}2019-05-27T16:40:43.304+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Image component policy"
+                        sling:resourceType="wcm/core/components/policy/policy">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0 jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item1
+                                        cq:styleClasses="cmp-image--custom"
+                                        cq:styleId="2558955415122"
+                                        cq:styleLabel="Custom"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                        </cq:styleGroups>
+                    </policy_1558955398922>
+                </image>
+                <list jcr:primaryType="nt:unstructured">
+                    <policy_1558955398933
+                        jcr:description="List component policy"
+                        jcr:lastModified="{Date}2019-05-27T16:40:43.304+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="List component policy"
+                        sling:resourceType="wcm/core/components/policy/policy">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0 jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item1
+                                        cq:styleClasses="cmp-list--custom"
+                                        cq:styleId="3558955415132"
+                                        cq:styleLabel="Custom"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                        </cq:styleGroups>
+                    </policy_1558955398933>
+                </list>
+                <search jcr:primaryType="nt:unstructured">
+                    <policy_1558955398944
+                        jcr:description="Search component policy"
+                        jcr:lastModified="{Date}2019-05-27T16:40:43.304+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Search component policy"
+                        sling:resourceType="wcm/core/components/policy/policy">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0 jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item1
+                                        cq:styleClasses="cmp-search--custom"
+                                        cq:styleId="4558955415142"
+                                        cq:styleLabel="Custom"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                        </cq:styleGroups>
+                    </policy_1558955398944>
+                </search>
+                <sharing jcr:primaryType="nt:unstructured">
+                    <policy_1558955398955
+                        jcr:description="Sharing component policy"
+                        jcr:lastModified="{Date}2019-05-27T16:40:43.304+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Sharing component policy"
+                        sling:resourceType="wcm/core/components/policy/policy">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0 jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item1
+                                        cq:styleClasses="cmp-sharing--custom"
+                                        cq:styleId="5558955415152"
+                                        cq:styleLabel="Custom"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                        </cq:styleGroups>
+                    </policy_1558955398955>
+                </sharing>
+                <tabs jcr:primaryType="nt:unstructured">
+                    <policy_1558955398966
+                        jcr:description="Tabs component policy"
+                        jcr:lastModified="{Date}2019-05-27T16:40:43.304+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Tabs component policy"
+                        sling:resourceType="wcm/core/components/policy/policy">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0 jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item1
+                                        cq:styleClasses="cmp-tabs--custom"
+                                        cq:styleId="6558955415162"
+                                        cq:styleLabel="Custom"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                        </cq:styleGroups>
+                    </policy_1558955398966>
+                </tabs>
+                <teaser jcr:primaryType="nt:unstructured">
+                    <policy_1558955398977
+                        jcr:description="Teaser component policy"
+                        jcr:lastModified="{Date}2019-05-27T16:40:43.304+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Teaser component policy"
+                        sling:resourceType="wcm/core/components/policy/policy">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0 jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item1
+                                        cq:styleClasses="cmp-teaser--custom"
+                                        cq:styleId="7558955415172"
+                                        cq:styleLabel="Custom"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                        </cq:styleGroups>
+                    </policy_1558955398977>
+                </teaser>
+                <text jcr:primaryType="nt:unstructured">
+                    <policy_1558955398988
+                        jcr:description="Text component policy"
+                        jcr:lastModified="{Date}2019-05-27T16:40:43.304+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Text component policy"
+                        sling:resourceType="wcm/core/components/policy/policy">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0 jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item1
+                                        cq:styleClasses="cmp-text--custom"
+                                        cq:styleId="8558955415182"
+                                        cq:styleLabel="Custom"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                        </cq:styleGroups>
+                    </policy_1558955398988>
+                </text>
+                <title jcr:primaryType="nt:unstructured">
+                    <policy_1558955398999
+                        jcr:description="Title component policy"
+                        jcr:lastModified="{Date}2019-05-27T16:40:43.304+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Title component policy"
+                        sling:resourceType="wcm/core/components/policy/policy">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0 jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item1
+                                        cq:styleClasses="cmp-title--custom"
+                                        cq:styleId="9558955415192"
+                                        cq:styleLabel="Custom"
+                                        jcr:primaryType="nt:unstructured"/>
+                                </cq:styles>
+                            </item0>
+                        </cq:styleGroups>
+                    </policy_1558955398999>
+                </title>
+            </content>
         </components>
     </${appsFolderName}>
 </jcr:root>
