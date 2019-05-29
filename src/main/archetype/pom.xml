@@ -179,8 +179,8 @@
                 <!-- Apache Sling Plugin -->
                 <plugin>
                     <groupId>org.apache.sling</groupId>
-                    <artifactId>maven-sling-plugin</artifactId>
-                    <version>2.2.0</version>
+                    <artifactId>sling-maven-plugin</artifactId>
+                    <version>2.4.0</version>
                     <configuration>
                         <slingUrl>http://${aem.host}:${aem.port}/system/console</slingUrl>
                         <deploymentMethod>WebConsole</deploymentMethod>
@@ -371,12 +371,12 @@
         <profile>
             <id>autoInstallBundle</id>
             <!--
-                To enable this feature for a bundle, the maven-sling-plugin
+                To enable this feature for a bundle, the sling-maven-plugin
                 (without configuration) needs to be included:
 
                 <plugin>
                     <groupId>org.apache.sling</groupId>
-                    <artifactId>maven-sling-plugin</artifactId>
+                    <artifactId>sling-maven-plugin</artifactId>
                  </plugin>
             -->
             <activation>
@@ -387,7 +387,7 @@
                     <plugins>
                         <plugin>
                             <groupId>org.apache.sling</groupId>
-                            <artifactId>maven-sling-plugin</artifactId>
+                            <artifactId>sling-maven-plugin</artifactId>
                             <executions>
                                 <execution>
                                     <id>install-bundle</id>
