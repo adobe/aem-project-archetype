@@ -203,6 +203,38 @@
                 </fileSet>
             </fileSets>
         </module>
+        <module id="${rootArtifactId}.ui.permissions" dir="ui.permissions" name="ui.permissions">
+            <fileSets>
+                <fileSet filtered="true" packaged="false"
+                    encoding="UTF-8">
+                    <directory>src/main/content</directory>
+                    <includes>
+                        <include>**/*.*</include>
+                    </includes>
+                    <excludes>
+                        <exclude>**/*.png</exclude>
+                        <exclude>**/image</exclude>
+                        <exclude>**/file</exclude>
+                    </excludes>
+                </fileSet>
+                <fileSet filtered="false" packaged="false"
+                    encoding="UTF-8">
+                    <directory>src/main/content</directory>
+                    <includes>
+                        <include>**/*.png</include>
+                        <include>**/image</include>
+                        <include>**/file</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="false" packaged="false"
+                    encoding="UTF-8">
+                    <directory>src/main/content/jcr_root</directory>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
         <module id="${rootArtifactId}.it.tests" dir="it.tests" name="it.tests">
             <fileSets>
                 <fileSet filtered="true" packaged="true"
