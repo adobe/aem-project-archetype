@@ -18,18 +18,3 @@
 
 <!--/* Include Context Hub */-->
 <sly data-sly-resource="${symbol_dollar}{'contexthub' @ resourceType='granite/contexthub/components/contexthub'}"/>
-<!--/* Data layer JavaScript object: */-->
-<script>
-  var digitalData = {};
-  digitalData = {
-		  		  page: {
-		  			  pageInfo: {
-		  				  pageName: '${symbol_dollar}{currentPage.name @context="scriptString"}',
-		  				  pageURL : '${symbol_dollar}{currentPage.path @context="uri"}',
-		  				  pageType: '${symbol_dollar}{currentPage.name @context="scriptString"}',
-		  				  siteName: '${symbol_dollar}{request.serverName @context="scriptString"}'
-		  			  },
-  visitorProfile: {}
-   }
-
-</script>
