@@ -57,12 +57,14 @@
                 <artifactId>content-package-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
+#if ( $optionIncludeCustomGroups == "y" )
                     <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
                     <verbose>true</verbose>
                     <failOnError>true</failOnError>
                     <properties>
                         <acHandling>merge_preserve</acHandling>
                     </properties>
+#end
                 </configuration>
             </plugin>
         </plugins>

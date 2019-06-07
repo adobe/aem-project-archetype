@@ -98,6 +98,13 @@
             <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
+        <!--
+            Option to include custom groups in ui.permissions
+         -->
+        <requiredProperty key="optionIncludeCustomGroups">
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
     </requiredProperties>
 
     <modules>
