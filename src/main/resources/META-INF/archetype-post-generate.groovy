@@ -7,7 +7,7 @@ import groovy.transform.Field
 @Field def domainName = System.console().readLine 'Please enter domain name for url mapping [example.com]:'
 
 def optionIncludeErrorHandler = request.getProperties().get("optionIncludeErrorHandler")
-def optionRunmodeConfigs = request.getProperties().get("optionRunmodeConfigs")
+def optionRunmodeConfigs = request.getProperties().get("createRunmodeConfigs")
 
 /**
  * Delete/Do not generate error handling files/folder

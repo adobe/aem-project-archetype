@@ -98,7 +98,7 @@
             <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
-        <requiredProperty key="optionRunmodeConfigs">
+        <requiredProperty key="createRunmodeConfigs">
 			<validationRegex>^(y|n)$</validationRegex>
 		</requiredProperty>
     </requiredProperties>
