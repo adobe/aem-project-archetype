@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Page">
+    <en/>
+    <jcr:content
+        cq:lastModified="{Date}2016-03-07T17:32:10.926+01:00"
+        cq:lastModifiedBy="admin"
+        cq:redirectTarget="/content/${contentFolderName}/en"
+        cq:template="/conf/${confFolderName}/settings/wcm/templates/content-page"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="United States"
+        sling:resourceType="foundation/components/redirect"/>
+</jcr:root>

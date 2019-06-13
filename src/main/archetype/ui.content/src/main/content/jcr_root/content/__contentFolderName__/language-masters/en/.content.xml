@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:contextHubPath="/etc/cloudsettings/default/contexthub"
+        cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
+        cq:template="/conf/${confFolderName}/settings/wcm/templates/content-page"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="English"
+        sling:resourceType="${appsFolderName}/components/structure/page"
+        pageTitle="New Project"
+        socialMedia="[facebook]">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <responsivegrid
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/responsivegrid">
+                <title
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="What is Lorem Ipsum?"
+                    sling:resourceType="${appsFolderName}/components/content/title"/>
+                <text
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/content/text"
+                    text="&lt;p>&lt;b>Lorem Ipsum&lt;/b>&amp;nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&amp;#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.&lt;br>&#xa;&lt;/p>&#xa;"
+                    textIsRich="true"/>
+                <image
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/content/image"
+                    fileReference="/content/dam/${contentFolderName}/asset.jpg"/>
+                <list
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/content/list"
+                    childDepth="1"
+                    linkItems="true"
+                    listFrom="static"
+                    pages="[/content/${contentFolderName}/en,/content/${contentFolderName}/fr]"
+                    showDescription="false"
+                    showModificationDate="false"
+                    sortOrder="asc"
+                    tagsMatch="any"/>
+                <carousel
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/content/carousel"
+                    autoplay="false"
+                    delay="5000">
+                    <image
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/content/image"
+                        fileReference="/content/dam/${contentFolderName}/asset.jpg"/>
+                    <text
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/content/text"
+                        text="&lt;p>&lt;b>Lorem Ipsum&lt;/b>&amp;nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.&lt;/p>&#xa;"
+                        textIsRich="true"/>
+                </carousel>
+                <tabs
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/content/tabs">
+                    <item_1
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Tab 1"
+                        sling:resourceType="wcm/foundation/components/responsivegrid">
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/image"
+                            fileReference="/content/dam/${contentFolderName}/asset.jpg"/>
+                    </item_1>
+                    <item_2
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Tab 2"
+                        sling:resourceType="wcm/foundation/components/responsivegrid">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/text"
+                            text="&lt;p>&lt;b>Lorem Ipsum&lt;/b>&amp;nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                    </item_2>
+                </tabs>
+                <teaser
+                    jcr:description="&lt;p>Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.&lt;/p>&#xd;&#xa;"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Lorem Ipsum"
+                    sling:resourceType="${appsFolderName}/components/content/teaser"
+                    actionsEnabled="false"
+                    descriptionFromPage="false"
+                    fileReference="/content/dam/${contentFolderName}/asset.jpg"
+                    textIsRich="true"
+                    titleFromPage="false"/>
+                <helloworld
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/content/helloworld"/>
+                <container
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/form/container"
+                    action="/content/usergenerated/${contentFolderName}/en/cq-gen1506071823762/"
+                    actionType="foundation/components/form/actions/store">
+                    <text
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Lorem"
+                        sling:resourceType="${appsFolderName}/components/form/text"
+                        name="lorem"
+                        rows="2"
+                        type="text"/>
+                    <options
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Where does it come from?"
+                        sling:resourceType="${appsFolderName}/components/form/options"
+                        name="come-from"
+                        source="local"
+                        type="checkbox">
+                        <items jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                selected="false"
+                                text="A"
+                                value="a"/>
+                            <item1
+                                jcr:primaryType="nt:unstructured"
+                                selected="false"
+                                text="B"
+                                value="b"/>
+                        </items>
+                    </options>
+                    <button
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/form/button"/>
+                </container>
+                <sharing
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/content/sharing"/>
+            </responsivegrid>
+        </root>
+    </jcr:content>
+</jcr:root>

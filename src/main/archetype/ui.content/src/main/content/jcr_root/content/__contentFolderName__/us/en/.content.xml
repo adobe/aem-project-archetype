@@ -136,5 +136,10 @@
                     sling:resourceType="${appsFolderName}/components/content/sharing"/>
             </responsivegrid>
         </root>
+        <cq:LiveSyncConfig
+            cq:isDeep="{Boolean}true"
+            cq:master="/content/${contentFolderName}/language-masters/en"
+            cq:rolloutConfigs="[/libs/msm/wcm/rolloutconfigs/default]"
+            jcr:primaryType="cq:LiveCopy"/>
     </jcr:content>
 </jcr:root>
