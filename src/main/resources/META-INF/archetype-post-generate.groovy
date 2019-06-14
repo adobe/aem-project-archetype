@@ -113,22 +113,15 @@ def createUrlMapping() {
  			def folderToDelete = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/language-masters")
  			folderToDelete.deleteDir()
  			
- 			def folderName = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/us")
+ 		} else {
+ 			def folderToUpdate = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/language-masters/en")
+ 			folderToUpdate.renameTo( new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/language-masters/${fields[0]}"))
+ 			
+ 		}
+ 		
+ 		    def folderName = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/us")
  			folderName.renameTo( new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/${fields[1]}"))
  			
  			def fileName = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/${fields[1]}/en")
  			fileName.renameTo( new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/${fields[1]}/${fields[0]}"))
- 			
- 		} else {
- 		
- 			def folderName1 = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/language-masters/en")
- 			folderName1.renameTo( new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/language-masters/${fields[0]}"))
- 			
- 			def folderName2 = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/us")
- 			folderName2.renameTo( new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/${fields[1]}"))
- 			
- 			def fileName3 = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/${fields[1]}/en")
- 			fileName3.renameTo( new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/${fields[1]}/${fields[0]}"))
- 		
- 		}
  }

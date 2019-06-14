@@ -77,12 +77,14 @@
             Option to include server wide error handler for 404 response code
          -->
         <requiredProperty key="languageCountry">
+            <validationRegex>[a-z]+_[a-z]+</validationRegex>
         </requiredProperty>
         
         <!--
             Option to include server wide error handler for 404 response code
          -->
         <requiredProperty key="isSingleCountry">
+            <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
 
         <!--
