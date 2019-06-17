@@ -52,7 +52,7 @@
                     <group>${packageGroup}</group>
                 </configuration>
             </plugin>
-#if ( $optionIncludeCustomGroups == "y" )
+#if ( $createCustomGroups == "y" )
             <plugin>
                 <groupId>com.day.jcr.vault</groupId>
                 <artifactId>content-package-maven-plugin</artifactId>

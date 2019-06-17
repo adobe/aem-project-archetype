@@ -9,5 +9,5 @@
         jcr:mixinTypes="[rep:AccessControllable]"
         jcr:primaryType="nt:unstructured"
         sling:resourceType="cq/security/components/profile"
-        givenName="${appsFolderName} Content Admin"/>
+        givenName="${siteName} Content Admin"/>
 </jcr:root>
