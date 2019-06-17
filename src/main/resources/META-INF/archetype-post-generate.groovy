@@ -5,123 +5,43 @@ import groovy.transform.Field
 @Field def rootDir = new File(request.getOutputDirectory() + "/" + request.getArtifactId())
 @Field def uiAppsPackage = new File(rootDir, "ui.apps")
 @Field def uiContentPackage = new File(rootDir, "ui.content")
-@Field def domainName = System.console().readLine 'Please enter domain name for url mapping [example.com]:'
+
 
 def optionIncludeErrorHandler = request.getProperties().get("optionIncludeErrorHandler")
-def optionRunmodeConfigs = request.getProperties().get("optionRunmodeConfigs")
-def languageCountry = request.getProperties().get("languageCountry")
-def isSingleCountry = request.getProperties().get("isSingleCountry")
+def language_country = request.getProperties().get("language_country")
+def isSingleCountryWebsite = request.getProperties().get("isSingleCountryWebsite")
 
-/**
- * Delete/Do not generate error handling files/folder
- */
+
 if (optionIncludeErrorHandler == "n") {
     assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/sling").deleteDir()
 }
 
-/**
- * Generate runmode config files/folder
- */
-if (optionRunmodeConfigs == 'y') {
-    createRunModeConfigs()
-}
-
-createUrlMapping()
 
 buildContentSkeleton()
 
 /**
- * Write a String to a file with the given name in the given directory
+ * Create content skeleton based upon isSingleCountry
+ * & languageCountry input from user
  */
-def writeToFile(File dir, String fileName, String content) {
-    FileUtils.write(new File(dir, fileName), content, "UTF-8")
-}
 
-/**
- * Create runmode configs during archetype execution based
- * on input from user. Also generate default externalizer configs  
- */
-def createRunModeConfigs() {
+def buildContentSkeleton() {
 
-    def externalizerFileContent = """\
-	# Configuration created by Apache Sling JCR Installer
-    externalizer.domains = ["local\\ http://localhost:4502", "author\\ https://author-${domainName}", "publish\\ https://${domainName}"]
-    externalizer.contextpath = ""
-    externalizer.host = ""
-    externalizer.encodedpath = B"false"
-    """
+    println "Creating content skeleton..."
+    def contentDetails = language_country.split('_')
 
-    def envNames = System.console().readLine 'Please enter environment names for runmode configs (comma-delimited list)? [localdev,dev,qa,stage,prod]:'
-	if(envNames ==~ /(([a-z])+\,*)*/ && envNames.length()!=0){
-		envNames = envNames.split(/,/) as String[]
-			println "Creating runmode config folders..."
-			    for (int i = 0; i < envNames.length; i++) {
-			           def authorDir = new File(uiAppsPackage, "src/main/content/jcr_root/apps/${appsFolderName}/config.author.${envNames[i]}")
-			            authorDir.mkdir()
-			            def pubDir = new File(uiAppsPackage, "src/main/content/jcr_root/apps/${appsFolderName}/config.publish.${envNames[i]}")
-			            pubDir.mkdir()
-			            	if(domainName!=""){
-			            		writeToFile(authorDir, "com.day.cq.commons.impl.ExternalizerImpl.config", externalizerFileContent)
-			            		writeToFile(pubDir, "com.day.cq.commons.impl.ExternalizerImpl.config", externalizerFileContent)
-			            	}
-			    }
-	}else{
-		println 'please match expression (([a-z])+\\,*)*'
-		createRunModeConfigs()
-	}
-}
+    if (isSingleCountryWebsite == "y") {
+        def languageMastersDir = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/language-masters")
+        languageMastersDir.deleteDir()
 
-/**
- * Create etc mapping during archetype execution based
- * on domain name input from user.  
- */
-def createUrlMapping() {
-    def etcMappingContent = """<?xml version="1.0" encoding="UTF-8"?>
-		<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-	    jcr:primaryType="sling:Mapping"
-	    sling:internalRedirect="/content/${contentFolderName}/us/en"
-	    sling:match="^[^/]+/[^/]+/en"/>
-		"""
-    if (domainName != "") {
-        println "Creating etc mapping..."
-        def etcDir = new File(uiAppsPackage, "src/main/content/jcr_root/etc/map.publish/${domainName}")
-        etcDir.mkdir()
-        writeToFile(etcDir, ".content.xml", etcMappingContent)
     } else {
-        assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/${appsFolderName}/config.publish/org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl.config").delete()
-        assert new File(uiAppsPackage, "src/main/content/jcr_root/etc/map.publish").deleteDir()
-        File filterXML = new File(uiAppsPackage, "/src/main/content/META-INF/vault/filter.xml")
-        def content = "<filter root=\"/etc/map.publish\" />"
-        def fileText = filterXML.text
-        fileText = fileText.replaceAll(content, "")
-        filterXML.write(fileText);
-        println "Update filter.xml..."
-    }
-}
+        def languageDir = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/language-masters/en")
+        languageDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/language-masters/${contentDetails[0]}"))
 
-/**
- * My Code  
- */
- 
- def buildContentSkeleton() {
- 
- 		println "Creating content skeleton..."
- 		def fields = languageCountry.split('_')
- 		println "${fields[0]}"
- 		
- 		if (isSingleCountry == "y") {
- 			def folderToDelete = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/language-masters")
- 			folderToDelete.deleteDir()
- 			
- 		} else {
- 			def folderToUpdate = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/language-masters/en")
- 			folderToUpdate.renameTo( new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/language-masters/${fields[0]}"))
- 			
- 		}
- 		
- 		    def folderName = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/us")
- 			folderName.renameTo( new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/${fields[1]}"))
- 			
- 			def fileName = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/${fields[1]}/en")
- 			fileName.renameTo( new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/${fields[1]}/${fields[0]}"))
- }
+    }
+
+    def countryDir = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/us")
+    countryDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/${contentDetails[1]}"))
+
+    def languageInCountryDir = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/${contentDetails[1]}/en")
+    languageInCountryDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/${contentDetails[1]}/${contentDetails[0]}"))
+}
