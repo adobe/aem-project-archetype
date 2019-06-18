@@ -98,6 +98,9 @@
             <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
+        <requiredProperty key="createURlMapping">
+			<validationRegex>^(y|n)$</validationRegex>
+		</requiredProperty>
         <requiredProperty key="createRunmodeConfigs">
 			<validationRegex>^(y|n)$</validationRegex>
 		</requiredProperty>
