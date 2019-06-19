@@ -5,7 +5,7 @@
         cq:lastModified="{Date}2015-10-12T23:10:09.098+02:00"
         cq:lastModifiedBy="admin"
         cq:redirectTarget="/content/${contentFolderName}/en"
-        cq:template="/conf/${confFolderName}/settings/wcm/templates/content-page"
+        cq:template="/conf/${confFolderName}/settings/wcm/templates/homepage"
         jcr:primaryType="cq:PageContent"
         jcr:title="Language Masters"
         sling:resourceType="foundation/components/redirect"

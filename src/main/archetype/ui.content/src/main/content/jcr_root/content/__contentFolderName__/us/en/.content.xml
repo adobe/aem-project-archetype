@@ -4,9 +4,9 @@
     <jcr:content
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
-        cq:template="/conf/${confFolderName}/settings/wcm/templates/content-page"
+        cq:template="/conf/${confFolderName}/settings/wcm/templates/homepage"
         jcr:primaryType="cq:PageContent"
-        jcr:title="${languageCountry}"
+        jcr:title="${language_country}"
         sling:resourceType="${appsFolderName}/components/structure/page"
         pageTitle="New Project"
         socialMedia="[facebook]">
@@ -136,7 +136,7 @@
                     sling:resourceType="${appsFolderName}/components/content/sharing"/>
             </responsivegrid>
         </root>
-#if ( $isSingleCountry == "n" )
+#if ( $isSingleCountryWebsite == "n" )
         <cq:LiveSyncConfig
             cq:isDeep="{Boolean}true"
             cq:master="/content/${contentFolderName}/language-masters/en"

@@ -6,8 +6,8 @@
         cq:lastModified="{Date}2016-03-07T17:32:10.926+01:00"
         cq:lastModifiedBy="admin"
         cq:redirectTarget="/content/${contentFolderName}/en"
-        cq:template="/conf/${confFolderName}/settings/wcm/templates/content-page"
+        cq:template="/conf/${confFolderName}/settings/wcm/templates/homepage"
         jcr:primaryType="cq:PageContent"
-        jcr:title="United States"
+        jcr:title="${language_country}"
         sling:resourceType="foundation/components/redirect"/>
 </jcr:root>
