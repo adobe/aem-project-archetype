@@ -101,7 +101,7 @@
         <!--
             Option to include custom groups in ui.permissions
          -->
-        <requiredProperty key="createCustomGroups">
+        <requiredProperty key="deployCustomACLs">
             <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
