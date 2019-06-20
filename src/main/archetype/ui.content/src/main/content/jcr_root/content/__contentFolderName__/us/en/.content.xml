@@ -6,7 +6,7 @@
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
         cq:template="/conf/${confFolderName}/settings/wcm/templates/homepage"
         jcr:primaryType="cq:PageContent"
-        jcr:title="${language_country}"
+        jcr:title="${language_country.substring(0,2)}"
         sling:resourceType="${appsFolderName}/components/structure/page"
         pageTitle="New Project"
         socialMedia="[facebook]">
@@ -139,7 +139,7 @@
 #if ( $isSingleCountryWebsite == "n" )
         <cq:LiveSyncConfig
             cq:isDeep="{Boolean}true"
-            cq:master="/content/${contentFolderName}/language-masters/en"
+            cq:master="/content/${contentFolderName}/language-masters/${language_country.substring(0,2)}"
             cq:rolloutConfigs="[/libs/msm/wcm/rolloutconfigs/default]"
             jcr:primaryType="cq:LiveCopy"/>
 #end
