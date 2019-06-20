@@ -14,6 +14,8 @@
             <file/>
         </image>
     </jcr:content>
+#if ( $isSingleCountryWebsite == "n" )
     <language-masters/>
-    <us/>
+#end
+    <${language_country.substring(3)}/>
 </jcr:root>

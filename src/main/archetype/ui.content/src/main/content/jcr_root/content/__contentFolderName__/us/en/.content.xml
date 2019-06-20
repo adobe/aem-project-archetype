@@ -37,7 +37,7 @@
                     childDepth="1"
                     linkItems="true"
                     listFrom="static"
-                    pages="[/content/${contentFolderName}/en,/content/${contentFolderName}/fr]"
+                    pages="[/content/${contentFolderName}/${language_country.substring(3)}/${language_country.substring(0,2)}]"
                     showDescription="false"
                     showModificationDate="false"
                     sortOrder="asc"
@@ -97,7 +97,7 @@
                 <container
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="${appsFolderName}/components/form/container"
-                    action="/content/usergenerated/${contentFolderName}/en/cq-gen1506071823762/"
+                    action="/content/usergenerated/${contentFolderName}/${language_country.substring(3)}/${language_country.substring(0,2)}/cq-gen1506071823762/"
                     actionType="foundation/components/form/actions/store">
                     <text
                         jcr:primaryType="nt:unstructured"
