@@ -44,4 +44,33 @@ def buildContentSkeleton() {
 
     def languageInCountryDir = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/${contentDetails[1]}/en")
     languageInCountryDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/${contentDetails[1]}/${contentDetails[0]}"))
+    updateJCRTitle(contentDetails[0],contentDetails[1]);
+}
+/**
+ * Create content skeleton based upon isSingleCountry
+ */
+
+def updateJCRTitle(String lang,String country){
+	def currentDir = new File(".");
+	//Replace the contents of the list below with the 
+	//extensions to search for
+	def exts = [".xml"]
+
+	//Replace the value of srcExp to a String or regular expression
+	//to search for.
+	def languageTitle = 'jcr:title="'+lang+'"'
+	def countryTitle = 'jcr:title="'+country+'"'
+	
+	currentDir.eachFileRecurse(
+	  {file ->
+	    for (ext in exts){
+	      if (file.name.endsWith(ext)) {
+	        fileText = file.text;
+	        fileText = fileText.replaceAll(languageTitle,'jcr:title="'+new Locale(lang).getDisplayName()+'"')
+	        fileText = fileText.replaceAll(countryTitle,'jcr:title="'+new Locale(lang,country).getDisplayCountry()+'"')
+	        file.write(fileText);
+	      }
+	    }
+	  }
+	)
 }
