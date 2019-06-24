@@ -1,6 +1,7 @@
 import org.apache.commons.io.FileUtils
 import java.util.regex.*
 import groovy.transform.Field
+import java.util.Locale
 
 @Field def rootDir = new File(request.getOutputDirectory() + "/" + request.getArtifactId())
 @Field def uiAppsPackage = new File(rootDir, "ui.apps")
