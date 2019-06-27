@@ -21,7 +21,7 @@ This project has a number features that are intended to offer a convenient start
   * customfooterlibs.html and customheaderlibs.html snippet to load additional JS and CSS clientlibs according to the {cssId} property
 * Content Components
   * Example: helloworld example of custom HTL component with SlingModels for the logic
-  * breadcrumb, image, list, sharing, text, title, tab and carousel use the latest released version of the [AEM Core WCM Components]
+  * accordion, breadcrumb, button, carousel, container, download, image, list, sharing, tabs, text and title use the latest released version of the [AEM Core WCM Components]
   (https://github.com/Adobe-Marketing-Cloud/aem-core-wcm-components) with the recommended proxy pattern 
 * Form Components
   * button, container, hidden, options and text based on the AEM Core WCM Components
