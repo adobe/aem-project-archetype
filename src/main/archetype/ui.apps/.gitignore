@@ -1,10 +1,5 @@
 # Created by https://www.gitignore.io/api/eclipse,java,maven
 
-### Node ###
-node_modules/
-npm-debug.log
-package-lock.json
-install.js
 ### FE generated files ###
 src/main/content/jcr_root/apps/${appsFolderName}/clientlibs/clientlib-site/site.js
 src/main/content/jcr_root/apps/${appsFolderName}/clientlibs/clientlib-site/site.js.map

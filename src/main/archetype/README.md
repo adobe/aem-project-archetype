@@ -106,7 +106,7 @@ Minified (both dev and prod)
 
 1. Install [NodeJS](https://nodejs.org/en/download/) (v10+) and install it (globally).
 2. This will also install NPM.
-3. Navigate to `ui.apps` in your new project and run: `npm install`
+3. Navigate to `ui.frontend` in your new project and run: `npm install`
 
 ## Usage
 

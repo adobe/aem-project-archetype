@@ -27,6 +27,9 @@
     <modules>
         <module>core</module>
         <module>ui.apps</module>
+#if ( $optionSkipFrontend != "n" )
+        <module>ui.frontend</module>
+#end
         <module>ui.content</module>
         <module>it.tests</module>
         <module>it.launcher</module>

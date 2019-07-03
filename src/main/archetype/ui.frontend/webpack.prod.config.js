@@ -1,30 +1,32 @@
 'use strict';
 
-const path = require('path');
-const webpack = require('webpack');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path                    = require('path');
+const webpack                 = require('webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin    = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const TSConfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const TSLintPlugin = require('tslint-webpack-plugin');
+const TSConfigPathsPlugin     = require('tsconfig-paths-webpack-plugin');
+const TSLintPlugin            = require('tslint-webpack-plugin');
 
-const FC_APPS_ROOT = __dirname + '/src/main/content/jcr_root/apps/${appsFolderName}';
-const CLIENTLIBS_PATH = FC_APPS_ROOT + '/clientlibs';
+const SOURCE_ROOT = __dirname + '/src/main/webpack';
+const FC_APPS_ROOT            = __dirname + '/../ui.apps/src/main/content/jcr_root/apps/${appsFolderName}';
+const CLIENTLIBS_PATH         = FC_APPS_ROOT + '/clientlibs';
 
 module.exports = (env) => {
     return {
         resolve: {
-            extensions: ['js', '.ts'],
+            extensions: ['js', '.ts', '.tsx'],
             plugins: [new TSConfigPathsPlugin({
                 configFile: "./tsconfig.json"
             })]
         },
         entry: {
-            site: CLIENTLIBS_PATH + '/clientlib-site/webpack/main.ts',
-            dependencies: CLIENTLIBS_PATH + '/clientlib-site/webpack/vendors.js'
+            site: SOURCE_ROOT + '/site/main.ts',
+            dependencies: SOURCE_ROOT + '/site/vendors.js'
         },
         output: {
             filename: (chunkData) => {
-                return chunkData.chunk.name === 'dependencies' ? 'clientlib-dependencies/[name].js': 'clientlib-site/[name].js';
+                return chunkData.chunk.name === 'dependencies' ? 'clientlib-dependencies/[name].js' : 'clientlib-site/[name].js';
             },
             path: CLIENTLIBS_PATH
         },
@@ -50,31 +52,37 @@ module.exports = (env) => {
                     canPrint: false
                 })
             ],
-            splitChunks: {
-                cacheGroups: {
-                    main: {
-                        chunks: 'all',
-                        name: 'site',
-                        test: 'main',
-                        enforce: true
-                    },
-                    vendors: {
-                        chunks: 'all',
-                        name: 'dependencies',
-                        test: 'vendors',
-                        enforce: true
+            splitChunks:
+                {
+                    cacheGroups: {
+                        main: {
+                            chunks: 'all',
+                            name:
+                                'site',
+                            test:
+                                'main',
+                            enforce:
+                                true
+                        }
+                        ,
+                        vendors: {
+                            chunks: 'all',
+                            name:
+                                'dependencies',
+                            test:
+                                'vendors',
+                            enforce:
+                                true
+                        }
                     }
                 }
-            }
         },
         module: {
             rules: [
                 {
-                    test: /\.ts$/,
+                    test: /\.tsx?$/,
                     exclude: [
-                        /(node_modules)/,
-                        path.resolve(__dirname, '/src/main/content/jcr_root/apps/${appsFolderName}/clientlibs/clientlib-dependencies/js'),
-                        path.resolve(__dirname, '/src/main/content/jcr_root/apps/${appsFolderName}/clientlibs/**/vendors.js')
+                        /(node_modules)/
                     ],
                     use: [
                         {
@@ -121,40 +129,6 @@ module.exports = (env) => {
                             }
                         }
                     ]
-                },
-                {
-                    test: /\.less$/,
-                    use: [
-                        MiniCssExtractPlugin.loader,
-                        {
-                            loader: "css-loader",
-                            options: {
-                                url: false
-                            }
-                        },
-                        {
-                            loader: 'postcss-loader',
-                            options: {
-                                plugins() {
-                                    return [
-                                        require('autoprefixer')
-                                    ];
-                                }
-                            }
-                        },
-                        {
-                            loader: "less-loader",
-                            options: {
-                                url: false
-                            }
-                        },
-                        {
-                            loader: "webpack-import-glob-loader",
-                            options: {
-                                url: false
-                            }
-                        }
-                    ]
                 }
             ]
         },
@@ -164,13 +138,24 @@ module.exports = (env) => {
                 filename: 'clientlib-[name]/[name].css'
             }),
             new TSLintPlugin({
-                files: ['./**/components/**/*.ts']
+                files: ['./**/components/**/*.ts', './**/components/**/*.tsx']
+            }),
+            new CleanWebpackPlugin({
+                cleanOnceBeforeBuildPatterns: [
+                    CLIENTLIBS_PATH + '/clientlib-site/site.js',
+                    CLIENTLIBS_PATH + '/clientlib-site/site.css',
+                    CLIENTLIBS_PATH + '/clientlib-site/*.map',
+                    CLIENTLIBS_PATH + '/clientlib-dependencies/dependencies.js',
+                    CLIENTLIBS_PATH + '/clientlib-dependencies/dependencies.css',
+                    CLIENTLIBS_PATH + '/clientlib-dependencies/*.map'
+                ],
+                verbose: true,
+                dry: false,
+                dangerouslyAllowCleanPatternsOutsideProject: true
             })
         ],
-        devtool: 'source-map',
-        performance: {
-            hints: false
-        },
+        devtool: 'none',
+        performance: {hints: false},
         stats: {
             assetsSort: "chunks",
             builtAt: true,

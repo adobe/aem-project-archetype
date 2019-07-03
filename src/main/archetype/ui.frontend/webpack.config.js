@@ -1,31 +1,31 @@
 'use strict';
 
-const path = require('path');
-const webpack = require('webpack');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path                    = require('path');
+const webpack                 = require('webpack');
+const MiniCssExtractPlugin    = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const TSConfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const TSLintPlugin = require('tslint-webpack-plugin');
+const TSConfigPathsPlugin     = require('tsconfig-paths-webpack-plugin');
+const TSLintPlugin            = require('tslint-webpack-plugin');
 
-const FC_APPS_ROOT = __dirname + '/src/main/content/jcr_root/apps/${appsFolderName}';
+const SOURCE_ROOT     = __dirname + '/src/main/webpack';
+const FC_APPS_ROOT    = __dirname + '/../ui.apps/src/main/content/jcr_root/apps/${appsFolderName}';
 const CLIENTLIBS_PATH = FC_APPS_ROOT + '/clientlibs';
 
 module.exports = (env) => {
     return {
         resolve: {
-            extensions: ['js', '.ts', '.tsx'],
+            extensions: ['js', '.ts'],
             plugins: [new TSConfigPathsPlugin({
                 configFile: "./tsconfig.json"
             })]
         },
         entry: {
-            site: CLIENTLIBS_PATH + '/clientlib-site/webpack/main.ts',
-            dependencies: CLIENTLIBS_PATH + '/clientlib-site/webpack/vendors.js'
+            site: SOURCE_ROOT + '/site/main.ts',
+            dependencies: SOURCE_ROOT + '/site/vendors.js'
         },
         output: {
             filename: (chunkData) => {
-                return chunkData.chunk.name === 'dependencies' ? 'clientlib-dependencies/[name].js': 'clientlib-site/[name].js';
+                return chunkData.chunk.name === 'dependencies' ? 'clientlib-dependencies/[name].js' : 'clientlib-site/[name].js';
             },
             path: CLIENTLIBS_PATH
         },
@@ -71,11 +71,9 @@ module.exports = (env) => {
         module: {
             rules: [
                 {
-                    test: /\.ts$/,
+                    test: /\.tsx?$/,
                     exclude: [
-                        /(node_modules)/,
-                        path.resolve(__dirname, '/src/main/content/jcr_root/apps/${appsFolderName}/clientlibs/clientlib-dependencies/js'),
-                        path.resolve(__dirname, '/src/main/content/jcr_root/apps/${appsFolderName}/clientlibs/**/vendors.js')
+                        /(node_modules)/
                     ],
                     use: [
                         {
@@ -131,20 +129,10 @@ module.exports = (env) => {
                 filename: 'clientlib-[name]/[name].css'
             }),
             new TSLintPlugin({
-                files: ['./**/components/**/*.ts']
-            }),
-            new CleanWebpackPlugin([
-                CLIENTLIBS_PATH + '/clientlib-site/site.js',
-                CLIENTLIBS_PATH + '/clientlib-site/site.css',
-                CLIENTLIBS_PATH + '/clientlib-site/*.map',
-                CLIENTLIBS_PATH + '/clientlib-dependencies/dependencies.js',
-                CLIENTLIBS_PATH + '/clientlib-dependencies/dependencies.css',
-                CLIENTLIBS_PATH + '/clientlib-dependencies/*.map'
-            ], {
-                verbose: false
+                files: ['./**/components/**/*.ts', './**/components/**/*.tsx']
             })
         ],
-        devtool: 'none',
+        devtool: 'source-map',
         performance: {
             hints: false
         },

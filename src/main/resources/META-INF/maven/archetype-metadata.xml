@@ -98,6 +98,13 @@
             <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
+        <!--
+            Option to skip the dedicated frontend module
+         -->
+        <requiredProperty key="optionSkipFrontend">
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
     </requiredProperties>
 
     <modules>
@@ -124,12 +131,6 @@
                 <fileSet filtered="true" encoding="UTF-8">
                 <directory></directory>
                 <includes>
-                    <include>.babelrc</include>
-                    <include>package.json</include>
-                    <include>tsconfig.json</include>
-                    <include>tslint.json</include>
-                    <include>webpack.config.js</include>
-                    <include>webpack.prod.config.js</include>
                     <include>.gitignore</include>
                 </includes>
                 </fileSet>
@@ -163,16 +164,31 @@
                 </fileSet>
             </fileSets>
         </module>
-        <module id="${rootArtifactId}.ui.content" dir="ui.content" name="ui.content">
+        <module  id="${rootArtifactId}.ui.frontend" dir="ui.frontend" name="ui.frontend">
             <fileSets>
-                <!--
-                <fileSet packaged="false" encoding="UTF-8">
+                <fileSet filtered="true" encoding="UTF-8">
                     <directory></directory>
                     <includes>
-                        <include>README.txt</include>
+                        <include>.babelrc</include>
+                        <include>package.json</include>
+                        <include>tsconfig.json</include>
+                        <include>tslint.json</include>
+                        <include>webpack.config.js</include>
+                        <include>webpack.prod.config.js</include>
+                        <include>.gitignore</include>
                     </includes>
                 </fileSet>
-                -->
+                <fileSet filtered="false" packaged="false"
+                    encoding="UTF-8">
+                    <directory>src/main/webpack</directory>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
+        <module id="${rootArtifactId}.ui.content" dir="ui.content" name="ui.content">
+            <fileSets>
                 <fileSet filtered="true" packaged="false"
                     encoding="UTF-8">
                     <directory>src/main/content</directory>
