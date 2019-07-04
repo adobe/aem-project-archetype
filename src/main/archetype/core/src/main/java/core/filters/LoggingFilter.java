@@ -25,8 +25,10 @@ import javax.servlet.ServletResponse;
 
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.engine.EngineConstants;
-import org.osgi.framework.Constants;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.propertytypes.ServiceDescription;
+import org.osgi.service.component.propertytypes.ServiceRanking;
+import org.osgi.service.component.propertytypes.ServiceVendor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,11 +37,11 @@ import org.slf4j.LoggerFactory;
  */
 @Component(service = Filter.class,
            property = {
-                   Constants.SERVICE_DESCRIPTION + "=Demo to filter incoming requests",
                    EngineConstants.SLING_FILTER_SCOPE + "=" + EngineConstants.FILTER_SCOPE_REQUEST,
-                   Constants.SERVICE_RANKING + ":Integer=-700"
-
            })
+@ServiceDescription("Demo to filter incoming requests")
+@ServiceRanking(-700)
+@ServiceVendor("Adobe")
 public class LoggingFilter implements Filter {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
