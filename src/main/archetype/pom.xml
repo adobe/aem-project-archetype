@@ -42,7 +42,7 @@
         <vault.user>admin</vault.user>
         <vault.password>admin</vault.password>
         <core.wcm.components.version>2.5.0</core.wcm.components.version>
-
+        <bnd.version>4.2.0</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
@@ -67,12 +67,6 @@
                 <artifactId>maven-source-plugin</artifactId>
                 <version>3.0.1</version>
                 <inherited>true</inherited>
-            </plugin>
-            <!-- Maven Jar Plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.0.2</version>
             </plugin>
             <!-- Maven Enforcer Plugin -->
             <plugin>
@@ -111,11 +105,28 @@
         </plugins>
         <pluginManagement>
             <plugins>
+                <!-- Maven Jar Plugin -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.1.2</version>
+                </plugin>
                 <!-- Maven Clean Plugin -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>3.0.0</version>
+                </plugin>
+                <!-- BND Maven Plugin -->
+                <plugin>
+                    <groupId>biz.aQute.bnd</groupId>
+                    <artifactId>bnd-maven-plugin</artifactId>
+                    <version>${bnd.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>biz.aQute.bnd</groupId>
+                    <artifactId>bnd-baseline-maven-plugin</artifactId>
+                    <version>${bnd.version}</version>
                 </plugin>
                 <!-- Maven Resources Plugin -->
                 <plugin>
@@ -203,12 +214,10 @@
                         <password>${vault.password}</password>
                     </configuration>
                 </plugin>
-                <!-- Apache Felix Bundle Plugin -->
                 <plugin>
-                    <groupId>org.apache.felix</groupId>
-                    <artifactId>maven-bundle-plugin</artifactId>
-                    <version>4.1.0</version>
-                    <inherited>true</inherited>
+                    <groupId>biz.aQute.bnd</groupId>
+                    <artifactId>bnd-maven-plugin</artifactId>
+                    <version>${bnd.version}</version>
                 </plugin>
                 <!-- Maven Enforcer Plugin -->
                 <plugin>
