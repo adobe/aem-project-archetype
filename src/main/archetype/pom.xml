@@ -473,14 +473,14 @@
             <!-- OSGi Dependencies -->
             <dependency>
                 <groupId>org.osgi</groupId>
-                <artifactId>org.osgi.service.component.annotations</artifactId>
-                <version>1.4.0</version>
+                <artifactId>org.osgi.annotation.versioning</artifactId>
+                <version>1.1.0</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>org.osgi</groupId>
-                <artifactId>org.osgi.annotation</artifactId>
-                <version>6.0.0</version>
+                <artifactId>org.osgi.annotation.bundle</artifactId>
+                <version>1.0.0</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
@@ -491,15 +491,27 @@
             </dependency>
             <dependency>
                 <groupId>org.osgi</groupId>
+                <artifactId>org.osgi.service.component.annotations</artifactId>
+                <version>1.4.0</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.osgi</groupId>
+                <artifactId>org.osgi.framework</artifactId>
+                <version>1.9.0</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.osgi</groupId>
                 <artifactId>org.osgi.service.component</artifactId>
                 <version>1.4.0</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>org.osgi</groupId>
-                <artifactId>osgi.core</artifactId>
+                <artifactId>org.osgi.resource</artifactId>
+                <version>1.0.0</version>
                 <scope>provided</scope>
-                <version>7.0.0</version>
             </dependency>
             <dependency>
                 <groupId>javax.inject</groupId>
