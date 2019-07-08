@@ -22,39 +22,39 @@
                         </form>
                         <content jcr:primaryType="nt:unstructured">
                             <carousel
-                                cq:policy="${appsFolderName}/components/content/carousel/policy_1558955398911"
+                                cq:policy="${appsFolderName}/components/content/carousel/policy_carousel"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
                             <image
-                                cq:policy="${appsFolderName}/components/content/image/policy_1558955398922"
+                                cq:policy="${appsFolderName}/components/content/image/policy_image"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
                             <list
-                                cq:policy="${appsFolderName}/components/content/list/policy_1558955398933"
+                                cq:policy="${appsFolderName}/components/content/list/policy_list"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
                             <search
-                                cq:policy="${appsFolderName}/components/content/search/policy_1558955398944"
+                                cq:policy="${appsFolderName}/components/content/search/policy_search"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
                             <sharing
-                                cq:policy="${appsFolderName}/components/content/sharing/policy_1558955398955"
+                                cq:policy="${appsFolderName}/components/content/sharing/policy_sharing"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
                             <tabs
-                                cq:policy="${appsFolderName}/components/content/tabs/policy_1558955398966"
+                                cq:policy="${appsFolderName}/components/content/tabs/policy_tabs"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
                             <teaser
-                                cq:policy="${appsFolderName}/components/content/teaser/policy_1558955398977"
+                                cq:policy="${appsFolderName}/components/content/teaser/policy_teaser"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
                             <text
-                                cq:policy="${appsFolderName}/components/content/text/policy_1558955398988"
+                                cq:policy="${appsFolderName}/components/content/text/policy_text"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
                             <title
-                                cq:policy="${appsFolderName}/components/content/title/policy_1558955398999"
+                                cq:policy="${appsFolderName}/components/content/title/policy_title"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
                         </content>

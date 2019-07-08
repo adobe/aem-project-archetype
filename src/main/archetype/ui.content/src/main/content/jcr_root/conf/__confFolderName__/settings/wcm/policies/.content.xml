@@ -48,7 +48,7 @@
             </form>
             <content jcr:primaryType="nt:unstructured">
                 <carousel jcr:primaryType="nt:unstructured">
-                    <policy_1558955398911
+                    <policy_carousel
                         jcr:description="Carousel component policy"
                         jcr:lastModified="{Date}2019-05-27T16:40:43.304+05:30"
                         jcr:lastModifiedBy="admin"
@@ -67,10 +67,10 @@
                                 </cq:styles>
                             </item0>
                         </cq:styleGroups>
-                    </policy_1558955398911>
+                    </policy_carousel>
                 </carousel>
                 <image jcr:primaryType="nt:unstructured">
-                    <policy_1558955398922
+                    <policy_image
                         jcr:description="Image component policy"
                         jcr:lastModified="{Date}2019-05-27T16:40:43.304+05:30"
                         jcr:lastModifiedBy="admin"
@@ -89,10 +89,10 @@
                                 </cq:styles>
                             </item0>
                         </cq:styleGroups>
-                    </policy_1558955398922>
+                    </policy_image>
                 </image>
                 <list jcr:primaryType="nt:unstructured">
-                    <policy_1558955398933
+                    <policy_list
                         jcr:description="List component policy"
                         jcr:lastModified="{Date}2019-05-27T16:40:43.304+05:30"
                         jcr:lastModifiedBy="admin"
@@ -111,10 +111,10 @@
                                 </cq:styles>
                             </item0>
                         </cq:styleGroups>
-                    </policy_1558955398933>
+                    </policy_list>
                 </list>
                 <search jcr:primaryType="nt:unstructured">
-                    <policy_1558955398944
+                    <policy_search
                         jcr:description="Search component policy"
                         jcr:lastModified="{Date}2019-05-27T16:40:43.304+05:30"
                         jcr:lastModifiedBy="admin"
@@ -133,10 +133,10 @@
                                 </cq:styles>
                             </item0>
                         </cq:styleGroups>
-                    </policy_1558955398944>
+                    </policy_search>
                 </search>
                 <sharing jcr:primaryType="nt:unstructured">
-                    <policy_1558955398955
+                    <policy_sharing
                         jcr:description="Sharing component policy"
                         jcr:lastModified="{Date}2019-05-27T16:40:43.304+05:30"
                         jcr:lastModifiedBy="admin"
@@ -155,10 +155,10 @@
                                 </cq:styles>
                             </item0>
                         </cq:styleGroups>
-                    </policy_1558955398955>
+                    </policy_sharing>
                 </sharing>
                 <tabs jcr:primaryType="nt:unstructured">
-                    <policy_1558955398966
+                    <policy_tabs
                         jcr:description="Tabs component policy"
                         jcr:lastModified="{Date}2019-05-27T16:40:43.304+05:30"
                         jcr:lastModifiedBy="admin"
@@ -177,10 +177,10 @@
                                 </cq:styles>
                             </item0>
                         </cq:styleGroups>
-                    </policy_1558955398966>
+                    </policy_tabs>
                 </tabs>
                 <teaser jcr:primaryType="nt:unstructured">
-                    <policy_1558955398977
+                    <policy_teaser
                         jcr:description="Teaser component policy"
                         jcr:lastModified="{Date}2019-05-27T16:40:43.304+05:30"
                         jcr:lastModifiedBy="admin"
@@ -199,10 +199,10 @@
                                 </cq:styles>
                             </item0>
                         </cq:styleGroups>
-                    </policy_1558955398977>
+                    </policy_teaser>
                 </teaser>
                 <text jcr:primaryType="nt:unstructured">
-                    <policy_1558955398988
+                    <policy_text
                         jcr:description="Text component policy"
                         jcr:lastModified="{Date}2019-05-27T16:40:43.304+05:30"
                         jcr:lastModifiedBy="admin"
@@ -221,10 +221,10 @@
                                 </cq:styles>
                             </item0>
                         </cq:styleGroups>
-                    </policy_1558955398988>
+                    </policy_text>
                 </text>
                 <title jcr:primaryType="nt:unstructured">
-                    <policy_1558955398999
+                    <policy_title
                         jcr:description="Title component policy"
                         jcr:lastModified="{Date}2019-05-27T16:40:43.304+05:30"
                         jcr:lastModifiedBy="admin"
@@ -243,7 +243,7 @@
                                 </cq:styles>
                             </item0>
                         </cq:styleGroups>
-                    </policy_1558955398999>
+                    </policy_title>
                 </title>
             </content>
         </components>
