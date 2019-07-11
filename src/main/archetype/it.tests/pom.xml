@@ -31,7 +31,6 @@
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
     <artifactId>${artifactId}</artifactId>
-    <packaging>bundle</packaging>
     <name>${artifactName} - Integration Tests Bundles</name>
     <description>Bundles for Integration Tests for ${artifactName}</description>
 
@@ -49,37 +48,68 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <extensions>true</extensions>
-                <inherited>true</inherited>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-maven-plugin</artifactId>
                 <executions>
-                    <!-- Configure extra execution of 'manifest' in process-classes phase to make sure SCR metadata is generated before unit test runs -->
                     <execution>
-                        <id>scr-metadata</id>
+                        <id>bnd-process</id>
                         <goals>
-                            <goal>manifest</goal>
+                            <goal>bnd-process</goal>
                         </goals>
                         <configuration>
-                            <supportIncrementalBuild>true</supportIncrementalBuild>
+                            <bnd><![CDATA[
+#set( $startbrace = "{" )
+#set( $endbrace = "}" )
+Bundle-Category: ${componentGroupName}
+-exportcontents: $${startbrace}packages;VERSIONED${endbrace}
+-snapshot: $${startbrace}tstamp;yyyyMMddHHmmssSSS${endbrace}
+Bundle-DocURL:
+Sling-Test-Regexp: .*Test
+                            ]]></bnd>
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
-                    <exportScr>true</exportScr>
-                    <instructions>
-                        <Sling-Test-Regexp>.*Test</Sling-Test-Regexp>
-                        <!-- Enable processing of OSGI DS component annotations -->
-                        <_dsannotations>*</_dsannotations>
-                        <!-- Enable processing of OSGI metatype annotations -->
-                        <_metatypeannotations>*</_metatypeannotations>
-                    </instructions>
+                    <archive>
+                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                    </archive>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-baseline-maven-plugin</artifactId>
+                <configuration>
+                    <failOnMissing>false</failOnMissing>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>baseline</id>
+                        <goals>
+                            <goal>baseline</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
 
     <dependencies>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.annotation.versioning</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.service.metatype.annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.annotation.bundle</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -107,7 +137,6 @@
             <groupId>${groupId}</groupId>
             <artifactId>${rootArtifactId}.core</artifactId>
             <version>${version}</version>
-            <type>bundle</type>
             <scope>provided</scope>
         </dependency>
 

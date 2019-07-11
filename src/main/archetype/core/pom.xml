@@ -24,7 +24,6 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>${artifactId}</artifactId>
-    <packaging>bundle</packaging>
     <name>${artifactName} - Core</name>
     <description>Core bundle for ${artifactName}</description>
     <build>
@@ -34,65 +33,56 @@
                 <artifactId>sling-maven-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <extensions>true</extensions>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-maven-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>generate-osgi-metadata-for-unittests</id>
+                        <id>bnd-process</id>
                         <goals>
-                            <goal>manifest</goal>
-                        </goals>
-                        <phase>process-classes</phase>
-                    </execution>
-                    <execution>
-                        <id>scr-metadata</id>
-                        <goals>
-                            <goal>manifest</goal>
+                            <goal>bnd-process</goal>
                         </goals>
                         <configuration>
-                            <supportIncrementalBuild>true</supportIncrementalBuild>
+                            <bnd><![CDATA[
+#set( $startbrace = "{" )
+#set( $endbrace = "}" )
+Bundle-Category: ${componentGroupName}
+-exportcontents: $${startbrace}packages;VERSIONED${endbrace}
+Sling-Model-Packages: ${package}.core.models
+-snapshot: $${startbrace}tstamp;yyyyMMddHHmmssSSS${endbrace}
+Bundle-DocURL:
+Import-Package: javax.inject;version="0.0.0",javax.annotation;version="0.0.0",*
+                                ]]></bnd>
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-baseline-maven-plugin</artifactId>
                 <configuration>
-                    <exportScr>true</exportScr>
-                    <instructions>
-                        <!-- Import any version of javax.inject and javax.annotation, to allow running on multiple versions of AEM -->
-                        <Import-Package>
-                            javax.inject;version=0.0.0,
-                            javax.annotation;version=0.0.0,
-                            *
-                        </Import-Package>
-                        <Sling-Model-Packages>
-                            ${package}.core
-                        </Sling-Model-Packages>
-                        <_dsannotations>*</_dsannotations>
-                        <_metatypeannotations>*</_metatypeannotations>
-                        <_plugin>
-                            <!-- Enable registration of Sling Models classes via bnd plugin -->
-                            org.apache.sling.bnd.models.ModelsScannerPlugin,
-                            <!-- Allow the processing of SCR annotations via a bnd plugin -->
-                            org.apache.felix.scrplugin.bnd.SCRDescriptorBndPlugin;destdir=${project.build.outputDirectory}
-                        </_plugin>
-                    </instructions>
+                    <failOnMissing>false</failOnMissing>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.apache.felix</groupId>
-                        <artifactId>org.apache.felix.scr.bnd</artifactId>
-                        <version>1.9.0</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.apache.sling</groupId>
-                        <artifactId>org.apache.sling.bnd.models</artifactId>
-                        <version>1.0.0</version>
-                    </dependency>
-                </dependencies>
+                <executions>
+                    <execution>
+                        <id>baseline</id>
+                        <goals>
+                            <goal>baseline</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                    </archive>
+                </configuration>
             </plugin>
         </plugins>
     </build>
