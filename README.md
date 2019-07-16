@@ -89,6 +89,11 @@ siteName                  |         | AEM site name
 optionAemVersion          |  6.5.0  | Target AEM version
 optionIncludeExamples     |    y    | Include Component Library examples
 optionIncludeErrorHandler |    n    | Add custom 404 response page
+createRunmodeConfigs      |    n    | Generates runmode configurations by default for dev, qa, stage & prod
+createURlMapping          |    n    | Generates jcr resource resolver mapping configurations for /content/${siteName}
+language_country          |  en_us  | Locale for the content skeleton
+isSingleCountryWebsite    |    n    | Generates content skeleton considering project to be a single country website
+deployCustomACLs          |    n    | Generates ui.permissions module (deploys when 'deployCustomACLs=y')
 
 Note: If the archetype is executed in interactive mode the first time properties with default  values can't be changed (see 
 [ARCHETYPE-308](https://issues.apache.org/jira/browse/ARCHETYPE-308) for more details). The value can be  changed when the property 
