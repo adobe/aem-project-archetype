@@ -2,20 +2,16 @@
 
 const path                    = require('path');
 const webpack                 = require('webpack');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin    = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TSConfigPathsPlugin     = require('tsconfig-paths-webpack-plugin');
 const TSLintPlugin            = require('tslint-webpack-plugin');
+const { CleanWebpackPlugin }  = require('clean-webpack-plugin');
 
-const SOURCE_ROOT = __dirname + '/src/main/webpack';
-const FC_APPS_ROOT            = __dirname + '/../ui.apps/src/main/content/jcr_root/apps/${appsFolderName}';
-const CLIENTLIBS_PATH         = FC_APPS_ROOT + '/clientlibs';
+const SOURCE_ROOT     = __dirname + '/src/main/webpack';
 
-module.exports = (env) => {
-    return {
+module.exports = {
         resolve: {
-            extensions: ['js', '.ts', '.tsx'],
+            extensions: ['js', '.ts'],
             plugins: [new TSConfigPathsPlugin({
                 configFile: "./tsconfig.json"
             })]
@@ -28,54 +24,7 @@ module.exports = (env) => {
             filename: (chunkData) => {
                 return chunkData.chunk.name === 'dependencies' ? 'clientlib-dependencies/[name].js' : 'clientlib-site/[name].js';
             },
-            path: CLIENTLIBS_PATH
-        },
-        optimization: {
-            minimizer: [
-                new OptimizeCSSAssetsPlugin({
-                    cssProcessorPluginOptions: {
-                        cssProcessor: require('cssnano'),
-                        preset: ['default', {
-                            calc: true,
-                            convertValues: true,
-                            discardComments: {
-                                removeAll: true
-                            },
-                            discardDuplicates: true,
-                            discardEmpty: true,
-                            mergeRules: true,
-                            normalizeCharset: true,
-                            reduceInitial: true, // This is since IE11 does not support the value Initial
-                            svgo: true
-                        }],
-                    },
-                    canPrint: false
-                })
-            ],
-            splitChunks:
-                {
-                    cacheGroups: {
-                        main: {
-                            chunks: 'all',
-                            name:
-                                'site',
-                            test:
-                                'main',
-                            enforce:
-                                true
-                        }
-                        ,
-                        vendors: {
-                            chunks: 'all',
-                            name:
-                                'dependencies',
-                            test:
-                                'vendors',
-                            enforce:
-                                true
-                        }
-                    }
-                }
+            path: path.resolve(__dirname, 'dist')
         },
         module: {
             rules: [
@@ -133,29 +82,15 @@ module.exports = (env) => {
             ]
         },
         plugins: [
+            new CleanWebpackPlugin(),
             new webpack.NoEmitOnErrorsPlugin(),
             new MiniCssExtractPlugin({
                 filename: 'clientlib-[name]/[name].css'
             }),
             new TSLintPlugin({
                 files: ['./**/components/**/*.ts', './**/components/**/*.tsx']
-            }),
-            new CleanWebpackPlugin({
-                cleanOnceBeforeBuildPatterns: [
-                    CLIENTLIBS_PATH + '/clientlib-site/site.js',
-                    CLIENTLIBS_PATH + '/clientlib-site/site.css',
-                    CLIENTLIBS_PATH + '/clientlib-site/*.map',
-                    CLIENTLIBS_PATH + '/clientlib-dependencies/dependencies.js',
-                    CLIENTLIBS_PATH + '/clientlib-dependencies/dependencies.css',
-                    CLIENTLIBS_PATH + '/clientlib-dependencies/*.map'
-                ],
-                verbose: true,
-                dry: false,
-                dangerouslyAllowCleanPatternsOutsideProject: true
             })
         ],
-        devtool: 'none',
-        performance: {hints: false},
         stats: {
             assetsSort: "chunks",
             builtAt: true,
@@ -172,5 +107,4 @@ module.exports = (env) => {
             source: false,
             warnings: true
         }
-    }
 };
