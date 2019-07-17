@@ -170,12 +170,14 @@
                     <directory></directory>
                     <includes>
                         <include>.babelrc</include>
+                        <include>.gitignore</include>
+                        <include>clientlib.config.js</include>
                         <include>package.json</include>
                         <include>tsconfig.json</include>
                         <include>tslint.json</include>
-                        <include>webpack.config.js</include>
-                        <include>webpack.prod.config.js</include>
-                        <include>.gitignore</include>
+                        <include>webpack.common.js</include>
+                        <include>webpack.dev.js</include>
+                        <include>webpack.prod.js</include>
                     </includes>
                 </fileSet>
                 <fileSet filtered="false" packaged="false"
