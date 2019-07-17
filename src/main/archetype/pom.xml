@@ -25,10 +25,10 @@
     <description>${artifactName}</description>
 
     <modules>
-    #if ( $optionSkipFrontend != "n" )
-        <module>ui.frontend</module>
-    #end
         <module>core</module>
+#if ( $optionIncludeFrontendProject == "y" )
+        <module>ui.frontend</module>
+#end
         <module>ui.apps</module>
         <module>ui.content</module>
         <module>it.tests</module>

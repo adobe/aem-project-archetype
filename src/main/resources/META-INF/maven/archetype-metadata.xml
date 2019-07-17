@@ -101,7 +101,7 @@
         <!--
             Option to skip the dedicated frontend module
          -->
-        <requiredProperty key="optionSkipFrontend">
+        <requiredProperty key="optionIncludeFrontendProject">
             <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
@@ -164,7 +164,7 @@
                 </fileSet>
             </fileSets>
         </module>
-        <module  id="${rootArtifactId}.ui.frontend" dir="ui.frontend" name="ui.frontend">
+        <module id="${rootArtifactId}.ui.frontend" dir="ui.frontend" name="ui.frontend">
             <fileSets>
                 <fileSet filtered="true" encoding="UTF-8">
                     <directory></directory>
