@@ -7,17 +7,18 @@
       "url": "https://github.com/adobe/aem-project-archetype"
     },
     "private": true,
-    "main": "webpack.config.js",
+    "main": "src/main/webpack/site/main.ts",
     "license": "SEE LICENSE IN LICENSE.txt",
     "scripts": {
-      "dev": "webpack -d --env dev",
-      "prod": "webpack -p --config ./webpack.prod.config.js"
+      "dev": "webpack -d --env dev --config ./webpack.dev.js && clientlib --verbose",
+      "prod": "webpack -p --config ./webpack.prod.js && clientlib --verbose"
     },
     "devDependencies": {
       "@babel/core": "^7.0.0",
       "@babel/plugin-proposal-class-properties": "^7.3.3",
       "@babel/plugin-proposal-object-rest-spread": "^7.3.2",
       "acorn": "^6.1.0",
+      "aem-clientlib-generator": "^1.4.3",
       "autoprefixer": "^9.2.1",
       "browserslist": "^4.2.1",
       "clean-webpack-plugin": "^3.0.0",
@@ -39,7 +40,8 @@
       "typescript": "^3.3.3333",
       "webpack": "^4.27.1",
       "webpack-cli": "^3.1.2",
-      "webpack-import-glob-loader": "^1.6.3"
+      "webpack-import-glob-loader": "^1.6.3",
+      "webpack-merge": "^4.2.1"
     },
     "dependencies": {},
     "browserslist": [

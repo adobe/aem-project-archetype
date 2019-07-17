@@ -42,39 +42,18 @@
     <build>
         <sourceDirectory>src/main/content/jcr_root</sourceDirectory>
         <plugins>
-
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-clean-plugin</artifactId>
-                <configuration>
-                    <filesets>
-                        <fileset>
-                            <directory>${project.basedir}/../ui.apps/src/main/content/jcr_root/apps/${appsFolderName}/clientlibs</directory>
-                            <includes>
-                                <include>**/*.js</include>
-                                <include>**/*.css</include>
-                                <include>**/*.less</include>
-                            </includes>
-                            <excludes>
-                                <exclude>clientlib-site/less/grid.less</exclude>
-                            </excludes>
-                        </fileset>
-                    </filesets>
-                </configuration>
-            </plugin>
-
             <plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>webpack</id>
+                        <id>npm run prod</id>
+                        <phase>generate-resources</phase>
                         <goals>
-                            <goal>webpack</goal>
+                            <goal>npm</goal>
                         </goals>
                         <configuration>
-                            <arguments>-p --env prod --no-color --config ./webpack.prod.config.js</arguments>
+                            <arguments>run prod</arguments>
                         </configuration>
                     </execution>
                 </executions>
@@ -95,12 +74,13 @@
                         <artifactId>frontend-maven-plugin</artifactId>
                         <executions>
                             <execution>
-                                <id>webpack</id>
+                                <id>npm run dev</id>
+                                <phase>generate-resources</phase>
                                 <goals>
-                                    <goal>webpack</goal>
+                                    <goal>npm</goal>
                                 </goals>
                                 <configuration>
-                                    <arguments>-d --env dev --no-color --config ./webpack.config.js</arguments>
+                                    <arguments>run dev</arguments>
                                 </configuration>
                             </execution>
                         </executions>
