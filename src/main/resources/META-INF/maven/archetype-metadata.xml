@@ -99,9 +99,9 @@
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
         <!--
-            Option to skip the dedicated frontend module
+            Option to include a dedicated frontend module
          -->
-        <requiredProperty key="optionIncludeFrontendProject">
+        <requiredProperty key="optionIncludeFrontendModule">
             <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
@@ -122,6 +122,31 @@
                     <directory>src/test/java</directory>
                     <includes>
                         <include>**/*.java</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
+        <module id="${rootArtifactId}.ui.frontend" dir="ui.frontend" name="ui.frontend">
+            <fileSets>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory></directory>
+                    <includes>
+                        <include>.babelrc</include>
+                        <include>.gitignore</include>
+                        <include>clientlib.config.js</include>
+                        <include>package.json</include>
+                        <include>tsconfig.json</include>
+                        <include>tslint.json</include>
+                        <include>webpack.common.js</include>
+                        <include>webpack.dev.js</include>
+                        <include>webpack.prod.js</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="false" packaged="false"
+                         encoding="UTF-8">
+                    <directory>src/main/webpack</directory>
+                    <includes>
+                        <include>**/*</include>
                     </includes>
                 </fileSet>
             </fileSets>
@@ -158,31 +183,6 @@
                 <fileSet filtered="false" packaged="false"
                     encoding="UTF-8">
                     <directory>src/main/content/jcr_root</directory>
-                    <includes>
-                        <include>**/*</include>
-                    </includes>
-                </fileSet>
-            </fileSets>
-        </module>
-        <module id="${rootArtifactId}.ui.frontend" dir="ui.frontend" name="ui.frontend">
-            <fileSets>
-                <fileSet filtered="true" encoding="UTF-8">
-                    <directory></directory>
-                    <includes>
-                        <include>.babelrc</include>
-                        <include>.gitignore</include>
-                        <include>clientlib.config.js</include>
-                        <include>package.json</include>
-                        <include>tsconfig.json</include>
-                        <include>tslint.json</include>
-                        <include>webpack.common.js</include>
-                        <include>webpack.dev.js</include>
-                        <include>webpack.prod.js</include>
-                    </includes>
-                </fileSet>
-                <fileSet filtered="false" packaged="false"
-                    encoding="UTF-8">
-                    <directory>src/main/webpack</directory>
                     <includes>
                         <include>**/*</include>
                     </includes>

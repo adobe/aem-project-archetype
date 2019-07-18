@@ -26,9 +26,7 @@
 
     <modules>
         <module>core</module>
-#if ( $optionIncludeFrontendProject == "y" )
         <module>ui.frontend</module>
-#end
         <module>ui.apps</module>
         <module>ui.content</module>
         <module>it.tests</module>
