@@ -2,7 +2,7 @@
     "compilerOptions": {
         "target": "es5",
         "module": "es6",
-        "baseUrl": ".",
+        "baseUrl": "../ui.frontend",
         "removeComments": true,
         "allowJs": true,
         "preserveConstEnums": true,

@@ -72,34 +72,35 @@ Where 19 is the archetype version number that you want to use (see archetype ver
 
 ### Available properties
 
-Name                      | Default | Description
---------------------------|---------|--------------------
-groupId                   |         | Base Maven groupId
-artifactId                |         | Base Maven ArtifactId
-version                   |         | Version
-package                   |         | Java Source Package
-appsFolderName            |         | /apps folder name
-artifactName              |         | Maven Project Name
-componentGroupName        |         | AEM component group name
-contentFolderName         |         | /content folder name
-confFolderName            |         | /conf folder name
-cssId                     |         | prefix used in generated css
-packageGroup              |         | Content Package Group name
-siteName                  |         | AEM site name
-optionAemVersion          |  6.5.0  | Target AEM version
-optionIncludeExamples     |    y    | Include Component Library examples
-optionIncludeErrorHandler |    n    | Add custom 404 response page
+Name                        | Default | Description
+----------------------------|---------|--------------------
+groupId                     |         | Base Maven groupId
+artifactId                  |         | Base Maven ArtifactId
+version                     |         | Version
+package                     |         | Java Source Package
+appsFolderName              |         | /apps folder name
+artifactName                |         | Maven Project Name
+componentGroupName          |         | AEM component group name
+contentFolderName           |         | /content folder name
+confFolderName              |         | /conf folder name
+cssId                       |         | prefix used in generated css
+packageGroup                |         | Content Package Group name
+siteName                    |         | AEM site name
+optionAemVersion            |  6.5.0  | Target AEM version
+optionIncludeExamples       |    y    | Include a Component Library example site
+optionIncludeErrorHandler   |    n    | Include a custom 404 response page
+optionIncludeFrontendModule |    n    | Include a dedicated frontend module
 
-Note: If the archetype is executed in interactive mode the first time properties with default  values can't be changed (see 
-[ARCHETYPE-308](https://issues.apache.org/jira/browse/ARCHETYPE-308) for more details). The value can be  changed when the property 
-confirmation at the end is denied and the questionnaire gets repeated or by passing the parameter in the command line (e.g. 
+Note: If the archetype is executed in interactive mode the first time properties with default values can't be changed (see 
+[ARCHETYPE-308](https://issues.apache.org/jira/browse/ARCHETYPE-308) for more details). The value can be changed when the property 
+confirmation at the end is denied and the questionnaire gets repeated, or by passing the parameter in the command line (e.g. 
 `-DoptionIncludeExamples=n`).
 
 ### Requirements
 
-The latest version of the archetype has the following requirements
+The latest version of the archetype has the following requirements:
 
-* Adobe Experience Manager 6.3 SP3 or higher
+* Adobe Experience Manager 6.3.3.0 or higher
 * Apache Maven (3.3.9 or newer)
 * Adobe Public Maven Repository in maven settings, see [Knowledge Base](https://helpx.adobe.com/experience-manager/kb/SetUpTheAdobeMavenRepository.html) article for details.
 
@@ -111,13 +112,11 @@ To compile and use an edge, local version of this archetype:
 
     mvn clean install
 
-
 Then change to the directory in which you want to create the project and run:
 
     mvn archetype:generate \
      -DarchetypeGroupId=com.adobe.granite.archetypes \
      -DarchetypeArtifactId=aem-project-archetype \
      -DarchetypeVersion=20-SNAPSHOT
-     
-     
-Side note: The profile "adobe-public" must be activated when using profiles like "autoInstallPackage" mentioned above.
+
+Note: The profile "adobe-public" must be activated when using profiles like "autoInstallPackage" mentioned above.
