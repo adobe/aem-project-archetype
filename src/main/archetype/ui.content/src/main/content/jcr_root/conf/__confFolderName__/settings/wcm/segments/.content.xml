@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="cq/contexthub/components/segments-listing-page"/>
+    <summer-female-over-30/>
+    <over-30/>
+    <summer-male-over-30/>
+    <order-value-75-to-100/>
+    <summer-female/>
+    <order-value-over-100/>
+    <male-over-30/>
+    <winter-male-under-30/>
+    <female-over-30/>
+    <winter-female/>
+    <summer-male/>
+    <winter-male/>
+    <male-under-30/>
+    <winter-female-over-30/>
+    <winter/>
+    <summer-female-under-30/>
+    <male/>
+    <under-30/>
+    <summer/>
+    <female/>
+    <summer-male-under-30/>
+    <winter-male-over-30/>
+    <winter-female-under-30/>
+    <female-under-30/>
+</jcr:root>
