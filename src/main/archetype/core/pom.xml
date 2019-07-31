@@ -50,7 +50,6 @@ Bundle-Category: ${componentGroupName}
 Sling-Model-Packages: ${package}.core.models
 -snapshot: $${startbrace}tstamp;yyyyMMddHHmmssSSS${endbrace}
 Bundle-DocURL:
-Import-Package: javax.inject;version="0.0.0",javax.annotation;version="0.0.0",*
                                 ]]></bnd>
                         </configuration>
                     </execution>
@@ -128,14 +127,6 @@ Import-Package: javax.inject;version="0.0.0",javax.annotation;version="0.0.0",*
         <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi.resource</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>javax.inject</groupId>
-            <artifactId>javax.inject</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>javax.annotation</groupId>
-            <artifactId>javax.annotation-api</artifactId>
         </dependency>
         <!-- Other Dependencies -->
         <dependency>
