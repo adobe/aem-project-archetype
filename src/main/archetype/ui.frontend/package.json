@@ -1,29 +1,29 @@
 {
     "name": "aem-maven-archetype",
     "version": "1.0.0",
-    "description": "Generates an AEM project with Webpack",
+    "description": "Generates an AEM Frontend project with Webpack",
     "repository": {
       "type": "git",
-      "url": "https://gitlab.icidigital.com"
+      "url": "https://github.com/adobe/aem-project-archetype"
     },
     "private": true,
-    "main": "webpack.config.js",
+    "main": "src/main/webpack/site/main.ts",
     "license": "SEE LICENSE IN LICENSE.txt",
     "scripts": {
-      "dev": "webpack -d --env dev",
-      "prod": "webpack -p --config ./webpack.prod.config.js"
+      "dev": "webpack -d --env dev --config ./webpack.dev.js && clientlib --verbose",
+      "prod": "webpack -p --config ./webpack.prod.js && clientlib --verbose"
     },
     "devDependencies": {
       "@babel/core": "^7.0.0",
       "@babel/plugin-proposal-class-properties": "^7.3.3",
       "@babel/plugin-proposal-object-rest-spread": "^7.3.2",
       "acorn": "^6.1.0",
+      "aem-clientlib-generator": "^1.4.3",
       "autoprefixer": "^9.2.1",
       "browserslist": "^4.2.1",
-      "clean-webpack-plugin": "^0.1.19",
-      "css-loader": "^0.27.3",
-      "less": "^3.9.0",
-      "less-loader": "^4.1.0",
+      "clean-webpack-plugin": "^3.0.0",
+      "css-loader": "^3.0.0",
+      "cssnano": "^4.1.10",
       "mini-css-extract-plugin": "^0.4.4",
       "node-sass": "^4.11.0",
       "optimize-css-assets-webpack-plugin": "^5.0.1",
@@ -38,9 +38,10 @@
       "tslint-loader": "^3.5.4",
       "tslint-webpack-plugin": "^2.0.2",
       "typescript": "^3.3.3333",
-      "webpack": "^4.21.0",
-      "webpack-cli": "^3.1.1",
-      "webpack-import-glob-loader": "^1.6.3"
+      "webpack": "^4.27.1",
+      "webpack-cli": "^3.1.2",
+      "webpack-import-glob-loader": "^1.6.3",
+      "webpack-merge": "^4.2.1"
     },
     "dependencies": {},
     "browserslist": [

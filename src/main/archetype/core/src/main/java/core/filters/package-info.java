@@ -14,6 +14,6 @@
  *  limitations under the License.
  */
 @Version("1.0")
-package ${package}.core;
+package ${package}.core.filters;
 
 import org.osgi.annotation.versioning.Version;
