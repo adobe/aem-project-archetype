@@ -1,0 +1,23 @@
+/* BEM Description
+BLOCK cmp-breadcrumb
+    ELEMENT cmp-breadcrumb__list
+    ELEMENT cmp-breadcrumb__item
+        MOD cmp-breadcrumb__item--active
+    ELEMENT cmp-breadcrumb__item-link
+*/
+
+.cmp-breadcrumb {
+  &__list {
+
+  }
+
+  &__item {
+    &--active {
+
+    }
+
+    &-link {
+
+    }
+  }
+}

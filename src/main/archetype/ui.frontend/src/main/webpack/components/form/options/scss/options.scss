@@ -1,0 +1,49 @@
+/* BEM Description
+BLOCK cmp-form-options
+    ELEMENT cmp-form-options__legend
+    ELEMENT cmp-form-options__field-label
+    ELEMENT cmp-form-options__field
+        MOD cmp-form-options__field--checkbox
+        MOD cmp-form-options__field--radio
+    ELEMENT cmp-form-options__field-description
+    ELEMENT cmp-form-options__label
+    ELEMENT cmp-form-options__drop-down-field
+    ELEMENT cmp-form-options__multi-drop-down-field
+    ELEMENT cmp-form-options__help-message
+ */
+
+.cmp-form-options {
+  &__legend {
+
+  }
+
+  &__field-label {
+
+  }
+
+  &__field {
+    &--checkbox {
+
+    }
+
+    &--radio {
+
+    }
+
+    &-description {
+
+    }
+  }
+
+  &__label {
+  }
+
+  &__drop-down-field {
+  }
+
+  &__multi-drop-down-field {
+  }
+
+  &__help-message {
+  }
+}

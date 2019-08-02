@@ -11,6 +11,8 @@ module.exports = {
             allowProxy: true,
             categories: ["${cssId}.dependencies"],
             serializationFormat: "xml",
+            cssProcessor : ["default:none", "min:none"],
+            jsProcessor: ["default:none", "min:none"],
             assets: {
                 js: [
                     "dist/clientlib-dependencies/*.js",
@@ -26,6 +28,8 @@ module.exports = {
             categories: ["${cssId}.site"],
             dependencies: ["${cssId}.dependencies"],
             serializationFormat: "xml",
+            cssProcessor : ["default:none", "min:none"],
+            jsProcessor: ["default:none", "min:none"],
             assets: {
                 js: [
                     "dist/clientlib-site/*.js",

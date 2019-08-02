@@ -1,0 +1,23 @@
+/* BEN Description
+BLOCK cmp-list
+    ELEMENT cmp-list__item
+    ELEMENT cmp-list__item-link
+    ELEMENT cmp-list__item-title
+    ELEMENT cmp-list__item-date
+*/
+
+.cmp-list {
+  &__item {
+    &-link {
+
+    }
+
+    &-title {
+
+    }
+
+    &-date {
+
+    }
+  }
+}

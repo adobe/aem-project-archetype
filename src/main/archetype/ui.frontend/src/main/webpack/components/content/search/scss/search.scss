@@ -1,0 +1,56 @@
+/* BEM Description
+BLOCK cmp-search
+    ELEMENT cmp-search__form
+    ELEMENT cmp-search__field
+    ELEMENT cmp-search__icon
+    ELEMENT cmp-search__input
+    ELEMENT cmp-search__loading-indicator
+    ELEMENT cmp-search__clear
+    ELEMENT cmp-search__clear-icon
+    ELEMENT cmp-search__results
+    ELEMENT cmp-search__item
+    ELEMENT cmp-search__item-mark
+    ELEMENT cmp-search__item-title
+        MOD cmp-search__item--is-focused
+*/
+
+.cmp-search {
+  &__form {
+
+  }
+
+  &__field {
+
+  }
+
+  &__icon {
+
+  }
+
+  &__input {
+
+  }
+
+  &__loading-indicator {
+
+  }
+
+  &__clear {
+    &-icon {
+    }
+  }
+
+  &__results {
+  }
+
+  &__item {
+    &-mark {
+    }
+
+    &-title {
+    }
+
+    &--is-focused {
+    }
+  }
+}

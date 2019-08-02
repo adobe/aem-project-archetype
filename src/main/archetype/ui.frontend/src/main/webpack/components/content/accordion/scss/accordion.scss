@@ -1,0 +1,39 @@
+/* BEM Description
+BLOCK cmp-accordion
+    ELEMENT cmp-accordion__item
+    ELEMENT cmp-accordion__header
+    ELEMENT cmp-accordion__button
+        MOD cmp-accordion__button--expanded
+    ELEMENT cmp-accordion__title
+    ELEMENT cmp-accordion__icon
+    ELEMENT cmp-accordion__panel
+        MOD cmp-accordion__panel--expanded
+        MOD cmp-accordion__panel--hidden
+*/
+
+.cmp-accordion {
+  &__item {
+  }
+
+  &__header {
+  }
+
+  &__button {
+    &--expanded {
+    }
+  }
+
+  &__title {
+  }
+
+  &__icon {
+  }
+
+  &__panel {
+    &--expanded {
+    }
+
+    &--hidden {
+    }
+  }
+}

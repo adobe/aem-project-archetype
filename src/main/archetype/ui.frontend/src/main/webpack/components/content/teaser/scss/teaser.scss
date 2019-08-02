@@ -1,0 +1,38 @@
+/* BEM Description
+BLOCK cmp-teaser
+    ELEMENT cmp-teaser__image
+    ELEMENT cmp-teaser__content
+    ELEMENT cmp-teaser__title
+    ELEMENT cmp-teaser__title-link
+    ELEMENT cmp-teaser__description
+    ELEMENT cmp-teaser__action-container
+    ELEMENT cmp-teaser__action-link
+ */
+
+.cmp-teaser {
+  &__image {
+
+  }
+
+  &__content {
+
+  }
+
+  &__title {
+    &-link {
+
+    }
+  }
+
+  &__description {
+
+  }
+
+  &__action-container {
+
+  }
+
+  &__action-link {
+
+  }
+}
