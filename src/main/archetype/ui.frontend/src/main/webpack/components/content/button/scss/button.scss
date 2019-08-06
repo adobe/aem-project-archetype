@@ -1,17 +1,4 @@
-/* BEM Description
-BLOCK cmp-button
-    ELEMENT cmp-button__text
-    ELEMENT cmp-button__icon
-        MOD cmp-button__icon--<icon>
-
-*/
-
-.cmp-button {
-  &__text {
-
-  }
-
-  &__icon {
-
-  }
-}
+.cmp-button {}
+.cmp-button__text {}
+.cmp-button__icon {}
+//.cmp-button__icon--myIcon {}

@@ -1,43 +1,9 @@
-/* BEM Description
-BLOCK cmp-languagenavigation
-    ELEMENT cmp-languagenavigation__group
-    ELEMENT cmp-languagenavigation__item
-        MOD cmp-languagenavigation__item--active
-        MOD cmp-languagenavigation__item--countrycode-*
-        MOD cmp-languagenavigation__item--langcode-*
-        MOD cmp-languagenavigation__item--level-*
-    ELEMENT cmp-languagenavigation__item-link
-    ELEMENT cmp-languagenavigation__item-title
-*/
-
-.cmp-languagenavigation {
-  &__group {
-
-  }
-
-  &__item {
-    &--active {
-
-    }
-
-    //&--countrycode-en {
-    //
-    //}
-
-    //&--langcode-en {
-    //
-    //}
-
-    //&--level-1 {
-    //
-    //}
-
-    &-link {
-
-    }
-
-    &-title {
-
-    }
-  }
-}
+.cmp-languagenavigation {}
+.cmp-languagenavigation__group {}
+.cmp-languagenavigation__item {}
+.cmp-languagenavigation__item--active {}
+//.cmp-languagenavigation--countrycode-US
+//.cmp-languagenavigation--langcode-en-US
+//.cmp-languagenavigation__item--level-0 {}
+.cmp-languagenavigation__item-link {}
+.cmp-languagenavigation__item-title {}

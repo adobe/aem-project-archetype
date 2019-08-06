@@ -1,26 +1,6 @@
-/*  BEM Description
-BLOCK cmp-tabs
-    ELEMENT cmp-tabs__tablist
-    ELEMENT cmp-tabs__tab
-        MOD cmp-tabs__tab--active
-    ELEMENT cmp-tabs__tabpanel
-        MOD cmp-tabs__tabpanel--active
-*/
-
-.cmp-tabs {
-  &__tablist {
-
-  }
-
-  &__tab {
-    &--active {
-
-    }
-  }
-
-  &__tabpanel {
-    &--active {
-
-    }
-  }
-}
+.cmp-tabs {}
+.cmp-tabs__tablist {}
+.cmp-tabs__tab {}
+.cmp-tabs__tab--active {}
+.cmp-tabs__tabpanel {}
+.cmp-tabs__tabpanel--active {}

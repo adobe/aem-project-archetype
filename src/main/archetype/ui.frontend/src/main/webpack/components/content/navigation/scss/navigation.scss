@@ -1,28 +1,6 @@
-/* BEM Description
-BLOCK cmp-navigation
-    ELEMENT cmp-navigation__group
-    ELEMENT cmp-navigation__item
-        MOD cmp-navigation__item--active
-        MOD cmp-navigation__item--level-*
-    ELEMENT cmp-navigation__item-link
-*/
-
-.cmp-navigation {
-  &__group {
-
-  }
-
-  &__item {
-    &--active {
-
-    }
-
-    //&--level-1 {
-    //
-    //}
-
-    &-link {
-
-    }
-  }
-}
+.cmp-navigation {}
+.cmp-navigation__group {}
+.cmp-navigation__item {}
+.cmp-navigation__item--active {}
+//.cmp-navigation__item--level-0 {}
+.cmp-navigation__item-link {}

@@ -1,40 +1,8 @@
-/* BEM Description
-BLOCK cmp-contentfragment
-    ELEMENT cmp-contentfragment__title
-    ELEMENT cmp-contentfragment__description
-    ELEMENT cmp-contentfragment__elements
-    ELEMENT cmp-contentfragment__element
-        MOD cmp-contentfragment__element--<name>
-    ELEMENT cmp-contentfragment__element-title
-    ELEMENT cmp-contentfragment__element-value
-
-*/
-
-.cmp-contentfragment {
-  &__title {
-
-  }
-
-  &__description {
-
-  }
-
-  &__elements {
-
-  }
-
-  &__element {
-
-    //&-name {
-    //
-    //}
-
-    &-title {
-
-    }
-
-    &-value {
-
-    }
-  }
-}
+.cmp-contentfragment {}
+.cmp-contentfragment__title {}
+.cmp-contentfragment__description {}
+.cmp-contentfragment__elements {}
+.cmp-contentfragment__element {}
+//.cmp-contentfragment__element--myElementName {}
+.cmp-contentfragment__element-title {}
+.cmp-contentfragment__element-value {}

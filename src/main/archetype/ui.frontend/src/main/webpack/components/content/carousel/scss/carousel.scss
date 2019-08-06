@@ -1,56 +1,14 @@
-/* BEM Description
-BLOCK cmp-carousel
-    ELEMENT cmp-carousel__content
-    ELEMENT cmp-carousel__item
-    ELEMENT cmp-carousel__actions
-    ELEMENT cmp-carousel__action
-        MOD cmp-carousel__action--disabled
-        MOD cmp-carousel__action--previous
-        MOD cmp-carousel__action--next
-        MOD cmp-carousel__action--pause
-        MOD cmp-carousel__action--play
-    ELEMENT cmp-carousel__action-icon
-    ELEMENT cmp-carousel__action-text
-    ELEMENT cmp-carousel__indicators
-    ELEMENT cmp-carousel__indicator
-*/
-
-.cmp-carousel {
-  &__content {
-  }
-
-  &__item {
-  }
-
-  &__actions {
-  }
-
-  &__action {
-    &--disabled {
-    }
-
-    &--previous {
-    }
-
-    &--next {
-    }
-
-    &--pause {
-    }
-
-    &--play {
-    }
-
-    &-icon {
-    }
-
-    &-text {
-    }
-  }
-
-  &__indicators {
-  }
-
-  &__indicator {
-  }
-}
+.cmp-carousel {}
+.cmp-carousel__content {}
+.cmp-carousel__item {}
+.cmp-carousel__actions {}
+.cmp-carousel__action {}
+.cmp-carousel__action--disabled {}
+.cmp-carousel__action--previous {}
+.cmp-carousel__action--next {}
+.cmp-carousel__action--pause {}
+.cmp-carousel__action--play {}
+.cmp-carousel__action-icon {}
+.cmp-carousel__action-text {}
+.cmp-carousel__indicators {}
+.cmp-carousel__indicator {}

@@ -1,56 +1,13 @@
-/* BEM Description
-BLOCK cmp-search
-    ELEMENT cmp-search__form
-    ELEMENT cmp-search__field
-    ELEMENT cmp-search__icon
-    ELEMENT cmp-search__input
-    ELEMENT cmp-search__loading-indicator
-    ELEMENT cmp-search__clear
-    ELEMENT cmp-search__clear-icon
-    ELEMENT cmp-search__results
-    ELEMENT cmp-search__item
-    ELEMENT cmp-search__item-mark
-    ELEMENT cmp-search__item-title
-        MOD cmp-search__item--is-focused
-*/
-
-.cmp-search {
-  &__form {
-
-  }
-
-  &__field {
-
-  }
-
-  &__icon {
-
-  }
-
-  &__input {
-
-  }
-
-  &__loading-indicator {
-
-  }
-
-  &__clear {
-    &-icon {
-    }
-  }
-
-  &__results {
-  }
-
-  &__item {
-    &-mark {
-    }
-
-    &-title {
-    }
-
-    &--is-focused {
-    }
-  }
-}
+.cmp-search {}
+.cmp-search__form {}
+.cmp-search__field {}
+.cmp-search__icon {}
+.cmp-search__input {}
+.cmp-search__loading-indicator {}
+.cmp-search__clear {}
+.cmp-search__clear-icon {}
+.cmp-search__results {}
+.cmp-search__item {}
+.cmp-search__item-mark {}
+.cmp-search__item-title {}
+.cmp-search__item--is-focused {}
