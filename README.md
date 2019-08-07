@@ -66,9 +66,9 @@ Or use your mvn skills:
     mvn archetype:generate \
      -DarchetypeGroupId=com.adobe.granite.archetypes \
      -DarchetypeArtifactId=aem-project-archetype \
-     -DarchetypeVersion=19
+     -DarchetypeVersion=20
 
-Where 19 is the archetype version number that you want to use (see archetype versions below).
+Where 20 is the archetype version number that you want to use (see archetype versions below).
 
 ### Available properties
 
@@ -117,6 +117,6 @@ Then change to the directory in which you want to create the project and run:
     mvn archetype:generate \
      -DarchetypeGroupId=com.adobe.granite.archetypes \
      -DarchetypeArtifactId=aem-project-archetype \
-     -DarchetypeVersion=20-SNAPSHOT
+     -DarchetypeVersion=21-SNAPSHOT
 
 Note: The profile "adobe-public" must be activated when using profiles like "autoInstallPackage" mentioned above.
