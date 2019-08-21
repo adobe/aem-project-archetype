@@ -238,11 +238,6 @@
                         <password>${vault.password}</password>
                     </configuration>
                 </plugin>
-                <plugin>
-                    <groupId>biz.aQute.bnd</groupId>
-                    <artifactId>bnd-maven-plugin</artifactId>
-                    <version>${bnd.version}</version>
-                </plugin>
                 <!-- Maven Enforcer Plugin -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
