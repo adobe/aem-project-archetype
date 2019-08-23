@@ -77,7 +77,7 @@ The project comes with the auto-public repository configured. To setup the repos
 ### Installation
 
 1. Install [NodeJS](https://nodejs.org/en/download/) (v10+), globally. This will also install `npm`.
-2. Navigate to `ui.frontend` in your project and run `npm install`.
+2. Navigate to `ui.frontend` in your project and run `npm install`. (You must have run the archetype with `-DoptionIncludeFrontendModule=y` to populate the ui.frontend folder) 
 
 ### Usage
 
