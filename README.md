@@ -17,13 +17,13 @@ This project has a number features that are intended to offer a convenient start
   * Example content policy
 
 * Page component
-  * Based on the [page AEM Core WCM Component](https://github.com/Adobe-Marketing-Cloud/aem-core-wcm-components/tree/master/content/src/content/jcr_root/apps/core/wcm/components/page/v1/page)
+  * Based on the [AEM Sites Core Component page](https://github.com/adobe/aem-core-wcm-components/tree/master/content/src/content/jcr_root/apps/core/wcm/components/page/v1/page)
   * customfooterlibs.html and customheaderlibs.html snippet to load additional JS and CSS clientlibs according to the {cssId} property
 * Content Components
   * Example: helloworld example of custom HTL component with SlingModels for the logic
   * accordion, breadcrumb, button, carousel, container, content fragment, content fragment list, download, 
   experience fragment, image, language navigation, list, navigation, sharing, tabs, teaser, text and title 
-  use the latest released version of the [AEM Core WCM Components](https://github.com/Adobe-Marketing-Cloud/aem-core-wcm-components) with the recommended proxy pattern 
+  use the latest released version of the [AEM Sites Core Components](https://github.com/adobe/aem-core-wcm-components) with the recommended proxy pattern 
 * Form Components
   * button, container, hidden, options and text based on the AEM Core WCM Components
 
