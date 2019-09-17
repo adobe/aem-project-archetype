@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
-    <filter root="/content/${contentFolderName}"/>
-    <filter root="/content/dam/${contentFolderName}"/>
+    <filter root="/conf/${confFolderName}" mode="merge"/>
+    <filter root="/content/${contentFolderName}" mode="merge"/>
+    <filter root="/content/dam/${contentFolderName}" mode="merge"/>
 </workspaceFilter>

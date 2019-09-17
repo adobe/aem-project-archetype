@@ -1,0 +1,5 @@
+# Created by https://www.gitignore.io/api/eclipse,java,maven
+
+### FE generated files ###
+src/main/content/jcr_root/apps/${appsFolderName}/clientlibs/clientlib-site
+src/main/content/jcr_root/apps/${appsFolderName}/clientlibs/clientlib-dependencies

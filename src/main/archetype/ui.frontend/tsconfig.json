@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "es6",
+        "baseUrl": "../ui.frontend",
+        "removeComments": true,
+        "allowJs": true,
+        "preserveConstEnums": true,
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": true
+    },
+    "include": [ "**/*.ts" ],
+    "exclude": [
+        "node_modules",
+        "**/tests/*.js",
+        "**/tests/*.ts",
+        "**/target",
+        "**/*.spec.ts",
+        "**/*.spec.js",
+        "*.config.js",
+        "**/clientlib-dependencies/dependencies.js",
+        "**/clientlib-site/site.js",
+        "**/clientlib-site/webpack/vendors.js"
+    ]
+}

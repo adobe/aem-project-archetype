@@ -15,34 +15,52 @@
  */
 package ${package}.core.models;
 
+import static org.apache.sling.api.resource.ResourceResolver.PROPERTY_RESOURCE_TYPE;
+
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
+import org.apache.sling.models.annotations.injectorspecific.OSGiService;
+import org.apache.sling.models.annotations.injectorspecific.SlingObject;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.apache.sling.settings.SlingSettingsService;
 
-@Model(adaptables=Resource.class)
+import com.day.cq.wcm.api.Page;
+import com.day.cq.wcm.api.PageManager;
+
+@Model(adaptables = Resource.class)
 public class HelloWorldModel {
 
-    @Inject
-    private SlingSettingsService settings;
-
-    @Inject @Named("sling:resourceType") @Default(values="No resourceType")
+    @ValueMapValue(name=PROPERTY_RESOURCE_TYPE, injectionStrategy=InjectionStrategy.OPTIONAL)
+    @Default(values="No resourceType")
     protected String resourceType;
+
+    @OSGiService
+    private SlingSettingsService settings;
+    @SlingObject
+    private Resource currentResource;
+    @SlingObject
+    private ResourceResolver resourceResolver;
 
     private String message;
 
     @PostConstruct
     protected void init() {
-        message = "\tHello World!\n";
-        message += "\tThis is instance: " + settings.getSlingId() + "\n";
-        message += "\tResource type is: " + resourceType + "\n";
+        PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
+        Page currentPage = pageManager.getContainingPage(currentResource);
+
+        message = "\tHello World!\n"
+            + "\tThis is instance: " + settings.getSlingId() + "\n"
+            + "\tResource type is: " + resourceType + "\n"
+            + "\tCurrent page is: " + (currentPage != null ? currentPage.getPath() : "") + "\n";
     }
 
     public String getMessage() {
         return message;
     }
+
 }

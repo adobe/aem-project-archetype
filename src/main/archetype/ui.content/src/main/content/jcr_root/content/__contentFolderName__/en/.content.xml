@@ -2,71 +2,144 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        jcr:primaryType="nt:unstructured"
+#if ( $optionAemVersion == "6.3.3" )
+        cq:contextHubPath="/etc/cloudsettings/default/contexthub"
+        cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
+#else
+        cq:contextHubPath="/libs/settings/cloudsettings/legacy/contexthub"
+        cq:contextHubSegmentsPath="/conf/${confFolderName}/settings/wcm/segments"
+#end
+        cq:template="/conf/${confFolderName}/settings/wcm/templates/content-page"
+        jcr:primaryType="cq:PageContent"
         jcr:title="English"
+        sling:resourceType="${appsFolderName}/components/structure/page"
         pageTitle="New Project"
-        sling:resourceType="${appsFolderName}/components/structure/page">
-        <logo
+        socialMedia="[facebook]">
+        <root
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="${appsFolderName}/components/structure/logo"/>
-        <title
-            jcr:primaryType="nt:unstructured"
-            sling:resourceType="${appsFolderName}/components/content/title"/>
-        <topnav
-            jcr:primaryType="nt:unstructured"
-            sling:resourceType="${appsFolderName}/components/structure/topnav"/>
-        <par
-            jcr:primaryType="nt:unstructured"
-            sling:resourceType="wcm/foundation/components/parsys">
-            <title_0
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <responsivegrid
+                jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Service Component"
-                type="h2"
-                sling:resourceType="${appsFolderName}/components/content/title"/>
-            <servicecomponent
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="${appsFolderName}/components/content/helloworld"/>
-            <title_1
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Lorem ipsum"
-                type="h2"
-                sling:resourceType="${appsFolderName}/components/content/title"/>
-            <text
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="${appsFolderName}/components/content/text"
-                text="&lt;p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.&lt;/p>"
-                textIsRich="true"/>
-            <colctrl
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="${appsFolderName}/components/content/colctrl"
-                controlType="start"
-                layout="2;cq-colctrl-lt0"/>
-            <text_0
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="${appsFolderName}/components/content/text"
-                text="&lt;p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.&lt;/p>&#xa;&lt;p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.&lt;/p>&#xa;&lt;p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.&lt;/p>"
-                textIsRich="true"/>
-            <col_break14029137700350
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="${appsFolderName}/components/content/colctrl"
-                controlType="break"/>
-            <text_1
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="${appsFolderName}/components/content/text"
-                text="&lt;p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.&lt;/p>&#xa;&lt;p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.&lt;/p>"
-                textIsRich="true"/>
-            <col_end14029137700351
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="${appsFolderName}/components/content/colctrl"
-                controlType="end"/>
-            <image_1
-                jcr:created="{Date}2015-01-01T00:00:00.000Z"
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="${appsFolderName}/components/content/image"
-                fileReference="/content/dam/${contentFolderName}/asset.jpg"/>
-        </par>
-        <image jcr:primaryType="nt:unstructured">
-            <file/>
-        </image>
+                sling:resourceType="wcm/foundation/components/responsivegrid">
+                <title
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="What is Lorem Ipsum?"
+                    sling:resourceType="${appsFolderName}/components/content/title"/>
+                <text
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/content/text"
+                    text="&lt;p>&lt;b>Lorem Ipsum&lt;/b>&amp;nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&amp;#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.&lt;br>&#xa;&lt;/p>&#xa;"
+                    textIsRich="true"/>
+                <image
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/content/image"
+                    fileReference="/content/dam/${contentFolderName}/asset.jpg"/>
+                <list
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/content/list"
+                    childDepth="1"
+                    linkItems="true"
+                    listFrom="static"
+                    pages="[/content/${contentFolderName}/en,/content/${contentFolderName}/fr]"
+                    showDescription="false"
+                    showModificationDate="false"
+                    sortOrder="asc"
+                    tagsMatch="any"/>
+                <carousel
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/content/carousel"
+                    autoplay="false"
+                    delay="5000">
+                    <image
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/content/image"
+                        fileReference="/content/dam/${contentFolderName}/asset.jpg"/>
+                    <text
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/content/text"
+                        text="&lt;p>&lt;b>Lorem Ipsum&lt;/b>&amp;nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.&lt;/p>&#xa;"
+                        textIsRich="true"/>
+                </carousel>
+                <tabs
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/content/tabs">
+                    <item_1
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Tab 1"
+                        sling:resourceType="wcm/foundation/components/responsivegrid">
+                        <image
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/image"
+                            fileReference="/content/dam/${contentFolderName}/asset.jpg"/>
+                    </item_1>
+                    <item_2
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Tab 2"
+                        sling:resourceType="wcm/foundation/components/responsivegrid">
+                        <text
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="${appsFolderName}/components/content/text"
+                            text="&lt;p>&lt;b>Lorem Ipsum&lt;/b>&amp;nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.&lt;/p>&#xa;"
+                            textIsRich="true"/>
+                    </item_2>
+                </tabs>
+                <teaser
+                    jcr:description="&lt;p>Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.&lt;/p>&#xd;&#xa;"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Lorem Ipsum"
+                    sling:resourceType="${appsFolderName}/components/content/teaser"
+                    actionsEnabled="false"
+                    descriptionFromPage="false"
+                    fileReference="/content/dam/${contentFolderName}/asset.jpg"
+                    textIsRich="true"
+                    titleFromPage="false"/>
+                <helloworld
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/content/helloworld"/>
+                <container
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/form/container"
+                    action="/content/usergenerated/${contentFolderName}/en/cq-gen1506071823762/"
+                    actionType="foundation/components/form/actions/store">
+                    <text
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Lorem"
+                        sling:resourceType="${appsFolderName}/components/form/text"
+                        name="lorem"
+                        rows="2"
+                        type="text"/>
+                    <options
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Where does it come from?"
+                        sling:resourceType="${appsFolderName}/components/form/options"
+                        name="come-from"
+                        source="local"
+                        type="checkbox">
+                        <items jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                selected="false"
+                                text="A"
+                                value="a"/>
+                            <item1
+                                jcr:primaryType="nt:unstructured"
+                                selected="false"
+                                text="B"
+                                value="b"/>
+                        </items>
+                    </options>
+                    <button
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/form/button"/>
+                </container>
+                <sharing
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/content/sharing"/>
+            </responsivegrid>
+        </root>
     </jcr:content>
 </jcr:root>

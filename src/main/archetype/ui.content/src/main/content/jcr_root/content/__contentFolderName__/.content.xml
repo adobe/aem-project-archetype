@@ -2,9 +2,9 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:designPath="/etc/designs/${appsFolderName}"
+        cq:allowedTemplates="[/conf/${confFolderName}/settings/wcm/templates/.*]"
         cq:deviceGroups="[/etc/mobile/groups/responsive]"
-        jcr:primaryType="nt:unstructured"
+        jcr:primaryType="cq:PageContent"
         jcr:title="${siteName}"
         sling:redirect="{Boolean}true"
         sling:redirectStatus="{Long}302"
@@ -14,4 +14,6 @@
             <file/>
         </image>
     </jcr:content>
+    <en/>
+    <fr/>
 </jcr:root>

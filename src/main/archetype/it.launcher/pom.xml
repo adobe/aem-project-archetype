@@ -39,30 +39,30 @@
         <tag>HEAD</tag>
     </scm-->
 
-    <!-- 
+    <!--
         To keep the instance under test running and run individual tests
         against it, use:
-        
+
             mvn clean verify -DkeepJarRunning=true -Dhttp.port=8080
-            
+
         optionally using jar.executor.vm.options to enable remote debugging,
         and in another console:
-        
+
             mvn -o verify -Dtests.to.run=**/**Test.java -Dtest.server.url=http://localhost:8080
-            
-        optionally using -Dmaven.surefire.debug to enable debugging.            
+
+        optionally using -Dmaven.surefire.debug to enable debugging.
      -->
     <properties>
         <!-- Set this to run the server on a specific port
         <http.port></http.port>
          -->
-        
+
         <!-- URL of a server against which to run tests -->
         <test.server.url>http://${aem.host}:${aem.port}</test.server.url>
-        
+
         <!-- Set this to run tests against an existing server instance -->
         <keepJarRunning>false</keepJarRunning>
-        
+
         <!-- Set this to run tests against a specific hostname, if test.server.url is not set-->
         <test.server.hostname />
 
@@ -71,27 +71,27 @@
 
         <!-- Set this to use a different password for remote execution of sling junit tests -->
         <test.server.password />
-        
+
         <!-- Options for the VM that executes our runnable jar -->
         <jar.executor.vm.options>-Xmx512m</jar.executor.vm.options>
-        
+
         <!-- Change this to use longer or shorter timeouts for testing -->
         <sling.testing.timeout.multiplier>1.0</sling.testing.timeout.multiplier>
-        
+
         <!-- Set this to run the executable jar in a specified filesystem folder -->
         <jar.executor.work.folder />
-        
+
         <!-- Options for the jar to execute. $JAREXEC_SERVER_PORT$ is replaced by the
             selected port number -->
         <jar.executor.jar.options>-p $JAREXEC_SERVER_PORT$</jar.executor.jar.options>
-        
+
         <!-- Change this to run selected tests only -->
         <tests.to.run>**/**Test.java</tests.to.run>
     </properties>
-    
+
     <build>
         <plugins>
-           <plugin>
+            <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
                 <configuration>
                     <filesets>
@@ -105,7 +105,7 @@
                     </filesets>
                 </configuration>
             </plugin>
-           <plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <executions>
@@ -114,7 +114,7 @@
                         <goals>
                             <goal>copy-dependencies</goal>
                         </goals>
-                            <phase>process-resources</phase>
+                        <phase>process-resources</phase>
                         <configuration>
                             <includeArtifactIds>org.apache.sling.launchpad</includeArtifactIds>
                             <excludeTransitive>true</excludeTransitive>
@@ -123,16 +123,16 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <!-- 
+                        <!--
                             Consider all dependencies as candidates to be installed
                             as additional bundles. We use system properties to define
-                            which bundles to install in which order.  
+                            which bundles to install in which order.
                         -->
                         <id>copy-additional-bundles</id>
                         <goals>
                             <goal>copy-dependencies</goal>
                         </goals>
-                            <phase>process-resources</phase>
+                        <phase>process-resources</phase>
                         <configuration>
                             <outputDirectory>${project.build.directory}/sling/additional-bundles</outputDirectory>
                             <excludeTransitive>true</excludeTransitive>
@@ -171,7 +171,11 @@
                     </excludes>
                 </configuration>
             </plugin>
-         </plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+            </plugin>
+        </plugins>
     </build>
 
     <profiles>
@@ -223,10 +227,10 @@
                                 <start.bundles.timeout.seconds>40</start.bundles.timeout.seconds>
                                 <bundle.install.timeout.seconds>30</bundle.install.timeout.seconds>
 
-                                <!-- 
+                                <!--
                                     Define additional bundles to install by specifying the beginning of their artifact name.
                                     The bundles are installed in lexical order of these property names.
-                                    All bundles must be listed as dependencies in this pom, or they won't be installed. 
+                                    All bundles must be listed as dependencies in this pom, or they won't be installed.
                                 -->
                                 <sling.additional.bundle.1>org.apache.sling.junit.core</sling.additional.bundle.1>
                                 <sling.additional.bundle.2>org.apache.sling.junit.scriptable</sling.additional.bundle.2>
@@ -234,8 +238,6 @@
                                 <sling.additional.bundle.4>${rootArtifactId}.core</sling.additional.bundle.4>
                                 <sling.additional.bundle.5>org.apache.sling.junit.remote</sling.additional.bundle.5>
                                 <sling.additional.bundle.6>org.apache.sling.testing.tools</sling.additional.bundle.6>
-                                <sling.additional.bundle.7>httpclient-osgi</sling.additional.bundle.7>
-                                <sling.additional.bundle.8>httpcore-osgi</sling.additional.bundle.8>
                             </systemPropertyVariables>
                         </configuration>
                     </plugin>
@@ -255,7 +257,7 @@
         <dependency>
             <groupId>org.apache.sling</groupId>
             <artifactId>org.apache.sling.junit.scriptable</artifactId>
-            <version>1.0.8</version>
+            <version>1.0.12</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -276,21 +278,7 @@
             <version>2.3.4</version>
             <scope>provided</scope>
         </dependency>
-        
-        <!-- sling testing tools bundles requires httpclient -->
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient-osgi</artifactId>
-            <version>4.3.4</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpcore-osgi</artifactId>
-            <version>4.3.2</version>
-            <scope>provided</scope>
-        </dependency>
-        
+
         <!-- actual dependencies -->
         <dependency>
             <groupId>org.apache.sling</groupId>
@@ -318,8 +306,13 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>

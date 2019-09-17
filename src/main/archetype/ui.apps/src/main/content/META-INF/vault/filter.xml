@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
-    <filter root="/apps/${appsFolderName}">
-        <exclude pattern="/apps/${appsFolderName}/install" />
-    </filter>
+    <filter root="/apps/${appsFolderName}"/>
+#if ( $optionIncludeErrorHandler == "y" )
     <filter root="/apps/sling" />
-    <filter root="/etc/designs/${appsFolderName}"/>
+#end
 </workspaceFilter>

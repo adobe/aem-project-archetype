@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:EditConfig"
+    cq:actions="[EDIT,DELETE,INSERT,COPYMOVE]">
+    <cq:dropTargets
+        jcr:primaryType="nt:unstructured">
+        <experiencefragment
+            jcr:primaryType="cq:DropTargetConfig"
+            accept="[text/html]"
+            propertyName="./fragmentVariationPath"
+            groups="[content]"/>
+    </cq:dropTargets>
+    <cq:listeners
+        jcr:primaryType="nt:unstructured"
+        afterinsert="REFRESH_PAGE"/>
+    <cq:actionConfigs
+        jcr:primaryType="nt:unstructured">
+        <editInNewTab
+            jcr:primaryType="nt:unstructured"
+            text="Edit"
+            handler="Granite.author.experienceFragments &amp;&amp; Granite.author.experienceFragments.actions.editInNewTab"
+            icon="edit"/>
+    </cq:actionConfigs>
+</jcr:root>

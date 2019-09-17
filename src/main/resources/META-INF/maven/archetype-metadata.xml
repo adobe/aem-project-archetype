@@ -20,23 +20,91 @@
 
     <requiredProperties>
         <!--
+            This is the folder under /apps into which the bundle and package content will be installed.
+        -->
+        <requiredProperty key="appsFolderName">
+            <validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
+        </requiredProperty>
+        <!--
+            Maven artifact groupId for all projects
+        -->
+        <requiredProperty key="groupId">
+            <validationRegex>^[a-zA-Z0-9\.\-_]+$</validationRegex>
+        </requiredProperty>
+        <!--
+            Maven artifact "root" artifactId, is suffixed for the individual modules
+        -->
+        <requiredProperty key="artifactId">
+            <defaultValue>${groupId}.${appsFolderName}</defaultValue>
+            <validationRegex>^[a-zA-Z0-9\.\-_]+$</validationRegex>
+        </requiredProperty>
+        <!--
            This is the name which will be set as the artifact name and used to derive the bundle
            and package names.
         -->
-        <requiredProperty key="artifactName" />
+        <requiredProperty key="artifactName">
+            <defaultValue>${appsFolderName}</defaultValue>
+        </requiredProperty>
             <!--
                This is the group identifier for the package. Used with the
                Package Manager and Package Share.
             -->
-        <requiredProperty key="packageGroup" />
+        <requiredProperty key="packageGroup">
+        	<defaultValue>${appsFolderName}</defaultValue>
+            <validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
+        </requiredProperty>
+        <requiredProperty key="contentFolderName">
+            <defaultValue>${appsFolderName}</defaultValue>
+            <validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
+        </requiredProperty>
+        <requiredProperty key="confFolderName">
+            <defaultValue>${appsFolderName}</defaultValue>
+            <validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
+        </requiredProperty>
+        <requiredProperty key="cssId">
+            <defaultValue>${appsFolderName}</defaultValue>
+            <validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
+        </requiredProperty>
+        <requiredProperty key="componentGroupName">
+            <defaultValue>${appsFolderName}</defaultValue>
+            <validationRegex>^[a-zA-Z0-9\.\-_]+$</validationRegex>
+        </requiredProperty>
+        <requiredProperty key="siteName">
+            <defaultValue>${appsFolderName}</defaultValue>
+        </requiredProperty>
+
         <!--
-           This is the folder under /apps into which the bundle and package content will be installed.
+            *** Feature Flags ***
         -->
-        <requiredProperty key="appsFolderName" />
-        <requiredProperty key="contentFolderName" />
-        <requiredProperty key="cssId" />
-        <requiredProperty key="componentGroupName" />
-        <requiredProperty key="siteName"/>
+        <!--
+            Option to set target AEM version.
+        -->
+        <requiredProperty key="optionAemVersion">
+            <defaultValue>6.5.0</defaultValue>
+            <validationRegex>^(6\.3\.3|6\.4\.4|6\.5\.0)$</validationRegex>
+        </requiredProperty>
+        <!--
+            Option to include Component Library examples as subpackage in the
+            ui.apps content package.
+        -->
+        <requiredProperty key="optionIncludeExamples">
+            <defaultValue>y</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
+        <!--
+            Option to include server wide error handler for 404 response code
+         -->
+        <requiredProperty key="optionIncludeErrorHandler">
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
+        <!--
+            Option to include a dedicated frontend module
+         -->
+        <requiredProperty key="optionIncludeFrontendModule">
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
     </requiredProperties>
 
     <modules>
@@ -58,16 +126,39 @@
                 </fileSet>
             </fileSets>
         </module>
-        <module id="${rootArtifactId}.ui.apps" dir="ui.apps" name="ui.apps">
+        <module id="${rootArtifactId}.ui.frontend" dir="ui.frontend" name="ui.frontend">
             <fileSets>
-                <!--
-                <fileSet packaged="false" encoding="UTF-8">
+                <fileSet filtered="true" encoding="UTF-8">
                     <directory></directory>
                     <includes>
-                        <include>README.txt</include>
+                        <include>.babelrc</include>
+                        <include>.gitignore</include>
+                        <include>clientlib.config.js</include>
+                        <include>package.json</include>
+                        <include>tsconfig.json</include>
+                        <include>tslint.json</include>
+                        <include>webpack.common.js</include>
+                        <include>webpack.dev.js</include>
+                        <include>webpack.prod.js</include>
                     </includes>
                 </fileSet>
-                -->
+                <fileSet filtered="false" packaged="false"
+                         encoding="UTF-8">
+                    <directory>src/main/webpack</directory>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
+        <module id="${rootArtifactId}.ui.apps" dir="ui.apps" name="ui.apps">
+            <fileSets>
+                <fileSet filtered="true" encoding="UTF-8">
+                <directory></directory>
+                <includes>
+                    <include>.gitignore</include>
+                </includes>
+                </fileSet>
                 <fileSet filtered="true" packaged="false"
                     encoding="UTF-8">
                     <directory>src/main/content</directory>
@@ -100,14 +191,6 @@
         </module>
         <module id="${rootArtifactId}.ui.content" dir="ui.content" name="ui.content">
             <fileSets>
-                <!--
-                <fileSet packaged="false" encoding="UTF-8">
-                    <directory></directory>
-                    <includes>
-                        <include>README.txt</include>
-                    </includes>
-                </fileSet>
-                -->
                 <fileSet filtered="true" packaged="false"
                     encoding="UTF-8">
                     <directory>src/main/content</directory>
