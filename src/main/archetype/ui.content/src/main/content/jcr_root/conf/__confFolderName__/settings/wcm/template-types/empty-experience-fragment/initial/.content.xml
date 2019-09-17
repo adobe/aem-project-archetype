@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:primaryType="cq:PageContent"
+        cq:xfVariantType="web"
+        cq:template="/conf/apps/settings/wcm/templates/empty-experience-fragment"
+        sling:resourceType="${appsFolderName}/components/structure/xfpage"/>
+</jcr:root>

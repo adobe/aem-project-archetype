@@ -15,15 +15,24 @@ This project has a number features that are intended to offer a convenient start
 
 * One content template based on the editable template feature
   * Example content policy
+  
+* One experience fragment template-type  
+  * Example empty template-type (using cq:variantType="web") to build editable experience fragment templates   
 
 * Page component
   * Based on the [AEM Sites Core Component page](https://github.com/adobe/aem-core-wcm-components/tree/master/content/src/content/jcr_root/apps/core/wcm/components/page/v2/page)
   * customfooterlibs.html and customheaderlibs.html snippet to load additional JS and CSS clientlibs according to the {cssId} property
+
+* XFPage component
+  * Based on **cq/experience-fragments/components/xfpage** and used by the empty experience fragment templates
+  * customfooterlibs.html and customheaderlibs.html snippet to load additional JS and CSS clientlibs according to the {cssId} property
+
 * Content Components
   * Example: helloworld example of custom HTL component with SlingModels for the logic
   * accordion, breadcrumb, button, carousel, container, content fragment, content fragment list, download, 
   experience fragment, image, language navigation, list, navigation, sharing, tabs, teaser, text and title 
   use the latest released version of the [AEM Sites Core Components](https://github.com/adobe/aem-core-wcm-components) with the recommended proxy pattern 
+
 * Form Components
   * button, container, hidden, options and text based on the AEM Core WCM Components
 
@@ -31,14 +40,17 @@ This project has a number features that are intended to offer a convenient start
   * Device emulators displayed in the authoring interface
   * Allow direct drag & drop of assets from the content finder into layout container (6.3 TouchUI)
   * Dictionary structure for internationalizing hardcoded strings
+
 * Client libraries
   * CSS class names follow BEM naming conventions
   * Component-specific styles stored within each component
+
 * Bundle with some examples
   * Models: Models for more complex business logic of components
   * Servlets: Rendering the output of specific requests
   * Filters: Applied to the requests before dispatching to the servlet or script
   * Schedulers: Cron-job like tasks
+
 * Tests
   * Unit tests
   * Integration tests

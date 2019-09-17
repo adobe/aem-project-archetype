@@ -2,5 +2,6 @@
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:rep="internal"
     jcr:primaryType="cq:Page">
     <empty-page/>
+    <empty-experience-fragement/>
     <rep:policy/>
 </jcr:root>
