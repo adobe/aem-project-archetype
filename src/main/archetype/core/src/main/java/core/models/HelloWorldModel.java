@@ -32,6 +32,8 @@ import org.apache.sling.settings.SlingSettingsService;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 
+import java.util.Optional;
+
 @Model(adaptables = Resource.class)
 public class HelloWorldModel {
 
@@ -51,12 +53,14 @@ public class HelloWorldModel {
     @PostConstruct
     protected void init() {
         PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
-        Page currentPage = pageManager.getContainingPage(currentResource);
+        String currentPagePath = Optional.ofNullable(pageManager)
+                .map(pm -> pm.getContainingPage(currentResource))
+                .map(Page::getPath).orElse("");
 
         message = "\tHello World!\n"
             + "\tThis is instance: " + settings.getSlingId() + "\n"
             + "\tResource type is: " + resourceType + "\n"
-            + "\tCurrent page is: " + (currentPage != null ? currentPage.getPath() : "") + "\n";
+            + "\tCurrent page is: " + currentPagePath + "\n";
     }
 
     public String getMessage() {
