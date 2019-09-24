@@ -1,0 +1,4 @@
+# This ruleset forces https in the end users browser
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteCond %{REQUEST_URI} !^/dispatcher/invalidate.cache
+RewriteRule (.*) https://%{SERVER_NAME}%{REQUEST_URI} [L,R=301]

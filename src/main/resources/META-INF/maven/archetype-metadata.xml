@@ -105,6 +105,14 @@
             <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
+
+        <!--
+            Option to include one of the Dispatcher configuration modules.
+        -->
+        <requiredProperty key="optionDispatcherConfig">
+            <defaultValue>none</defaultValue>
+            <validationRegex>^(none|n|ams|cloud)$</validationRegex>
+        </requiredProperty>
     </requiredProperties>
 
     <modules>
@@ -122,6 +130,49 @@
                     <directory>src/test/java</directory>
                     <includes>
                         <include>**/*.java</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
+        <module id="${rootArtifactId}.dispatcher.ams" dir="dispatcher.ams" name="dispatcher.ams">
+            <fileSets>
+                <fileSet filtered="true" packaged="false" encoding="UTF-8">
+                    <directory></directory>
+                    <includes>
+                        <include>**/*.conf</include>
+                        <include>**/*.vhost</include>
+                        <include>**/*.rules</include>
+                        <include>**/*.vars</include>
+                        <include>**/*.any</include>
+                        <include>assembly.xml</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="false" packaged="false" encoding="UTF-8">
+                    <directory>src</directory>
+                    <includes>
+                        <include>**/magic</include>
+                        <include>**/README*</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
+        <module id="${rootArtifactId}.dispatcher.cloud" dir="dispatcher.cloud" name="dispatcher.cloud">
+            <fileSets>
+                <fileSet filtered="true" packaged="false" encoding="UTF-8">
+                    <directory></directory>
+                    <includes>
+                        <include>**/*.conf</include>
+                        <include>**/*.vhost</include>
+                        <include>**/*.rules</include>
+                        <include>**/*.vars</include>
+                        <include>**/*.any</include>
+                        <include>assembly.xml</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="false" packaged="false" encoding="UTF-8">
+                    <directory>src</directory>
+                    <includes>
+                        <include>**/README*</include>
                     </includes>
                 </fileSet>
             </fileSets>

@@ -31,6 +31,9 @@
         <module>ui.content</module>
         <module>it.tests</module>
         <module>it.launcher</module>
+#if ( $optionDispatcherConfig != "none" && $optionDispatcherConfig != "n" )
+        <module>dispatcher</module>
+#end
     </modules>
 
     <properties>

@@ -1,0 +1,65 @@
+/authorfarm {  
+	# client headers which should be passed through to the render instances
+	# (feature supported since dispatcher build 2.6.3.5222)
+	/clientheaders {
+		$include "/etc/httpd/conf.dispatcher.d/clientheaders/ams_author_clientheaders.any"
+		$include "/etc/httpd/conf.dispatcher.d/clientheaders/ams_common_clientheaders.any"
+	}
+	# hostname globbing for farm selection (virtual domain addressing)
+	/virtualhosts {
+		$include "/etc/httpd/conf.dispatcher.d/vhosts/ams_author_vhosts.any"
+	}
+	# the load will be balanced among these render instances
+	/renders {
+		$include "/etc/httpd/conf.dispatcher.d/renders/ams_author_renders.any"
+	}
+	# only handle the requests in the following acl. default is 'none'
+	# the glob pattern is matched against the first request line
+	/filter {
+		$include "/etc/httpd/conf.dispatcher.d/filters/ams_author_filters.any"
+	}
+	/cache {
+		# The cacheroot must be equal to the document root of the webserver
+		/docroot "${AUTHOR_DOCROOT}"
+		# sets the level upto which files named ".stat" will be created in the
+		# document root of the webserver. when an activation request for some
+		# handle is received, only files within the same subtree are affected
+		# by the invalidation.
+		/statfileslevel "2"
+		# caches also authorized data
+		/allowAuthorized "1"
+		# Flag indicating whether the dispatcher should serve stale content if
+		# no remote server is available.
+		# serveStaleOnError "0"
+		# the rules define, which pages should be cached. please note that
+		# - only GET requests are cached
+		# - only requests with an extension are cached
+		# - only requests without query parameters ( ? ) are cached
+		# - only unauthorized pages are cached unless allowUnauthorized is set to 1
+		/rules {
+			$include "/etc/httpd/conf.dispatcher.d/cache/ams_author_cache.any"
+		}
+		# the invalidate section defines those pages which are 'invalidated' after
+		# any activation. please note that, the activated page itself and all 
+		# related documents are flushed on an modification. for example: if the 
+		# page /foo/bar is activated, all /foo/bar.* files are removed from the
+		# cache.
+		/invalidate {
+			/0000 {
+				/glob "*"
+				/type "allow"
+			}
+		}
+		/allowedClients {
+			# By default block all IP from allowing to initiate the invalidation commands
+			/0000 {
+				/glob "*.*.*.*"
+				/type "deny"
+			}
+			# Allow certain IP's like publishers to invalidate cache
+			$include "/etc/httpd/conf.dispatcher.d/cache/ams_author_invalidate_allowed.any"
+		}
+	}
+	# allow propagation of replication posts (should seldomly be used)
+	/propagateSyndPost "0"
+}

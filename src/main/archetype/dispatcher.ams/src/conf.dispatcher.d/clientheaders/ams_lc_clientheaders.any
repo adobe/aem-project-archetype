@@ -1,0 +1,11 @@
+# Any livecycle specific clientheaders go here
+"authorization"
+"proxy-authorization"
+"proxy-connection"
+"cq-action"
+"cq-handle"
+"handle"
+"action"
+"cqstats"
+"dav"
+"ms-author-via"
