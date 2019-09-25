@@ -36,6 +36,10 @@ module.exports = {
                 ],
                 css: [
                     "dist/clientlib-site/*.css"
+                ],
+                resources: [
+                    {src: "dist/clientlib-site/resources/images/*.*", dest: "images/"}, 
+                    {src: "dist/clientlib-site/resources/fonts/*.*", dest: "fonts/"}, 
                 ]
             }
         }
