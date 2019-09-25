@@ -9,17 +9,5 @@
         "allowSyntheticDefaultImports": true,
         "sourceMap": true
     },
-    "include": [ "**/*.ts" ],
-    "exclude": [
-        "node_modules",
-        "**/tests/*.js",
-        "**/tests/*.ts",
-        "**/target",
-        "**/*.spec.ts",
-        "**/*.spec.js",
-        "*.config.js",
-        "**/clientlib-dependencies/dependencies.js",
-        "**/clientlib-site/site.js",
-        "**/clientlib-site/webpack/vendors.js"
-    ]
+    "include": [ "./src/**/*.ts" ]
 }
