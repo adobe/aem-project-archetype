@@ -88,7 +88,8 @@ module.exports = {
                 filename: 'clientlib-[name]/[name].css'
             }),
             new TSLintPlugin({
-                files: ['./**/components/**/*.ts', './**/components/**/*.tsx']
+                files: [SOURCE_ROOT + '/**/*.ts', SOURCE_ROOT + '/**/*.tsx'],
+                config: './tslint.json'
             })
         ],
         stats: {
