@@ -89,11 +89,12 @@ module.exports = {
                 filename: 'clientlib-[name]/[name].css'
             }),
             new TSLintPlugin({
-                files: ['./**/components/**/*.ts', './**/components/**/*.tsx']
+                files: [SOURCE_ROOT + '/**/*.ts', SOURCE_ROOT + '/**/*.tsx'],
+                config: './tslint.json'
             }),
-            new CopyWebpackPlugin([
+            new CopyPlugin([
                 { from: path.resolve(__dirname, SOURCE_ROOT + '/resources'), to: './clientlib-site/resources' }
-            ]),
+            ]), 
         ],
         stats: {
             assetsSort: "chunks",
