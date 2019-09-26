@@ -92,7 +92,7 @@ module.exports = {
                 files: [SOURCE_ROOT + '/**/*.ts', SOURCE_ROOT + '/**/*.tsx'],
                 config: './tslint.json'
             }),
-            new CopyPlugin([
+            new CopyWebpackPlugin([
                 { from: path.resolve(__dirname, SOURCE_ROOT + '/resources'), to: './clientlib-site/resources' }
             ]), 
         ],
