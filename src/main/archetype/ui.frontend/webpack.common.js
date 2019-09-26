@@ -94,7 +94,7 @@ module.exports = {
             }),
             new CopyWebpackPlugin([
                 { from: path.resolve(__dirname, SOURCE_ROOT + '/resources'), to: './clientlib-site/resources' }
-            ]), 
+            ]) 
         ],
         stats: {
             assetsSort: "chunks",
