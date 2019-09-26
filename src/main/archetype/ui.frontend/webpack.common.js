@@ -92,7 +92,7 @@ module.exports = {
                 files: ['./**/components/**/*.ts', './**/components/**/*.tsx']
             }),
             new CopyWebpackPlugin([
-              { from: path.resolve(__dirname, SOURCE_ROOT + '/resources'), to: './clientlib-site/resources' }
+                { from: path.resolve(__dirname, SOURCE_ROOT + '/resources'), to: './clientlib-site/resources' }
             ]),
         ],
         stats: {
