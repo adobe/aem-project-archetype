@@ -5,6 +5,7 @@ const webpack                 = require('webpack');
 const MiniCssExtractPlugin    = require("mini-css-extract-plugin");
 const TSConfigPathsPlugin     = require('tsconfig-paths-webpack-plugin');
 const TSLintPlugin            = require('tslint-webpack-plugin');
+const CopyWebpackPlugin       = require('copy-webpack-plugin');
 const { CleanWebpackPlugin }  = require('clean-webpack-plugin');
 
 const SOURCE_ROOT = __dirname + '/src/main/webpack';
@@ -90,7 +91,10 @@ module.exports = {
             new TSLintPlugin({
                 files: [SOURCE_ROOT + '/**/*.ts', SOURCE_ROOT + '/**/*.tsx'],
                 config: './tslint.json'
-            })
+            }),
+            new CopyWebpackPlugin([
+                { from: path.resolve(__dirname, SOURCE_ROOT + '/resources'), to: './clientlib-site/resources' }
+            ]) 
         ],
         stats: {
             assetsSort: "chunks",
