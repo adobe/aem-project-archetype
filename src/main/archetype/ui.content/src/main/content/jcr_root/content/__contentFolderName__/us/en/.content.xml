@@ -2,17 +2,28 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:template="/conf/${confFolderName}/settings/wcm/templates/content-page"
+        cq:contextHubPath="/etc/cloudsettings/default/contexthub"
+        cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
+        cq:template="/conf/${confFolderName}/settings/wcm/templates/homepage"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Français"
+        jcr:title="${language_country.substring(0,2)}"
         sling:resourceType="${appsFolderName}/components/structure/page"
-        pageTitle="Nouveau Project">
+        pageTitle="New Project"
+        socialMedia="[facebook]">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid">
             <responsivegrid
+                jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/foundation/components/responsivegrid"/>
         </root>
+#if ( $isSingleCountryWebsite == "n" )
+        <cq:LiveSyncConfig
+            cq:isDeep="{Boolean}true"
+            cq:master="/content/${contentFolderName}/language-masters/${language_country.substring(0,2)}"
+            cq:rolloutConfigs="[/libs/msm/wcm/rolloutconfigs/default]"
+            jcr:primaryType="cq:LiveCopy"/>
+#end
     </jcr:content>
 </jcr:root>
