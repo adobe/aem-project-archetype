@@ -4,4 +4,7 @@
 #if ( $optionIncludeErrorHandler == "y" )
     <filter root="/apps/sling" />
 #end
+#if ( $isSingleCountryWebsite  == "n" )
+    <filter root="/apps/msm" mode="merge"/>
+#end
 </workspaceFilter>

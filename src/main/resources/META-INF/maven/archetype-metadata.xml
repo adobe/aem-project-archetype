@@ -72,6 +72,20 @@
         <requiredProperty key="siteName">
             <defaultValue>${appsFolderName}</defaultValue>
         </requiredProperty>
+        
+        <!--
+            Option to include server wide error handler for 404 response code
+         -->
+        <requiredProperty key="language_country">
+            <validationRegex>[a-z]+_[a-z]+</validationRegex>
+        </requiredProperty>
+        
+        <!--
+            Option to include server wide error handler for 404 response code
+         -->
+        <requiredProperty key="isSingleCountryWebsite">
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
 
         <!--
             *** Feature Flags ***
