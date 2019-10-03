@@ -26,9 +26,9 @@
   <description>AEM multi-module archetype.</description>
 
   <scm>
-      <connection>scm:git:https://github.com/Adobe-Marketing-Cloud/aem-project-archetype.git</connection>
-      <developerConnection>scm:git:https://github.com/Adobe-Marketing-Cloud/aem-project-archetype.git</developerConnection>
-      <url>https://github.com/Adobe-Marketing-Cloud/aem-project-archetype/tree/master/</url>
+      <connection>scm:git:https://github.com/adobe/aem-project-archetype.git</connection>
+      <developerConnection>scm:git:https://github.com/adobe/aem-project-archetype.git</developerConnection>
+      <url>https://github.com/adobe/aem-project-archetype/tree/master/</url>
       <tag>HEAD</tag>
   </scm>
 
