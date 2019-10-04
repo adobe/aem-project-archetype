@@ -77,7 +77,7 @@
             ISO 639-1 language / country code to create initial content structure
          -->
         <requiredProperty key="language_country">
-            <validationRegex>[a-z]+_[a-z]+</validationRegex>
+            <validationRegex>[a-z]{2,3}_[a-z]{2,3}</validationRegex>
         </requiredProperty>
         
         <!--
