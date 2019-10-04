@@ -9,7 +9,7 @@
         sling:redirect="{Boolean}true"
         sling:redirectStatus="{Long}302"
         sling:resourceType="foundation/components/redirect"
-        redirectTarget="/content/${contentFolderName}/${language_country.substring(3)}/${language_country.substring(0,2)}">
+        redirectTarget="/content/${contentFolderName}/${language_country.split('_').get(1)}/${language_country.split('_').get(0)}">
         <image jcr:primaryType="nt:unstructured">
             <file/>
         </image>
