@@ -88,6 +88,7 @@ cssId                       |         | prefix used in generated css
 packageGroup                |         | Content Package Group name
 siteName                    |         | AEM site name
 optionAemVersion            |  6.5.0  | Target AEM version
+language_country            |         | language / country code to create the content structure from (e.g. en_us)
 optionIncludeExamples       |    y    | Include a Component Library example site
 optionIncludeErrorHandler   |    n    | Include a custom 404 response page
 optionIncludeFrontendModule |    n    | Include a dedicated frontend module

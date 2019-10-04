@@ -30,11 +30,9 @@ if (optionIncludeFrontendModule == "n") {
 buildContentSkeleton()
 
 /**
- * Create content skeleton based upon isSingleCountry
- * & languageCountry input from user
+ * Creates content skeleton based upon isSingleCountry & languageCountry input from user
  */
 def buildContentSkeleton() {
-
     println "Creating content skeleton..."
     def contentDetails = language_country.split('_')
 
@@ -46,12 +44,10 @@ def buildContentSkeleton() {
     } else {
         def languageDir = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/language-masters/en")
         languageDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/language-masters/${contentDetails[0]}"))
-
     }
 
     def countryDir = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/us")
     countryDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/${contentDetails[1]}"))
-
     def languageInCountryDir = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/${contentDetails[1]}/en")
     languageInCountryDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/${contentDetails[1]}/${contentDetails[0]}"))
 }
