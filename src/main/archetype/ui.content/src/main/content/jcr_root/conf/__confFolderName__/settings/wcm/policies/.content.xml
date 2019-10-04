@@ -46,6 +46,18 @@
                     </form-container>
                 </container>
             </form>
+            <structure jcr:primaryType="nt:unstructured">
+                 <page jcr:primaryType="nt:unstructured">
+                    <policy_content_page
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="${siteName} Page Policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        clientlibs="[${cssId}.dependencies,${cssId}.site]"
+                        clientlibsJsHead="${cssId}.dependencies">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_content_page>
+                 </page>
+            </structure>
         </components>
     </${appsFolderName}>
 </jcr:root>
