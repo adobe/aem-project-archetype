@@ -21,7 +21,7 @@
 #if ( $isSingleCountryWebsite == "n" )
         <cq:LiveSyncConfig
             cq:isDeep="{Boolean}true"
-            cq:master="/content/${contentFolderName}/language-masters/${language_country.substring(0,2)}"
+            cq:master="/content/${contentFolderName}/language-masters/${language_country.split('_').get(0)}"
             cq:rolloutConfigs="[/libs/msm/wcm/rolloutconfigs/default]"
             jcr:primaryType="cq:LiveCopy"/>
 #end

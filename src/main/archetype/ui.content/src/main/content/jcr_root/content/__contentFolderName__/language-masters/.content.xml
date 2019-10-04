@@ -10,5 +10,5 @@
         jcr:title="Language Masters"
         sling:resourceType="foundation/components/redirect"
         hideInNav="{Boolean}true"/>
-    <${language_country.substring(0,2)}/>
+    <${language_country.split('_').get(0)}/>
 </jcr:root>
