@@ -41,7 +41,8 @@ def buildContentSkeleton() {
     if (isSingleCountryWebsite == "y") {
         def languageMastersDir = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/language-masters")
         languageMastersDir.deleteDir()
-
+        def msmAppsDir = new File(uiAppsPackage, "src/main/content/jcr_root/apps/msm")
+        msmAppsDir.deleteDir()
     } else {
         def languageDir = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/language-masters/en")
         languageDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/language-masters/${contentDetails[0]}"))

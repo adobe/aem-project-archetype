@@ -74,16 +74,17 @@
         </requiredProperty>
         
         <!--
-            Option to include server wide error handler for 404 response code
+            ISO 639-1 language / country code to create initial content structure
          -->
         <requiredProperty key="language_country">
             <validationRegex>[a-z]+_[a-z]+</validationRegex>
         </requiredProperty>
         
         <!--
-            Option to include server wide error handler for 404 response code
+            Option to create language master structure in example content package
          -->
         <requiredProperty key="isSingleCountryWebsite">
+            <defaultValue>y</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
 

@@ -91,6 +91,7 @@ optionAemVersion            |  6.5.0  | Target AEM version
 optionIncludeExamples       |    y    | Include a Component Library example site
 optionIncludeErrorHandler   |    n    | Include a custom 404 response page
 optionIncludeFrontendModule |    n    | Include a dedicated frontend module
+isSingleCountryWebsite      |    y    | Create language-master structure in example content
 
 Note: If the archetype is executed in interactive mode the first time properties with default values can't be changed (see 
 [ARCHETYPE-308](https://issues.apache.org/jira/browse/ARCHETYPE-308) for more details). The value can be changed when the property 
