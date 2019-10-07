@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Page">
+    <${language_country.substring(0,2)}/>
+    <jcr:content
+        cq:lastModified="{Date}2016-03-07T17:32:10.926+01:00"
+        cq:lastModifiedBy="admin"
+        cq:redirectTarget="/content/${contentFolderName}/${language_country.substring(3)}/${language_country.substring(0,2)}"
+        cq:template="/conf/${confFolderName}/settings/wcm/templates/homepage"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="${language_country.substring(3)}"
+        sling:resourceType="foundation/components/redirect"/>
+</jcr:root>
