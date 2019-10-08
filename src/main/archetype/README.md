@@ -68,7 +68,7 @@ The project comes with the auto-public repository configured. To setup the repos
     * All JS and CSS files can now be added to each component (best practice is under /clientlib/js or /clientlib/(s)css)
     * No .content.xml or js.txt/css.txt files needed as everything is run through Webpack
     * The globber pulls in all JS files under the /component/ folder. Webpack allows CSS/SCSS files to be chained in via JS files. They are pulled in through the two entry points, sites.js and vendors.js.
-    * The only file consumed by AEM is the output files site.js and site.css in /clientlib-site as well as dependencies.js and dependencies.css in /clientlib-dependencies
+    * The only files consumed by AEM are the output files site.js and site.css, the resources folder in /clientlib-site as well as dependencies.js and dependencies.css in /clientlib-dependencies
 * Chunks
     * Main (site js/css)
     * Vendors (dependencies js/css)
@@ -90,7 +90,7 @@ The following npm scripts drive the frontend workflow:
 
 #### General
 
-* **Site** - `site.js` and `site.css` are created in a `clientlib-site` folder.
+* **Site** - `site.js`, `site.css` and a `resources/` folder for layout dependent images and fonts are created in a `clientlib-site` folder. 
 * **Dependencies** - `dependencies.js` and `dependencies.css` are created in a `clientlib-dependencies` folder.
 
 #### JavaScript
