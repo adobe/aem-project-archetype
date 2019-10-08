@@ -4,4 +4,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Accordion"
     sling:resourceSuperType="core/wcm/components/accordion/v1/accordion"
-    componentGroup="${componentGroupName}"/>
+    componentGroup="${componentGroupName}.Content"/>

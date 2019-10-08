@@ -17,5 +17,5 @@
 #if ( $isSingleCountryWebsite == "n" )
     <language-masters/>
 #end
-    <${language_country.substring(3)}/>
+    <${language_country.split('_').get(1)}/>
 </jcr:root>

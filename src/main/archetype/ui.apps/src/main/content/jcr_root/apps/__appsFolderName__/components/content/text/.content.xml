@@ -3,4 +3,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Text"
     sling:resourceSuperType="core/wcm/components/text/v2/text"
-    componentGroup="${componentGroupName}"/>
+    componentGroup="${componentGroupName}.Content"/>

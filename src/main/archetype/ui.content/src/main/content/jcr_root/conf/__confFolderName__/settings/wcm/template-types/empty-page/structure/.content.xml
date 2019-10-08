@@ -7,13 +7,33 @@
         sling:resourceType="${appsFolderName}/components/structure/page">
         <root
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="wcm/foundation/components/responsivegrid"/>
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <experiencefragment-header
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/content/experiencefragment"
+#if ( $isSingleCountryWebsite == "n" )
+                fragmentVariationPath="/content/experience-fragments/${contentFolderName}/${language_country.split('_').get(1)}/${language_country.split('_').get(0)}/site/header/master"/>
+#else
+                fragmentVariationPath="/content/experience-fragments/${contentFolderName}/language-masters/${language_country.split('_').get(0)}/site/header/master"/>
+#end
+            <responsivegrid
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/responsivegrid"/>
+            <experiencefragment-footer
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/content/experiencefragment"
+#if ( $isSingleCountryWebsite == "n" )
+                fragmentVariationPath="/content/experience-fragments/${contentFolderName}/${language_country.split('_').get(1)}/${language_country.split('_').get(0)}/site/footer/master"/>
+#else
+                fragmentVariationPath="/content/experience-fragments/${contentFolderName}/language-masters/${language_country.split('_').get(0)}/site/footer/master"/>
+#end
+        </root>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">
                 <phone
                     jcr:primaryType="nt:unstructured"
                     title="Smaller Screen"
-                    width="{Long}650"/>
+                    width="{Long}768"/>
                 <tablet
                     jcr:primaryType="nt:unstructured"
                     title="Tablet"
