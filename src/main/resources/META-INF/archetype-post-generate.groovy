@@ -1,16 +1,15 @@
 import static groovy.io.FileType.*
 import java.nio.file.Path
 import java.util.regex.Pattern
-import groovy.transform.Field
 
-@Field def rootDir = new File(request.getOutputDirectory() + "/" + request.getArtifactId())
-@Field def uiAppsPackage = new File(rootDir, "ui.apps")
-@Field def uiContentPackage = new File(rootDir, "ui.content")
+def rootDir = new File(request.getOutputDirectory() + "/" + request.getArtifactId())
+def uiAppsPackage = new File(rootDir, "ui.apps")
+def uiContentPackage = new File(rootDir, "ui.content")
 def rootPom = new File(rootDir, "pom.xml")
 
-@Field def isSingleCountryWebsite = request.getProperties().get("isSingleCountryWebsite")
-@Field def contentFolderName = request.getProperties().get("contentFolderName")
-@Field def language_country = request.getProperties().get("language_country")
+def isSingleCountryWebsite = request.getProperties().get("isSingleCountryWebsite")
+def contentFolderName = request.getProperties().get("contentFolderName")
+def language_country = request.getProperties().get("language_country")
 def optionIncludeErrorHandler = request.getProperties().get("optionIncludeErrorHandler")
 def optionIncludeFrontendModule = request.getProperties().get("optionIncludeFrontendModule")
 def optionAemVersion = request.getProperties().get("optionAemVersion")
@@ -30,7 +29,7 @@ if (optionIncludeFrontendModule == "n") {
     removeModule(rootPom, "ui.frontend")
 }
 
-buildContentSkeleton()
+buildContentSkeleton(uiContentPackage, uiAppsPackage, isSingleCountryWebsite, contentFolderName, language_country)
 
 if ( optionDispatcherConfig == "none" || optionDispatcherConfig == "n"  ) {
     assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/" + appsFolderName + "/config.publish").deleteDir()
@@ -65,7 +64,7 @@ removeModule(rootPom, 'dispatcher.cloud')
 /**
  * Creates content skeleton based upon isSingleCountry & languageCountry input from user
  */
-def buildContentSkeleton() {
+def buildContentSkeleton(uiContentPackage, uiAppsPackage, isSingleCountryWebsite, contentFolderName, language_country) {
     println "Creating content skeleton..."
     def contentDetails = language_country.split('_')
 
