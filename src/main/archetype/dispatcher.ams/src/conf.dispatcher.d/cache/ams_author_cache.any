@@ -1,0 +1,37 @@
+# Put entries of items you do or don't want to cache in apaches doc root
+# the globbing pattern to be compared against the url
+# example: *             -> everything
+#        : /foo/bar.*    -> only the /foo/bar documents
+#        : /foo/bar/*    -> all pages below /foo/bar
+#        : /foo/bar[./]* -> all pages below and /foo/bar itself
+#        : *.html        -> all .html files
+/0000 {
+	/glob "*"
+	/type "deny"
+}
+/0001 {
+	/glob "/libs/*"
+	/type "allow"
+}
+/0002 {
+	/glob "/libs/*.html"
+	/type "deny"
+}
+# Don't cache csrf login tokens
+/0003 {
+	/glob "/libs/granite/csrf/token.json"
+	/type "deny"
+}
+/0004 {
+	/glob "/apps/*"
+	/type "allow"
+}
+/0005 {
+	/glob "/apps/*.html"
+	/type "deny"
+}
+# This page contains a "Welcome, User XXX" message and shouldn't be cached
+/0006 {
+	/glob "/libs/cq/core/content/welcome.*"
+	/type "deny"
+}

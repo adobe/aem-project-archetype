@@ -1,0 +1,3 @@
+#
+# Enabled virtual hosts will be symlinked here. Their names should match the pattern '*.vhost'
+#

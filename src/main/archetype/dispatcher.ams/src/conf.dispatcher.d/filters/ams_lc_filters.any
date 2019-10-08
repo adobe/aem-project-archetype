@@ -1,0 +1,2 @@
+# Livecycle will not have any end points filtered out
+/0001 { /type "allow"  /url "*" }

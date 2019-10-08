@@ -1,0 +1,3 @@
+#
+# Enabled farms will be symlinked here. Their names should match the pattern '*.farm'
+#

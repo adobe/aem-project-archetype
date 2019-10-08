@@ -1,3 +1,5 @@
+import static groovy.io.FileType.*
+import java.nio.file.Path
 import java.util.regex.Pattern
 import groovy.transform.Field
 
@@ -13,6 +15,7 @@ def optionIncludeErrorHandler = request.getProperties().get("optionIncludeErrorH
 def optionIncludeFrontendModule = request.getProperties().get("optionIncludeFrontendModule")
 def optionAemVersion = request.getProperties().get("optionAemVersion")
 def confFolderName = request.getProperties().get("confFolderName")
+def optionDispatcherConfig = request.getProperties().get("optionDispatcherConfig")
 
 if (optionIncludeErrorHandler == "n") {
     assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/sling").deleteDir()
@@ -28,6 +31,36 @@ if (optionIncludeFrontendModule == "n") {
 }
 
 buildContentSkeleton()
+
+if ( optionDispatcherConfig == "none" || optionDispatcherConfig == "n"  ) {
+    assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/" + appsFolderName + "/config.publish").deleteDir()
+} else {
+    def source;
+    if ( optionDispatcherConfig == 'ams') {
+        source = new File(rootDir.getPath(), 'dispatcher.ams')
+    } else if (optionDispatcherConfig == 'cloud')   {
+        source = new File(rootDir.getPath(),'dispatcher.cloud')
+    }
+    assert source.renameTo(new File(rootDir.getPath(),'dispatcher'))
+    new File(rootDir, 'dispatcher').traverse(type: DIRECTORIES, nameFilter: ~/enabled.+$/) { it ->
+        it.traverse(type: FILES) { enabledFile ->
+            File availableFile = new File(enabledFile.getPath().replace('enabled', 'available'))
+            if (!availableFile.exists()) {
+                return;
+            }
+            Path target = java.nio.file.Paths.get(availableFile.getPath())
+            Path link = java.nio.file.Paths.get(enabledFile.getPath())
+            enabledFile.delete()
+            Path relativeSrc = link.getParent().relativize(target)
+            java.nio.file.Files.createSymbolicLink(link, relativeSrc)
+        }
+    }
+}
+assert new File(rootDir, 'dispatcher.ams').deleteDir()
+removeModule(rootPom, 'dispatcher.ams')
+assert new File(rootDir, 'dispatcher.cloud').deleteDir()
+removeModule(rootPom, 'dispatcher.cloud')
+
 
 /**
  * Creates content skeleton based upon isSingleCountry & languageCountry input from user
