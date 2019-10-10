@@ -1,3 +1,10 @@
+## Global Apache Velocity variables
+#set( $year = $package.getClass().forName("java.util.Date").newInstance().getYear() + 1900 )
+#set($hash = '#')
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+#set( $startbrace = "{" )
+#set( $endbrace = "}" )
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
  |  Copyright 2015 Adobe Systems Incorporated

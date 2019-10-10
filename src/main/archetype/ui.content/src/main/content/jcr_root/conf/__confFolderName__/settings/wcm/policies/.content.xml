@@ -276,9 +276,9 @@
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </policy_header>
                     <policy_footer
-                    jcr:title="${siteName} Experience Fragment - Footer"
-                    sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                        jcr:title="${siteName} Experience Fragment - Footer"
+                        sling:resourceType="wcm/core/components/policy/policy">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_footer>
                 </experiencefragment>
             </content>

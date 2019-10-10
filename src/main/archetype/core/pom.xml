@@ -43,8 +43,6 @@
                         </goals>
                         <configuration>
                             <bnd><![CDATA[
-#set( $startbrace = "{" )
-#set( $endbrace = "}" )
 Bundle-Category: ${componentGroupName}
 -exportcontents: $${startbrace}packages;VERSIONED${endbrace}
 Sling-Model-Packages: ${package}.core.models
