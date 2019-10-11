@@ -1,0 +1,38 @@
+# deny everything and allow specific entries
+# Start with everything blocked as a safeguard and open things customers need and what's safe OOTB
+/0001 { /type "deny"  /url "*" }
+
+# Open consoles if this isn't a production environment by uncommenting the next few lines
+# /002 { /type "allow" /url "/crx/*"    }  # allow content repository
+# /003 { /type "allow" /url "/system/*" }  # allow OSGi console
+
+# allow non-public content directories if this isn't a production environment by uncommenting the next few lines
+# /004 { /type "allow" /url "/apps/*"   }  # allow apps access
+# /005 { /type "allow" /url "/bin/*"    }  # allow bin path access
+
+# This rule allows content to be access
+/0010 { /type "allow" /extension '(css|eot|gif|ico|jpeg|jpg|js|gif|pdf|png|svg|swf|ttf|woff|woff2|html)' /path "/content/*" }  # disable this rule to allow mapped content only
+/0011 { /type "allow" /extension "json" /selectors "model" /path "/content/*" }
+
+# Enable specific mime types clientlibs directories
+/0012 { /type "allow" /method "GET" /extension '(css|eot|gif|ico|jpeg|jpg|js|gif|png|svg|swf|ttf|woff|woff2)' /path "/etc/clientlibs/*" }
+
+# Enable clientlibs proxy servlet
+/0013 { /type "allow" /method "GET" /url "/etc.clientlibs/*" }
+
+# Enable basic features
+/0014 { /type "allow" /method "GET" /url '/libs/granite/csrf/token.json' /extension 'json' } # AEM provides a framework aimed at preventing Cross-Site Request Forgery attacks
+/0015 { /type "allow" /method "POST" /url "/content/[.]*.form.html" }  # allow POSTs to form selectors under content
+
+/0016 { /type "allow" /method "GET" /path "/libs/cq/personalization" }  # enable personalization
+/0017 { /type "allow" /method "POST" /path "/content/[.]*.commerce.cart.json" }  # allow POSTs to update the shopping cart
+
+# Deny content grabbing for greedy queries and prevent un-intended self DOS attacks
+/0100 { /type "deny" /selectors '(feed|rss|pages|languages|blueprint|infinity|tidy|sysview|docview|query|[0-9-]+|jcr:content)' /extension '(json|xml|html|feed)' }
+
+# Deny authoring query params
+/0101 { /type "deny" /method "GET" /query "debug=*" }
+/0102 { /type "deny" /method "GET" /query "wcmmode=*" }
+# Deny front door entry
+/0103 { /type "deny" /path "/content/ams/healthcheck/*" }
+/0104 { /type "deny" /url "/content/regent.html" }

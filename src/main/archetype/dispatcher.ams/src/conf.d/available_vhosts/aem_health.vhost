@@ -1,0 +1,55 @@
+# Collect the dispatchers number
+PassEnv DISP_ID
+# Use this vhost in conjunction with adding a Host Header (health) to your load balancer configurations so they fall into this host
+# This will execute the scripts that live in /var/www/cgi-bin/health/
+# To test this is working tail the log file: /var/log/elb/health_check.log
+# Then run a curl command to run the script: curl -H 'Host: health' http://localhost:81/health/<SCRIPTNAME> or curl -H 'Host: health' http://localhost/health/<SCRIPTNAME>
+
+# This requires a cgi-module to be loaded like:
+# LoadModule cgid_module modules/mod_cgid.so
+# Which should be called in /etc/httpd/conf.modules.d/01-cgi.conf
+
+Listen 81
+<VirtualHost *:81>
+	ServerName	"health-aws"
+	ServerAlias	health health_check
+	# CustomLog for access
+	CustomLog logs/healthcheck_access_log combined
+	# Set the timeouts for header and body to be larger than the idle timeout setting on the load balancer.
+	<IfModule mod_reqtimeout.c> 
+		RequestReadTimeout header=65 body=65
+	</IfModule>
+	<IfModule mod_headers.c>
+			Header always add X-Dispatcher ${DISP_ID}
+			Header always add X-Vhost "health"
+	</IfModule>
+	<Directory "/var/www/cgi-bin">
+		AllowOverride None
+		Options None
+		Require all granted
+	</Directory>
+ 	ScriptAlias /health/ "/var/www/cgi-bin/health/"
+ 	ScriptAlias /eagle/ "/var/www/cgi-bin/health/"
+</VirtualHost>
+
+<VirtualHost *:80>
+	ServerName	"health-azure"
+	ServerAlias	health health_check
+	# CustomLog for access
+	CustomLog logs/healthcheck_access_log combined 
+	# Set the timeouts for header and body to be larger than the idle timeout setting on the load balancer.
+	<IfModule mod_reqtimeout.c>
+		RequestReadTimeout header=65 body=65
+	</IfModule>
+	<IfModule mod_headers.c>
+			Header always add X-Dispatcher ${DISP_ID}
+			Header always add X-Vhost "health"
+	</IfModule>
+	<Directory "/var/www/cgi-bin">
+		AllowOverride None
+		Options None
+		Require all granted
+	</Directory>
+ 	ScriptAlias /health/ "/var/www/cgi-bin/health/"
+ 	ScriptAlias /eagle/ "/var/www/cgi-bin/health/"
+</VirtualHost>

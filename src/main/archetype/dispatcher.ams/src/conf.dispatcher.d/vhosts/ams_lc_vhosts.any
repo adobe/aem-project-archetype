@@ -1,0 +1,2 @@
+# Put hostnames that would be honored for livecycle blob matching works.
+"${LIVECYCLE_DEFAULT_HOSTNAME}"

@@ -1,0 +1,23 @@
+/lcfarm {  
+	# client headers which should be passed through to the render instances
+	# (feature supported since dispatcher build 2.6.3.5222)
+	/clientheaders {
+		$include "/etc/httpd/conf.dispatcher.d/clientheaders/ams_lc_clientheaders.any"
+		$include "/etc/httpd/conf.dispatcher.d/clientheaders/ams_common_clientheaders.any"
+	}
+	# hostname globbing for farm selection (virtual domain addressing)
+	/virtualhosts {
+		$include "/etc/httpd/conf.dispatcher.d/vhosts/ams_lc_vhosts.any"
+	}
+	# the load will be balanced among these render instances
+	/renders {
+		$include "/etc/httpd/conf.dispatcher.d/renders/ams_lc_renders.any"
+	}
+	# only handle the requests in the following acl. default is 'none'
+	# the glob pattern is matched against the first request line
+	/filter {
+		$include "/etc/httpd/conf.dispatcher.d/filters/ams_lc_filters.any"
+	}
+	# allow propagation of replication posts (should seldomly be used)
+	/propagateSyndPost "0"
+}
