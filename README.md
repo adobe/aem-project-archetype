@@ -71,6 +71,8 @@ Or use your mvn skills:
 
 Where 20 is the archetype version number that you want to use (see archetype versions below).
 
+**For Windows users**: In case you are getting `A required privilege is not held by the client.` error, you will need to run the archetype as an administrator or [setup rights for creating symbolic links](https://stackoverflow.com/questions/23217460/how-to-create-soft-symbolic-link-using-java-nio-files/24353758#24353758).
+
 ### Available properties
 
 Name                        | Default | Description
