@@ -33,7 +33,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="${siteName} Experience Fragment"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/libs/wcm/foundation/components/responsivegrid,group:${componentGroupName}.Content,group:${componentGroupName}.Content Form,group:${componentGroupName}.Structure]">
+                        components="[/libs/wcm/foundation/components/responsivegrid,group:${componentGroupName}.Content,group:${componentGroupName}.Form,group:${componentGroupName}.Structure]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                         <cq:authoring jcr:primaryType="nt:unstructured">
                             <assetToComponentMapping jcr:primaryType="nt:unstructured">
