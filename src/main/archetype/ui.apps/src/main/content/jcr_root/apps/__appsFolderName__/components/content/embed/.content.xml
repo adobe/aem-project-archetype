@@ -3,4 +3,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Embed"
     sling:resourceSuperType="core/wcm/components/embed/v1/embed"
-    componentGroup="${componentGroupName}"/>
+    componentGroup="${componentGroupName}.Content"/>

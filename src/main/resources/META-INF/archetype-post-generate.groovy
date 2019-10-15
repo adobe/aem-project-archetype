@@ -71,17 +71,25 @@ def buildContentSkeleton(uiContentPackage, uiAppsPackage, isSingleCountryWebsite
     if (isSingleCountryWebsite == "y") {
         def languageMastersDir = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/language-masters")
         languageMastersDir.deleteDir()
+        def languageMastersXFMDir = new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${contentFolderName}/language-masters")
+        languageMastersXFMDir.deleteDir()
         def msmAppsDir = new File(uiAppsPackage, "src/main/content/jcr_root/apps/msm")
         msmAppsDir.deleteDir()
     } else {
         def languageDir = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/language-masters/en")
         languageDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/language-masters/${contentDetails[0]}"))
+        def languageXFMDir = new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${contentFolderName}/language" + "-masters/en")
+        languageXFMDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${contentFolderName}/language-masters/${contentDetails[0]}"))
     }
 
     def countryDir = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/us")
+    def countryXFMDir = new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${contentFolderName}/us")
     countryDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/${contentDetails[1]}"))
+    countryXFMDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${contentFolderName}/${contentDetails[1]}"))
     def languageInCountryDir = new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/${contentDetails[1]}/en")
+    def languageInCountryXFMDir = new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${contentFolderName}/${contentDetails[1]}/en")
     languageInCountryDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/${contentFolderName}/${contentDetails[1]}/${contentDetails[0]}"))
+    languageInCountryXFMDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${contentFolderName}/${contentDetails[1]}/${contentDetails[0]}"))
 }
 
 /**

@@ -3,4 +3,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Social Media Sharing"
     sling:resourceSuperType="core/wcm/components/sharing/v1/sharing"
-    componentGroup="${componentGroupName}"/>
+    componentGroup="${componentGroupName}.Content"/>

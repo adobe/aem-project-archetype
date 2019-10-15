@@ -4,4 +4,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Carousel"
     sling:resourceSuperType="core/wcm/components/carousel/v1/carousel"
-    componentGroup="${componentGroupName}"/>
+    componentGroup="${componentGroupName}.Content"/>

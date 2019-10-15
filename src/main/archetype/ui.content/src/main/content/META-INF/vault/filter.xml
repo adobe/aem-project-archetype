@@ -3,4 +3,5 @@
     <filter root="/conf/${confFolderName}" mode="merge"/>
     <filter root="/content/${contentFolderName}" mode="merge"/>
     <filter root="/content/dam/${contentFolderName}" mode="merge"/>
+    <filter root="/content/experience-fragments/${contentFolderName}" mode="merge"/>
 </workspaceFilter>

@@ -4,9 +4,9 @@
     <jcr:content
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
-        cq:template="/conf/${confFolderName}/settings/wcm/templates/homepage"
+        cq:template="/conf/${confFolderName}/settings/wcm/templates/content-page-template"
         jcr:primaryType="cq:PageContent"
-        jcr:title="${language_country.substring(0,2)}"
+        jcr:title="${language_country.split('_').get(0)}"
         sling:resourceType="${appsFolderName}/components/structure/page"
         pageTitle="New Project"
         socialMedia="[facebook]">
