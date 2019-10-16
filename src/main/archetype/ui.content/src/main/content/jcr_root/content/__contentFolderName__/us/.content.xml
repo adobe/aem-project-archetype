@@ -8,6 +8,6 @@
         cq:redirectTarget="/content/${contentFolderName}/${language_country.substring(3)}/${language_country.substring(0,2)}"
         cq:template="/conf/${confFolderName}/settings/wcm/templates/content-page-template"
         jcr:primaryType="cq:PageContent"
-        jcr:title="<${language_country.split('_').get(1)}/>"
+        jcr:title="${language_country.split('_').get(1)}"
         sling:resourceType="foundation/components/redirect"/>
 </jcr:root>
