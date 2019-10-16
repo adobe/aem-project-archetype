@@ -13,9 +13,9 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="${appsFolderName}/components/content/experiencefragment"
 #if ( $isSingleCountryWebsite == "n" )
-                fragmentVariationPath="/content/experience-fragments/${contentFolderName}/${language_country.split('_').get(1)}/${language_country.split('_').get(0)}/site/header/master"/>
-#else
                 fragmentVariationPath="/content/experience-fragments/${contentFolderName}/language-masters/${language_country.split('_').get(0)}/site/header/master"/>
+#else
+                fragmentVariationPath="/content/experience-fragments/${contentFolderName}/${language_country.split('_').get(1)}/${language_country.split('_').get(0)}/site/header/master"/>
 #end
             <responsivegrid
                 editable="{Boolean}true"
@@ -25,9 +25,9 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="${appsFolderName}/components/content/experiencefragment"
 #if ( $isSingleCountryWebsite == "n" )
-                fragmentVariationPath="/content/experience-fragments/${contentFolderName}/${language_country.split('_').get(1)}/${language_country.split('_').get(0)}/site/footer/master"/>
-#else
                 fragmentVariationPath="/content/experience-fragments/${contentFolderName}/language-masters/${language_country.split('_').get(0)}/site/footer/master"/>
+#else
+                fragmentVariationPath="/content/experience-fragments/${contentFolderName}/${language_country.split('_').get(1)}/${language_country.split('_').get(0)}/site/footer/master"/>
 #end
         </root>
         <cq:responsive jcr:primaryType="nt:unstructured">
