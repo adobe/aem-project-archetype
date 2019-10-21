@@ -35,13 +35,6 @@
     <name>${artifactName} - UI content</name>
     <description>UI content package for ${artifactName}</description>
 
-    <!-- <scm>
-        <connection></connection>
-        <developerConnection></developerConnection>
-        <url></url>
-        <tag>HEAD</tag>
-    </scm-->
-
     <!-- ====================================================================== -->
     <!-- B U I L D   D E F I N I T I O N                                        -->
     <!-- ====================================================================== -->
@@ -55,8 +48,20 @@
                 <artifactId>filevault-package-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
-                    <acHandling>merge_preserve</acHandling>
-                    <group>${packageGroup}</group>
+                    <group>${groupId}</group>
+                    <name>${appsFolderName}.ui.content</name>
+                    <packageType>content</packageType>
+                    <accessControlHandling>merge</accessControlHandling>
+                    <properties>
+                        <cloudManagerTarget>none</cloudManagerTarget>>
+                    </properties>
+                    <dependencies>
+                        <dependency>
+                            <groupId>${groupId}</groupId>
+                            <artifactId>${rootArtifactId}.ui.apps</artifactId>
+                            <version>${version}</version>
+                        </dependency>
+                    </dependencies>
                 </configuration>
             </plugin>
             <plugin>
@@ -80,12 +85,16 @@
             <artifactId>${rootArtifactId}.core</artifactId>
             <version>${version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>${groupId}</groupId>
+            <artifactId>${rootArtifactId}.ui.apps</artifactId>
+            <version>${version}</version>
+            <type>zip</type>
+        </dependency>
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>uber-jar</artifactId>
             <classifier>apis</classifier>
         </dependency>
-
     </dependencies>
 </project>

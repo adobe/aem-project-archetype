@@ -131,6 +131,17 @@
     </requiredProperties>
 
     <modules>
+        <module id="${rootArtifactId}.all" dir="all" name="all">
+            <fileSets>
+                <fileSet filtered="true" packaged="false"
+                         encoding="UTF-8">
+                    <directory>src/main/content</directory>
+                    <includes>
+                        <include>**/*.*</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
         <module id="${rootArtifactId}.core" dir="core" name="core">
             <fileSets>
                 <fileSet filtered="true" packaged="true"
