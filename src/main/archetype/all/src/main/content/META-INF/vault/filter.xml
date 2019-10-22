@@ -16,5 +16,5 @@
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <workspaceFilter version="1.0">
     <filter root="/apps/${appsFolderName}-packages"/>
-    <filter root="/apps/vendor-packages"/>
+    <filter root="/apps/${appsFolderName}-vendor-packages"/>
 </workspaceFilter>

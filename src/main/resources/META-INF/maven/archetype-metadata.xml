@@ -336,6 +336,17 @@
                 </fileSet>
             </fileSets>
         </module>
+        <module id="${rootArtifactId}.repository-structure" dir="repository-structure" name="repository-structure">
+            <fileSets>
+                <fileSet filtered="true" packaged="false"
+                         encoding="UTF-8">
+                    <directory>src/main/content</directory>
+                    <includes>
+                        <include>**/*.*</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
     </modules>
 
   <fileSets>

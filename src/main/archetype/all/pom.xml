@@ -65,16 +65,22 @@
                         </embedded>
                         <embedded>
                             <groupId>com.adobe.cq</groupId>
-                            <artifactId>core.wcm.components.all</artifactId>
+                            <artifactId>core.wcm.components.content</artifactId>
                             <type>zip</type>
-                            <target>/apps/vendor-packages/application/install</target>
+                            <target>/apps/${appsFolderName}-vendor-packages/application/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.adobe.cq</groupId>
+                            <artifactId>core.wcm.components.config</artifactId>
+                            <type>zip</type>
+                            <target>/apps/${appsFolderName}-vendor-packages/application/install</target>
                         </embedded>
 #if ( $optionIncludeExamples == "y" )
                         <embedded>
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.examples</artifactId>
                             <type>zip</type>
-                            <target>/apps/vendor-packages/content/install</target>
+                            <target>/apps/${appsFolderName}-vendor-packages/content/install</target>
                         </embedded>
 #end
                     </embeddeds>
@@ -182,7 +188,12 @@
 
         <dependency>
             <groupId>com.adobe.cq</groupId>
-            <artifactId>core.wcm.components.all</artifactId>
+            <artifactId>core.wcm.components.content</artifactId>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>core.wcm.components.config</artifactId>
             <type>zip</type>
         </dependency>
 #if ( $optionIncludeExamples == "y" )
