@@ -32,12 +32,14 @@
     <description>${artifactName}</description>
 
     <modules>
+        <module>all</module>
         <module>core</module>
         <module>ui.frontend</module>
         <module>ui.apps</module>
         <module>ui.content</module>
         <module>it.tests</module>
         <module>it.launcher</module>
+        <module>repository-structure</module>
 #if ( $optionDispatcherConfig != "none" && $optionDispatcherConfig != "n" )
         <module>dispatcher</module>
 #end
@@ -586,7 +588,18 @@
             </dependency>
             <dependency>
                 <groupId>com.adobe.cq</groupId>
-                <artifactId>core.wcm.components.all</artifactId>
+                <artifactId>core.wcm.components.core</artifactId>
+                <version>${core.wcm.components.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.cq</groupId>
+                <artifactId>core.wcm.components.content</artifactId>
+                <type>zip</type>
+                <version>${core.wcm.components.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.cq</groupId>
+                <artifactId>core.wcm.components.config</artifactId>
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
             </dependency>

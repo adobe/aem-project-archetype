@@ -5,6 +5,6 @@
     <filter root="/apps/sling" />
 #end
 #if ( $isSingleCountryWebsite  == "n" )
-    <filter root="/apps/msm/__appsFolderName___blueprint" mode="merge"/>
+    <filter root="/apps/msm/${appsFolderName}_blueprint" mode="merge"/>
 #end
 </workspaceFilter>

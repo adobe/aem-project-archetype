@@ -35,13 +35,6 @@
     <name>${artifactName} - UI apps</name>
     <description>UI apps package for ${artifactName}</description>
 
-    <!-- <scm>
-        <connection></connection>
-        <developerConnection></developerConnection>
-        <url></url>
-        <tag>HEAD</tag>
-    </scm-->
-
     <!-- ====================================================================== -->
     <!-- B U I L D   D E F I N I T I O N                                        -->
     <!-- ====================================================================== -->
@@ -56,28 +49,41 @@
                 <artifactId>filevault-package-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
-                    <group>${packageGroup}</group>
+                    <group>${groupId}</group>
+                    <name>${artifactId}</name>
+                    <packageType>application</packageType>
+                    <accessControlHandling>merge</accessControlHandling>
+                    <properties>
+                        <cloudManagerTarget>none</cloudManagerTarget>>
+                    </properties>
+                    <repositoryStructurePackages>
+                        <repositoryStructurePackage>
+                            <groupId>${groupId}</groupId>
+                            <artifactId>${rootArtifactId}.repository-structure</artifactId>
+                        </repositoryStructurePackage>
+                    </repositoryStructurePackages>
                     <embeddeds>
+                        <embedded>
+                            <groupId>com.adobe.cq</groupId>
+                            <artifactId>core.wcm.components.core</artifactId>
+                            <target>/apps/${appsFolderName}/install</target>
+                        </embedded>
                         <embedded>
                             <groupId>${groupId}</groupId>
                             <artifactId>${rootArtifactId}.core</artifactId>
                             <target>/apps/${appsFolderName}/install</target>
                         </embedded>
                     </embeddeds>
-                    <subPackages>
-                        <subPackage>
+                    <dependencies>
+                        <dependency>
                             <groupId>com.adobe.cq</groupId>
-                            <artifactId>core.wcm.components.all</artifactId>
-                            <filter>true</filter>
-                        </subPackage>
-#if ( $optionIncludeExamples == "y" )
-                        <subPackage>
+                            <artifactId>core.wcm.components.content</artifactId>
+                        </dependency>
+                        <dependency>
                             <groupId>com.adobe.cq</groupId>
-                            <artifactId>core.wcm.components.examples</artifactId>
-                            <filter>true</filter>
-                        </subPackage>
-#end
-                    </subPackages>
+                            <artifactId>core.wcm.components.config</artifactId>
+                        </dependency>
+                    </dependencies>
                 </configuration>
             </plugin>
             <plugin>
@@ -108,23 +114,30 @@
         </dependency>
 
         <dependency>
+            <groupId>${groupId}</groupId>
+            <artifactId>${rootArtifactId}.repository-structure</artifactId>
+            <version>${version}</version>
+            <type>zip</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>core.wcm.components.content</artifactId>
+            <type>zip</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>core.wcm.components.config</artifactId>
+            <type>zip</type>
+        </dependency>
+
+        <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>uber-jar</artifactId>
             <classifier>apis</classifier>
         </dependency>
 
-        <dependency>
-            <groupId>com.adobe.cq</groupId>
-            <artifactId>core.wcm.components.all</artifactId>
-            <type>zip</type>
-        </dependency>
-#if ( $optionIncludeExamples == "y" )
-        <dependency>
-            <groupId>com.adobe.cq</groupId>
-            <artifactId>core.wcm.components.examples</artifactId>
-            <type>zip</type>
-        </dependency>
-#end
         <dependency>
             <groupId>javax.jcr</groupId>
             <artifactId>jcr</artifactId>
