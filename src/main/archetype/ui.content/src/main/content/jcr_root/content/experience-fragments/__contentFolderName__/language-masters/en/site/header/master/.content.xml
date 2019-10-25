@@ -23,7 +23,7 @@
                     <languagenavigation
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="${appsFolderName}/components/content/languagenavigation"
-                        navigationRoot="/content/${contentFolderame}"
+                        navigationRoot="/content/${contentFolderName}"
                         structureDepth="2">
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default
