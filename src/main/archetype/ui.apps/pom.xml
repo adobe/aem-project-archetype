@@ -114,6 +114,11 @@
         </dependency>
 
         <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>core.wcm.components.core</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${rootArtifactId}.repository-structure</artifactId>
             <version>${version}</version>
