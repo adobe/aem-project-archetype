@@ -53,7 +53,7 @@ Id                        | Description
 autoInstallBundle         | Install core bundle with the maven-sling-plugin to the felix console
 autoInstallPackage        | Install the ui.content and ui.apps content package with the content-package-maven-plugin to the package manager to default author instance on localhost, port 4502. Hostname and port can be changed with the aem.host and aem.port user defined properties. 
 autoInstallPackagePublish | Install the ui.content and ui.apps content package with the content-package-maven-plugin to the package manager to default publish instance on localhost, port 4503. Hostname and port can be changed with the aem.host and aem.port user defined properties.
-autoInstallSingllePackage | Install the `all` content package with the content-package-maven-plugin to the package manager to default author instance on localhost, port 4502. Hostname and port can be changed with the aem.host and aem.port user defined properties. 
+autoInstallSinglePackage | Install the `all` content package with the content-package-maven-plugin to the package manager to default author instance on localhost, port 4502. Hostname and port can be changed with the aem.host and aem.port user defined properties. 
 autoInstallSinglePackagePublish | Install the `all` content package with the content-package-maven-plugin to the package manager to default publish instance on localhost, port 4503. Hostname and port can be changed with the aem.host and aem.port user defined properties.
 
 The profile `integrationTests` is also available for the verify goal, to run the provided integration tests on the AEM instance.  
@@ -71,7 +71,7 @@ Or use your mvn skills:
      -DarchetypeArtifactId=aem-project-archetype \
      -DarchetypeVersion=21
 
-Where 20 is the archetype version number that you want to use (see archetype versions below).
+Where 21 is the archetype version number that you want to use (see archetype versions below).
 
 **For Windows users**: In case you are getting `A required privilege is not held by the client.` error, you will need to run the archetype as an administrator or [setup rights for creating symbolic links](https://stackoverflow.com/questions/23217460/how-to-create-soft-symbolic-link-using-java-nio-files/24353758#24353758).
 
