@@ -215,6 +215,7 @@
                         <include>.gitignore</include>
                         <include>clientlib.config.js</include>
                         <include>package.json</include>
+                        <include>README.md</include>
                         <include>tsconfig.json</include>
                         <include>tslint.json</include>
                         <include>webpack.common.js</include>
@@ -222,7 +223,7 @@
                         <include>webpack.prod.js</include>
                     </includes>
                 </fileSet>
-                <fileSet filtered="false" packaged="false"
+                <fileSet filtered="true" packaged="false"
                          encoding="UTF-8">
                     <directory>src/main/webpack</directory>
                     <includes>
