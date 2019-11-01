@@ -30,6 +30,9 @@
                 <artifactId>filevault-package-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
+                    <properties>
+                        <cloudManagerTarget>none</cloudManagerTarget>>
+                    </properties>
                     <filters>
 
                         <!-- /apps root -->
