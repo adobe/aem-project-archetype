@@ -44,6 +44,7 @@
                         <configuration>
                             <bnd><![CDATA[
 Bundle-Category: ${componentGroupName}
+Import-Package: javax.annotation;version=0.0.0,*
 -exportcontents: $${startbrace}packages;VERSIONED${endbrace}
 Sling-Model-Packages: ${package}.core.models
 -snapshot: $${startbrace}tstamp;yyyyMMddHHmmssSSS${endbrace}
@@ -146,6 +147,10 @@ Bundle-DocURL:
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
         </dependency>
         <dependency>
             <groupId>com.adobe.aem</groupId>
