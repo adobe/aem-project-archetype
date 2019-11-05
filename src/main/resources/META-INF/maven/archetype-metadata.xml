@@ -221,6 +221,7 @@
                         <include>webpack.common.js</include>
                         <include>webpack.dev.js</include>
                         <include>webpack.prod.js</include>
+                        <include>assembly.xml</include>
                     </includes>
                 </fileSet>
                 <fileSet filtered="true" packaged="false"
