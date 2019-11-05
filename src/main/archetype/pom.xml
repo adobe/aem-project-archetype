@@ -34,7 +34,9 @@
     <modules>
         <module>all</module>
         <module>core</module>
+#if ( $optionIncludeFrontendModule == "y" )
         <module>ui.frontend</module>
+#end
         <module>ui.apps</module>
         <module>ui.content</module>
         <module>it.tests</module>

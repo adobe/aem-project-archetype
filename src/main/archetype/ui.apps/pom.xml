@@ -113,6 +113,15 @@
             <version>${version}</version>
         </dependency>
 
+#if ( $optionIncludeFrontendModule == "y" )
+        <dependency>
+            <groupId>${groupId}</groupId>
+            <artifactId>${rootArtifactId}.ui.frontend</artifactId>
+            <version>${version}</version>
+            <type>pom</type>
+        </dependency>
+#end
+
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.core</artifactId>
