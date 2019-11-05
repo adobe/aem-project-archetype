@@ -118,7 +118,7 @@
             <groupId>${groupId}</groupId>
             <artifactId>${rootArtifactId}.ui.frontend</artifactId>
             <version>${version}</version>
-            <type>pom</type>
+            <type>zip</type>
         </dependency>
 #end
 
