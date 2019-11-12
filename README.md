@@ -10,35 +10,39 @@ See the [Getting Started with AEM Sites - WKND Tutorial](https://docs.adobe.com/
 
 This project has a number features that are intended to offer a convenient starting point for new projects:
 
-* 2 Pages
-  * English and French pages with example content
+* Language Master / Country structure
+  * A language master structure and country top level page
+  * Live copy of the top level page in the specified language
+  * Blueprint
 
-* One content template based on the editable template feature
+* Content and Experience fragment templates based on the editable template feature
   * Example content policy
 
 * Page component
   * Based on the [AEM Sites Core Component page](https://github.com/adobe/aem-core-wcm-components/tree/master/content/src/content/jcr_root/apps/core/wcm/components/page/v2/page)
   * customfooterlibs.html and customheaderlibs.html snippet to load additional JS and CSS clientlibs according to the {cssId} property
 * Content Components
+  * Proxy components for all AEM Sites Core Components of the latest released version. For instance  accordion, carousel, text and much 
+  more. For a complete overview see  [AEM Sites Core Components](https://github.com/adobe/aem-core-wcm-components)
   * Example: helloworld example of custom HTL component with SlingModels for the logic
-  * accordion, breadcrumb, button, carousel, container, content fragment, content fragment list, download, 
-  experience fragment, image, language navigation, list, navigation, sharing, tabs, teaser, text and title 
-  use the latest released version of the [AEM Sites Core Components](https://github.com/adobe/aem-core-wcm-components) with the recommended proxy pattern 
-* Form Components
-  * button, container, hidden, options and text based on the AEM Core WCM Components
+
+* Frontend module
+  * Build process based on Webpack with support for Sass and TypeScript / ES6
+  * Automatic AEM ClientLib generation
+  * CSS class names follow BEM naming conventions
+  * Component-specific styles stored within each component
 
 * Configurations
   * Device emulators displayed in the authoring interface
   * Allow direct drag & drop of assets from the content finder into layout container (6.3 TouchUI)
   * Dictionary structure for internationalizing hardcoded strings
-* Client libraries
-  * CSS class names follow BEM naming conventions
-  * Component-specific styles stored within each component
+
 * Bundle with some examples
   * Models: Models for more complex business logic of components
   * Servlets: Rendering the output of specific requests
   * Filters: Applied to the requests before dispatching to the servlet or script
   * Schedulers: Cron-job like tasks
+
 * Tests
   * Unit tests
   * Integration tests
@@ -69,9 +73,9 @@ Or use your mvn skills:
     mvn archetype:generate \
      -DarchetypeGroupId=com.adobe.granite.archetypes \
      -DarchetypeArtifactId=aem-project-archetype \
-     -DarchetypeVersion=21
+     -DarchetypeVersion=22
 
-Where 21 is the archetype version number that you want to use (see archetype versions below).
+Where 22 is the archetype version number that you want to use (see archetype versions below).
 
 **For Windows users**: In case you are getting `A required privilege is not held by the client.` error, you will need to run the archetype as an administrator or [setup rights for creating symbolic links](https://stackoverflow.com/questions/23217460/how-to-create-soft-symbolic-link-using-java-nio-files/24353758#24353758).
 
@@ -125,6 +129,6 @@ Then change to the directory in which you want to create the project and run:
     mvn archetype:generate \
      -DarchetypeGroupId=com.adobe.granite.archetypes \
      -DarchetypeArtifactId=aem-project-archetype \
-     -DarchetypeVersion=22-SNAPSHOT
+     -DarchetypeVersion=23-SNAPSHOT
 
 Note: The profile "adobe-public" must be activated when using profiles like "autoInstallPackage" mentioned above.
