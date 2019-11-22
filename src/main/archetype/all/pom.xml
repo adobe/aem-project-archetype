@@ -63,6 +63,13 @@
                             <type>zip</type>
                             <target>/apps/${appsFolderName}-packages/content/install</target>
                         </embedded>
+#if ( $isSpaProject )
+                        <embedded>
+                            <groupId>com.adobe.aem</groupId>
+                            <artifactId>spa.project.core.core</artifactId>
+                            <target>/apps/${appsFolderName}-vendor-packages/install</target>
+                        </embedded>
+#end
                         <embedded>
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.content</artifactId>
@@ -84,6 +91,15 @@
                         </embedded>
 #end
                     </embeddeds>
+                    <subPackages>
+#if ( $isSpaProject )
+                        <subPackage>
+                            <groupId>com.adobe.aem</groupId>
+                            <artifactId>spa.project.core.all</artifactId>
+                            <filter>true</filter>
+                        </subPackage>
+#end
+                    </subPackages>
                 </configuration>
             </plugin>
             <plugin>
@@ -166,6 +182,12 @@
                     </plugin>
                 </plugins>
             </build>
+#if ( $optionFrontendModule == "angular" )
+            <properties>
+                <!-- Use `build:production` instead of `build` NPM script -->
+                <build.environment>:production</build.environment>
+            </properties>
+#end
         </profile>
     </profiles>
 
@@ -185,6 +207,19 @@
             <version>${version}</version>
             <type>zip</type>
         </dependency>
+
+#if ( $isSpaProject )
+        <!-- SPA Project Core (includes hierarchy page) -->
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>spa.project.core.all</artifactId>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>spa.project.core.core</artifactId>
+        </dependency>
+#end
 
         <dependency>
             <groupId>com.adobe.cq</groupId>

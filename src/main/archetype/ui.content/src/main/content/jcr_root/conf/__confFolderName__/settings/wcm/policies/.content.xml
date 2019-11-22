@@ -303,6 +303,18 @@
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </policy_content_page>
                 </page>
+#if ( $isSpaProject )
+                <spa jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="${siteName} App Policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        clientlibs="[wcm.foundation.components.page.responsive]"
+                        isRoot="{Boolean}true"
+                        structureDepth="3"
+                    />
+                </spa>
+#end
             </structure>
         </components>
     </${appsFolderName}>

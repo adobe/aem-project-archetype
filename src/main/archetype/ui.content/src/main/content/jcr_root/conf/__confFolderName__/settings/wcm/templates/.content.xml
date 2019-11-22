@@ -4,5 +4,9 @@
     jcr:primaryType="cq:Page">
     <content-page-template/>
     <experience-fragment-web-variation-template/>
+#if ( $isSpaProject )
+    <spa-app-template />
+    <spa-page-template />
+#end
     <rep:policy/>
 </jcr:root>
