@@ -1,5 +1,5 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- ~ Copyright 2018 Adobe Systems Incorporated
+ ~ Copyright 2019 Adobe Systems Incorporated
  ~
  ~ Licensed under the Apache License, Version 2.0 (the "License");
  ~ you may not use this file except in compliance with the License.
@@ -48,6 +48,7 @@ module.exports = {
     allowProxy: true,
     categories: ["${cssId}.base"],
     serializationFormat: "xml",
+    cssProcessor: ["default:none", "min:none"],
     jsProcessor: ["default:none", "min:none"],
     assets: {
       // Copy entrypoint scripts and stylesheets into the respective ClientLib directories (in the order they are in the
@@ -59,8 +60,8 @@ module.exports = {
       // Copy all other files into the `resources` ClientLib directory
       resources: {
         cwd: ".",
-        flatten: false,
         files: ["**/*.*"],
+        flatten: false,
         ignore: [...jsEntrypoints, ...cssEntrypoints]
       }
     }
