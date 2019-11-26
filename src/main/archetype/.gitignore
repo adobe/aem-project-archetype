@@ -68,20 +68,32 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 
+
 ### Vault ###
 .vlt
+
 
 ### IntelliJ ###
 .idea/
 *.iml
 
+
+### Node.js ###
+
 # Log files
 *.log
 
-# Node.js
+# NPM
 node_modules/
 package-lock.json
 yarn.lock
 
+# Webpack
+build/
+dist/
+
 # Frontend Maven Plugin
 node/
+
+# Tests
+coverage/
