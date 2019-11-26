@@ -302,6 +302,13 @@
                         clientlibsJsHead="${cssId}.dependencies">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </policy_content_page>
+                    <policy_spa
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="${siteName} SPA Page Policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        clientlibs="[${cssId}.site]">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_spa>
                 </page>
 #if ( $isSpaProject )
                 <spa jcr:primaryType="nt:unstructured">
