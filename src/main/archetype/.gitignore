@@ -74,3 +74,14 @@ buildNumber.properties
 ### IntelliJ ###
 .idea/
 *.iml
+
+# Log files
+*.log
+
+# Node.js
+node_modules/
+package-lock.json
+yarn.lock
+
+# Frontend Maven Plugin
+node/
