@@ -45,9 +45,9 @@ module.exports = {
   context: BUILD_DIR,
   clientLibRoot: CLIENTLIB_DIR,
   libs: {
-    name: "clientlib-base",
+    name: "clientlib-site",
     allowProxy: true,
-    categories: ["${cssId}.base"],
+    categories: ["${cssId}.site"],
     serializationFormat: "xml",
     cssProcessor: ["default:none", "min:none"],
     jsProcessor: ["default:none", "min:none"],

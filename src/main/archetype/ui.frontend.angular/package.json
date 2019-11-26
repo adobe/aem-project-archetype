@@ -2,7 +2,7 @@
   "name": "angular-app",
   "version": "1.1.0",
   "private": true,
-  "homepage": "/etc.clientlibs/${appsFolderName}/clientlibs/clientlib-base/resources",
+  "homepage": "/etc.clientlibs/${appsFolderName}/clientlibs/clientlib-site/resources",
   "scripts": {
     "start": "ng serve --open --proxy-config ./proxy.conf.json",
     "build": "ng build && clientlib",

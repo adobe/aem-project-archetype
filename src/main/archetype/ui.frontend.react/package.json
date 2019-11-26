@@ -2,7 +2,7 @@
   "name": "react-app",
   "version": "1.1.0",
   "private": true,
-  "homepage": "/etc.clientlibs/${appsFolderName}/clientlibs/clientlib-base/resources",
+  "homepage": "/etc.clientlibs/${appsFolderName}/clientlibs/clientlib-site/resources",
   "proxy": "http://localhost:4502",
   "scripts": {
     "start": "react-scripts start",
