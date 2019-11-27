@@ -6,7 +6,7 @@
         cq:lastModifiedBy="admin"
         cq:template="/conf/${appsFolderName}/settings/wcm/templates/spa-page-template"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Home Page ${appsFolderName}"
+        jcr:title="${siteName} Home Page"
         sling:resourceType="${appsFolderName}/components/structure/page">
         <root
             jcr:primaryType="nt:unstructured"
