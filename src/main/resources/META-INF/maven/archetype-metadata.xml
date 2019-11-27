@@ -35,7 +35,7 @@
             Maven artifact "root" artifactId, is suffixed for the individual modules
         -->
         <requiredProperty key="artifactId">
-            <defaultValue>${groupId}.${appsFolderName}</defaultValue>
+            <defaultValue>${appsFolderName}</defaultValue>
             <validationRegex>^[a-zA-Z0-9\.\-_]+$</validationRegex>
         </requiredProperty>
         <!--
