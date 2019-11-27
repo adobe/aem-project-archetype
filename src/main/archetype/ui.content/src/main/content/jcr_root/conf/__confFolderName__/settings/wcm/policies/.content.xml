@@ -302,6 +302,7 @@
                         clientlibsJsHead="${cssId}.dependencies">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </policy_content_page>
+#if ( $isSpaProject )
                     <policy_spa
                         jcr:primaryType="nt:unstructured"
                         jcr:title="${siteName} SPA Page Policy"
@@ -309,6 +310,7 @@
                         clientlibs="[${cssId}.site]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </policy_spa>
+#end
                 </page>
 #if ( $isSpaProject )
                 <spa jcr:primaryType="nt:unstructured">
