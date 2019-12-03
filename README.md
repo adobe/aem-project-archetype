@@ -112,7 +112,7 @@ confirmation at the end is denied and the questionnaire gets repeated, or by pas
 
 The latest version of the archetype has the following requirements:
 
-* Adobe Experience Manager 6.3.3.0 or higher (6.4.7 or higher when generating an SPA project)
+* Adobe Experience Manager 6.3.3.0 or higher (6.4.2 or higher when generating an SPA project)
 * Apache Maven (3.3.9 or newer)
 * Adobe Public Maven Repository in maven settings, see [Knowledge Base](https://helpx.adobe.com/experience-manager/kb/SetUpTheAdobeMavenRepository.html) article for details.
 
