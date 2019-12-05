@@ -1,4 +1,6 @@
-#if ( $optionIncludeFrontendModule == "y" )
+#if ( $optionFrontendModule != "none" )
 src/main/content/jcr_root/apps/${appsFolderName}/clientlibs/clientlib-site
+#end
+#if ( $optionFrontendModule == "general" )
 src/main/content/jcr_root/apps/${appsFolderName}/clientlibs/clientlib-dependencies
 #end
