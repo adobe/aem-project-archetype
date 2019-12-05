@@ -1,6 +1,8 @@
-#if ( $optionFrontendModule != "none" )
-src/main/content/jcr_root/apps/${appsFolderName}/clientlibs/clientlib-site
-#end
 #if ( $optionFrontendModule == "general" )
+src/main/content/jcr_root/apps/${appsFolderName}/clientlibs/clientlib-site
 src/main/content/jcr_root/apps/${appsFolderName}/clientlibs/clientlib-dependencies
+#elseif ( $optionFrontendModule == "angular" )
+src/main/content/jcr_root/apps/${appsFolderName}/clientlibs/clientlib-angular
+#elseif ( $optionFrontendModule == "react" )
+src/main/content/jcr_root/apps/${appsFolderName}/clientlibs/clientlib-react
 #end

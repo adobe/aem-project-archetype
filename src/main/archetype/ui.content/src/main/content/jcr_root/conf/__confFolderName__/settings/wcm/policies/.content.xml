@@ -307,7 +307,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="${siteName} SPA Page Policy"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        clientlibs="[${cssId}.site]">
+                        clientlibs="[${cssId}.${optionFrontendModule}]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </policy_spa>
 #end
