@@ -3,131 +3,24 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:tags="[]"
-        cq:template="/conf/${confFolderName}/settings/wcm/templates/experience-fragment-web-variation-template"
+        cq:template="/conf/${confFolderName}/settings/wcm/templates/xf-web-variation"
         cq:xfMasterVariation="{Boolean}true"
         cq:xfVariantType="web"
         jcr:primaryType="cq:PageContent"
         jcr:title="Footer"
-        sling:resourceType="${appsFolderName}/components/structure/xfpage">
+        sling:resourceType="${appsFolderName}/components/xfpage">
         <root
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="wcm/foundation/components/responsivegrid">
-            <responsivegrid
+            sling:resourceType="${appsFolderName}/components/container"
+            layout="simple">
+            <separator
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="wcm/foundation/components/responsivegrid">
-                <responsivegrid
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="wcm/foundation/components/responsivegrid">
-                    <cq:responsive jcr:primaryType="nt:unstructured"/>
-                    <navigation
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="${appsFolderName}/components/structure/navigation"
-                        accessibilityLabel="Footer navigation"
-                        collectAllPages="false"
-                        navigationRoot="/content/${contentFolderName}/language-masters/en"
-                        skipNavigationRoot="false"
-                        structureDepth="1">
-                        <cq:responsive jcr:primaryType="nt:unstructured">
-                            <default
-                                jcr:primaryType="nt:unstructured"
-                                offset="0"
-                                width="6"/>
-                            <tablet
-                                jcr:primaryType="nt:unstructured"
-                                width="8"/>
-                            <phone
-                                jcr:primaryType="nt:unstructured"
-                                width="8"/>
-                        </cq:responsive>
-                    </navigation>
-                    <title
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Follow Us"
-                        sling:resourceType="${appsFolderName}/components/content/title"
-                        type="h4">
-                        <cq:responsive jcr:primaryType="nt:unstructured">
-                            <default
-                                jcr:primaryType="nt:unstructured"
-                                offset="0"
-                                width="2"/>
-                            <phone
-                                jcr:primaryType="nt:unstructured"
-                                offset="0"
-                                width="12"/>
-                            <tablet
-                                jcr:primaryType="nt:unstructured"
-                                width="12"/>
-                        </cq:responsive>
-                    </title>
-                    <responsivegrid
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="wcm/foundation/components/responsivegrid">
-                        <cq:responsive jcr:primaryType="nt:unstructured">
-                            <default
-                                jcr:primaryType="nt:unstructured"
-                                width="2"/>
-                            <tablet
-                                jcr:primaryType="nt:unstructured"
-                                width="12"/>
-                            <phone
-                                jcr:primaryType="nt:unstructured"
-                                width="12"/>
-                        </cq:responsive>
-                        <button_facebook
-                            jcr:primaryType="nt:unstructured"
-                            jcr:title="Facebook"
-                            sling:resourceType="${appsFolderName}/components/content/button"
-                            accessibilityLabel="Facebook"
-                            icon="facebook"
-                            link="#">
-                            <cq:responsive jcr:primaryType="nt:unstructured">
-                                <default
-                                    jcr:primaryType="nt:unstructured"
-                                    offset="0"
-                                    width="1"/>
-                            </cq:responsive>
-                        </button_facebook>
-                        <button_twitter
-                            jcr:lastModifiedBy="admin"
-                            jcr:primaryType="nt:unstructured"
-                            jcr:title="Twitter"
-                            sling:resourceType="${appsFolderName}/components/content/button"
-                            accessibilityLabel="Twitter"
-                            icon="twitter"
-                            link="#">
-                            <cq:responsive jcr:primaryType="nt:unstructured">
-                                <default
-                                    jcr:primaryType="nt:unstructured"
-                                    offset="0"
-                                    width="1"/>
-                            </cq:responsive>
-                        </button_twitter>
-                        <button_instagram
-                            jcr:primaryType="nt:unstructured"
-                            jcr:title="Instagram"
-                            sling:resourceType="${appsFolderName}/components/content/button"
-                            accessibilityLabel="Instagram"
-                            icon="instagram"
-                            link="#">
-                            <cq:responsive jcr:primaryType="nt:unstructured">
-                                <default
-                                    jcr:primaryType="nt:unstructured"
-                                    offset="0"
-                                    width="1"/>
-                            </cq:responsive>
-                        </button_instagram>
-                    </responsivegrid>
-                    <separator
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="${appsFolderName}/components/content/separator"/>
-                    <text
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="${appsFolderName}/components/content/text"
-                        text="&lt;p>Ⓒ ${year}, ${siteName}.&lt;/p>&#xd;&#xa;"
-                        textIsRich="true"/>
-                </responsivegrid>
-            </responsivegrid>
+                sling:resourceType="${appsFolderName}/components/separator"/>
+            <text
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/text"
+                text="&lt;p>Copyright 2019, My Site.&amp;nbsp;All rights reserved.&lt;/p>&#xd;&#xa;"
+                textIsRich="true"/>
         </root>
     </jcr:content>
 </jcr:root>

@@ -1,4 +1,4 @@
-#set($hash = '#')${hash} Frontend Build
+${hash} Frontend Build
 
 ${hash}${hash} Features
 
@@ -9,11 +9,10 @@ ${hash}${hash} Features
     * No need to add imports anywhere.
     * All JS and CSS files can now be added to each component (best practice is under /clientlib/js or /clientlib/(s)css)
     * No .content.xml or js.txt/css.txt files needed as everything is run through Webpack
-    * The globber pulls in all JS files under the /component/ folder. Webpack allows CSS/SCSS files to be chained in via JS files. They are pulled in through the two entry points, sites.js and vendors.js.
+    * The globber pulls in all JS files under the /component/ folder. Webpack allows CSS/SCSS files to be chained in via JS files. They are pulled in through sites.js.
     * The only files consumed by AEM are the output files site.js and site.css, the resources folder in /clientlib-site as well as dependencies.js and dependencies.css in /clientlib-dependencies
 * Chunks
     * Main (site js/css)
-    * Vendors (dependencies js/css)
 * Full Sass/Scss support (Sass is compiled to CSS via Webpack).
 * Static webpack development server with built in proxy to a local instance of AEM
 

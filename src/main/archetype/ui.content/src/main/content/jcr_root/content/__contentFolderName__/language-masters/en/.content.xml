@@ -4,19 +4,37 @@
     <jcr:content
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
-        cq:template="/conf/${confFolderName}/settings/wcm/templates/content-page-template"
+        cq:template="/conf/${confFolderName}/settings/wcm/templates/page-content"
         jcr:primaryType="cq:PageContent"
         jcr:title="${language_country.split('_').get(0)}"
-        sling:resourceType="${appsFolderName}/components/structure/page"
-        pageTitle="New Project"
+        sling:resourceType="${appsFolderName}/components/page"
+        pageTitle="${siteName}"
         socialMedia="[facebook]">
         <root
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="wcm/foundation/components/responsivegrid">
-            <responsivegrid
-                jcr:lastModifiedBy="admin"
+            sling:resourceType="${appsFolderName}/components/container"
+            layout="responsiveGrid">
+            <container
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="wcm/foundation/components/responsivegrid"/>
+                sling:resourceType="${appsFolderName}/components/container">
+                <title
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Welcome to My Site!"
+                    sling:resourceType="${appsFolderName}/components/title"/>
+                <container
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/container"
+                    layout="responsiveGrid">
+                    <text
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/text"
+                        text="&lt;p>This is the main welcome page of your web site.&amp;nbsp;A few notes about this site:&lt;/p>&#xa;&lt;ul>&#xa;&lt;li>It is built entirely with the Core Components - see the &lt;a href=&quot;https://www.adobe.com/go/aem_cmp_library&quot;>Component Library&lt;/a>&amp;nbsp;to view the components in all their shapes and forms.&lt;/li>&#xa;&lt;li>Only the Hello World component has been built custom to illustrate how further components can be built (which also shows how JavaScript is best initialized for components, so that it also works well with the Page Editor).&lt;/li>&#xa;&lt;li>The page header and footer are assembled as Experience Fragments, which &lt;a href=&quot;https://docs.adobe.com/content/help/en/experience-manager-core-components/using/components/experience-fragment.html#localized-site-structure&quot;>can also be localized if needed&lt;/a>.&lt;br>&#xa;&lt;/li>&#xa;&lt;li>The Style System is used to insert a sematic &amp;lt;header&amp;gt; and &amp;lt;footer&amp;gt; element to the corresponding Experience Fragment components, as well as a &amp;lt;main&amp;gt; element to the container of the page content. This allows to apply some CSS specifically to these sections of the page.&lt;/li>&#xa;&lt;/ul>"
+                        textIsRich="true"/>
+                    <helloworld
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/helloworld"/>
+                </container>
+            </container>
         </root>
     </jcr:content>
 </jcr:root>

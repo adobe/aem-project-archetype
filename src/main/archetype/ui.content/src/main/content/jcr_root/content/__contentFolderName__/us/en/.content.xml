@@ -4,19 +4,79 @@
     <jcr:content
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
-        cq:template="/conf/${confFolderName}/settings/wcm/templates/content-page-template"
+        cq:template="/conf/${confFolderName}/settings/wcm/templates/page-content"
         jcr:primaryType="cq:PageContent"
         jcr:title="${language_country.split('_').get(0)}"
-        sling:resourceType="${appsFolderName}/components/structure/page"
-        pageTitle="New Project"
-        socialMedia="[facebook]">
+        sling:resourceType="${appsFolderName}/components/page"
+        pageTitle="${siteName}">
         <root
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="wcm/foundation/components/responsivegrid">
-            <responsivegrid
-                jcr:lastModifiedBy="admin"
+            sling:resourceType="${appsFolderName}/components/container"
+            layout="responsiveGrid">
+            <container
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="wcm/foundation/components/responsivegrid"/>
+                sling:resourceType="${appsFolderName}/components/container">
+                <title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/title"/>
+                <container
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appsFolderName}/components/container"
+                    layout="responsiveGrid">
+                    <teaser
+                        jcr:description="&lt;p>Don't stop half way, go for the top!&lt;/p>&#xd;&#xa;"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Epic Journey"
+                        sling:resourceType="${appsFolderName}/components/teaser"
+                        actionsEnabled="false"
+                        descriptionFromPage="false"
+                        textIsRich="true"
+                        titleFromPage="false">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="4"/>
+                        </cq:responsive>
+                    </teaser>
+                    <teaser_copy
+                        jcr:description="&lt;p>Don't stop half way, go for the top!&lt;/p>&#xd;&#xa;"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Epic Journey"
+                        sling:resourceType="${appsFolderName}/components/teaser"
+                        actionsEnabled="false"
+                        descriptionFromPage="false"
+                        textIsRich="true"
+                        titleFromPage="false">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="4"/>
+                        </cq:responsive>
+                    </teaser_copy>
+                    <teaser_copy_1579324932
+                        jcr:description="&lt;p>Don't stop half way, go for the top!&lt;/p>&#xd;&#xa;"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Epic Journey"
+                        sling:resourceType="${appsFolderName}/components/teaser"
+                        actionsEnabled="false"
+                        descriptionFromPage="false"
+                        textIsRich="true"
+                        titleFromPage="false">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="4"/>
+                        </cq:responsive>
+                    </teaser_copy_1579324932>
+                    <helloworld
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="${appsFolderName}/components/helloworld"
+                        text="lalala :)"/>
+                </container>
+            </container>
         </root>
 #if ( $isSingleCountryWebsite == "n" )
         <cq:LiveSyncConfig

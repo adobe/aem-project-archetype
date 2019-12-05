@@ -26,6 +26,7 @@ if (optionAemVersion == "6.3.3") {
 
 if (optionIncludeFrontendModule == "n") {
     assert new File(rootDir, "ui.frontend").deleteDir()
+    assert new File(rootDir, "ui.apps/.gitignore").delete()
     removeModule(rootPom, "ui.frontend")
 }
 
