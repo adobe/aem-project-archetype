@@ -26,7 +26,7 @@
     "react-dom": "^16.6.3",
     "react-fast-compare": "^2.0.2",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "^3.2.0",
+    "react-scripts": "~3.2.0",
     "react-test-renderer": "^16.7.0"
   },
   "devDependencies": {
