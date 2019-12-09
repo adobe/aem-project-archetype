@@ -14,16 +14,16 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import { Constants } from "@adobe/cq-angular-editable-components";
-import { ModelManager } from "@adobe/cq-spa-page-model-manager";
-import { Component } from "@angular/core";
+import { Constants } from '@adobe/cq-angular-editable-components';
+import { ModelManager } from '@adobe/cq-spa-page-model-manager';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: "#spa-root",
+  selector: '#spa-root',
   host: {
-    class: "app"
+    class: 'app'
   },
-  templateUrl: "./app.component.html"
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
   items: any;

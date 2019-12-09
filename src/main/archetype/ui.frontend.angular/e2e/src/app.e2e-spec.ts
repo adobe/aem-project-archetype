@@ -14,17 +14,17 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-"use strict"; // necessary for es6 output in node
+'use strict'; // necessary for es6 output in node
 
-import { browser, by, element } from "protractor";
+import { browser, by, element } from 'protractor';
 
 /* tslint:disable:quotemark */
-describe("Dynamic Component Loader", function() {
+describe('Dynamic Component Loader', function() {
   beforeEach(function() {
-    browser.get("");
+    browser.get('');
   });
 
-  it("should load ad banner", function() {
+  it('should load ad banner', function() {
     let headline = element(by.xpath("//h4[text()='Featured Hero Profile']"));
     let name = element(by.xpath("//h3[text()='Bombasto']"));
     let bio = element(by.xpath("//p[text()='Brave as they come']"));

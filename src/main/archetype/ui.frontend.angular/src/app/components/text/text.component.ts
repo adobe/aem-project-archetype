@@ -14,9 +14,9 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import { MapTo } from "@adobe/cq-angular-editable-components";
-import { Component, Input } from "@angular/core";
-import { DomSanitizer } from "@angular/platform-browser";
+import { MapTo } from '@adobe/cq-angular-editable-components';
+import { Component, Input } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 /**
  * Default Edit configuration for the Text component that interact with the Core Text component and sub-types
@@ -24,21 +24,21 @@ import { DomSanitizer } from "@angular/platform-browser";
  * @type EditConfig
  */
 const TextEditConfig = {
-  emptyLabel: "Text",
+  emptyLabel: 'Text',
   isEmpty: function(cqModel) {
     return !cqModel || !cqModel.text || cqModel.text.trim().length < 1;
   }
 };
 
 @Component({
-  selector: "app-text",
+  selector: 'app-text',
   host: {
-    "[id]": "itemName",
-    "[innerHtml]": "content",
-    "data-rte-editelement": "true"
+    '[id]': 'itemName',
+    '[innerHtml]': 'content',
+    'data-rte-editelement': 'true'
   },
-  styleUrls: ["./text.component.css"],
-  template: ""
+  styleUrls: ['./text.component.css'],
+  template: ''
 })
 export class TextComponent {
   @Input() richText: boolean;
@@ -48,8 +48,13 @@ export class TextComponent {
   constructor(private sanitizer: DomSanitizer) {}
 
   get content() {
-    return this.richText ? this.sanitizer.bypassSecurityTrustHtml(this.text) : this.text;
+    return this.richText
+      ? this.sanitizer.bypassSecurityTrustHtml(this.text)
+      : this.text;
   }
 }
 
-MapTo("${appsFolderName}/components/content/text")(TextComponent, TextEditConfig);
+MapTo('${appsFolderName}/components/content/text')(
+  TextComponent,
+  TextEditConfig
+);

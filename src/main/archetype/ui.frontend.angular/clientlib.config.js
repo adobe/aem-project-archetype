@@ -14,25 +14,25 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-const path = require("path");
+const path = require('path');
 const {
   cssEntrypoints,
   entrypoints,
   jsEntrypoints
-} = require("./utils/entrypoints");
+} = require('./utils/entrypoints');
 
-const BUILD_DIR = path.join(__dirname, "dist", "browser");
+const BUILD_DIR = path.join(__dirname, 'dist', 'browser');
 const CLIENTLIB_DIR = path.join(
   __dirname,
-  "..",
-  "ui.apps",
-  "src",
-  "main",
-  "content",
-  "jcr_root",
-  "apps",
-  "${appsFolderName}",
-  "clientlibs"
+  '..',
+  'ui.apps',
+  'src',
+  'main',
+  'content',
+  'jcr_root',
+  'apps',
+  '${appsFolderName}',
+  'clientlibs'
 );
 
 // Config for `aem-clientlib-generator`
@@ -40,12 +40,12 @@ module.exports = {
   context: BUILD_DIR,
   clientLibRoot: CLIENTLIB_DIR,
   libs: {
-    name: "clientlib-angular",
+    name: 'clientlib-angular',
     allowProxy: true,
-    categories: ["${cssId}.angular"],
-    serializationFormat: "xml",
-    cssProcessor: ["default:none", "min:none"],
-    jsProcessor: ["default:none", "min:none"],
+    categories: ['${cssId}.angular'],
+    serializationFormat: 'xml',
+    cssProcessor: ['default:none', 'min:none'],
+    jsProcessor: ['default:none', 'min:none'],
     assets: {
       // Copy entrypoint scripts and stylesheets into the respective ClientLib
       // directories (in the order they are in the entrypoints arrays)
@@ -54,8 +54,8 @@ module.exports = {
 
       // Copy all other files into the `resources` ClientLib directory
       resources: {
-        cwd: ".",
-        files: ["**/*.*"],
+        cwd: '.',
+        files: ['**/*.*'],
         flatten: false,
         ignore: entrypoints
       }

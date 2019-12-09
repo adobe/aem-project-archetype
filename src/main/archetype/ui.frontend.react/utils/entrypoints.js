@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require('fs');
 
 /**
  * Returns all entrypoint chunks (JS and CSS) of the React app. These chunks
@@ -14,9 +14,9 @@ function getEntrypoints(assetManifestPath) {
       `Cannot determine entrypoints: No asset manifest found at path ${assetManifestPath}`
     );
   }
-  const manifest = fs.readFileSync(assetManifestPath, { encoding: "utf8" });
+  const manifest = fs.readFileSync(assetManifestPath, { encoding: 'utf8' });
   const manifestContent = JSON.parse(manifest);
-  if (!("entrypoints" in manifestContent)) {
+  if (!('entrypoints' in manifestContent)) {
     throw Error(
       `Cannot determine entrypoints: Missing "entrypoints" key in ${assetManifestPath}`
     );

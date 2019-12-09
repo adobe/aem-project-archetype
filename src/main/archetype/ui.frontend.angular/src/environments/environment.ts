@@ -20,9 +20,10 @@
 
 export const environment = {
   production: false,
-  API_HOST: "",
-  APP_ROOT_PATH: "/content/${contentFolderName}/${language_country.split('_').get(1)}/${language_country.split('_').get(0)}/home.html",
-  CONTEXT_PATH: "" // configuration style: contextpath/
+  API_HOST: '',
+  APP_ROOT_PATH:
+    "/content/${contentFolderName}/${language_country.split('_').get(1)}/${language_country.split('_').get(0)}/home.html",
+  CONTEXT_PATH: '' // configuration style: contextpath/
 };
 
 /*

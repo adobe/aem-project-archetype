@@ -14,6 +14,9 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import { AEMResponsiveGridComponent, MapTo } from "@adobe/cq-angular-editable-components";
+import {
+  AEMResponsiveGridComponent,
+  MapTo
+} from '@adobe/cq-angular-editable-components';
 
-MapTo("wcm/foundation/components/responsivegrid")(AEMResponsiveGridComponent);
+MapTo('wcm/foundation/components/responsivegrid')(AEMResponsiveGridComponent);

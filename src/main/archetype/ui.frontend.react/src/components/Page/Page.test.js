@@ -14,32 +14,32 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import { ModelManager } from "@adobe/cq-spa-page-model-manager";
-import React from "react";
-import ReactDOM from "react-dom";
-import sinon from "sinon";
-import Page from "./";
+import { ModelManager } from '@adobe/cq-spa-page-model-manager';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import sinon from 'sinon';
+import Page from './';
 
-describe("Page ->", () => {
-  const ROOT_NODE_CLASS_NAME = "route-node";
-  const PAGE_CLASS_NAME = "page";
+describe('Page ->', () => {
+  const ROOT_NODE_CLASS_NAME = 'route-node';
+  const PAGE_CLASS_NAME = 'page';
 
   let rootNode;
 
   let sandbox = sinon.createSandbox();
 
   beforeEach(() => {
-    rootNode = document.createElement("div");
+    rootNode = document.createElement('div');
     rootNode.className = ROOT_NODE_CLASS_NAME;
     document.body.appendChild(rootNode);
 
     ModelManager.initialize();
 
-    expect(document.querySelector("." + ROOT_NODE_CLASS_NAME)).not.toBeNull();
+    expect(document.querySelector('.' + ROOT_NODE_CLASS_NAME)).not.toBeNull();
   });
 
   afterEach(() => {
-    window.location.hash = "";
+    window.location.hash = '';
 
     if (rootNode) {
       document.body.removeChild(rootNode);
@@ -48,17 +48,17 @@ describe("Page ->", () => {
     sandbox.restore();
   });
 
-  it("should render the page component with no parameter", () => {
+  it('should render the page component with no parameter', () => {
     expect(rootNode.childElementCount).toEqual(0);
     ReactDOM.render(<Page />, rootNode);
 
     expect(rootNode.childElementCount).toEqual(1);
 
-    expect(rootNode.querySelector("." + PAGE_CLASS_NAME)).not.toBeNull();
+    expect(rootNode.querySelector('.' + PAGE_CLASS_NAME)).not.toBeNull();
   });
 
-  it("should render the page component with no parameter", () => {
-    const EXTRA_CLASS_NAMES = "test-class-names";
+  it('should render the page component with no parameter', () => {
+    const EXTRA_CLASS_NAMES = 'test-class-names';
 
     expect(rootNode.childElementCount).toEqual(0);
 
@@ -66,6 +66,6 @@ describe("Page ->", () => {
 
     expect(rootNode.childElementCount).toEqual(1);
 
-    expect(rootNode.querySelector("." + EXTRA_CLASS_NAMES)).not.toBeNull();
+    expect(rootNode.querySelector('.' + EXTRA_CLASS_NAMES)).not.toBeNull();
   });
 });

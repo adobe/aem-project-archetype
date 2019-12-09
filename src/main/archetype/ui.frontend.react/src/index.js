@@ -17,18 +17,18 @@
 // Use polyfills for modern language features
 // The import and dependencies can be removed if only modern browsers should be
 // supported
-import { Constants, ModelManager } from "@adobe/cq-spa-page-model-manager";
-import "custom-event-polyfill";
-import { createBrowserHistory } from "history";
-import React from "react";
-import "react-app-polyfill/ie9";
-import "react-app-polyfill/stable";
-import { render } from "react-dom";
-import { Router } from "react-router-dom";
-import App from "./components/App";
-import "./components/import-components";
+import { Constants, ModelManager } from '@adobe/cq-spa-page-model-manager';
+import 'custom-event-polyfill';
+import { createBrowserHistory } from 'history';
+import React from 'react';
+import 'react-app-polyfill/ie9';
+import 'react-app-polyfill/stable';
+import { render } from 'react-dom';
+import { Router } from 'react-router-dom';
+import App from './components/App';
+import './components/import-components';
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   ModelManager.initialize().then(pageModel => {
     const history = createBrowserHistory();
     render(
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
           locationPathname={window.location.pathname}
         />
       </Router>,
-      document.getElementById("spa-root")
+      document.getElementById('spa-root')
     );
   });
 });

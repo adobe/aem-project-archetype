@@ -17,7 +17,7 @@
 // Use polyfills for modern language features
 // The import and dependencies can be removed if only modern browsers should be
 // supported
-import "core-js";
-import "zone.js/dist/zone"; // Included with Angular CLI
-import "custom-event-polyfill";
-import "whatwg-fetch";
+import 'core-js';
+import 'zone.js/dist/zone'; // Included with Angular CLI
+import 'custom-event-polyfill';
+import 'whatwg-fetch';

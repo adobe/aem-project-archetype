@@ -14,10 +14,10 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-import { TextComponent } from "./text.component";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { TextComponent } from './text.component';
 
-describe("TextComponent", () => {
+describe('TextComponent', () => {
   let component: TextComponent;
   let fixture: ComponentFixture<TextComponent>;
 
@@ -33,7 +33,7 @@ describe("TextComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

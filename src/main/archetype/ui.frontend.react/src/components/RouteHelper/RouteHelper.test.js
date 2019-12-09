@@ -14,26 +14,26 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import { ModelManager } from "@adobe/cq-spa-page-model-manager";
-import { configure, shallow } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import { Route } from "react-router";
-import { BrowserRouter, MemoryRouter } from "react-router-dom";
-import ShallowRenderer from "react-test-renderer/shallow";
-import sinon from "sinon";
-import { CompositeComponent, withRoute } from "./";
+import { ModelManager } from '@adobe/cq-spa-page-model-manager';
+import { configure, shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import { Route } from 'react-router';
+import { BrowserRouter, MemoryRouter } from 'react-router-dom';
+import ShallowRenderer from 'react-test-renderer/shallow';
+import sinon from 'sinon';
+import { CompositeComponent, withRoute } from './';
 
 configure({ adapter: new Adapter() });
 
-describe("RouterHelper ->", () => {
-  const ROUTE_CONTENT_CLASS_NAME = "route-content";
-  const ROOT_NODE_CLASS_NAME = "route-node";
-  const PAGE_TITLE = "Page Title Test";
-  const CUSTOM_ROUTE_PATH = "/content/custom";
-  const CUSTOM_ROUTE_PATH_2 = "/content/custom/2";
-  const CUSTOM_ROUTE_PATH_ALIAS_2 = "/custom2";
+describe('RouterHelper ->', () => {
+  const ROUTE_CONTENT_CLASS_NAME = 'route-content';
+  const ROOT_NODE_CLASS_NAME = 'route-node';
+  const PAGE_TITLE = 'Page Title Test';
+  const CUSTOM_ROUTE_PATH = '/content/custom';
+  const CUSTOM_ROUTE_PATH_2 = '/content/custom/2';
+  const CUSTOM_ROUTE_PATH_ALIAS_2 = '/custom2';
 
   const PROPS_INLINE_SNAPSHOT = `
 <Router
@@ -121,7 +121,7 @@ describe("RouterHelper ->", () => {
 
   beforeEach(() => {
     sandbox
-      .stub(ModelManager, "getData")
+      .stub(ModelManager, 'getData')
       .withArgs({ pagePath: CUSTOM_ROUTE_PATH })
       .resolves({})
       .withArgs({ pagePath: CUSTOM_ROUTE_PATH_2 })
@@ -129,13 +129,13 @@ describe("RouterHelper ->", () => {
       .withArgs({ pagePath: CUSTOM_ROUTE_PATH_ALIAS_2 })
       .resolves({});
 
-    rootNode = document.createElement("div");
+    rootNode = document.createElement('div');
     rootNode.className = ROOT_NODE_CLASS_NAME;
     document.body.appendChild(rootNode);
   });
 
   afterEach(() => {
-    window.location.hash = "";
+    window.location.hash = '';
 
     if (rootNode) {
       document.body.removeChild(rootNode);
@@ -144,10 +144,10 @@ describe("RouterHelper ->", () => {
     sandbox.restore();
   });
 
-  describe("withRoute ->", () => {
-    it("should render the wrapped component without error", () => {
+  describe('withRoute ->', () => {
+    it('should render the wrapped component without error', () => {
       const cqModel = {
-        path: "/content/page/path",
+        path: '/content/page/path',
         title: PAGE_TITLE
       };
 
@@ -159,10 +159,12 @@ describe("RouterHelper ->", () => {
         rootNode
       );
 
-      expect(rootNode.querySelector("." + ROUTE_CONTENT_CLASS_NAME)).not.toBeNull();
+      expect(
+        rootNode.querySelector('.' + ROUTE_CONTENT_CLASS_NAME)
+      ).not.toBeNull();
     });
 
-    it("should render the correct component", () => {
+    it('should render the correct component', () => {
       const wrapper = shallow(<withRoute />);
       const pathMap = wrapper.find(Route).reduce((pathMap, route) => {
         const routeProps = route.props();
@@ -170,16 +172,16 @@ describe("RouterHelper ->", () => {
         return pathMap;
       }, {});
 
-      expect(pathMap["/content/page/path"]).toBe(CompositeComponent);
+      expect(pathMap['/content/page/path']).toBe(CompositeComponent);
     });
 
-    it("should set the extension to the route URL", () => {
+    it('should set the extension to the route URL', () => {
       const cqModel = {
-        path: "/content/page/path",
+        path: '/content/page/path',
         title: PAGE_TITLE
       };
 
-      let WrappedComponent = withRoute(RouteContent, "extension");
+      let WrappedComponent = withRoute(RouteContent, 'extension');
 
       const renderer = new ShallowRenderer();
       renderer.render(
@@ -192,7 +194,7 @@ describe("RouterHelper ->", () => {
       expect(result).toMatchInlineSnapshot(PATH_AND_PROPS_INLINE_SNAPSHOT);
     });
 
-    it("should render page without extension", () => {
+    it('should render page without extension', () => {
       let WrappedComponent = withRoute(RouteContent);
       ReactDOM.render(
         <MemoryRouter initialEntries={[CUSTOM_ROUTE_PATH]}>
@@ -201,29 +203,31 @@ describe("RouterHelper ->", () => {
         rootNode
       );
 
-      expect(rootNode.querySelector("." + ROUTE_CONTENT_CLASS_NAME)).toBeTruthy();
+      expect(
+        rootNode.querySelector('.' + ROUTE_CONTENT_CLASS_NAME)
+      ).toBeTruthy();
     });
 
-    it("should encapsulate and hide the wrapped component in a route", () => {
+    it('should encapsulate and hide the wrapped component in a route', () => {
       const cqModel = {
-        path: "/content/page/path",
+        path: '/content/page/path',
         title: PAGE_TITLE
       };
 
       let WrappedComponent = withRoute(RouteContent);
       ReactDOM.render(
         <BrowserRouter>
-          <WrappedComponent cqPath={"path/test"} cqModel={cqModel} />
+          <WrappedComponent cqPath={'path/test'} cqModel={cqModel} />
         </BrowserRouter>,
         rootNode
       );
 
-      expect(rootNode.querySelector("." + ROUTE_CONTENT_CLASS_NAME)).toBeNull();
+      expect(rootNode.querySelector('.' + ROUTE_CONTENT_CLASS_NAME)).toBeNull();
     });
 
-    it("should set the correct props in route", () => {
+    it('should set the correct props in route', () => {
       const cqModel = {
-        path: "/content/page/path",
+        path: '/content/page/path',
         title: PAGE_TITLE
       };
 
@@ -239,9 +243,9 @@ describe("RouterHelper ->", () => {
       expect(result).toMatchInlineSnapshot(PROPS_INLINE_SNAPSHOT);
     });
 
-    it("should set the correct path and props in route", () => {
+    it('should set the correct path and props in route', () => {
       const cqModel = {
-        path: "/content/page/path",
+        path: '/content/page/path',
         title: PAGE_TITLE
       };
 

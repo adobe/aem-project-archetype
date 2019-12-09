@@ -15,37 +15,37 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 // Run using Puppeteer to avoid CI issues: https://github.com/karma-runner/karma-chrome-launcher/issues/154
-process.env.CHROME_BIN = require("puppeteer").executablePath();
+process.env.CHROME_BIN = require('puppeteer').executablePath();
 
 module.exports = config => {
   config.set({
-    basePath: "",
-    frameworks: ["jasmine", "@angular-devkit/build-angular", "sinon"],
+    basePath: '',
+    frameworks: ['jasmine', '@angular-devkit/build-angular', 'sinon'],
     plugins: [
-      require("@angular-devkit/build-angular/plugins/karma"),
-      require("karma-chrome-launcher"),
-      require("karma-coverage-istanbul-reporter"),
-      require("karma-jasmine-html-reporter"),
-      require("karma-jasmine"),
-      require("karma-sinon")
+      require('@angular-devkit/build-angular/plugins/karma'),
+      require('karma-chrome-launcher'),
+      require('karma-coverage-istanbul-reporter'),
+      require('karma-jasmine-html-reporter'),
+      require('karma-jasmine'),
+      require('karma-sinon')
     ],
     client: {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     coverageIstanbulReporter: {
-      dir: require("path").join(__dirname, "../target/coverage/"),
-      reports: ["text", "lcov"],
+      dir: require('path').join(__dirname, '../target/coverage/'),
+      reports: ['text', 'lcov'],
       fixWebpackSourcePaths: true
     },
     angularCli: {
-      environment: "dev"
+      environment: 'dev'
     },
-    reporters: ["progress", "kjhtml"],
+    reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ["ChromeHeadless"],
+    browsers: ['ChromeHeadless'],
     singleRun: false
   });
 };

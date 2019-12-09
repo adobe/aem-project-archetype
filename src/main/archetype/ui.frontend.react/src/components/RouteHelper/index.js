@@ -14,8 +14,8 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 
 /**
  * Helper that facilitate the use of the {@link Route} component
@@ -36,14 +36,14 @@ export const withRoute = (WrappedComponent, extension) => {
         return <WrappedComponent {...this.props} />;
       }
 
-      extension = extension || "html";
+      extension = extension || 'html';
 
       // Context path + route path + extension
       return (
         <Route
           key={routePath}
           exact
-          path={"(.*)" + routePath + "(." + extension + ")?"}
+          path={'(.*)' + routePath + '(.' + extension + ')?'}
           render={routeProps => {
             return <WrappedComponent {...this.props} {...routeProps} />;
           }}

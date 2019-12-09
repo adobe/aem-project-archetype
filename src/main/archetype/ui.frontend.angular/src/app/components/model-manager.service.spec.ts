@@ -14,17 +14,20 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import { inject, TestBed } from "@angular/core/testing";
-import { ModelManagerService } from "./model-manager.service";
+import { inject, TestBed } from '@angular/core/testing';
+import { ModelManagerService } from './model-manager.service';
 
-describe("LayoutService", () => {
+describe('LayoutService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [ModelManagerService]
     });
   });
 
-  it("should be created", inject([ModelManagerService], (service: ModelManagerService) => {
-    expect(service).toBeTruthy();
-  }));
+  it('should be created', inject(
+    [ModelManagerService],
+    (service: ModelManagerService) => {
+      expect(service).toBeTruthy();
+    }
+  ));
 });

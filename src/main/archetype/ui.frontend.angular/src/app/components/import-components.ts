@@ -14,5 +14,5 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import "./container/container.component";
-import "./responsive-grid/responsive-grid.component";
+import './container/container.component';
+import './responsive-grid/responsive-grid.component';

@@ -21,5 +21,5 @@
  * @returns {string|undefined}
  */
 export default function extractModelId(path) {
-  return path && path.replace(/\/|:/g, "_");
+  return path && path.replace(/\/|:/g, '_');
 }

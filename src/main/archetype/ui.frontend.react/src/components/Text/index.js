@@ -14,12 +14,12 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import React, { Component } from "react";
-import { MapTo } from "@adobe/cq-react-editable-components";
-import DOMPurify from "dompurify";
-import extractModelId from "../../utils/extract-model-id";
+import React, { Component } from 'react';
+import { MapTo } from '@adobe/cq-react-editable-components';
+import DOMPurify from 'dompurify';
+import extractModelId from '../../utils/extract-model-id';
 
-require("./Text.css");
+require('./Text.css');
 
 /**
  * Default Edit configuration for the Text component that interact with the Core Text component and sub-types
@@ -27,7 +27,7 @@ require("./Text.css");
  * @type EditConfig
  */
 const TextEditConfig = {
-  emptyLabel: "Text",
+  emptyLabel: 'Text',
 
   isEmpty: function(props) {
     return !props || !props.text || props.text.trim().length < 1;
@@ -43,7 +43,9 @@ class Text extends Component {
       <div
         id={extractModelId(this.props.cqPath)}
         data-rte-editelement
-        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(this.props.text) }}
+        dangerouslySetInnerHTML={{
+          __html: DOMPurify.sanitize(this.props.text)
+        }}
       />
     );
   }
@@ -57,4 +59,7 @@ class Text extends Component {
   }
 }
 
-export default MapTo("${appsFolderName}/components/content/text")(Text, TextEditConfig);
+export default MapTo('${appsFolderName}/components/content/text')(
+  Text,
+  TextEditConfig
+);

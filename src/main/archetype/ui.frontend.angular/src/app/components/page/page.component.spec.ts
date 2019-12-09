@@ -14,29 +14,32 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import { SpaAngularEditableComponentsModule } from "@adobe/cq-angular-editable-components";
-import { ModelManager } from "@adobe/cq-spa-page-model-manager";
-import { APP_BASE_HREF } from "@angular/common";
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-import { AppRoutingModule } from "../../app-routing.module";
-import { ModelManagerService } from "../model-manager.service";
-import { PageComponent } from "./page.component";
+import { SpaAngularEditableComponentsModule } from '@adobe/cq-angular-editable-components';
+import { ModelManager } from '@adobe/cq-spa-page-model-manager';
+import { APP_BASE_HREF } from '@angular/common';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { AppRoutingModule } from '../../app-routing.module';
+import { ModelManagerService } from '../model-manager.service';
+import { PageComponent } from './page.component';
 
-describe("PageComponentComponent", () => {
+describe('PageComponentComponent', () => {
   let component: PageComponent;
   let fixture: ComponentFixture<PageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [SpaAngularEditableComponentsModule, AppRoutingModule],
-      providers: [ModelManagerService, { provide: APP_BASE_HREF, useValue: "/" }],
+      providers: [
+        ModelManagerService,
+        { provide: APP_BASE_HREF, useValue: '/' }
+      ],
       declarations: [PageComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     // Stub ModelManager
-    spyOn(ModelManager, "getData").and.callFake(function() {
+    spyOn(ModelManager, 'getData').and.callFake(function() {
       return Promise.resolve({});
     });
 
@@ -45,7 +48,7 @@ describe("PageComponentComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

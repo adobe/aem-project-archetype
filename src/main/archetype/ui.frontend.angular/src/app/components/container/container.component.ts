@@ -14,6 +14,9 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import { AEMContainerComponent, MapTo } from "@adobe/cq-angular-editable-components";
+import {
+  AEMContainerComponent,
+  MapTo
+} from '@adobe/cq-angular-editable-components';
 
-MapTo("${appsFolderName}/components/structure/spa")(AEMContainerComponent);
+MapTo('${appsFolderName}/components/structure/spa')(AEMContainerComponent);
