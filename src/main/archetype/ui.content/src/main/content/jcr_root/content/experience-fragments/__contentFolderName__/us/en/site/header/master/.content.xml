@@ -23,12 +23,12 @@
             <languagenavigation
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="${appsFolderName}/components/languagenavigation"
-                navigationRoot="/content/${contentFolderName}"
+                navigationRoot="/content/${contentFolderName}/${language_country.split('_').get(1)}"
                 structureDepth="2"/>
             <search
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="${appsFolderName}/components/search"
-                searchRoot="/content/${contentFolderName}/${language_country.split('_').get(0)}"/>
+                searchRoot="/content/${contentFolderName}/${language_country.split('_').get(1)}"/>
         </root>
     </jcr:content>
 </jcr:root>

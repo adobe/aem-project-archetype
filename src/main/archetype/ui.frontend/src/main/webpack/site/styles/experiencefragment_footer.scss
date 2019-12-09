@@ -8,8 +8,8 @@ footer.experiencefragment {
     @media (prefers-color-scheme: dark) {
         border-color: $color-foreground-dark;
     }
-    
-    .cmp-separator hr {
+
+    .cmp-separator__horizontal-rule {
         margin: 0;
         border: 0;
     }

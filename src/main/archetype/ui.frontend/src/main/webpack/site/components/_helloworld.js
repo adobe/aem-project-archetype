@@ -7,8 +7,8 @@
 
     // Best practice:
     // For a good separation of concerns, don't rely on the DOM structure or CSS selectors,
-    // but use dedicated data attributes to itentify all elements that the script needs to
-    // interacts with.
+    // but use dedicated data attributes to identify all elements that the script needs to
+    // interact with.
     var selectors = {
         self:      '[data-cmp-is="helloworld"]',
         property:  '[data-cmp-hook-helloworld="property"]',

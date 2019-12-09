@@ -50,7 +50,8 @@ header.experiencefragment {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
         }
-    }.cmp-navigation__item-link {
+    }
+    .cmp-navigation__item-link {
         display: block;
     }
     .cmp-navigation__item--active > .cmp-navigation__item-link {
