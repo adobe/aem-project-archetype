@@ -15,6 +15,11 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 const path = require("path");
+const {
+  cssEntrypoints,
+  entrypoints,
+  jsEntrypoints
+} = require("./utils/entrypoints");
 
 const BUILD_DIR = path.join(__dirname, "dist", "browser");
 const CLIENTLIB_DIR = path.join(
@@ -30,16 +35,6 @@ const CLIENTLIB_DIR = path.join(
   "clientlibs"
 );
 
-// Globs for entrypoint files (in the order they need to be required)
-const jsEntrypoints = [
-  "**/runtime*.js",
-  "**/polyfills*.js",
-  "**/styles*.js",
-  "**/vendor*.js",
-  "**/main*.js"
-];
-const cssEntrypoints = ["**/*.css"];
-
 // Config for `aem-clientlib-generator`
 module.exports = {
   context: BUILD_DIR,
@@ -52,8 +47,8 @@ module.exports = {
     cssProcessor: ["default:none", "min:none"],
     jsProcessor: ["default:none", "min:none"],
     assets: {
-      // Copy entrypoint scripts and stylesheets into the respective ClientLib directories (in the order they are in the
-      // entrypoints arrays)
+      // Copy entrypoint scripts and stylesheets into the respective ClientLib
+      // directories (in the order they are in the entrypoints arrays)
       js: jsEntrypoints,
       css: cssEntrypoints,
 
@@ -62,7 +57,7 @@ module.exports = {
         cwd: ".",
         files: ["**/*.*"],
         flatten: false,
-        ignore: [...jsEntrypoints, ...cssEntrypoints]
+        ignore: entrypoints
       }
     }
   }
