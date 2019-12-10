@@ -18,5 +18,6 @@ export const environment = {
   production: true,
   API_HOST: '',
   APP_ROOT_PATH: '/content/${contentFolderName}/en/home.html',
-  CONTEXT_PATH: '' // configuration style: contextpath/
+  CONTEXT_PATH: '', // configuration style: contextpath/
+  PUBLIC_URL: '/etc.clientlibs/${appsFolderName}/clientlibs/clientlib-angular/resources'
 };
