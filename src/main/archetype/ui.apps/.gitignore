@@ -1,4 +1,4 @@
-# Created by https://www.gitignore.io/api/eclipse,java,maven
-
+#if ( $optionIncludeFrontendModule == "y" )
 src/main/content/jcr_root/apps/${appsFolderName}/clientlibs/clientlib-site
 src/main/content/jcr_root/apps/${appsFolderName}/clientlibs/clientlib-dependencies
+#end
