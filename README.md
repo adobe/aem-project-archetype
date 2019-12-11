@@ -120,7 +120,7 @@ For a list of supported AEM versions of previous archetype versions, see [histor
 
 ## Building
 
-To compile and use an edge, local version of this archetype:
+Run the following command to use an edge, local version of this archetype. You can append `-Pit-basic` to skip the frontend integration tests:
 
     mvn clean install
 
