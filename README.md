@@ -27,10 +27,9 @@ This project has a number features that are intended to offer a convenient start
   * Example: helloworld example of custom HTL component with SlingModels for the logic
 
 * Frontend module
-  * Build process based on Webpack with support for Sass and TypeScript / ES6
+  * Optional frontend module based on Angular, React or a general Webpack setup
+  * Support for Sass and TypeScript / ES6
   * Automatic AEM ClientLib generation
-  * CSS class names follow BEM naming conventions
-  * Component-specific styles stored within each component
 
 * Configurations
   * Device emulators displayed in the authoring interface
@@ -112,7 +111,7 @@ confirmation at the end is denied and the questionnaire gets repeated, or by pas
 
 The latest version of the archetype has the following requirements:
 
-* Adobe Experience Manager 6.3.3.0 or higher (6.4.2 or higher when generating an SPA project)
+* Adobe Experience Manager 6.3.3.0 or higher (6.4.2 or higher when generating a project with an Angular/React frontend)
 * Apache Maven (3.3.9 or newer)
 * Adobe Public Maven Repository in maven settings, see [Knowledge Base](https://helpx.adobe.com/experience-manager/kb/SetUpTheAdobeMavenRepository.html) article for details.
 
@@ -120,7 +119,7 @@ For a list of supported AEM versions of previous archetype versions, see [histor
 
 ## Building
 
-To compile and use an edge, local version of this archetype:
+Run the following command to use an edge, local version of this archetype. You can append `-Pit-basic` to skip the frontend integration tests:
 
     mvn clean install
 
