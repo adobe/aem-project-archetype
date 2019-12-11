@@ -14,13 +14,15 @@ ${hash}${hash} Features
 * Chunks
     * Main (site js/css)
     * Vendors (dependencies js/css)
-* Full Sass/Scss support (Sass is compiled to CSS via Webpack).
+* Full Sass/SCSS support (Sass is compiled to CSS via Webpack)
+  * CSS class names follow BEM naming conventions
+  * Component-specific styles stored within each component
 * Static webpack development server with built in proxy to a local instance of AEM
 
 ${hash}${hash} Installation
 
 1. Install [NodeJS](https://nodejs.org/en/download/) (v10+), globally. This will also install `npm`.
-2. Navigate to `ui.frontend` in your project and run `npm install`. (You must have run the archetype with `-DoptionIncludeFrontendModule=y` to populate the ui.frontend folder)
+2. Navigate to `ui.frontend` in your project and run `npm install`. (You must have run the archetype with `-DoptionFrontendModule=general` to populate the ui.frontend folder)
 
 ${hash}${hash} Usage
 
