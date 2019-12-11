@@ -121,6 +121,9 @@
         -->
         <profile>
             <id>it-basic</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <archetype.test.projectsDirectory>${project.build.testOutputDirectory}/projects/basic</archetype.test.projectsDirectory>
             </properties>
