@@ -27,10 +27,9 @@ This project has a number features that are intended to offer a convenient start
   * Example: helloworld example of custom HTL component with SlingModels for the logic
 
 * Frontend module
-  * Build process based on Webpack with support for Sass and TypeScript / ES6
+  * Optional frontend module based on Angular, React or a general Webpack setup
+  * Support for Sass and TypeScript / ES6
   * Automatic AEM ClientLib generation
-  * CSS class names follow BEM naming conventions
-  * Component-specific styles stored within each component
 
 * Configurations
   * Device emulators displayed in the authoring interface

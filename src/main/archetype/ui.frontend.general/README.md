@@ -14,7 +14,9 @@ ${hash}${hash} Features
 * Chunks
     * Main (site js/css)
     * Vendors (dependencies js/css)
-* Full Sass/Scss support (Sass is compiled to CSS via Webpack).
+* Full Sass/SCSS support (Sass is compiled to CSS via Webpack)
+  * CSS class names follow BEM naming conventions
+  * Component-specific styles stored within each component
 * Static webpack development server with built in proxy to a local instance of AEM
 
 ${hash}${hash} Installation
