@@ -274,13 +274,6 @@
                         <include>**/file</include>
                     </includes>
                 </fileSet>
-                <fileSet filtered="false" packaged="false"
-                    encoding="UTF-8">
-                    <directory>src/main/content/jcr_root</directory>
-                    <includes>
-                        <include>**/*</include>
-                    </includes>
-                </fileSet>
             </fileSets>
         </module>
         <module id="${rootArtifactId}.ui.content" dir="ui.content" name="ui.content">
@@ -304,13 +297,6 @@
                         <include>**/*.png</include>
                         <include>**/image</include>
                         <include>**/file</include>
-                    </includes>
-                </fileSet>
-                <fileSet filtered="false" packaged="false"
-                    encoding="UTF-8">
-                    <directory>src/main/content/jcr_root</directory>
-                    <includes>
-                        <include>**/*</include>
                     </includes>
                 </fileSet>
             </fileSets>
