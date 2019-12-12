@@ -61,12 +61,12 @@ shared: &shared
 jobs:
   build-java-8:
     docker:
-      - image: circleci/openjdk:8-jdk
+      - image: circleci/openjdk:8-jdk-browsers
     <<: *shared
 
   build-java-11:
     docker:
-      - image: circleci/openjdk:11-jdk
+      - image: circleci/openjdk:11-jdk-browsers
     <<: *shared
 
 workflows:
