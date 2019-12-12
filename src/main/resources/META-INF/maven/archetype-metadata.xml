@@ -257,12 +257,13 @@
                     encoding="UTF-8">
                     <directory>src/main/content</directory>
                     <includes>
-                        <include>**/*.*</include>
+                        <include>**/*</include>
                     </includes>
                     <excludes>
                         <exclude>**/*.png</exclude>
+                        <exclude>**/*.jpeg</exclude>
                         <exclude>**/image</exclude>
-                        <exclude>**/file</exclude>
+                        <exclude>**/original</exclude>
                     </excludes>
                 </fileSet>
                 <fileSet filtered="false" packaged="false"
@@ -270,8 +271,9 @@
                     <directory>src/main/content</directory>
                     <includes>
                         <include>**/*.png</include>
+                        <include>**/*.jpeg</include>
                         <include>**/image</include>
-                        <include>**/file</include>
+                        <include>**/original</include>
                     </includes>
                 </fileSet>
             </fileSets>
@@ -282,12 +284,13 @@
                     encoding="UTF-8">
                     <directory>src/main/content</directory>
                     <includes>
-                        <include>**/*.*</include>
+                        <include>**/*</include>
                     </includes>
                     <excludes>
                         <exclude>**/*.png</exclude>
+                        <exclude>**/*.jpeg</exclude>
                         <exclude>**/image</exclude>
-                        <exclude>**/file</exclude>
+                        <exclude>**/original</exclude>
                     </excludes>
                 </fileSet>
                 <fileSet filtered="false" packaged="false"
@@ -297,6 +300,10 @@
                         <include>**/*.png</include>
                         <include>**/image</include>
                         <include>**/file</include>
+                        <include>**/*.png</include>
+                        <include>**/*.jpeg</include>
+                        <include>**/image</include>
+                        <include>**/original</include>
                     </includes>
                 </fileSet>
             </fileSets>
