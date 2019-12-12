@@ -31,10 +31,6 @@ ${hash}${hash}${hash} `npm run test:debug`
 
 Launches the Karma test runner in interactive watch mode.
 
-${hash}${hash}${hash} `npm run e2e`
-
-Executes the end-to-end tests using [Protractor](http://www.protractortest.org).
-
 ${hash}${hash}${hash} `npm run build`
 
 Builds the app for production to the `build` folder. It bundles Angular in production mode and optimizes the build for the best performance. See the section about [deployment](https://angular.io/guide/deployment) for more information.
