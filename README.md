@@ -2,51 +2,24 @@
 
 [![CircleCI](https://circleci.com/gh/adobe/aem-project-archetype.svg?style=svg)](https://circleci.com/gh/adobe/aem-project-archetype)
 
-![](https://raw.githubusercontent.com/wiki/adobe/aem-project-archetype/screenshots/archetype.png)
+This archetype creates a minimal Adobe Experience Manager project as a starting point for your own projects.
 
-This archetype creates a minimal Adobe Experience Manager project as a starting point for your own projects. The properties that must be provided when using this archetype allow to name as desired all parts of this project.
+## Documentation
 
-See the [Getting Started with AEM Sites - WKND Tutorial](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/overview.html) on the Adobe Help Center website for an example of how to use it.
+* [Archetype Overview](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/archetype/overview.html)
+* [Getting Started with AEM Sites - WKND Tutorial](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/overview.html) is a good example as it is based on this 
+archetype
 
-This project has a number features that are intended to offer a convenient starting point for new projects:
+## Usage
 
-* Language Master / Country structure
-  * A language master structure and country top level page
-  * Live copy of the top level page in the specified language
-  * Blueprint
+To use the latest released version of this archetype execute the following maven command:
 
-* Content and Experience fragment templates based on the editable template feature
-  * Example content policy
+    mvn archetype:generate \
+     -DarchetypeGroupId=com.adobe.granite.archetypes \
+     -DarchetypeArtifactId=aem-project-archetype \
+     -DarchetypeVersion=22
 
-* Page component
-  * Based on the [AEM Sites Core Component page](https://github.com/adobe/aem-core-wcm-components/tree/master/content/src/content/jcr_root/apps/core/wcm/components/page/v2/page)
-  * customfooterlibs.html and customheaderlibs.html snippet to load additional JS and CSS clientlibs according to the {cssId} property
-* Content Components
-  * Proxy components for all AEM Sites Core Components of the latest released version. For instance  accordion, carousel, text and much
-  more. For a complete overview see  [AEM Sites Core Components](https://github.com/adobe/aem-core-wcm-components)
-  * Example: helloworld example of custom HTL component with SlingModels for the logic
-
-* Frontend module
-  * Optional frontend module based on Angular, React or a general Webpack setup
-  * Support for Sass and TypeScript / ES6
-  * Automatic AEM ClientLib generation
-
-* Configurations
-  * Device emulators displayed in the authoring interface
-  * Allow direct drag & drop of assets from the content finder into layout container (6.3 TouchUI)
-  * Dictionary structure for internationalizing hardcoded strings
-
-* Bundle with some examples
-  * Models: Models for more complex business logic of components
-  * Servlets: Rendering the output of specific requests
-  * Filters: Applied to the requests before dispatching to the servlet or script
-  * Schedulers: Cron-job like tasks
-
-* Tests
-  * Unit tests
-  * Integration tests
-  * Client-side Hobbes tests within developer mode
-
+Where 22 is the archetype version number that you want to use (see archetype versions below).
 
 ## Provided Maven profiles
 The generated maven project support different deployment profiles when running the Maven install goal `mvn install` within the reactor.
@@ -60,23 +33,6 @@ autoInstallSinglePackage | Install the `all` content package with the content-pa
 autoInstallSinglePackagePublish | Install the `all` content package with the content-package-maven-plugin to the package manager to default publish instance on localhost, port 4503. Hostname and port can be changed with the aem.host and aem.port user defined properties.
 
 The profile `integrationTests` is also available for the verify goal, to run the provided integration tests on the AEM instance.
-
-## Usage
-
-To use a released version of this archetype:
-
-Either use the [AEM Eclipse extension](https://docs.adobe.com/docs/en/dev-tools/aem-eclipse.html) and follow the New Project wizard (choosing AEM Sample Multi-Module Project)...
-
-Or use your mvn skills:
-
-    mvn archetype:generate \
-     -DarchetypeGroupId=com.adobe.granite.archetypes \
-     -DarchetypeArtifactId=aem-project-archetype \
-     -DarchetypeVersion=22
-
-Where 22 is the archetype version number that you want to use (see archetype versions below).
-
-**For Windows users**: In case you are getting `A required privilege is not held by the client.` error, you will need to run the archetype as an administrator or [setup rights for creating symbolic links](https://stackoverflow.com/questions/23217460/how-to-create-soft-symbolic-link-using-java-nio-files/24353758#24353758).
 
 ### Available properties
 
@@ -116,18 +72,3 @@ The latest version of the archetype has the following requirements:
 * Adobe Public Maven Repository in maven settings, see [Knowledge Base](https://helpx.adobe.com/experience-manager/kb/SetUpTheAdobeMavenRepository.html) article for details.
 
 For a list of supported AEM versions of previous archetype versions, see [historical supported AEM versions](VERSIONS.md).
-
-## Building
-
-Run the following command to use an edge, local version of this archetype. You can append `-Pit-basic` to skip the frontend integration tests:
-
-    mvn clean install
-
-Then change to the directory in which you want to create the project and run:
-
-    mvn archetype:generate \
-     -DarchetypeGroupId=com.adobe.granite.archetypes \
-     -DarchetypeArtifactId=aem-project-archetype \
-     -DarchetypeVersion=23-SNAPSHOT
-
-Note: The profile "adobe-public" must be activated when using profiles like "autoInstallPackage" mentioned above.
