@@ -15,7 +15,7 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 // Use polyfills for modern language features
-// The import and dependencies can be removed if only modern browsers should be
+// The imports and dependencies can be removed if only modern browsers should be
 // supported
 import { Constants, ModelManager } from '@adobe/cq-spa-page-model-manager';
 import 'custom-event-polyfill';

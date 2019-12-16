@@ -1,10 +1,5 @@
 {
   "auth": "admin:admin",
-  "context": [
-    "**/*.model.json",
-    "/content/**/*.*",
-    "/etc.clientlibs/**/*.*",
-    "/libs/**/*.*"
-  ],
+  "context": ["/content/**/*", "/etc.clientlibs/**/*", "/libs/**/*"],
   "target": "http://localhost:4502"
 }
