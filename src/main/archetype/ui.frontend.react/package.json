@@ -31,7 +31,7 @@
     "aemsync": "^4.0.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
-    "react-scripts": "3.3.0",
+    "react-scripts": "~3.3.0",
     "sinon": "^7.5.0"
   },
   "proxy": "http://localhost:4502",
