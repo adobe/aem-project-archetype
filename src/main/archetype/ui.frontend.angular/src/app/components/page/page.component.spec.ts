@@ -23,7 +23,7 @@ describe('PageComponentComponent', () => {
 
   beforeEach(() => {
     // Stub ModelManager
-    spyOn(ModelManager, 'getData').and.callFake(function() {
+    spyOn(ModelManager, 'getData').and.callFake(() => {
       return Promise.resolve({});
     });
 

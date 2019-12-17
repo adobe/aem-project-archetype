@@ -3,10 +3,8 @@ import { ModelManager } from '@adobe/cq-spa-page-model-manager';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '#spa-root',
-  host: {
-    class: 'app'
-  },
+  selector: '#spa-root', // tslint:disable-line
+  styleUrls: ['./app.component.css'],
   templateUrl: './app.component.html'
 })
 export class AppComponent {
@@ -22,5 +20,5 @@ export class AppComponent {
     this.path = pageModel[Constants.PATH_PROP];
     this.items = pageModel[Constants.ITEMS_PROP];
     this.itemsOrder = pageModel[Constants.ITEMS_ORDER_PROP];
-  };
+  }
 }
