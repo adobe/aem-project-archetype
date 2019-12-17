@@ -215,9 +215,11 @@
                     </includes>
                     <excludes>
                         <!-- Exclude Node.js installation (frontend-maven-plugin) -->
-                        <exclude>node/**/*</exclude>
+                        <exclude>**/node/</exclude>
                         <!-- Exclude NPM dependencies -->
-                        <exclude>node_modules/**/*</exclude>
+                        <exclude>**/node_modules/</exclude>
+                        <exclude>**/package-lock.json</exclude>
+                        <exclude>**/yarn.lock</exclude>
                         <!-- Do not filter binary files (will become corrupted) -->
                         <exclude>**/*.gif</exclude>
                         <exclude>**/*.ico</exclude>
@@ -250,9 +252,11 @@
                     </includes>
                     <excludes>
                         <!-- Exclude Node.js installation (frontend-maven-plugin) -->
-                        <exclude>node/**/*</exclude>
+                        <exclude>**/node/</exclude>
                         <!-- Exclude NPM dependencies -->
-                        <exclude>node_modules/**/*</exclude>
+                        <exclude>**/node_modules/</exclude>
+                        <exclude>**/package-lock.json</exclude>
+                        <exclude>**/yarn.lock</exclude>
                         <!-- Do not filter binary files (will become corrupted) -->
                         <exclude>**/*.gif</exclude>
                         <exclude>**/*.ico</exclude>
@@ -285,9 +289,11 @@
                     </includes>
                     <excludes>
                         <!-- Exclude Node.js installation (frontend-maven-plugin) -->
-                        <exclude>node/**/*</exclude>
+                        <exclude>**/node/</exclude>
                         <!-- Exclude NPM dependencies -->
-                        <exclude>node_modules/**/*</exclude>
+                        <exclude>**/node_modules/</exclude>
+                        <exclude>**/package-lock.json</exclude>
+                        <exclude>**/yarn.lock</exclude>
                         <!-- Do not filter binary files (will become corrupted) -->
                         <exclude>**/*.gif</exclude>
                         <exclude>**/*.ico</exclude>
