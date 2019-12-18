@@ -72,7 +72,7 @@
         <requiredProperty key="siteName">
             <defaultValue>${appsFolderName}</defaultValue>
         </requiredProperty>
-        
+
         <!--
             ISO 639-1 language / country code to create initial content structure
          -->
@@ -80,7 +80,7 @@
             <defaultValue>en_us</defaultValue>
             <validationRegex>[a-z]{2,3}_[a-z]{2,3}</validationRegex>
         </requiredProperty>
-        
+
         <!--
             Option to create language master structure in example content package
          -->
@@ -117,9 +117,9 @@
         <!--
             Option to include a dedicated frontend module
          -->
-        <requiredProperty key="optionIncludeFrontendModule">
-            <defaultValue>n</defaultValue>
-            <validationRegex>^(y|n)$</validationRegex>
+        <requiredProperty key="optionFrontendModule">
+            <defaultValue>none</defaultValue>
+            <validationRegex>^(none|general|angular|react)$</validationRegex>
         </requiredProperty>
 
         <!--
@@ -206,30 +206,42 @@
                 </fileSet>
             </fileSets>
         </module>
-        <module id="${rootArtifactId}.ui.frontend" dir="ui.frontend" name="ui.frontend">
+        <module id="${rootArtifactId}.ui.frontend.general" dir="ui.frontend.general" name="ui.frontend.general">
             <fileSets>
                 <fileSet filtered="true" encoding="UTF-8">
                     <directory></directory>
                     <includes>
-                        <include>.babelrc</include>
-                        <include>.gitignore</include>
-                        <include>clientlib.config.js</include>
-                        <include>package.json</include>
-                        <include>README.md</include>
-                        <include>tsconfig.json</include>
-                        <include>tslint.json</include>
-                        <include>webpack.common.js</include>
-                        <include>webpack.dev.js</include>
-                        <include>webpack.prod.js</include>
-                        <include>assembly.xml</include>
+                        <include>**/*</include>
                     </includes>
+                    <excludes>
+                        <exclude>node/**/*</exclude>
+                    </excludes>
                 </fileSet>
-                <fileSet filtered="true" packaged="false"
-                         encoding="UTF-8">
-                    <directory>src/main/webpack</directory>
+            </fileSets>
+        </module>
+        <module id="${rootArtifactId}.ui.frontend.angular" dir="ui.frontend.angular" name="ui.frontend.angular">
+            <fileSets>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory></directory>
                     <includes>
                         <include>**/*</include>
                     </includes>
+                    <excludes>
+                        <exclude>node/**/*</exclude>
+                    </excludes>
+                </fileSet>
+            </fileSets>
+        </module>
+        <module id="${rootArtifactId}.ui.frontend.react" dir="ui.frontend.react" name="ui.frontend.react">
+            <fileSets>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory></directory>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                    <excludes>
+                        <exclude>node/**/*</exclude>
+                    </excludes>
                 </fileSet>
             </fileSets>
         </module>
@@ -245,12 +257,13 @@
                     encoding="UTF-8">
                     <directory>src/main/content</directory>
                     <includes>
-                        <include>**/*.*</include>
+                        <include>**/*</include>
                     </includes>
                     <excludes>
                         <exclude>**/*.png</exclude>
+                        <exclude>**/*.jpeg</exclude>
                         <exclude>**/image</exclude>
-                        <exclude>**/file</exclude>
+                        <exclude>**/original</exclude>
                     </excludes>
                 </fileSet>
                 <fileSet filtered="false" packaged="false"
@@ -258,15 +271,9 @@
                     <directory>src/main/content</directory>
                     <includes>
                         <include>**/*.png</include>
+                        <include>**/*.jpeg</include>
                         <include>**/image</include>
-                        <include>**/file</include>
-                    </includes>
-                </fileSet>
-                <fileSet filtered="false" packaged="false"
-                    encoding="UTF-8">
-                    <directory>src/main/content/jcr_root</directory>
-                    <includes>
-                        <include>**/*</include>
+                        <include>**/original</include>
                     </includes>
                 </fileSet>
             </fileSets>
@@ -277,12 +284,13 @@
                     encoding="UTF-8">
                     <directory>src/main/content</directory>
                     <includes>
-                        <include>**/*.*</include>
+                        <include>**/*</include>
                     </includes>
                     <excludes>
                         <exclude>**/*.png</exclude>
+                        <exclude>**/*.jpeg</exclude>
                         <exclude>**/image</exclude>
-                        <exclude>**/file</exclude>
+                        <exclude>**/original</exclude>
                     </excludes>
                 </fileSet>
                 <fileSet filtered="false" packaged="false"
@@ -292,13 +300,10 @@
                         <include>**/*.png</include>
                         <include>**/image</include>
                         <include>**/file</include>
-                    </includes>
-                </fileSet>
-                <fileSet filtered="false" packaged="false"
-                    encoding="UTF-8">
-                    <directory>src/main/content/jcr_root</directory>
-                    <includes>
-                        <include>**/*</include>
+                        <include>**/*.png</include>
+                        <include>**/*.jpeg</include>
+                        <include>**/image</include>
+                        <include>**/original</include>
                     </includes>
                 </fileSet>
             </fileSets>

@@ -3,6 +3,7 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:allowedTemplates="[/conf/${confFolderName}/settings/wcm/templates/(?!xf-).*]"
+        cq:conf="/conf/${confFolderName}"
         cq:deviceGroups="[/etc/mobile/groups/responsive]"
         jcr:primaryType="cq:PageContent"
         jcr:title="${siteName}"

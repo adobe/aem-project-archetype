@@ -1,10 +1,11 @@
 ## Global Apache Velocity variables
 #set( $year = $package.getClass().forName("java.util.Date").newInstance().getYear() + 1900 )
-#set($hash = '#')
+#set( $hash = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
 #set( $startbrace = "{" )
 #set( $endbrace = "}" )
+#set( $isSpaProject = $optionFrontendModule == "angular" || $optionFrontendModule == "react" )
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
  |  Copyright 2015 Adobe Systems Incorporated
@@ -34,7 +35,7 @@
     <modules>
         <module>all</module>
         <module>core</module>
-#if ( $optionIncludeFrontendModule == "y" )
+#if ( $optionFrontendModule != "none" )
         <module>ui.frontend</module>
 #end
         <module>ui.apps</module>
@@ -60,6 +61,17 @@
         <bnd.version>4.2.0</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+#if ( $isSpaProject )
+        <spa.project.core.version>1.0.6</spa.project.core.version>
+#end
+#if ( $optionFrontendModule == "angular" )
+        <!--
+          Environment for the NPM build. Possible values:
+          - "" in development (=> `npm run build`)
+          - ":production" in production (=> `npm run build:production`)
+        -->
+        <build.environment />
+#end
     </properties>
 
     <build>
@@ -176,7 +188,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.6.1</version>
+                    <version>3.8.1</version>
                 </plugin>
                 <!-- Maven Installer Plugin -->
                 <plugin>
@@ -502,8 +514,13 @@
                     </plugins>
                 </pluginManagement>
             </build>
+#if ( $optionFrontendModule == "angular" )
+            <properties>
+                <!-- Use `build:production` instead of `build` NPM script -->
+                <build.environment>:production</build.environment>
+            </properties>
+#end
         </profile>
-
     </profiles>
 
 
@@ -654,6 +671,21 @@
                 <version>5.7.4</version>
                 <scope>provided</scope>
             </dependency>
+
+#if ( $isSpaProject )
+            <!-- SPA Project Core (includes hierarchy page model) -->
+            <dependency>
+                <groupId>com.adobe.aem</groupId>
+                <artifactId>spa.project.core.all</artifactId>
+                <type>zip</type>
+                <version>${spa.project.core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.aem</groupId>
+                <artifactId>spa.project.core.core</artifactId>
+                <version>${spa.project.core.version}</version>
+            </dependency>
+#end
 
             <!-- Testing -->
             <dependency>

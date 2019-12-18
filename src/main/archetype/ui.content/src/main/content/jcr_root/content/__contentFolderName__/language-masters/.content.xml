@@ -3,7 +3,11 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:redirectTarget="/content/${contentFolderName}/${language_country.substring(3)}/${language_country.substring(0,2)}"
-        cq:template="/conf/${confFolderName}/settings/wcm/templates/page-content"
+#if ( $isSpaProject )
+        cq:template="/conf/${confFolderName}/settings/wcm/templates/spa-app-template"
+#else
+        cq:template="/conf/${confFolderName}/settings/wcm/templates/content-page-template"
+#end
         jcr:primaryType="cq:PageContent"
         jcr:title="Language Masters"
         sling:resourceType="foundation/components/redirect"

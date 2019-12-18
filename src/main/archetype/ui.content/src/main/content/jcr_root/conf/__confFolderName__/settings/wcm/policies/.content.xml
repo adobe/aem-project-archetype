@@ -338,7 +338,28 @@
                     clientlibsJsHead="${appsFolderName}.dependencies">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy>
+#if ( $isSpaProject )
+                <policy_spa
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="${siteName} SPA Page Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    clientlibs="[${cssId}.${optionFrontendModule}]">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_spa>
+#end
             </page>
+#if ( $isSpaProject )
+            <spa jcr:primaryType="nt:unstructured">
+                <default
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="${siteName} App Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    clientlibs="[wcm.foundation.components.page.responsive]"
+                    isRoot="{Boolean}true"
+                    structureDepth="3"
+                />
+            </spa>
+#end
         </components>
     </${appsFolderName}>
 </jcr:root>

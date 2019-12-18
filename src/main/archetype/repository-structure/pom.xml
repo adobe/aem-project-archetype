@@ -31,7 +31,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <properties>
-                        <cloudManagerTarget>none</cloudManagerTarget>>
+                        <cloudManagerTarget>none</cloudManagerTarget>
                     </properties>
                     <filters>
 

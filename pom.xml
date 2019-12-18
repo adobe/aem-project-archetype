@@ -114,6 +114,19 @@
         </pluginManagement>
     </build>
 
+    <profiles>
+        <!--
+            Profile for only executing the basic integration tests (without frondend modules, because they increase the build time
+            significantly)
+        -->
+        <profile>
+            <id>it-basic</id>
+            <properties>
+                <archetype.test.projectsDirectory>${project.build.testOutputDirectory}/projects/basic</archetype.test.projectsDirectory>
+            </properties>
+        </profile>
+    </profiles>
+
     <distributionManagement>
         <repository>
             <id>${releaseRepository-Id}</id>
