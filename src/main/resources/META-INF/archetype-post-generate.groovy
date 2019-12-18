@@ -31,7 +31,7 @@ if (optionAemVersion == "6.3.3") {
 }
 
 buildContentSkeleton(uiContentPackage, uiAppsPackage, isSingleCountryWebsite, contentFolderName, language_country)
-cleanUpSpaFiles(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, contentFolder)
+cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, contentFolder)
 
 if ( optionDispatcherConfig == "none" || optionDispatcherConfig == "n"  ) {
     assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/" + appsFolderName + "/config.publish").deleteDir()
@@ -95,11 +95,9 @@ def buildContentSkeleton(uiContentPackage, uiAppsPackage, isSingleCountryWebsite
 }
 
 /**
- * Renames and deletes SPA-related files as necessary
+ * Renames and deletes frontend related files as necessary
  */
-def cleanUpSpaFiles(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, contentFolder) {
-    println "Cleaning up SPA files..."
-
+def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, contentFolder) {
     // Delete unwanted frontend modules
     frontendModules.each { def frontendModule ->
         // Clean up POM file
@@ -122,7 +120,7 @@ def cleanUpSpaFiles(frontendModules, optionFrontendModule, rootPom, rootDir, app
         assert new File("$appsFolder/components/structure/spa").deleteDir()
 
         // Delete EditConfigs
-        assert new File("$appsFolder/components/content/text/_cq_editConfig.xml").delete()
+        assert new File("$appsFolder/components/text/_cq_editConfig.xml").delete()
 
         // Delete SPA templates
         assert new File("$confFolder/settings/wcm/templates/spa-app-template").deleteDir()

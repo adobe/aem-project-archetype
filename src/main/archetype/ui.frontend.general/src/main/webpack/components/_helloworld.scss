@@ -1,0 +1,12 @@
+// Best practice:
+// For a good separation of concerns, don't rely on the DOM element names,
+// but on dedicated CSS selectors to identify all elements
+.cmp-helloworld {}
+.cmp-helloworld__title {}
+.cmp-helloworld__item {}
+.cmp-helloworld__item-label {
+    margin-bottom: 0;
+}
+.cmp-helloworld__item-output {
+    margin-top: 0;
+}

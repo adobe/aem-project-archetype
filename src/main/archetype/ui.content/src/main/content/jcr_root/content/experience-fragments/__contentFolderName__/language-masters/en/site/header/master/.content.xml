@@ -3,79 +3,32 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:tags="[]"
-        cq:template="/conf/${confFolderName}/settings/wcm/templates/experience-fragment-web-variation-template"
+        cq:template="/conf/${confFolderName}/settings/wcm/templates/xf-web-variation"
         cq:xfMasterVariation="{Boolean}true"
         cq:xfVariantType="web"
         jcr:primaryType="cq:PageContent"
         jcr:title="Header"
-        sling:resourceType="${appsFolderName}/components/structure/xfpage">
+        sling:resourceType="${appsFolderName}/components/xfpage">
         <root
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="wcm/foundation/components/responsivegrid">
-            <responsivegrid
-                jcr:lastModifiedBy="admin"
+            sling:resourceType="${appsFolderName}/components/container"
+            layout="simple">
+            <navigation
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="wcm/foundation/components/responsivegrid">
-                <responsivegrid
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="wcm/foundation/components/responsivegrid">
-                    <cq:responsive jcr:primaryType="nt:unstructured"/>
-                    <languagenavigation
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="${appsFolderName}/components/content/languagenavigation"
-                        navigationRoot="/content/${contentFolderName}"
-                        structureDepth="2">
-                        <cq:responsive jcr:primaryType="nt:unstructured">
-                            <default
-                                jcr:primaryType="nt:unstructured"
-                                width="2"/>
-                            <phone
-                                jcr:primaryType="nt:unstructured"
-                                width="6"/>
-                            <tablet
-                                jcr:primaryType="nt:unstructured"
-                                width="6"/>
-                        </cq:responsive>
-                    </languagenavigation>
-                </responsivegrid>
-                <responsivegrid_1195249223
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="wcm/foundation/components/responsivegrid">
-                    <cq:responsive jcr:primaryType="nt:unstructured"/>
-                    <navigation
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="${appsFolderName}/components/structure/navigation"
-                        collectAllPages="false"
-                        navigationRoot="/content/${contentFolderName}/language-masters/en"
-                        skipNavigationRoot="false"
-                        structureDepth="1">
-                        <cq:responsive jcr:primaryType="nt:unstructured">
-                            <default
-                                jcr:primaryType="nt:unstructured"
-                                width="8"/>
-                            <tablet
-                                jcr:primaryType="nt:unstructured"
-                                behavior="hide"/>
-                        </cq:responsive>
-                    </navigation>
-                    <search
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="${appsFolderName}/components/structure/search"
-                        searchRoot="/content/${contentFolderName}/en">
-                        <cq:responsive jcr:primaryType="nt:unstructured">
-                            <default
-                                jcr:primaryType="nt:unstructured"
-                                width="2"/>
-                            <tablet
-                                jcr:primaryType="nt:unstructured"
-                                width="6"/>
-                            <phone
-                                jcr:primaryType="nt:unstructured"
-                                width="6"/>
-                        </cq:responsive>
-                    </search>
-                </responsivegrid_1195249223>
-            </responsivegrid>
+                sling:resourceType="${appsFolderName}/components/navigation"
+                collectAllPages="false"
+                skipNavigationRoot="false"
+                structureDepth="1"
+                structureStart="2"/>
+            <languagenavigation
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/languagenavigation"
+                navigationRoot="/content/${contentFolderName}"
+                structureDepth="2"/>
+            <search
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appsFolderName}/components/search"
+                searchRoot="/content/${contentFolderName}/${language_country.split('_').get(0)}"/>
         </root>
     </jcr:content>
 </jcr:root>

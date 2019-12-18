@@ -54,7 +54,7 @@ export class TextComponent {
   }
 }
 
-MapTo('${appsFolderName}/components/content/text')(
+MapTo('${appsFolderName}/components/text')(
   TextComponent,
   TextEditConfig
 );
