@@ -120,7 +120,7 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
         assert new File("$appsFolder/components/structure/spa").deleteDir()
 
         // Delete EditConfigs
-        assert new File("$appsFolder/components/content/text/_cq_editConfig.xml").delete()
+        assert new File("$appsFolder/components/text/_cq_editConfig.xml").delete()
 
         // Delete SPA templates
         assert new File("$confFolder/settings/wcm/templates/spa-app-template").deleteDir()
