@@ -10,17 +10,15 @@
     "sync": "aemsync -d -w ../ui.apps/src/main/content"
   },
   "dependencies": {
-    "@adobe/cq-react-editable-components": "^1.1.0",
+    "@adobe/cq-react-editable-components": "^1.2.0",
     "@adobe/cq-spa-component-mapping": "^1.0.3",
-    "@adobe/cq-spa-page-model-manager": "^1.0.7",
-    "clone": "^2.1.2",
+    "@adobe/cq-spa-page-model-manager": "^1.1.0",
     "custom-event-polyfill": "^1.0.7",
     "dompurify": "^2.0.7",
     "history": "^4.10.1",
     "react": "^16.12.0",
     "react-app-polyfill": "^1.0.5",
     "react-dom": "^16.12.0",
-    "react-fast-compare": "^2.0.4",
     "react-router-dom": "^5.1.2"
   },
   "devDependencies": {

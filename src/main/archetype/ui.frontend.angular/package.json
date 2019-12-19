@@ -12,7 +12,7 @@
   "dependencies": {
     "@adobe/cq-angular-editable-components": "^1.2.0",
     "@adobe/cq-spa-component-mapping": "^1.0.3",
-    "@adobe/cq-spa-page-model-manager": "^1.0.7",
+    "@adobe/cq-spa-page-model-manager": "^1.1.0",
     "@angular/animations": "~8.2.14",
     "@angular/common": "~8.2.14",
     "@angular/compiler": "~8.2.14",
@@ -21,7 +21,6 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
-    "clone": "^2.1.2",
     "custom-event-polyfill": "^1.0.7",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
