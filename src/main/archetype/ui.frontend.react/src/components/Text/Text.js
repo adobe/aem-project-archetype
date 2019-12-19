@@ -43,7 +43,7 @@ class Text extends Component {
   }
 }
 
-export default MapTo('${appsFolderName}/components/content/text')(
+export default MapTo('${appsFolderName}/components/text')(
   Text,
   TextEditConfig
 );

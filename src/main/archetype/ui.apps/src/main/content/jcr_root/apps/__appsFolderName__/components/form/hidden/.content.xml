@@ -3,4 +3,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Form Hidden"
     sling:resourceSuperType="core/wcm/components/form/hidden/v2/hidden"
-    componentGroup="${componentGroupName}.Form"/>
+    componentGroup="${componentGroupName} - Form"/>

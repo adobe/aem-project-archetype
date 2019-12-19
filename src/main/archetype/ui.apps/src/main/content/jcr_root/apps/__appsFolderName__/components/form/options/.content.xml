@@ -3,4 +3,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Form Options"
     sling:resourceSuperType="core/wcm/components/form/options/v2/options"
-    componentGroup="${componentGroupName}.Form"/>
+    componentGroup="${componentGroupName} - Form"/>

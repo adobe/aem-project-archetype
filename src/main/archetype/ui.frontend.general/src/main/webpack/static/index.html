@@ -1,70 +1,123 @@
 <!DOCTYPE HTML>
 <html lang="en">
-    <head>
+<head>
     <meta charset="UTF-8"/>
-    <title>Static Frontend File</title>
-    <meta name="template" content="content-page-template"/>
+    <title>Static Frontend file</title>
+    <meta name="template" content="page-content"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <!-- proxied from a running instance of AEM -->
-    <link rel="stylesheet" href="/etc.clientlibs/${appsFolderName}/clientlibs/clientlib-base.css" type="text/css"> 
+    <link rel="stylesheet" href="/etc.clientlibs/mysite/clientlibs/clientlib-base.css" type="text/css">
+    <script type="text/javascript" src="/etc.clientlibs/mysite/clientlibs/clientlib-dependencies.js"></script>
+    <link rel="stylesheet" href="/etc.clientlibs/mysite/clientlibs/clientlib-dependencies.css" type="text/css">
 </head>
-    <body class="page basicpage">      
-        <!-- Root Layout Container -->    
-        <div class="root responsivegrid">
-            <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
-                <!-- Editable Layout Container -->
-                <div class="responsivegrid aem-GridColumn aem-GridColumn--default--12">
-                    <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
-                        <!-- Title Component-->
-                        <div class="title aem-GridColumn aem-GridColumn--default--12">
-                            <div class="cmp-title">
-                                <h1 class="cmp-title__text">My Static Template</h1>
-                            </div>   
-                        </div><!-- end Title Component -->
-
-                        <!-- Text Component 1 -->
-                        <div class="text aem-GridColumn--offset--tablet--0 aem-GridColumn--default--none aem-GridColumn--phone--none aem-GridColumn--phone--12 aem-GridColumn--tablet--none aem-GridColumn--default--9 aem-GridColumn aem-GridColumn--tablet--6 aem-GridColumn--offset--phone--0 aem-GridColumn--offset--default--0">
-                            <div class="cmp-text">
-                                <h2><b>Column 1</b></h2>
-                                <p><b>Bold</b> can be used to emphasize a word or phrase, as can <u>underline</u> and <i>italics</i>. <sup>Superscript</sup> and <sub>subscript</sub> are useful for mathematical (E = mc<sup>2</sup>) or scientific (h<sub>2</sub>O) expressions. Paragraph styles can provide alternative renderings, such as quote sections:</p>
-                                <p></p>
-                                <blockquote>“Be yourself; everyone else is already taken.”</blockquote>
-                                <blockquote>- Oscar Wilde</blockquote>
-                                <blockquote> </blockquote>
-                                <h3>Responsive Widths</h4>
-                                <ul>
-                                <li>default= 9</li>
-                                <li>tablet=6</li>
-                                <li>phone=12</li>
-                                </ul>
-                                <p> </p>
-                            </div>
-                        </div><!-- End Text Component 1-->
-
-                        <!-- Text Component 2 -->
-                        <div class="text aem-GridColumn--offset--tablet--0 aem-GridColumn--default--none aem-GridColumn--phone--none aem-GridColumn--phone--12 aem-GridColumn--tablet--none aem-GridColumn aem-GridColumn--tablet--6 aem-GridColumn--offset--phone--0 aem-GridColumn--default--3 aem-GridColumn--offset--default--0">
-                            <div class="cmp-text">
-                                <h2><b>Column 2</b></h2>
-                                <p><b>Bold</b> can be used to emphasize a word or phrase, as can <u>underline</u> and <i>italics</i>. <sup>Superscript</sup> and <sub>subscript</sub> are useful for mathematical (E = mc<sup>2</sup>) or scientific (h<sub>2</sub>O) expressions. Paragraph styles can provide alternative renderings, such as quote sections:</p>
-                                <p> </p>
-                                <blockquote>“Be yourself; everyone else is already taken.”</blockquote>
-                                <blockquote>- Oscar Wilde</blockquote>
-                                <blockquote> </blockquote>
-                                <h3>Responsive Widths</h3>
-                                <ul>
-                                <li>default=3</li>
-                                <li>tablet=6</li>
-                                <li>phone=12</li>
-                                </ul>
-                                <p> </p>
-                            </div>
-                        </div><!-- end Text Component 2-->
+<body class="page basicpage">
+<div class="root container responsivegrid">
+    <div class="cmp-container">
+        <header class="experiencefragment">
+            <div class="cmp-experiencefragment">
+                <div class="cmp-container">
+                    <div class="navigation">
+                        <nav class="cmp-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+                            <ul class="cmp-navigation__group">
+                                <li class="cmp-navigation__item cmp-navigation__item--level-0 cmp-navigation__item--active">
+                                    <a href="/content/mysite/language-masters/en.html" title="My Site" aria-current="page" class="cmp-navigation__item-link">My Site</a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
-                 </div><!-- end Editable Layout Container -->
+                    <div class="languagenavigation">
+                        <nav class="cmp-languagenavigation">
+                            <ul class="cmp-languagenavigation__group">
+                                <li class="cmp-languagenavigation__item cmp-languagenavigation__item--langcode-en cmp-languagenavigation__item--level-0">
+                                    <span class="cmp-languagenavigation__item-title" lang="en">United States</span>
+                                    <ul class="cmp-languagenavigation__group">
+                                        <li class="cmp-languagenavigation__item cmp-languagenavigation__item--langcode-en cmp-languagenavigation__item--level-1">
+                                            <a class="cmp-languagenavigation__item-link" href="/content/mysite/us/en.html" hreflang="en" lang="en" rel="alternate" title="English">English</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="search">
+                        <section class="cmp-search" role="search" data-cmp-is="search" data-cmp-min-length="3" data-cmp-results-size="10">
+                            <form class="cmp-search__form" data-cmp-hook-search="form" method="get" action="/content/mysite/language-masters/en.searchresults.json/_jcr_content/root/search" autocomplete="off">
+                                <div class="cmp-search__field">
+                                    <i class="cmp-search__icon" data-cmp-hook-search="icon"></i>
+                                    <span class="cmp-search__loading-indicator" data-cmp-hook-search="loadingIndicator"></span>
+                                    <input class="cmp-search__input" data-cmp-hook-search="input" type="text" name="fulltext" placeholder="Search" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-invalid="false"/>
+                                    <button class="cmp-search__clear" data-cmp-hook-search="clear">
+                                        <i class="cmp-search__clear-icon"></i>
+                                    </button>
+                                </div>
+                            </form>
+                            <div class="cmp-search__results" data-cmp-hook-search="results" role="listbox" aria-multiselectable="false"></div>
+                            <script data-cmp-hook-search="itemTemplate" type="x-template">
+                                <a class="cmp-search__item" data-cmp-hook-search="item">
+                                    <span class="cmp-search__item-title" data-cmp-hook-search="itemTitle"></span>
+                                </a>
+                            </script>
+                        </section></div>
+                </div>
             </div>
-        </div><!-- end Root Layout Container -->   
-
-        <!-- proxied from a running instance of AEM -->
-        <script type="text/javascript" src="/etc.clientlibs/${appsFolderName}/clientlibs/clientlib-base.js"></script>        
-    </body>
+        </header>
+        <main class="container responsivegrid">
+            <div class="cmp-container">
+                <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+                    <div class="title aem-GridColumn aem-GridColumn--default--12">
+                        <div class="cmp-title">
+                            <h1 class="cmp-title__text">Welcome to My Site!</h1>
+                        </div>
+                    </div>
+                    <div class="container responsivegrid aem-GridColumn aem-GridColumn--default--12">
+                        <div class="cmp-container">
+                            <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+                                <div class="text aem-GridColumn aem-GridColumn--default--12">
+                                    <div class="cmp-text">
+                                        <p>This is the main welcome page of your web site. A few notes about this site:</p>
+                                        <ul>
+                                            <li>It is built entirely with the Core Components - see the <a href="https://www.adobe.com/go/aem_cmp_library">Component Library</a> to view the components in all their shapes and forms.</li>
+                                            <li>Only the Hello World component has been built custom to illustrate how further components can be built (which also shows how JavaScript is best initialized for components, so that it also works well with the Page Editor).</li>
+                                            <li>The page header and footer are assembled as Experience Fragments, which <a href="https://docs.adobe.com/content/help/en/experience-manager-core-components/using/components/experience-fragment.html#localized-site-structure">can also be localized if needed</a>.<br />
+                                            </li>
+                                            <li>The Style System is used to insert a sematic &lt;header&gt; and &lt;footer&gt; element to the corresponding Experience Fragment components, as well as a &lt;main&gt; element to the container of the page content. This allows to apply some CSS specifically to these sections of the page.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="helloworld aem-GridColumn aem-GridColumn--default--12"><div class="cmp-helloworld" data-cmp-is="helloworld">
+                                    <h2 class="cmp-helloworld__title">Hello World Component</h2>
+                                    <div class="cmp-helloworld__item">
+                                        <p class="cmp-helloworld__item-label">Model message:</p>
+                                        <pre class="cmp-helloworld__item-output" data-cmp-hook-helloworld="model">Hello World!
+Resource type is: mysite/components/helloworld
+Current page is:  /content/mysite/language-masters/en
+This is instance: 78f60b4a-a52a-4021-82d5-fb17f5fb95cf
+</pre>
+                                    </div>
+                                </div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="experiencefragment">
+            <div class="cmp-experiencefragment">
+                <div class="cmp-container">
+                    <div class="separator">
+                        <div class="cmp-separator">
+                            <hr class="cmp-separator__horizontal-rule"/>
+                        </div></div>
+                    <div class="text">
+                        <div class="cmp-text">
+                            <p>Copyright 2019, My Site. All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<script type="text/javascript" src="/etc.clientlibs/mysite/clientlibs/clientlib-site.js"></script>
+<script type="text/javascript" src="/etc.clientlibs/mysite/clientlibs/clientlib-base.js"></script>
+</body>
 </html>

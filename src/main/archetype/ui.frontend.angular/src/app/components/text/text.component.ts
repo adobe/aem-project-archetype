@@ -34,7 +34,7 @@ export class TextComponent {
   constructor(private sanitizer: DomSanitizer) {}
 }
 
-MapTo('${appsFolderName}/components/content/text')(
+MapTo('${appsFolderName}/components/text')(
   TextComponent,
   TextEditConfig
 );

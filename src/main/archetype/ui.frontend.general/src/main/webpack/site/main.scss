@@ -1,2 +1,5 @@
-@import "../base/sass/shared";
-@import "../components/**/*.scss";
+
+@import 'variables';
+@import 'base';
+@import './components/*.scss';
+@import './styles/*.scss';

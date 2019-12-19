@@ -1,0 +1,33 @@
+//== Base
+
+html,
+body {
+    margin: 0;
+    font-size:   $font-size;
+    font-family: $font-family;
+    line-height: $font-height;
+    color:       $color-foreground;
+    background:  $color-background;
+
+    @media (prefers-color-scheme: dark) {
+        color:       $color-foreground-dark;
+        background:  $color-background-dark;
+    }
+}
+
+
+a {
+    color: $color-link;
+
+    @media (prefers-color-scheme: dark) {
+        color: $color-link-dark;
+    }
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font: inherit;
+}

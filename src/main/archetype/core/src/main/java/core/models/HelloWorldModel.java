@@ -57,10 +57,10 @@ public class HelloWorldModel {
                 .map(pm -> pm.getContainingPage(currentResource))
                 .map(Page::getPath).orElse("");
 
-        message = "\tHello World!\n"
-            + "\tThis is instance: " + settings.getSlingId() + "\n"
-            + "\tResource type is: " + resourceType + "\n"
-            + "\tCurrent page is: " + currentPagePath + "\n";
+        message = "Hello World!\n"
+            + "Resource type is: " + resourceType + "\n"
+            + "Current page is:  " + currentPagePath + "\n"
+            + "This is instance: " + settings.getSlingId() + "\n";
     }
 
     public String getMessage() {
