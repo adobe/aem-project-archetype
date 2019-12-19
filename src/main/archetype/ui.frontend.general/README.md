@@ -3,7 +3,7 @@ ${hash} Frontend Build
 ${hash}${hash} Features
 
 * Full TypeScript, ES6 and ES5 support (with applicable Webpack wrappers).
-* TypeScript and JavaScript linting (using a TSLint ruleset – to be refined).
+* TypeScript and JavaScript linting (using a TSLint ruleset – driven by ESLint - rules can be adjusted to suit your team's needs).
 * ES5 output, for legacy browser support.
 * Globbing
     * No need to add imports anywhere.
