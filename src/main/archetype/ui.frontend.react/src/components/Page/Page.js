@@ -7,8 +7,9 @@ import { withRoute } from '../RouteHelper/RouteHelper';
 
 require('./Page.css');
 
-// This component is a variant of a Page component mapped to the "${appsFolderName}/components/structure/page" resource type
-// For now, the rendering is the same as the RootPage; this is more for illustration purposes
+// This component is a variant of a Page component mapped to the
+// "${appsFolderName}/components/page" resource type. For now, the rendering is
+// the same as the RootPage; this is more for illustration purposes
 class AppPage extends Page {
   get containerProps() {
     let attrs = super.containerProps;
@@ -18,6 +19,6 @@ class AppPage extends Page {
   }
 }
 
-export default MapTo('${appsFolderName}/components/structure/page')(
+export default MapTo('${appsFolderName}/components/page')(
   withComponentMappingContext(withRoute(AppPage))
 );
