@@ -6,7 +6,7 @@ This archetype creates a minimal Adobe Experience Manager project as a starting 
 
 ## Documentation
 
-* [Archetype Overview](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/archetype/overview.html)
+* [Archetype Overview](https://www.adobe.com/go/aem_archetype)
 * [Getting Started with AEM Sites - WKND Tutorial](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/overview.html) is a good example as it is based on this 
 archetype
 * [WDND Events Tutorial](https://helpx.adobe.com/experience-manager/kt/sites/using/getting-started-spa-wknd-tutorial-develop.html) Is a 
