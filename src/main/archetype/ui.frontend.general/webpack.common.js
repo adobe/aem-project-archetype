@@ -4,7 +4,6 @@ const path                    = require('path');
 const webpack                 = require('webpack');
 const MiniCssExtractPlugin    = require('mini-css-extract-plugin');
 const TSConfigPathsPlugin     = require('tsconfig-paths-webpack-plugin');
-const TSLintPlugin            = require('tslint-webpack-plugin');
 const CopyWebpackPlugin       = require('copy-webpack-plugin');
 const { CleanWebpackPlugin }  = require('clean-webpack-plugin');
 
@@ -30,10 +29,14 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?$/,
-                exclude: [
-                    /(node_modules)/
-                ],
+                exclude: /node_modules/,
                 use: [
+                    {
+                        options: {
+                            eslintPath: require.resolve('eslint'),
+                        },
+                        loader: require.resolve('eslint-loader'),
+                    },
                     {
                         loader: 'ts-loader'
                     },
@@ -44,6 +47,11 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'eslint-loader',
             },
             {
                 test: /\.scss$/,
@@ -86,10 +94,6 @@ module.exports = {
         new webpack.NoEmitOnErrorsPlugin(),
         new MiniCssExtractPlugin({
             filename: 'clientlib-[name]/[name].css'
-        }),
-        new TSLintPlugin({
-            files: [SOURCE_ROOT + '/**/*.ts', SOURCE_ROOT + '/**/*.tsx'],
-            config: './tslint.json'
         }),
         new CopyWebpackPlugin([
             { from: path.resolve(__dirname, SOURCE_ROOT + '/resources'), to: './clientlib-site/resources' }
