@@ -20,6 +20,7 @@ module.exports =  {
         "no-trailing-spaces": 0,
         "eol-last": 1,
         "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
-        "semi": 1
+        "semi": 1,
+        "no-var": 0
     },
   };
