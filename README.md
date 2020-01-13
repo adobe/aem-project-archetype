@@ -58,9 +58,7 @@ optionIncludeExamples       |    y    | Include a Component Library example site
 optionIncludeErrorHandler   |    n    | Include a custom 404 response page
 optionFrontendModule        |   none  | Include a dedicated frontend module (one of `none`, `general`, `angular`, `react`)
 isSingleCountryWebsite      |    y    | Create language-master structure in example content
-optionDispatcherConfig      |   none  | Defines if a dispatcher configuration is generated for the project
-                            |         | Set to [`cloud`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.cloud) when creating a project for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html)
-                            |         | Set to [`ams`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) when creating a project for Adobe Managed Services
+optionDispatcherConfig      |   none  | Include a dispatcher configuration (set to [`cloud`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.cloud) when creating a project for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html), [`ams`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) when creating a project for Adobe Managed Services)
 
 Note: If the archetype is executed in interactive mode the first time properties with default values can't be changed (see
 [ARCHETYPE-308](https://issues.apache.org/jira/browse/ARCHETYPE-308) for more details). The value can be changed when the property
