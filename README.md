@@ -58,7 +58,9 @@ optionIncludeExamples       |    y    | Include a Component Library example site
 optionIncludeErrorHandler   |    n    | Include a custom 404 response page
 optionFrontendModule        |   none  | Include a dedicated frontend module (one of `none`, `general`, `angular`, `react`)
 isSingleCountryWebsite      |    y    | Create language-master structure in example content
-optionDispatcherConfig      |   none  | Generate a dispatcher configuration module
+optionDispatcherConfig      |   none  | Defines if a dispatcher configuration is generated for the project
+                            |         | Set to [`cloud`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.cloud) when creating a project for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html)
+                            |         | Set to [`ams`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) when creating a project for Adobe Managed Services
 
 Note: If the archetype is executed in interactive mode the first time properties with default values can't be changed (see
 [ARCHETYPE-308](https://issues.apache.org/jira/browse/ARCHETYPE-308) for more details). The value can be changed when the property
@@ -69,7 +71,7 @@ confirmation at the end is denied and the questionnaire gets repeated, or by pas
 
 The latest version of the archetype has the following requirements:
 
-* Adobe Experience Manager 6.3.3.0 or higher (6.4.2 or higher when generating a project with an Angular/React frontend)
+* Adobe Experience Manager 6.3.3.0 or higher (6.4.2 or higher when generating a project with an Angular/React frontend) or [Adobe Experience Manager as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html)
 * Apache Maven (3.3.9 or newer)
 * Adobe Public Maven Repository in maven settings, see [Knowledge Base](https://helpx.adobe.com/experience-manager/kb/SetUpTheAdobeMavenRepository.html) article for details.
 
