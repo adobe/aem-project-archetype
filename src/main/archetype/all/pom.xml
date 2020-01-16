@@ -198,13 +198,13 @@
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${rootArtifactId}.ui.apps</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
             <type>zip</type>
         </dependency>
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${rootArtifactId}.ui.content</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
             <type>zip</type>
         </dependency>
 
