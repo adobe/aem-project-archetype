@@ -134,7 +134,7 @@ Sling-Test-Regexp: .*Test
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${rootArtifactId}.core</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>
 

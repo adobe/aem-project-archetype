@@ -144,14 +144,14 @@
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${rootArtifactId}.core</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
         </dependency>
 
 #if ( $optionFrontendModule != "none" )
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${rootArtifactId}.ui.frontend</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
             <type>zip</type>
         </dependency>
 #end
@@ -177,7 +177,7 @@
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${rootArtifactId}.repository-structure</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
             <type>zip</type>
         </dependency>
 

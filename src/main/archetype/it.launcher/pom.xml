@@ -326,12 +326,12 @@
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${rootArtifactId}.it.tests</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${rootArtifactId}.core</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>
