@@ -2,6 +2,6 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     cq:adobeTargetExportFormat="html"
     jcr:primaryType="sling:OrderedFolder"
-    jcr:title="${language_country.split('_').get(1)}">
-    <${language_country.split('_').get(0)}/>
+    jcr:title="${country}">
+    <${language}/>
 </jcr:root>

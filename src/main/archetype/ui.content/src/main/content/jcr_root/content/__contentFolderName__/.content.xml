@@ -10,7 +10,7 @@
         sling:redirect="{Boolean}true"
         sling:redirectStatus="{Long}302"
         sling:resourceType="foundation/components/redirect"
-        redirectTarget="/content/${contentFolderName}/${language_country.split('_').get(1)}/${language_country.split('_').get(0)}">
+        redirectTarget="/content/${contentFolderName}/${country}/${language}">
         <image jcr:primaryType="nt:unstructured">
             <file/>
         </image>
@@ -18,5 +18,5 @@
 #if ( $isSingleCountryWebsite == "n" )
     <language-masters/>
 #end
-    <${language_country.split('_').get(1)}/>
+    <${country}/>
 </jcr:root>

@@ -28,7 +28,7 @@
             <search
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="${appsFolderName}/components/search"
-                searchRoot="/content/${contentFolderName}/${language_country.split('_').get(0)}"/>
+                searchRoot="/content/${contentFolderName}/${language}"/>
         </root>
     </jcr:content>
 </jcr:root>

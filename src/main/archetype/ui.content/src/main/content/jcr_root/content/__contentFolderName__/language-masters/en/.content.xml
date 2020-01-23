@@ -10,7 +10,7 @@
         cq:template="/conf/${confFolderName}/settings/wcm/templates/page-content"
 #end
         jcr:primaryType="cq:PageContent"
-        jcr:title="${language_country.split('_').get(0)}"
+        jcr:title="${language}"
 #if ( $isSpaProject )
         sling:resourceType="${appsFolderName}/components/spa"
 #else
