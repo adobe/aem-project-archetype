@@ -255,7 +255,7 @@
     </profiles>
 
     <dependencies>
-        <!-- Additional bundles needed by the Sling instance under test -->
+#if ( $optionAemVersion.startsWith("6.") )
         <dependency>
             <groupId>org.apache.sling</groupId>
             <artifactId>org.apache.sling.junit.core</artifactId>
@@ -266,12 +266,6 @@
             <groupId>org.apache.sling</groupId>
             <artifactId>org.apache.sling.junit.scriptable</artifactId>
             <version>1.0.12</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.sling</groupId>
-            <artifactId>org.apache.sling.junit.remote</artifactId>
-            <version>1.0.8</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -311,6 +305,19 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
+            <scope>test</scope>
+        </dependency>
+#else
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>aem-sdk-api</artifactId>
+        </dependency>
+#end
+        <!-- Additional bundles needed by the Sling instance under test -->
+        <dependency>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.junit.remote</artifactId>
+            <version>1.0.8</version>
             <scope>test</scope>
         </dependency>
         <dependency>
