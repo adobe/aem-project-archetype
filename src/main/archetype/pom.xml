@@ -83,6 +83,9 @@
         -->
         <build.environment />
 #end
+#if ( $optionAemVersion == "cloud")
+        <aem.sdk.api>SDK_VERSION</aem.sdk.api>
+#end
     </properties>
 
     <build>
@@ -687,7 +690,7 @@
             <dependency>
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>aem-sdk-api</artifactId>
-                <version>$optionAemVersion</version>
+                <version>${aem.sdk.api}</version>
                 <scope>provided</scope>
             </dependency>
 #end
