@@ -1,5 +1,5 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- ~ Copyright 2018 Adobe Systems Incorporated
+ ~ Copyright 2020 Adobe Systems Incorporated
  ~
  ~ Licensed under the Apache License, Version 2.0 (the "License");
  ~ you may not use this file except in compliance with the License.
@@ -14,12 +14,8 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-# Path to the `public` directory when the web app is deployed. In the case of
-# AEM, that's the path to the `resources` ClientLib directory. Specifying this
-# path is required for features like code splitting to work (because it will be
-# prepended to paths in the `asset-manifest.json` file)
-PUBLIC_URL=/etc.clientlibs/${appsFolderName}/clientlibs/clientlib-react/resources
-
-REACT_APP_PAGE_MODEL_PATH=http://localhost:4502/content/${contentFolderName}/en.model.json
-REACT_APP_API_HOST=
-REACT_APP_AEM_AUTHORIZATION_HEADER=Basic YWRtaW46YWRtaW4=
+// jest-dom adds custom jest matchers for asserting on DOM nodes.
+// allows you to do things like:
+// expect(element).toHaveTextContent(/react/i)
+// learn more: https://github.com/testing-library/jest-dom
+import '@testing-library/jest-dom/extend-expect';

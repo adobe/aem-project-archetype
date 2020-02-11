@@ -1,5 +1,5 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- ~ Copyright 2018 Adobe Systems Incorporated
+ ~ Copyright 2020 Adobe Systems Incorporated
  ~
  ~ Licensed under the Apache License, Version 2.0 (the "License");
  ~ you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ import { ModelManagerService } from '../model-manager.service';
 
 @Component({
   selector: 'app-main',
+  styleUrls: ['./page.component.css'],
   templateUrl: './page.component.html'
 })
 export class PageComponent {

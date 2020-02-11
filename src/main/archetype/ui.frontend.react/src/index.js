@@ -1,5 +1,5 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- ~ Copyright 2018 Adobe Systems Incorporated
+ ~ Copyright 2020 Adobe Systems Incorporated
  ~
  ~ Licensed under the Apache License, Version 2.0 (the "License");
  ~ you may not use this file except in compliance with the License.
@@ -15,18 +15,20 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 // Use polyfills for modern language features
-// The import and dependencies can be removed if only modern browsers should be
+// The imports and dependencies can be removed if only modern browsers should be
 // supported
-import { Constants, ModelManager } from '@adobe/cq-spa-page-model-manager';
+import 'react-app-polyfill/stable';
+import 'react-app-polyfill/ie9';
 import 'custom-event-polyfill';
+
+import { Constants, ModelManager } from '@adobe/cq-spa-page-model-manager';
 import { createBrowserHistory } from 'history';
 import React from 'react';
-import 'react-app-polyfill/ie9';
-import 'react-app-polyfill/stable';
 import { render } from 'react-dom';
 import { Router } from 'react-router-dom';
-import App from './components/App';
+import App from './App';
 import './components/import-components';
+import './index.css';
 
 document.addEventListener('DOMContentLoaded', () => {
   ModelManager.initialize().then(pageModel => {

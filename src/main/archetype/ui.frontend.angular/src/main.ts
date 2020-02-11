@@ -1,5 +1,5 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- ~ Copyright 2018 Adobe Systems Incorporated
+ ~ Copyright 2020 Adobe Systems Incorporated
  ~
  ~ Licensed under the Apache License, Version 2.0 (the "License");
  ~ you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
 
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
@@ -23,11 +24,11 @@ if (environment.production) {
   enableProdMode();
 } else {
   // In development mode, redirect from "/" to app root
-  if (location.pathname === '/' && environment.APP_ROOT_PATH) {
-    location.href = environment.APP_ROOT_PATH;
+  if (location.pathname === '/' && environment.appRoot) {
+    location.href = environment.appRoot;
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  platformBrowserDynamic().bootstrapModule(AppModule);
-});
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch(err => console.error(err));
