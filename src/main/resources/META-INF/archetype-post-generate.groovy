@@ -32,11 +32,14 @@ if (optionAemVersion == "6.3.3") {
     assert new File(uiContentPackage, "src/main/content/jcr_root/conf/" + confFolderName  + "/settings/wcm/segments").deleteDir()
 }
 
-def sdkVersion
 if (optionAemVersion == "cloud") {
-    sdkVersion = getLatestSDK("Test")
+    def sdkVersion = request.getProperties().get("sdkVersion")
+    if (sdkVersion == null || sdkVersion == "") {
+        println "No SDK version specified, trying to fetch latest"
+        sdkVersion = getLatestSDK(request.getArchetypeVersion())
+    }
     println "Using AEM as a Cloud Service SDk version: " + sdkVersion
-    rootPom.text = rootPom.text.replaceAll( 'SDK_VERSION', sdkVersion.toString())
+    rootPom.text = rootPom.text.replaceAll('SDK_VERSION', sdkVersion.toString())
 }
 
 buildContentSkeleton(uiContentPackage, uiAppsPackage, isSingleCountryWebsite, contentFolderName, language_country)
@@ -155,7 +158,7 @@ def removeModule(pomFile, module) {
 }
 
 def getLatestSDK(archetypeVersion) {
-    def metadata = new XmlSlurper().parse("https://downloads.experiencecloud.adobe.com/content/maven/public/com/adobe/aem/aem-sdk-api/maven-metadata.xml?archetype" + archetypeVersion)
+    def metadata = new XmlSlurper().parse("https://downloads.experiencecloud.adobe.com/content/maven/public/com/adobe/aem/aem-sdk-api/maven-metadata.xml?archetype=" + archetypeVersion)
     def sdkVersion = metadata.versioning.latest
     if (sdkVersion == null || sdkVersion == "") {
         sdkVersion = System.console().readLine("Cannot get latest SDK version, please provide it manually: ")
