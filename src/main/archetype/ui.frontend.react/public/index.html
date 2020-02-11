@@ -5,9 +5,9 @@
         <meta charset="utf-8" />
         <meta
             property="cq:pagemodel_root_url"
-            content="/content/${contentFolderName}/${country}/${language}.model.json"
+            content="/content/${appId}/${country}/${language}.model.json"
         />
-        <link rel="stylesheet" href="/etc.clientlibs/${appsFolderName}/clientlibs/clientlib-base.css" type="text/css" />
+        <link rel="stylesheet" href="/etc.clientlibs/${appId}/clientlibs/clientlib-base.css" type="text/css" />
         <script>
             // In development mode, redirect from "/" to app root
             if ('%NODE_ENV%' === 'development' && location.pathname === '/' && '%REACT_APP_ROOT%') {

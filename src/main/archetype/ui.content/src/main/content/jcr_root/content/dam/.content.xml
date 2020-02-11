@@ -3,5 +3,5 @@
     jcr:mixinTypes="[mix:lockable,rep:AccessControllable]"
     jcr:primaryType="sling:OrderedFolder">
     <rep:policy/>
-    <__contentFolderName__/>
+    <__appId__/>
 </jcr:root>

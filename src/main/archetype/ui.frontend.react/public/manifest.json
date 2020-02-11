@@ -1,6 +1,6 @@
 {
-  "short_name": "${siteName} SPA App",
-  "name": "${siteName} SPA Authoring - App",
+  "short_name": "${appTitle} SPA App",
+  "name": "${appTitle} SPA Authoring - App",
   "icons": [
     {
       "src": "favicon.ico",

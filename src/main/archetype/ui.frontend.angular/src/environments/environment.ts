@@ -22,9 +22,9 @@ export const environment = {
   production: false,
   API_HOST: '',
   APP_ROOT_PATH:
-    "/content/${contentFolderName}/${country}/${language}/home.html",
+    "/content/${appId}/${country}/${language}/home.html",
   CONTEXT_PATH: '', // configuration style: contextpath/
-  PUBLIC_URL: '/etc.clientlibs/${appsFolderName}/clientlibs/clientlib-angular/resources'
+  PUBLIC_URL: '/etc.clientlibs/${appId}/clientlibs/clientlib-angular/resources'
 };
 
 /*

@@ -59,7 +59,7 @@ class Text extends Component {
   }
 }
 
-export default MapTo('${appsFolderName}/components/text')(
+export default MapTo('${appId}/components/text')(
   Text,
   TextEditConfig
 );

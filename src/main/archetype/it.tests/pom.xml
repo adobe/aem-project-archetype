@@ -31,8 +31,8 @@
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
     <artifactId>${artifactId}</artifactId>
-    <name>${artifactName} - Integration Tests Bundles</name>
-    <description>Bundles for Integration Tests for ${artifactName}</description>
+    <name>${appTitle} - Integration Tests Bundles</name>
+    <description>Bundles for Integration Tests for ${appTitle}</description>
 
     <!-- <scm>
         <connection></connection>
@@ -58,7 +58,7 @@
                         </goals>
                         <configuration>
                             <bnd><![CDATA[
-Bundle-Category: ${componentGroupName}
+Bundle-Category: ${appTitle}
 -exportcontents: $${startbrace}packages;VERSIONED${endbrace}
 -snapshot: $${startbrace}tstamp;yyyyMMddHHmmssSSS${endbrace}
 Bundle-DocURL:
@@ -96,7 +96,7 @@ Sling-Test-Regexp: .*Test
     </build>
 
     <dependencies>
-#if ( $optionAemVersion.startsWith("6.") )
+#if ( $aemVersion.startsWith("6.") )
         <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi.annotation.versioning</artifactId>

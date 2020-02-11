@@ -44,26 +44,26 @@ groupId                     |         | Base Maven groupId
 artifactId                  |         | Base Maven ArtifactId
 version                     |         | Version
 package                     |         | Java Source Package
-appsFolderName              |         | /apps folder name
-artifactName                |         | Maven Project Name
-componentGroupName          |         | AEM component group name
-contentFolderName           |         | /content folder name
-confFolderName              |         | /conf folder name
-cssId                       |         | prefix used in generated css
-packageGroup                |         | Content Package Group name
-siteName                    |         | AEM site name
-optionAemVersion            |  6.5.0  | Target AEM version
-language_country            |   en_us | language / country code to create the content structure from (e.g. en_us)
-optionIncludeExamples       |    y    | Include a Component Library example site
-optionIncludeErrorHandler   |    n    | Include a custom 404 response page
-optionFrontendModule        |   none  | Include a dedicated frontend module (one of `none`, `general`, `angular`, `react`)
-isSingleCountryWebsite      |    y    | Create language-master structure in example content
-optionDispatcherConfig      |   none  | Defines if a dispatcher configuration is generated for the project <br>Set to [`cloud`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.cloud) when creating a project for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html)<br>Set to [`ams`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) when creating a project for Adobe Managed Services
+appId              |         | /apps folder name
+appTitle                |         | Maven Project Name
+appTitle          |         | AEM component group name
+appId           |         | /content folder name
+appId              |         | /conf folder name
+appId                       |         | prefix used in generated css
+groupId                |         | Content Package Group name
+appTitle                    |         | AEM site name
+aemVersion            |  6.5.0  | Target AEM version
+languageCountry            |   en_us | language / country code to create the content structure from (e.g. en_us)
+includeExamples       |    y    | Include a Component Library example site
+includeErrorHandler   |    n    | Include a custom 404 response page
+frontendModule        |   none  | Include a dedicated frontend module (one of `none`, `general`, `angular`, `react`)
+singleCountry      |    y    | Create language-master structure in example content
+includeDispatcherConfig      |   none  | Defines if a dispatcher configuration is generated for the project <br>Set to [`cloud`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.cloud) when creating a project for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html)<br>Set to [`ams`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) when creating a project for Adobe Managed Services
 
 Note: If the archetype is executed in interactive mode the first time properties with default values can't be changed (see
 [ARCHETYPE-308](https://issues.apache.org/jira/browse/ARCHETYPE-308) for more details). The value can be changed when the property
 confirmation at the end is denied and the questionnaire gets repeated, or by passing the parameter in the command line (e.g.
-`-DoptionIncludeExamples=n`).
+`-DincludeExamples=n`).
 
 ### Requirements
 
