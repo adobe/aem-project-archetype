@@ -185,8 +185,32 @@
                         <include>**/*</include>
                     </includes>
                     <excludes>
-                        <exclude>node/**/*</exclude>
+                        <!-- Exclude Node.js installation (frontend-maven-plugin) -->
+                        <exclude>**/node/</exclude>
+                        <!-- Exclude NPM dependencies -->
+                        <exclude>**/node_modules/</exclude>
+                        <exclude>**/package-lock.json</exclude>
+                        <exclude>**/yarn.lock</exclude>
+                        <!-- Do not filter binary files (will become corrupted) -->
+                        <exclude>**/*.gif</exclude>
+                        <exclude>**/*.ico</exclude>
+                        <exclude>**/*.jpeg</exclude>
+                        <exclude>**/*.jpg</exclude>
+                        <exclude>**/*.png</exclude>
+                        <exclude>**/*.svg</exclude>
                     </excludes>
+                </fileSet>
+                <fileSet filtered="false">
+                    <directory></directory>
+                    <includes>
+                        <!-- Do not filter binary files (will become corrupted) -->
+                        <include>**/*.gif</include>
+                        <include>**/*.ico</include>
+                        <include>**/*.jpeg</include>
+                        <include>**/*.jpg</include>
+                        <include>**/*.png</include>
+                        <include>**/*.svg</include>
+                    </includes>
                 </fileSet>
             </fileSets>
         </module>
@@ -198,8 +222,32 @@
                         <include>**/*</include>
                     </includes>
                     <excludes>
-                        <exclude>node/**/*</exclude>
+                        <!-- Exclude Node.js installation (frontend-maven-plugin) -->
+                        <exclude>**/node/</exclude>
+                        <!-- Exclude NPM dependencies -->
+                        <exclude>**/node_modules/</exclude>
+                        <exclude>**/package-lock.json</exclude>
+                        <exclude>**/yarn.lock</exclude>
+                        <!-- Do not filter binary files (will become corrupted) -->
+                        <exclude>**/*.gif</exclude>
+                        <exclude>**/*.ico</exclude>
+                        <exclude>**/*.jpeg</exclude>
+                        <exclude>**/*.jpg</exclude>
+                        <exclude>**/*.png</exclude>
+                        <exclude>**/*.svg</exclude>
                     </excludes>
+                </fileSet>
+                <fileSet filtered="false">
+                    <directory></directory>
+                    <includes>
+                        <!-- Do not filter binary files (will become corrupted) -->
+                        <include>**/*.gif</include>
+                        <include>**/*.ico</include>
+                        <include>**/*.jpeg</include>
+                        <include>**/*.jpg</include>
+                        <include>**/*.png</include>
+                        <include>**/*.svg</include>
+                    </includes>
                 </fileSet>
             </fileSets>
         </module>
@@ -211,8 +259,32 @@
                         <include>**/*</include>
                     </includes>
                     <excludes>
-                        <exclude>node/**/*</exclude>
+                        <!-- Exclude Node.js installation (frontend-maven-plugin) -->
+                        <exclude>**/node/</exclude>
+                        <!-- Exclude NPM dependencies -->
+                        <exclude>**/node_modules/</exclude>
+                        <exclude>**/package-lock.json</exclude>
+                        <exclude>**/yarn.lock</exclude>
+                        <!-- Do not filter binary files (will become corrupted) -->
+                        <exclude>**/*.gif</exclude>
+                        <exclude>**/*.ico</exclude>
+                        <exclude>**/*.jpeg</exclude>
+                        <exclude>**/*.jpg</exclude>
+                        <exclude>**/*.png</exclude>
+                        <exclude>**/*.svg</exclude>
                     </excludes>
+                </fileSet>
+                <fileSet filtered="false">
+                    <directory></directory>
+                    <includes>
+                        <!-- Do not filter binary files (will become corrupted) -->
+                        <include>**/*.gif</include>
+                        <include>**/*.ico</include>
+                        <include>**/*.jpeg</include>
+                        <include>**/*.jpg</include>
+                        <include>**/*.png</include>
+                        <include>**/*.svg</include>
+                    </includes>
                 </fileSet>
             </fileSets>
         </module>

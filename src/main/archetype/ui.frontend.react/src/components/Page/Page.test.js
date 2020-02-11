@@ -1,5 +1,5 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- ~ Copyright 2019 Adobe Incorporated
+ ~ Copyright 2020 Adobe Systems Incorporated
  ~
  ~ Licensed under the Apache License, Version 2.0 (the "License");
  ~ you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ import { ModelManager } from '@adobe/cq-spa-page-model-manager';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import sinon from 'sinon';
-import Page from './';
+import Page from './Page';
 
 describe('Page ->', () => {
   const ROOT_NODE_CLASS_NAME = 'route-node';

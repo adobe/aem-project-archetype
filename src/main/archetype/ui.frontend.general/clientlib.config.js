@@ -1,5 +1,5 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- ~ Copyright 2019 Adobe Systems Incorporated
+ ~ Copyright 2020 Adobe Systems Incorporated
  ~
  ~ Licensed under the Apache License, Version 2.0 (the "License");
  ~ you may not use this file except in compliance with the License.
@@ -47,7 +47,8 @@ module.exports = {
       name: 'clientlib-dependencies',
       categories: ['${appId}.dependencies'],
       assets: {
-        // Copy entrypoint scripts and stylesheets into the respective ClientLib directories
+        // Copy entrypoint scripts and stylesheets into the respective ClientLib
+        // directories
         js: {
           cwd: 'clientlib-dependencies',
           files: ['**/*.js'],
@@ -66,7 +67,8 @@ module.exports = {
       categories: ['${appId}.site'],
       dependencies: ['${appId}.dependencies'],
       assets: {
-        // Copy entrypoint scripts and stylesheets into the respective ClientLib directories
+        // Copy entrypoint scripts and stylesheets into the respective ClientLib
+        // directories
         js: {
           cwd: 'clientlib-site',
           files: ['**/*.js'],

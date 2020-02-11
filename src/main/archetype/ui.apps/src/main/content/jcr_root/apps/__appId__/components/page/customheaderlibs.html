@@ -19,22 +19,21 @@
 <!--/*
     SPA-specific meta tags
 */-->
+<meta name="theme-color" content="#000000" />
+<link rel="icon" href="/etc.clientlibs/${appsFolderName}/clientlibs/clientlib-${optionFrontendModule}/resources/favicon.ico" />
+<link rel="apple-touch-icon" href="/etc.clientlibs/${appsFolderName}/clientlibs/clientlib-${optionFrontendModule}/resources/logo192.png" />
+<link rel="manifest" href="/etc.clientlibs/${appsFolderName}/clientlibs/clientlib-${optionFrontendModule}/resources/manifest.json" />
+
+<!-- AEM page model -->
 <meta
-  property="cq:datatype"
-  data-sly-test="${symbol_dollar}{wcmmode.edit || wcmmode.preview}"
-  content="JSON"
+    property="cq:pagemodel_root_url"
+    data-sly-use.page="com.adobe.aem.spa.project.core.models.Page"
+    content="${page.hierarchyRootJsonExportUrl}"
 />
+
+<meta property="cq:datatype" data-sly-test="${symbol_dollar}{wcmmode.edit || wcmmode.preview}" content="JSON" />
 <meta property="cq:wcmmode" data-sly-test="${wcmmode.edit}" content="edit" />
-<meta
-  property="cq:wcmmode"
-  data-sly-test="${wcmmode.preview}"
-  content="preview"
-/>
-<meta
-  property="cq:pagemodel_root_url"
-  data-sly-use.page="com.adobe.aem.spa.project.core.models.Page"
-  content="${page.hierarchyRootJsonExportUrl}"
-/>
+<meta property="cq:wcmmode" data-sly-test="${wcmmode.preview}" content="preview" />
 <!--/*
     There is currently no support for ContextHub in SPA projects:
     https://docs.adobe.com/content/help/en/experience-manager-64/developing/headless/spas/spa-overview.html#limitations

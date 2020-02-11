@@ -1,5 +1,5 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- ~ Copyright 2018 Adobe Systems Incorporated
+ ~ Copyright 2020 Adobe Systems Incorporated
  ~
  ~ Licensed under the Apache License, Version 2.0 (the "License");
  ~ you may not use this file except in compliance with the License.
@@ -19,12 +19,13 @@ import {
   Page,
   withComponentMappingContext
 } from '@adobe/cq-react-editable-components';
-import { withRoute } from '../RouteHelper';
+import { withRoute } from '../RouteHelper/RouteHelper';
 
 require('./Page.css');
 
-// This component is a variant of a Page component mapped to the "${appId}/components/page" resource type
-// For now, the rendering is the same as the RootPage; this is more for illustration purposes
+// This component is a variant of a Page component mapped to the
+// "${appId}/components/page" resource type. For now, the rendering is
+// the same as the RootPage; this is more for illustration purposes
 class AppPage extends Page {
   get containerProps() {
     let attrs = super.containerProps;

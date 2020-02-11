@@ -1,5 +1,5 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- ~ Copyright 2018 Adobe Systems Incorporated
+ ~ Copyright 2020 Adobe Systems Incorporated
  ~
  ~ Licensed under the Apache License, Version 2.0 (the "License");
  ~ you may not use this file except in compliance with the License.
@@ -19,10 +19,8 @@ import { ModelManager } from '@adobe/cq-spa-page-model-manager';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '#spa-root',
-  host: {
-    class: 'app'
-  },
+  selector: '#spa-root', // tslint:disable-line
+  styleUrls: ['./app.component.css'],
   templateUrl: './app.component.html'
 })
 export class AppComponent {
@@ -38,5 +36,5 @@ export class AppComponent {
     this.path = pageModel[Constants.PATH_PROP];
     this.items = pageModel[Constants.ITEMS_PROP];
     this.itemsOrder = pageModel[Constants.ITEMS_ORDER_PROP];
-  };
+  }
 }

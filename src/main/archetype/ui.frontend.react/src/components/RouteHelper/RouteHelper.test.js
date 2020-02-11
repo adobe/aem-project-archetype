@@ -1,5 +1,5 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- ~ Copyright 2018 Adobe Incorporated
+ ~ Copyright 2020 Adobe Systems Incorporated
  ~
  ~ Licensed under the Apache License, Version 2.0 (the "License");
  ~ you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@ import { Route } from 'react-router';
 import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 import ShallowRenderer from 'react-test-renderer/shallow';
 import sinon from 'sinon';
-import { CompositeComponent, withRoute } from './';
+import { CompositeComponent, withRoute } from './RouteHelper';
 
 configure({ adapter: new Adapter() });
 

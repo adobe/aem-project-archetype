@@ -15,9 +15,9 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 export const environment = {
+  appRoot:
+    "/content/${appId}/${language_country.split('_').get(1)}/${language_country.split('_').get(0)}/home.html", // tslint:disable-line
   production: true,
-  API_HOST: '',
-  APP_ROOT_PATH: '/content/${appId}/en/home.html',
-  CONTEXT_PATH: '', // configuration style: contextpath/
-  PUBLIC_URL: '/etc.clientlibs/${appId}/clientlibs/clientlib-angular/resources'
+  publicUrl:
+    '/etc.clientlibs/${appId}/clientlibs/clientlib-angular/resources'
 };

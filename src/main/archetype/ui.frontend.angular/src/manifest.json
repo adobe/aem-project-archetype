@@ -1,6 +1,6 @@
 {
-  "short_name": "${appTitle}",
-  "name": "${appTitle}",
+  "short_name": "${siteName}",
+  "name": "${siteName}",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,7 +18,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/content/${appId}/${languageCountry.split('_').get(1)}/${languageCountry.split('_').get(0)}/home.html",
+  "start_url": "/content/${contentFolderName}/${language_country.split('_').get(1)}/${language_country.split('_').get(0)}/home.html",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
