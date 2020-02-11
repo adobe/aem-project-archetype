@@ -97,7 +97,14 @@
         -->
         <requiredProperty key="optionAemVersion">
             <defaultValue>6.5.0</defaultValue>
-            <validationRegex>^(6\.3\.3|6\.4\.4|6\.5\.0)$</validationRegex>
+            <validationRegex>^(6\.3\.3|6\.4\.4|6\.5\.0|cloud)$</validationRegex>
+        </requiredProperty>
+        <!--
+            AEM as a Cloud Service SDK API version.
+        -->
+        <requiredProperty key="sdkVersion">
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(n|\d{4}\.\d{2}\.\d{4}\.\d{8}T\d{6}Z-\d{6})$</validationRegex>
         </requiredProperty>
         <!--
             Option to include Component Library examples as subpackage in the

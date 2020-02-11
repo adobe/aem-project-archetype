@@ -91,10 +91,17 @@
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>
+#if ( $optionAemVersion.startsWith("6.") )
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>uber-jar</artifactId>
             <classifier>apis</classifier>
         </dependency>
+#else
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>aem-sdk-api</artifactId>
+        </dependency>
+#end
     </dependencies>
 </project>
