@@ -103,8 +103,8 @@
             AEM as a Cloud Service SDK API version.
         -->
         <requiredProperty key="sdkVersion">
-            <defaultValue></defaultValue>
-            <validationRegex>^(\d{4}\.\d{2}\.\d{4}\.\d{8}T\d{6}Z-\d{6})$</validationRegex>
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(n|\d{4}\.\d{2}\.\d{4}\.\d{8}T\d{6}Z-\d{6})$</validationRegex>
         </requiredProperty>
         <!--
             Option to include Component Library examples as subpackage in the
