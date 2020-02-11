@@ -38,7 +38,7 @@ if (optionAemVersion == "cloud") {
         println "No SDK version specified, trying to fetch latest"
         sdkVersion = getLatestSDK(request.getArchetypeVersion())
     }
-    println "Using AEM as a Cloud Service SDk version: " + sdkVersion
+    println "Using AEM as a Cloud Service SDK version: " + sdkVersion
     rootPom.text = rootPom.text.replaceAll('SDK_VERSION', sdkVersion.toString())
 }
 
