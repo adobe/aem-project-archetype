@@ -31,7 +31,7 @@ Id                        | Description
 autoInstallBundle         | Install core bundle with the maven-sling-plugin to the felix console
 autoInstallPackage        | Install the ui.content and ui.apps content package with the content-package-maven-plugin to the package manager to default author instance on localhost, port 4502. Hostname and port can be changed with the aem.host and aem.port user defined properties.
 autoInstallPackagePublish | Install the ui.content and ui.apps content package with the content-package-maven-plugin to the package manager to default publish instance on localhost, port 4503. Hostname and port can be changed with the aem.host and aem.port user defined properties.
-autoInstallSinglePackage | Install the `all` content package with the content-package-maven-plugin to the package manager to default author instance on localhost, port 4502. Hostname and port can be changed with the aem.host and aem.port user defined properties.
+autoInstallSinglePackage  | Install the `all` content package with the content-package-maven-plugin to the package manager to default author instance on localhost, port 4502. Hostname and port can be changed with the aem.host and aem.port user defined properties.
 autoInstallSinglePackagePublish | Install the `all` content package with the content-package-maven-plugin to the package manager to default publish instance on localhost, port 4503. Hostname and port can be changed with the aem.host and aem.port user defined properties.
 
 The profile `integrationTests` is also available for the verify goal, to run the provided integration tests on the AEM instance.
@@ -44,21 +44,16 @@ groupId                     |         | Base Maven groupId
 artifactId                  |         | Base Maven ArtifactId
 version                     |         | Version
 package                     |         | Java Source Package
-appId              |         | /apps folder name
-appTitle                |         | Maven Project Name
-appTitle          |         | AEM component group name
-appId           |         | /content folder name
-appId              |         | /conf folder name
-appId                       |         | prefix used in generated css
-groupId                |         | Content Package Group name
-appTitle                    |         | AEM site name
-aemVersion            |  6.5.0  | Target AEM version
-languageCountry            |   en_us | language / country code to create the content structure from (e.g. en_us)
-includeExamples       |    y    | Include a Component Library example site
-includeErrorHandler   |    n    | Include a custom 404 response page
-frontendModule        |   none  | Include a dedicated frontend module (one of `none`, `general`, `angular`, `react`)
-singleCountry      |    y    | Create language-master structure in example content
-includeDispatcherConfig      |   none  | Defines if a dispatcher configuration is generated for the project <br>Set to [`cloud`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.cloud) when creating a project for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html)<br>Set to [`ams`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) when creating a project for Adobe Managed Services
+appId                       |         | Application id, will be used for component/config/content folders and css ids 
+appTitle                    |         | Application title, will be used for website title and components groups
+aemVersion                  |  6.5.0  | Target AEM version
+sdkVersion                  |   none  | 
+languageCountry             |   en_us | language / country code to create the content structure from (e.g. en_us)
+includeExamples             |    y    | Include a Component Library example site
+includeErrorHandler         |    n    | Include a custom 404 response page
+frontendModule              |   none  | Include a dedicated frontend module (one of `none`, `general`, `angular`, `react`)
+singleCountry               |    y    | Create language-master structure in example content
+includeDispatcherConfig     |   none  | Defines if a dispatcher configuration is generated for the project <br>Set to [`cloud`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.cloud) when creating a project for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html)<br>Set to [`ams`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) when creating a project for Adobe Managed Services
 
 Note: If the archetype is executed in interactive mode the first time properties with default values can't be changed (see
 [ARCHETYPE-308](https://issues.apache.org/jira/browse/ARCHETYPE-308) for more details). The value can be changed when the property
