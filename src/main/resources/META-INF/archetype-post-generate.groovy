@@ -23,6 +23,7 @@ def optionDispatcherConfig = request.getProperties().get("optionDispatcherConfig
 def appsFolder = new File("$uiAppsPackage/src/main/content/jcr_root/apps/$appsFolderName")
 def confFolder = new File("$uiContentPackage/src/main/content/jcr_root/conf/$confFolderName")
 def contentFolder = new File("$uiContentPackage/src/main/content/jcr_root/content/$contentFolderName")
+def sdkVersion = request.getProperties().get("sdkVersion")
 
 if (optionIncludeErrorHandler == "n") {
     assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/sling").deleteDir()
@@ -33,14 +34,13 @@ if (optionAemVersion == "6.3.3") {
 }
 
 if (optionAemVersion == "cloud") {
-    def sdkVersion = request.getProperties().get("sdkVersion")
-    if (sdkVersion == null || sdkVersion == "") {
+    if (sdkVersion == "latest") {
         println "No SDK version specified, trying to fetch latest"
         sdkVersion = getLatestSDK(request.getArchetypeVersion())
     }
     println "Using AEM as a Cloud Service SDK version: " + sdkVersion
-    rootPom.text = rootPom.text.replaceAll('SDK_VERSION', sdkVersion.toString())
 }
+rootPom.text = rootPom.text.replaceAll('SDK_VERSION', sdkVersion.toString())
 
 buildContentSkeleton(uiContentPackage, uiAppsPackage, isSingleCountryWebsite, contentFolderName, language_country)
 cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, contentFolder)

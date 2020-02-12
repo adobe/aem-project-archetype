@@ -57,6 +57,11 @@
 #if ( $optionDispatcherConfig != "none" && $optionDispatcherConfig != "n" )
         <module>dispatcher</module>
 #end
+        <module>dispatcher.ams</module>
+        <module>dispatcher.cloud</module>
+        <module>ui.frontend.general</module>
+        <module>ui.frontend.angular</module>
+        <module>ui.frontend.react</module>
     </modules>
 
     <properties>
@@ -390,6 +395,18 @@
                         <enabled>false</enabled>
                     </snapshots>
                 </repository>
+                <repository>
+                    <id>adobe-aem-releases</id>
+                    <name>Adobe AEM Repository</name>
+                    <url>https://downloads.experiencecloud.adobe.com/content/maven/public</url>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>never</updatePolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
             </repositories>
 
             <pluginRepositories>
@@ -406,32 +423,6 @@
                     </snapshots>
                 </pluginRepository>
             </pluginRepositories>
-        </profile>
-
-        <!-- ====================================================== -->
-        <!-- A D O B E  A E M  P U B L I C   P R O F I L E          -->
-        <!-- ====================================================== -->
-        <profile>
-            <id>aem-public</id>
-
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-
-            <repositories>
-                <repository>
-                    <id>adobe-aem-releases</id>
-                    <name>Adobe AEM Repository</name>
-                    <url>https://downloads.experiencecloud.adobe.com/content/maven/public</url>
-                    <releases>
-                        <enabled>true</enabled>
-                        <updatePolicy>never</updatePolicy>
-                    </releases>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </repository>
-            </repositories>
         </profile>
 
         <!-- Development profile: install only the bundle -->
