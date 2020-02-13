@@ -121,7 +121,7 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
 
     // Rename selected frontend module (e.g. "ui.frontend.angular" -> "ui.frontend")
     if (optionFrontendModule != "none") {
-        assert new File(rootDir, "ui.frontend.$optionFrontendModule").renameTo(new File(rootDir, "ui.frontend"))
+        assert new File(rootDir, "ui.frontend." + optionFrontendModule).renameTo(new File(rootDir, "ui.frontend"))
     }
 
     // Not generating SPA: Delete SPA-specific files
