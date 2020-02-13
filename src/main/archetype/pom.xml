@@ -200,7 +200,6 @@
                             <configuration>
                                 <bnd><![CDATA[
 Bundle-Category: ${componentGroupName}
-Import-Package: javax.annotation;version=0.0.0,*
 
 # export all versioned packages except for conditional ones (https://github.com/bndtools/bnd/issues/3721#issuecomment-579026778)
 -exportcontents: $${startbrace}removeall;$${startbrace}packages;VERSIONED${endbrace};$${startbrace}packages;CONDITIONAL${endbrace}${endbrace}
