@@ -65,6 +65,8 @@ Note: If the archetype is executed in interactive mode the first time properties
 confirmation at the end is denied and the questionnaire gets repeated, or by passing the parameter in the command line (e.g.
 `-DoptionIncludeExamples=n`).
 
+Note: When running on Windows and generating the dispatcher configuration, you should be running in an elevated command prompt or the Windows Subsystem for Linux (see [#329](https://github.com/adobe/aem-project-archetype/issues/329)).
+
 ### Requirements
 
 The latest version of the archetype has the following requirements:
