@@ -50,7 +50,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <group>${groupId}</group>
-                    <name>${appId}</name>
+                    <name>${appId}.ui.apps</name>
                     <packageType>application</packageType>
                     <accessControlHandling>merge</accessControlHandling>
                     <properties>
