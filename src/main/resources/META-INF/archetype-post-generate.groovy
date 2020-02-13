@@ -16,6 +16,7 @@ def languageCountry = request.getProperties().get("languageCountry")
 def includeErrorHandler = request.getProperties().get("includeErrorHandler")
 def frontendModule = request.getProperties().get("frontendModule")
 def aemVersion = request.getProperties().get("aemVersion")
+def sdkVersion = request.getProperties().get("sdkVersion")
 def includeDispatcherConfig = request.getProperties().get("includeDispatcherConfig")
 
 def appsFolder = new File("$uiAppsPackage/src/main/content/jcr_root/apps/$appId")
@@ -31,8 +32,7 @@ if (aemVersion == "6.3.3") {
 }
 
 if (aemVersion == "cloud") {
-    def sdkVersion = request.getProperties().get("sdkVersion")
-    if (sdkVersion == null || sdkVersion == "") {
+    if (sdkVersion == "latest") {
         println "No SDK version specified, trying to fetch latest"
         sdkVersion = getLatestSDK(request.getArchetypeVersion())
     }
