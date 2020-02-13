@@ -615,6 +615,11 @@
                 <version>1.9.0</version>
                 <scope>provided</scope>
             </dependency>
+            <dependency>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>org.apache.sling.servlets.annotations</artifactId>
+                <version>1.2.4</version>
+            </dependency>
             <!-- Logging Dependencies -->
             <dependency>
                 <groupId>org.slf4j</groupId>
