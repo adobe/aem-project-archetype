@@ -6,20 +6,20 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
-        <meta name="description" content="${siteName}" />
+        <meta name="description" content="${appTitle}" />
         <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
         <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
         <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-        <title>${siteName}</title>
+        <title>${appTitle}</title>
 
         <!-- AEM page model -->
         <meta
             property="cq:pagemodel_root_url"
-            content="/content/${contentFolderName}/${country}/${language}.model.json"
+            content="/content/${appId}/${country}/${language}.model.json"
         />
 
         <!-- AEM Base ClientLib -->
-        <link rel="stylesheet" href="/etc.clientlibs/${appsFolderName}/clientlibs/clientlib-base.css" type="text/css" />
+        <link rel="stylesheet" href="/etc.clientlibs/${appId}/clientlibs/clientlib-base.css" type="text/css" />
 
         <!-- In development mode, redirect from "/" to app root -->
         <script>

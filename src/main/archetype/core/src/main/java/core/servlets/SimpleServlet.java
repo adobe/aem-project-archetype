@@ -38,7 +38,7 @@ import java.io.IOException;
 @Component(service=Servlet.class,
            property={
                    "sling.servlet.methods=" + HttpConstants.METHOD_GET,
-                   "sling.servlet.resourceTypes="+ "${appsFolderName}/components/page",
+                   "sling.servlet.resourceTypes="+ "${appId}/components/page",
                    "sling.servlet.extensions=" + "txt"
            })
 @ServiceDescription("Simple Demo Servlet")

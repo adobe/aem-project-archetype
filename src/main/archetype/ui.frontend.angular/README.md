@@ -12,7 +12,7 @@ ${hash}${hash}${hash} `npm start`
 
 Runs the app in development mode by proxying the JSON model from a local AEM instance running at http://localhost:4502. This assumes that the entire project has been deployed to AEM at least once (`mvn clean install -PautoInstallPackage` **in the project root**).
 
-After running `npm start` **in the `ui.frontend` directory**, your app will be automatically opened in your browser (at path http://localhost:4200/content/${contentFolderName}/${country}/${language}/home.html). If you make edits, the page will reload.
+After running `npm start` **in the `ui.frontend` directory**, your app will be automatically opened in your browser (at path http://localhost:4200/content/${appId}/${country}/${language}/home.html). If you make edits, the page will reload.
 
 If you are getting errors related to CORS, you might want to configure AEM as follows:
 

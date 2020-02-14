@@ -20,10 +20,13 @@
 
     <requiredProperties>
         <!--
-            This is the folder under /apps into which the bundle and package content will be installed.
+            This is the id of the application and will be used for
+              * artifact id
+              * /apps, /content and /conf subfolders
+              * CSS ids
         -->
-        <requiredProperty key="appsFolderName">
-            <validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
+        <requiredProperty key="appId">
+            <validationRegex>^[a-zA-Z0-9\-]+$</validationRegex>
         </requiredProperty>
         <!--
             Maven artifact groupId for all projects
@@ -35,67 +38,28 @@
             Maven artifact "root" artifactId, is suffixed for the individual modules
         -->
         <requiredProperty key="artifactId">
-            <defaultValue>${groupId}.${appsFolderName}</defaultValue>
+            <defaultValue>${appId}</defaultValue>
             <validationRegex>^[a-zA-Z0-9\.\-_]+$</validationRegex>
         </requiredProperty>
-        <!--
-           This is the name which will be set as the artifact name and used to derive the bundle
-           and package names.
-        -->
-        <requiredProperty key="artifactName">
-            <defaultValue>${appsFolderName}</defaultValue>
-        </requiredProperty>
-            <!--
-               This is the group identifier for the package. Used with the
-               Package Manager and Package Share.
-            -->
-        <requiredProperty key="packageGroup">
-        	<defaultValue>${appsFolderName}</defaultValue>
-            <validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
-        </requiredProperty>
-        <requiredProperty key="contentFolderName">
-            <defaultValue>${appsFolderName}</defaultValue>
-            <validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
-        </requiredProperty>
-        <requiredProperty key="confFolderName">
-            <defaultValue>${appsFolderName}</defaultValue>
-            <validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
-        </requiredProperty>
-        <requiredProperty key="cssId">
-            <defaultValue>${appsFolderName}</defaultValue>
-            <validationRegex>^[a-zA-Z0-9\-_]+$</validationRegex>
-        </requiredProperty>
-        <requiredProperty key="componentGroupName">
-            <defaultValue>${appsFolderName}</defaultValue>
-            <validationRegex>^[a-zA-Z0-9\.\-_]+$</validationRegex>
-        </requiredProperty>
-        <requiredProperty key="siteName">
-            <defaultValue>${appsFolderName}</defaultValue>
-        </requiredProperty>
-
+        <requiredProperty key="appTitle"/>
         <!--
             ISO 639-1 language / country code to create initial content structure
          -->
-        <requiredProperty key="language_country">
+        <requiredProperty key="languageCountry">
             <defaultValue>en_us</defaultValue>
             <validationRegex>[a-z]{2,3}_[a-z]{2,3}</validationRegex>
         </requiredProperty>
-
         <!--
             Option to create language master structure in example content package
          -->
-        <requiredProperty key="isSingleCountryWebsite">
+        <requiredProperty key="singleCountry">
             <defaultValue>y</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
-
-        <!--
-            *** Feature Flags ***
-        -->
         <!--
             Option to set target AEM version.
         -->
-        <requiredProperty key="optionAemVersion">
+        <requiredProperty key="aemVersion">
             <defaultValue>6.5.0</defaultValue>
             <validationRegex>^(6\.3\.3|6\.4\.4|6\.5\.0|cloud)$</validationRegex>
         </requiredProperty>
@@ -110,21 +74,21 @@
             Option to include Component Library examples as subpackage in the
             ui.apps content package.
         -->
-        <requiredProperty key="optionIncludeExamples">
+        <requiredProperty key="includeExamples">
             <defaultValue>y</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
         <!--
             Option to include server wide error handler for 404 response code
          -->
-        <requiredProperty key="optionIncludeErrorHandler">
+        <requiredProperty key="includeErrorHandler">
             <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
         <!--
             Option to include a dedicated frontend module
          -->
-        <requiredProperty key="optionFrontendModule">
+        <requiredProperty key="frontendModule">
             <defaultValue>none</defaultValue>
             <validationRegex>^(none|general|angular|react)$</validationRegex>
         </requiredProperty>
@@ -132,9 +96,9 @@
         <!--
             Option to include one of the Dispatcher configuration modules.
         -->
-        <requiredProperty key="optionDispatcherConfig">
-            <defaultValue>none</defaultValue>
-            <validationRegex>^(none|n|ams|cloud)$</validationRegex>
+        <requiredProperty key="includeDispatcherConfig">
+            <defaultValue>y</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
     </requiredProperties>
 

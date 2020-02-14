@@ -19,4 +19,4 @@ import {
   MapTo
 } from '@adobe/cq-angular-editable-components';
 
-MapTo('${appsFolderName}/components/spa')(AEMContainerComponent);
+MapTo('${appId}/components/spa')(AEMContainerComponent);

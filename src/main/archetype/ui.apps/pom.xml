@@ -32,8 +32,8 @@
     <!-- ====================================================================== -->
     <artifactId>${artifactId}</artifactId>
     <packaging>content-package</packaging>
-    <name>${artifactName} - UI apps</name>
-    <description>UI apps package for ${artifactName}</description>
+    <name>${appTitle} - UI apps</name>
+    <description>UI apps package for ${appTitle}</description>
 
     <!-- ====================================================================== -->
     <!-- B U I L D   D E F I N I T I O N                                        -->
@@ -66,18 +66,18 @@
                         <embedded>
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.core</artifactId>
-                            <target>/apps/${appsFolderName}/install</target>
+                            <target>/apps/${appId}/install</target>
                         </embedded>
                         <embedded>
                             <groupId>${groupId}</groupId>
                             <artifactId>${rootArtifactId}.core</artifactId>
-                            <target>/apps/${appsFolderName}/install</target>
+                            <target>/apps/${appId}/install</target>
                         </embedded>
 #if ( $isSpaProject )
                         <embedded>
                             <groupId>com.adobe.aem</groupId>
                             <artifactId>spa.project.core.core</artifactId>
-                            <target>/apps/${appsFolderName}/install</target>
+                            <target>/apps/${appId}/install</target>
                         </embedded>
 #end
                     </embeddeds>
@@ -147,7 +147,7 @@
             <version>${project.version}</version>
         </dependency>
 
-#if ( $optionFrontendModule != "none" )
+#if ( $frontendModule != "none" )
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${rootArtifactId}.ui.frontend</artifactId>
@@ -192,7 +192,7 @@
             <artifactId>core.wcm.components.config</artifactId>
             <type>zip</type>
         </dependency>
-#if ( $optionAemVersion.startsWith("6.") )
+#if ( $aemVersion.startsWith("6.") )
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>uber-jar</artifactId>
