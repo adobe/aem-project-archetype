@@ -50,10 +50,10 @@
         <module>ui.frontend</module>
 #end
         <module>ui.apps</module>
+        <module>ui.apps.structure</module>
         <module>ui.content</module>
         <module>it.tests</module>
         <module>it.launcher</module>
-        <module>repository-structure</module>
 #if ( $includeDispatcherConfig != "n" )
         <module>dispatcher</module>
 #end

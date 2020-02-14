@@ -387,7 +387,7 @@
                 </fileSet>
             </fileSets>
         </module>
-        <module id="${rootArtifactId}.repository-structure" dir="repository-structure" name="repository-structure">
+        <module id="${rootArtifactId}.ui.apps.structure" dir="ui.apps.structure" name="ui.apps.structure">
             <fileSets>
                 <fileSet filtered="true" packaged="false"
                          encoding="UTF-8">

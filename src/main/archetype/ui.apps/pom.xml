@@ -59,7 +59,7 @@
                     <repositoryStructurePackages>
                         <repositoryStructurePackage>
                             <groupId>${groupId}</groupId>
-                            <artifactId>${rootArtifactId}.repository-structure</artifactId>
+                            <artifactId>${rootArtifactId}.ui.apps.structure</artifactId>
                         </repositoryStructurePackage>
                     </repositoryStructurePackages>
                     <embeddeds>
@@ -176,7 +176,7 @@
 
         <dependency>
             <groupId>${groupId}</groupId>
-            <artifactId>${rootArtifactId}.repository-structure</artifactId>
+            <artifactId>${rootArtifactId}.ui.apps.structure</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>
