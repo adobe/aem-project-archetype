@@ -24,8 +24,8 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>${artifactId}</artifactId>
-    <name>${artifactName} - Core</name>
-    <description>Core bundle for ${artifactName}</description>
+    <name>${appTitle} - Core</name>
+    <description>Core bundle for ${appTitle}</description>
     <build>
         <plugins>
             <plugin>
@@ -86,7 +86,7 @@ Import-Package: javax.annotation;version=0.0.0,*
             <artifactId>slf4j-test</artifactId>
             <scope>test</scope>
         </dependency>
-#if ( $optionAemVersion.startsWith("6.") )
+#if ( $aemVersion.startsWith("6.") )
         <!-- OSGi Dependencies -->
         <dependency>
             <groupId>org.osgi</groupId>

@@ -20,18 +20,18 @@ and can be downloaded and unzipped to a local folder for development.
 │   │   ├── aem_health.vhost
 │   │   ├── aem_lc.vhost
 │   │   ├── aem_publish.vhost
-│   │   └── ${contentFolderName}_publish.vhost
+│   │   └── ${appId}_publish.vhost
 │   ├── dispatcher_vhost.conf
 │   ├── enabled_vhosts
 │   │   ├── aem_author.vhost -> ../available_vhosts/aem_author.vhost
 │   │   ├── aem_flush.vhost -> ../available_vhosts/aem_flush.vhost
 │   │   ├── aem_health.vhost -> ../available_vhosts/aem_health.vhost
-│   │   └── ${contentFolderName}_publish.vhost -> ../available_vhosts/${contentFolderName}_publish.vhost
+│   │   └── ${appId}_publish.vhost -> ../available_vhosts/${appId}_publish.vhost
 │   ├── logformat.conf
 │   ├── remoteip.conf
 │   ├── rewrites
 │   │   ├── base_rewrite.rules
-│   │   ├── ${contentFolderName}_rewrite.rules
+│   │   ├── ${appId}_rewrite.rules
 │   │   └── xforwarded_forcessl_rewrite.rules
 │   ├── security.conf
 │   ├── userdir.conf
@@ -87,11 +87,11 @@ and can be downloaded and unzipped to a local folder for development.
 - `conf.d/available_vhosts/<CUSTOMER_CHOICE>.vhost`
   - `*.vhost` (Virtual Host) files are included from inside the `dispatcher_vhost.conf`. These are `<VirtualHosts>` entries to match host names and allow Apache to handle each domain traffic with different rules. From the `*.vhost` file, other files like rewrites, white listing, etc. will be included. The `available_vhosts` directory is where the `*.vhost` files are stored and `enabled_vhosts` directory is where you enable Virtual Hosts by using a symbolic link from a file in the `available_vhosts` to the `enabled_vhosts` directory.
   
-  The `${contentFolderName}_publish.vhost` file is an updated version of the default `ams_publish.vhost`, the changes allow for including additional rewrite files. 
+  The `${appId}_publish.vhost` file is an updated version of the default `ams_publish.vhost`, the changes allow for including additional rewrite files. 
 
 - `conf.d/rewrites/*.rules`
   - `base_rewrite.rules`: included from inside the `conf.d/enabled_vhosts/*.vhost` files. It has a set of default AMS rewrite rules for `mod_rewrite`.
-  - `${contentFolderName}_rewrite.rules`: included from the the `conf.d/enabled_vhosts/${contentFolderName}_publish.vhost` file. It sets up default rewrite rules for root page resolution. Additional rewrite rules are provided to expand resource mapping paths. 
+  - `${appId}_rewrite.rules`: included from the the `conf.d/enabled_vhosts/${appId}_publish.vhost` file. It sets up default rewrite rules for root page resolution. Additional rewrite rules are provided to expand resource mapping paths. 
 
 - `conf.d/variables/ams_default.vars`
   - `ams_default.vars` file is included from inside the `conf.d/enabled_vhosts/*.vhost` files. You can put your Apache variables here.

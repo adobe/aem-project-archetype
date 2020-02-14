@@ -1,5 +1,5 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- ~ Copyright 2020 Adobe Systems Incorporated
+ ~ Copyright 2018 Adobe Systems Incorporated
  ~
  ~ Licensed under the Apache License, Version 2.0 (the "License");
  ~ you may not use this file except in compliance with the License.
@@ -16,8 +16,8 @@
 
 export const environment = {
   appRoot:
-    "/content/${contentFolderName}/${language_country.split('_').get(1)}/${language_country.split('_').get(0)}/home.html", // tslint:disable-line
+    "/content/${appId}/${language_country.split('_').get(1)}/${language_country.split('_').get(0)}/home.html", // tslint:disable-line
   production: true,
   publicUrl:
-    '/etc.clientlibs/${appsFolderName}/clientlibs/clientlib-angular/resources'
+    '/etc.clientlibs/${appId}/clientlibs/clientlib-angular/resources'
 };
