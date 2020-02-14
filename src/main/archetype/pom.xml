@@ -24,11 +24,11 @@
 #set( $symbol_escape = '\' )
 #set( $startbrace = "{" )
 #set( $endbrace = "}" )
-#set( $isSpaProject = $optionFrontendModule == "angular" || $optionFrontendModule == "react" )
+#set( $isSpaProject = $frontendModule == "angular" || $frontendModule == "react" )
 #set ($i = 0)
 ##
 ## work around as String.split.get(int) is not working in m2e
-#foreach ($item in $language_country.split("_"))
+#foreach ($item in $languageCountry.split("_"))
     #if($i == 0)
         #set ($language = $item)
     #else
@@ -41,12 +41,12 @@
     <artifactId>${artifactId}</artifactId>
     <packaging>pom</packaging>
     <version>${version}</version>
-    <description>${artifactName}</description>
+    <description>${appTitle}</description>
 
     <modules>
         <module>all</module>
         <module>core</module>
-#if ( $optionFrontendModule != "none" )
+#if ( $frontendModule != "none" )
         <module>ui.frontend</module>
 #end
         <module>ui.apps</module>
@@ -54,7 +54,7 @@
         <module>ui.content</module>
         <module>it.tests</module>
         <module>it.launcher</module>
-#if ( $optionDispatcherConfig != "none" && $optionDispatcherConfig != "n" )
+#if ( $includeDispatcherConfig != "n" )
         <module>dispatcher</module>
 #end
         <module>dispatcher.ams</module>
@@ -80,7 +80,7 @@
 #if ( $isSpaProject )
         <spa.project.core.version>1.0.6</spa.project.core.version>
 #end
-#if ( $optionFrontendModule == "angular" )
+#if ( $frontendModule == "angular" )
         <!--
           Environment for the NPM build. Possible values:
           - "" in development (=> `npm run build`)
@@ -88,7 +88,7 @@
         -->
         <build.environment />
 #end
-#if ( $optionAemVersion == "cloud")
+#if ( $aemVersion == "cloud")
         <aem.sdk.api>SDK_VERSION</aem.sdk.api>
 #end
     </properties>
@@ -538,7 +538,7 @@
                     </plugins>
                 </pluginManagement>
             </build>
-#if ( $optionFrontendModule == "angular" )
+#if ( $frontendModule == "angular" )
             <properties>
                 <!-- Use `build:production` instead of `build` NPM script -->
                 <build.environment>:production</build.environment>
@@ -553,7 +553,7 @@
     <!-- ====================================================================== -->
     <dependencyManagement>
         <dependencies>
-#if ( $optionAemVersion.startsWith("6.") )
+#if ( $aemVersion.startsWith("6.") )
             <!-- OSGi Dependencies -->
             <dependency>
                 <groupId>org.osgi</groupId>
@@ -632,7 +632,7 @@
             <dependency>
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>uber-jar</artifactId>
-                <version>$optionAemVersion</version>
+                <version>$aemVersion</version>
                 <classifier>apis</classifier>
                 <scope>provided</scope>
             </dependency>
@@ -702,7 +702,7 @@
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
             </dependency>
-#if ( $optionIncludeExamples == "y" )
+#if ( $includeExamples == "y" )
             <dependency>
                 <groupId>com.adobe.cq</groupId>
                 <artifactId>core.wcm.components.examples</artifactId>

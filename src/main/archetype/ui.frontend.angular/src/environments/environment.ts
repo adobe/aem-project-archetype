@@ -15,8 +15,8 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 export const environment = {
   appRoot:
-    "/content/${contentFolderName}/${language_country.split('_').get(1)}/${language_country.split('_').get(0)}/home.html", // tslint:disable-line
+    "/content/${appId}/${languageCountry.split('_').get(1)}/${languageCountry.split('_').get(0)}/home.html", // tslint:disable-line
   production: false,
   publicUrl:
-    '/etc.clientlibs/${appsFolderName}/clientlibs/clientlib-angular/resources'
+    '/etc.clientlibs/${appId}/clientlibs/clientlib-angular/resources'
 };

@@ -31,7 +31,7 @@ const CLIENTLIB_DIR = path.join(
   'content',
   'jcr_root',
   'apps',
-  '${appsFolderName}',
+  '${appId}',
   'clientlibs'
 );
 
@@ -42,7 +42,7 @@ module.exports = {
   libs: {
     name: 'clientlib-angular',
     allowProxy: true,
-    categories: ['${cssId}.angular'],
+    categories: ['${appId}.angular'],
     serializationFormat: 'xml',
     cssProcessor: ['default:none', 'min:none'],
     jsProcessor: ['default:none', 'min:none'],
