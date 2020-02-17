@@ -24,7 +24,7 @@ import { withRoute } from '../RouteHelper/RouteHelper';
 require('./Page.css');
 
 // This component is a variant of a Page component mapped to the
-// "${appsFolderName}/components/page" resource type. For now, the rendering is
+// "${appId}/components/page" resource type. For now, the rendering is
 // the same as the RootPage; this is more for illustration purposes
 class AppPage extends Page {
   get containerProps() {
@@ -35,6 +35,6 @@ class AppPage extends Page {
   }
 }
 
-export default MapTo('${appsFolderName}/components/page')(
+export default MapTo('${appId}/components/page')(
   withComponentMappingContext(withRoute(AppPage))
 );

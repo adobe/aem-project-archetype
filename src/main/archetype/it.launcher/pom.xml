@@ -29,8 +29,8 @@
     <!-- ====================================================================== -->
     <artifactId>${artifactId}</artifactId>
     <packaging>jar</packaging>
-    <name>${artifactName} - Integration Tests Launcher</name>
-    <description>Integration Tests Launcher for ${artifactName}</description>
+    <name>${appTitle} - Integration Tests Launcher</name>
+    <description>Integration Tests Launcher for ${appTitle}</description>
 
     <!-- <scm>
         <connection></connection>
@@ -255,7 +255,7 @@
     </profiles>
 
     <dependencies>
-#if ( $optionAemVersion.startsWith("6.") )
+#if ( $aemVersion.startsWith("6.") )
         <dependency>
             <groupId>org.apache.sling</groupId>
             <artifactId>org.apache.sling.junit.core</artifactId>

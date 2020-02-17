@@ -50,7 +50,7 @@ export class TextComponent {
   constructor(private sanitizer: DomSanitizer) {}
 }
 
-MapTo('${appsFolderName}/components/text')(
+MapTo('${appId}/components/text')(
   TextComponent,
   TextEditConfig
 );

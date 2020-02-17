@@ -24,11 +24,11 @@
 #set( $symbol_escape = '\' )
 #set( $startbrace = "{" )
 #set( $endbrace = "}" )
-#set( $isSpaProject = $optionFrontendModule == "angular" || $optionFrontendModule == "react" )
+#set( $isSpaProject = $frontendModule == "angular" || $frontendModule == "react" )
 #set ($i = 0)
 ##
 ## work around as String.split.get(int) is not working in m2e
-#foreach ($item in $language_country.split("_"))
+#foreach ($item in $languageCountry.split("_"))
     #if($i == 0)
         #set ($language = $item)
     #else
@@ -41,20 +41,20 @@
     <artifactId>${artifactId}</artifactId>
     <packaging>pom</packaging>
     <version>${version}</version>
-    <description>${artifactName}</description>
+    <description>${appTitle}</description>
 
     <modules>
         <module>all</module>
         <module>core</module>
-#if ( $optionFrontendModule != "none" )
+#if ( $frontendModule != "none" )
         <module>ui.frontend</module>
 #end
         <module>ui.apps</module>
+        <module>ui.apps.structure</module>
         <module>ui.content</module>
         <module>it.tests</module>
         <module>it.launcher</module>
-        <module>repository-structure</module>
-#if ( $optionDispatcherConfig != "none" && $optionDispatcherConfig != "n" )
+#if ( $includeDispatcherConfig != "n" )
         <module>dispatcher</module>
 #end
         <module>dispatcher.ams</module>
@@ -74,13 +74,13 @@
         <vault.user>admin</vault.user>
         <vault.password>admin</vault.password>
         <core.wcm.components.version>2.8.0</core.wcm.components.version>
-        <bnd.version>4.2.0</bnd.version>
+        <bnd.version>5.0.0</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 #if ( $isSpaProject )
         <spa.project.core.version>1.0.6</spa.project.core.version>
 #end
-#if ( $optionFrontendModule == "angular" )
+#if ( $frontendModule == "angular" )
         <!--
           Environment for the NPM build. Possible values:
           - "" in development (=> `npm run build`)
@@ -88,7 +88,7 @@
         -->
         <build.environment />
 #end
-#if ( $optionAemVersion == "cloud")
+#if ( $aemVersion == "cloud")
         <aem.sdk.api>SDK_VERSION</aem.sdk.api>
 #end
     </properties>
@@ -191,6 +191,42 @@
                     <groupId>biz.aQute.bnd</groupId>
                     <artifactId>bnd-maven-plugin</artifactId>
                     <version>${bnd.version}</version>
+                    <executions>
+                        <execution>
+                            <id>bnd-process</id>
+                            <goals>
+                                <goal>bnd-process</goal>
+                            </goals>
+                            <configuration>
+                                <bnd><![CDATA[
+Bundle-Category: ${componentGroupName}
+
+# export all versioned packages except for conditional ones (https://github.com/bndtools/bnd/issues/3721#issuecomment-579026778)
+-exportcontents: $${startbrace}removeall;$${startbrace}packages;VERSIONED${endbrace};$${startbrace}packages;CONDITIONAL${endbrace}${endbrace}
+
+# reproducible builds (https://github.com/bndtools/bnd/issues/3521)
+-noextraheaders: true
+-snapshot: SNAPSHOT
+
+Bundle-DocURL:
+-plugin org.apache.sling.caconfig.bndplugin.ConfigurationClassScannerPlugin
+-plugin org.apache.sling.bnd.models.ModelsScannerPlugin
+                                ]]></bnd>
+                            </configuration>
+                        </execution>
+                    </executions>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.apache.sling</groupId>
+                            <artifactId>org.apache.sling.caconfig.bnd-plugin</artifactId>
+                            <version>1.0.2</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.apache.sling</groupId>
+                            <artifactId>org.apache.sling.bnd.models</artifactId>
+                            <version>1.0.0</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>biz.aQute.bnd</groupId>
@@ -538,7 +574,7 @@
                     </plugins>
                 </pluginManagement>
             </build>
-#if ( $optionFrontendModule == "angular" )
+#if ( $frontendModule == "angular" )
             <properties>
                 <!-- Use `build:production` instead of `build` NPM script -->
                 <build.environment>:production</build.environment>
@@ -553,7 +589,7 @@
     <!-- ====================================================================== -->
     <dependencyManagement>
         <dependencies>
-#if ( $optionAemVersion.startsWith("6.") )
+#if ( $aemVersion.startsWith("6.") )
             <!-- OSGi Dependencies -->
             <dependency>
                 <groupId>org.osgi</groupId>
@@ -638,7 +674,7 @@
             <dependency>
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>uber-jar</artifactId>
-                <version>$optionAemVersion</version>
+                <version>$aemVersion</version>
                 <classifier>apis</classifier>
                 <scope>provided</scope>
             </dependency>
@@ -708,7 +744,7 @@
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
             </dependency>
-#if ( $optionIncludeExamples == "y" )
+#if ( $includeExamples == "y" )
             <dependency>
                 <groupId>com.adobe.cq</groupId>
                 <artifactId>core.wcm.components.examples</artifactId>
