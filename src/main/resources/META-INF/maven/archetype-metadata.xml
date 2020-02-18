@@ -405,12 +405,13 @@
       <directory></directory>
       <includes>
         <include>README.md</include>
+        <include>.gitignore</include>
       </includes>
     </fileSet>
-    <fileSet encoding="UTF-8">
+    <fileSet filtered="true" encoding="UTF-8">
       <directory></directory>
       <includes>
-        <include>.gitignore</include>
+        <include>archetype.properties</include>
       </includes>
     </fileSet>
   </fileSets>
