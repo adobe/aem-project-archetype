@@ -50,7 +50,6 @@ An example using all required properties:
       -DarchetypeVersion=23 \
       -DgroupId="com.test" \
       -DartifactId="test-project" \
-      -Dversion="1.0.0-SNAPSHOT" \
       -DappId=test \
       -DappTitle="Test Project"
 
