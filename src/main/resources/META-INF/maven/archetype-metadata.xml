@@ -41,6 +41,16 @@
             <defaultValue>${appId}</defaultValue>
             <validationRegex>^[a-zA-Z0-9\.\-_]+$</validationRegex>
         </requiredProperty>
+        <!--
+            Maven version
+        -->
+        <requiredProperty key="version">
+            <defaultValue>1.0.0-SNAPSHOT</defaultValue>
+            <validationRegex>^[a-zA-Z0-9\.\-]+$</validationRegex>
+        </requiredProperty>
+        <!--
+            This is the human-readable title for the project
+        -->
         <requiredProperty key="appTitle"/>
         <!--
             ISO 639-1 language / country code to create initial content structure
