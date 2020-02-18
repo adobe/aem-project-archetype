@@ -19,22 +19,9 @@ To use the latest released version of this archetype execute the following maven
     mvn archetype:generate \
      -DarchetypeGroupId=com.adobe.granite.archetypes \
      -DarchetypeArtifactId=aem-project-archetype \
-     -DarchetypeVersion=22
+     -DarchetypeVersion=23
 
-Where 22 is the archetype version number that you want to use (see archetype versions below).
-
-## Provided Maven profiles
-The generated maven project support different deployment profiles when running the Maven install goal `mvn install` within the reactor.
-
-Id                        | Description
---------------------------|------------------------------
-autoInstallBundle         | Install core bundle with the maven-sling-plugin to the felix console
-autoInstallPackage        | Install the ui.content and ui.apps content package with the content-package-maven-plugin to the package manager to default author instance on localhost, port 4502. Hostname and port can be changed with the aem.host and aem.port user defined properties.
-autoInstallPackagePublish | Install the ui.content and ui.apps content package with the content-package-maven-plugin to the package manager to default publish instance on localhost, port 4503. Hostname and port can be changed with the aem.host and aem.port user defined properties.
-autoInstallSinglePackage  | Install the `all` content package with the content-package-maven-plugin to the package manager to default author instance on localhost, port 4502. Hostname and port can be changed with the aem.host and aem.port user defined properties.
-autoInstallSinglePackagePublish | Install the `all` content package with the content-package-maven-plugin to the package manager to default publish instance on localhost, port 4503. Hostname and port can be changed with the aem.host and aem.port user defined properties.
-
-The profile `integrationTests` is also available for the verify goal, to run the provided integration tests on the AEM instance.
+Where 23 is the archetype version number that you want to use (see archetype versions below).
 
 ### Available properties
 
@@ -53,7 +40,7 @@ includeExamples             |    y    | Include a Component Library example site
 includeErrorHandler         |    n    | Include a custom 404 response page
 frontendModule              |   none  | Include a dedicated frontend module (one of `none`, `general`, `angular`, `react`)
 singleCountry               |    y    | Create language-master structure in example content
-includeDispatcherConfig     |   none  | Defines if a dispatcher configuration is generated for the project <br>Set to [`cloud`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.cloud) when creating a project for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html)<br>Set to [`ams`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) when creating a project for Adobe Managed Services
+includeDispatcherConfig     |    y    | Defines if a dispatcher configuration is generated for the project <br>If `aemVersion` is set to [`cloud`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.cloud) a configuration for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html) will be created.<br>Otherwise an [`Adobe Managed Services`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) configuration is created.
 
 Note: If the archetype is executed in interactive mode the first time properties with default values can't be changed (see
 [ARCHETYPE-308](https://issues.apache.org/jira/browse/ARCHETYPE-308) for more details). The value can be changed when the property
@@ -62,7 +49,20 @@ confirmation at the end is denied and the questionnaire gets repeated, or by pas
 
 Note: When running on Windows and generating the dispatcher configuration, you should be running in an elevated command prompt or the Windows Subsystem for Linux (see [#329](https://github.com/adobe/aem-project-archetype/issues/329)).
 
-### Requirements
+## Provided Maven profiles
+The generated maven project support different deployment profiles when running the Maven install goal `mvn install` within the reactor.
+
+Id                        | Description
+--------------------------|------------------------------
+autoInstallBundle         | Install core bundle with the maven-sling-plugin to the felix console
+autoInstallPackage        | Install the ui.content and ui.apps content package with the content-package-maven-plugin to the package manager to default author instance on localhost, port 4502. Hostname and port can be changed with the aem.host and aem.port user defined properties.
+autoInstallPackagePublish | Install the ui.content and ui.apps content package with the content-package-maven-plugin to the package manager to default publish instance on localhost, port 4503. Hostname and port can be changed with the aem.host and aem.port user defined properties.
+autoInstallSinglePackage  | Install the `all` content package with the content-package-maven-plugin to the package manager to default author instance on localhost, port 4502. Hostname and port can be changed with the aem.host and aem.port user defined properties.
+autoInstallSinglePackagePublish | Install the `all` content package with the content-package-maven-plugin to the package manager to default publish instance on localhost, port 4503. Hostname and port can be changed with the aem.host and aem.port user defined properties.
+
+The profile `integrationTests` is also available for the verify goal, to run the provided integration tests on the AEM instance.
+
+## Requirements
 
 The latest version of the archetype has the following requirements:
 
