@@ -7,7 +7,7 @@ This is a project template for AEM-based applications. It is intended as a best-
 The main parts of the template are:
 
 * core: Java bundle containing all core functionality like OSGi services, listeners or schedulers, as well as component-related Java code such as servlets or request filters.
-* ui.apps: contains the /apps (and /etc) parts of the project, ie JS&CSS clientlibs, components, templates, runmode specific configs as well as Hobbes-tests
+* ui.apps: contains the /apps (and /etc) parts of the project, ie JS&CSS clientlibs, components, templates and runmode specific configs
 * ui.content: contains sample content using the components from the ui.apps
 * ui.tests: Java bundle containing JUnit tests that are executed server-side. This bundle is not to be deployed onto production.
 * ui.launcher: contains glue code that deploys the ui.tests bundle (and dependent bundles) to the server and triggers the remote JUnit execution
@@ -37,7 +37,7 @@ Or to deploy only the bundle to the author, run
 
 ## Testing
 
-There are three levels of testing contained in the project:
+There are two levels of testing contained in the project:
 
 * unit test in core: this show-cases classic unit testing of the code contained in the bundle. To test, execute:
 
@@ -46,10 +46,6 @@ There are three levels of testing contained in the project:
 * server-side integration tests: this allows to run unit-like tests in the AEM-environment, ie on the AEM server. To test, execute:
 
     mvn clean verify -PintegrationTests
-
-* client-side Hobbes.js tests: JavaScript-based browser-side tests that verify browser-side behavior. To test:
-
-    in the browser, open the page in 'Developer mode', open the left panel and switch to the 'Tests' tab and find the generated 'MyName Tests' and run them.
 
 ## ClientLibs
 
