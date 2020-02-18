@@ -28,7 +28,7 @@ Where 23 is the archetype version number that you want to use (see archetype ver
 Name                        | Default      | Description
 ----------------------------|--------------|--------------------
 groupId                     |              | Base Maven groupId (e.g. `com.test`) 
-artifactId                  |              | Base Maven ArtifactId (e.g. `test-project`)
+artifactId                  |   ${appId}   | Base Maven ArtifactId (e.g. `test-project`)
 version                     |1.0.0-SNAPSHOT| Version (e.g. `1.0.0-SNAPSHOT`)
 package                     |  ${groupId}  | Java Source Package (e.g. `com.test`)
 appId                       |              | Application id, will be used for component/config/content folders and css ids (e.g. `test`
@@ -42,14 +42,13 @@ frontendModule              |      none    | Include a dedicated frontend module
 singleCountry               |       y      | Create language-master structure in example content
 includeDispatcherConfig     |       y      | Defines if a dispatcher configuration is generated for the project <br>If `aemVersion` is set to [`cloud`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.cloud) a configuration for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html) will be created.<br>Otherwise an [`Adobe Managed Services`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) configuration is created.
 
-An example using all required properties:
+An example using minimum required properties and _batch/non-interactive mode_:
 
-    mvn archetype:generate \
+    mvn -B archetype:generate \
       -DarchetypeGroupId=com.adobe.granite.archetypes \
       -DarchetypeArtifactId=aem-project-archetype \
       -DarchetypeVersion=23 \
       -DgroupId="com.test" \
-      -DartifactId="test-project" \
       -DappId=test \
       -DappTitle="Test Project"
 
