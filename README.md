@@ -25,22 +25,34 @@ Where 23 is the archetype version number that you want to use (see archetype ver
 
 ### Available properties
 
-Name                        | Default | Description
-----------------------------|---------|--------------------
-groupId                     |         | Base Maven groupId
-artifactId                  |         | Base Maven ArtifactId
-version                     |         | Version
-package                     |         | Java Source Package
-appId                       |         | Application id, will be used for component/config/content folders and css ids 
-appTitle                    |         | Application title, will be used for website title and components groups
-aemVersion                  |  6.5.0  | Target AEM version
-sdkVersion                  |   none  | 
-languageCountry             |   en_us | language / country code to create the content structure from (e.g. en_us)
-includeExamples             |    y    | Include a Component Library example site
-includeErrorHandler         |    n    | Include a custom 404 response page
-frontendModule              |   none  | Include a dedicated frontend module (one of `none`, `general`, `angular`, `react`)
-singleCountry               |    y    | Create language-master structure in example content
-includeDispatcherConfig     |    y    | Defines if a dispatcher configuration is generated for the project <br>If `aemVersion` is set to [`cloud`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.cloud) a configuration for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html) will be created.<br>Otherwise an [`Adobe Managed Services`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) configuration is created.
+Name                        | Default  | Description
+----------------------------|----------|--------------------
+groupId                     |          | Base Maven groupId (e.g. `com.test`) 
+artifactId                  |          | Base Maven ArtifactId (e.g. `test-project`)
+version                     |          | Version (e.g. `1.0.0-SNAPSHOT`)
+package                     |${groupId}| Java Source Package (e.g. `com.test`)
+appId                       |          | Application id, will be used for component/config/content folders and css ids (e.g. `test`
+appTitle                    |          | Application title, will be used for website title and components groups (e.g. `Test Project`
+aemVersion                  |   6.5.0  | Target AEM version
+sdkVersion                  |   latest | AEM as a Service SDK version (e.g. `2020.02.2265.20200217T222518Z-200130`)
+languageCountry             |   en_us  | language / country code to create the content structure from (e.g. `en_us`)
+includeExamples             |     y    | Include a Component Library example site
+includeErrorHandler         |     n    | Include a custom 404 response page
+frontendModule              |    none  | Include a dedicated frontend module (one of `none`, `general`, `angular`, `react`)
+singleCountry               |     y    | Create language-master structure in example content
+includeDispatcherConfig     |     y    | Defines if a dispatcher configuration is generated for the project <br>If `aemVersion` is set to [`cloud`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.cloud) a configuration for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html) will be created.<br>Otherwise an [`Adobe Managed Services`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) configuration is created.
+
+An example using all required properties:
+
+    mvn archetype:generate \
+      -DarchetypeGroupId=com.adobe.granite.archetypes \
+      -DarchetypeArtifactId=aem-project-archetype \
+      -DarchetypeVersion=23 \
+      -DgroupId="com.test" \
+      -DartifactId="test-project" \
+      -Dversion="1.0.0-SNAPSHOT" \
+      -DappId=test \
+      -DappTitle="Test Project"
 
 Note: If the archetype is executed in interactive mode the first time properties with default values can't be changed (see
 [ARCHETYPE-308](https://issues.apache.org/jira/browse/ARCHETYPE-308) for more details). The value can be changed when the property
