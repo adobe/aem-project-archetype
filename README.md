@@ -15,43 +15,44 @@ This archetype creates a minimal Adobe Experience Manager (AEM) project as a sta
 
 To generate a project, adjust the following command line to your needs:
 
-* Set `-D aemVersion=cloud` for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html);  
- Set `-D aemVersion=6.5.0` for [Adobe Managed Services](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams), or on-premise.
-* Adjust `-D appTitle="Your Site Name"` to define the website title and components groups.
-* Adjust `-D appId="sitename"` to define the Maven artifactId, the component, config and content folder names, as well as client library names.
-* Adjust `-D groupId="sitename"` to define the Maven groupId and the Java Source Package.
+* Set `aemVersion=cloud` for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html);  
+ Set `aemVersion=6.5.0` for [Adobe Managed Services](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams), or on-premise.
+* Adjust `appTitle="My Site"` to define the website title and components groups.
+* Adjust `appId="mysite"` to define the Maven artifactId, the component, config and content folder names, as well as client library names.
+* Adjust `groupId="com.mysite"` to define the Maven groupId and the Java Source Package.
+* Lookup the list of available properties to see if there's more you want to adjust.
 
-```console
+```
 mvn -B archetype:generate \
  -D archetypeGroupId=com.adobe.granite.archetypes \
  -D archetypeArtifactId=aem-project-archetype \
  -D archetypeVersion=23 \
  -D aemVersion=cloud \
- -D appTitle="Your Site Name" \
- -D appId="sitename" \
- -D groupId="com.sitename" \
+ -D appTitle="My Site" \
+ -D appId="mysite" \
+ -D groupId="com.mysite" \
  -D frontendModule=general \
  -D includeExamples=n
 ```
 
 ### Available properties
 
-Name                    | Default      | Description
-------------------------|--------------|--------------------
-appTitle                |              | Application title, will be used for website title and components groups (e.g. `My Site`).
-appId                   |              | Technical name, will be used for component, config and content folder names, as well as client library names (e.g. `my-site`).
-artifactId              | `${appId}`   | Base Maven artifact ID (e.g. `my-site`).
-groupId                 |              | Base Maven group ID (e.g. `com.mysite`).
-package                 | `${groupId}` | Java Source Package (e.g. `com.mysite`).
-version                 | 1.0-SNAPSHOT | Project version (e.g. `1.0-SNAPSHOT`).
-aemVersion              | 6.5.0        | Target AEM version (can be `cloud` or `6.5.0`, `6.4.4`, or `6.3.3`).
-sdkVersion              | latest       | AEM as a Service SDK version (e.g. `2020.02.2265.20200217T222518Z-200130`).
-languageCountry         | en_us        | Language and country code to create the content structure from (e.g. `en_us`).
-singleCountry           | y            | Generates a language-master content structure (can be `y`, or `n`).
-frontendModule          | none         | Generates a dedicated frontend module (can be `general`, `angular`, `react`, or `none`).
-includeDispatcherConfig | y            | Generates a dispatcher configuration (can be `y` or `n`; if `aemVersion=cloud` a configuration for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html) is created, otherwise an [`Adobe Managed Services`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) configuration is created).
-includeExamples         | y            | Generates a Component Library example site (can be `y`, or `n`).
-includeErrorHandler     | n            | Generates a custom 404 response page (it will be global to the entire instance; can be `y` or `n`).
+Name                    | Default        | Description
+------------------------|----------------|--------------------
+appTitle                |                | Application title, will be used for website title and components groups (e.g. `"My Site"`).
+appId                   |                | Technical name, will be used for component, config and content folder names, as well as client library names (e.g. `"mysite"`).
+artifactId              | `${appId}`     | Base Maven artifact ID (e.g. `"mysite"`).
+groupId                 |                | Base Maven group ID (e.g. `"com.mysite"`).
+package                 | `${groupId}`   | Java Source Package (e.g. `"com.mysite"`).
+version                 | `1.0-SNAPSHOT` | Project version (e.g. `1.0-SNAPSHOT`).
+aemVersion              | `6.5.0`        | Target AEM version (can be `cloud` or `6.5.0`, `6.4.4`, or `6.3.3`).
+sdkVersion              | `latest`       | AEM as a Service SDK version (e.g. `2020.02.2265.20200217T222518Z-200130`).
+languageCountry         | `en_us`        | Language and country code to create the content structure from (e.g. `en_us`).
+singleCountry           | `y`            | Generates a language-master content structure (can be `y`, or `n`).
+frontendModule          | `none`         | Generates a dedicated frontend module (can be `general`, `angular`, `react`, or `none`).
+includeDispatcherConfig | `y`            | Generates a dispatcher configuration (can be `y` or `n`; if `aemVersion=cloud` a configuration for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html) is created, otherwise an [`Adobe Managed Services`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) configuration is created).
+includeExamples         | `y`            | Generates a Component Library example site (can be `y`, or `n`).
+includeErrorHandler     | `n`            | Generates a custom 404 response page (it will be global to the entire instance; can be `y` or `n`).
 
 ### Notes
 
