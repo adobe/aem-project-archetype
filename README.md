@@ -2,62 +2,61 @@
 
 [![CircleCI](https://circleci.com/gh/adobe/aem-project-archetype.svg?style=svg)](https://circleci.com/gh/adobe/aem-project-archetype)
 
-This archetype creates a minimal Adobe Experience Manager project as a starting point for your own projects.
+This archetype creates a minimal Adobe Experience Manager (AEM) project as a starting point for your own projects.
 
 ## Documentation
 
-* [Archetype Overview](https://www.adobe.com/go/aem_archetype)
-* [Getting Started with AEM Sites - WKND Tutorial](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/overview.html) is a good example as it is based on this 
-archetype
-* [WDND Events Tutorial](https://helpx.adobe.com/experience-manager/kt/sites/using/getting-started-spa-wknd-tutorial-develop.html) Is a 
-good resource to get familiar with the React and Angular frontend module 
+* [Archetype Overview](https://www.adobe.com/go/aem_archetype) – the documentation.
+* Following tutorials are based off this archetype:
+  - [WKND Site](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/overview.html) – to learn how to start a fresh new website.
+  - [WKND Single Page App](https://helpx.adobe.com/experience-manager/kt/sites/using/getting-started-spa-wknd-tutorial-develop.html) – to build a React or Angular webapp that is fully authorable in AEM.
 
 ## Usage
 
-To use the latest released version of this archetype execute the following maven command:
+To generate a project, adjust the following command line to your needs:
+* Set `-D aemVersion=cloud` for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html) and `-D aemVersion=6.5.0` for [`Adobe Managed Services`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) or on-premise.
+* Adjust `-D appTitle="Your Site Name"`, this defines the website title and components groups.
+* Adjust `-D appId="sitename"`, this defines the Maven artifactId, the component, config and content folder names, as well as client library names.
+* Adjust `-D groupId="sitename"`, this defines the Maven groupId and the Java Source Package.
 
-    mvn archetype:generate \
-     -DarchetypeGroupId=com.adobe.granite.archetypes \
-     -DarchetypeArtifactId=aem-project-archetype \
-     -DarchetypeVersion=23
-
-Where 23 is the archetype version number that you want to use (see archetype versions below).
+    mvn -B archetype:generate \
+     -D archetypeGroupId=com.adobe.granite.archetypes \
+     -D archetypeArtifactId=aem-project-archetype \
+     -D archetypeVersion=23 \
+     -D aemVersion=cloud \
+     -D appTitle="Your Site Name" \
+     -D appId="sitename" \
+     -D groupId="com.sitename" \
+     -D frontendModule=general \
+     -D includeExamples=n
 
 ### Available properties
 
-Name                        | Default      | Description
-----------------------------|--------------|--------------------
-groupId                     |              | Base Maven groupId (e.g. `com.test`) 
-artifactId                  |   ${appId}   | Base Maven ArtifactId (e.g. `test-project`)
-version                     |1.0.0-SNAPSHOT| Version (e.g. `1.0.0-SNAPSHOT`)
-package                     |  ${groupId}  | Java Source Package (e.g. `com.test`)
-appId                       |              | Application id, will be used for component/config/content folders and css ids (e.g. `test`
-appTitle                    |              | Application title, will be used for website title and components groups (e.g. `Test Project`
-aemVersion                  |     6.5.0    | Target AEM version
-sdkVersion                  |     latest   | AEM as a Service SDK version (e.g. `2020.02.2265.20200217T222518Z-200130`)
-languageCountry             |     en_us    | language / country code to create the content structure from (e.g. `en_us`)
-includeExamples             |       y      | Include a Component Library example site
-includeErrorHandler         |       n      | Include a custom 404 response page
-frontendModule              |      none    | Include a dedicated frontend module (one of `none`, `general`, `angular`, `react`)
-singleCountry               |       y      | Create language-master structure in example content
-includeDispatcherConfig     |       y      | Defines if a dispatcher configuration is generated for the project <br>If `aemVersion` is set to [`cloud`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.cloud) a configuration for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html) will be created.<br>Otherwise an [`Adobe Managed Services`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) configuration is created.
+Name                    | Default      | Description
+------------------------|--------------|--------------------
+appTitle                |              | Application title, will be used for website title and components groups (e.g. `My Site`).
+appId                   |              | Technical name, will be used for component, config and content folder names, as well as client library names (e.g. `my-site`).
+artifactId              | `${appId}`   | Base Maven artifact ID (e.g. `my-site`).
+groupId                 |              | Base Maven group ID (e.g. `com.mysite`).
+package                 | `${groupId}` | Java Source Package (e.g. `com.mysite`).
+version                 | 1.0-SNAPSHOT | Project version (e.g. `1.0-SNAPSHOT`).
+aemVersion              | 6.5.0        | Target AEM version (can be `cloud` or `6.5.0`, `6.4.4`, or `6.3.3`).
+sdkVersion              | latest       | AEM as a Service SDK version (e.g. `2020.02.2265.20200217T222518Z-200130`).
+languageCountry         | en_us        | Language and country code to create the content structure from (e.g. `en_us`).
+singleCountry           | y            | Generates a language-master content structure (can be `y`, or `n`).
+frontendModule          | none         | Generates a dedicated frontend module (can be `general`, `angular`, `react`, or `none`).
+includeDispatcherConfig | y            | Generates a dispatcher configuration (can be `y` or `n`; if `aemVersion=cloud` a configuration for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html) is created, otherwise an [`Adobe Managed Services`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) configuration is created).
+includeExamples         | y            | Generates a Component Library example site (can be `y`, or `n`).
+includeErrorHandler     | n            | Generates a custom 404 response page (it will be global to the entire instance; can be `y` or `n`).
 
-An example using minimum required properties and _batch/non-interactive mode_:
+### Notes
 
-    mvn -B archetype:generate \
-      -DarchetypeGroupId=com.adobe.granite.archetypes \
-      -DarchetypeArtifactId=aem-project-archetype \
-      -DarchetypeVersion=23 \
-      -DgroupId="com.test" \
-      -DappId=test \
-      -DappTitle="Test Project"
-
-Note: If the archetype is executed in interactive mode the first time properties with default values can't be changed (see
+If the archetype is executed in interactive mode the first time properties with default values can't be changed (see
 [ARCHETYPE-308](https://issues.apache.org/jira/browse/ARCHETYPE-308) for more details). The value can be changed when the property
 confirmation at the end is denied and the questionnaire gets repeated, or by passing the parameter in the command line (e.g.
 `-DincludeExamples=n`).
 
-Note: When running on Windows and generating the dispatcher configuration, you should be running in an elevated command prompt or the Windows Subsystem for Linux (see [#329](https://github.com/adobe/aem-project-archetype/issues/329)).
+When running on Windows and generating the dispatcher configuration, you should be running in an elevated command prompt or the Windows Subsystem for Linux (see [#329](https://github.com/adobe/aem-project-archetype/issues/329)).
 
 ## Provided Maven profiles
 The generated maven project support different deployment profiles when running the Maven install goal `mvn install` within the reactor.
@@ -76,8 +75,8 @@ The profile `integrationTests` is also available for the verify goal, to run the
 
 The latest version of the archetype has the following requirements:
 
-* Adobe Experience Manager 6.3.3.0 or higher (6.4.2 or higher when generating a project with an Angular/React frontend) or [Adobe Experience Manager as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html)
-* Apache Maven (3.3.9 or newer)
+* [Adobe Experience Manager as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html) or Adobe Experience Manager 6.3.3.0 or higher (6.4.2 or higher when generating a project with an Angular/React frontend).
+* Apache Maven (3.3.9 or newer).
 * Adobe Public Maven Repository in maven settings, see [Knowledge Base](https://helpx.adobe.com/experience-manager/kb/SetUpTheAdobeMavenRepository.html) article for details.
 
 For a list of supported AEM versions of previous archetype versions, see [historical supported AEM versions](VERSIONS.md).
