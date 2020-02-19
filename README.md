@@ -14,10 +14,11 @@ This archetype creates a minimal Adobe Experience Manager (AEM) project as a sta
 ## Usage
 
 To generate a project, adjust the following command line to your needs:
-* Set `-D aemVersion=cloud` for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html) and `-D aemVersion=6.5.0` for [`Adobe Managed Services`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) or on-premise.
-* Adjust `-D appTitle="Your Site Name"`, this defines the website title and components groups.
-* Adjust `-D appId="sitename"`, this defines the Maven artifactId, the component, config and content folder names, as well as client library names.
-* Adjust `-D groupId="sitename"`, this defines the Maven groupId and the Java Source Package.
+
+* Set `-D aemVersion=cloud` for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html), and `-D aemVersion=6.5.0` for [`Adobe Managed Services`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) or on-premise.
+* Adjust `-D appTitle="Your Site Name"` to define the website title and components groups.
+* Adjust `-D appId="sitename"` to define the Maven artifactId, the component, config and content folder names, as well as client library names.
+* Adjust `-D groupId="sitename"` to define the Maven groupId and the Java Source Package.
 
     mvn -B archetype:generate \
      -D archetypeGroupId=com.adobe.granite.archetypes \
