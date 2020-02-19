@@ -1,4 +1,4 @@
-# AEM project archetype
+# AEM Project Archetype
 
 [![CircleCI](https://circleci.com/gh/adobe/aem-project-archetype.svg?style=svg)](https://circleci.com/gh/adobe/aem-project-archetype)
 
