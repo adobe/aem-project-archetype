@@ -20,16 +20,18 @@ To generate a project, adjust the following command line to your needs:
 * Adjust `-D appId="sitename"` to define the Maven artifactId, the component, config and content folder names, as well as client library names.
 * Adjust `-D groupId="sitename"` to define the Maven groupId and the Java Source Package.
 
-    mvn -B archetype:generate \
-     -D archetypeGroupId=com.adobe.granite.archetypes \
-     -D archetypeArtifactId=aem-project-archetype \
-     -D archetypeVersion=23 \
-     -D aemVersion=cloud \
-     -D appTitle="Your Site Name" \
-     -D appId="sitename" \
-     -D groupId="com.sitename" \
-     -D frontendModule=general \
-     -D includeExamples=n
+```console
+mvn -B archetype:generate \
+ -D archetypeGroupId=com.adobe.granite.archetypes \
+ -D archetypeArtifactId=aem-project-archetype \
+ -D archetypeVersion=23 \
+ -D aemVersion=cloud \
+ -D appTitle="Your Site Name" \
+ -D appId="sitename" \
+ -D groupId="com.sitename" \
+ -D frontendModule=general \
+ -D includeExamples=n
+```
 
 ### Available properties
 
