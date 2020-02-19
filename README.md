@@ -35,7 +35,7 @@ mvn -B archetype:generate \
  -D includeExamples=n
 ```
 
-### Available properties
+### Available Properties
 
 Name                    | Default        | Description
 ------------------------|----------------|--------------------
@@ -46,13 +46,13 @@ groupId                 |                | Base Maven group ID (e.g. `"com.mysit
 package                 | `${groupId}`   | Java Source Package (e.g. `"com.mysite"`).
 version                 | `1.0-SNAPSHOT` | Project version (e.g. `1.0-SNAPSHOT`).
 aemVersion              | `6.5.0`        | Target AEM version (can be `cloud` or `6.5.0`, `6.4.4`, or `6.3.3`).
-sdkVersion              | `latest`       | AEM as a Service SDK version (e.g. `2020.02.2265.20200217T222518Z-200130`).
+sdkVersion              | `latest`       | When `aemVersion=cloud` a specific [SDK](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/implementing/developing/aem-as-a-cloud-service-sdk.html) version can be specified (e.g. `2020.02.2265.20200217T222518Z-200130`).
+includeDispatcherConfig | `y`            | Includes a dispatcher configuration (can be `y` or `n`; if `aemVersion=cloud` a configuration for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html) is created, otherwise it creates a configuration that is compatible with [Adobe Managed Services](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams)).
+frontendModule          | `none`         | Includes a Webpack frontend build module that generates the client libraries (can be `general`, `angular`, `react`, or `none`).
 languageCountry         | `en_us`        | Language and country code to create the content structure from (e.g. `en_us`).
-singleCountry           | `y`            | Generates a language-master content structure (can be `y`, or `n`).
-frontendModule          | `none`         | Generates a dedicated frontend module (can be `general`, `angular`, `react`, or `none`).
-includeDispatcherConfig | `y`            | Generates a dispatcher configuration (can be `y` or `n`; if `aemVersion=cloud` a configuration for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html) is created, otherwise an [`Adobe Managed Services`](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) configuration is created).
-includeExamples         | `y`            | Generates a Component Library example site (can be `y`, or `n`).
-includeErrorHandler     | `n`            | Generates a custom 404 response page (it will be global to the entire instance; can be `y` or `n`).
+singleCountry           | `y`            | Includes a language-master content structure (can be `y`, or `n`).
+includeExamples         | `y`            | Includes a [Component Library](https://www.aemcomponents.dev/) example site (can be `y`, or `n`).
+includeErrorHandler     | `n`            | Includes a custom 404 response page that will be global to the entire instance (can be `y` or `n`).
 
 ### Notes
 
