@@ -35,7 +35,7 @@ mvn -B archetype:generate \
  -D includeExamples=n
 ```
 
-### Available Properties
+## Available Properties
 
 Name                    | Default        | Description
 ------------------------|----------------|--------------------
@@ -56,13 +56,20 @@ includeErrorHandler     | `n`            | Includes a custom 404 response page t
 
 ## System Requirements
 
-The latest version of the archetype has the following requirements:
+Archetype | [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html) | [AEM 6.5](https://docs.adobe.com/content/help/en/experience-manager-65/user-guide/home.html) | [AEM 6.4](https://docs.adobe.com/content/help/en/experience-manager-64/user-guide/home.html) | AEM 6.3 | Java SE | Maven
+---------|---------|---------|---------|---------|---------|---------
+[23](https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-23) | Continual | 6.5.0.0+ | 6.4.4.0+ | 6.3.3.4+ | 8, 11 | 3.3.9+
 
-* [Adobe Experience Manager as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html) or Adobe Experience Manager 6.3.3.0 or higher (6.4.2 or higher when generating a project with an Angular/React frontend).
-* Apache Maven (3.3.9 or newer).
-* Adobe Public Maven Repository in maven settings, see [Knowledge Base](https://helpx.adobe.com/experience-manager/kb/SetUpTheAdobeMavenRepository.html) article for details.
+Setup your local development environment for [AEM as a Cloud Service SDK](https://docs.adobe.com/content/help/en/experience-manager-learn/cloud-service/local-development-environment-set-up/overview.html) or for [older versions of AEM](https://docs.adobe.com/content/help/en/experience-manager-learn/foundation/development/set-up-a-local-aem-development-environment.html).
 
-For a list of supported AEM versions of previous archetype versions, see [historical supported AEM versions](VERSIONS.md).
+## Notes
+
+If the archetype is executed in interactive mode the first time properties with default values can't be changed (see
+[ARCHETYPE-308](https://issues.apache.org/jira/browse/ARCHETYPE-308) for more details). The value can be changed when the property
+confirmation at the end is denied and the questionnaire gets repeated, or by passing the parameter in the command line (e.g.
+`-DincludeExamples=n`).
+
+When running on Windows and generating the dispatcher configuration, you should be running in an elevated command prompt or the Windows Subsystem for Linux (see [#329](https://github.com/adobe/aem-project-archetype/issues/329)).
 
 ## Maven Profiles
 
@@ -76,12 +83,3 @@ For convenience, the following deployment profiles are provided when running the
 The hostname and port of the instance can be changed with the following user defined properties:
 * `aem.host` and `aem.port` for the author instance.
 * `aem.publish.host` and `aem.publish.port` for the publish instance.
-
-## Notes
-
-If the archetype is executed in interactive mode the first time properties with default values can't be changed (see
-[ARCHETYPE-308](https://issues.apache.org/jira/browse/ARCHETYPE-308) for more details). The value can be changed when the property
-confirmation at the end is denied and the questionnaire gets repeated, or by passing the parameter in the command line (e.g.
-`-DincludeExamples=n`).
-
-When running on Windows and generating the dispatcher configuration, you should be running in an elevated command prompt or the Windows Subsystem for Linux (see [#329](https://github.com/adobe/aem-project-archetype/issues/329)).
