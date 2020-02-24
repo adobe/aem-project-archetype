@@ -56,7 +56,7 @@ includeErrorHandler     | `n`            | Includes a custom 404 response page t
 
 ## System Requirements
 
-Archetype | [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html) | [AEM 6.5](https://docs.adobe.com/content/help/en/experience-manager-65/user-guide/home.html) | [AEM 6.4](https://docs.adobe.com/content/help/en/experience-manager-64/user-guide/home.html) | AEM 6.3 | Java SE | Maven
+Archetype | AEM as a Cloud Service | AEM 6.5 | AEM 6.4 | AEM 6.3 | Java SE | Maven
 ---------|---------|---------|---------|---------|---------|---------
 [23](https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-23) | Continual | 6.5.0.0+ | 6.4.4.0+ | 6.3.3.4+ | 8, 11 | 3.3.9+
 
