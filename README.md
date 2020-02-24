@@ -37,22 +37,22 @@ mvn -B archetype:generate \
 
 ## Available Properties
 
-Name                    | Default        | Description
-------------------------|----------------|--------------------
-appTitle                |                | Application title, will be used for website title and components groups (e.g. `"My Site"`).
-appId                   |                | Technical name, will be used for component, config and content folder names, as well as client library names (e.g. `"mysite"`).
-artifactId              | *`${appId}`*   | Base Maven artifact ID (e.g. `"mysite"`).
-groupId                 |                | Base Maven group ID (e.g. `"com.mysite"`).
-package                 | *`${groupId}`* | Java Source Package (e.g. `"com.mysite"`).
-version                 | `1.0-SNAPSHOT` | Project version (e.g. `1.0-SNAPSHOT`).
-aemVersion              | `6.5.0`        | Target AEM version (can be `cloud` for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html); or `6.5.0`, `6.4.4`, or `6.3.3` for [Adobe Managed Services](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) or on-premise).
-sdkVersion              | `latest`       | When `aemVersion=cloud` an [SDK](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/implementing/developing/aem-as-a-cloud-service-sdk.html) version can be specified (e.g. `2020.02.2265.20200217T222518Z-200130`).
-includeDispatcherConfig | `y`            | Includes a dispatcher configuration either for cloud or for AMS/on-premise, depending of the value of `aemVersion` (can be `y` or `n`).
-frontendModule          | `none`         | Includes a Webpack frontend build module that generates the client libraries (can be `general` or `none` for regular sites; can be `angular` or `react` for a Single Page App that implements the [SPA Editor](https://docs.adobe.com/content/help/en/experience-manager-65/developing/headless/spas/spa-overview.html)).
-languageCountry         | `en_us`        | Language and country code to create the content structure from (e.g. `en_us`).
-singleCountry           | `y`            | Includes a language-master content structure (can be `y`, or `n`).
-includeExamples         | `y`            | Includes a [Component Library](https://www.aemcomponents.dev/) example site (can be `y`, or `n`).
-includeErrorHandler     | `n`            | Includes a custom 404 response page that will be global to the entire instance (can be `y` or `n`).
+Name                      | Default        | Description
+--------------------------|----------------|--------------------
+`appTitle`                |                | Application title, will be used for website title and components groups (e.g. `"My Site"`).
+`appId`                   |                | Technical name, will be used for component, config and content folder names, as well as client library names (e.g. `"mysite"`).
+`artifactId`              | *`${appId}`*   | Base Maven artifact ID (e.g. `"mysite"`).
+`groupId`                 |                | Base Maven group ID (e.g. `"com.mysite"`).
+`package`                 | *`${groupId}`* | Java Source Package (e.g. `"com.mysite"`).
+`version`                 | `1.0-SNAPSHOT` | Project version (e.g. `1.0-SNAPSHOT`).
+`aemVersion`              | `6.5.0`        | Target AEM version (can be `cloud` for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html); or `6.5.0`, `6.4.4`, or `6.3.3` for [Adobe Managed Services](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) or on-premise).
+`sdkVersion`              | `latest`       | When `aemVersion=cloud` an [SDK](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/implementing/developing/aem-as-a-cloud-service-sdk.html) version can be specified (e.g. `2020.02.2265.20200217T222518Z-200130`).
+`includeDispatcherConfig` | `y`            | Includes a dispatcher configuration either for cloud or for AMS/on-premise, depending of the value of `aemVersion` (can be `y` or `n`).
+`frontendModule`          | `none`         | Includes a Webpack frontend build module that generates the client libraries (can be `general` or `none` for regular sites; can be `angular` or `react` for a Single Page App that implements the [SPA Editor](https://docs.adobe.com/content/help/en/experience-manager-65/developing/headless/spas/spa-overview.html)).
+`languageCountry`         | `en_us`        | Language and country code to create the content structure from (e.g. `en_us`).
+`singleCountry`           | `y`            | Includes a language-master content structure (can be `y`, or `n`).
+`includeExamples`         | `y`            | Includes a [Component Library](https://www.aemcomponents.dev/) example site (can be `y`, or `n`).
+`includeErrorHandler`     | `n`            | Includes a custom 404 response page that will be global to the entire instance (can be `y` or `n`).
 
 ## System Requirements
 
