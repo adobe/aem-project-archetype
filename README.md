@@ -54,7 +54,7 @@ singleCountry           | `y`            | Includes a language-master content st
 includeExamples         | `y`            | Includes a [Component Library](https://www.aemcomponents.dev/) example site (can be `y`, or `n`).
 includeErrorHandler     | `n`            | Includes a custom 404 response page that will be global to the entire instance (can be `y` or `n`).
 
-## Provided Maven profiles
+## Provided Maven Profiles
 The generated maven project support different deployment profiles when running the Maven install goal `mvn install` within the reactor.
 
 Id                        | Description
@@ -67,7 +67,7 @@ autoInstallSinglePackagePublish | Install the `all` content package with the con
 
 The profile `integrationTests` is also available for the verify goal, to run the provided integration tests on the AEM instance.
 
-## Requirements
+## System Requirements
 
 The latest version of the archetype has the following requirements:
 
