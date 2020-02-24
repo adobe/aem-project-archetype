@@ -54,19 +54,6 @@ singleCountry           | `y`            | Includes a language-master content st
 includeExamples         | `y`            | Includes a [Component Library](https://www.aemcomponents.dev/) example site (can be `y`, or `n`).
 includeErrorHandler     | `n`            | Includes a custom 404 response page that will be global to the entire instance (can be `y` or `n`).
 
-## Provided Maven Profiles
-The generated maven project support different deployment profiles when running the Maven install goal `mvn install` within the reactor.
-
-Id                        | Description
---------------------------|------------------------------
-autoInstallBundle         | Install core bundle with the maven-sling-plugin to the felix console
-autoInstallPackage        | Install the ui.content and ui.apps content package with the content-package-maven-plugin to the package manager to default author instance on localhost, port 4502. Hostname and port can be changed with the aem.host and aem.port user defined properties.
-autoInstallPackagePublish | Install the ui.content and ui.apps content package with the content-package-maven-plugin to the package manager to default publish instance on localhost, port 4503. Hostname and port can be changed with the aem.host and aem.port user defined properties.
-autoInstallSinglePackage  | Install the `all` content package with the content-package-maven-plugin to the package manager to default author instance on localhost, port 4502. Hostname and port can be changed with the aem.host and aem.port user defined properties.
-autoInstallSinglePackagePublish | Install the `all` content package with the content-package-maven-plugin to the package manager to default publish instance on localhost, port 4503. Hostname and port can be changed with the aem.host and aem.port user defined properties.
-
-The profile `integrationTests` is also available for the verify goal, to run the provided integration tests on the AEM instance.
-
 ## System Requirements
 
 The latest version of the archetype has the following requirements:
@@ -76,6 +63,19 @@ The latest version of the archetype has the following requirements:
 * Adobe Public Maven Repository in maven settings, see [Knowledge Base](https://helpx.adobe.com/experience-manager/kb/SetUpTheAdobeMavenRepository.html) article for details.
 
 For a list of supported AEM versions of previous archetype versions, see [historical supported AEM versions](VERSIONS.md).
+
+## Maven Profiles
+
+For convenience, the following deployment profiles are provided when running the Maven install goal with `mvn install`:
+* `autoInstallSinglePackage`: Install everything to the AEM author instance.
+* `autoInstallSinglePackagePublish`: Install everything to the AEM publish instance.
+* `autoInstallPackage`: Install the `ui.content` and `ui.apps` content packages to the AEM author instance.
+* `autoInstallPackagePublish` - Install the `ui.content` and `ui.apps` content packages to the  AEM publish instance.
+* `autoInstallBundle`: Install the `core` bundle with the `maven-sling-plugin` to the felix console.
+
+The hostname and port of the instance can be changed with the following user defined properties:
+* `aem.host` and `aem.port` for the author instance.
+* `aem.publish.host` and `aem.publish.port` for the publish instance.
 
 ## Notes
 
