@@ -2,7 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/adobe/aem-project-archetype.svg?style=svg)](https://circleci.com/gh/adobe/aem-project-archetype)
 
-This archetype creates a minimal Adobe Experience Manager (AEM) project as a starting point for your own projects.
+This archetype creates a minimal Adobe Experience Manager (AEM) project as a starting point for your projects.
 
 ## Documentation
 
@@ -62,14 +62,12 @@ Archetype | AEM as a Cloud Service | AEM 6.5 | AEM 6.4 | AEM 6.3 | Java SE | Mav
 
 Setup your local development environment for [AEM as a Cloud Service SDK](https://docs.adobe.com/content/help/en/experience-manager-learn/cloud-service/local-development-environment-set-up/overview.html) or for [older versions of AEM](https://docs.adobe.com/content/help/en/experience-manager-learn/foundation/development/set-up-a-local-aem-development-environment.html).
 
-## Notes
-
-If the archetype is executed in interactive mode the first time properties with default values can't be changed (see
-[ARCHETYPE-308](https://issues.apache.org/jira/browse/ARCHETYPE-308) for more details). The value can be changed when the property
-confirmation at the end is denied and the questionnaire gets repeated, or by passing the parameter in the command line (e.g.
-`-DincludeExamples=n`).
+#### Known Issues
 
 When running on Windows and generating the dispatcher configuration, you should be running in an elevated command prompt or the Windows Subsystem for Linux (see [#329](https://github.com/adobe/aem-project-archetype/issues/329)).
+
+When executing the archetype in interactive mode (without the `-B` parameter), the properties with default values cannot be changed, unless the final confirmation gets dismissed, which then repeats the questions by including the properties with default values in the questions (see
+[ARCHETYPE-308](https://issues.apache.org/jira/browse/ARCHETYPE-308) for details).
 
 ## Maven Profiles
 
