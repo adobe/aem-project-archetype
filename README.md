@@ -2,7 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/adobe/aem-project-archetype.svg?style=svg)](https://circleci.com/gh/adobe/aem-project-archetype)
 
-Maven template that creates a minimal Adobe Experience Manager (AEM) project as a starting point for your projects.
+Maven template that creates a minimal Adobe Experience Manager (AEM) project as a starting point for your website.
 
 ## Documentation
 
