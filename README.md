@@ -2,14 +2,14 @@
 
 [![CircleCI](https://circleci.com/gh/adobe/aem-project-archetype.svg?style=svg)](https://circleci.com/gh/adobe/aem-project-archetype)
 
-Maven template that creates a minimal Adobe Experience Manager (AEM) project as a starting point for your website.
+Maven template that creates a minimal, best-practices-based Adobe Experience Manager (AEM) project as a starting point for your website.
 
 ## Documentation
 
-* [Archetype Overview](https://www.adobe.com/go/aem_archetype) – the documentation.
+* **[Archetype Documentation](https://www.adobe.com/go/aem_archetype):** Overview of the archetype architecture and its different modules.
 * Following tutorials are based off this archetype:
-  - [WKND Site](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/overview.html) – to learn how to start a fresh new website.
-  - [WKND Single Page App](https://helpx.adobe.com/experience-manager/kt/sites/using/getting-started-spa-wknd-tutorial-develop.html) – to build a React or Angular webapp that is fully authorable in AEM.
+  - **[WKND Site](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/overview.html):** Learn how to start a fresh new website.
+  - **[WKND Single Page App](https://helpx.adobe.com/experience-manager/kt/sites/using/getting-started-spa-wknd-tutorial-develop.html):** Learn how to build a React or Angular webapp that is fully authorable in AEM.
 
 ## Features
 
