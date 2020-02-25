@@ -17,7 +17,7 @@ Maven template that creates a minimal, best-practices-based Adobe Experience Man
 * **Low-Code:** Edit your templates, create content, deploy your CSS, and your site is ready for go-live.
 * **Cloud-Ready:** If desired, use [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html) to go-live in few days and ease scalability and maintenance.
 * **Dispatcher:** A project is complete only with a [Dispatcher configuration](https://docs.adobe.com/content/help/en/experience-manager-dispatcher/using/dispatcher.html) that ensures speed and security.
-* **Multi-Site:** If needed, the archetype generates the content structure for a multi-language and multi-region setup.
+* **Multi-Site:** If needed, the archetype generates the content structure for a [multi-language and multi-region setup](https://docs.adobe.com/content/help/en/experience-manager-65/administering/introduction/msm.html).
 * **Core Components:** Authors can create nearly any layout with our versatile [set of standardized components](https://github.com/adobe/aem-core-wcm-components).
 * **Editable Templates:** Assemble virtually any [template without code](https://docs.adobe.com/content/help/en/experience-manager-learn/sites/page-authoring/template-editor-feature-video-use.html), and define what the authors are allowed to edit.
 * **Responsive Layout:** On templates or individual pages, [define how the elements reflow](https://docs.adobe.com/content/help/en/experience-manager-65/authoring/siteandpage/responsive-layout.html) for the defined breakpoints.
