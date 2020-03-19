@@ -4,6 +4,9 @@
     <jcr:content
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
+#if ( $singleCountry == "n" )
+        jcr:mixinTypes="[cq:LiveRelationship]"
+#end
 #if ( $isSpaProject )
         cq:template="/conf/${appId}/settings/wcm/templates/spa-app-template"
 #else
