@@ -63,6 +63,7 @@
                         </repositoryStructurePackage>
                     </repositoryStructurePackages>
                     <embeddeds>
+#if ( $aemVersion != "cloud" )
                         <embedded>
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.core</artifactId>
@@ -73,6 +74,7 @@
                             <artifactId>${rootArtifactId}.core</artifactId>
                             <target>/apps/${appId}/install</target>
                         </embedded>
+#end
 #if ( $isSpaProject )
                         <embedded>
                             <groupId>com.adobe.aem</groupId>
@@ -89,6 +91,7 @@
                         </subPackage>
 #end
                     </subPackages>
+#if ( $aemVersion != "cloud" )
                     <dependencies>
                         <dependency>
                             <groupId>com.adobe.cq</groupId>
@@ -99,6 +102,7 @@
                             <artifactId>core.wcm.components.config</artifactId>
                         </dependency>
                     </dependencies>
+#end
                 </configuration>
             </plugin>
             <plugin>
@@ -168,17 +172,17 @@
             <artifactId>spa.project.core.core</artifactId>
         </dependency>
 #end
-
-        <dependency>
-            <groupId>com.adobe.cq</groupId>
-            <artifactId>core.wcm.components.core</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${rootArtifactId}.ui.apps.structure</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
+        </dependency>
+
+#if ( $aemVersion != "cloud" )
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>core.wcm.components.core</artifactId>
         </dependency>
 
         <dependency>
@@ -192,7 +196,7 @@
             <artifactId>core.wcm.components.config</artifactId>
             <type>zip</type>
         </dependency>
-#if ( $aemVersion.startsWith("6.") )
+
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>uber-jar</artifactId>

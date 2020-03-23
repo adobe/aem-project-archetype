@@ -86,7 +86,7 @@ Import-Package: javax.annotation;version=0.0.0,*
             <artifactId>slf4j-test</artifactId>
             <scope>test</scope>
         </dependency>
-#if ( $aemVersion.startsWith("6.") )
+#if ( $aemVersion != "cloud" )
         <!-- OSGi Dependencies -->
         <dependency>
             <groupId>org.osgi</groupId>
