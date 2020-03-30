@@ -70,6 +70,7 @@
                             <target>/apps/${appId}-vendor-packages/install</target>
                         </embedded>
 #end
+#if ( $aemVersion != "cloud" )
                         <embedded>
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.content</artifactId>
@@ -82,6 +83,7 @@
                             <type>zip</type>
                             <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
+#end
 #if ( $includeExamples == "y" )
                         <embedded>
                             <groupId>com.adobe.cq</groupId>
@@ -220,7 +222,7 @@
             <artifactId>spa.project.core.core</artifactId>
         </dependency>
 #end
-
+#if ( $aemVersion != "cloud" )
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.content</artifactId>
@@ -231,6 +233,7 @@
             <artifactId>core.wcm.components.config</artifactId>
             <type>zip</type>
         </dependency>
+#end
 #if ( $includeExamples == "y" )
         <dependency>
             <groupId>com.adobe.cq</groupId>
