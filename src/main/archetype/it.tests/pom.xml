@@ -18,10 +18,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.adobe.qe</groupId>
-        <artifactId>cq-it-parent</artifactId>
-        <version>28</version>
-        <relativePath/>
+        <groupId>${groupId}</groupId>
+        <artifactId>${rootArtifactId}</artifactId>
+        <version>${version}</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>${artifactId}</artifactId>
