@@ -40,11 +40,31 @@
             <artifactId>junit</artifactId>
             <version>4.13</version>
         </dependency>
+#if ($aemVersion == "cloud")
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>aem-cloud-testing-clients</artifactId>
             <version>0.2.3</version>
         </dependency>
+#elseif ($aemVersion.startsWith("6.5"))
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>cq-testing-clients-65</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+#elseif ($aemVersion.startsWith("6.4"))
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>cq-testing-clients-64</artifactId>
+            <version>0.1.1</version>
+        </dependency>
+#else
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>cq-testing-clients-63</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+#end
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
