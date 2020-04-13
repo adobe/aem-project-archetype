@@ -354,7 +354,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="${appTitle} App Policy"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    clientlibs="[wcm.foundation.components.page.responsive]"
+                    clientlibs="[${appId}.${frontendModule}]"
                     isRoot="{Boolean}true"
                     structureDepth="3"
                 />
@@ -362,4 +362,22 @@
 #end
         </components>
     </${appId}>
+#if ( $isSpaProject )
+    <wcm jcr:primaryType="nt:unstructured">
+        <foundation jcr:primaryType="nt:unstructured">
+            <components jcr:primaryType="nt:unstructured">
+                <responsivegrid jcr:primaryType="nt:unstructured">
+                    <spa-default
+                        jcr:description="Includes only SPA-Enabled components."
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="SPA Content"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[/libs/wcm/foundation/components/responsivegrid,/apps/${appId}/components/text]">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </spa-default>
+                </responsivegrid>
+            </components>
+        </foundation>
+    </wcm>
+#end
 </jcr:root>
