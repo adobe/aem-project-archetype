@@ -6,5 +6,6 @@
         cq:lastModifiedBy="admin"
         jcr:primaryType="cq:PageContent"
         jcr:title="${appTitle} Root"
+        jcr:description="SPA Root Template"
         status="enabled"/>
 </jcr:root>

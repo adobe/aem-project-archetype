@@ -6,7 +6,7 @@
 #if ( $isSpaProject )
         cq:template="/conf/${appId}/settings/wcm/templates/spa-app-template"
 #else
-        cq:template="/conf/${appId}/settings/wcm/templates/content-page-template"
+        cq:template="/conf/${appId}/settings/wcm/templates/page-content"
 #end
         jcr:primaryType="cq:PageContent"
         jcr:title="Language Masters"
