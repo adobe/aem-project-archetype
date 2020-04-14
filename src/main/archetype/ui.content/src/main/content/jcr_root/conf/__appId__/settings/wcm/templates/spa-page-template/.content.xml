@@ -6,7 +6,7 @@
         cq:createdBy="admin"
         jcr:primaryType="cq:PageContent"
         cq:templateType="/libs/settings/wcm/template-types/html5page"
-        jcr:title="${appTitle} Page"
-        jcr:description="SPA Page Template"
+        jcr:description="${appTitle} Page Template"
+        jcr:title="SPA Page"
         status="enabled"/>
 </jcr:root>
