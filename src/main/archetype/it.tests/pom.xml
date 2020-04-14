@@ -77,14 +77,14 @@
             <id>local</id>
             <properties>
                 <!-- Cloud author service (LB) -->
-                <cloud.author.url/>
+                <cloud.author.url>http://localhost:4502</cloud.author.url>
                 <cloud.author.user>admin</cloud.author.user>
-                <cloud.author.password/>
+                <cloud.author.password>admin</cloud.author.password>
 
                 <!-- cloud publish service (LB) -->
-                <cloud.publish.url/>
+                <cloud.publish.url>http://localhost:4503</cloud.publish.url>
                 <cloud.publish.user>admin</cloud.publish.user>
-                <cloud.publish.password/>
+                <cloud.publish.password>admin</cloud.publish.password>
             </properties>
             <build>
                 <plugins>
