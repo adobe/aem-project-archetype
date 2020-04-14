@@ -48,14 +48,15 @@ test, execute:
 
 ### Integration tests
 
-This allows to run integration tests that excercise the capabilities of AEM via
+This allows running integration tests that exercise the capabilities of AEM via
 HTTP calls to its API. To run the integration tests, run:
 
     mvn clean verify -Plocal
 
-Sensible defaults are provided for a typical local installation of AEM. If you
-want to point the integration tests to different AEM author and publish
-instances, you can use the following system properties via Maven's `-D` flag.
+The configuration provides sensible defaults for a typical local installation of
+AEM. If you want to point the integration tests to different AEM author and
+publish instances, you can use the following system properties via Maven's `-D`
+flag.
 
 | Property | Description | Default value |
 | --- | --- | --- |
