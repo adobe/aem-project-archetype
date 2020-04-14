@@ -39,13 +39,32 @@ Or to deploy only the bundle to the author, run
 
 There are two levels of testing contained in the project:
 
-* unit test in core: this show-cases classic unit testing of the code contained in the bundle. To test, execute:
+### Unit tests
+
+This show-cases classic unit testing of the code contained in the bundle. To
+test, execute:
 
     mvn clean test
 
-* server-side integration tests: this allows to run unit-like tests in the AEM-environment, ie on the AEM server. To test, execute:
+### Integration tests
 
-    mvn clean verify -PintegrationTests
+This allows to run integration tests that excercise the capabilities of AEM via
+HTTP calls to its API. To run the integration tests, run:
+
+    mvn clean verify -Plocal
+
+Sensible defaults are provided for a typical local installation of AEM. If you
+want to point the integration tests to different AEM author and publish
+instances, you can use the following system properties via Maven's `-D` flag.
+
+| Property | Description | Default value |
+| --- | --- | --- |
+| `cloud.author.url` | URL of the author instance | `http://localhost:4502` |
+| `cloud.author.user` | Admin user for the author instance | `admin` |
+| `cloud.author.password` | Password of the admin user for the author instance | `admin` |
+| `cloud.publish.url` | URL of the publish instance | `http://localhost:4503` |
+| `cloud.publish.user` | Admin user for the publish instance | `admin` |
+| `cloud.publish.password` | Password of the admin user for the publish instance | `admin` |
 
 ## ClientLibs
 
