@@ -60,12 +60,12 @@ flag.
 
 | Property | Description | Default value |
 | --- | --- | --- |
-| `cloud.author.url` | URL of the author instance | `http://localhost:4502` |
-| `cloud.author.user` | Admin user for the author instance | `admin` |
-| `cloud.author.password` | Password of the admin user for the author instance | `admin` |
-| `cloud.publish.url` | URL of the publish instance | `http://localhost:4503` |
-| `cloud.publish.user` | Admin user for the publish instance | `admin` |
-| `cloud.publish.password` | Password of the admin user for the publish instance | `admin` |
+| `it.author.url` | URL of the author instance | `http://localhost:4502` |
+| `it.author.user` | Admin user for the author instance | `admin` |
+| `it.author.password` | Password of the admin user for the author instance | `admin` |
+| `it.publish.url` | URL of the publish instance | `http://localhost:4503` |
+| `it.publish.user` | Admin user for the publish instance | `admin` |
+| `it.publish.password` | Password of the admin user for the publish instance | `admin` |
 
 ## ClientLibs
 

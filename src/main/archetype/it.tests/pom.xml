@@ -77,14 +77,14 @@
             <id>local</id>
             <properties>
                 <!-- Cloud author service (LB) -->
-                <cloud.author.url>http://localhost:4502</cloud.author.url>
-                <cloud.author.user>admin</cloud.author.user>
-                <cloud.author.password>admin</cloud.author.password>
+                <it.author.url>http://localhost:4502</it.author.url>
+                <it.author.user>admin</it.author.user>
+                <it.author.password>admin</it.author.password>
 
                 <!-- cloud publish service (LB) -->
-                <cloud.publish.url>http://localhost:4503</cloud.publish.url>
-                <cloud.publish.user>admin</cloud.publish.user>
-                <cloud.publish.password>admin</cloud.publish.password>
+                <it.publish.url>http://localhost:4503</it.publish.url>
+                <it.publish.user>admin</it.publish.user>
+                <it.publish.password>admin</it.publish.password>
             </properties>
             <build>
                 <plugins>
@@ -113,17 +113,17 @@
                                 <sling.it.instances>2</sling.it.instances>
 
                                 <!-- Author service -->
-                                <sling.it.instance.url.1>${cloud.author.url}</sling.it.instance.url.1>
+                                <sling.it.instance.url.1>${it.author.url}</sling.it.instance.url.1>
                                 <sling.it.instance.runmode.1>author</sling.it.instance.runmode.1>
-                                <sling.it.instance.adminUser.1>${cloud.author.user}</sling.it.instance.adminUser.1>
-                                <sling.it.instance.adminPassword.1>${cloud.author.password}
+                                <sling.it.instance.adminUser.1>${it.author.user}</sling.it.instance.adminUser.1>
+                                <sling.it.instance.adminPassword.1>${it.author.password}
                                 </sling.it.instance.adminPassword.1>
 
                                 <!-- Publish service -->
-                                <sling.it.instance.url.2>${cloud.publish.url}</sling.it.instance.url.2>
+                                <sling.it.instance.url.2>${it.publish.url}</sling.it.instance.url.2>
                                 <sling.it.instance.runmode.2>publish</sling.it.instance.runmode.2>
-                                <sling.it.instance.adminUser.2>${cloud.publish.user}</sling.it.instance.adminUser.2>
-                                <sling.it.instance.adminPassword.2>${cloud.publish.password}
+                                <sling.it.instance.adminUser.2>${it.publish.user}</sling.it.instance.adminUser.2>
+                                <sling.it.instance.adminPassword.2>${it.publish.password}
                                 </sling.it.instance.adminPassword.2>
                             </systemPropertyVariables>
                         </configuration>
