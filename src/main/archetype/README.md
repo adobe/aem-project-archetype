@@ -53,6 +53,9 @@ HTTP calls to its API. To run the integration tests, run:
 
     mvn clean verify -Plocal
 
+Test classes must be saved in the `src/main/java` directory (or any of its
+subdirectories), and must be contained in files matching the pattern `*IT.java`.
+
 The configuration provides sensible defaults for a typical local installation of
 AEM. If you want to point the integration tests to different AEM author and
 publish instances, you can use the following system properties via Maven's `-D`
