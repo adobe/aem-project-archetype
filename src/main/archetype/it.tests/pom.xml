@@ -194,6 +194,11 @@
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
+                    <archive>
+                        <manifestEntries>
+                            <Cloud-Manager-TestType>integration-test</Cloud-Manager-TestType>
+                        </manifestEntries>
+                    </archive>
                 </configuration>
                 <executions>
                     <execution>
