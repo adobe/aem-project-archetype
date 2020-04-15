@@ -23,19 +23,45 @@ import org.apache.sling.testing.clients.ClientException;
 import org.apache.sling.testing.clients.SlingHttpResponse;
 import org.junit.*;
 
+
+/**
+ * Test that some paths exist out-of-the-box on the author service. This test
+ * showcases some <a
+ * href="https://github.com/adobe/aem-testing-clients/wiki/Best-practices">best
+ * practices</a> of the <a
+ * href="https://github.com/adobe/aem-testing-clients">AEM Testing Clients</a>.
+ */
 public class GetPageIT {
+
+    // The CQAuthorClassRule represents an author service. The rule will read
+    // the hostname and port of the author service from the system properties
+    // passed to the tests.@ClassRule
 
     @ClassRule
     public static CQAuthorPublishClassRule cqBaseClassRule = new CQAuthorPublishClassRule();
 
+    // CQRule decorates your test and adds additional functionality on top of
+    // it, like session stickyness, test filtering and identification of the
+    // test on the remote service.
+
     @Rule
     public CQRule cqBaseRule = new CQRule(cqBaseClassRule.authorRule, cqBaseClassRule.publishRule);
+
+    // Page will create a test page with a random name and it will make sure
+    // that the page is removed at the end of every test execution. By using a
+    // random name, your test will not conflict with any other test running on
+    // the same instance. By removing the page at the end of the test execution,
+    // you are not going to leave any clutter on the instance under test.
 
     @Rule
     public Page root = new Page(cqBaseClassRule.authorRule);
 
     static CQClient adminAuthor;
+
     static CQClient adminPublish;
+
+    // Thanks to the CQAuthorClassRule, we can create two CQClient instances
+    // bound to the admin user on both the author and publish service.
 
     @BeforeClass
     public static void beforeClass() throws ClientException {
