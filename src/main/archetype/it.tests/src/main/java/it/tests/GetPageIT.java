@@ -47,15 +47,6 @@ public class GetPageIT {
     @Rule
     public CQRule cqBaseRule = new CQRule(cqBaseClassRule.authorRule, cqBaseClassRule.publishRule);
 
-    // Page will create a test page with a random name and it will make sure
-    // that the page is removed at the end of every test execution. By using a
-    // random name, your test will not conflict with any other test running on
-    // the same instance. By removing the page at the end of the test execution,
-    // you are not going to leave any clutter on the instance under test.
-
-    @Rule
-    public Page root = new Page(cqBaseClassRule.authorRule);
-
     static CQClient adminAuthor;
 
     static CQClient adminPublish;
