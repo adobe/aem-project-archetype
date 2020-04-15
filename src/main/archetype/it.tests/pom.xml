@@ -44,7 +44,7 @@
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>aem-cloud-testing-clients</artifactId>
-            <version>0.2.3</version>
+            <version>0.2.4</version>
         </dependency>
 #elseif ($aemVersion.startsWith("6.5"))
         <dependency>
