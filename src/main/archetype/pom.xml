@@ -53,7 +53,6 @@
         <module>ui.apps.structure</module>
         <module>ui.content</module>
         <module>it.tests</module>
-        <module>it.launcher</module>
 #if ( $includeDispatcherConfig != "n" )
         <module>dispatcher</module>
 #end

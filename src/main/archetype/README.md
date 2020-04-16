@@ -39,13 +39,42 @@ Or to deploy only the bundle to the author, run
 
 There are two levels of testing contained in the project:
 
-* unit test in core: this show-cases classic unit testing of the code contained in the bundle. To test, execute:
+### Unit tests
+
+This show-cases classic unit testing of the code contained in the bundle. To
+test, execute:
 
     mvn clean test
 
-* server-side integration tests: this allows to run unit-like tests in the AEM-environment, ie on the AEM server. To test, execute:
+### Integration tests
 
-    mvn clean verify -PintegrationTests
+This allows running integration tests that exercise the capabilities of AEM via
+HTTP calls to its API. To run the integration tests, run:
+
+    mvn clean verify -Plocal
+
+Test classes must be saved in the `src/main/java` directory (or any of its
+subdirectories), and must be contained in files matching the pattern `*IT.java`.
+
+The configuration provides sensible defaults for a typical local installation of
+AEM. If you want to point the integration tests to different AEM author and
+publish instances, you can use the following system properties via Maven's `-D`
+flag.
+
+| Property | Description | Default value |
+| --- | --- | --- |
+| `it.author.url` | URL of the author instance | `http://localhost:4502` |
+| `it.author.user` | Admin user for the author instance | `admin` |
+| `it.author.password` | Password of the admin user for the author instance | `admin` |
+| `it.publish.url` | URL of the publish instance | `http://localhost:4503` |
+| `it.publish.user` | Admin user for the publish instance | `admin` |
+| `it.publish.password` | Password of the admin user for the publish instance | `admin` |
+
+The integration tests in this archetype use the [AEM Testing
+Clients](https://github.com/adobe/aem-testing-clients) and showcase some
+recommended [best
+practices](https://github.com/adobe/aem-testing-clients/wiki/Best-practices) to
+be put in use when writing integration tests for AEM.
 
 ## ClientLibs
 

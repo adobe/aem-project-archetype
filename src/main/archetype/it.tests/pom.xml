@@ -17,9 +17,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- ====================================================================== -->
-    <!-- P A R E N T  P R O J E C T  D E S C R I P T I O N                      -->
-    <!-- ====================================================================== -->
     <parent>
         <groupId>${groupId}</groupId>
         <artifactId>${rootArtifactId}</artifactId>
@@ -27,128 +24,192 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <!-- ====================================================================== -->
-    <!-- P R O J E C T  D E S C R I P T I O N                                   -->
-    <!-- ====================================================================== -->
     <artifactId>${artifactId}</artifactId>
-    <name>${appTitle} - Integration Tests Bundles</name>
-    <description>Bundles for Integration Tests for ${appTitle}</description>
-
-    <!-- <scm>
-        <connection></connection>
-        <developerConnection></developerConnection>
-        <url></url>
-        <tag>HEAD</tag>
-    </scm-->
+    <name>${appTitle} - Integration Tests</name>
+    <description>Integration Tests for ${appTitle}</description>
 
     <properties>
-        <junit.version>4.8.2</junit.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13</version>
+        </dependency>
+#if ($aemVersion == "cloud")
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>aem-cloud-testing-clients</artifactId>
+            <version>0.2.4</version>
+        </dependency>
+#elseif ($aemVersion.startsWith("6.5"))
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>cq-testing-clients-65</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+#elseif ($aemVersion.startsWith("6.4"))
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>cq-testing-clients-64</artifactId>
+            <version>0.1.1</version>
+        </dependency>
+#else
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>cq-testing-clients-63</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+#end
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.25</version>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>local</id>
+            <properties>
+                <!-- Cloud author service (LB) -->
+                <it.author.url>http://localhost:4502</it.author.url>
+                <it.author.user>admin</it.author.user>
+                <it.author.password>admin</it.author.password>
+
+                <!-- cloud publish service (LB) -->
+                <it.publish.url>http://localhost:4503</it.publish.url>
+                <it.publish.user>admin</it.publish.user>
+                <it.publish.password>admin</it.publish.password>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>2.21.0</version>
+                        <configuration>
+                            <skip>true</skip>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <version>2.21.0</version>
+                        <configuration>
+                            <testSourceDirectory>${basedir}/src/main/java/</testSourceDirectory>
+                            <testClassesDirectory>${project.build.directory}/classes/</testClassesDirectory>
+                            <systemPropertyVariables>
+                                <!-- Same properties as used when run in a AEM CI/CD pipeline -->
+                                <sling.it.configure.default.replication.agents>false</sling.it.configure.default.replication.agents>
+                                <com.sun.security.enableAIAcaIssuers>true</com.sun.security.enableAIAcaIssuers>
+                                <it.logintokenauth>true</it.logintokenauth>
+
+                                <!-- Sling Testing Tools properties for configuring the test instances -->
+                                <sling.it.instances>2</sling.it.instances>
+
+                                <!-- Author service -->
+                                <sling.it.instance.url.1>${it.author.url}</sling.it.instance.url.1>
+                                <sling.it.instance.runmode.1>author</sling.it.instance.runmode.1>
+                                <sling.it.instance.adminUser.1>${it.author.user}</sling.it.instance.adminUser.1>
+                                <sling.it.instance.adminPassword.1>${it.author.password}
+                                </sling.it.instance.adminPassword.1>
+
+                                <!-- Publish service -->
+                                <sling.it.instance.url.2>${it.publish.url}</sling.it.instance.url.2>
+                                <sling.it.instance.runmode.2>publish</sling.it.instance.runmode.2>
+                                <sling.it.instance.adminUser.2>${it.publish.user}</sling.it.instance.adminUser.2>
+                                <sling.it.instance.adminPassword.2>${it.publish.password}
+                                </sling.it.instance.adminPassword.2>
+                            </systemPropertyVariables>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>default-integration-test</id>
+                                <goals>
+                                    <goal>integration-test</goal>
+                                </goals>
+                                <configuration>
+                                    <includes>
+                                        <include>**/*IT.java</include>
+                                    </includes>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>default-verify</id>
+                                <goals>
+                                    <goal>verify</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.22.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.5.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
-                <groupId>biz.aQute.bnd</groupId>
-                <artifactId>bnd-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>bnd-process</id>
-                        <goals>
-                            <goal>bnd-process</goal>
-                        </goals>
-                        <configuration>
-                            <bnd><![CDATA[
-Bundle-Category: ${appTitle}
--exportcontents: $${startbrace}packages;VERSIONED${endbrace}
--snapshot: $${startbrace}tstamp;yyyyMMddHHmmssSSS${endbrace}
-Bundle-DocURL:
-Sling-Test-Regexp: .*Test
-                            ]]></bnd>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.1.0</version>
                 <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
                     <archive>
-                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                        <manifestEntries>
+                            <Cloud-Manager-TestType>integration-test</Cloud-Manager-TestType>
+                        </manifestEntries>
                     </archive>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>biz.aQute.bnd</groupId>
-                <artifactId>bnd-baseline-maven-plugin</artifactId>
-                <configuration>
-                    <failOnMissing>false</failOnMissing>
-                </configuration>
                 <executions>
                     <execution>
-                        <id>baseline</id>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
                         <goals>
-                            <goal>baseline</goal>
+                            <goal>single</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
     </build>
-
-    <dependencies>
-#if ( $aemVersion.startsWith("6.") )
-        <dependency>
-            <groupId>org.osgi</groupId>
-            <artifactId>org.osgi.annotation.versioning</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.osgi</groupId>
-            <artifactId>org.osgi.service.metatype.annotations</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.osgi</groupId>
-            <artifactId>org.osgi.annotation.bundle</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>uber-jar</artifactId>
-            <classifier>apis</classifier>
-            <scope>provided</scope>
-        </dependency>
-#else
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>aem-sdk-api</artifactId>
-        </dependency>
-#end
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.vintage</groupId>
-            <artifactId>junit-vintage-engine</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <!-- TODO create separate API package, this is just to get the special Sling test runner -->
-            <groupId>org.apache.sling</groupId>
-            <artifactId>org.apache.sling.junit.core</artifactId>
-            <version>1.0.8</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>${groupId}</groupId>
-            <artifactId>${rootArtifactId}.core</artifactId>
-            <version>${project.version}</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
 </project>
