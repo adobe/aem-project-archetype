@@ -110,6 +110,14 @@
             <defaultValue>y</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
+
+        <!--
+            Option to include CIF Core Components.
+        -->
+        <requiredProperty key="includeCommerce">
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
     </requiredProperties>
 
     <modules>
