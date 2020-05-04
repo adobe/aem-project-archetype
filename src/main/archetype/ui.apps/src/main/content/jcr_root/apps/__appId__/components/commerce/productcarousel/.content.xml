@@ -4,4 +4,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Product Carousel"
     sling:resourceSuperType="core/cif/components/commerce/productcarousel/v1/productcarousel"
-    componentGroup="${appTitle} - Commerce/>
+    componentGroup="${appTitle} - Commerce"/>

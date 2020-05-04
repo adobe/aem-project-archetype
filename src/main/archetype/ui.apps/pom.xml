@@ -109,7 +109,7 @@
                         </subPackage>
 #end
                     </subPackages>
-<dependencies>
+                    <dependencies>
 #if ( $aemVersion != "cloud" )
 
                         <dependency>
