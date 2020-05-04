@@ -63,15 +63,15 @@
                         </repositoryStructurePackage>
                     </repositoryStructurePackages>
                     <embeddeds>
+                        <embedded>
+                            <groupId>${groupId}</groupId>
+                            <artifactId>${rootArtifactId}.core</artifactId>
+                            <target>/apps/${appId}/install</target>
+                        </embedded>
 #if ( $aemVersion != "cloud" )
                         <embedded>
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.core</artifactId>
-                            <target>/apps/${appId}/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>${groupId}</groupId>
-                            <artifactId>${rootArtifactId}.core</artifactId>
                             <target>/apps/${appId}/install</target>
                         </embedded>
 #end
