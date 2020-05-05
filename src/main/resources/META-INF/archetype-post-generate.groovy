@@ -82,6 +82,9 @@ if (includeCommerce == "n") {
     assert new File("$appsFolder/config/com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory-default.config").delete()
     def packageFolder = javaPackage.replaceAll("\\.", "/")
     assert new File(coreBundle, "src/main/java/$packageFolder/core/models/commerce").deleteDir()
+    if (frontendModule == "general") {
+        assert new File(rootDir, "ui.frontend/src/main/webpack/components/commerce").deleteDir()
+    }
 }
 
 /**
