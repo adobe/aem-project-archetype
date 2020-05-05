@@ -78,6 +78,8 @@ removeModule(rootPom, 'dispatcher.cloud')
 if (includeCommerce == "n") {
     assert new File("$appsFolder/components/commerce").deleteDir()
     assert new File("$appsFolder/clientlibs/clientlib-cif").deleteDir()
+    assert new File("$appsFolder/config/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.config").delete()
+    assert new File("$appsFolder/config/com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory-default.config").delete()
     def packageFolder = javaPackage.replaceAll("\\.", "/")
     assert new File(coreBundle, "src/main/java/$packageFolder/core/models/commerce").deleteDir()
 }
