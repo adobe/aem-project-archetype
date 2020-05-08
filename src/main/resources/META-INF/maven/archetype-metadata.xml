@@ -14,8 +14,8 @@
  |  See the License for the specific language governing permissions and
  |  limitations under the License.
 -->
-<archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" name="aem-archetype"
-    xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+<archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 http://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd" name="aem-archetype"
+    xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
     <requiredProperties>
@@ -112,11 +112,19 @@
         </requiredProperty>
 
         <!--
-            Option to include CIF Core Components.
+            Option to include CIF Core Components & corresponding configuration.
         -->
         <requiredProperty key="includeCommerce">
             <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
+
+        <!--
+            Set commerce system endpoint for usage with CIF
+        -->
+        <requiredProperty key="commerceEndpoint">
+            <defaultValue>https://hostname.com/graphql</defaultValue>
+            <validationRegex>^(?:https:\/\/)[\w.-]+(?:\.[\w\.-]+)+[\w:]+\/graphql$</validationRegex>
         </requiredProperty>
     </requiredProperties>
 
