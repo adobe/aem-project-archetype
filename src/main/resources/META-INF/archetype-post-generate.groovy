@@ -87,6 +87,11 @@ if (includeCommerce == "n") {
     if (frontendModule == "general") {
         assert new File(rootDir, "ui.frontend/src/main/webpack/components/commerce").deleteDir()
     }
+} else {
+    if (aemVersion == "cloud") {
+        assert new File("$appsFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-default.config").delete()
+        assert new File("$confFolder/cloudconfigs/commerce").deleteDir()
+    }
 }
 
 /**
