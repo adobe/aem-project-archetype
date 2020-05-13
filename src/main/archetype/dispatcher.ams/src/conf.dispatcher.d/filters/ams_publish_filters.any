@@ -36,3 +36,6 @@
 # Deny front door entry
 /0103 { /type "deny" /path "/content/ams/healthcheck/*" }
 /0104 { /type "deny" /url "/content/regent.html" }
+
+# Enable specific mime types clientlibs directories
+/0105 { /type "allow" /extension '(gltf|stl|obj|usdz|glb)' /method "GET" /path "/content/dam/*" }

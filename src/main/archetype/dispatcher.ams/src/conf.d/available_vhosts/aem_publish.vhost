@@ -3,6 +3,8 @@
 PassEnv DISP_ID
 
 <VirtualHost *:80>
+	# allowing slashes in the URL to be encoded and still honored
+    AllowEncodedSlashes On
 	ServerName	publish
 	# Put names of which domains are used for your published site/content here
 	ServerAlias	${PUBLISH_DEFAULT_HOSTNAME}
@@ -16,6 +18,9 @@ PassEnv DISP_ID
 			Header merge X-Content-Type-Options nosniff "expr=%{resp:X-Content-Type-Options}!='nosniff'"
 		# Make sure proxies don't deliver the wrong content
 		Header append Vary User-Agent env=!dont-vary
+		# Force SSL for author
+		# Add HSTS for avoiding man in the middle during browser redirect to SSL
+		Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains;"
 	</IfModule>
 	<Directory />
 		# Update /etc/sysconfig/httpd with setting the PUBLISH_WHITELIST_ENABLED from 0 or 1 to enable or disable ip restriction rules
