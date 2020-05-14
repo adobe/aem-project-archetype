@@ -84,6 +84,7 @@ if (includeCommerce == "n") {
     assert new File("$confFolder/cloudconfigs/commerce").deleteDir()
     def packageFolder = javaPackage.replaceAll("\\.", "/")
     assert new File(coreBundle, "src/main/java/$packageFolder/core/models/commerce").deleteDir()
+    assert new File(coreBundle, "src/test/java/$packageFolder/core/models/commerce").deleteDir()
     if (frontendModule == "general") {
         assert new File(rootDir, "ui.frontend/src/main/webpack/components/commerce").deleteDir()
     }
