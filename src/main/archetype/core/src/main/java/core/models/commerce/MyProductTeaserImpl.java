@@ -80,7 +80,7 @@ public class MyProductTeaserImpl implements MyProductTeaser {
 
     @Override
     public String getFormattedPrice() {
-        return productTeaser.getFormattedPrice();
+        return productTeaser.getPriceRange().getFormattedFinalPrice();
     }
 
     @Override
