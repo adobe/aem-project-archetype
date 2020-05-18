@@ -15,11 +15,6 @@
     };
 
     function HelloWorld(config) {
-        var that = this;
-
-        if (config && config.element) {
-            init(config);
-        }
 
         function init(config) {
             // Best practice:
@@ -40,6 +35,10 @@
                     "\nModel message:\n", model
                 );
             }
+        }
+
+        if (config && config.element) {
+            init(config);
         }
     }
 
