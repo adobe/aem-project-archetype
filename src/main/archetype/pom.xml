@@ -432,18 +432,6 @@ Bundle-DocURL:
                         <enabled>false</enabled>
                     </snapshots>
                 </repository>
-                <repository>
-                    <id>adobe-aem-releases</id>
-                    <name>Adobe AEM Repository</name>
-                    <url>https://downloads.experiencecloud.adobe.com/content/maven/public</url>
-                    <releases>
-                        <enabled>true</enabled>
-                        <updatePolicy>never</updatePolicy>
-                    </releases>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </repository>
             </repositories>
 
             <pluginRepositories>
