@@ -156,7 +156,7 @@ def removeModule(pomFile, module) {
 }
 
 def getLatestSDK(archetypeVersion) {
-    def metadata = new XmlSlurper().parse("https://downloads.experiencecloud.adobe.com/content/maven/public/com/adobe/aem/aem-sdk-api/maven-metadata.xml?archetype=" + archetypeVersion)
+    def metadata = new XmlSlurper().parse("https://repo1.maven.org/maven2/com/adobe/aem/aem-sdk-api/maven-metadata.xml")
     def sdkVersion = metadata.versioning.latest
     if (sdkVersion == null || sdkVersion == "") {
         sdkVersion = System.console().readLine("Cannot get latest SDK version, please provide it manually: ")
