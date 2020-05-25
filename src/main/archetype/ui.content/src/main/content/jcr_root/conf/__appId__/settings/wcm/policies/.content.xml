@@ -266,6 +266,13 @@
                                 assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
                                 droptarget="contentfragment"
                                 resourceType="${appId}/components/contentfragment"/>
+#if ( $includeCommerce == "y" )
+                            <mapping_1575030255082
+                                jcr:primaryType="nt:unstructured"
+                                assetGroup="product"
+                                droptarget="product-data-reference"
+                                resourceType="${appId}/components/commerce/productteaser"/>
+#end
                         </assetToComponentMapping>
                     </cq:authoring>
                 </policy_1574695586800>
@@ -308,6 +315,13 @@
                                 assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
                                 droptarget="contentfragment"
                                 resourceType="${appId}/components/contentfragment"/>
+#if ( $includeCommerce == "y" )
+                            <mapping_1590416532200
+                                jcr:primaryType="nt:unstructured" 
+                                assetGroup="product" 
+                                droptarget="product-data-reference" 
+                                resourceType="${appId}/components/commerce/productteaser" />
+#end
                         </assetToComponentMapping>
                     </cq:authoring>
                 </policy_1575040440977>
