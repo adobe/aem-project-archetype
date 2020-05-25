@@ -139,6 +139,11 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
         // Delete SPA content
         assert new File("$contentFolder/us/en/home").deleteDir()
     }
+
+    // Generating SPA: Delete non-SPA specific files
+    if (optionFrontendModule == "angular" || optionFrontendModule == "react") {
+        assert new File("$confFolder/settings/wcm/templates/page-content").deleteDir()
+    }
 }
 
 /**

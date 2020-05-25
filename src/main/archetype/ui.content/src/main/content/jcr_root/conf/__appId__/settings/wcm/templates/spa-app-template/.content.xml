@@ -5,6 +5,7 @@
         cq:lastModified="{Date}2017-12-07T17:08:28.689+05:30"
         cq:lastModifiedBy="admin"
         jcr:primaryType="cq:PageContent"
-        jcr:title="${appTitle} Root"
+        jcr:description="${appTitle} Root Template"
+        jcr:title="SPA Root"
         status="enabled"/>
 </jcr:root>
