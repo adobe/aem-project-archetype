@@ -7,17 +7,20 @@ import java.util.regex.Pattern
 def rootDir = new File(request.getOutputDirectory() + "/" + request.getArtifactId())
 def uiAppsPackage = new File(rootDir, "ui.apps")
 def uiContentPackage = new File(rootDir, "ui.content")
+def coreBundle = new File(rootDir, "core")
 def rootPom = new File(rootDir, "pom.xml")
 def frontendModules = ["general", "angular", "react"]
 
 def singleCountry = request.getProperties().get("singleCountry")
-def appId = request.getProperties().get("appId")
+def appId =  request.getProperties().get("appId")
+def javaPackage = request.getProperties().get("package")
 def languageCountry = request.getProperties().get("languageCountry")
 def includeErrorHandler = request.getProperties().get("includeErrorHandler")
 def frontendModule = request.getProperties().get("frontendModule")
 def aemVersion = request.getProperties().get("aemVersion")
 def sdkVersion = request.getProperties().get("sdkVersion")
 def includeDispatcherConfig = request.getProperties().get("includeDispatcherConfig")
+def includeCommerce = request.getProperties().get("includeCommerce")
 
 def appsFolder = new File("$uiAppsPackage/src/main/content/jcr_root/apps/$appId")
 def confFolder = new File("$uiContentPackage/src/main/content/jcr_root/conf/$appId")
@@ -72,6 +75,25 @@ removeModule(rootPom, 'dispatcher.ams')
 assert new File(rootDir, 'dispatcher.cloud').deleteDir()
 removeModule(rootPom, 'dispatcher.cloud')
 
+if (includeCommerce == "n") {
+    assert new File("$appsFolder/components/commerce").deleteDir()
+    assert new File("$appsFolder/clientlibs/clientlib-cif").deleteDir()
+    assert new File("$appsFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-default.config").delete()
+    assert new File("$appsFolder/config/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.config").delete()
+    assert new File("$appsFolder/config/com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory-default.config").delete()
+    assert new File("$confFolder/cloudconfigs/commerce").deleteDir()
+    def packageFolder = javaPackage.replaceAll("\\.", "/")
+    assert new File(coreBundle, "src/main/java/$packageFolder/core/models/commerce").deleteDir()
+    assert new File(coreBundle, "src/test/java/$packageFolder/core/models/commerce").deleteDir()
+    if (frontendModule == "general") {
+        assert new File(rootDir, "ui.frontend/src/main/webpack/components/commerce").deleteDir()
+    }
+} else {
+    if (aemVersion == "cloud") {
+        assert new File("$appsFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-default.config").delete()
+        assert new File("$confFolder/cloudconfigs/commerce").deleteDir()
+    }
+}
 
 /**
  * Creates content skeleton based upon singleCountry & languageCountry input from user

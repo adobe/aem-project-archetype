@@ -82,6 +82,26 @@
                             <target>/apps/${appId}/install</target>
                         </embedded>
 #end
+
+#if ( $includeCommerce == "y" )
+                        <embedded>
+                            <groupId>com.adobe.commerce.cif</groupId>
+                            <artifactId>core-cif-components-core</artifactId>
+                            <target>/apps/${appId}/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.adobe.commerce.cif</groupId>
+                            <artifactId>magento-graphql</artifactId>
+                            <target>/apps/${appId}/install</target>
+                        </embedded>
+#if ( $aemVersion != "cloud" )
+                        <embedded>
+                            <groupId>com.adobe.commerce.cif</groupId>
+                            <artifactId>graphql-client</artifactId>
+                            <target>/apps/${appId}/install</target>
+                        </embedded>
+#end
+#end
                     </embeddeds>
                     <subPackages>
 #if ( $isSpaProject )
@@ -91,8 +111,9 @@
                         </subPackage>
 #end
                     </subPackages>
-#if ( $aemVersion != "cloud" )
                     <dependencies>
+#if ( $aemVersion != "cloud" )
+
                         <dependency>
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.content</artifactId>
@@ -101,8 +122,14 @@
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.config</artifactId>
                         </dependency>
-                    </dependencies>
 #end
+#if ( $includeCommerce == "y" )
+                        <dependency>
+                            <groupId>com.adobe.commerce.cif</groupId>
+                            <artifactId>core-cif-components-apps</artifactId>
+                        </dependency>
+#end
+                    </dependencies>
                 </configuration>
             </plugin>
             <plugin>
@@ -190,7 +217,6 @@
             <artifactId>core.wcm.components.content</artifactId>
             <type>zip</type>
         </dependency>
-
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.config</artifactId>
@@ -221,6 +247,27 @@
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>aem-sdk-api</artifactId>
+        </dependency>
+#end
+
+#if ( $includeCommerce == "y" )
+        <!-- Adobe CIF Dependencies -->
+        <dependency>
+            <groupId>com.adobe.commerce.cif</groupId>
+            <artifactId>core-cif-components-apps</artifactId>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.commerce.cif</groupId>
+            <artifactId>core-cif-components-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.commerce.cif</groupId>
+            <artifactId>graphql-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.commerce.cif</groupId>
+            <artifactId>magento-graphql</artifactId>
         </dependency>
 #end
         <!-- HTL dependencies needed for the HTL Maven Plugin source code generation -->

@@ -240,7 +240,11 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Content"
                     sling:resourceType="wcm/core/components/policy/policy"
+#if ( $includeCommerce == "n" )
                     components="[group:${appTitle} - Content,/apps/${appId}/components/form/container]">
+#else
+                    components="[group:${appTitle} - Content,group:${appTitle} - Commerce,/apps/${appId}/components/form/container]">
+#end                    
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -262,6 +266,13 @@
                                 assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
                                 droptarget="contentfragment"
                                 resourceType="${appId}/components/contentfragment"/>
+#if ( $includeCommerce == "y" )
+                            <mapping_1575030255082
+                                jcr:primaryType="nt:unstructured"
+                                assetGroup="product"
+                                droptarget="product-data-reference"
+                                resourceType="${appId}/components/commerce/productteaser"/>
+#end
                         </assetToComponentMapping>
                     </cq:authoring>
                 </policy_1574695586800>
@@ -278,7 +289,11 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="XF Root"
                     sling:resourceType="wcm/core/components/policy/policy"
+#if ( $includeCommerce == "n" )
                     components="[group:${appTitle} - Content,/apps/${appId}/components/form/container]">
+#else
+                    components="[group:${appTitle} - Content,group:${appTitle} - Commerce,/apps/${appId}/components/form/container]">
+#end  
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -300,6 +315,13 @@
                                 assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
                                 droptarget="contentfragment"
                                 resourceType="${appId}/components/contentfragment"/>
+#if ( $includeCommerce == "y" )
+                            <mapping_1590416532200
+                                jcr:primaryType="nt:unstructured" 
+                                assetGroup="product" 
+                                droptarget="product-data-reference" 
+                                resourceType="${appId}/components/commerce/productteaser" />
+#end
                         </assetToComponentMapping>
                     </cq:authoring>
                 </policy_1575040440977>
@@ -359,6 +381,41 @@
                     structureDepth="3"
                 />
             </spa>
+#end
+#if ( $includeCommerce == "y" )
+            <commerce jcr:primaryType="nt:unstructured">
+                <productlist jcr:primaryType="nt:unstructured">
+                    <default
+                        cq:styleDefaultClasses="category__style_grid"
+                        jcr:lastModified="{Date}2019-04-01T15:42:05.554+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="AEM CIF Core Components Product List"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        showTitle="true"
+                        showImage="true">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0
+                                cq:styleGroupLabel="Layout"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        jcr:primaryType="nt:unstructured"
+                                        cq:styleClasses="category__style_grid"
+                                        cq:styleId="1570700958199"
+                                        cq:styleLabel="Grid" />
+                                    <item1
+                                        jcr:primaryType="nt:unstructured"
+                                        cq:styleClasses="category__style_list"
+                                        cq:styleId="1570700958900"
+                                        cq:styleLabel="List" />
+                                </cq:styles>
+                            </item0>
+                        </cq:styleGroups>
+                    </default>
+                </productlist>
+            </commerce>
 #end
         </components>
     </${appId}>

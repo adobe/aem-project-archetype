@@ -13,8 +13,12 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
-     data-sly-call="${symbol_dollar}{clientlib.css @ categories='${appId}.base'}"/>
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${symbol_dollar}{clientlib.css @ categories='${appId}.base'}">
+#if ( $includeCommerce == "y" )
+    <sly data-sly-call="${symbol_dollar}{clientlib.css @ categories='${appId}.cif'}" />
+#end
+</sly>
 #if ( $isSpaProject )
 <!--/*
     SPA-specific meta tags
