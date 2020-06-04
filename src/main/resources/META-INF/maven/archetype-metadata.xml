@@ -413,6 +413,7 @@
       <directory></directory>
       <includes>
         <include>README.md</include>
+        <include>README-CIF.md</include>
         <include>.gitignore</include>
       </includes>
     </fileSet>
