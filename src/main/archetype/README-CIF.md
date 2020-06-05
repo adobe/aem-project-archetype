@@ -7,5 +7,3 @@ The CIF Core Components connect to a Magento (or alternative commerce system) vi
 The project depends on the CIF Authoring tooling. The CIF Connector is not included in the generated project and must be installed separately. See [CIF Connector](https://github.com/adobe/commerce-cif-connector) project for instructions.
 
 Sample code demonstrating how [CIF core components can be customized](https://github.com/adobe/aem-core-cif-components/wiki/Customizing-CIF-Core-Components) and extended is included in the `core` bundle module. The Sling modules package contains an example `MyProductTeaser` model.
-#end
-
