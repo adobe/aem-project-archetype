@@ -44,7 +44,7 @@ To generate a project, adjust the following command line to your needs:
 
 ```
 mvn -B archetype:generate \
- -D archetypeGroupId=com.adobe.granite.archetypes \
+ -D archetypeGroupId=com.adobe.aem \
  -D archetypeArtifactId=aem-project-archetype \
  -D archetypeVersion=23 \
  -D aemVersion=cloud \
