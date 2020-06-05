@@ -38,7 +38,7 @@ public class GetPageIT {
     // passed to the tests.@ClassRule
 
     @ClassRule
-    public static CQAuthorPublishClassRule cqBaseClassRule = new CQAuthorPublishClassRule();
+    public static final CQAuthorPublishClassRule cqBaseClassRule = new CQAuthorPublishClassRule();
 
     // CQRule decorates your test and adds additional functionality on top of
     // it, like session stickyness, test filtering and identification of the

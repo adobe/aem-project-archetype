@@ -43,7 +43,7 @@ public class CreatePageIT {
     // passed to the tests.
 
     @ClassRule
-    public static CQAuthorClassRule cqBaseClassRule = new CQAuthorClassRule();
+    public static final CQAuthorClassRule cqBaseClassRule = new CQAuthorClassRule();
 
     // CQRule decorates your test and adds additional functionality on top of
     // it, like session stickyness, test filtering and identification of the
