@@ -138,10 +138,22 @@
                         <include>**/*.*</include>
                     </includes>
                 </fileSet>
+                <fileSet filtered="true" packaged="false">
+                    <directory></directory>
+                    <includes>
+                        <include>build.gradle.kts</include>
+                    </includes>
+                </fileSet>
             </fileSets>
         </module>
         <module id="${rootArtifactId}.core" dir="core" name="core">
             <fileSets>
+                <fileSet filtered="true" packaged="false">
+                    <directory></directory>
+                    <includes>
+                        <include>build.gradle.kts</include>
+                    </includes>
+                </fileSet>
                 <fileSet filtered="true" packaged="true"
                     encoding="UTF-8">
                     <directory>src/main/java</directory>
@@ -170,6 +182,7 @@
                         <include>**/*.any</include>
                         <include>**/*.farm</include>
                         <include>assembly.xml</include>
+                        <include>build.gradle.kts</include>
                     </includes>
                 </fileSet>
                 <fileSet filtered="false" packaged="false" encoding="UTF-8">
@@ -193,6 +206,7 @@
                         <include>**/*.any</include>
                         <include>**/*.farm</include>
                         <include>assembly.xml</include>
+                        <include>build.gradle.kts</include>
                     </includes>
                 </fileSet>
                 <fileSet filtered="false" packaged="false" encoding="UTF-8">
@@ -320,6 +334,7 @@
                 <directory></directory>
                 <includes>
                     <include>.gitignore</include>
+                    <include>build.gradle.kts</include>
                 </includes>
                 </fileSet>
                 <fileSet filtered="true" packaged="false"
@@ -375,6 +390,12 @@
                         <include>**/original</include>
                     </includes>
                 </fileSet>
+                <fileSet filtered="true" packaged="false">
+                    <directory></directory>
+                    <includes>
+                        <include>build.gradle.kts</include>
+                    </includes>
+                </fileSet>
             </fileSets>
         </module>
         <module id="${rootArtifactId}.it.tests" dir="it.tests" name="it.tests">
@@ -397,8 +418,7 @@
         </module>
         <module id="${rootArtifactId}.ui.apps.structure" dir="ui.apps.structure" name="ui.apps.structure">
             <fileSets>
-                <fileSet filtered="true" packaged="false"
-                         encoding="UTF-8">
+                <fileSet filtered="true" packaged="false" encoding="UTF-8">
                     <directory>src/main/content</directory>
                     <includes>
                         <include>**/*.*</include>
@@ -413,13 +433,24 @@
       <directory></directory>
       <includes>
         <include>README.md</include>
-        <include>.gitignore</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" encoding="UTF-8">
       <directory></directory>
       <includes>
         <include>archetype.properties</include>
+        <include>.gitignore</include>
+        <include>build.gradle.kts</include>
+        <include>settings.gradle.kts</include>
+        <include>buildSrc/build.gradle.kts</include>
+      </includes>
+    </fileSet>
+    <fileSet>
+      <directory></directory>
+      <includes>
+        <include>gradlew</include>
+        <include>gradlew.bat</include>
+        <include>gradle/**</include>
       </includes>
     </fileSet>
   </fileSets>
