@@ -55,6 +55,7 @@ allprojects {
             "compileOnly"("org.osgi:org.osgi.resource:1.0.0")
             "compileOnly"("org.osgi:org.osgi.framework:1.9.0")
             "compileOnly"("org.apache.sling:org.apache.sling.models.api:1.3.6")
+            "compileOnly"("org.apache.sling:org.apache.sling.servlets.annotations:1.2.4")
             "compileOnly"("javax.servlet:javax.servlet-api:3.1.0")
             "compileOnly"("javax.servlet.jsp:jsp-api:2.1")
             "compileOnly"("javax.annotation:javax.annotation-api:1.3.2")
