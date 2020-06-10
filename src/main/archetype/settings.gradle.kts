@@ -1,0 +1,6 @@
+include(":core")
+include(":ui.apps")
+include(":ui.content")
+include(":ui.frontend")
+include(":dispatcher")
+include(":all")
