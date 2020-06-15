@@ -91,7 +91,6 @@ if (includeCommerce == "n") {
 } else {
     if (aemVersion == "cloud") {
         assert new File("$appsFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-default.config").delete()
-        assert new File("$confFolder/cloudconfigs/commerce").deleteDir()
     }
 }
 
