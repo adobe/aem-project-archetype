@@ -1,0 +1,25 @@
+{
+  "short_name": "${appTitle}",
+  "name": "${appTitle}",
+  "icons": [
+    {
+      "src": "images/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "images/logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "images/logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/content/${appId}/${languageCountry.split('_').get(1)}/${languageCountry.split('_').get(0)}.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

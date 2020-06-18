@@ -19,11 +19,13 @@
     <sly data-sly-call="${symbol_dollar}{clientlib.css @ categories='${appId}.cif'}" />
 #end
 </sly>
+
+<meta name="theme-color" content="#000000" />
+
 #if ( $isSpaProject )
 <!--/*
     SPA-specific meta tags
 */-->
-<meta name="theme-color" content="#000000" />
 <link rel="icon" href="/etc.clientlibs/${appId}/clientlibs/clientlib-${frontendModule}/resources/favicon.ico" />
 <link rel="apple-touch-icon" href="/etc.clientlibs/${appId}/clientlibs/clientlib-${frontendModule}/resources/logo192.png" />
 <link rel="manifest" href="/etc.clientlibs/${appId}/clientlibs/clientlib-${frontendModule}/resources/manifest.json" />
@@ -43,5 +45,9 @@
     https://docs.adobe.com/content/help/en/experience-manager-64/developing/headless/spas/spa-overview.html#limitations
 */-->
 #else
+<link rel="icon" href="/etc.clientlibs/${appId}/clientlibs/clientlib-site/resources/images/favicon.ico" />
+<link rel="apple-touch-icon" href="/etc.clientlibs/${appId}/clientlibs/clientlib-site/resources/images/logo192.png" />
+<link rel="manifest" href="/etc.clientlibs/${appId}/clientlibs/clientlib-site/resources/manifest.json" />
+
 <sly data-sly-resource="${symbol_dollar}{'contexthub' @ resourceType='granite/contexthub/components/contexthub'}"/>
 #end
