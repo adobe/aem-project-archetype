@@ -1,0 +1,6 @@
+{
+    "org.apache.sling.commons.log.names":[
+      "${package}"
+    ],
+    "org.apache.sling.commons.log.level":"error"
+}
