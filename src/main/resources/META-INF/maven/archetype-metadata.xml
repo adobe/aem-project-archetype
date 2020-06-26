@@ -439,6 +439,7 @@
       <directory></directory>
       <includes>
         <include>archetype.properties</include>
+        <include>gradle.properties</include>
         <include>.gitignore</include>
         <include>build.gradle.kts</include>
         <include>settings.gradle.kts</include>

@@ -14,6 +14,11 @@ allprojects {
         maven("https://repo.adobe.com/nexus/content/groups/public")
     }
 
+    tasks.withType<AbstractArchiveTask>().configureEach {
+        archiveBaseName.set(provider { "${rootProject.name}-${project.name}" })
+        destinationDirectory.set(layout.projectDirectory.dir("target"))
+    }
+
     plugins.withId("java") {
         tasks.withType<JavaCompile>().configureEach {
             with(options) {

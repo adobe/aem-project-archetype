@@ -28,9 +28,7 @@ tasks {
     }
 
     clean {
-        doLast {
-            delete("dist")
-        }
+        delete("dist")
     }
 
     build {
