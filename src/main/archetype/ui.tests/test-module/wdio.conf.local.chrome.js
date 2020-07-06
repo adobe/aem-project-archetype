@@ -23,6 +23,4 @@ config.capabilities = [{
     }
 }];
 
-console.log(config);
-
 exports.config = config;
