@@ -16,7 +16,7 @@
 const path = require('path');
 const url = require('url');
 
-// Environment Variables sent by EaaS
+// Environment Variables sent by CloudManager
 // Selenium Endpoint
 let selenium_base_url = process.env.SELENIUM_BASE_URL || 'http://localhost:4444';
 // Browser

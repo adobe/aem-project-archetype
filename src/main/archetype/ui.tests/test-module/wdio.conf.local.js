@@ -68,7 +68,7 @@ exports.config = {
             debug: true,
             outputDir: path.join(path.relative(process.cwd(), conf.reports_path), 'html/'),
             filename: 'report.html',
-            reportTitle: 'EaaS UI Testing Docker example',
+            reportTitle: 'UI Testing Basic Tests',
             showInBrowser: false,
             useOnAfterCommandForScreenshot: true,
             LOG: log4js.getLogger('default')

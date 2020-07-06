@@ -6,7 +6,7 @@ FROM node:lts-slim
 ENV APP_PATH /usr/src/app
 ENV SELENIUM_STARTUP_TIMEOUT 60
 
-# Begin EAAS Convention >>>
+# Begin CloudManager Convention >>>
 ## Environment variables
 ENV SELENIUM_BASE_URL http://localhost:4444
 ENV SELENIUM_BROWSER chrome
@@ -23,7 +23,7 @@ RUN apt -qqy update \
     && apt -qqy --no-install-recommends install \
     curl \
     jq
-# <<< End EAAS Convention
+# <<< End CloudManager Convention
 
 # Set Application Environment
 WORKDIR ${APP_PATH}
@@ -33,9 +33,9 @@ ENV TEST_RUN_COMMAND "npm run test-cloud"
 COPY test-module/ ./
 RUN npm install
 
-# Begin EAAS Convention >>>
+# Begin CloudManager Convention >>>
 ## Copy helper to wait on Selenium readiness
 COPY wait-for-grid.sh .
 
 CMD ./wait-for-grid.sh ${TEST_RUN_COMMAND}
-# <<< End EAAS Convention
+# <<< End CloudManager Convention
