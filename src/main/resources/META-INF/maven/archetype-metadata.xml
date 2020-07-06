@@ -395,6 +395,41 @@
                 </fileSet>
             </fileSets>
         </module>
+        <module id="${rootArtifactId}.ui.tests" dir="ui.tests" name="ui.tests">
+            <fileSets>
+                <fileSet filtered="true">
+                    <directory></directory>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                    <excludes>
+                        <!-- Exclude Test Reports -->
+                        <exclude>**/reports/</exclude>
+                        <!-- Exclude NPM dependencies -->
+                        <exclude>**/node_modules/</exclude>
+                        <exclude>**/package-lock.json</exclude>
+
+                        <exclude>**/*.sh</exclude>
+                        <exclude>**/*.png</exclude>
+                    </excludes>
+                </fileSet>
+                <fileSet filtered="false">
+                    <directory></directory>
+                    <includes>
+                        <!-- Do not filter binary files (will become corrupted) -->
+                        <include>**/*.sh</include>
+                        <include>**/*.png</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="false" packaged="false"
+                    encoding="UTF-8">
+                    <directory>test-module</directory>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
         <module id="${rootArtifactId}.ui.apps.structure" dir="ui.apps.structure" name="ui.apps.structure">
             <fileSets>
                 <fileSet filtered="true" packaged="false"

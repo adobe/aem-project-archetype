@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ |  Copyright 2015 Adobe Systems Incorporated
+ |
+ |  Licensed under the Apache License, Version 2.0 (the "License");
+ |  you may not use this file except in compliance with the License.
+ |  You may obtain a copy of the License at
+ |
+ |      http://www.apache.org/licenses/LICENSE-2.0
+ |
+ |  Unless required by applicable law or agreed to in writing, software
+ |  distributed under the License is distributed on an "AS IS" BASIS,
+ |  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ |  See the License for the specific language governing permissions and
+ |  limitations under the License.
+-->
+
+<!--
+ | DO NOT MODIFY
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>${groupId}</groupId>
+        <artifactId>${rootArtifactId}</artifactId>
+        <version>${version}</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>${artifactId}</artifactId>
+
+    <!-- <groupId>com.adobe.cq.testing</groupId>
+    <artifactId>ui.tests</artifactId>
+    <version>1.0.2-SNAPSHOT</version> -->
+
+    <name>${appTitle} - UI Tests</name>
+    <description>UI Tests for ${appTitle}</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <AEM_AUTHOR_URL />
+        <AEM_AUTHOR_USERNAME>admin</AEM_AUTHOR_USERNAME>
+        <AEM_AUTHOR_PASSWORD>admin</AEM_AUTHOR_PASSWORD>
+        <AEM_PUBLISH_URL />
+        <AEM_PUBLISH_USERNAME>admin</AEM_PUBLISH_USERNAME>
+        <AEM_PUBLISH_PASSWORD>admin</AEM_PUBLISH_PASSWORD>
+        <SELENIUM_BROWSER>chrome</SELENIUM_BROWSER>
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>3.3.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.2.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>default-jar</id>
+                        <phase>none</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptors>
+                        <descriptor>${project.basedir}/assembly-ui-test-docker-context.xml</descriptor>
+                    </descriptors>
+                    <tarLongFileMode>gnu</tarLongFileMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>build-cloud-tests</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.6.0</version>
+                        <executions>
+                            <execution>
+                            <id>docker-build</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>exec</goal>
+                            </goals>
+                            <configuration> 
+                                <executable>docker</executable>
+                                <workingDirectory>${project.basedir}</workingDirectory>
+                                <arguments>
+                                    <argument>build</argument>
+                                    <argument>-t</argument>
+                                    <argument>aem-cloud/ui-tests:${project.version}</argument>
+                                    <argument>.</argument>
+                                </arguments>
+                            </configuration>
+                            </execution>
+                            <execution>
+                            <id>docker-tag</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>exec</goal>
+                            </goals>
+                            <configuration> 
+                                <executable>docker</executable>
+                                <workingDirectory>${project.basedir}</workingDirectory>
+                                <arguments>
+                                    <argument>tag</argument>
+                                    <argument>aem-cloud/ui-tests:${project.version}</argument>
+                                    <argument>aem-cloud/ui-tests:latest</argument>
+                                </arguments>
+                            </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>run-cloud-tests</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.6.0</version>
+                        <executions>
+                            <execution>
+                                <id>docker-compose-up</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>docker-compose</executable>
+                                    <workingDirectory>${project.basedir}</workingDirectory>
+                                    <environmentVariables>
+                                        <AEM_AUTHOR_URL>${AEM_AUTHOR_URL}</AEM_AUTHOR_URL>
+                                        <AEM_AUTHOR_USERNAME>${AEM_AUTHOR_USERNAME}</AEM_AUTHOR_USERNAME>
+                                        <AEM_AUTHOR_PASSWORD>${AEM_AUTHOR_PASSWORD}</AEM_AUTHOR_PASSWORD>
+                                        <AEM_PUBLISH_URL>${AEM_PUBLISH_URL}</AEM_PUBLISH_URL>
+                                        <AEM_PUBLISH_USERNAME>${AEM_PUBLISH_USERNAME}</AEM_PUBLISH_USERNAME>
+                                        <AEM_PUBLISH_PASSWORD>${AEM_PUBLISH_PASSWORD}</AEM_PUBLISH_PASSWORD>
+                                        <SELENIUM_BROWSER>${SELENIUM_BROWSER}</SELENIUM_BROWSER>
+                                    </environmentVariables>
+                                    <arguments>
+                                        <argument>-f</argument>
+                                        <argument>${project.basedir}/docker-compose-wdio-${SELENIUM_BROWSER}.yaml</argument>
+                                        <argument>up</argument>
+                                        <argument>--quiet-pull</argument>
+                                        <argument>--abort-on-container-exit</argument>
+                                        <argument>--remove-orphans</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>docker-compose-down</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>docker-compose</executable>
+                                    <workingDirectory>${project.basedir}</workingDirectory>
+                                    <arguments>
+                                        <argument>-f</argument>
+                                        <argument>${project.basedir}/docker-compose-wdio-${SELENIUM_BROWSER}.yaml</argument>
+                                        <argument>down</argument>
+                                        <argument>--remove-orphans</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>
