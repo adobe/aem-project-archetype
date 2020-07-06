@@ -13,42 +13,11 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-const fs = require('fs');
 const path = require('path');
-const request = require('request-promise');
 const config = require('../../lib/config');
 
 // Init custom WDIO commands (ex. AEMLogin)
 require('../../lib/wdio.commands').init(browser);
-
-function fileHandleBySharedFolder(sharedFolderPath, filePath) {
-    const sharedFilePath = path.join(sharedFolderPath, path.basename(filePath));
-    fs.copyFileSync(filePath, sharedFilePath);
-    return sharedFilePath;
-}
-
-function fileHandleByUploadUrl(uploadUrl, filePath) {
-    return request.post(uploadUrl, {
-        formData: {
-            data: {
-                value: fs.createReadStream(filePath),
-                options: {
-                    filename: path.basename(filePath)
-                }
-            },
-        },
-    });
-}
-
-async function fileHandle(filePath) {
-    if (process.env.UPLOAD_URL) {
-        return fileHandleByUploadUrl(process.env.UPLOAD_URL, filePath);
-    }
-    if (process.env.SHARED_FOLDER) {
-        return fileHandleBySharedFolder(process.env.SHARED_FOLDER, filePath);
-    }
-    return filePath;
-}
 
 describe('AEM Basic', () => {
 
@@ -72,9 +41,7 @@ describe('AEM Basic', () => {
         browser.url(`${config.aem.author.base_url}/assets.html/content/dam`);
 
         // Compute the handle for the asset.
-        const handle = browser.call(() => {
-            return fileHandle(path.join(__dirname, '..', '..', 'assets', 'image.png'));
-        });
+        let handle = browser.getFileHandleForUpload(path.join(__dirname, '..', '..', 'assets', 'image.png'));
 
         // Add the handle to the web page element.
         $('dam-chunkfileupload > input').addValue(handle);

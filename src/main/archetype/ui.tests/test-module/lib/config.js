@@ -23,6 +23,9 @@ let selenium_base_url = process.env.SELENIUM_BASE_URL || 'http://localhost:4444'
 let browser = process.env.SELENIUM_BROWSER || 'chrome';
 // Results Reports
 let reports_path = process.env.REPORTS_PATH || './reports/';
+// Handle resources for upload testing
+let shared_folder = process.env.SHARED_FOLDER || null;
+let upload_url = process.env.UPLOAD_URL || null;
 // AEM Author
 let aem_author_basel_url = process.env.AEM_AUTHOR_URL || 'http://localhost:4502';
 let aem_author_username  = process.env.AEM_AUTHOR_USERNAME || 'admin';
@@ -52,5 +55,7 @@ module.exports = {
         }
     },
     reports_path: reports_path,
+    shared_folder: shared_folder,
+    upload_url: upload_url,
     screenshots_path: path.join(reports_path, 'html/screenshots/'),
 };

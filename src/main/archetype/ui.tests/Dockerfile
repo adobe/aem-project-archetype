@@ -17,6 +17,9 @@ ENV AEM_AUTHOR_PASSWORD admin
 ENV AEM_PUBLISH_URL http://localhost:4503
 ENV AEM_PUBLISH_USERNAME admin
 ENV AEM_PUBLISH_PASSWORD admin
+# Following convention variables are null by default
+# ENV SHARED_FOLDER
+# ENV UPLOAD_URL
 
 ## Install dependencies for wait_for_grid script
 RUN apt -qqy update \

@@ -13,6 +13,11 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
+const fs = require('fs');
+const path = require('path');
+const request = require('request-promise');
+const config = require('./config');
+
 function initCustomWDIOCommands(browser) {
 
     browser.addCommand('AEMLogin', function (username, password) {
@@ -47,6 +52,42 @@ function initCustomWDIOCommands(browser) {
         $('form[name="login"]').waitForExist();
     });
 
+    // Returns file handle to use for file upload component,
+    // depending on test context (local, Docker or Cloud)
+    browser.addCommand('getFileHandleForUpload', function(filePath) {
+        return browser.call(() => {
+            return fileHandle(filePath);
+        });
+    });
+}
+
+async function fileHandle(filePath) {
+    if (config.upload_url) {
+        return fileHandleByUploadUrl(config.upload_url, filePath);
+    }
+    if (config.shared_folder) {
+        return fileHandleBySharedFolder(config.shared_folder, filePath);
+    }
+    return filePath;
+}
+
+function fileHandleBySharedFolder(sharedFolderPath, filePath) {
+    const sharedFilePath = path.join(sharedFolderPath, path.basename(filePath));
+    fs.copyFileSync(filePath, sharedFilePath);
+    return sharedFilePath;
+}
+
+function fileHandleByUploadUrl(uploadUrl, filePath) {
+    return request.post(uploadUrl, {
+        formData: {
+            data: {
+                value: fs.createReadStream(filePath),
+                options: {
+                    filename: path.basename(filePath)
+                }
+            },
+        },
+    });
 }
 
 exports.init = initCustomWDIOCommands;
