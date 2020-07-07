@@ -16,7 +16,10 @@
 const fs = require('fs');
 const path = require('path');
 const request = require('request-promise');
+const url = require('url');
 const config = require('./config');
+const commons = require('./commons');
+const errors = require('request-promise/errors');
 
 function initCustomWDIOCommands(browser) {
 
@@ -58,6 +61,38 @@ function initCustomWDIOCommands(browser) {
         return browser.call(() => {
             return fileHandle(filePath);
         });
+    });
+    
+    browser.addCommand('AEMPathExists', function(baseUrl, path) {
+        let options = commons.getAuthenticatedRequestOptions(browser);
+        Object.assign(options, {
+            method: 'GET',
+            uri: url.resolve(baseUrl, path)
+        });
+
+        return request(options)
+            .then(function() {
+                return true;
+            })
+            .catch(errors.StatusCodeError, function(reason) {
+                if (reason.statusCode == 404) {
+                    return false;
+                }
+            });
+    });
+
+    browser.addCommand('AEMDeleteAsset', function(assetPath) {
+        let options = commons.getAuthenticatedRequestOptions(browser);
+        Object.assign(options, {
+            formData: {
+                cmd: 'deletePage',
+                path: assetPath,
+                force: 'true',
+                '_charset_': 'utf-8'
+            }
+        });
+
+        return request.post(url.resolve(config.aem.author.base_url, '/bin/wcmcommand'), options);
     });
 }
 

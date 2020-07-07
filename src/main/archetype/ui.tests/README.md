@@ -33,7 +33,7 @@ will build Docker image `com.adobe.cq.testing/ui.tests` locally
 * Requires an AEM instance (AEMaaCS or cloud ready quickstart) 
 
 ```
-mvn test -Prun-cloud-tests -DAEM_AUTHOR_URL=http://$(hostname):4502
+mvn test -Prun-cloud-tests -DAEM_AUTHOR_URL=http://host.docker.internal:4502
 ```
 
 will start a Docker service with both the cloud tests and a Selenium server (using official Docker images)

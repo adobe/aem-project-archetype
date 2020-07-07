@@ -16,6 +16,8 @@
 const conf   = require('./config');
 const moment = require('moment');
 const path   = require('path');
+const request = require('request-promise');
+const tough = require('tough-cookie');
 
 function takeScreenshot(browser) {
     const timestamp = moment().format('YYYYMMDD-HHmmss.SSS');
@@ -25,6 +27,36 @@ function takeScreenshot(browser) {
     return this;
 }
 
+function getAuthenticatedRequestOptions(browser) {
+    let loginTokenCookie = _getLoginTokenCookie(browser);
+    let jar = request.jar();
+    let currentUrl = new URL(browser.getUrl());
+
+    jar.setCookie(loginTokenCookie.toString(), currentUrl.origin);
+
+    return {
+        jar: jar
+    };
+}
+
+function _getLoginTokenCookie(browser) {
+    let cookies = browser.getCookies();
+    let cookie = cookies.find(element => element.name == "login-token");
+
+    if (!cookie) {
+        throw new Error("could not get login-token cookie");
+    }
+
+    return new tough.Cookie({
+        key: cookie.name,
+        value: cookie.value,
+        httpOnly: cookie.httpOnly,
+        secure: false,
+        path: cookie.path
+    });
+}
+
 module.exports = {
+    getAuthenticatedRequestOptions: getAuthenticatedRequestOptions,
     takeScreenshot: takeScreenshot
 };
