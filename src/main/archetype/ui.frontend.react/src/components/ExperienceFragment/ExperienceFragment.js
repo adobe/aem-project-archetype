@@ -14,7 +14,19 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import './Page/Page';
-import './Text/Text';
-import './Container/Container';
-import './ExperienceFragment/ExperienceFragment';
+import {
+    MapTo,
+    withComponentMappingContext,
+    Container
+} from '@adobe/cq-react-editable-components';
+
+const ExperienceFragmentVariationConfig = {
+    emptyLabel: 'Experience Fragment',
+
+    isEmpty: function(props) {
+        return !props || !props.configured;
+    }
+};
+
+MapTo('${appId}/components/experiencefragment')(withComponentMappingContext(Container), ExperienceFragmentVariationConfig);
+
