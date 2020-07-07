@@ -33,7 +33,7 @@ services:
     volumes:
       - ./reports:/tmp/reports
       - 'shared:/tmp/shared'
-    image: 'aem-cloud/ui-tests:latest'
+    image: 'com.adobe.cq.testing/ui.tests:latest'
   selenium-firefox:
     image: 'selenium/standalone-firefox-debug'
     ports:

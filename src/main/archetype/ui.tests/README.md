@@ -26,7 +26,7 @@ UI Test Project compatible with AEMaaCS
 mvn clean install -Pbuild-cloud-tests
 ```
 
-will build Docker image `aem-cloud/ui-tests` locally
+will build Docker image `com.adobe.cq.testing/ui.tests` locally
 
 ## Run Tests
 

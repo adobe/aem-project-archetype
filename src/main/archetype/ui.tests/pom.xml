@@ -131,7 +131,7 @@
                                 <arguments>
                                     <argument>build</argument>
                                     <argument>-t</argument>
-                                    <argument>aem-cloud/ui-tests:${project.version}</argument>
+                                    <argument>${project.groupId}/${project.artifactId}:${project.version}</argument>
                                     <argument>.</argument>
                                 </arguments>
                             </configuration>
@@ -147,8 +147,8 @@
                                 <workingDirectory>${project.basedir}</workingDirectory>
                                 <arguments>
                                     <argument>tag</argument>
-                                    <argument>aem-cloud/ui-tests:${project.version}</argument>
-                                    <argument>aem-cloud/ui-tests:latest</argument>
+                                    <argument>${project.groupId}/${project.artifactId}:${project.version}</argument>
+                                    <argument>${project.groupId}/${project.artifactId}:latest</argument>
                                 </arguments>
                             </configuration>
                             </execution>
