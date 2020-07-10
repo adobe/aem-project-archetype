@@ -30,7 +30,7 @@ will build Docker image `com.adobe.cq.testing/ui.tests` locally
 
 ## Run Tests
 
-* Requires an AEM instance (AEMaaCS or cloud ready quickstart) 
+* Requires an AEM instance (AEMaaCS deployment or [AEM as a Cloud Service SDK](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/implementing/developing/aem-as-a-cloud-service-sdk.html))
 
 ```
 mvn test -Prun-cloud-tests -DAEM_AUTHOR_URL=http://host.docker.internal:4502
