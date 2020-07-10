@@ -19,6 +19,8 @@ const path   = require('path');
 const request = require('request-promise');
 const tough = require('tough-cookie');
 
+const AEMSitesViewTypes = Object.freeze({"CARD": "card", "COLUMN": "column", "LIST": "list"});
+
 function takeScreenshot(browser) {
     const timestamp = moment().format('YYYYMMDD-HHmmss.SSS');
     const filepath = path.join(conf.screenshots_path, timestamp + '.png');
@@ -57,6 +59,7 @@ function _getLoginTokenCookie(browser) {
 }
 
 module.exports = {
+    AEMSitesViewTypes: AEMSitesViewTypes,
     getAuthenticatedRequestOptions: getAuthenticatedRequestOptions,
     takeScreenshot: takeScreenshot
 };

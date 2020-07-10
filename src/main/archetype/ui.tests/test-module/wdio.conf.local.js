@@ -29,7 +29,7 @@ exports.config = {
     hostname: 'localhost',
     // Tests
     specs: [
-        './specs/**/*.js'
+        './specs/**/sites.js'
     ],
 
     services: [

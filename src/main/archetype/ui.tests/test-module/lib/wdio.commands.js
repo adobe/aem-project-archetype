@@ -92,6 +92,20 @@ browser.addCommand('AEMDeleteAsset', function(assetPath) {
 
     return request.post(url.resolve(config.aem.author.base_url, '/bin/wcmcommand'), options);
 });
+
+browser.addCommand('AEMSitesSetView', function(type) {
+    if (!Object.values(commons.AEMSitesViewTypes).includes(type)) {
+        throw new Error(`View type ${type} is not supported`);
+    }
+
+    browser.setCookies({
+        name: 'cq-sites-pages-pages',
+        value: type
+    });
+
+    browser.refresh();
+});
+
 async function fileHandle(filePath) {
     if (config.upload_url) {
         return fileHandleByUploadUrl(config.upload_url, filePath);
