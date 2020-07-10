@@ -81,6 +81,12 @@ exports.config = {
         timeout: 60000
     },
 
+    // Gets executed before test execution begins
+    before: function () {
+        // Init custom WDIO commands (ex. AEMLogin)
+        require('./lib/wdio.commands');
+    },
+
     // WDIO Hook executed after each test
     afterTest: function(test, context, { error, result, duration, passed, retries }) {
         // Take a screenshot that will be attached in the HTML report

@@ -16,9 +16,6 @@
 const path = require('path');
 const config = require('../../lib/config');
 
-// Init custom WDIO commands (ex. AEMLogin)
-require('../../lib/wdio.commands').init(browser);
-
 describe('AEM Basic', () => {
 
     // AEM Login

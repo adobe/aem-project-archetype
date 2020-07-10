@@ -16,9 +16,6 @@
 const config = require('../../lib/config');
 const expect = require('chai').expect;
 
-// Init custom WDIO commands (ex. AEMLogin)
-require('../../lib/wdio.commands').init(browser);
-
 describe('AEM Login Page', () => {
 
     // Force AEM Logout

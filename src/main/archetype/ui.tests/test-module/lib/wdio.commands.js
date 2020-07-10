@@ -21,81 +21,77 @@ const config = require('./config');
 const commons = require('./commons');
 const errors = require('request-promise/errors');
 
-function initCustomWDIOCommands(browser) {
-
-    browser.addCommand('AEMLogin', function (username, password) {
-        // Check presence of local sign-in Accordion
-        if ($('[class*="Accordion"] form').isExisting()) {
-            try {
-                $('#username').setValue(username);
-            }
-            // Form field not interactable, not visible
-            // Need to open the Accordion
-            catch (e) {
-                $('[class*="Accordion"] button').click();
-                browser.pause(500);
-            }
+browser.addCommand('AEMLogin', function (username, password) {
+    // Check presence of local sign-in Accordion
+    if ($('[class*="Accordion"] form').isExisting()) {
+        try {
+            $('#username').setValue(username);
         }
-
-        $('#username').setValue(username);
-        $('#password').setValue(password);
-
-        $('form [type="submit"]').click();
-
-        $('coral-shell-content').waitForExist(5000);
-    });
-
-    browser.addCommand('AEMForceLogout', function (username, password) {
-        browser.url('/');
-
-        if (browser.getTitle() != 'AEM Sign In') {
-            browser.url('/system/sling/logout.html');
+        // Form field not interactable, not visible
+        // Need to open the Accordion
+        catch (e) {
+            $('[class*="Accordion"] button').click();
+            browser.pause(500);
         }
+    }
 
-        $('form[name="login"]').waitForExist();
+    $('#username').setValue(username);
+    $('#password').setValue(password);
+
+    $('form [type="submit"]').click();
+
+    $('coral-shell-content').waitForExist(5000);
+});
+
+browser.addCommand('AEMForceLogout', function (username, password) {
+    browser.url('/');
+
+    if (browser.getTitle() != 'AEM Sign In') {
+        browser.url('/system/sling/logout.html');
+    }
+
+    $('form[name="login"]').waitForExist();
+});
+
+// Returns file handle to use for file upload component,
+// depending on test context (local, Docker or Cloud)
+browser.addCommand('getFileHandleForUpload', function(filePath) {
+    return browser.call(() => {
+        return fileHandle(filePath);
+    });
+});
+
+browser.addCommand('AEMPathExists', function(baseUrl, path) {
+    let options = commons.getAuthenticatedRequestOptions(browser);
+    Object.assign(options, {
+        method: 'GET',
+        uri: url.resolve(baseUrl, path)
     });
 
-    // Returns file handle to use for file upload component,
-    // depending on test context (local, Docker or Cloud)
-    browser.addCommand('getFileHandleForUpload', function(filePath) {
-        return browser.call(() => {
-            return fileHandle(filePath);
-        });
-    });
-    
-    browser.addCommand('AEMPathExists', function(baseUrl, path) {
-        let options = commons.getAuthenticatedRequestOptions(browser);
-        Object.assign(options, {
-            method: 'GET',
-            uri: url.resolve(baseUrl, path)
-        });
-
-        return request(options)
-            .then(function() {
-                return true;
-            })
-            .catch(errors.StatusCodeError, function(reason) {
-                if (reason.statusCode == 404) {
-                    return false;
-                }
-            });
-    });
-
-    browser.addCommand('AEMDeleteAsset', function(assetPath) {
-        let options = commons.getAuthenticatedRequestOptions(browser);
-        Object.assign(options, {
-            formData: {
-                cmd: 'deletePage',
-                path: assetPath,
-                force: 'true',
-                '_charset_': 'utf-8'
+    return request(options)
+        .then(function() {
+            return true;
+        })
+        .catch(errors.StatusCodeError, function(reason) {
+            if (reason.statusCode == 404) {
+                return false;
             }
         });
+});
 
-        return request.post(url.resolve(config.aem.author.base_url, '/bin/wcmcommand'), options);
+browser.addCommand('AEMDeleteAsset', function(assetPath) {
+    let options = commons.getAuthenticatedRequestOptions(browser);
+    Object.assign(options, {
+        formData: {
+            cmd: 'deletePage',
+            path: assetPath,
+            force: 'true',
+            '_charset_': 'utf-8'
+        }
     });
-}
 
+    return request.post(url.resolve(config.aem.author.base_url, '/bin/wcmcommand'), options);
+});
 async function fileHandle(filePath) {
     if (config.upload_url) {
         return fileHandleByUploadUrl(config.upload_url, filePath);
@@ -124,5 +120,3 @@ function fileHandleByUploadUrl(uploadUrl, filePath) {
         },
     });
 }
-
-exports.init = initCustomWDIOCommands;
