@@ -19,7 +19,7 @@ const path   = require('path');
 const request = require('request-promise');
 const tough = require('tough-cookie');
 
-const AEMSitesViewTypes = Object.freeze({"CARD": "card", "COLUMN": "column", "LIST": "list"});
+const AEMSitesViewTypes = Object.freeze({'CARD': 'card', 'COLUMN': 'column', 'LIST': 'list'});
 
 function takeScreenshot(browser) {
     const timestamp = moment().format('YYYYMMDD-HHmmss.SSS');
@@ -43,10 +43,10 @@ function getAuthenticatedRequestOptions(browser) {
 
 function _getLoginTokenCookie(browser) {
     let cookies = browser.getCookies();
-    let cookie = cookies.find(element => element.name == "login-token");
+    let cookie = cookies.find(element => element.name == 'login-token');
 
     if (!cookie) {
-        throw new Error("could not get login-token cookie");
+        throw new Error('could not get login-token cookie');
     }
 
     return new tough.Cookie({

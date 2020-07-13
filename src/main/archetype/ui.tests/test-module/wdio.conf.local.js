@@ -52,7 +52,7 @@ exports.config = {
 
     framework: 'mocha',
 
-    // Location of the WDIO/Selenium logs 
+    // Location of the WDIO/Selenium logs
     outputDir: conf.reports_path,
 
     // Reporters
@@ -61,7 +61,7 @@ exports.config = {
         ['junit', {
             outputDir: path.join(conf.reports_path, 'junit'),
             outputFileFormat: function(options) {
-                return `results-${options.cid}.${options.capabilities.browserName}.xml`
+                return `results-${options.cid}.${options.capabilities.browserName}.xml`;
             }
         }],
         [HtmlReporter, {
@@ -82,15 +82,15 @@ exports.config = {
     },
 
     // Gets executed before test execution begins
-    before: function () {
+    before: function() {
         // Init custom WDIO commands (ex. AEMLogin)
         require('./lib/wdio.commands');
     },
 
     // WDIO Hook executed after each test
-    afterTest: function(test, context, { error, result, duration, passed, retries }) {
+    afterTest: function() {
         // Take a screenshot that will be attached in the HTML report
         commons.takeScreenshot(browser);
     }
 
-}
+};

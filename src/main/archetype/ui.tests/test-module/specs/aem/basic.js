@@ -58,19 +58,19 @@ describe('AEM Basic', () => {
 
         // Wait until Asset exists
         browser.waitUntil(function() {
-                return browser.AEMPathExists(browser.options.baseUrl, imagePath);
-            },
-            {timeoutMsg: `asset ${imagePath} should exist`}
+            return browser.AEMPathExists(browser.options.baseUrl, imagePath);
+        },
+        {timeoutMsg: `asset ${imagePath} should exist`}
         );
 
         // Delete Asset
         browser.AEMDeleteAsset(imagePath);
-    
+
         // Wait until Asset does not exist anymore
         browser.waitUntil(function() {
-                return true !== browser.AEMPathExists(config.aem.author.base_url, imagePath)
-            },
-            {timeoutMsg: `asset ${imagePath} should not exist`}
+            return true !== browser.AEMPathExists(config.aem.author.base_url, imagePath);
+        },
+        {timeoutMsg: `asset ${imagePath} should not exist`}
         );
     });
 

@@ -21,7 +21,7 @@ const config = require('./config');
 const commons = require('./commons');
 const errors = require('request-promise/errors');
 
-browser.addCommand('AEMLogin', function (username, password) {
+browser.addCommand('AEMLogin', function(username, password) {
     // Check presence of local sign-in Accordion
     if ($('[class*="Accordion"] form').isExisting()) {
         try {
@@ -43,7 +43,7 @@ browser.addCommand('AEMLogin', function (username, password) {
     $('coral-shell-content').waitForExist(5000);
 });
 
-browser.addCommand('AEMForceLogout', function (username, password) {
+browser.addCommand('AEMForceLogout', function() {
     browser.url('/');
 
     if (browser.getTitle() != 'AEM Sign In') {
