@@ -44,6 +44,9 @@ describe('AEM Basic', () => {
         // Compute the handle for the asset.
         let handle = browser.getFileHandleForUpload(path.join(__dirname, '..', '..', 'assets', imageName));
 
+        // Required when AEM language is not "English"
+        browser.refresh();
+
         // Add the handle to the web page element.
         $('dam-chunkfileupload > input').addValue(handle);
 

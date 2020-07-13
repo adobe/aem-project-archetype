@@ -42,7 +42,8 @@ describe('AEM Login Page', () => {
 
         browser.AEMLogin(config.aem.author.username, config.aem.author.password);
 
-        expect(browser.getTitle()).to.equal('AEM Start');
+        $('coral-shell').waitForExist();
+        $('coral-shell-header').waitForExist();
     });
 
 });
