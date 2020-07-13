@@ -20,14 +20,20 @@
     "@wdio/spec-reporter": "^6.1.23",
     "@wdio/sync": "^6.1.14",
     "chai": "^4.2.0",
+    "eslint": "7.4.0",
+    "eslint-plugin-wdio": "6.0.12",
     "log4js": "^6.1.2",
     "request-promise": "^4.2.5",
     "source-map-support": "^0.5.0",
     "tough-cookie": "^4.0.0"
   },
   "scripts": {
+    "lint": "eslint .",
+    "pretest-local-chrome": "npm run lint",
     "test-local-chrome": "wdio run wdio.conf.local.chrome.js",
+    "pretest-local-firefox": "npm run lint",
     "test-local-firefox": "wdio run wdio.conf.local.firefox.js",
+    "pretest-cloud": "npm run lint",
     "test-cloud": "wdio run wdio.conf.cloud.js",
     "clean": "rm -rf node_modules reports"
   }
