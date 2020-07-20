@@ -25,6 +25,7 @@ def includeCommerce = request.getProperties().get("includeCommerce")
 def appsFolder = new File("$uiAppsPackage/src/main/content/jcr_root/apps/$appId")
 def confFolder = new File("$uiContentPackage/src/main/content/jcr_root/conf/$appId")
 def contentFolder = new File("$uiContentPackage/src/main/content/jcr_root/content/$appId")
+def varFolder = new File("$uiContentPackage/src/main/content/jcr_root/var")
 
 if (includeErrorHandler == "n") {
     assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/sling").deleteDir()
@@ -83,6 +84,8 @@ if (includeCommerce == "n") {
     assert new File("$appsFolder/config/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.config").delete()
     assert new File("$appsFolder/config/com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory-default.config").delete()
     assert new File("$confFolder/cloudconfigs/commerce").deleteDir()
+    assert new File("$varFolder/commerce/products").deleteDir();
+
     def packageFolder = javaPackage.replaceAll("\\.", "/")
     assert new File(coreBundle, "src/main/java/$packageFolder/core/models/commerce").deleteDir()
     assert new File(coreBundle, "src/test/java/$packageFolder/core/models/commerce").deleteDir()
