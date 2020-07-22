@@ -111,7 +111,7 @@
     <profiles>
         <!-- Profile to run UI tests locally locally -->
         <profile>
-            <id>local-execution</id>
+            <id>ui-tests-local-execution</id>
             <build>
                 <plugins>
                     <plugin>
@@ -168,7 +168,7 @@
         </profile>
 
         <profile>
-            <id>build-cloud-tests</id>
+            <id>ui-tests-docker-build</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
@@ -219,7 +219,7 @@
         </profile>
 
         <profile>
-            <id>run-cloud-tests</id>
+            <id>ui-tests-docker-execution</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
