@@ -61,9 +61,7 @@
         <module>ui.frontend.general</module>
         <module>ui.frontend.angular</module>
         <module>ui.frontend.react</module>
-#if ( $aemVersion == "cloud" )
         <module>ui.tests</module>
-#end
     </modules>
 
     <properties>
