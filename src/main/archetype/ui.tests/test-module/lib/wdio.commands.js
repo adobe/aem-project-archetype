@@ -21,6 +21,8 @@ const config = require('./config');
 const commons = require('./commons');
 const errors = require('request-promise/errors');
 
+const AEM_SITES_PATH = '/sites.html';
+
 browser.addCommand('AEMLogin', function(username, password) {
     // Check presence of local sign-in Accordion
     if ($('[class*="Accordion"] form').isExisting()) {
@@ -98,12 +100,35 @@ browser.addCommand('AEMSitesSetView', function(type) {
         throw new Error(`View type ${type} is not supported`);
     }
 
+    browser.url(AEM_SITES_PATH);
+
     browser.setCookies({
         name: 'cq-sites-pages-pages',
         value: type
     });
 
     browser.refresh();
+});
+
+browser.addCommand('AEMSitesSetPageTitle', function(parentPath, name, title) {
+    let originalTitle = '';
+
+    // Navigate to page parent path
+    browser.url(path.join(AEM_SITES_PATH, parentPath));
+    // Select sample page in the list
+    $(`[data-foundation-collection-item-id="${path.join(parentPath, name)}"] [type="checkbox"]`).click();
+    // Aaccess page properties form
+    $('[data-foundation-collection-action*="properties"]').click();
+    // Store original title
+    originalTitle = $('[name="./jcr:title"]').getValue();
+    // Modify title
+    $('[name="./jcr:title"]').setValue(title);
+    // Submit
+    $('[type="submit"]').click();
+    // Wait until we get redirected to the Sites console
+    $(`[data-foundation-collection-item-id="${path.join(parentPath, name)}"] [type="checkbox"]`).waitForExist();
+
+    return originalTitle;
 });
 
 async function fileHandle(filePath) {

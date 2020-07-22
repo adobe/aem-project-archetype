@@ -18,11 +18,10 @@ const config = require('../../lib/config');
 const commons = require('../../lib/commons');
 const { expect } = require('chai');
 
-const AEM_SITES_PATH = '/sites.html';
 const AEM_SAMPLE_PAGE_PARENT = '/content/${appId}/us';
 const AEM_SAMPLE_PAGE_ID = 'en';
 
-describe('AEM Sites', () => {
+describe('AEM Sites Console', () => {
 
     // AEM Login
     beforeEach(() => {
@@ -32,28 +31,37 @@ describe('AEM Sites', () => {
         browser.AEMLogin(config.aem.author.username, config.aem.author.password);
 
         // Setup browser state
-        browser.url(AEM_SITES_PATH);
         browser.AEMSitesSetView(commons.AEMSitesViewTypes.LIST);
     });
 
-    it('should be possible to modify the title of a page', () => {
-        const modifiedTitle = `modified-title-${Date.now()}`;
 
-        // Navigate to page parent path
-        browser.url(path.join(AEM_SITES_PATH, AEM_SAMPLE_PAGE_PARENT));
-        // Select sample page in the list
-        $(`[data-foundation-collection-item-id="${path.join(AEM_SAMPLE_PAGE_PARENT, AEM_SAMPLE_PAGE_ID)}"] [type="checkbox"]`).click();
-        // Aaccess page properties form
-        $('[data-foundation-collection-action*="properties"]').click();
-        // Modify title
-        $('[name="./jcr:title"]').setValue(modifiedTitle);
-        // Submit
-        $('[type="submit"]').click();
-        // Navigate to modified page
-        browser.url(`${path.join(AEM_SAMPLE_PAGE_PARENT, AEM_SAMPLE_PAGE_ID)}.html`);
+    describe('Page Properties form', () => {
+        let originalTitle = '';
 
-        //Assert title is the modified one
-        expect(browser.getTitle()).to.equal(modifiedTitle);
+        it('should let user modify the title of a page', () => {
+            let modifiedTitle = `modified-title-${Date.now()}`;
+
+            // Change page title
+            originalTitle = browser.AEMSitesSetPageTitle(AEM_SAMPLE_PAGE_PARENT, AEM_SAMPLE_PAGE_ID, modifiedTitle);
+
+            // Navigate to modified page
+            browser.url(`${path.join(AEM_SAMPLE_PAGE_PARENT, AEM_SAMPLE_PAGE_ID)}.html`);
+
+            // Assert title is the modified one
+            expect(browser.getTitle()).to.equal(modifiedTitle);
+        });
+
+        after('Reset page title', () => {
+            // Reset page title
+            browser.AEMSitesSetPageTitle(AEM_SAMPLE_PAGE_PARENT, AEM_SAMPLE_PAGE_ID, originalTitle);
+
+            // Navigate to page
+            browser.url(`${path.join(AEM_SAMPLE_PAGE_PARENT, AEM_SAMPLE_PAGE_ID)}.html`);
+
+            // Assert title is the original one
+            expect(browser.getTitle()).to.equal(originalTitle);
+        });
+
     });
 
 });
