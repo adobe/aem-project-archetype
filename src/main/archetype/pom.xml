@@ -53,7 +53,6 @@
         <module>ui.apps.structure</module>
         <module>ui.content</module>
         <module>it.tests</module>
-        <module>ui.tests</module>
 #if ( $includeDispatcherConfig != "n" )
         <module>dispatcher</module>
 #end
@@ -62,6 +61,9 @@
         <module>ui.frontend.general</module>
         <module>ui.frontend.angular</module>
         <module>ui.frontend.react</module>
+#if ( $aemVersion == "cloud" )
+        <module>ui.tests</module>
+#end
     </modules>
 
     <properties>
