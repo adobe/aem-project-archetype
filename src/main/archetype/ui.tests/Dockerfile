@@ -53,6 +53,7 @@ RUN npm install
 # Begin CloudManager Convention >>>
 ## Copy helper to wait on Selenium readiness
 COPY wait-for-grid.sh .
+RUN chmod 555 wait-for-grid.sh
 
 CMD ./wait-for-grid.sh ${TEST_RUN_COMMAND}
 # <<< End CloudManager Convention
