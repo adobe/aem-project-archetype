@@ -82,10 +82,10 @@ They will test the UI layer of your AEM application using Selenium technology.
 
 To run them locally:
 
-    mvn clean test -Pui-tests-local-execution
+    mvn clean verify -Pui-tests-local-execution
 
 This default command requires:
-* an AEM author instance available at http://localhost:4502
+* an AEM author instance available at http://localhost:4502 (with the whole project built and deployed on it, see `How to build` section above)
 * Chrome browser installed at default location
 
 Check README file in `ui.tests` module for more details.

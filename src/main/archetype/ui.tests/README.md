@@ -25,7 +25,7 @@ ${hash}${hash} Requirements
 ${hash}${hash} Run Tests
 
 ```
-mvn test -Pui-tests-local-execution
+mvn verify -Pui-tests-local-execution
 ```
 
 ${hash}${hash}${hash}${hash} Remarks
@@ -88,7 +88,7 @@ ${hash}${hash}${hash} Target a local AEM author instance
 Example, your instance is available at http://localhost:4502):
 
 ```
-mvn test -Pui-tests-docker-execution -DAEM_AUTHOR_URL=http://host.docker.internal:4502
+mvn verify -Pui-tests-docker-execution -DAEM_AUTHOR_URL=http://host.docker.internal:4502
 ```
 
 > `host.docker.internal` is a Docker convention, do not change it!
@@ -99,7 +99,7 @@ Example, you have an [AEM as a Cloud Service](https://docs.adobe.com/content/hel
 
 
 ```
-mvn test -Pui-tests-docker-execution -DAEM_AUTHOR_URL=https://author.my-deployment.com
+mvn verify -Pui-tests-docker-execution -DAEM_AUTHOR_URL=https://author.my-deployment.com
 ```
 
 > **&#x26A0; Default tests provided in this module require sample content (module `ui.content`) to be installed in your AEMaaCS deployment!**
