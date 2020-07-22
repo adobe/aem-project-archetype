@@ -43,7 +43,7 @@
         <HEADLESS_BROWSER>false</HEADLESS_BROWSER>
 
         <!-- AEMaaCS UI testing convention properties -->
-        <AEM_AUTHOR_URL />
+        <AEM_AUTHOR_URL>http://localhost:4502</AEM_AUTHOR_URL>
         <AEM_AUTHOR_USERNAME>admin</AEM_AUTHOR_USERNAME>
         <AEM_AUTHOR_PASSWORD>admin</AEM_AUTHOR_PASSWORD>
         <AEM_PUBLISH_URL />
