@@ -1,9 +1,9 @@
-UI Test Project compatible with AEMaaCS
-=======================================
 
-[TODO]
+UI Testing module for your AEM application
+===
 
-## Structure
+
+${hash}${hash} Structure
 
 * `test-module/` The test project (add your tests there)
 
@@ -15,49 +15,91 @@ UI Test Project compatible with AEMaaCS
 * `assembly-ui-test-docker-context.xml` Packages test project for AEMaaCS
 
 
-## Requirements
+${hash}${hash} Requirements
 
-* Docker
 * Maven
+* Chrome and/or Firefox browser installed locally in default location
+* An AEM author instance running at http://localhost:4502
 
-## Build
 
-```
-mvn clean install -Pbuild-cloud-tests
-```
-
-will build Docker image `com.adobe.cq.testing/ui.tests` locally
-
-## Run Tests
-
-* Requires an AEM instance (AEMaaCS deployment or [AEM as a Cloud Service SDK](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/implementing/developing/aem-as-a-cloud-service-sdk.html))
+${hash}${hash} Run Tests
 
 ```
-mvn test -Prun-cloud-tests -DAEM_AUTHOR_URL=http://host.docker.internal:4502
+mvn test -Pui-tests-local-execution
 ```
 
-will start a Docker service with both the cloud tests and a Selenium server (using official Docker images)
+${hash}${hash}${hash}${hash} Remarks
+* After execution, reports and logs are available in `test-module/reports` folder
 
-### Parameters
+${hash}${hash}${hash} Parameters
 
 | Parameter | Required | Default| Description |
 | --- | --- | --- | --- |
-| `AEM_AUTHOR_URL`        | **true**  | -         | URL of the author instance |
-| `AEM_AUTHOR_USERNAME`   | false     | `admin`   | Username used to access the author instance |
-| `AEM_AUTHOR_PASSWORD`   | false     | `admin`   | Password used to access the author instance |
-| `AEM_PUBLISH_URL`       | false     | -         | URL of the publish instance |
-| `AEM_PUBLISH_USERNAME`  | false     | `admin`   | Username used to access the publish instance |
-| `AEM_PUBLISH_PASSWORD`  | false     | `admin`   | Password used to access the publish instance |
-| `SELENIUM_BROWSER`      | false     | `chrome`  | Browser used in the tests (`chrome` **_or_** `firefox`) |
+| `AEM_AUTHOR_URL`        | false     | `http://localhost:4502` | URL of the author instance |
+| `AEM_AUTHOR_USERNAME`   | false     | `admin`                 | Username used to access the author instance |
+| `AEM_AUTHOR_PASSWORD`   | false     | `admin`                 | Password used to access the author instance |
+| `AEM_PUBLISH_URL`       | false     | -                       | URL of the publish instance |
+| `AEM_PUBLISH_USERNAME`  | false     | `admin`                 | Username used to access the publish instance |
+| `AEM_PUBLISH_PASSWORD`  | false     | `admin`                 | Password used to access the publish instance |
+| `SELENIUM_BROWSER`      | false     | `chrome`                | Browser used in the tests (`chrome` **_or_** `firefox`) |
+| `HEADLESS_BROWSER`      | false     | `false`                 | Set [headless mode](https://en.wikipedia.org/wiki/Headless_browser) of the browser |
 
-#### Example
+${hash}${hash}${hash}${hash} Example
 
-Run tests on Firefox, targeting a custom AEM instance:
+Run tests on <span style="color:green">local</span> <span style="color:orange">headless</span> <span style="color:purple">firefox</span>, targeting a <span style="color:blue">custom AEM author instance</span>:
 
-```
+<PRE>
 mvn test \
-    -Prun-cloud-tests \
-    -DAEM_AUTHOR_URL=http://my-aem-author-instance.com \
-    -DAEM_AUTHOR_PASSWORD=aVVe5om3 \
-    -DSELENIUM_BROWSER=firefox
+    <span style="color:green">-Plocal-execution</span> \
+    <span style="color:orange">-DHEADLESS_BROWSER=true</span> \
+    <span style="color:purple">-DSELENIUM_BROWSER=firefox</span> \
+    <span style="color:blue">-DAEM_AUTHOR_URL=http://my-aem-author-instance.com</span> \
+    <span style="color:blue">-DAEM_AUTHOR_USERNAME=testuser</span> \
+    <span style="color:blue">-DAEM_AUTHOR_PASSWORD=aVVe5om3</span>
+</PRE>
+
+
+${hash}${hash} Docker execution
+
+This project also provides Maven profiles to build and execute the tests using Docker
+
+${hash}${hash}${hash} Requirements
+
+* Maven
+* Docker
+* An AEM author instance
+
+${hash}${hash}${hash} Build test image
+
 ```
+mvn clean install -Pui-tests-docker-build
+```
+
+will build Docker image `${groupId}/${artifactId}` locally
+
+${hash}${hash} Run Tests
+
+**Remarks**
+* Following commands will start a Docker service with both the cloud tests and a Selenium server (using official Docker images)
+* Parameters described above also apply for Docker use case
+
+${hash}${hash}${hash} Target a local AEM author instance
+
+Example, your instance is available at http://localhost:4502):
+
+```
+mvn test -Pui-tests-docker-execution -DAEM_AUTHOR_URL=http://host.docker.internal:4502
+```
+
+> `host.docker.internal` is a Docker convention, do not change it!
+
+${hash}${hash}${hash} Target a remote AEM author instance
+
+Example, you have an [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/overview/introduction.html) deployment with author instance available at https://author.my-deployment.com:
+
+
+```
+mvn test -Pui-tests-docker-execution -DAEM_AUTHOR_URL=https://author.my-deployment.com
+```
+
+> **&#x26A0; Default tests provided in this module require sample content (module `ui.content`) to be installed in your AEMaaCS deployment!**
