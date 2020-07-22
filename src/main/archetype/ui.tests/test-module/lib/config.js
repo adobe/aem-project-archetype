@@ -21,6 +21,8 @@ const url = require('url');
 let selenium_base_url = process.env.SELENIUM_BASE_URL || 'http://localhost:4444';
 // Browser
 let browser = process.env.SELENIUM_BROWSER || 'chrome';
+// Headless Mode
+let headless = process.env.HEADLESS_BROWSER === 'true' ? true : false;
 // Results Reports
 let reports_path = process.env.REPORTS_PATH || './reports/';
 // Handle resources for upload testing
@@ -41,6 +43,7 @@ module.exports = {
         hostname: url.parse(selenium_base_url).hostname,
         port: parseInt(url.parse(selenium_base_url).port),
         browser: browser,
+        headless: headless
     },
     aem: {
         author: {

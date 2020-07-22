@@ -13,9 +13,10 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-let config = require('./wdio.conf.local.js').config;
+let wdio_config = require('./wdio.conf.local.js').config;
+let config = require('./lib/config');
 
-config.capabilities = [{
+let capabilities = {
     maxInstances: 1,
     browserName: 'firefox',
     'moz:firefoxOptions': {
@@ -24,6 +25,12 @@ config.capabilities = [{
             'extensions.enabledScopes': 0
         }
     }
-}];
+};
 
-exports.config = config;
+if (config.selenium.headless === true) {
+    capabilities['moz:firefoxOptions'].args = ['-headless'];
+}
+
+wdio_config.capabilities = [capabilities];
+
+exports.config = wdio_config;
