@@ -77,13 +77,13 @@ mvn clean install -Pui-tests-docker-build
 
 will build Docker image `${groupId}/${artifactId}` locally
 
-${hash}${hash} Run Tests
+${hash}${hash}${hash} Run Tests
 
 **Remarks**
 * Following commands will start a Docker service with both the cloud tests and a Selenium server (using official Docker images)
 * Parameters described above also apply for Docker use case
 
-${hash}${hash}${hash} Target a local AEM author instance
+${hash}${hash}${hash}${hash} Target a local AEM author instance
 
 Example, your instance is available at http://localhost:4502):
 
@@ -93,7 +93,7 @@ mvn verify -Pui-tests-docker-execution -DAEM_AUTHOR_URL=http://host.docker.inter
 
 > `host.docker.internal` is a Docker convention, do not change it!
 
-${hash}${hash}${hash} Target a remote AEM author instance
+${hash}${hash}${hash}${hash} Target a remote AEM author instance
 
 Example, you have an [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/overview/introduction.html) deployment with author instance available at https://author.my-deployment.com:
 
