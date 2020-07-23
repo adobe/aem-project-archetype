@@ -75,7 +75,7 @@ ${hash}${hash}${hash} Build test image
 mvn clean install -Pui-tests-docker-build
 ```
 
-will build Docker image `${groupId}/${artifactId}` locally
+will build Docker image `${groupId}-${artifactId}/ui.tests` locally
 
 ${hash}${hash}${hash} Run Tests
 

@@ -33,7 +33,7 @@ services:
     volumes:
       - ./reports:/tmp/reports
       - 'shared:/tmp/shared'
-    image: '${groupId}/${artifactId}:latest'
+    image: '${groupId}-${artifactId}/ui.tests:latest'
   selenium-firefox:
     image: 'selenium/standalone-firefox-debug'
     ports:
