@@ -36,7 +36,7 @@ describe('AEM Basic', () => {
     it('should be possible to upload an asset', () => {
         let assetsPath = '/content/dam';
         let imageName = 'image.png';
-        let imagePath = path.resolve(assetsPath, imageName);
+        let imagePath = `${assetsPath}/${imageName}`;
 
         // Go to the Assets page.
         browser.url(`${config.aem.author.base_url}/assets.html${assetsPath}`);
