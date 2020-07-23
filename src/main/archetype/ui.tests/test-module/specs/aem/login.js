@@ -15,6 +15,7 @@
  */
 const config = require('../../lib/config');
 const expect = require('chai').expect;
+const url = require('url');
 
 describe('AEM Login Page', () => {
 
@@ -26,7 +27,9 @@ describe('AEM Login Page', () => {
     it('should redirect to login page by default', () => {
         browser.url(config.aem.author.base_url);
 
-        expect(browser.getTitle()).to.equal('AEM Sign In');
+        let redirectedURL = url.parse(browser.getUrl());
+
+        expect(redirectedURL.pathname.endsWith('login.html')).to.be.true;
     });
 
     it('should contain the login form', () => {
