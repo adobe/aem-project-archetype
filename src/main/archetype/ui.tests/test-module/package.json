@@ -30,9 +30,9 @@
   "scripts": {
     "lint": "eslint .",
     "pretest-local-chrome": "npm run lint",
-    "test-local-chrome": "wdio run wdio.conf.local.chrome.js",
+    "test-local-chrome": "SELENIUM_BROWSER=chrome wdio run wdio.conf.local.js",
     "pretest-local-firefox": "npm run lint",
-    "test-local-firefox": "wdio run wdio.conf.local.firefox.js",
+    "test-local-firefox": "SELENIUM_BROWSER=firefox wdio run wdio.conf.local.js",
     "pretest-cloud": "npm run lint",
     "test-cloud": "wdio run wdio.conf.cloud.js",
     "clean": "rm -rf node_modules reports"

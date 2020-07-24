@@ -16,6 +16,10 @@
 const path = require('path');
 const url = require('url');
 
+// Common constants
+const CHROME = 'chrome';
+const FIREFOX = 'firefox';
+
 // Environment Variables sent by CloudManager
 // Selenium Endpoint
 let selenium_base_url = process.env.SELENIUM_BASE_URL || 'http://localhost:4444';
@@ -61,4 +65,6 @@ module.exports = {
     shared_folder: shared_folder,
     upload_url: upload_url,
     screenshots_path: path.join(reports_path, 'html/screenshots/'),
+    CHROME: CHROME,
+    FIREFOX: FIREFOX
 };

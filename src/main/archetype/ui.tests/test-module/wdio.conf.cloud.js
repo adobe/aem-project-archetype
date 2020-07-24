@@ -17,82 +17,16 @@
 /**
  * DO NOT MODIFY
  */
-const conf = require('./lib/config');
-const commons = require('./lib/commons');
-const HtmlReporter = require('@rpii/wdio-html-reporter').HtmlReporter;
-const path = require('path');
-const log4js = require('log4js');
+let wdio_config = require('./wdio.conf.commons.js').config;
+let config = require('./lib/config');
 
-exports.config = {
-    runner: 'local',
+wdio_config.hostname =  config.selenium.hostname;
+wdio_config.port = config.selenium.port;
+wdio_config.path = '/wd/hub';
 
-    // Selenium Endpoint
-    hostname: conf.selenium.hostname,
-    port: conf.selenium.port,
-    path: '/wd/hub',
+wdio_config.capabilities = [{
+    maxInstances: 1,
+    browserName: config.selenium.browser,
+}];
 
-    // Tests
-    specs: [
-        './specs/**/*.js'
-    ],
-
-    // Browser Capabilities
-    capabilities: [{
-        maxInstances: 1,
-        browserName: conf.selenium.browser,
-    }],
-
-    logLevel: 'debug',
-
-    bail: 0,
-
-    baseUrl: conf.aem.author.base_url,
-
-    waitforTimeout: 10000,
-    connectionRetryTimeout: 90000,
-    connectionRetryCount: 3,
-
-    framework: 'mocha',
-
-    // Location of the WDIO/Selenium logs
-    outputDir: conf.reports_path,
-
-    // Reporters
-    reporters: [
-        'spec',
-        ['junit', {
-            outputDir: path.join(conf.reports_path, 'junit'),
-            outputFileFormat: function(options) {
-                return `results-${options.cid}.${options.capabilities.browserName}.xml`;
-            }
-        }],
-        [HtmlReporter, {
-            debug: true,
-            outputDir: path.join(path.relative(process.cwd(), conf.reports_path), 'html/'),
-            filename: 'report.html',
-            reportTitle: 'UI Testing Basic Tests',
-            showInBrowser: false,
-            useOnAfterCommandForScreenshot: true,
-            LOG: log4js.getLogger('default')
-        }],
-    ],
-
-    // Mocha parameters
-    mochaOpts: {
-        ui: 'bdd',
-        timeout: 60000
-    },
-
-    // Gets executed before test execution begins
-    before: function() {
-        // Init custom WDIO commands (ex. AEMLogin)
-        require('./lib/wdio.commands');
-    },
-
-    // WDIO Hook executed after each test
-    afterTest: function() {
-        // Take a screenshot that will be attached in the HTML report
-        commons.takeScreenshot(browser);
-    }
-
-};
+exports.config = wdio_config;
