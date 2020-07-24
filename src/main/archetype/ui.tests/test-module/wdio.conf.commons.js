@@ -84,6 +84,16 @@ exports.config = {
     afterTest: function() {
         // Take a screenshot that will be attached in the HTML report
         commons.takeScreenshot(browser);
-    }
+    },
 
+    // Gets executed after each WDIO command
+    afterCommand: function (commandName) {
+        // Handle AEM Survey dialog
+        if (['url', 'refresh', 'click', 'call'].includes(commandName)) {
+            if($('#omg_surveyContainer').isExisting()) {
+                console.log('Detected presence of the AEM Survey Dialog! Refreshing the page to get rid of it.');
+                browser.refresh();
+            }
+        }
+    }
 };
