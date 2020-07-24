@@ -45,7 +45,7 @@ describe('AEM Sites Console', () => {
             originalTitle = browser.AEMSitesSetPageTitle(AEM_SAMPLE_PAGE_PARENT, AEM_SAMPLE_PAGE_ID, modifiedTitle);
 
             // Navigate to modified page
-            browser.url(`${path.join(AEM_SAMPLE_PAGE_PARENT, AEM_SAMPLE_PAGE_ID)}.html`);
+            browser.url(`${path.posix.join(AEM_SAMPLE_PAGE_PARENT, AEM_SAMPLE_PAGE_ID)}.html`);
 
             // Assert title is the modified one
             expect(browser.getTitle()).to.equal(modifiedTitle);
@@ -56,7 +56,7 @@ describe('AEM Sites Console', () => {
             browser.AEMSitesSetPageTitle(AEM_SAMPLE_PAGE_PARENT, AEM_SAMPLE_PAGE_ID, originalTitle);
 
             // Navigate to page
-            browser.url(`${path.join(AEM_SAMPLE_PAGE_PARENT, AEM_SAMPLE_PAGE_ID)}.html`);
+            browser.url(`${path.posix.join(AEM_SAMPLE_PAGE_PARENT, AEM_SAMPLE_PAGE_ID)}.html`);
 
             // Assert title is the original one
             expect(browser.getTitle()).to.equal(originalTitle);

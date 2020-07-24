@@ -20,6 +20,7 @@
     "@wdio/spec-reporter": "^6.1.23",
     "@wdio/sync": "^6.1.14",
     "chai": "^4.2.0",
+    "cross-env": "7.0.2",
     "eslint": "7.4.0",
     "eslint-plugin-wdio": "6.0.12",
     "log4js": "^6.1.2",
@@ -30,9 +31,9 @@
   "scripts": {
     "lint": "eslint .",
     "pretest-local-chrome": "npm run lint",
-    "test-local-chrome": "SELENIUM_BROWSER=chrome wdio run wdio.conf.local.js",
+    "test-local-chrome": "cross-env SELENIUM_BROWSER=chrome wdio run wdio.conf.local.js",
     "pretest-local-firefox": "npm run lint",
-    "test-local-firefox": "SELENIUM_BROWSER=firefox wdio run wdio.conf.local.js",
+    "test-local-firefox": "cross-env SELENIUM_BROWSER=firefox wdio run wdio.conf.local.js",
     "pretest-cloud": "npm run lint",
     "test-cloud": "wdio run wdio.conf.cloud.js",
     "clean": "rm -rf node_modules reports"

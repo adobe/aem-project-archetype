@@ -114,9 +114,9 @@ browser.addCommand('AEMSitesSetPageTitle', function(parentPath, name, title) {
     let originalTitle = '';
 
     // Navigate to page parent path
-    browser.url(path.join(AEM_SITES_PATH, parentPath));
+    browser.url(path.posix.join(AEM_SITES_PATH, parentPath));
     // Select sample page in the list
-    $(`[data-foundation-collection-item-id="${path.join(parentPath, name)}"] [type="checkbox"]`).click();
+    $(`[data-foundation-collection-item-id="${path.posix.join(parentPath, name)}"] [type="checkbox"]`).click();
     // Access page properties form
     $('[data-foundation-collection-action*="properties"]').click();
     // Store original title
@@ -126,7 +126,7 @@ browser.addCommand('AEMSitesSetPageTitle', function(parentPath, name, title) {
     // Submit
     $('[type="submit"]').click();
     // Wait until we get redirected to the Sites console
-    $(`[data-foundation-collection-item-id="${path.join(parentPath, name)}"] [type="checkbox"]`).waitForExist();
+    $(`[data-foundation-collection-item-id="${path.posix.join(parentPath, name)}"] [type="checkbox"]`).waitForExist();
 
     return originalTitle;
 });
