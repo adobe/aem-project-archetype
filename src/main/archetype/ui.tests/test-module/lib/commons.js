@@ -21,9 +21,10 @@ const tough = require('tough-cookie');
 
 const AEMSitesViewTypes = Object.freeze({'CARD': 'card', 'COLUMN': 'column', 'LIST': 'list'});
 
-function takeScreenshot(browser) {
+function takeScreenshot(browser, prefix) {
+    prefix = prefix == null ? '' : prefix + '-';
     const timestamp = moment().format('YYYYMMDD-HHmmss.SSS');
-    const filepath = path.join(conf.screenshots_path, timestamp + '.png');
+    const filepath = path.join(conf.screenshots_path, prefix + timestamp + '.png');
     browser.saveScreenshot(filepath);
     process.emit('test:screenshot', filepath);
     return this;
