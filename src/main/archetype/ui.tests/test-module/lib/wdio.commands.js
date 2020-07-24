@@ -117,7 +117,7 @@ browser.addCommand('AEMSitesSetPageTitle', function(parentPath, name, title) {
     browser.url(path.join(AEM_SITES_PATH, parentPath));
     // Select sample page in the list
     $(`[data-foundation-collection-item-id="${path.join(parentPath, name)}"] [type="checkbox"]`).click();
-    // Aaccess page properties form
+    // Access page properties form
     $('[data-foundation-collection-action*="properties"]').click();
     // Store original title
     originalTitle = $('[name="./jcr:title"]').getValue();
