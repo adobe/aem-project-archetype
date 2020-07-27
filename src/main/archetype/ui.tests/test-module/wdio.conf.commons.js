@@ -39,7 +39,7 @@ exports.config = {
 
     sync: true,
 
-    waitforTimeout: 30000,
+    waitforTimeout: 60000,
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
 
