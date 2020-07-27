@@ -36,7 +36,11 @@ case config.CHROME:
         maxInstances: 1,
         browserName: 'chrome',
         'goog:chromeOptions': {
-            'excludeSwitches': ['enable-automation']
+            'excludeSwitches': ['enable-automation'],
+            'prefs': {
+                'credentials_enable_service': false,
+                'profile.password_manager_enabled': false
+            }
         }
     };
     if (config.selenium.headless === true) {
