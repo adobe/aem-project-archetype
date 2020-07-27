@@ -59,8 +59,33 @@ function _getLoginTokenCookie(browser) {
     });
 }
 
+class OnboardingDialogHandler {
+    constructor(browser) {
+        this.browser = browser;
+        this.beforeCmdBkp = null;
+    }
+
+    enable() {
+        this.beforeCmdBkp = this.browser.config.beforeCommand || [];
+
+        this.browser.config.beforeCommand.push(function() {
+            if($('coral-overlay[class*="onboarding"]').isDisplayedInViewport()) {
+                console.log('User Onboarding Dialog is present, closing it.');
+                // console.log(arguments);
+                browser.keys('Escape');
+                $('coral-overlay[class*="onboarding"]').waitForDisplayed({reverse: true});
+            }
+        });
+    }
+
+    disable() {
+        this.browser.config.beforeCommand = this.beforeCmdBkp;
+    }
+}
+
 module.exports = {
     AEMSitesViewTypes: AEMSitesViewTypes,
     getAuthenticatedRequestOptions: getAuthenticatedRequestOptions,
-    takeScreenshot: takeScreenshot
+    takeScreenshot: takeScreenshot,
+    OnboardingDialogHandler: OnboardingDialogHandler
 };

@@ -34,6 +34,19 @@ describe('AEM Sites Console', () => {
         browser.AEMSitesSetView(commons.AEMSitesViewTypes.LIST);
     });
 
+    let onboardingHdler;
+
+    before(function() {
+        // Enable helper to handle onboarding dialog popup
+        onboardingHdler = new commons.OnboardingDialogHandler(browser);
+        onboardingHdler.enable();
+    });
+
+    after(function() {
+        // Disable helper to handle onboarding dialog popup
+        onboardingHdler.disable();
+    });
+
 
     describe('Page Properties form', () => {
         let originalTitle = '';

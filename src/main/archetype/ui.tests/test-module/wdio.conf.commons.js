@@ -87,18 +87,13 @@ exports.config = {
     },
 
     // Gets executed after each WDIO command
-    afterCommand: function (commandName) {
+    beforeCommand: function (commandName) {
         // For WDIO commands which can lead into page navigation
         if (['url', 'refresh', 'click', 'call'].includes(commandName)) {
             // Handle AEM Survey dialog
             if($('#omg_surveyContainer').isExisting()) {
                 console.log('Detected presence of the AEM Survey Dialog! Refreshing the page to get rid of it.');
                 browser.refresh();
-            }
-            // Handle Tutorial overlays
-            if($('coral-overlay[class*="onboarding"]').isDisplayedInViewport()) {
-                console.log('Detected presence of Tutorial overlay. Clicking it to remove it.');
-                $('coral-overlay[class*="onboarding"]').click();
             }
         }
     }

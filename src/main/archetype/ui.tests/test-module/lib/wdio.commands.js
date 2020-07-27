@@ -116,6 +116,8 @@ browser.addCommand('AEMSitesSetPageTitle', function(parentPath, name, title) {
     // Navigate to page parent path
     browser.url(path.posix.join(AEM_SITES_PATH, parentPath));
     // Select sample page in the list
+    $(`[data-foundation-collection-item-id="${path.posix.join(parentPath, name)}"] [type="checkbox"]`).waitForClickable();
+    browser.pause(1000); // Avoid action bar not appearing after clicking checkbox
     $(`[data-foundation-collection-item-id="${path.posix.join(parentPath, name)}"] [type="checkbox"]`).click();
     // Access page properties form
     $('[data-foundation-collection-action*="properties"]').click();
