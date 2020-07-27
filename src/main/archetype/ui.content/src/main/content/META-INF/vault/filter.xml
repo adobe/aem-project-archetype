@@ -4,4 +4,7 @@
     <filter root="/content/${appId}" mode="merge"/>
     <filter root="/content/dam/${appId}" mode="merge"/>
     <filter root="/content/experience-fragments/${appId}" mode="merge"/>
+#if ( $includeCommerce == "y" and $aemVersion != "cloud")
+    <filter root="/var/commerce/products/${appId}-default" mode="merge"/>
+#end
 </workspaceFilter>
