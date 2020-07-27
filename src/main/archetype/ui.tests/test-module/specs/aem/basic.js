@@ -13,7 +13,6 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-const path = require('path');
 const config = require('../../lib/config');
 
 describe('AEM Basic', () => {
@@ -30,48 +29,7 @@ describe('AEM Basic', () => {
 
         $('[data-foundation-toggleable-control-src$="solutionswitcher.html"]').click();
 
-        $('coral-shell-solutionswitcher').waitForDisplayed(10000);
-    });
-
-    it('should be possible to upload an asset', () => {
-        let assetsPath = '/content/dam';
-        let imageName = 'image.png';
-        let imagePath = `${assetsPath}/${imageName}`;
-
-        // Go to the Assets page.
-        browser.url(`${config.aem.author.base_url}/assets.html${assetsPath}`);
-
-        // Compute the handle for the asset.
-        let handle = browser.getFileHandleForUpload(path.join(__dirname, '..', '..', 'assets', imageName));
-
-        // Required when AEM language is not "English"
-        browser.refresh();
-
-        // Add the handle to the web page element.
-        $('dam-chunkfileupload > input').addValue(handle);
-
-        // Wait two seconds for the upload dialog to be interactive.
-        browser.pause(2000);
-
-        // Press the upload button.
-        $('coral-dialog.is-open coral-dialog-footer [variant="primary"]').click();
-
-        // Wait until Asset exists
-        browser.waitUntil(function() {
-            return browser.AEMPathExists(browser.options.baseUrl, imagePath);
-        },
-        {timeoutMsg: `asset ${imagePath} should exist`}
-        );
-
-        // Delete Asset
-        browser.AEMDeleteAsset(imagePath);
-
-        // Wait until Asset does not exist anymore
-        browser.waitUntil(function() {
-            return true !== browser.AEMPathExists(config.aem.author.base_url, imagePath);
-        },
-        {timeoutMsg: `asset ${imagePath} should not exist`}
-        );
+        $('coral-shell-solutionswitcher').waitForDisplayed();
     });
 
 });
