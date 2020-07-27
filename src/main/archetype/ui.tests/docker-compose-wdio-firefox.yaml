@@ -30,6 +30,7 @@ services:
       - AEM_PUBLISH_PASSWORD
       - REPORTS_PATH=/tmp/reports/wdio-firefox
       - SHARED_FOLDER=/tmp/shared
+      - HEADLESS_BROWSER
     volumes:
       - ./reports:/tmp/reports
       - 'shared:/tmp/shared'
