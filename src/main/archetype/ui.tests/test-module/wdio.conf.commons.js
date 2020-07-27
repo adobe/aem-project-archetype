@@ -39,8 +39,8 @@ exports.config = {
 
     sync: true,
 
-    waitforTimeout: 10000,
-    connectionRetryTimeout: 90000,
+    waitforTimeout: 30000,
+    connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
 
     framework: 'mocha',
@@ -71,7 +71,7 @@ exports.config = {
     // Mocha parameters
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 120000
     },
 
     // Gets executed before test execution begins
