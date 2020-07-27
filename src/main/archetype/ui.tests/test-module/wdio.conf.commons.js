@@ -88,6 +88,7 @@ exports.config = {
 
     // Gets executed after each WDIO command
     afterCommand: function (commandName) {
+        // For WDIO commands which can lead into page navigation
         if (['url', 'refresh', 'click', 'call'].includes(commandName)) {
             // Handle AEM Survey dialog
             if($('#omg_surveyContainer').isExisting()) {
