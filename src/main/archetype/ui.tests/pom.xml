@@ -247,6 +247,7 @@
                                         <AEM_PUBLISH_USERNAME>${AEM_PUBLISH_USERNAME}</AEM_PUBLISH_USERNAME>
                                         <AEM_PUBLISH_PASSWORD>${AEM_PUBLISH_PASSWORD}</AEM_PUBLISH_PASSWORD>
                                         <SELENIUM_BROWSER>${SELENIUM_BROWSER}</SELENIUM_BROWSER>
+                                        <HEADLESS_BROWSER>${HEADLESS_BROWSER}</HEADLESS_BROWSER>
                                     </environmentVariables>
                                     <arguments>
                                         <argument>-f</argument>
