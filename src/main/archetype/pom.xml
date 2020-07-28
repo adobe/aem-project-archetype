@@ -61,6 +61,7 @@
         <module>ui.frontend.general</module>
         <module>ui.frontend.angular</module>
         <module>ui.frontend.react</module>
+        <module>ui.tests</module>
     </modules>
 
     <properties>
