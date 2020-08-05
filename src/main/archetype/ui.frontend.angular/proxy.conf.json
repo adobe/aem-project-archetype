@@ -1,5 +1,10 @@
-{
-  "auth": "admin:admin",
-  "context": ["/content/**/*", "/etc.clientlibs/**/*", "/libs/**/*"],
-  "target": "http://localhost:4502"
-}
+[
+    {
+        "auth": "admin:admin",
+        "context": [
+                    "/content/**/*.(jpg|jpeg|png|model.json)",
+                    "/etc.clientlibs/**/*"
+                ],
+        "target": "http://localhost:4502"
+    }
+]
