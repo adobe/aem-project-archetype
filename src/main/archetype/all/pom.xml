@@ -87,7 +87,13 @@
 #if ( $includeExamples == "y" )
                         <embedded>
                             <groupId>com.adobe.cq</groupId>
-                            <artifactId>core.wcm.components.examples</artifactId>
+                            <artifactId>core.wcm.components.examples.ui.apps</artifactId>
+                            <type>zip</type>
+                            <target>/apps/${appId}-vendor-packages/content/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.adobe.cq</groupId>
+                            <artifactId>core.wcm.components.examples.ui.content</artifactId>
                             <type>zip</type>
                             <target>/apps/${appId}-vendor-packages/content/install</target>
                         </embedded>
@@ -253,7 +259,12 @@
 #if ( $includeExamples == "y" )
         <dependency>
             <groupId>com.adobe.cq</groupId>
-            <artifactId>core.wcm.components.examples</artifactId>
+            <artifactId>core.wcm.components.examples.ui.apps</artifactId>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>core.wcm.components.examples.ui.content</artifactId>
             <type>zip</type>
         </dependency>
 #end
