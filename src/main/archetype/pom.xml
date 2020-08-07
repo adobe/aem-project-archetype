@@ -748,7 +748,13 @@ Bundle-DocURL:
 #if ( $includeExamples == "y" )
             <dependency>
                 <groupId>com.adobe.cq</groupId>
-                <artifactId>core.wcm.components.examples</artifactId>
+                <artifactId>core.wcm.components.examples.ui.apps</artifactId>
+                <type>zip</type>
+                <version>${core.wcm.components.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.cq</groupId>
+                <artifactId>core.wcm.components.examples.ui.content</artifactId>
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
             </dependency>
