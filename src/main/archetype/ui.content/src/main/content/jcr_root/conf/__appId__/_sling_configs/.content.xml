@@ -9,4 +9,8 @@
         enabled="{Boolean}false"
 #end
     />
+    <com.adobe.cq.wcm.core.components.internal.services.pdfviewer.PdfViewerCaConfig
+        jcr:primaryType="nt:unstructured"
+        clientId="28b07c6be4d544f188dc2f36e33b196b"
+        reportSuiteId=""/>
 </jcr:root>
