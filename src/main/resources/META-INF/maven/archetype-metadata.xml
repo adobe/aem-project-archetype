@@ -126,6 +126,14 @@
             <defaultValue>https://hostname.com/graphql</defaultValue>
             <validationRegex>^(?:https:\/\/)[\w.-]+(?:\.[\w\.-]+)+[\w:]+\/graphql$</validationRegex>
         </requiredProperty>
+
+        <!--
+            Adobe Client Data Layer integration
+        -->
+        <requiredProperty key="datalayer">
+            <defaultValue>y</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
     </requiredProperties>
 
     <modules>

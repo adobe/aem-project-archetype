@@ -6,6 +6,7 @@
         cq:conf="/conf/${appId}"
         jcr:primaryType="cq:PageContent"
         jcr:title="${appTitle}"
+        sling:configRef="/conf/${appId}"
         sling:redirect="{Boolean}true"
         sling:redirectStatus="{Long}302"
         sling:resourceType="foundation/components/redirect"
