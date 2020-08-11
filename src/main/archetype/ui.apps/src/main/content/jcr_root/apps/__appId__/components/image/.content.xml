@@ -2,5 +2,9 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Component"
     jcr:title="Image"
+#if ( $amp == "y")
+    sling:resourceSuperType="core/wcm/extensions/amp/components/image/v1/image"
+#else
     sling:resourceSuperType="core/wcm/components/image/v2/image"
+#end
     componentGroup="${appTitle} - Content"/>
