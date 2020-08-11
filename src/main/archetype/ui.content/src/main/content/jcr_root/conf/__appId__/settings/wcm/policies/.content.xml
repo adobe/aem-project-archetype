@@ -352,6 +352,9 @@
             </download>
             <page jcr:primaryType="nt:unstructured">
                 <policy
+#if ( $amp == "y" )
+                    ampMode="pairedAmp"
+#end
                     jcr:description="Includes the required client libraries."
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Generic Page"
