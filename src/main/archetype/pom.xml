@@ -745,7 +745,7 @@ Bundle-DocURL:
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
             </dependency>
-#if ( $amp == "y")
+#if ( $amp == "y" || $includeExamples == "y")
             <dependency>
                 <groupId>com.adobe.cq</groupId>
                 <artifactId>core.wcm.components.extensions.amp</artifactId>
