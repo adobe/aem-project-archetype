@@ -27,6 +27,12 @@ def confFolder = new File("$uiContentPackage/src/main/content/jcr_root/conf/$app
 def contentFolder = new File("$uiContentPackage/src/main/content/jcr_root/content/$appId")
 def varFolder = new File("$uiContentPackage/src/main/content/jcr_root/var")
 
+if (amp == "n"){
+    assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/" + appId + "/components/page/customheadlibs.amp.html").delete()
+    assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/" + appId + "/components/image/clientlibs").deleteDir()
+    assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/" + appId + "/components/tabs/clientlibs").deleteDir()
+}
+
 if (includeErrorHandler == "n") {
     assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/sling").deleteDir()
 }
