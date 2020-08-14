@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Experience Fragment"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[cq.common.wcm,core.wcm.page.properties,cq.wcm.msm.properties,cq.siteadmin.admin.properties,cq.experience-fragments.properties.tabs,cq.experience-fragments.target.properties]"
+    mode="edit">
+    <content
+        granite:class="cq-dialog-content-page"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                granite:class="cq-siteadmin-admin-properties-tabs"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                size="L">
+                <items jcr:primaryType="nt:unstructured">
+                    <commerce
+                        cq:showOnCreate="{Boolean}true"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Commerce"
+                        sling:orderBefore="cloudservices"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <pagesSection
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Commerce Pages"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <productPage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/coral/common/form/pagefield"
+                                                fieldDescription="Path to CIF product page."
+                                                fieldLabel="Product Page"
+                                                name="./cq:cifProductPage"
+                                                rootPath="/content"/>
+                                            <categoryPage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/coral/common/form/pagefield"
+                                                fieldDescription="Path to CIF category page."
+                                                fieldLabel="Category Page"
+                                                name="./cq:cifCategoryPage"
+                                                rootPath="/content"/>
+                                            <searchResultsPage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/coral/common/form/pagefield"
+                                                fieldDescription="Path to search results page."
+                                                fieldLabel="Search Results Page"
+                                                name="./cq:cifSearchResultsPage"
+                                                rootPath="/content"/>
+                                            <addressBookPage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/coral/common/form/pagefield"
+                                                fieldDescription="Path to address book page."
+                                                fieldLabel="Address Book Page"
+                                                name="./cq:cifAddressBookPage"
+                                                rootPath="/content"/>
+                                            <myAccountPage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/coral/common/form/pagefield"
+                                                fieldDescription="Path to my account page."
+                                                fieldLabel="My Account Page"
+                                                name="./cq:cifMyAccountPage"
+                                                rootPath="/content"/>
+                                        </items>
+                                    </pagesSection>
+                                </items>
+                            </column>
+                        </items>
+                    </commerce>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>
