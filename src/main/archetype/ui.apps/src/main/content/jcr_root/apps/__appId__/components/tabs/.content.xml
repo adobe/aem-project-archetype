@@ -3,5 +3,9 @@
     cq:isContainer="true"
     jcr:primaryType="cq:Component"
     jcr:title="Tabs"
+#if ( $amp == "y")
+    sling:resourceSuperType="core/wcm/extensions/amp/components/tabs/v1/tabs"
+#else
     sling:resourceSuperType="core/wcm/components/tabs/v1/tabs"
+#end
     componentGroup="${appTitle} - Content"/>

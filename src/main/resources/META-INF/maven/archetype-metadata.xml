@@ -134,6 +134,15 @@
             <defaultValue>y</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
+
+        <!--
+            Option to add AMP support
+        -->
+        <requiredProperty key="amp">
+            <defaultValue>y</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
+
     </requiredProperties>
 
     <modules>

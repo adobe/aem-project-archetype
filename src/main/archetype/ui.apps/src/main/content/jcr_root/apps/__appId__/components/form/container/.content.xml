@@ -3,6 +3,10 @@
     jcr:primaryType="cq:Component"
     jcr:title="Form Container"
     jcr:description="Container for components that allow users to submit information"
+#if ( $amp == "y")
+    sling:resourceSuperType="core/wcm/extensions/amp/components/form/container/v1/container"
+#else
     sling:resourceSuperType="core/wcm/components/form/container/v2/container"
+#end
     componentGroup="${appTitle} - Form"
     cq:isContainer="{Boolean}true"/>

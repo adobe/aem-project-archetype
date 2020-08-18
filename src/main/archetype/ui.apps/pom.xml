@@ -74,6 +74,13 @@
                             <artifactId>core.wcm.components.core</artifactId>
                             <target>/apps/${appId}/install</target>
                         </embedded>
+#if( $amp == "y")
+                        <embedded>
+                            <groupId>com.adobe.cq</groupId>
+                            <artifactId>core.wcm.components.extensions.amp</artifactId>
+                            <target>/apps/${appId}/install</target>
+                        </embedded>
+#end
 #end
 #if ( $isSpaProject )
                         <embedded>
@@ -122,7 +129,14 @@
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.config</artifactId>
                         </dependency>
+#if( $amp == "y")
+                        <dependency>
+                            <groupId>com.adobe.cq</groupId>
+                            <artifactId>core.wcm.components.extensions.amp.content</artifactId>
+                        </dependency>
 #end
+#end
+
 #if ( $includeCommerce == "y" )
                         <dependency>
                             <groupId>com.adobe.commerce.cif</groupId>
@@ -222,6 +236,19 @@
             <artifactId>core.wcm.components.config</artifactId>
             <type>zip</type>
         </dependency>
+
+#if ( $amp == "y" )
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>core.wcm.components.extensions.amp</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>core.wcm.components.extensions.amp.content</artifactId>
+            <type>zip</type>
+        </dependency>
+#end
 
         <dependency>
             <groupId>com.adobe.aem</groupId>

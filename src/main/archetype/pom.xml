@@ -74,7 +74,7 @@
         <vault.user>admin</vault.user>
         <vault.password>admin</vault.password>
 #if ( $aemVersion != "cloud" || $includeExamples == "y")
-        <core.wcm.components.version>2.10.0</core.wcm.components.version>
+        <core.wcm.components.version>2.11.0</core.wcm.components.version>
 #end
 #if ( $includeCommerce == "y" )
         <core.cif.components.version>1.2.0</core.cif.components.version>
@@ -745,6 +745,19 @@ Bundle-DocURL:
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
             </dependency>
+#if ( $amp == "y" || $includeExamples == "y")
+            <dependency>
+                <groupId>com.adobe.cq</groupId>
+                <artifactId>core.wcm.components.extensions.amp</artifactId>
+                <version>${core.wcm.components.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.cq</groupId>
+                <artifactId>core.wcm.components.extensions.amp.content</artifactId>
+                <type>zip</type>
+                <version>${core.wcm.components.version}</version>
+            </dependency>
+#end
 #if ( $includeExamples == "y" )
             <dependency>
                 <groupId>com.adobe.cq</groupId>

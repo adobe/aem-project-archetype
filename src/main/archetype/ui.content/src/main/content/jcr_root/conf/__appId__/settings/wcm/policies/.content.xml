@@ -33,10 +33,14 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Content Image"
                     sling:resourceType="wcm/core/components/policy/policy"
+#if ( $amp == "y")
+                    disableLazyLoading="true"
+#else
                     allowedRenditionWidths="[320,480,600,800,1024,1200,1600]"
+                    disableLazyLoading="false"
+#end
                     allowUpload="false"
                     altValueFromDAM="true"
-                    disableLazyLoading="false"
                     displayPopupTitle="true"
                     isDecorative="false"
                     jpegQuality="{Long}85"
@@ -352,6 +356,9 @@
             </download>
             <page jcr:primaryType="nt:unstructured">
                 <policy
+#if ( $amp == "y" )
+                    ampMode="pairedAmp"
+#end
                     jcr:description="Includes the required client libraries."
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Generic Page"
