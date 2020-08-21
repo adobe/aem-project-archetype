@@ -139,7 +139,7 @@
             Option to add AMP support
         -->
         <requiredProperty key="amp">
-            <defaultValue>y</defaultValue>
+            <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
 
