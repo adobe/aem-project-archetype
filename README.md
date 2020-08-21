@@ -53,7 +53,6 @@ mvn -B archetype:generate \
  -D appId="mysite" \
  -D groupId="com.mysite" \
  -D frontendModule=general \
- -D includeExamples=n
 ```
 
 ## Available Properties
@@ -72,7 +71,7 @@ Name                      | Default        | Description
 `frontendModule`          | `none`         | Includes a Webpack frontend build module that generates the client libraries (can be `general` or `none` for regular sites; can be `angular` or `react` for a Single Page App that implements the [SPA Editor](https://docs.adobe.com/content/help/en/experience-manager-65/developing/headless/spas/spa-overview.html)).
 `languageCountry`         | `en_us`        | Language and country code to create the content structure from (e.g. `en_us`).
 `singleCountry`           | `y`            | Includes a language-master content structure (can be `y`, or `n`).
-`includeExamples`         | `y`            | Includes a [Component Library](https://www.aemcomponents.dev/) example site (can be `y`, or `n`).
+`includeExamples`         | `n`            | Includes a [Component Library](https://www.aemcomponents.dev/) example site (can be `y`, or `n`).
 `includeErrorHandler`     | `n`            | Includes a custom 404 response page that will be global to the entire instance (can be `y` or `n`).
 `includeCommerce`         | `n`            | Includes [CIF Core Components](https://github.com/adobe/aem-core-cif-components) dependecies and generates corresponding artifacts.
 `commerceEndpoint`        |                | Required for CIF only. Optional endpoint of the commerce system GraphQL service to be used (e.g. `https://hostname.com/grapql`).
