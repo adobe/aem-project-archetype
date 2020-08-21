@@ -85,7 +85,7 @@
             ui.apps content package.
         -->
         <requiredProperty key="includeExamples">
-            <defaultValue>y</defaultValue>
+            <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
         <!--
