@@ -169,6 +169,10 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
         assert new File("$confFolder/settings/wcm/templates/spa-app-template").deleteDir()
         assert new File("$confFolder/settings/wcm/templates/spa-page-template").deleteDir()
 
+        // Delete SPA template types
+        assert new File("$confFolder/settings/wcm/template-types/spa-app").deleteDir()
+        assert new File("$confFolder/settings/wcm/template-types/spa-page").deleteDir()
+
         // Delete SPA content
         assert new File("$contentFolder/us/en/home").deleteDir()
     }
@@ -176,6 +180,7 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
     // Generating SPA: Delete non-SPA specific files
     if (optionFrontendModule == "angular" || optionFrontendModule == "react") {
         assert new File("$confFolder/settings/wcm/templates/page-content").deleteDir()
+        assert new File("$confFolder/settings/wcm/template-types/page").deleteDir()
     }
 }
 

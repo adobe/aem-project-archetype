@@ -3,24 +3,24 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[mobile/groups/responsive]"
-        cq:template="/conf/${appId}/settings/wcm/templates/page-content"
         jcr:primaryType="cq:PageContent"
         sling:resourceType="${appId}/components/page">
         <root
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="${appId}/components/container">
-            <container
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <responsivegrid
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="${appId}/components/container"
-                editable="{Boolean}true"
-                layout="responsiveGrid"/>
+                sling:resourceType="wcm/foundation/components/responsivegrid"
+                editable="{Boolean}true">
+                <cq:responsive jcr:primaryType="nt:unstructured"/>
+            </responsivegrid>
         </root>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">
                 <phone
                     jcr:primaryType="nt:unstructured"
                     title="Smaller Screen"
-                    width="{Long}768"/>
+                    width="{Long}650"/>
                 <tablet
                     jcr:primaryType="nt:unstructured"
                     title="Tablet"
