@@ -13,7 +13,7 @@
  ~ See the License for the specific language governing permissions and
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-//@ts-nocheck
+// @ts-nocheck
 
 import { SpaAngularEditableComponentsModule } from '@adobe/cq-angular-editable-components';
 import {Model, ModelManager} from '@adobe/cq-spa-page-model-manager';
@@ -40,7 +40,7 @@ describe('PageComponentComponent', () => {
 
   beforeEach(() => {
     // Stub ModelManager
-    const promise:Promise<Model> = new Promise<Model>((resolve, reject) => {
+    const promise: Promise<Model> = new Promise<Model>((resolve, reject) => {
       resolve({});
     });
     spyOn(ModelManager, 'getData').and.returnValue(promise);
