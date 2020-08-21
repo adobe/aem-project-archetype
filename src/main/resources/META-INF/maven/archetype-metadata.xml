@@ -70,7 +70,7 @@
             Option to set target AEM version.
         -->
         <requiredProperty key="aemVersion">
-            <defaultValue>6.5.0</defaultValue>
+            <defaultValue>cloud</defaultValue>
             <validationRegex>^(6\.3\.3|6\.4\.4|6\.5\.0|cloud)$</validationRegex>
         </requiredProperty>
         <!--
