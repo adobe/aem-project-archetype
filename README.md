@@ -9,7 +9,7 @@ Maven template that creates a minimal, best-practices-based Adobe Experience Man
 * **[Archetype Documentation](https://www.adobe.com/go/aem_archetype):** Overview of the archetype architecture and its different modules.
 * Following tutorials are based off this archetype:
   - **[WKND Site](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/overview.html):** Learn how to start a fresh new website.
-  - **[WKND Single Page App](https://helpx.adobe.com/experience-manager/kt/sites/using/getting-started-spa-wknd-tutorial-develop.html):** Learn how to build a React or Angular webapp that is fully authorable in AEM.
+  - **WKND SPA** Learn how to build a [React](https://docs.adobe.com/content/help/en/experience-manager-learn/spa-react-tutorial/overview.html) or [Angular](https://docs.adobe.com/content/help/en/experience-manager-learn/spa-angular-tutorial/overview.html) webapp that is fully authorable in AEM.
 
 ## Features
 
@@ -25,7 +25,8 @@ Maven template that creates a minimal, best-practices-based Adobe Experience Man
 * **Style System:** Avoid building custom components by allowing authors to [apply different styles](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/style-system.html) to them.
 * **Front-End Build:** Front-end devs can [mock AEM pages](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/archetype/uifrontend.html#webpack-dev-server) and [build client libraries](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/archetype/uifrontend.html) with Webpack, TypeScript, and SASS.
 * **WebApp-Ready:** For sites using [React](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/archetype/uifrontend-react.html) or [Angular](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/archetype/uifrontend-angular.html), use the [SPA SDK](https://docs.adobe.com/content/help/en/experience-manager-64/developing/headless/spas/spa-architecture.html) to retain [in-context authoring of the app](https://docs.adobe.com/content/help/en/experience-manager-learn/sites/spa-editor/spa-editor-framework-feature-video-use.html).
-* **Commerce Enabled** For projects that want to use Commerce Integration Framework ([CIF](https://github.com/adobe/aem-core-cif-components)) to integrate with commerce solutions like Magento.
+* **Commerce Enabled:** For projects that want to use Commerce Integration Framework ([CIF](https://github.com/adobe/aem-core-cif-components)) to integrate with commerce solutions like Magento.
+* **Testing:** ready-to-use Functional and UI testing modules, start adding your own tests
 * **Example Code:** Checkout the HelloWorld component, and the sample models, servelets, filters, and schedulers.
 * **Open Sourced:** If something is not as it should, [contribute](https://github.com/adobe/aem-core-wcm-components/blob/master/CONTRIBUTING.md) your improvements!
 
@@ -47,12 +48,10 @@ mvn -B archetype:generate \
  -D archetypeGroupId=com.adobe.granite.archetypes \
  -D archetypeArtifactId=aem-project-archetype \
  -D archetypeVersion=23 \
- -D aemVersion=cloud \
  -D appTitle="My Site" \
  -D appId="mysite" \
  -D groupId="com.mysite" \
  -D frontendModule=general \
- -D includeExamples=n
 ```
 
 ## Available Properties
@@ -65,16 +64,18 @@ Name                      | Default        | Description
 `groupId`                 |                | Base Maven group ID (e.g. `"com.mysite"`).
 `package`                 | *`${groupId}`* | Java Source Package (e.g. `"com.mysite"`).
 `version`                 | `1.0-SNAPSHOT` | Project version (e.g. `1.0-SNAPSHOT`).
-`aemVersion`              | `6.5.0`        | Target AEM version (can be `cloud` for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html); or `6.5.0`, `6.4.4`, or `6.3.3` for [Adobe Managed Services](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) or on-premise).
+`aemVersion`              | `cloud`        | Target AEM version (can be `cloud` for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html); or `6.5.0`, `6.4.4`, or `6.3.3` for [Adobe Managed Services](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) or on-premise).
 `sdkVersion`              | `latest`       | When `aemVersion=cloud` an [SDK](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/implementing/developing/aem-as-a-cloud-service-sdk.html) version can be specified (e.g. `2020.02.2265.20200217T222518Z-200130`).
 `includeDispatcherConfig` | `y`            | Includes a dispatcher configuration either for cloud or for AMS/on-premise, depending of the value of `aemVersion` (can be `y` or `n`).
 `frontendModule`          | `none`         | Includes a Webpack frontend build module that generates the client libraries (can be `general` or `none` for regular sites; can be `angular` or `react` for a Single Page App that implements the [SPA Editor](https://docs.adobe.com/content/help/en/experience-manager-65/developing/headless/spas/spa-overview.html)).
 `languageCountry`         | `en_us`        | Language and country code to create the content structure from (e.g. `en_us`).
 `singleCountry`           | `y`            | Includes a language-master content structure (can be `y`, or `n`).
-`includeExamples`         | `y`            | Includes a [Component Library](https://www.aemcomponents.dev/) example site (can be `y`, or `n`).
+`includeExamples`         | `n`            | Includes a [Component Library](https://www.aemcomponents.dev/) example site (can be `y`, or `n`).
 `includeErrorHandler`     | `n`            | Includes a custom 404 response page that will be global to the entire instance (can be `y` or `n`).
 `includeCommerce`         | `n`            | Includes [CIF Core Components](https://github.com/adobe/aem-core-cif-components) dependecies and generates corresponding artifacts.
 `commerceEndpoint`        |                | Required for CIF only. Optional endpoint of the commerce system GraphQL service to be used (e.g. `https://hostname.com/grapql`).
+`datalayer`               | `y`            | Activate integration with [Adobe Client Data Layer](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/data-layer/overview.html).
+`amp`                     | `n`            | Enable [AMP](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/amp.html) support for genenerated project templates. 
 
 ## System Requirements
 

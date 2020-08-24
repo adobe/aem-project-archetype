@@ -70,7 +70,7 @@
             Option to set target AEM version.
         -->
         <requiredProperty key="aemVersion">
-            <defaultValue>6.5.0</defaultValue>
+            <defaultValue>cloud</defaultValue>
             <validationRegex>^(6\.3\.3|6\.4\.4|6\.5\.0|cloud)$</validationRegex>
         </requiredProperty>
         <!--
@@ -85,7 +85,7 @@
             ui.apps content package.
         -->
         <requiredProperty key="includeExamples">
-            <defaultValue>y</defaultValue>
+            <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
         <!--
@@ -126,6 +126,23 @@
             <defaultValue>https://hostname.com/graphql</defaultValue>
             <validationRegex>^(?:https:\/\/)[\w.-]+(?:\.[\w\.-]+)+[\w:]+\/graphql$</validationRegex>
         </requiredProperty>
+
+        <!--
+            Adobe Client Data Layer integration
+        -->
+        <requiredProperty key="datalayer">
+            <defaultValue>y</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
+
+        <!--
+            Option to add AMP support
+        -->
+        <requiredProperty key="amp">
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
+
     </requiredProperties>
 
     <modules>
@@ -391,6 +408,41 @@
                     <directory>src/test/java</directory>
                     <includes>
                         <include>**/*.java</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
+        <module id="${rootArtifactId}.ui.tests" dir="ui.tests" name="ui.tests">
+            <fileSets>
+                <fileSet filtered="true">
+                    <directory></directory>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                    <excludes>
+                        <!-- Exclude Test Reports -->
+                        <exclude>**/reports/</exclude>
+                        <!-- Exclude NPM dependencies -->
+                        <exclude>**/node_modules/</exclude>
+                        <exclude>**/package-lock.json</exclude>
+
+                        <exclude>**/*.sh</exclude>
+                        <exclude>**/*.png</exclude>
+                    </excludes>
+                </fileSet>
+                <fileSet filtered="false">
+                    <directory></directory>
+                    <includes>
+                        <!-- Do not filter binary files (will become corrupted) -->
+                        <include>**/*.sh</include>
+                        <include>**/*.png</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="false" packaged="false"
+                    encoding="UTF-8">
+                    <directory>test-module</directory>
+                    <includes>
+                        <include>**/*</include>
                     </includes>
                 </fileSet>
             </fileSets>

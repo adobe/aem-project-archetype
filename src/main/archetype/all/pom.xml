@@ -83,11 +83,30 @@
                             <type>zip</type>
                             <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
+#if ( $amp == "y" || $includeExamples == "y")
+                        <embedded>
+                            <groupId>com.adobe.cq</groupId>
+                            <artifactId>core.wcm.components.extensions.amp.content</artifactId>
+                            <type>zip</type>
+                            <target>/apps/${appId}-vendor-packages/content/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.adobe.cq</groupId>
+                            <artifactId>core.wcm.components.extensions.amp</artifactId>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
+                        </embedded>
+#end
 #end
 #if ( $includeExamples == "y" )
                         <embedded>
                             <groupId>com.adobe.cq</groupId>
-                            <artifactId>core.wcm.components.examples</artifactId>
+                            <artifactId>core.wcm.components.examples.ui.apps</artifactId>
+                            <type>zip</type>
+                            <target>/apps/${appId}-vendor-packages/content/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.adobe.cq</groupId>
+                            <artifactId>core.wcm.components.examples.ui.content</artifactId>
                             <type>zip</type>
                             <target>/apps/${appId}-vendor-packages/content/install</target>
                         </embedded>
@@ -250,10 +269,26 @@
             <type>zip</type>
         </dependency>
 #end
+#if ( $amp == "y" || $includeExamples == "y" )
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>core.wcm.components.extensions.amp.content</artifactId>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>core.wcm.components.extensions.amp</artifactId>
+        </dependency>
+#end
 #if ( $includeExamples == "y" )
         <dependency>
             <groupId>com.adobe.cq</groupId>
-            <artifactId>core.wcm.components.examples</artifactId>
+            <artifactId>core.wcm.components.examples.ui.apps</artifactId>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>core.wcm.components.examples.ui.content</artifactId>
             <type>zip</type>
         </dependency>
 #end

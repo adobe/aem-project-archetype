@@ -7,11 +7,11 @@ This is a project template for AEM-based applications. It is intended as a best-
 The main parts of the template are:
 
 * core: Java bundle containing all core functionality like OSGi services, listeners or schedulers, as well as component-related Java code such as servlets or request filters.
+* it.tests: Java based integration tests
 * ui.apps: contains the /apps (and /etc) parts of the project, ie JS&CSS clientlibs, components, templates and runmode specific configs
 * ui.content: contains sample content using the components from the ui.apps
-* ui.tests: Java bundle containing JUnit tests that are executed server-side. This bundle is not to be deployed onto production.
-* ui.launcher: contains glue code that deploys the ui.tests bundle (and dependent bundles) to the server and triggers the remote JUnit execution
 * ui.frontend: an optional dedicated front-end build mechanism (Angular, React or general Webpack project)
+* ui.tests: Selenium based UI tests
 
 ## How to build
 
@@ -37,7 +37,7 @@ Or to deploy only the bundle to the author, run
 
 ## Testing
 
-There are two levels of testing contained in the project:
+There are three levels of testing contained in the project:
 
 ### Unit tests
 
@@ -75,6 +75,20 @@ Clients](https://github.com/adobe/aem-testing-clients) and showcase some
 recommended [best
 practices](https://github.com/adobe/aem-testing-clients/wiki/Best-practices) to
 be put in use when writing integration tests for AEM.
+
+### UI tests
+
+They will test the UI layer of your AEM application using Selenium technology. 
+
+To run them locally:
+
+    mvn clean verify -Pui-tests-local-execution
+
+This default command requires:
+* an AEM author instance available at http://localhost:4502 (with the whole project built and deployed on it, see `How to build` section above)
+* Chrome browser installed at default location
+
+Check README file in `ui.tests` module for more details.
 
 ## ClientLibs
 

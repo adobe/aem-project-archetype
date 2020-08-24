@@ -61,6 +61,7 @@
         <module>ui.frontend.general</module>
         <module>ui.frontend.angular</module>
         <module>ui.frontend.react</module>
+        <module>ui.tests</module>
     </modules>
 
     <properties>
@@ -73,12 +74,12 @@
         <vault.user>admin</vault.user>
         <vault.password>admin</vault.password>
 #if ( $aemVersion != "cloud" || $includeExamples == "y")
-        <core.wcm.components.version>2.8.0</core.wcm.components.version>
+        <core.wcm.components.version>2.11.0</core.wcm.components.version>
 #end
 #if ( $includeCommerce == "y" )
-        <core.cif.components.version>1.1.1</core.cif.components.version>
-        <graphql.client.version>1.6.0</graphql.client.version>
-        <magento.graphql.version>5.1.0-magento234</magento.graphql.version>
+        <core.cif.components.version>1.2.0</core.cif.components.version>
+        <graphql.client.version>1.6.1</graphql.client.version>
+        <magento.graphql.version>6.0.0-magento235</magento.graphql.version>
 #end
         <bnd.version>5.0.0</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -744,10 +745,29 @@ Bundle-DocURL:
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
             </dependency>
+#if ( $amp == "y" || $includeExamples == "y")
+            <dependency>
+                <groupId>com.adobe.cq</groupId>
+                <artifactId>core.wcm.components.extensions.amp</artifactId>
+                <version>${core.wcm.components.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.cq</groupId>
+                <artifactId>core.wcm.components.extensions.amp.content</artifactId>
+                <type>zip</type>
+                <version>${core.wcm.components.version}</version>
+            </dependency>
+#end
 #if ( $includeExamples == "y" )
             <dependency>
                 <groupId>com.adobe.cq</groupId>
-                <artifactId>core.wcm.components.examples</artifactId>
+                <artifactId>core.wcm.components.examples.ui.apps</artifactId>
+                <type>zip</type>
+                <version>${core.wcm.components.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.cq</groupId>
+                <artifactId>core.wcm.components.examples.ui.content</artifactId>
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
             </dependency>

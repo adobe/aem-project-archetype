@@ -13,9 +13,10 @@
  ~ See the License for the specific language governing permissions and
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+// @ts-nocheck
 
 import { SpaAngularEditableComponentsModule } from '@adobe/cq-angular-editable-components';
-import { ModelManager } from '@adobe/cq-spa-page-model-manager';
+import {Model, ModelManager} from '@adobe/cq-spa-page-model-manager';
 import { APP_BASE_HREF } from '@angular/common';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppRoutingModule } from '../../app-routing.module';
@@ -39,9 +40,10 @@ describe('PageComponentComponent', () => {
 
   beforeEach(() => {
     // Stub ModelManager
-    spyOn(ModelManager, 'getData').and.callFake(() => {
-      return Promise.resolve({});
+    const promise: Promise<Model> = new Promise<Model>((resolve, reject) => {
+      resolve({});
     });
+    spyOn(ModelManager, 'getData').and.returnValue(promise);
 
     fixture = TestBed.createComponent(PageComponent);
     component = fixture.componentInstance;

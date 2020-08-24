@@ -3,5 +3,9 @@
     cq:isContainer="true"
     jcr:primaryType="cq:Component"
     jcr:title="Accordion"
+#if ( $amp == "y")
+    sling:resourceSuperType="core/wcm/extensions/amp/components/accordion/v1/accordion"
+#else
     sling:resourceSuperType="core/wcm/components/accordion/v1/accordion"
+#end
     componentGroup="${appTitle} - Content"/>

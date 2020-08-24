@@ -12,6 +12,7 @@
         cq:template="/libs/commerce/gui/components/configuration/page/template"
         sling:resourceType="commerce/gui/components/configuration/page"
         cq:catalogDataResourceProviderFactory="magento-graphql"
+        cq:catalogPath="/var/commerce/products/${appId}-default"
         cq:catalogIdentifier="default"
         cq:graphqlClient="default"
         magentoRootCategoryId="2"
