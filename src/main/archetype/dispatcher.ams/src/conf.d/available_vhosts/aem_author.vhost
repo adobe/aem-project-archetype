@@ -3,6 +3,8 @@
 PassEnv DISP_ID
 
 <VirtualHost *:80>
+    # allowing slashes in the URL to be encoded and still honored
+    AllowEncodedSlashes On
 	ServerName	"author"
 	ServerAlias	${AUTHOR_DEFAULT_HOSTNAME}
 	# Use a special doc root that doesn't overlap publish doc roots or it wont fetch from author each time and authors wont see their changes
@@ -47,6 +49,8 @@ PassEnv DISP_ID
 		# Don't compress images
 		SetEnvIfNoCase Request_URI \
 		\.(?:gif|jpe?g|png)$ no-gzip dont-vary
+		# Don't compress AEM assets
+        SetEnvIfNoCase Request_URI assetdownload no-gzip dont-vary
 	</Directory>
 	<IfModule disp_apache2.c>
 		# Enabled to allow rewrites to take affect and not be ignored by the dispatcher module
