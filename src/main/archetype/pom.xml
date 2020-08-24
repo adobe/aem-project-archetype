@@ -73,9 +73,7 @@
         <sling.password>admin</sling.password>
         <vault.user>admin</vault.user>
         <vault.password>admin</vault.password>
-#if ( $aemVersion != "cloud" || $includeExamples == "y")
         <core.wcm.components.version>2.11.0</core.wcm.components.version>
-#end
 #if ( $includeCommerce == "y" )
         <core.cif.components.version>1.2.0</core.cif.components.version>
         <graphql.client.version>1.6.1</graphql.client.version>
