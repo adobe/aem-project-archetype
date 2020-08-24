@@ -14,7 +14,7 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import { ModelManager } from '@adobe/cq-spa-page-model-manager';
+import { ModelManager } from '@adobe/aem-spa-page-model-manager';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import sinon from 'sinon';
