@@ -99,7 +99,7 @@
             Option to include a dedicated frontend module
          -->
         <requiredProperty key="frontendModule">
-            <defaultValue>none</defaultValue>
+            <defaultValue>general</defaultValue>
             <validationRegex>^(none|general|angular|react)$</validationRegex>
         </requiredProperty>
 
