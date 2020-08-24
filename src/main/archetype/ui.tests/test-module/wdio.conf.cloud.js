@@ -24,9 +24,25 @@ wdio_config.hostname =  config.selenium.hostname;
 wdio_config.port = config.selenium.port;
 wdio_config.path = '/wd/hub';
 
-wdio_config.capabilities = [{
+let capabilities = {
     maxInstances: 1,
     browserName: config.selenium.browser,
-}];
+};
+
+// Set common startup arguments to improve stability in Docker
+switch(config.selenium.browser) {
+case config.CHROME:
+    capabilities['goog:chromeOptions'] = {
+        args: ['headless', 'disable-gpu', 'no-sandbox', 'disable-dev-shm-usage']
+    };
+    break;
+case config.FIREFOX:
+    capabilities['moz:firefoxOptions'] = {
+        args: ['-headless']
+    };
+    break;
+}
+
+wdio_config.capabilities = [capabilities];
 
 exports.config = wdio_config;
