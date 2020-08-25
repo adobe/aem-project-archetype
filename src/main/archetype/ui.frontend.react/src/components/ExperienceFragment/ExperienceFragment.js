@@ -18,7 +18,7 @@ import {
     MapTo,
     withComponentMappingContext,
     Container
-} from '@adobe/cq-react-editable-components';
+} from '@adobe/aem-react-editable-components';
 
 const ExperienceFragmentVariationConfig = {
     emptyLabel: 'Experience Fragment',
