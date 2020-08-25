@@ -98,6 +98,7 @@
 #if ( $aemVersion == "cloud")
         <aem.sdk.api>SDK_VERSION</aem.sdk.api>
 #end
+        <componentGroupName>$appTitle</componentGroupName>
     </properties>
 
     <build>
