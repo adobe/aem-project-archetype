@@ -33,7 +33,7 @@
     <!-- ====================================================================== -->
     <artifactId>${rootArtifactId}.ui.frontend</artifactId>
     <packaging>pom</packaging>
-    <name>${rootArtifactId}.ui.frontend - UI Frontend</name>
+    <name>${appTitle} - UI Frontend</name>
 
 
     <!-- ====================================================================== -->
