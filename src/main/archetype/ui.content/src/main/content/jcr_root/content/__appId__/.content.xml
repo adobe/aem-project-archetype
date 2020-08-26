@@ -4,9 +4,9 @@
     <jcr:content
         cq:allowedTemplates="[/conf/${appId}/settings/wcm/templates/(?!xf-).*]"
         cq:conf="/conf/${appId}"
-        cq:deviceGroups="[/etc/mobile/groups/responsive]"
         jcr:primaryType="cq:PageContent"
         jcr:title="${appTitle}"
+        sling:configRef="/conf/${appId}"
         sling:redirect="{Boolean}true"
         sling:redirectStatus="{Long}302"
         sling:resourceType="foundation/components/redirect"

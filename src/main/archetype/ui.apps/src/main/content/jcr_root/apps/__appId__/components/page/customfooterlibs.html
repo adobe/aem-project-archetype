@@ -15,6 +15,9 @@
 */-->
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
     <sly data-sly-call="${symbol_dollar}{clientlib.js @ categories='${appId}.base'}"/>
+#if ( $includeCommerce == "y" )
+    <sly data-sly-call="${symbol_dollar}{clientlib.js @ categories='${appId}.cif'}" />
+#end
 </sly>
 #if ( $isSpaProject )
 <!--/*
@@ -25,3 +28,4 @@
   data-sly-call="${symbol_dollar}{clientLib.js @ categories='cq.authoring.pagemodel.messaging'}"
 ></sly>
 #end
+

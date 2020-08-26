@@ -53,7 +53,6 @@
         <module>ui.apps.structure</module>
         <module>ui.content</module>
         <module>it.tests</module>
-        <module>it.launcher</module>
 #if ( $includeDispatcherConfig != "n" )
         <module>dispatcher</module>
 #end
@@ -62,6 +61,7 @@
         <module>ui.frontend.general</module>
         <module>ui.frontend.angular</module>
         <module>ui.frontend.react</module>
+        <module>ui.tests</module>
     </modules>
 
     <properties>
@@ -73,7 +73,14 @@
         <sling.password>admin</sling.password>
         <vault.user>admin</vault.user>
         <vault.password>admin</vault.password>
-        <core.wcm.components.version>2.8.0</core.wcm.components.version>
+#if ( $aemVersion != "cloud" || $includeExamples == "y")
+        <core.wcm.components.version>2.11.0</core.wcm.components.version>
+#end
+#if ( $includeCommerce == "y" )
+        <core.cif.components.version>1.2.0</core.cif.components.version>
+        <graphql.client.version>1.6.1</graphql.client.version>
+        <magento.graphql.version>6.0.0-magento235</magento.graphql.version>
+#end
         <bnd.version>5.0.0</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -91,6 +98,7 @@
 #if ( $aemVersion == "cloud")
         <aem.sdk.api>SDK_VERSION</aem.sdk.api>
 #end
+        <componentGroupName>$appTitle</componentGroupName>
     </properties>
 
     <build>
@@ -431,18 +439,6 @@ Bundle-DocURL:
                         <enabled>false</enabled>
                     </snapshots>
                 </repository>
-                <repository>
-                    <id>adobe-aem-releases</id>
-                    <name>Adobe AEM Repository</name>
-                    <url>https://downloads.experiencecloud.adobe.com/content/maven/public</url>
-                    <releases>
-                        <enabled>true</enabled>
-                        <updatePolicy>never</updatePolicy>
-                    </releases>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </repository>
             </repositories>
 
             <pluginRepositories>
@@ -589,7 +585,7 @@ Bundle-DocURL:
     <!-- ====================================================================== -->
     <dependencyManagement>
         <dependencies>
-#if ( $aemVersion.startsWith("6.") )
+#if ( $aemVersion != "cloud" )
             <!-- OSGi Dependencies -->
             <dependency>
                 <groupId>org.osgi</groupId>
@@ -649,6 +645,12 @@ Bundle-DocURL:
                 <groupId>org.osgi</groupId>
                 <artifactId>org.osgi.framework</artifactId>
                 <version>1.9.0</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.osgi</groupId>
+                <artifactId>org.osgi.util.tracker</artifactId>
+                <version>1.5.1</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
@@ -719,14 +721,6 @@ Bundle-DocURL:
                 <version>5.7.4</version>
                 <scope>provided</scope>
             </dependency>
-#else
-            <dependency>
-                <groupId>com.adobe.aem</groupId>
-                <artifactId>aem-sdk-api</artifactId>
-                <version>${aem.sdk.api}</version>
-                <scope>provided</scope>
-            </dependency>
-#end
             <dependency>
                 <groupId>com.adobe.cq</groupId>
                 <artifactId>core.wcm.components.core</artifactId>
@@ -744,12 +738,63 @@ Bundle-DocURL:
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
             </dependency>
+#else
+            <dependency>
+                <groupId>com.adobe.aem</groupId>
+                <artifactId>aem-sdk-api</artifactId>
+                <version>${aem.sdk.api}</version>
+                <scope>provided</scope>
+            </dependency>
+#end
+#if ( $amp == "y" || $includeExamples == "y")
+            <dependency>
+                <groupId>com.adobe.cq</groupId>
+                <artifactId>core.wcm.components.extensions.amp</artifactId>
+                <version>${core.wcm.components.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.cq</groupId>
+                <artifactId>core.wcm.components.extensions.amp.content</artifactId>
+                <type>zip</type>
+                <version>${core.wcm.components.version}</version>
+            </dependency>
+#end
 #if ( $includeExamples == "y" )
             <dependency>
                 <groupId>com.adobe.cq</groupId>
-                <artifactId>core.wcm.components.examples</artifactId>
+                <artifactId>core.wcm.components.examples.ui.apps</artifactId>
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.cq</groupId>
+                <artifactId>core.wcm.components.examples.ui.content</artifactId>
+                <type>zip</type>
+                <version>${core.wcm.components.version}</version>
+            </dependency>
+#end
+#if ( $includeCommerce == "y" )
+            <!-- Adobe CIF Dependencies -->
+            <dependency>
+                <groupId>com.adobe.commerce.cif</groupId>
+                <artifactId>core-cif-components-apps</artifactId>
+                <type>zip</type>
+                <version>${core.cif.components.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.commerce.cif</groupId>
+                <artifactId>core-cif-components-core</artifactId>
+                <version>${core.cif.components.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.commerce.cif</groupId>
+                <artifactId>graphql-client</artifactId>
+                <version>${graphql.client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.commerce.cif</groupId>
+                <artifactId>magento-graphql</artifactId>
+                <version>${magento.graphql.version}</version>
             </dependency>
 #end
 
@@ -772,20 +817,20 @@ Bundle-DocURL:
             <dependency>
                 <groupId>org.junit</groupId>
                 <artifactId>junit-bom</artifactId>
-                <version>5.4.1</version>
+                <version>5.6.2</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-core</artifactId>
-                <version>2.25.1</version>
+                <version>3.3.3</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-junit-jupiter</artifactId>
-                <version>2.25.1</version>
+                <version>3.3.3</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -797,7 +842,7 @@ Bundle-DocURL:
             <dependency>
                 <groupId>io.wcm</groupId>
                 <artifactId>io.wcm.testing.aem-mock.junit5</artifactId>
-                <version>2.5.2</version>
+                <version>3.0.2</version>
                 <scope>test</scope>
             </dependency>
             <dependency>

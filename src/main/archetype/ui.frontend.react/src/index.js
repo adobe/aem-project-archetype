@@ -21,7 +21,7 @@ import 'react-app-polyfill/stable';
 import 'react-app-polyfill/ie9';
 import 'custom-event-polyfill';
 
-import { Constants, ModelManager } from '@adobe/cq-spa-page-model-manager';
+import { Constants, ModelManager } from '@adobe/aem-spa-page-model-manager';
 import { createBrowserHistory } from 'history';
 import React from 'react';
 import { render } from 'react-dom';

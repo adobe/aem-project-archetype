@@ -37,9 +37,6 @@ export class TextComponent {
   @Input() text: string;
   @Input() itemName: string;
 
-  @HostBinding('id') get id() {
-    return this.itemName;
-  }
   @HostBinding('innerHtml') get content() {
     return this.richText
       ? this.sanitizer.bypassSecurityTrustHtml(this.text)

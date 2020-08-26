@@ -14,8 +14,8 @@
  |  See the License for the specific language governing permissions and
  |  limitations under the License.
 -->
-<archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" name="aem-archetype"
-    xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+<archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 http://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd" name="aem-archetype"
+    xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
     <requiredProperties>
@@ -70,7 +70,7 @@
             Option to set target AEM version.
         -->
         <requiredProperty key="aemVersion">
-            <defaultValue>6.5.0</defaultValue>
+            <defaultValue>cloud</defaultValue>
             <validationRegex>^(6\.3\.3|6\.4\.4|6\.5\.0|cloud)$</validationRegex>
         </requiredProperty>
         <!--
@@ -85,7 +85,7 @@
             ui.apps content package.
         -->
         <requiredProperty key="includeExamples">
-            <defaultValue>y</defaultValue>
+            <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
         <!--
@@ -99,7 +99,7 @@
             Option to include a dedicated frontend module
          -->
         <requiredProperty key="frontendModule">
-            <defaultValue>none</defaultValue>
+            <defaultValue>general</defaultValue>
             <validationRegex>^(none|general|angular|react)$</validationRegex>
         </requiredProperty>
 
@@ -110,6 +110,39 @@
             <defaultValue>y</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
+
+        <!--
+            Option to include CIF Core Components & corresponding configuration.
+        -->
+        <requiredProperty key="includeCommerce">
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
+
+        <!--
+            Set commerce system endpoint for usage with CIF
+        -->
+        <requiredProperty key="commerceEndpoint">
+            <defaultValue>https://hostname.com/graphql</defaultValue>
+            <validationRegex>^(?:https:\/\/)[\w.-]+(?:\.[\w\.-]+)+[\w:]+\/graphql$</validationRegex>
+        </requiredProperty>
+
+        <!--
+            Adobe Client Data Layer integration
+        -->
+        <requiredProperty key="datalayer">
+            <defaultValue>y</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
+
+        <!--
+            Option to add AMP support
+        -->
+        <requiredProperty key="amp">
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
+
     </requiredProperties>
 
     <modules>
@@ -379,20 +412,37 @@
                 </fileSet>
             </fileSets>
         </module>
-        <module id="${rootArtifactId}.it.launcher" dir="it.launcher" name="it.launcher">
+        <module id="${rootArtifactId}.ui.tests" dir="ui.tests" name="ui.tests">
             <fileSets>
-                <fileSet filtered="true" packaged="true"
-                    encoding="UTF-8">
-                    <directory>src/main/java</directory>
+                <fileSet filtered="true">
+                    <directory></directory>
                     <includes>
-                        <include>**/*.java</include>
+                        <include>**/*</include>
+                    </includes>
+                    <excludes>
+                        <!-- Exclude Test Reports -->
+                        <exclude>**/reports/</exclude>
+                        <!-- Exclude NPM dependencies -->
+                        <exclude>**/node_modules/</exclude>
+                        <exclude>**/package-lock.json</exclude>
+
+                        <exclude>**/*.sh</exclude>
+                        <exclude>**/*.png</exclude>
+                    </excludes>
+                </fileSet>
+                <fileSet filtered="false">
+                    <directory></directory>
+                    <includes>
+                        <!-- Do not filter binary files (will become corrupted) -->
+                        <include>**/*.sh</include>
+                        <include>**/*.png</include>
                     </includes>
                 </fileSet>
-                <fileSet filtered="true" packaged="true"
+                <fileSet filtered="false" packaged="false"
                     encoding="UTF-8">
-                    <directory>src/test/java</directory>
+                    <directory>test-module</directory>
                     <includes>
-                        <include>**/*.java</include>
+                        <include>**/*</include>
                     </includes>
                 </fileSet>
             </fileSets>
@@ -415,6 +465,7 @@
       <directory></directory>
       <includes>
         <include>README.md</include>
+        <include>README-CIF.md</include>
         <include>.gitignore</include>
       </includes>
     </fileSet>

@@ -14,7 +14,7 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import { MapTo } from '@adobe/cq-react-editable-components';
+import { MapTo } from '@adobe/aem-react-editable-components';
 import DOMPurify from 'dompurify';
 import React, { Component } from 'react';
 import extractModelId from '../../utils/extract-model-id';

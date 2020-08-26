@@ -18,7 +18,7 @@ import {
   MapTo,
   Page,
   withComponentMappingContext
-} from '@adobe/cq-react-editable-components';
+} from '@adobe/aem-react-editable-components';
 import { withRoute } from '../RouteHelper/RouteHelper';
 
 require('./Page.css');

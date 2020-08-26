@@ -3,5 +3,9 @@
     cq:isContainer="true"
     jcr:primaryType="cq:Component"
     jcr:title="Carousel"
+#if ( $amp == "y")
+    sling:resourceSuperType="core/wcm/extensions/amp/components/carousel/v1/carousel"
+#else
     sling:resourceSuperType="core/wcm/components/carousel/v1/carousel"
+#end
     componentGroup="${appTitle} - Content"/>

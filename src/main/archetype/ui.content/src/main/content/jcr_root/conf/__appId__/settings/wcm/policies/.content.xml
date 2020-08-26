@@ -33,10 +33,14 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Content Image"
                     sling:resourceType="wcm/core/components/policy/policy"
+#if ( $amp == "y")
+                    disableLazyLoading="true"
+#else
                     allowedRenditionWidths="[320,480,600,800,1024,1200,1600]"
+                    disableLazyLoading="false"
+#end
                     allowUpload="false"
                     altValueFromDAM="true"
-                    disableLazyLoading="false"
                     displayPopupTitle="true"
                     isDecorative="false"
                     jpegQuality="{Long}85"
@@ -240,7 +244,11 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Content"
                     sling:resourceType="wcm/core/components/policy/policy"
+#if ( $includeCommerce == "n" )
                     components="[group:${appTitle} - Content,/apps/${appId}/components/form/container]">
+#else
+                    components="[group:${appTitle} - Content,group:${appTitle} - Commerce,/apps/${appId}/components/form/container]">
+#end                    
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -262,6 +270,13 @@
                                 assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
                                 droptarget="contentfragment"
                                 resourceType="${appId}/components/contentfragment"/>
+#if ( $includeCommerce == "y" )
+                            <mapping_1575030255082
+                                jcr:primaryType="nt:unstructured"
+                                assetGroup="product"
+                                droptarget="product-data-reference"
+                                resourceType="${appId}/components/commerce/productteaser"/>
+#end
                         </assetToComponentMapping>
                     </cq:authoring>
                 </policy_1574695586800>
@@ -278,7 +293,11 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="XF Root"
                     sling:resourceType="wcm/core/components/policy/policy"
+#if ( $includeCommerce == "n" )
                     components="[group:${appTitle} - Content,/apps/${appId}/components/form/container]">
+#else
+                    components="[group:${appTitle} - Content,group:${appTitle} - Commerce,/apps/${appId}/components/form/container]">
+#end  
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -300,6 +319,13 @@
                                 assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
                                 droptarget="contentfragment"
                                 resourceType="${appId}/components/contentfragment"/>
+#if ( $includeCommerce == "y" )
+                            <mapping_1590416532200
+                                jcr:primaryType="nt:unstructured" 
+                                assetGroup="product" 
+                                droptarget="product-data-reference" 
+                                resourceType="${appId}/components/commerce/productteaser" />
+#end
                         </assetToComponentMapping>
                     </cq:authoring>
                 </policy_1575040440977>
@@ -330,6 +356,9 @@
             </download>
             <page jcr:primaryType="nt:unstructured">
                 <policy
+#if ( $amp == "y" )
+                    ampMode="pairedAmp"
+#end
                     jcr:description="Includes the required client libraries."
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Generic Page"
@@ -354,12 +383,65 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="${appTitle} App Policy"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    clientlibs="[wcm.foundation.components.page.responsive]"
+                    clientlibs="[${appId}.${frontendModule}]"
                     isRoot="{Boolean}true"
                     structureDepth="3"
                 />
             </spa>
 #end
+#if ( $includeCommerce == "y" )
+            <commerce jcr:primaryType="nt:unstructured">
+                <productlist jcr:primaryType="nt:unstructured">
+                    <default
+                        cq:styleDefaultClasses="category__style_grid"
+                        jcr:lastModified="{Date}2019-04-01T15:42:05.554+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="AEM CIF Core Components Product List"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        showTitle="true"
+                        showImage="true">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <item0
+                                cq:styleGroupLabel="Layout"
+                                jcr:primaryType="nt:unstructured">
+                                <cq:styles jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        jcr:primaryType="nt:unstructured"
+                                        cq:styleClasses="category__style_grid"
+                                        cq:styleId="1570700958199"
+                                        cq:styleLabel="Grid" />
+                                    <item1
+                                        jcr:primaryType="nt:unstructured"
+                                        cq:styleClasses="category__style_list"
+                                        cq:styleId="1570700958900"
+                                        cq:styleLabel="List" />
+                                </cq:styles>
+                            </item0>
+                        </cq:styleGroups>
+                    </default>
+                </productlist>
+            </commerce>
+#end
         </components>
     </${appId}>
+#if ( $isSpaProject )
+    <wcm jcr:primaryType="nt:unstructured">
+        <foundation jcr:primaryType="nt:unstructured">
+            <components jcr:primaryType="nt:unstructured">
+                <responsivegrid jcr:primaryType="nt:unstructured">
+                    <spa-default
+                        jcr:description="Includes only SPA-Enabled components."
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="SPA Content"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="[/libs/wcm/foundation/components/responsivegrid,/apps/${appId}/components/text]">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </spa-default>
+                </responsivegrid>
+            </components>
+        </foundation>
+    </wcm>
+#end
 </jcr:root>

@@ -64,21 +64,50 @@
                     </repositoryStructurePackages>
                     <embeddeds>
                         <embedded>
-                            <groupId>com.adobe.cq</groupId>
-                            <artifactId>core.wcm.components.core</artifactId>
-                            <target>/apps/${appId}/install</target>
-                        </embedded>
-                        <embedded>
                             <groupId>${groupId}</groupId>
                             <artifactId>${rootArtifactId}.core</artifactId>
                             <target>/apps/${appId}/install</target>
                         </embedded>
+#if ( $aemVersion != "cloud" )
+                        <embedded>
+                            <groupId>com.adobe.cq</groupId>
+                            <artifactId>core.wcm.components.core</artifactId>
+                            <target>/apps/${appId}/install</target>
+                        </embedded>
+#if( $amp == "y")
+                        <embedded>
+                            <groupId>com.adobe.cq</groupId>
+                            <artifactId>core.wcm.components.extensions.amp</artifactId>
+                            <target>/apps/${appId}/install</target>
+                        </embedded>
+#end
+#end
 #if ( $isSpaProject )
                         <embedded>
                             <groupId>com.adobe.aem</groupId>
                             <artifactId>spa.project.core.core</artifactId>
                             <target>/apps/${appId}/install</target>
                         </embedded>
+#end
+
+#if ( $includeCommerce == "y" )
+                        <embedded>
+                            <groupId>com.adobe.commerce.cif</groupId>
+                            <artifactId>core-cif-components-core</artifactId>
+                            <target>/apps/${appId}/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.adobe.commerce.cif</groupId>
+                            <artifactId>magento-graphql</artifactId>
+                            <target>/apps/${appId}/install</target>
+                        </embedded>
+#if ( $aemVersion != "cloud" )
+                        <embedded>
+                            <groupId>com.adobe.commerce.cif</groupId>
+                            <artifactId>graphql-client</artifactId>
+                            <target>/apps/${appId}/install</target>
+                        </embedded>
+#end
 #end
                     </embeddeds>
                     <subPackages>
@@ -90,6 +119,8 @@
 #end
                     </subPackages>
                     <dependencies>
+#if ( $aemVersion != "cloud" )
+
                         <dependency>
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.content</artifactId>
@@ -98,6 +129,20 @@
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.config</artifactId>
                         </dependency>
+#if( $amp == "y")
+                        <dependency>
+                            <groupId>com.adobe.cq</groupId>
+                            <artifactId>core.wcm.components.extensions.amp.content</artifactId>
+                        </dependency>
+#end
+#end
+
+#if ( $includeCommerce == "y" )
+                        <dependency>
+                            <groupId>com.adobe.commerce.cif</groupId>
+                            <artifactId>core-cif-components-apps</artifactId>
+                        </dependency>
+#end
                     </dependencies>
                 </configuration>
             </plugin>
@@ -168,12 +213,6 @@
             <artifactId>spa.project.core.core</artifactId>
         </dependency>
 #end
-
-        <dependency>
-            <groupId>com.adobe.cq</groupId>
-            <artifactId>core.wcm.components.core</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${rootArtifactId}.ui.apps.structure</artifactId>
@@ -181,18 +220,36 @@
             <type>zip</type>
         </dependency>
 
+#if ( $aemVersion != "cloud" )
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>core.wcm.components.core</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.content</artifactId>
             <type>zip</type>
         </dependency>
-
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.config</artifactId>
             <type>zip</type>
         </dependency>
-#if ( $aemVersion.startsWith("6.") )
+
+#if ( $amp == "y" )
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>core.wcm.components.extensions.amp</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>core.wcm.components.extensions.amp.content</artifactId>
+            <type>zip</type>
+        </dependency>
+#end
+
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>uber-jar</artifactId>
@@ -217,6 +274,27 @@
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>aem-sdk-api</artifactId>
+        </dependency>
+#end
+
+#if ( $includeCommerce == "y" )
+        <!-- Adobe CIF Dependencies -->
+        <dependency>
+            <groupId>com.adobe.commerce.cif</groupId>
+            <artifactId>core-cif-components-apps</artifactId>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.commerce.cif</groupId>
+            <artifactId>core-cif-components-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.commerce.cif</groupId>
+            <artifactId>graphql-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.commerce.cif</groupId>
+            <artifactId>magento-graphql</artifactId>
         </dependency>
 #end
         <!-- HTL dependencies needed for the HTL Maven Plugin source code generation -->
