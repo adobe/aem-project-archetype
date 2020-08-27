@@ -53,6 +53,7 @@ mvn -B archetype:generate \
  -D groupId="com.mysite" \
  -D frontendModule=general \
 ```
+**Note**: Make sure you use at least 3.1.0+ of maven-archetype-plugin ([#400](https://github.com/adobe/aem-project-archetype/issues/400))
 
 ## Available Properties
 
