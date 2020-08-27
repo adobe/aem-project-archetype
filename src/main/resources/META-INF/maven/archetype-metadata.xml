@@ -467,6 +467,7 @@
         <include>README.md</include>
         <include>README-CIF.md</include>
         <include>.gitignore</include>
+        <include>LICENCE</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" encoding="UTF-8">
