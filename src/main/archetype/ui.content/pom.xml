@@ -55,6 +55,11 @@
                     <properties>
                         <cloudManagerTarget>none</cloudManagerTarget>
                     </properties>
+                    <validatorsSettings>
+                        <jackrabbit-nodetypes>
+                            <isDisabled>true</isDisabled>
+                        </jackrabbit-nodetypes>
+                    </validatorsSettings>
                     <dependencies>
                         <dependency>
                             <groupId>${groupId}</groupId>
