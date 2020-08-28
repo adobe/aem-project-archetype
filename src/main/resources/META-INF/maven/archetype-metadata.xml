@@ -153,6 +153,7 @@
                     <directory>src/main/content</directory>
                     <includes>
                         <include>**/*.*</include>
+                        <include>**/LICENSE</include>
                     </includes>
                 </fileSet>
             </fileSets>
