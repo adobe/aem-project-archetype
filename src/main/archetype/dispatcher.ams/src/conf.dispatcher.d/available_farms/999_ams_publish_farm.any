@@ -2,21 +2,21 @@
 	# client headers which should be passed through to the render instances
 	# (feature supported since dispatcher build 2.6.3.5222)
 	/clientheaders {
-		$include "/etc/httpd/conf.dispatcher.d/clientheaders/ams_publish_clientheaders.any"
-		$include "/etc/httpd/conf.dispatcher.d/clientheaders/ams_common_clientheaders.any"
+		$include "../clientheaders/ams_publish_clientheaders.any"
+		$include "../clientheaders/ams_common_clientheaders.any"
 	}
 	# hostname globbing for farm selection (virtual domain addressing)
 	/virtualhosts {
-		$include "/etc/httpd/conf.dispatcher.d/vhosts/ams_publish_vhosts.any"
+		$include "../vhosts/ams_publish_vhosts.any"
 	}
 	# the load will be balanced among these render instances
 	/renders {
-		$include "/etc/httpd/conf.dispatcher.d/renders/ams_publish_renders.any"
+		$include "../renders/ams_publish_renders.any"
 	}
 	# only handle the requests in the following acl. default is 'none'
 	# the glob pattern is matched against the first request line
 	/filter {
-		$include "/etc/httpd/conf.dispatcher.d/filters/ams_publish_filters.any"
+		$include "../filters/ams_publish_filters.any"
 	}
 	# if the package is installed on publishers to generate a list of all content with a vanityurl attached
 	# this section will auto-allow the items to bypass the normal dispatcher filters
@@ -49,7 +49,7 @@
 		# - only requests without query parameters ( ? ) are cached
 		# - only unauthorized pages are cached unless allowUnauthorized is set to 1
 		/rules {
-			$include "/etc/httpd/conf.dispatcher.d/cache/ams_publish_cache.any"
+			$include "../cache/ams_publish_cache.any"
 		}
 		# the invalidate section defines those pages which are 'invalidated' after
 		# any activation. please note that, the activated page itself and all 
@@ -73,7 +73,7 @@
 				/type "deny"
 			}
 			# Allow certain IP's like publishers to invalidate cache
-			$include "/etc/httpd/conf.dispatcher.d/cache/ams_publish_invalidate_allowed.any"
+			$include "../cache/ams_publish_invalidate_allowed.any"
 		}
 		# The ignoreUrlParams section contains query string parameter names that
 		# should be ignored when determining whether some request's output can be
