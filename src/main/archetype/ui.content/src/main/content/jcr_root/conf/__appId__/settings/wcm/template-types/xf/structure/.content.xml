@@ -5,7 +5,7 @@
         cq:deviceGroups="[mobile/groups/responsive]"
         cq:template="/conf/${appId}/settings/wcm/templates/empty-experience-fragment"
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="${appId}/components/page">
+        sling:resourceType="${appId}/components/xfpage">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="${appId}/components/container"
