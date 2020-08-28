@@ -18,9 +18,27 @@
   <packaging>pom</packaging>
   <description>HTTP &amp; Dispatcher configurations for ${appTitle}</description>
 
-
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <executions>
+          <!-- enforce that immutable files are not touched: https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html -->
+          <execution>
+            <id>enforce-checksum-of-immutable-files</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <!-- rules being inserted by archetype-pre-package.groovy -->
+IMMUTABLE_RULES
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>

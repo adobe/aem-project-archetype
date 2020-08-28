@@ -69,6 +69,35 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- add enforcer rules for immutable dispatcher files -->
+            <plugin>
+                <groupId>org.codehaus.gmaven</groupId>
+                <artifactId>groovy-maven-plugin</artifactId>
+                <version>2.1.1</version>
+                <executions>
+                    <execution>
+                        <id>archetype-pre-package-transformation</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration>
+                            <source>${project.basedir}/src/main/resources/META-INF/archetype-pre-package.groovy</source>
+                            <properties>
+                                <rootDir>${project.build.outputDirectory}/archetype-resources</rootDir>
+                            </properties>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy-all</artifactId>
+                        <version>3.0.5</version>
+                        <type>pom</type> <!-- required JUST since Groovy 2.5.0 -->
+                    </dependency>
+                </dependencies>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
