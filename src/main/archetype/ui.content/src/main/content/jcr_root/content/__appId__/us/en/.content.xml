@@ -2,6 +2,9 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
+#if ( $singleCountry == "n" )
+        jcr:mixinTypes="[cq:LiveRelationship]"
+#end
         pageTitle="${appTitle}"
         jcr:primaryType="cq:PageContent"
         jcr:title="${language}"
@@ -18,9 +21,15 @@
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="${appId}/components/container"
+#if ( $singleCountry == "n" )
+             jcr:mixinTypes="[cq:LiveRelationship]"
+#end
             layout="responsiveGrid">
             <container
                 jcr:primaryType="nt:unstructured"
+#if ( $singleCountry == "n" )
+             jcr:mixinTypes="[cq:LiveRelationship]"
+#end
                 sling:resourceType="${appId}/components/container">
                 <title
                     jcr:primaryType="nt:unstructured"

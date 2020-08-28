@@ -18,7 +18,7 @@ import {
     MapTo,
     withComponentMappingContext,
     AllowedComponentsContainer
-} from '@adobe/cq-react-editable-components';
+} from '@adobe/aem-react-editable-components';
 
 
 const ContainerConfig = {

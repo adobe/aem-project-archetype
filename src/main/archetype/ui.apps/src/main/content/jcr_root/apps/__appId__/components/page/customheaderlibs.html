@@ -19,6 +19,11 @@
     <sly data-sly-call="${symbol_dollar}{clientlib.css @ categories='${appId}.cif'}" />
 #end
 </sly>
+
+#if ( $frontendModule == "angular" )
+<!--/* Angular Base Path */-->
+<base href="/etc.clientlibs/${appId}/clientlibs/clientlib-${frontendModule}/resources/base" />
+#end
 #if ( $isSpaProject )
 <!--/*
     SPA-specific meta tags
