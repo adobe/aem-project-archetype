@@ -5,9 +5,9 @@
     <title>Static Frontend file</title>
     <meta name="template" content="page-content"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" href="/etc.clientlibs/mysite/clientlibs/clientlib-base.css" type="text/css">
-    <script type="text/javascript" src="/etc.clientlibs/mysite/clientlibs/clientlib-dependencies.js"></script>
-    <link rel="stylesheet" href="/etc.clientlibs/mysite/clientlibs/clientlib-dependencies.css" type="text/css">
+    <link rel="stylesheet" href="/etc.clientlibs/${appId}/clientlibs/clientlib-base.css" type="text/css">
+    <script type="text/javascript" src="/etc.clientlibs/${appId}/clientlibs/clientlib-dependencies.js"></script>
+    <link rel="stylesheet" href="/etc.clientlibs/${appId}/clientlibs/clientlib-dependencies.css" type="text/css">
 </head>
 <body class="page basicpage">
 <div class="root container responsivegrid">
@@ -19,7 +19,7 @@
                         <nav class="cmp-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
                             <ul class="cmp-navigation__group">
                                 <li class="cmp-navigation__item cmp-navigation__item--level-0 cmp-navigation__item--active">
-                                    <a href="/content/mysite/language-masters/en.html" title="My Site" aria-current="page" class="cmp-navigation__item-link">My Site</a>
+                                    <a href="/content/${appId}/us/en.html" title="${appTitle}" aria-current="page" class="cmp-navigation__item-link">${appTitle}</a>
                                 </li>
                             </ul>
                         </nav>
@@ -31,7 +31,7 @@
                                     <span class="cmp-languagenavigation__item-title" lang="en">United States</span>
                                     <ul class="cmp-languagenavigation__group">
                                         <li class="cmp-languagenavigation__item cmp-languagenavigation__item--langcode-en cmp-languagenavigation__item--level-1">
-                                            <a class="cmp-languagenavigation__item-link" href="/content/mysite/us/en.html" hreflang="en" lang="en" rel="alternate" title="English">English</a>
+                                            <a class="cmp-languagenavigation__item-link" href="/content/${appId}/us/en.html" hreflang="en" lang="en" rel="alternate" title="English">English</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -40,7 +40,7 @@
                     </div>
                     <div class="search">
                         <section class="cmp-search" role="search" data-cmp-is="search" data-cmp-min-length="3" data-cmp-results-size="10">
-                            <form class="cmp-search__form" data-cmp-hook-search="form" method="get" action="/content/mysite/language-masters/en.searchresults.json/_jcr_content/root/search" autocomplete="off">
+                            <form class="cmp-search__form" data-cmp-hook-search="form" method="get" action="/content/${appId}/us/en.searchresults.json/_jcr_content/root/search" autocomplete="off">
                                 <div class="cmp-search__field">
                                     <i class="cmp-search__icon" data-cmp-hook-search="icon"></i>
                                     <span class="cmp-search__loading-indicator" data-cmp-hook-search="loadingIndicator"></span>
@@ -65,7 +65,7 @@
                 <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
                     <div class="title aem-GridColumn aem-GridColumn--default--12">
                         <div class="cmp-title">
-                            <h1 class="cmp-title__text">Welcome to My Site!</h1>
+                            <h1 class="cmp-title__text">Welcome to ${appTitle}!</h1>
                         </div>
                     </div>
                     <div class="container responsivegrid aem-GridColumn aem-GridColumn--default--12">
@@ -88,8 +88,8 @@
                                     <div class="cmp-helloworld__item">
                                         <p class="cmp-helloworld__item-label">Model message:</p>
                                         <pre class="cmp-helloworld__item-output" data-cmp-hook-helloworld="model">Hello World!
-Resource type is: mysite/components/helloworld
-Current page is:  /content/mysite/language-masters/en
+Resource type is: ${appId}/components/helloworld
+Current page is:  /content/${appId}/us/en
 This is instance: 78f60b4a-a52a-4021-82d5-fb17f5fb95cf
 </pre>
                                     </div>
@@ -109,7 +109,7 @@ This is instance: 78f60b4a-a52a-4021-82d5-fb17f5fb95cf
                         </div></div>
                     <div class="text">
                         <div class="cmp-text">
-                            <p>Copyright 2019, My Site. All rights reserved.</p>
+                            <p>Copyright 2019, ${appTitle}. All rights reserved.</p>
                         </div>
                     </div>
                 </div>
@@ -117,7 +117,7 @@ This is instance: 78f60b4a-a52a-4021-82d5-fb17f5fb95cf
         </footer>
     </div>
 </div>
-<script type="text/javascript" src="/etc.clientlibs/mysite/clientlibs/clientlib-site.js"></script>
-<script type="text/javascript" src="/etc.clientlibs/mysite/clientlibs/clientlib-base.js"></script>
+<script type="text/javascript" src="/etc.clientlibs/${appId}/clientlibs/clientlib-site.js"></script>
+<script type="text/javascript" src="/etc.clientlibs/${appId}/clientlibs/clientlib-base.js"></script>
 </body>
 </html>
