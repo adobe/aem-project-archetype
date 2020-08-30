@@ -66,8 +66,8 @@
 #if ( $isSpaProject )
                         <embedded>
                             <groupId>com.adobe.aem</groupId>
-                            <artifactId>spa.project.core.core</artifactId>
-                            <target>/apps/${appId}-vendor-packages/install</target>
+                            <artifactId>spa.project.core.ui.apps</artifactId>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
 #end
 #if ( $aemVersion != "cloud" )
@@ -121,13 +121,6 @@
 #end
                     </embeddeds>
                     <subPackages>
-#if ( $isSpaProject )
-                        <subPackage>
-                            <groupId>com.adobe.aem</groupId>
-                            <artifactId>spa.project.core.all</artifactId>
-                            <filter>true</filter>
-                        </subPackage>
-#end
                     </subPackages>
                 </configuration>
             </plugin>

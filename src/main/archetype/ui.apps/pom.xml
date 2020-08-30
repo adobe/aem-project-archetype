@@ -111,12 +111,6 @@
 #end
                     </embeddeds>
                     <subPackages>
-#if ( $isSpaProject )
-                        <subPackage>
-                            <groupId>com.adobe.aem</groupId>
-                            <artifactId>spa.project.core.all</artifactId>
-                        </subPackage>
-#end
                     </subPackages>
                     <dependencies>
 #if ( $aemVersion != "cloud" )
@@ -203,11 +197,6 @@
 
 #if ( $isSpaProject )
         <!-- SPA Project Core (includes hierarchy page) -->
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>spa.project.core.all</artifactId>
-            <type>zip</type>
-        </dependency>
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>spa.project.core.core</artifactId>
