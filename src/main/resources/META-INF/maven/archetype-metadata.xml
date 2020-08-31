@@ -370,8 +370,8 @@
                     encoding="UTF-8">
                     <directory>src/main/content</directory>
                     <includes>
+                        <include>**/*.cfg.json</include>
                         <include>**/*.xml</include>
-                        <include>**/*.config</include>
                     </includes>
                 </fileSet>
             </fileSets>

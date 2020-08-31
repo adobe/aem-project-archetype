@@ -1,0 +1,3 @@
+{
+  "sling.filter.pattern": "/content/${appId}/.*?/(category-page|product-page)"
+}
