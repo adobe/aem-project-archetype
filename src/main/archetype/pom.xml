@@ -308,6 +308,9 @@ Bundle-DocURL:
                     <version>1.1.4</version>
                     <configuration>
                         <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
+                        <properties>
+                            <cloudManagerTarget>none</cloudManagerTarget>
+                        </properties>
                     </configuration>
                 </plugin>
                 <!-- Content Package Plugin -->
