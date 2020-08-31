@@ -51,6 +51,8 @@
                 <configuration>
                     <group>${groupId}</group>
                     <packageType>container</packageType>
+                    <!-- skip sub package validation for now as some vendor packages like CIF apps will not pass -->
+                    <skipSubPackageValidation>true</skipSubPackageValidation>
                     <embeddeds>
                         <embedded>
                             <groupId>${groupId}</groupId>
