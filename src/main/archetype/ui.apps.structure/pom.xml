@@ -33,6 +33,7 @@
 
                         <!-- /apps root -->
                         <filter><root>/apps</root></filter>
+                        <filter><root>/apps/${appId}</root></filter>
 
                         <!-- Common overlay roots -->
                         <filter><root>/apps/sling</root></filter>

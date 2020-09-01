@@ -24,7 +24,7 @@ def includeDispatcherConfig = request.getProperties().get("includeDispatcherConf
 def includeCommerce = request.getProperties().get("includeCommerce")
 
 def appsFolder = new File("$uiAppsPackage/src/main/content/jcr_root/apps/$appId")
-def configFolder = new File("$uiConfigPackage/src/main/content/jcr_root/apps/$appId")
+def configFolder = new File("$uiConfigPackage/src/main/content/jcr_root/apps/$appId/osgiconfig")
 def confFolder = new File("$uiContentPackage/src/main/content/jcr_root/conf/$appId")
 def contentFolder = new File("$uiContentPackage/src/main/content/jcr_root/content/$appId")
 def varFolder = new File("$uiContentPackage/src/main/content/jcr_root/var")
