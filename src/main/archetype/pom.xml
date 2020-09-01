@@ -51,6 +51,7 @@
 #end
         <module>ui.apps</module>
         <module>ui.apps.structure</module>
+        <module>ui.config</module>
         <module>ui.content</module>
         <module>it.tests</module>
 #if ( $includeDispatcherConfig != "n" )
@@ -303,9 +304,13 @@ Bundle-DocURL:
                 <plugin>
                     <groupId>org.apache.jackrabbit</groupId>
                     <artifactId>filevault-package-maven-plugin</artifactId>
-                    <version>1.0.3</version>
+                    <extensions>true</extensions>
+                    <version>1.1.4</version>
                     <configuration>
                         <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
+                        <properties>
+                            <cloudManagerTarget>none</cloudManagerTarget>
+                        </properties>
                     </configuration>
                 </plugin>
                 <!-- Content Package Plugin -->

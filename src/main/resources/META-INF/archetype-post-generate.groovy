@@ -7,6 +7,7 @@ import java.util.regex.Pattern
 def rootDir = new File(request.getOutputDirectory() + "/" + request.getArtifactId())
 def uiAppsPackage = new File(rootDir, "ui.apps")
 def uiContentPackage = new File(rootDir, "ui.content")
+def uiConfigPackage = new File(rootDir, "ui.config")
 def coreBundle = new File(rootDir, "core")
 def rootPom = new File(rootDir, "pom.xml")
 def frontendModules = ["general", "angular", "react"]
@@ -23,6 +24,7 @@ def includeDispatcherConfig = request.getProperties().get("includeDispatcherConf
 def includeCommerce = request.getProperties().get("includeCommerce")
 
 def appsFolder = new File("$uiAppsPackage/src/main/content/jcr_root/apps/$appId")
+def configFolder = new File("$uiConfigPackage/src/main/content/jcr_root/apps/$appId/osgiconfig")
 def confFolder = new File("$uiContentPackage/src/main/content/jcr_root/conf/$appId")
 def contentFolder = new File("$uiContentPackage/src/main/content/jcr_root/content/$appId")
 def varFolder = new File("$uiContentPackage/src/main/content/jcr_root/var")
@@ -54,7 +56,7 @@ buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, lang
 cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, contentFolder)
 
 if ( includeDispatcherConfig == "n"  ) {
-    assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/" + appId + "/config.publish").deleteDir()
+    assert new File("$configFolder/config.publish").deleteDir()
 } else {
     def source;
     if (aemVersion == 'cloud')   {
@@ -86,9 +88,9 @@ if (includeCommerce == "n") {
     assert new File(rootDir, "README-CIF.md").delete()
     assert new File("$appsFolder/components/commerce").deleteDir()
     assert new File("$appsFolder/clientlibs/clientlib-cif").deleteDir()
-    assert new File("$appsFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-default.config").delete()
-    assert new File("$appsFolder/config/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.config").delete()
-    assert new File("$appsFolder/config/com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory-default.config").delete()
+    assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-default.cfg.json").delete()
+    assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.cfg.json").delete()
+    assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory-default.cfg.json").delete()
     assert new File("$appsFolder/components/xfpage/_cq_dialog").deleteDir()
     assert new File("$confFolder/cloudconfigs/commerce").deleteDir()
     assert new File("$varFolder").deleteDir();
@@ -101,7 +103,7 @@ if (includeCommerce == "n") {
     }
 } else {
     if (aemVersion == "cloud") {
-        assert new File("$appsFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-default.config").delete()
+        assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-default.cfg.json").delete()
         assert new File("$varFolder").deleteDir()
     }
 }

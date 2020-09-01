@@ -152,7 +152,7 @@
                          encoding="UTF-8">
                     <directory>src/main/content</directory>
                     <includes>
-                        <include>**/*.*</include>
+                        <include>**/*.xml</include>
                     </includes>
                 </fileSet>
             </fileSets>
@@ -360,6 +360,18 @@
                         <include>**/*.jpeg</include>
                         <include>**/image</include>
                         <include>**/original</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
+        <module id="${rootArtifactId}.ui.config" dir="ui.config" name="ui.config">
+            <fileSets>
+                <fileSet filtered="true" packaged="false"
+                    encoding="UTF-8">
+                    <directory>src/main/content</directory>
+                    <includes>
+                        <include>**/*.cfg.json</include>
+                        <include>**/*.xml</include>
                     </includes>
                 </fileSet>
             </fileSets>

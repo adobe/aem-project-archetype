@@ -46,15 +46,17 @@
             <plugin>
                 <groupId>org.apache.jackrabbit</groupId>
                 <artifactId>filevault-package-maven-plugin</artifactId>
-                <extensions>true</extensions>
                 <configuration>
                     <group>${groupId}</group>
                     <name>${artifactId}</name>
                     <packageType>content</packageType>
                     <accessControlHandling>merge</accessControlHandling>
-                    <properties>
-                        <cloudManagerTarget>none</cloudManagerTarget>
-                    </properties>
+                    <validatorsSettings>
+                        <!-- disable nodetype validation as workaround until JCRVLT-463 got fixed -->
+                        <jackrabbit-nodetypes>
+                            <isDisabled>true</isDisabled>
+                        </jackrabbit-nodetypes>
+                    </validatorsSettings>
                     <dependencies>
                         <dependency>
                             <groupId>${groupId}</groupId>

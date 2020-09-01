@@ -50,6 +50,12 @@
                 <extensions>true</extensions>
                 <configuration>
                     <group>${groupId}</group>
+                    <packageType>container</packageType>
+                    <properties>
+                        <cloudManagerTarget>all</cloudManagerTarget>
+                    </properties>
+                    <!-- skip sub package validation for now as some vendor packages like CIF apps will not pass -->
+                    <skipSubPackageValidation>true</skipSubPackageValidation>
                     <embeddeds>
                         <embedded>
                             <groupId>${groupId}</groupId>
@@ -59,15 +65,26 @@
                         </embedded>
                         <embedded>
                             <groupId>${groupId}</groupId>
+                            <artifactId>${rootArtifactId}.core</artifactId>
+                            <target>/apps/${appId}-packages/application/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>${groupId}</groupId>
                             <artifactId>${rootArtifactId}.ui.content</artifactId>
                             <type>zip</type>
                             <target>/apps/${appId}-packages/content/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>${groupId}</groupId>
+                            <artifactId>${rootArtifactId}.ui.config</artifactId>
+                            <type>zip</type>
+                            <target>/apps/${appId}-packages/application/install</target>
                         </embedded>
 #if ( $isSpaProject )
                         <embedded>
                             <groupId>com.adobe.aem</groupId>
                             <artifactId>spa.project.core.core</artifactId>
-                            <target>/apps/${appId}-vendor-packages/install</target>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
 #end
 #if ( $aemVersion != "cloud" )
@@ -75,6 +92,11 @@
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.content</artifactId>
                             <type>zip</type>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.adobe.cq</groupId>
+                            <artifactId>core.wcm.components.core</artifactId>
                             <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
                         <embedded>
@@ -88,7 +110,7 @@
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.extensions.amp.content</artifactId>
                             <type>zip</type>
-                            <target>/apps/${appId}-vendor-packages/content/install</target>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
                         <embedded>
                             <groupId>com.adobe.cq</groupId>
@@ -102,7 +124,7 @@
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.examples.ui.apps</artifactId>
                             <type>zip</type>
-                            <target>/apps/${appId}-vendor-packages/content/install</target>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
                         <embedded>
                             <groupId>com.adobe.cq</groupId>
@@ -118,6 +140,23 @@
                             <type>zip</type>
                             <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
+                        <embedded>
+                            <groupId>com.adobe.commerce.cif</groupId>
+                            <artifactId>core-cif-components-core</artifactId>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.adobe.commerce.cif</groupId>
+                            <artifactId>magento-graphql</artifactId>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
+                        </embedded>
+#if ( $aemVersion != "cloud" )
+                        <embedded>
+                            <groupId>com.adobe.commerce.cif</groupId>
+                            <artifactId>graphql-client</artifactId>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
+                        </embedded>
+#end
 #end
                     </embeddeds>
                     <subPackages>
@@ -142,7 +181,6 @@
             </plugin>
             <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
-                <version>2.4.1</version>
                 <executions>
                     <execution>
                         <id>auto-clean</id>
