@@ -7,11 +7,11 @@
 	DocumentRoot	${LIVECYCLE_DOCROOT}
 	# Add header breadcrumbs for help in troubleshooting
 	<IfModule mod_headers.c>
-			Header always add X-Dispatcher ${DISP_ID}
-			Header always add X-Vhost "livecycle"
-			Header merge X-Frame-Options SAMEORIGIN "expr=%{resp:X-Frame-Options}!='SAMEORIGIN'"
-			Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains;"
-			Header merge X-Content-Type-Options nosniff "expr=%{resp:X-Content-Type-Options}!='nosniff'"
+		Header always add X-Dispatcher ${DISP_ID}
+		Header always add X-Vhost "livecycle"
+		Header merge X-Frame-Options SAMEORIGIN "expr=%{resp:X-Frame-Options}!='SAMEORIGIN'"
+		Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains;"
+		Header merge X-Content-Type-Options nosniff "expr=%{resp:X-Content-Type-Options}!='nosniff'"
 		# Make sure proxies don't deliver the wrong content
 		Header append Vary User-Agent env=!dont-vary
 	</IfModule>

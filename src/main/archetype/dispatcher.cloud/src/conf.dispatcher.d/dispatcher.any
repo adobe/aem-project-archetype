@@ -6,6 +6,6 @@
 #
 
 /farms {
-  # Include all *.farm files in enabled_farms
-  $include "enabled_farms/*.farm"
+	# Include all *.farm files in enabled_farms
+	$include "enabled_farms/*.farm"
 }

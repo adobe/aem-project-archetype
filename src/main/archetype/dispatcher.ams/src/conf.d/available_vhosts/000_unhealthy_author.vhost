@@ -1,9 +1,9 @@
 <VirtualHost *:80>
 	ServerName	unhealthyauthor
 	ServerAlias	${AUTHOR_DEFAULT_HOSTNAME}
-	
+
 	DocumentRoot	/mnt/var/www/default
-	
+
 	<Directory />
 		Options FollowSymLinks
 		AllowOverride None
