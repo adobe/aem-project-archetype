@@ -25,7 +25,7 @@ PassEnv DISP_ID
 	<Directory />
 		# Update /etc/sysconfig/httpd with setting the PUBLISH_WHITELIST_ENABLED from 0 or 1 to enable or disable ip restriction rules
 		<If "${PUBLISH_WHITELIST_ENABLED} == 1">
-			Include /etc/httpd/conf.d/whitelists/*_whitelist.rules
+			Include conf.d/whitelists/*_whitelist.rules
 		</If>
 		<IfModule disp_apache2.c>
 			# Some items cache with the wrong mime type
@@ -60,10 +60,10 @@ PassEnv DISP_ID
 		ReWriteEngine	on
 		LogLevel warn rewrite:info
 		# Global rewrite include
-		Include /etc/httpd/conf.d/rewrites/base_rewrite.rules
+		Include conf.d/rewrites/base_rewrite.rules
 		# Update /etc/sysconfig/httpd with setting the PUBLISH_FORCE_SSL from 0 or 1 to enable or disable enforcing SSL
 		<If "${PUBLISH_FORCE_SSL} == 1">
-			Include /etc/httpd/conf.d/rewrites/xforwarded_forcessl_rewrite.rules
+			Include conf.d/rewrites/xforwarded_forcessl_rewrite.rules
 		</If>
 	</IfModule>
 </VirtualHost>
