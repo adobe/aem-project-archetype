@@ -65,12 +65,6 @@
                         </embedded>
                         <embedded>
                             <groupId>${groupId}</groupId>
-                            <artifactId>${rootArtifactId}.ui.config</artifactId>
-                            <type>zip</type>
-                            <target>/apps/${appId}-packages/application/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>${groupId}</groupId>
                             <artifactId>${rootArtifactId}.core</artifactId>
                             <target>/apps/${appId}-packages/application/install</target>
                         </embedded>
