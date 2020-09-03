@@ -15,8 +15,8 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 // @ts-nocheck
 
-import { SpaAngularEditableComponentsModule } from '@adobe/cq-angular-editable-components';
-import {Model, ModelManager} from '@adobe/cq-spa-page-model-manager';
+import { SpaAngularEditableComponentsModule } from '@adobe/aem-angular-editable-components';
+import {Model, ModelManager} from '@adobe/aem-spa-page-model-manager';
 import { APP_BASE_HREF } from '@angular/common';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppRoutingModule } from '../../app-routing.module';

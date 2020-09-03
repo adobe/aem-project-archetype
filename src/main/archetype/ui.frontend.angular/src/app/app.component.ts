@@ -14,8 +14,8 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import { Constants } from '@adobe/cq-angular-editable-components';
-import { ModelManager } from '@adobe/cq-spa-page-model-manager';
+import { Constants } from '@adobe/aem-angular-editable-components';
+import { ModelManager } from '@adobe/aem-spa-page-model-manager';
 import { Component } from '@angular/core';
 
 @Component({

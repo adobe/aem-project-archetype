@@ -14,7 +14,7 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import { ModelManager } from '@adobe/cq-spa-page-model-manager';
+import { ModelManager } from '@adobe/aem-spa-page-model-manager';
 import { Injectable } from '@angular/core';
 
 export interface DataConfig {
