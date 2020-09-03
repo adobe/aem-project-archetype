@@ -88,9 +88,9 @@ if (includeCommerce == "n") {
     assert new File(rootDir, "README-CIF.md").delete()
     assert new File("$appsFolder/components/commerce").deleteDir()
     assert new File("$appsFolder/clientlibs/clientlib-cif").deleteDir()
-    assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-default.cfg.json").delete()
+    assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl~default.cfg.json").delete()
     assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.cfg.json").delete()
-    assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory-default.cfg.json").delete()
+    assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory~default.cfg.json").delete()
     assert new File("$appsFolder/components/xfpage/_cq_dialog").deleteDir()
     assert new File("$confFolder/cloudconfigs/commerce").deleteDir()
     assert new File("$varFolder").deleteDir();
@@ -103,7 +103,7 @@ if (includeCommerce == "n") {
     }
 } else {
     if (aemVersion == "cloud") {
-        assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-default.cfg.json").delete()
+        assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl~default.cfg.json").delete()
         assert new File("$varFolder").deleteDir()
     }
 }
