@@ -3,18 +3,18 @@
 PassEnv DISP_ID
 
 <VirtualHost *:80>
-    # allowing slashes in the URL to be encoded and still honored
-    AllowEncodedSlashes On
+	# allowing slashes in the URL to be encoded and still honored
+	AllowEncodedSlashes On
 	ServerName	"author"
 	ServerAlias	${AUTHOR_DEFAULT_HOSTNAME}
 	# Use a special doc root that doesn't overlap publish doc roots or it wont fetch from author each time and authors wont see their changes
 	DocumentRoot	${AUTHOR_DOCROOT}
 	# Add header breadcrumbs for help in troubleshooting
 	<IfModule mod_headers.c>
-			Header always add X-Dispatcher ${DISP_ID}
-			Header always add X-Vhost "author"
-			Header merge X-Frame-Options SAMEORIGIN "expr=%{resp:X-Frame-Options}!='SAMEORIGIN'"
-			Header merge X-Content-Type-Options nosniff "expr=%{resp:X-Content-Type-Options}!='nosniff'"
+		Header always add X-Dispatcher ${DISP_ID}
+		Header always add X-Vhost "author"
+		Header merge X-Frame-Options SAMEORIGIN "expr=%{resp:X-Frame-Options}!='SAMEORIGIN'"
+		Header merge X-Content-Type-Options nosniff "expr=%{resp:X-Content-Type-Options}!='nosniff'"
 		# Make sure proxies don't deliver the wrong content
 		Header append Vary User-Agent env=!dont-vary
 		# Force SSL for author
@@ -50,7 +50,7 @@ PassEnv DISP_ID
 		SetEnvIfNoCase Request_URI \
 		\.(?:gif|jpe?g|png)$ no-gzip dont-vary
 		# Don't compress AEM assets
-        SetEnvIfNoCase Request_URI assetdownload no-gzip dont-vary
+		SetEnvIfNoCase Request_URI assetdownload no-gzip dont-vary
 	</Directory>
 	<IfModule disp_apache2.c>
 		# Enabled to allow rewrites to take affect and not be ignored by the dispatcher module

@@ -1,9 +1,9 @@
 <VirtualHost *:80>
 	ServerName	unhealthypublish
 	ServerAlias	${PUBLISH_DEFAULT_HOSTNAME}
-	
+
 	DocumentRoot	/mnt/var/www/default
-	
+
 	<Directory />
 		Options FollowSymLinks
 		AllowOverride None
@@ -20,8 +20,8 @@
 		Require all granted
 	</Directory>
 	<IfModule mod_headers.c>
-			Header always add X-Dispatcher ${DISP_ID}
-			Header always add X-Vhost "unhealthy-publish"
+		Header always add X-Dispatcher ${DISP_ID}
+		Header always add X-Vhost "unhealthy-publish"
 	</IfModule>
 	<IfModule mod_rewrite.c>
 		ReWriteEngine   on

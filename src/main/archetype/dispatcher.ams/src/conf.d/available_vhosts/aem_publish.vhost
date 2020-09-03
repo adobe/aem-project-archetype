@@ -4,7 +4,7 @@ PassEnv DISP_ID
 
 <VirtualHost *:80>
 	# allowing slashes in the URL to be encoded and still honored
-    AllowEncodedSlashes On
+	AllowEncodedSlashes On
 	ServerName	publish
 	# Put names of which domains are used for your published site/content here
 	ServerAlias	${PUBLISH_DEFAULT_HOSTNAME}
@@ -12,10 +12,10 @@ PassEnv DISP_ID
 	DocumentRoot	${PUBLISH_DOCROOT}
 	# Add header breadcrumbs for help in troubleshooting
 	<IfModule mod_headers.c>
-			Header always add X-Dispatcher ${DISP_ID}
-			Header always add X-Vhost "publish"
-			Header merge X-Frame-Options SAMEORIGIN "expr=%{resp:X-Frame-Options}!='SAMEORIGIN'"
-			Header merge X-Content-Type-Options nosniff "expr=%{resp:X-Content-Type-Options}!='nosniff'"
+		Header always add X-Dispatcher ${DISP_ID}
+		Header always add X-Vhost "publish"
+		Header merge X-Frame-Options SAMEORIGIN "expr=%{resp:X-Frame-Options}!='SAMEORIGIN'"
+		Header merge X-Content-Type-Options nosniff "expr=%{resp:X-Content-Type-Options}!='nosniff'"
 		# Make sure proxies don't deliver the wrong content
 		Header append Vary User-Agent env=!dont-vary
 		# Force SSL for author

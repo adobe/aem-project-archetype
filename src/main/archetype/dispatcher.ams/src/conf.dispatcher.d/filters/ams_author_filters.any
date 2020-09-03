@@ -13,7 +13,7 @@
 /0016 { /type "deny" /path "/content/ams/healthcheck/*"}
 /0017 { /type "deny" /url "/content/regent.html"}
 
- # allow some requests
+# allow some requests
 /0052 { /type "allow" /method "GET" /extension "html" /url "/system/sling/logout.html*" } # allow logout
 #Asset download defaults to deny but can be allowed in /etc/httpd/conf.d/variables/ams_default.vars
 /0070 { /type "${ASSET_DOWNLOAD_RULE}" /method "GET" /url "*.assetdownload.zip/assets.zip*" }

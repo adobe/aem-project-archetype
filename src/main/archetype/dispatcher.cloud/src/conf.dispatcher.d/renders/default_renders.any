@@ -5,7 +5,7 @@
 #
 
 /0 {
-  /hostname "${AEM_HOST}"
-  /port "${AEM_PORT}"
-  /timeout "10000"
+	/hostname "${AEM_HOST}"
+	/port "${AEM_PORT}"
+	/timeout "10000"
 }

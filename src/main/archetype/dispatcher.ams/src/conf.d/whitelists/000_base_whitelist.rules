@@ -7,9 +7,9 @@
 
 # Setup a require any section so if any rules in there are matched it will allow them in
 <RequireAny>
-  # We make sure the environment variable AllowIP is enforced
-  Require env AllowIP
-  # Here are some rules for CIDR ip blocks and single addresses
-  # Require ip 192.150.16.0/23
-  # Require ip 120.242.180.10
+	# We make sure the environment variable AllowIP is enforced
+	Require env AllowIP
+	# Here are some rules for CIDR ip blocks and single addresses
+	# Require ip 192.150.16.0/23
+	# Require ip 120.242.180.10
 </RequireAny>

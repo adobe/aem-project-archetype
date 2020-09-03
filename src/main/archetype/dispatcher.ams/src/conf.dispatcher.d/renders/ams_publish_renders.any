@@ -2,7 +2,7 @@
 # It's recommended to use paired sets of dispatchers to publishers
 # Example Dispatcher1 only grabs from Publisher1 but you don't have to and can list mulitple sources here
 /0 {
-  /hostname "${PUBLISH_IP}"
-  /port "${PUBLISH_PORT}"
-  /timeout "10000"
+	/hostname "${PUBLISH_IP}"
+	/port "${PUBLISH_PORT}"
+	/timeout "10000"
 }
