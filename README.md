@@ -55,6 +55,8 @@ mvn -B archetype:generate \
 ```
 **Note**: Make sure you use at least 3.1.0+ of maven-archetype-plugin ([#400](https://github.com/adobe/aem-project-archetype/issues/400))
 
+**Note**: To run above command with latest SNAPSHOT version, you have to use the new `archetypeGroupId`: `-D archetypeGroupId=com.adobe.aem`
+
 ## Available Properties
 
 Name                      | Default        | Description
