@@ -154,6 +154,16 @@
                 <archetype.test.projectsDirectory>${project.build.testOutputDirectory}/projects/basic</archetype.test.projectsDirectory>
             </properties>
         </profile>
+         <!--
+            Profile for only executing the basic integration tests (without frondend modules, because they increase the build time
+            significantly)
+        -->
+        <profile>
+            <id>it-dispatcher</id>
+            <properties>
+                <archetype.test.projectsDirectory>${project.build.testOutputDirectory}/projects/dispatcher-immutable-modified</archetype.test.projectsDirectory>
+            </properties>
+        </profile>
     </profiles>
 
     <distributionManagement>
