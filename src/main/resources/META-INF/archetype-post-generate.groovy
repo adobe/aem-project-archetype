@@ -39,10 +39,6 @@ if (includeErrorHandler == "n") {
     assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/sling").deleteDir()
 }
 
-if (aemVersion == "6.3.3") {
-    assert new File(uiContentPackage, "src/main/content/jcr_root/conf/" + appId  + "/settings/wcm/segments").deleteDir()
-}
-
 if (aemVersion == "cloud") {
     if (sdkVersion == "latest") {
         println "No SDK version specified, trying to fetch latest"

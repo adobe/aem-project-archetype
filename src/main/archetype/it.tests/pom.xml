@@ -52,17 +52,11 @@
             <artifactId>cq-testing-clients-65</artifactId>
             <version>1.1.1</version>
         </dependency>
-#elseif ($aemVersion.startsWith("6.4"))
+#else
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>cq-testing-clients-64</artifactId>
             <version>0.1.1</version>
-        </dependency>
-#else
-        <dependency>
-            <groupId>com.adobe.cq</groupId>
-            <artifactId>cq-testing-clients-63</artifactId>
-            <version>0.1.0</version>
         </dependency>
 #end
         <dependency>
