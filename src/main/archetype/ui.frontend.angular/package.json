@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "@adobe/aem-angular-editable-components": "^1.0.0",
-    "@adobe/aem-spa-component-mapping": "^1.0.3",
-    "@adobe/aem-spa-page-model-manager": "^1.1.0",
+    "@adobe/aem-spa-component-mapping": "^1.0.5",
+    "@adobe/aem-spa-page-model-manager": "^1.0.3",
     "@angular/animations": "~9.1.12",
     "@angular/common": "~9.1.12",
     "@angular/compiler": "~9.1.12",

@@ -14,7 +14,7 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import { Constants } from '@adobe/cq-angular-editable-components';
+import { Constants } from '@adobe/aem-angular-editable-components';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ModelManagerService } from '../model-manager.service';
