@@ -1,0 +1,5 @@
+{
+  "resource.resolver.mapping": [
+    "/content/${appId}/&lt;/", "/:/"
+  ]
+}

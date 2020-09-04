@@ -10,13 +10,13 @@ PassEnv DISP_ID
 	DocumentRoot	${PUBLISH_DOCROOT}
 	# Add header breadcrumbs for help in troubleshooting
 	<IfModule mod_headers.c>
-			Header always add X-Dispatcher ${DISP_ID}
-			Header always add X-Vhost "flush"
+		Header always add X-Dispatcher ${DISP_ID}
+		Header always add X-Vhost "flush"
 	</IfModule>
-        <Directory "${PUBLISH_DOCROOT}">
-                AllowOverride None
-                Require all granted
-        </Directory>
+	<Directory "${PUBLISH_DOCROOT}">
+		AllowOverride None
+		Require all granted
+	</Directory>
 	<Directory />
 		<IfModule disp_apache2.c>
 			SetHandler dispatcher-handler

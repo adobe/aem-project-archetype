@@ -55,6 +55,8 @@ mvn -B archetype:generate \
 ```
 **Note**: Make sure you use at least 3.1.0+ of maven-archetype-plugin ([#400](https://github.com/adobe/aem-project-archetype/issues/400))
 
+**Note**: To run above command with latest SNAPSHOT version, you have to use the new `archetypeGroupId`: `-D archetypeGroupId=com.adobe.aem`
+
 ## Available Properties
 
 Name                      | Default        | Description
@@ -80,9 +82,9 @@ Name                      | Default        | Description
 
 ## System Requirements
 
-Archetype | AEM as a Cloud Service | AEM 6.5 | AEM 6.4 | AEM 6.3 | Java SE | Maven
----------|---------|---------|---------|---------|---------|---------
-[23](https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-23) | Continual | 6.5.0.0+ | 6.4.4.0+ | 6.3.3.4+ | 8, 11 | 3.3.9+
+Archetype | AEM as a Cloud Service | AEM 6.5 | AEM 6.4 | Java SE | Maven
+---------|---------|---------|---------|---------|---------
+[23](https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-23) | Continual | 6.5.0.0+ | 6.4.4.0+ | 8, 11 | 3.3.9+
 
 Setup your local development environment for [AEM as a Cloud Service SDK](https://docs.adobe.com/content/help/en/experience-manager-learn/cloud-service/local-development-environment-set-up/overview.html) or for [older versions of AEM](https://docs.adobe.com/content/help/en/experience-manager-learn/foundation/development/set-up-a-local-aem-development-environment.html).
 

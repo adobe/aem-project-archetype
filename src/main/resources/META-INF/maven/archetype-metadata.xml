@@ -152,7 +152,7 @@
                          encoding="UTF-8">
                     <directory>src/main/content</directory>
                     <includes>
-                        <include>**/*.*</include>
+                        <include>**/*.xml</include>
                     </includes>
                 </fileSet>
             </fileSets>
@@ -366,6 +366,18 @@
                 </fileSet>
             </fileSets>
         </module>
+        <module id="${rootArtifactId}.ui.config" dir="ui.config" name="ui.config">
+            <fileSets>
+                <fileSet filtered="true" packaged="false"
+                    encoding="UTF-8">
+                    <directory>src/main/content</directory>
+                    <includes>
+                        <include>**/*.cfg.json</include>
+                        <include>**/*.xml</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
         <module id="${rootArtifactId}.ui.content" dir="ui.content" name="ui.content">
             <fileSets>
                 <fileSet filtered="true" packaged="false"
@@ -469,6 +481,7 @@
         <include>README.md</include>
         <include>README-CIF.md</include>
         <include>.gitignore</include>
+        <include>LICENSE</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" encoding="UTF-8">

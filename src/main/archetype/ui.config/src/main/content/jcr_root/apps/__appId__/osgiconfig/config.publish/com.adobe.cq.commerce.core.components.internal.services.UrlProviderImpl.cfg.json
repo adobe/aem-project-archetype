@@ -1,0 +1,8 @@
+{
+  "productUrlTemplate": "{{page}}.{{url_key}}.html#{{variant_sku}}",
+  "productIdentifierLocation": "SELECTOR",
+  "productIdentifierType": "URL_KEY",
+  "categoryUrlTemplate": "{{page}}.{{id}}.html/{{url_path}}",
+  "categoryIdentifierLocation": "SELECTOR",
+  "categoryIdentifierType": "ID"
+}
