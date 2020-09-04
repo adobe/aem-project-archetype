@@ -11,8 +11,8 @@ def insertImmutableDispatcherFileEnforcerRules(rootDir, module, messageLink) {
     def target = new File(rootDir, module)
     def dispatcherPom = new File(target, 'pom.xml')
     String[] immutableFiles = new File(target, 'immutable.files')
-    dispatcherPom.text = dispatcherPom.text.replaceAll('IMMUTABLE_RULES_NON_WINDOWS', getImmutableDispatcherFileEnforcerRules(target, immutableFiles, '  ', 10, messageLink, false))
-    dispatcherPom.text = dispatcherPom.text.replaceAll('IMMUTABLE_RULES_WINDOWS', getImmutableDispatcherFileEnforcerRules(target, immutableFiles, '  ', 10, messageLink, true))
+    dispatcherPom.text = dispatcherPom.text.replaceAll('IMMUTABLE_RULES_NON_WINDOWS', getImmutableDispatcherFileEnforcerRules(target, immutableFiles, '    ', 10, messageLink, false))
+    dispatcherPom.text = dispatcherPom.text.replaceAll('IMMUTABLE_RULES_WINDOWS', getImmutableDispatcherFileEnforcerRules(target, immutableFiles, '    ', 10, messageLink, true))
     assert new File(target, 'immutable.files').delete()
 }
 

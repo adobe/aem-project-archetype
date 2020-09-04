@@ -65,7 +65,7 @@
                                 <configuration>
                                     <rules>
                                         <!-- rules being inserted by archetype-pre-package.groovy -->
-                                        IMMUTABLE_RULES_NON_WINDOWS
+IMMUTABLE_RULES_NON_WINDOWS
                                     </rules>
                                 </configuration>
                             </execution>
@@ -96,7 +96,7 @@
                                 <configuration>
                                     <rules>
                                         <!-- rules being inserted by archetype-pre-package.groovy -->
-                                        IMMUTABLE_RULES_WINDOWS
+IMMUTABLE_RULES_WINDOWS
                                     </rules>
                                 </configuration>
                             </execution>
