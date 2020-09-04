@@ -1,6 +1,7 @@
 // custom groovy script executed prior to https://maven.apache.org/archetype/maven-archetype-plugin/jar-mojo.html
 import java.security.MessageDigest
 import java.util.regex.Pattern
+import java.nio.file.Files
 import java.nio.charset.StandardCharsets
 
 def rootDir = properties['rootDir']
@@ -16,20 +17,29 @@ def insertImmutableDispatcherFileEnforcerRules(rootDir, module, messageLink) {
     assert new File(target, 'immutable.files').delete()
 }
 
-def md5(file, isWindowsLineEnding) {
-    def hash = MessageDigest.getInstance('MD5')
-    file.withReader { reader ->
-        while ((line = reader.readLine()) != null) {
-            // assume that even the last line ends with a newline character
-            line += isWindowsLineEnding ? "\r\n" : "\n"
-            def buffer = line.getBytes(StandardCharsets.UTF_8)
-            hash.update(buffer, 0, buffer.length)
-        }
-    }
-    hash.digest().encodeHex().toString()
+def readFile(file, encoding) throws IOException {
+    byte[] encoded = Files.readAllBytes(file.toPath())
+    return new String(encoded, encoding)
 }
 
-def getImmutableDispatcherFileEnforcerRules(baseDir, immutableFiles, indent, initialIndentLevel, messageLink, isWindowsLineEnding) {
+def readFileWithNormalizedFileEnding(file, encoding, isForWindows) {
+    String fileContent = readFile(file, encoding)
+    if (isForWindows) {
+        fileContent.replaceAll("\\n", "\r\n")
+    } else {
+        fileContent.replaceAll("\\r\\n", "\n")
+    }
+    return fileContent.getBytes(encoding)
+}
+
+def md5(file, isForWindows) {
+    def hash = MessageDigest.getInstance('MD5')
+    def content = readFileWithNormalizedFileEnding(file, StandardCharsets.UTF_8, isForWindows)
+    hash.update(content, 0, content.length)
+    return hash.digest().encodeHex().toString()
+}
+
+def getImmutableDispatcherFileEnforcerRules(baseDir, immutableFiles, indent, initialIndentLevel, messageLink, isForWindows) {
     StringWriter rules = new StringWriter()
     IndentPrinter printer = new IndentPrinter(rules, indent, true, true)
     printer.setIndentLevel(initialIndentLevel)
@@ -37,7 +47,7 @@ def getImmutableDispatcherFileEnforcerRules(baseDir, immutableFiles, indent, ini
         printer.println('<requireFileChecksum>')
         printer.incrementIndent();
         printer.println("<file>${immutableFile}</file>")
-        def md5 = md5(new File(baseDir, immutableFile), isWindowsLineEnding)
+        def md5 = md5(new File(baseDir, immutableFile), isForWindows)
         printer.println("<checksum>${md5}</checksum>")
         printer.println('<type>md5</type>')
         printer.println("<message>There have been changes detected in a file which is supposed to be immutable according to ${messageLink}: ${immutableFile}</message>")
