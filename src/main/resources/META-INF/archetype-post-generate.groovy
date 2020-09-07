@@ -15,7 +15,8 @@ def frontendModules = ["general", "angular", "react"]
 def singleCountry = request.getProperties().get("singleCountry")
 def appId =  request.getProperties().get("appId")
 def javaPackage = request.getProperties().get("package")
-def languageCountry = request.getProperties().get("languageCountry")
+def language = request.getProperties().get("language")
+def country = request.getProperties().get("country")
 def includeErrorHandler = request.getProperties().get("includeErrorHandler")
 def frontendModule = request.getProperties().get("frontendModule")
 def aemVersion = request.getProperties().get("aemVersion")
@@ -52,7 +53,7 @@ if (aemVersion == "cloud") {
     rootPom.text = rootPom.text.replaceAll('SDK_VERSION', sdkVersion.toString())
 }
 
-buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, languageCountry)
+buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, language, country)
 cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, contentFolder)
 
 if ( includeDispatcherConfig == "n"  ) {
@@ -109,11 +110,10 @@ if (includeCommerce == "n") {
 }
 
 /**
- * Creates content skeleton based upon singleCountry & languageCountry input from user
+ * Creates content skeleton based upon singleCountry, language and country input from user
  */
-def buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, languageCountry) {
+def buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, language, country) {
     println "Creating content skeleton..."
-    def contentDetails = languageCountry.split('_')
 
     if (singleCountry == "y") {
         def languageMastersDir = new File(uiContentPackage, "src/main/content/jcr_root/content/${appId}/language-masters")
@@ -124,19 +124,19 @@ def buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, 
         msmAppsDir.deleteDir()
     } else {
         def languageDir = new File(uiContentPackage, "src/main/content/jcr_root/content/${appId}/language-masters/en")
-        languageDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/${appId}/language-masters/${contentDetails[0]}"))
+        languageDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/${appId}/language-masters/${language}"))
         def languageXFMDir = new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${appId}/language" + "-masters/en")
-        languageXFMDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${appId}/language-masters/${contentDetails[0]}"))
+        languageXFMDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${appId}/language-masters/${language}"))
     }
 
     def countryDir = new File(uiContentPackage, "src/main/content/jcr_root/content/${appId}/us")
     def countryXFMDir = new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${appId}/us")
-    countryDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/${appId}/${contentDetails[1]}"))
-    countryXFMDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${appId}/${contentDetails[1]}"))
-    def languageInCountryDir = new File(uiContentPackage, "src/main/content/jcr_root/content/${appId}/${contentDetails[1]}/en")
-    def languageInCountryXFMDir = new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${appId}/${contentDetails[1]}/en")
-    languageInCountryDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/${appId}/${contentDetails[1]}/${contentDetails[0]}"))
-    languageInCountryXFMDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${appId}/${contentDetails[1]}/${contentDetails[0]}"))
+    countryDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/${appId}/${country}"))
+    countryXFMDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${appId}/${country}"))
+    def languageInCountryDir = new File(uiContentPackage, "src/main/content/jcr_root/content/${appId}/${country}/en")
+    def languageInCountryXFMDir = new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${appId}/${country}/en")
+    languageInCountryDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/${appId}/${country}/${language}"))
+    languageInCountryXFMDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${appId}/${country}/${language}"))
 }
 
 /**

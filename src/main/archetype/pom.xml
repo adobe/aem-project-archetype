@@ -25,17 +25,6 @@
 #set( $startbrace = "{" )
 #set( $endbrace = "}" )
 #set( $isSpaProject = $frontendModule == "angular" || $frontendModule == "react" )
-#set ($i = 0)
-##
-## work around as String.split.get(int) is not working in m2e
-#foreach ($item in $languageCountry.split("_"))
-    #if($i == 0)
-        #set ($language = $item)
-    #else
-        #set ($country = $item)
-    #end
-    #set($i = $i + 1)
-#end
     <modelVersion>4.0.0</modelVersion>
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}</artifactId>
