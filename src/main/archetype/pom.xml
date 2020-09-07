@@ -25,17 +25,6 @@
 #set( $startbrace = "{" )
 #set( $endbrace = "}" )
 #set( $isSpaProject = $frontendModule == "angular" || $frontendModule == "react" )
-#set ($i = 0)
-##
-## work around as String.split.get(int) is not working in m2e
-#foreach ($item in $languageCountry.split("_"))
-    #if($i == 0)
-        #set ($language = $item)
-    #else
-        #set ($country = $item)
-    #end
-    #set($i = $i + 1)
-#end
     <modelVersion>4.0.0</modelVersion>
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}</artifactId>
@@ -51,6 +40,7 @@
 #end
         <module>ui.apps</module>
         <module>ui.apps.structure</module>
+        <module>ui.config</module>
         <module>ui.content</module>
         <module>it.tests</module>
 #if ( $includeDispatcherConfig != "n" )
@@ -77,11 +67,11 @@
         <core.wcm.components.version>2.11.0</core.wcm.components.version>
 #end
 #if ( $includeCommerce == "y" )
-        <core.cif.components.version>1.2.0</core.cif.components.version>
+        <core.cif.components.version>1.3.0</core.cif.components.version>
         <graphql.client.version>1.6.1</graphql.client.version>
         <magento.graphql.version>6.0.0-magento235</magento.graphql.version>
 #end
-        <bnd.version>5.0.0</bnd.version>
+        <bnd.version>5.1.2</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 #if ( $isSpaProject )
@@ -303,9 +293,13 @@ Bundle-DocURL:
                 <plugin>
                     <groupId>org.apache.jackrabbit</groupId>
                     <artifactId>filevault-package-maven-plugin</artifactId>
-                    <version>1.0.3</version>
+                    <extensions>true</extensions>
+                    <version>1.1.4</version>
                     <configuration>
                         <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
+                        <properties>
+                            <cloudManagerTarget>none</cloudManagerTarget>
+                        </properties>
                     </configuration>
                 </plugin>
                 <!-- Content Package Plugin -->
@@ -324,7 +318,7 @@ Bundle-DocURL:
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>1.4.1</version>
+                    <version>3.0.0-M3</version>
                 </plugin>
                 <!-- Maven Dependency Plugin -->
                 <plugin>

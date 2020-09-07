@@ -14,7 +14,7 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import { SpaAngularEditableComponentsModule } from '@adobe/cq-angular-editable-components';
+import { SpaAngularEditableComponentsModule } from '@adobe/aem-angular-editable-components';
 import { APP_BASE_HREF } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';

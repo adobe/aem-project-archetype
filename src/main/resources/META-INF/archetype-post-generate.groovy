@@ -7,6 +7,7 @@ import java.util.regex.Pattern
 def rootDir = new File(request.getOutputDirectory() + "/" + request.getArtifactId())
 def uiAppsPackage = new File(rootDir, "ui.apps")
 def uiContentPackage = new File(rootDir, "ui.content")
+def uiConfigPackage = new File(rootDir, "ui.config")
 def coreBundle = new File(rootDir, "core")
 def rootPom = new File(rootDir, "pom.xml")
 def frontendModules = ["general", "angular", "react"]
@@ -14,7 +15,8 @@ def frontendModules = ["general", "angular", "react"]
 def singleCountry = request.getProperties().get("singleCountry")
 def appId =  request.getProperties().get("appId")
 def javaPackage = request.getProperties().get("package")
-def languageCountry = request.getProperties().get("languageCountry")
+def language = request.getProperties().get("language")
+def country = request.getProperties().get("country")
 def includeErrorHandler = request.getProperties().get("includeErrorHandler")
 def frontendModule = request.getProperties().get("frontendModule")
 def aemVersion = request.getProperties().get("aemVersion")
@@ -23,9 +25,27 @@ def includeDispatcherConfig = request.getProperties().get("includeDispatcherConf
 def includeCommerce = request.getProperties().get("includeCommerce")
 
 def appsFolder = new File("$uiAppsPackage/src/main/content/jcr_root/apps/$appId")
+def configFolder = new File("$uiConfigPackage/src/main/content/jcr_root/apps/$appId/osgiconfig")
 def confFolder = new File("$uiContentPackage/src/main/content/jcr_root/conf/$appId")
 def contentFolder = new File("$uiContentPackage/src/main/content/jcr_root/content/$appId")
 def varFolder = new File("$uiContentPackage/src/main/content/jcr_root/var")
+
+
+if (aemVersion.startsWith("6.4")){
+    // remove json config files with ~ in naming as they are not compatible with 6.4.8.2
+    assert new File("$configFolder/config/org.apache.sling.commons.log.LogManager.factory.config~${appId}.cfg.json").delete()
+    assert new File("$configFolder/config.author/com.day.cq.wcm.mobile.core.impl.MobileEmulatorProvider~${appId}.cfg.json").delete()
+    assert new File("$configFolder/config.prod/org.apache.sling.commons.log.LogManager.factory.config~${appId}.cfg.json").delete()
+    assert new File("$configFolder/config.stage/org.apache.sling.commons.log.LogManager.factory.config~${appId}.cfg.json").delete()
+    assert new File("$configFolder/config.publish/org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl.cfg.json").delete()
+} else {
+    // remove the old style config files
+    assert new File("$configFolder/config/org.apache.sling.commons.log.LogManager.factory.config-${appId}.config").delete()
+    assert new File("$configFolder/config.author/com.day.cq.wcm.mobile.core.impl.MobileEmulatorProvider-${appId}.config").delete()
+    assert new File("$configFolder/config.prod/org.apache.sling.commons.log.LogManager.factory.config-${appId}.config").delete()
+    assert new File("$configFolder/config.stage/org.apache.sling.commons.log.LogManager.factory.config-${appId}.config").delete()
+    assert new File("$configFolder/config.publish/org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl.config").delete()
+}
 
 if (amp == "n"){
     assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/" + appId + "/components/page/customheadlibs.amp.html").delete()
@@ -37,10 +57,6 @@ if (includeErrorHandler == "n") {
     assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/sling").deleteDir()
 }
 
-if (aemVersion == "6.3.3") {
-    assert new File(uiContentPackage, "src/main/content/jcr_root/conf/" + appId  + "/settings/wcm/segments").deleteDir()
-}
-
 if (aemVersion == "cloud") {
     if (sdkVersion == "latest") {
         println "No SDK version specified, trying to fetch latest"
@@ -50,11 +66,16 @@ if (aemVersion == "cloud") {
     rootPom.text = rootPom.text.replaceAll('SDK_VERSION', sdkVersion.toString())
 }
 
-buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, languageCountry)
+buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, language, country)
 cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, contentFolder)
 
-if ( includeDispatcherConfig == "n"  ) {
-    assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/" + appId + "/config.publish").deleteDir()
+if ( includeDispatcherConfig == "n"){
+    // remove the unneeded config file
+    if (aemVersion.startsWith("6.4")) {
+        assert new File("$configFolder/config.publish/org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl.config").delete()
+    } else {
+        assert new File("$configFolder/config.publish/org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl.cfg.json").delete()
+    }
 } else {
     def source;
     if (aemVersion == 'cloud')   {
@@ -86,9 +107,14 @@ if (includeCommerce == "n") {
     assert new File(rootDir, "README-CIF.md").delete()
     assert new File("$appsFolder/components/commerce").deleteDir()
     assert new File("$appsFolder/clientlibs/clientlib-cif").deleteDir()
-    assert new File("$appsFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-default.config").delete()
-    assert new File("$appsFolder/config/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.config").delete()
-    assert new File("$appsFolder/config/com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory-default.config").delete()
+    assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl~default.cfg.json").delete()
+    assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-default.config").delete()
+    assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.cfg.json").delete()
+    assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.config").delete()
+    assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory~default.cfg.json").delete()
+    assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory-default.config").delete()
+    assert new File("$configFolder/config.publish/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.cfg.json").delete()
+    assert new File("$configFolder/config.publish/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.config").delete()
     assert new File("$appsFolder/components/xfpage/_cq_dialog").deleteDir()
     assert new File("$confFolder/cloudconfigs/commerce").deleteDir()
     assert new File("$varFolder").deleteDir();
@@ -101,17 +127,33 @@ if (includeCommerce == "n") {
     }
 } else {
     if (aemVersion == "cloud") {
-        assert new File("$appsFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-default.config").delete()
+        assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl~default.cfg.json").delete()
         assert new File("$varFolder").deleteDir()
+    }
+    if (aemVersion.startsWith("6.4")){
+        assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl~default.cfg.json").delete()
+        assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.cfg.json").delete()
+        assert new File("$configFolder/config.publish/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.cfg.json").delete()
+        assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory~default.cfg.json").delete()
+    } else {
+        assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-default.config").delete()
+        assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.config").delete()
+        assert new File("$configFolder/config.publish/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.config").delete()
+        assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory-default.config").delete()
     }
 }
 
+// if config.publish folder ends up empty, remove it, otherwise the filevault-package-maven-plugin will throw
+// an violation with severity=ERROR
+if(new File("$configFolder/config.publish").list().length == 0) {
+    assert new File("$configFolder/config.publish").deleteDir()
+}
+
 /**
- * Creates content skeleton based upon singleCountry & languageCountry input from user
+ * Creates content skeleton based upon singleCountry, language and country input from user
  */
-def buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, languageCountry) {
+def buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, language, country) {
     println "Creating content skeleton..."
-    def contentDetails = languageCountry.split('_')
 
     if (singleCountry == "y") {
         def languageMastersDir = new File(uiContentPackage, "src/main/content/jcr_root/content/${appId}/language-masters")
@@ -122,19 +164,19 @@ def buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, 
         msmAppsDir.deleteDir()
     } else {
         def languageDir = new File(uiContentPackage, "src/main/content/jcr_root/content/${appId}/language-masters/en")
-        languageDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/${appId}/language-masters/${contentDetails[0]}"))
+        languageDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/${appId}/language-masters/${language}"))
         def languageXFMDir = new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${appId}/language" + "-masters/en")
-        languageXFMDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${appId}/language-masters/${contentDetails[0]}"))
+        languageXFMDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${appId}/language-masters/${language}"))
     }
 
     def countryDir = new File(uiContentPackage, "src/main/content/jcr_root/content/${appId}/us")
     def countryXFMDir = new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${appId}/us")
-    countryDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/${appId}/${contentDetails[1]}"))
-    countryXFMDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${appId}/${contentDetails[1]}"))
-    def languageInCountryDir = new File(uiContentPackage, "src/main/content/jcr_root/content/${appId}/${contentDetails[1]}/en")
-    def languageInCountryXFMDir = new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${appId}/${contentDetails[1]}/en")
-    languageInCountryDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/${appId}/${contentDetails[1]}/${contentDetails[0]}"))
-    languageInCountryXFMDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${appId}/${contentDetails[1]}/${contentDetails[0]}"))
+    countryDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/${appId}/${country}"))
+    countryXFMDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${appId}/${country}"))
+    def languageInCountryDir = new File(uiContentPackage, "src/main/content/jcr_root/content/${appId}/${country}/en")
+    def languageInCountryXFMDir = new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${appId}/${country}/en")
+    languageInCountryDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/${appId}/${country}/${language}"))
+    languageInCountryXFMDir.renameTo(new File(uiContentPackage, "src/main/content/jcr_root/content/experience-fragments/${appId}/${country}/${language}"))
 }
 
 /**

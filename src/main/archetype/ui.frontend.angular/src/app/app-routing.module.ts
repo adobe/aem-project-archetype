@@ -17,7 +17,7 @@
 import {
   AemPageDataResolver,
   AemPageRouteReuseStrategy
-} from '@adobe/cq-angular-editable-components';
+} from '@adobe/aem-angular-editable-components';
 import { NgModule } from '@angular/core';
 import {
   RouteReuseStrategy,

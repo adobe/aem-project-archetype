@@ -20,16 +20,16 @@ Listen 81
 		RequestReadTimeout header=65 body=65
 	</IfModule>
 	<IfModule mod_headers.c>
-			Header always add X-Dispatcher ${DISP_ID}
-			Header always add X-Vhost "health"
+		Header always add X-Dispatcher ${DISP_ID}
+		Header always add X-Vhost "health"
 	</IfModule>
 	<Directory "/var/www/cgi-bin">
 		AllowOverride None
 		Options None
 		Require all granted
 	</Directory>
- 	ScriptAlias /health/ "/var/www/cgi-bin/health/"
- 	ScriptAlias /eagle/ "/var/www/cgi-bin/health/"
+	ScriptAlias /health/ "/var/www/cgi-bin/health/"
+	ScriptAlias /eagle/ "/var/www/cgi-bin/health/"
 </VirtualHost>
 
 <VirtualHost *:80>
@@ -42,14 +42,14 @@ Listen 81
 		RequestReadTimeout header=65 body=65
 	</IfModule>
 	<IfModule mod_headers.c>
-			Header always add X-Dispatcher ${DISP_ID}
-			Header always add X-Vhost "health"
+		Header always add X-Dispatcher ${DISP_ID}
+		Header always add X-Vhost "health"
 	</IfModule>
 	<Directory "/var/www/cgi-bin">
 		AllowOverride None
 		Options None
 		Require all granted
 	</Directory>
- 	ScriptAlias /health/ "/var/www/cgi-bin/health/"
- 	ScriptAlias /eagle/ "/var/www/cgi-bin/health/"
+	ScriptAlias /health/ "/var/www/cgi-bin/health/"
+	ScriptAlias /eagle/ "/var/www/cgi-bin/health/"
 </VirtualHost>

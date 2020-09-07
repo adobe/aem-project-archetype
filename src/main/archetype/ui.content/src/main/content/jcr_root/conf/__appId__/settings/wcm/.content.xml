@@ -3,8 +3,6 @@
     jcr:primaryType="cq:Page">
     <templates/>
     <policies/>
-#if ( $aemVersion != "6.3.3" )
     <segments/>
-#end
     <template-types/>
 </jcr:root>
