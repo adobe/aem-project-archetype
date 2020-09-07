@@ -78,7 +78,7 @@
         -->
         <requiredProperty key="aemVersion">
             <defaultValue>cloud</defaultValue>
-            <validationRegex>^(6\.3\.3|6\.4\.4|6\.5\.0|cloud)$</validationRegex>
+            <validationRegex>^(6\.4\.8|6\.5\.5|cloud)$</validationRegex>
         </requiredProperty>
         <!--
             AEM as a Cloud Service SDK API version.
@@ -381,6 +381,7 @@
                     <includes>
                         <include>**/*.cfg.json</include>
                         <include>**/*.xml</include>
+                        <include>**/*.config</include>
                     </includes>
                 </fileSet>
             </fileSets>
