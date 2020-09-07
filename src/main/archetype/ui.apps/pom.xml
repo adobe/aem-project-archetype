@@ -145,6 +145,10 @@
             <groupId>com.adobe.aem</groupId>
             <artifactId>spa.project.core.ui.apps</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>spa.project.core.core</artifactId>
+        </dependency>
 #end
         <dependency>
             <groupId>${groupId}</groupId>
