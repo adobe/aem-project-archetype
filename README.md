@@ -71,8 +71,8 @@ Name                      | Default        | Description
 `sdkVersion`              | `latest`       | When `aemVersion=cloud` an [SDK](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/implementing/developing/aem-as-a-cloud-service-sdk.html) version can be specified (e.g. `2020.02.2265.20200217T222518Z-200130`).
 `includeDispatcherConfig` | `y`            | Includes a dispatcher configuration either for cloud or for AMS/on-premise, depending of the value of `aemVersion` (can be `y` or `n`).
 `frontendModule`          | `general`      | Includes a Webpack frontend build module that generates the client libraries (can be `general` or `none` for regular sites; can be `angular` or `react` for a Single Page App that implements the [SPA Editor](https://docs.adobe.com/content/help/en/experience-manager-65/developing/headless/spas/spa-overview.html)).
-`language`                | `en`           | Language code (ISO 639-1) to create the content structure from (e.g. `en`).
-`country`                 | `us`           | Country code (ISO 639-1) to create the content structure from (e.g. `us`).
+`language`                | `en`           | Language code (ISO 639-1) to create the content structure from (e.g. `en`, `deu`).
+`country`                 | `us`           | Country code (ISO 3166-1) to create the content structure from (e.g. `US`).
 `singleCountry`           | `y`            | Includes a language-master content structure (can be `y`, or `n`).
 `includeExamples`         | `n`            | Includes a [Component Library](https://www.aemcomponents.dev/) example site (can be `y`, or `n`).
 `includeErrorHandler`     | `n`            | Includes a custom 404 response page that will be global to the entire instance (can be `y` or `n`).
