@@ -4,7 +4,7 @@ PassEnv DISP_ID
 
 <VirtualHost *:80>
 	# allowing slashes in the URL to be encoded and still honored
-    AllowEncodedSlashes On
+	AllowEncodedSlashes On
 	ServerName	publish
 	# Put names of which domains are used for your published site/content here
 	ServerAlias	${PUBLISH_DEFAULT_HOSTNAME}
@@ -12,10 +12,10 @@ PassEnv DISP_ID
 	DocumentRoot	${PUBLISH_DOCROOT}
 	# Add header breadcrumbs for help in troubleshooting
 	<IfModule mod_headers.c>
-			Header always add X-Dispatcher ${DISP_ID}
-			Header always add X-Vhost "publish"
-			Header merge X-Frame-Options SAMEORIGIN "expr=%{resp:X-Frame-Options}!='SAMEORIGIN'"
-			Header merge X-Content-Type-Options nosniff "expr=%{resp:X-Content-Type-Options}!='nosniff'"
+		Header always add X-Dispatcher ${DISP_ID}
+		Header always add X-Vhost "publish"
+		Header merge X-Frame-Options SAMEORIGIN "expr=%{resp:X-Frame-Options}!='SAMEORIGIN'"
+		Header merge X-Content-Type-Options nosniff "expr=%{resp:X-Content-Type-Options}!='nosniff'"
 		# Make sure proxies don't deliver the wrong content
 		Header append Vary User-Agent env=!dont-vary
 		# Force SSL for author
@@ -25,7 +25,7 @@ PassEnv DISP_ID
 	<Directory />
 		# Update /etc/sysconfig/httpd with setting the PUBLISH_WHITELIST_ENABLED from 0 or 1 to enable or disable ip restriction rules
 		<If "${PUBLISH_WHITELIST_ENABLED} == 1">
-			Include /etc/httpd/conf.d/whitelists/*_whitelist.rules
+			Include conf.d/whitelists/*_whitelist.rules
 		</If>
 		<IfModule disp_apache2.c>
 			# Some items cache with the wrong mime type
@@ -60,10 +60,10 @@ PassEnv DISP_ID
 		ReWriteEngine	on
 		LogLevel warn rewrite:info
 		# Global rewrite include
-		Include /etc/httpd/conf.d/rewrites/base_rewrite.rules
+		Include conf.d/rewrites/base_rewrite.rules
 		# Update /etc/sysconfig/httpd with setting the PUBLISH_FORCE_SSL from 0 or 1 to enable or disable enforcing SSL
 		<If "${PUBLISH_FORCE_SSL} == 1">
-			Include /etc/httpd/conf.d/rewrites/xforwarded_forcessl_rewrite.rules
+			Include conf.d/rewrites/xforwarded_forcessl_rewrite.rules
 		</If>
 	</IfModule>
 </VirtualHost>

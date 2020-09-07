@@ -53,11 +53,18 @@
         -->
         <requiredProperty key="appTitle"/>
         <!--
-            ISO 639-1 language / country code to create initial content structure
+            ISO 639-1 language code to create initial content structure
          -->
-        <requiredProperty key="languageCountry">
-            <defaultValue>en_us</defaultValue>
-            <validationRegex>[a-z]{2,3}_[a-z]{2,3}</validationRegex>
+        <requiredProperty key="language">
+            <defaultValue>en</defaultValue>
+            <validationRegex>[a-z]{2,3}</validationRegex>
+        </requiredProperty>
+        <!--
+            ISO 639-1 country code to create initial content structure
+         -->
+        <requiredProperty key="country">
+            <defaultValue>us</defaultValue>
+            <validationRegex>[a-z]{2,3}</validationRegex>
         </requiredProperty>
         <!--
             Option to create language master structure in example content package
@@ -152,7 +159,7 @@
                          encoding="UTF-8">
                     <directory>src/main/content</directory>
                     <includes>
-                        <include>**/*.*</include>
+                        <include>**/*.xml</include>
                     </includes>
                 </fileSet>
             </fileSets>
@@ -194,6 +201,7 @@
                     <includes>
                         <include>**/magic</include>
                         <include>**/README*</include>
+                        <include>immutable.files</include>
                     </includes>
                 </fileSet>
             </fileSets>
@@ -216,6 +224,7 @@
                     <directory></directory>
                     <includes>
                         <include>**/README*</include>
+                        <include>immutable.files</include>
                     </includes>
                 </fileSet>
             </fileSets>
@@ -364,6 +373,18 @@
                 </fileSet>
             </fileSets>
         </module>
+        <module id="${rootArtifactId}.ui.config" dir="ui.config" name="ui.config">
+            <fileSets>
+                <fileSet filtered="true" packaged="false"
+                    encoding="UTF-8">
+                    <directory>src/main/content</directory>
+                    <includes>
+                        <include>**/*.cfg.json</include>
+                        <include>**/*.xml</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
         <module id="${rootArtifactId}.ui.content" dir="ui.content" name="ui.content">
             <fileSets>
                 <fileSet filtered="true" packaged="false"
@@ -467,6 +488,7 @@
         <include>README.md</include>
         <include>README-CIF.md</include>
         <include>.gitignore</include>
+        <include>LICENSE</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" encoding="UTF-8">

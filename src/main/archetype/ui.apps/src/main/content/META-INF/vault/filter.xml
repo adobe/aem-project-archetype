@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
-    <filter root="/apps/${appId}"/>
+    <filter root="/apps/${appId}/clientlibs"/>
+    <filter root="/apps/${appId}/components"/>
+    <filter root="/apps/${appId}/i18n"/>
 #if ( $includeErrorHandler == "y" )
     <filter root="/apps/sling" />
 #end
