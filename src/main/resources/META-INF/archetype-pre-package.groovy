@@ -22,19 +22,19 @@ def readFile(file, encoding) throws IOException {
     return new String(encoded, encoding)
 }
 
-def readFileWithNormalizedFileEnding(file, encoding, isForWindows) {
+def readFileWithNormalizedLineSeparator(file, encoding, isForWindows) {
     String fileContent = readFile(file, encoding)
     if (isForWindows) {
-        fileContent.replaceAll("\\n", "\r\n")
+        fileContent = fileContent.replaceAll("(?<!\\r)\\n", "\r\n")
     } else {
-        fileContent.replaceAll("\\r\\n", "\n")
+        fileContent = fileContent.replaceAll("\\r\\n", "\n")
     }
     return fileContent.getBytes(encoding)
 }
 
 def md5(file, isForWindows) {
     def hash = MessageDigest.getInstance('MD5')
-    def content = readFileWithNormalizedFileEnding(file, StandardCharsets.UTF_8, isForWindows)
+    def content = readFileWithNormalizedLineSeparator(file, StandardCharsets.UTF_8, isForWindows)
     hash.update(content, 0, content.length)
     return hash.digest().encodeHex().toString()
 }
