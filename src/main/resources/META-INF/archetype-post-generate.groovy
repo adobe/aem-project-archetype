@@ -29,6 +29,23 @@ def confFolder = new File("$uiContentPackage/src/main/content/jcr_root/conf/$app
 def contentFolder = new File("$uiContentPackage/src/main/content/jcr_root/content/$appId")
 def varFolder = new File("$uiContentPackage/src/main/content/jcr_root/var")
 
+
+if (aemVersion.startsWith("6.4")){
+    // remove json config files with ~ in naming as they are not compatible with 6.4.8.2
+    assert new File("$configFolder/config/org.apache.sling.commons.log.LogManager.factory.config~${appId}.cfg.json").delete()
+    assert new File("$configFolder/config.author/com.day.cq.wcm.mobile.core.impl.MobileEmulatorProvider~${appId}.cfg.json").delete()
+    assert new File("$configFolder/config.prod/org.apache.sling.commons.log.LogManager.factory.config~${appId}.cfg.json").delete()
+    assert new File("$configFolder/config.stage/org.apache.sling.commons.log.LogManager.factory.config~${appId}.cfg.json").delete()
+    assert new File("$configFolder/config.publish/org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl.cfg.json").delete()
+} else {
+    // remove the old style config files
+    assert new File("$configFolder/config/org.apache.sling.commons.log.LogManager.factory.config-${appId}.config").delete()
+    assert new File("$configFolder/config.author/com.day.cq.wcm.mobile.core.impl.MobileEmulatorProvider-${appId}.config").delete()
+    assert new File("$configFolder/config.prod/org.apache.sling.commons.log.LogManager.factory.config-${appId}.config").delete()
+    assert new File("$configFolder/config.stage/org.apache.sling.commons.log.LogManager.factory.config-${appId}.config").delete()
+    assert new File("$configFolder/config.publish/org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl.config").delete()
+}
+
 if (amp == "n"){
     assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/" + appId + "/components/page/customheadlibs.amp.html").delete()
     assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/" + appId + "/components/image/clientlibs").deleteDir()
@@ -51,8 +68,13 @@ if (aemVersion == "cloud") {
 buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, languageCountry)
 cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, contentFolder)
 
-if ( includeDispatcherConfig == "n"  ) {
-    assert new File("$configFolder/config.publish").deleteDir()
+if ( includeDispatcherConfig == "n"){
+    // remove the unneeded config file
+    if (aemVersion.startsWith("6.4")) {
+        assert new File("$configFolder/config.publish/org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl.config").delete()
+    } else {
+        assert new File("$configFolder/config.publish/org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl.cfg.json").delete()
+    }
 } else {
     def source;
     if (aemVersion == 'cloud')   {
@@ -85,8 +107,13 @@ if (includeCommerce == "n") {
     assert new File("$appsFolder/components/commerce").deleteDir()
     assert new File("$appsFolder/clientlibs/clientlib-cif").deleteDir()
     assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl~default.cfg.json").delete()
+    assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-default.config").delete()
     assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.cfg.json").delete()
+    assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.config").delete()
     assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory~default.cfg.json").delete()
+    assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory-default.config").delete()
+    assert new File("$configFolder/config.publish/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.cfg.json").delete()
+    assert new File("$configFolder/config.publish/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.config").delete()
     assert new File("$appsFolder/components/xfpage/_cq_dialog").deleteDir()
     assert new File("$confFolder/cloudconfigs/commerce").deleteDir()
     assert new File("$varFolder").deleteDir();
@@ -102,6 +129,23 @@ if (includeCommerce == "n") {
         assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl~default.cfg.json").delete()
         assert new File("$varFolder").deleteDir()
     }
+    if (aemVersion.startsWith("6.4")){
+        assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl~default.cfg.json").delete()
+        assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.cfg.json").delete()
+        assert new File("$configFolder/config.publish/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.cfg.json").delete()
+        assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory~default.cfg.json").delete()
+    } else {
+        assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-default.config").delete()
+        assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.config").delete()
+        assert new File("$configFolder/config.publish/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.config").delete()
+        assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory-default.config").delete()
+    }
+}
+
+// if config.publish folder ends up empty, remove it, otherwise the filevault-package-maven-plugin will throw
+// an violation with severity=ERROR
+if(new File("$configFolder/config.publish").list().length == 0) {
+    assert new File("$configFolder/config.publish").deleteDir()
 }
 
 /**
