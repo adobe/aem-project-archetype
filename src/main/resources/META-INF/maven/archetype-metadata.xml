@@ -53,11 +53,18 @@
         -->
         <requiredProperty key="appTitle"/>
         <!--
-            ISO 639-1 language / country code to create initial content structure
+            ISO 639-1 language code to create initial content structure
          -->
-        <requiredProperty key="languageCountry">
-            <defaultValue>en_us</defaultValue>
-            <validationRegex>[a-z]{2,3}_[a-z]{2,3}</validationRegex>
+        <requiredProperty key="language">
+            <defaultValue>en</defaultValue>
+            <validationRegex>[a-z]{2,3}</validationRegex>
+        </requiredProperty>
+        <!--
+            ISO 639-1 country code to create initial content structure
+         -->
+        <requiredProperty key="country">
+            <defaultValue>us</defaultValue>
+            <validationRegex>[a-z]{2,3}</validationRegex>
         </requiredProperty>
         <!--
             Option to create language master structure in example content package
