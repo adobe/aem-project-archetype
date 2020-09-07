@@ -144,6 +144,7 @@
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>spa.project.core.ui.apps</artifactId>
+            <type>zip</type>
         </dependency>
         <dependency>
             <groupId>com.adobe.aem</groupId>
