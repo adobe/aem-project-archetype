@@ -83,7 +83,7 @@
 #if ( $isSpaProject )
                         <embedded>
                             <groupId>com.adobe.aem</groupId>
-                            <artifactId>spa.project.core.core</artifactId>
+                            <artifactId>aem.project.core.core</artifactId>
                             <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
 #end
@@ -163,7 +163,7 @@
 #if ( $isSpaProject )
                         <subPackage>
                             <groupId>com.adobe.aem</groupId>
-                            <artifactId>spa.project.core.all</artifactId>
+                            <artifactId>aem.spa.project.core.all</artifactId>
                             <filter>true</filter>
                         </subPackage>
 #end
@@ -285,12 +285,12 @@
         <!-- SPA Project Core (includes hierarchy page) -->
         <dependency>
             <groupId>com.adobe.aem</groupId>
-            <artifactId>spa.project.core.all</artifactId>
+            <artifactId>aem.spa.project.core.all</artifactId>
             <type>zip</type>
         </dependency>
         <dependency>
             <groupId>com.adobe.aem</groupId>
-            <artifactId>spa.project.core.core</artifactId>
+            <artifactId>aem.project.core.core</artifactId>
         </dependency>
 #end
 #if ( $aemVersion != "cloud" )
