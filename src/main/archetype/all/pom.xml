@@ -86,6 +86,11 @@
                             <artifactId>spa.project.core.core</artifactId>
                             <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
+                        <embedded>
+                            <groupId>com.adobe.aem</groupId>
+                            <artifactId>spa.project.core.ui.apps</artifactId>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
+                        </embedded>
 #end
 #if ( $aemVersion != "cloud" )
                         <embedded>
@@ -159,15 +164,6 @@
 #end
 #end
                     </embeddeds>
-                    <subPackages>
-#if ( $isSpaProject )
-                        <subPackage>
-                            <groupId>com.adobe.aem</groupId>
-                            <artifactId>spa.project.core.all</artifactId>
-                            <filter>true</filter>
-                        </subPackage>
-#end
-                    </subPackages>
                 </configuration>
             </plugin>
             <plugin>
@@ -285,7 +281,7 @@
         <!-- SPA Project Core (includes hierarchy page) -->
         <dependency>
             <groupId>com.adobe.aem</groupId>
-            <artifactId>spa.project.core.all</artifactId>
+            <artifactId>spa.project.core.ui.apps</artifactId>
             <type>zip</type>
         </dependency>
         <dependency>
