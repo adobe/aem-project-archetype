@@ -37,3 +37,8 @@
     .generate-grid(tablet, @max_col);
   }
 }
+
+/* force showing hidden components in unhide mode */
+.aem-GridShowHidden > .cmp-container > .aem-Grid > .aem-GridColumn {
+  display: block !important;
+}
