@@ -75,7 +75,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 #if ( $isSpaProject )
-        <aem.project.core.version>1.0.0</aem.project.core.version>
+        <spa.project.core.version>1.1.0</spa.project.core.version>
 #end
 #if ( $frontendModule == "angular" )
         <!--
@@ -796,14 +796,14 @@ Bundle-DocURL:
             <!-- SPA Project Core (includes hierarchy page model) -->
             <dependency>
                 <groupId>com.adobe.aem</groupId>
-                <artifactId>aem.project.core.ui.apps</artifactId>
+                <artifactId>spa.project.core.ui.apps</artifactId>
                 <type>zip</type>
-                <version>${aem.project.core.version}</version>
+                <version>${spa.project.core.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.adobe.aem</groupId>
-                <artifactId>aem.project.core.core</artifactId>
-                <version>${aem.project.core.version}</version>
+                <artifactId>spa.project.core.core</artifactId>
+                <version>${spa.project.core.version}</version>
             </dependency>
 #end
 

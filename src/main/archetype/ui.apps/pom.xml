@@ -143,12 +143,12 @@
         <!-- SPA Project Core (includes hierarchy page) -->
         <dependency>
             <groupId>com.adobe.aem</groupId>
-            <artifactId>aem.project.core.ui.apps</artifactId>
+            <artifactId>spa.project.core.ui.apps</artifactId>
             <type>zip</type>
         </dependency>
         <dependency>
             <groupId>com.adobe.aem</groupId>
-            <artifactId>aem.project.core.core</artifactId>
+            <artifactId>spa.project.core.core</artifactId>
         </dependency>
 #end
         <dependency>
