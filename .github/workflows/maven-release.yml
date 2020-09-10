@@ -34,6 +34,15 @@ jobs:
         with:
           java-version: 8
 
+      # Set up dependency cache
+      - name: Cache local Maven repository
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
       # Import GPG key from env variable into keychain
       - name: Import GPG key
         env:
@@ -43,15 +52,10 @@ jobs:
           echo $GPG_SECRET_KEYS | base64 --decode | gpg --import --no-tty --batch --yes
           echo $GPG_OWNERTRUST | base64 --decode | gpg --import-ownertrust --no-tty --batch --yes
           
-#      - name: Configure git user for release commits
-#        env:
-#          X_GITHUB_USERNAME: ${{ secrets.ADOBE_BOT_GITHUB_USERNAME  }}
-#          X_GITHUB_PASSWORD: ${{ secrets.ADOBE_BOT_GITHUB_PASSWORD }}
-#        run: |
-#          echo "Configure git for the release commits"
-#          git config user.email "Grp-opensourceoffice@adobe.com"
-#          git config user.name "$X_GITHUB_USERNAME"
-        
+      - name: Configure git user for release commits
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
 
       # Deploy to OSSRH, which will automatically release to Central Repository
       - name: Release to Central Repository
@@ -59,4 +63,4 @@ jobs:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
-        run: mvn -B clean release:prepare release:perform -Prelease,ossrh -Darchetype.test.skip -s ./.github/workflows/settings.xml
+        run: mvn -B clean release:prepare release:perform -Prelease,ossrh,it-basic -s ./.github/workflows/settings.xml
