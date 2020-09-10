@@ -52,13 +52,6 @@
                     <name>${artifactId}</name>
                     <packageType>application</packageType>
                     <accessControlHandling>merge</accessControlHandling>
-                    <validatorsSettings>
-                        <jackrabbit-nodetypes>
-                            <options>
-                                <severityForUnknownNodetypes>info</severityForUnknownNodetypes>
-                            </options>
-                        </jackrabbit-nodetypes>
-                    </validatorsSettings>
                     <repositoryStructurePackages>
                         <repositoryStructurePackage>
                             <groupId>${groupId}</groupId>

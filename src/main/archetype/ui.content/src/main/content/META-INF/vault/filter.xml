@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
-    <filter root="/conf" mode="merge"/>
     <filter root="/conf/${appId}" mode="merge"/>
-    <filter root="/content" mode="merge"/>
     <filter root="/content/${appId}" mode="merge"/>
-    <filter root="/content/dam" mode="merge" />
     <filter root="/content/dam/${appId}" mode="merge"/>
-    <filter root="/content/experience-fragments" mode="merge"/>
     <filter root="/content/experience-fragments/${appId}" mode="merge"/>
 #if ( $includeCommerce == "y" and $aemVersion != "cloud")
-    <filter root="/var/commerce/products" mode="merge"/>
     <filter root="/var/commerce/products/${appId}-default" mode="merge"/>
 #end
 </workspaceFilter>
