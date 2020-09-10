@@ -56,6 +56,11 @@
                         <jackrabbit-nodetypes>
                             <isDisabled>true</isDisabled>
                         </jackrabbit-nodetypes>
+                        <jackrabbit-filter>
+                            <options>
+                                <validRoots>/conf,/content,/content/experience-fragments,/content/dam</validRoots>
+                            </options>
+                        </jackrabbit-filter>
                     </validatorsSettings>
                     <dependencies>
                         <dependency>
