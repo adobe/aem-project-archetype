@@ -24,7 +24,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Check out Git repository
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+
 
       # Set up environment with Java and Maven
       - name: Set up JDK
