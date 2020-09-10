@@ -128,8 +128,7 @@
                                     <version>[3.3.9,)</version>
                                 </requireMavenVersion>
                                 <requireJavaVersion>
-                                    <message>Project must be compiled
-                                        with Java 8 or higher</message>
+                                    <message>Maven must be executed with a Java 8 JRE or higher.</message>
                                     <version>1.8.0</version>
                                 </requireJavaVersion>
                             </rules>
