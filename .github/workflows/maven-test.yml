@@ -32,11 +32,25 @@ jobs:
         java: [8, 11]
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
-      with:
-        java-version: ${{ matrix.java }}
-    - name: Build & Test with Maven
-      run: mvn -B integration-test
+      # Check out Git repository
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Set up environment with Java and Maven
+      - name: Setup JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ matrix.java }}
+
+      # Set up dependency cache
+      - name: Cache local Maven repository
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      # Build & Test
+      - name: Build & Test with Maven
+        run: mvn -B integration-test

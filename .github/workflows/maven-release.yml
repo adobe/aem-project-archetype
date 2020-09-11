@@ -25,8 +25,6 @@ jobs:
     steps:
       # Check out Git repository
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
 
       # Set up environment with Java and Maven
       - name: Set up JDK
@@ -54,8 +52,8 @@ jobs:
           
       - name: Configure git user for release commits
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+          git config user.email "Grp-opensourceoffice@adobe.com"
+          git config user.name "${X_GITHUB_USERNAME}"
 
       # Deploy to OSSRH, which will automatically release to Central Repository
       - name: Release to Central Repository
