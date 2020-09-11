@@ -51,6 +51,8 @@ jobs:
           echo $GPG_OWNERTRUST | base64 --decode | gpg --import-ownertrust --no-tty --batch --yes
           
       - name: Configure git user for release commits
+        env:
+          X_GITHUB_USERNAME: ${{ secrets.ADOBE_BOT_GITHUB_USERNAME  }}
         run: |
           git config user.email "Grp-opensourceoffice@adobe.com"
           git config user.name "${X_GITHUB_USERNAME}"
