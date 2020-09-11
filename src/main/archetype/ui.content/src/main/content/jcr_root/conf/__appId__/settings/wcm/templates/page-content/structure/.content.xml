@@ -9,7 +9,7 @@
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="${appId}/components/container"
-            layout="simple">
+            layout="responsiveGrid">
             <experiencefragment-header
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="${appId}/components/experiencefragment"
@@ -29,7 +29,8 @@
                 <container
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="${appId}/components/container"
-                    editable="{Boolean}true"/>
+                    editable="{Boolean}true"
+                    layout="responsiveGrid"/>
             </container>
             <experiencefragment-footer
                 jcr:primaryType="nt:unstructured"
