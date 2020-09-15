@@ -7,10 +7,12 @@
         sling:resourceType="${appId}/components/page">
         <root
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="${appId}/components/container">
+            sling:resourceType="${appId}/components/container"
+            layout="responsiveGrid">
             <container
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="${appId}/components/container">
+                sling:resourceType="${appId}/components/container"
+                layout="responsiveGrid">
                 <title
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="${appId}/components/title"/>
