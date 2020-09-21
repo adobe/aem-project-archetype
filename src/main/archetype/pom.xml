@@ -746,14 +746,6 @@ Bundle-DocURL:
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
             </dependency>
-#else
-            <dependency>
-                <groupId>com.adobe.aem</groupId>
-                <artifactId>aem-sdk-api</artifactId>
-                <version>${aem.sdk.api}</version>
-                <scope>provided</scope>
-            </dependency>
-#end
 #if ( $amp == "y" || $includeExamples == "y")
             <dependency>
                 <groupId>com.adobe.cq</groupId>
@@ -765,6 +757,14 @@ Bundle-DocURL:
                 <artifactId>core.wcm.components.extensions.amp.content</artifactId>
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
+            </dependency>
+#end
+#else
+            <dependency>
+                <groupId>com.adobe.aem</groupId>
+                <artifactId>aem-sdk-api</artifactId>
+                <version>${aem.sdk.api}</version>
+                <scope>provided</scope>
             </dependency>
 #end
 #if ( $includeExamples == "y" )
