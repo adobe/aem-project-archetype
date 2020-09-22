@@ -300,15 +300,6 @@
             <artifactId>core.wcm.components.config</artifactId>
             <type>zip</type>
         </dependency>
-#end
-#if ( $includeCommerce == "y" )
-        <!-- Adobe CIF Dependencies -->
-        <dependency>
-            <groupId>com.adobe.commerce.cif</groupId>
-            <artifactId>core-cif-components-apps</artifactId>
-            <type>zip</type>
-        </dependency>
-#end
 #if ( $amp == "y" || $includeExamples == "y" )
         <dependency>
             <groupId>com.adobe.cq</groupId>
@@ -318,6 +309,15 @@
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.extensions.amp</artifactId>
+        </dependency>
+#end
+#end
+#if ( $includeCommerce == "y" )
+        <!-- Adobe CIF Dependencies -->
+        <dependency>
+            <groupId>com.adobe.commerce.cif</groupId>
+            <artifactId>core-cif-components-apps</artifactId>
+            <type>zip</type>
         </dependency>
 #end
 #if ( $includeExamples == "y" )
