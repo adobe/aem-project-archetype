@@ -92,7 +92,9 @@ Setup your local development environment for [AEM as a Cloud Service SDK](https:
 
 ### Known Issues
 
-When running on Windows and generating the dispatcher configuration, you should be running in an elevated command prompt or the Windows Subsystem for Linux (see [#329](https://github.com/adobe/aem-project-archetype/issues/329)).
+* When running on Windows and generating the dispatcher configuration, you should be running in an elevated command prompt or the Windows Subsystem for Linux (see [#329](https://github.com/adobe/aem-project-archetype/issues/329)).
 
-When executing the archetype in interactive mode (without the `-B` parameter), the properties with default values cannot be changed, unless the final confirmation gets dismissed, which then repeats the questions by including the properties with default values in the questions (see
+* When executing the archetype in interactive mode (without the `-B` parameter), the properties with default values cannot be changed, unless the final confirmation gets dismissed, which then repeats the questions by including the properties with default values in the questions (see
 [ARCHETYPE-308](https://issues.apache.org/jira/browse/ARCHETYPE-308) for details).
+
+* You can't use this archetype in Eclipse when starting a new project with `File -> New -> Maven Project` since the post generation script [`archetype-post-generate.groovy`](https://github.com/adobe/aem-project-archetype/blob/master/src/main/resources/META-INF/archetype-post-generate.groovy) will not be executed due to an [Eclipse issue](https://bugs.eclipse.org/bugs/show_bug.cgi?id=514993). Workaround is to use the above command line and then in Eclipse use `File -> Import -> Existing Maven Project`.
