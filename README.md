@@ -51,7 +51,7 @@ mvn -B archetype:generate \
  -D archetypeVersion=24 \
  -D appTitle="My Site" \
  -D appId="mysite" \
- -D groupId="com.mysite" \
+ -D groupId="com.mysite"
 ```
 
 **Note**: Make sure you use at least 3.1.0+ of maven-archetype-plugin ([#400](https://github.com/adobe/aem-project-archetype/issues/400))
