@@ -3,7 +3,7 @@
 ![Test](https://github.com/adobe/aem-project-archetype/workflows/Test/badge.svg)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.adobe.aem/aem-project-archetype/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.adobe.aem/aem-project-archetype)
 
-Maven template that creates a minimal, best-practices-based Adobe Experience Manager (AEM) project as a starting point for your website.
+Maven Template That Creates a Minimal, Best-Practices-Based Adobe Experience Manager (AEM) Project as a Starting Point For Your Website.
 
 ## Documentation
 
