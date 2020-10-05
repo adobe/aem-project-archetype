@@ -422,6 +422,42 @@
                         </cq:styleGroups>
                     </default>
                 </productlist>
+                <productcarousel jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:lastModified="{Date}2020-09-28T15:37:21.146+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="AEM CIF Core Components Product Carousel"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        allowedTypes="[h2,h3,h4,h5,h6]"
+                        type="h2">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </default>
+                </productcarousel>
+                <relatedproducts jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:lastModified="{Date}2020-09-28T15:37:21.146+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="AEM CIF Core Components Related Products"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        allowedTypes="[h2,h3,h4,h5,h6]"
+                        type="h2">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </default>
+                </relatedproducts>
+                <featuredcategorylist jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:lastModified="{Date}2020-09-28T15:37:21.146+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="AEM CIF Core Components Featured Category List"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        allowedTypes="[h2,h3,h4,h5,h6]"
+                        type="h2">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </default>
+                </featuredcategorylist>
             </commerce>
 #end
         </components>
