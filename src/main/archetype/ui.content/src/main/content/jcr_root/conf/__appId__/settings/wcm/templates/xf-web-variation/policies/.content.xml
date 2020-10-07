@@ -31,6 +31,22 @@
                         cq:policy="${appId}/components/image/policy_651483963895698"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="wcm/core/components/policies/mapping"/>
+#if ( $includeCommerce == "y" )
+                    <commerce jcr:primaryType="nt:unstructured">
+                        <productcarousel
+                            cq:policy="${appId}/components/commerce/productcarousel/default"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="wcm/core/components/policies/mapping" />
+                        <relatedproducts
+                            cq:policy="${appId}/components/commerce/relatedproducts/default"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="wcm/core/components/policies/mapping" />
+                        <featuredcategorylist
+                            cq:policy="${appId}/components/commerce/featuredcategorylist/default"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="wcm/core/components/policies/mapping" />
+                    </commerce>
+#end
                 </components>
             </mysite>
         </root>
