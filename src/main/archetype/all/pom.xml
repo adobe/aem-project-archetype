@@ -92,52 +92,6 @@
                             <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
 #end
-#if ( $aemVersion != "cloud" )
-                        <embedded>
-                            <groupId>com.adobe.cq</groupId>
-                            <artifactId>core.wcm.components.content</artifactId>
-                            <type>zip</type>
-                            <target>/apps/${appId}-vendor-packages/application/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>com.adobe.cq</groupId>
-                            <artifactId>core.wcm.components.core</artifactId>
-                            <target>/apps/${appId}-vendor-packages/application/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>com.adobe.cq</groupId>
-                            <artifactId>core.wcm.components.config</artifactId>
-                            <type>zip</type>
-                            <target>/apps/${appId}-vendor-packages/application/install</target>
-                        </embedded>
-#if ( $amp == "y" || $includeExamples == "y")
-                        <embedded>
-                            <groupId>com.adobe.cq</groupId>
-                            <artifactId>core.wcm.components.extensions.amp.content</artifactId>
-                            <type>zip</type>
-                            <target>/apps/${appId}-vendor-packages/application/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>com.adobe.cq</groupId>
-                            <artifactId>core.wcm.components.extensions.amp</artifactId>
-                            <target>/apps/${appId}-vendor-packages/application/install</target>
-                        </embedded>
-#end
-#end
-#if ( $includeExamples == "y" )
-                        <embedded>
-                            <groupId>com.adobe.cq</groupId>
-                            <artifactId>core.wcm.components.examples.ui.apps</artifactId>
-                            <type>zip</type>
-                            <target>/apps/${appId}-vendor-packages/application/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>com.adobe.cq</groupId>
-                            <artifactId>core.wcm.components.examples.ui.content</artifactId>
-                            <type>zip</type>
-                            <target>/apps/${appId}-vendor-packages/content/install</target>
-                        </embedded>
-#end
 #if ( $includeCommerce == "y" )
                         <embedded>
                             <groupId>com.adobe.commerce.cif</groupId>
