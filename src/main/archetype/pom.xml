@@ -733,35 +733,30 @@ Bundle-DocURL:
                 <groupId>com.adobe.cq</groupId>
                 <artifactId>core.wcm.components.core</artifactId>
                 <version>${core.wcm.components.version}</version>
-                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>com.adobe.cq</groupId>
                 <artifactId>core.wcm.components.content</artifactId>
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
-                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>com.adobe.cq</groupId>
                 <artifactId>core.wcm.components.config</artifactId>
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
-                <scope>provided</scope>
             </dependency>
 #if ( $amp == "y" || $includeExamples == "y")
             <dependency>
                 <groupId>com.adobe.cq</groupId>
                 <artifactId>core.wcm.components.extensions.amp</artifactId>
                 <version>${core.wcm.components.version}</version>
-                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>com.adobe.cq</groupId>
                 <artifactId>core.wcm.components.extensions.amp.content</artifactId>
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
-                <scope>provided</scope>
             </dependency>
 #end
 #else
@@ -778,14 +773,12 @@ Bundle-DocURL:
                 <artifactId>core.wcm.components.examples.ui.apps</artifactId>
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
-                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>com.adobe.cq</groupId>
                 <artifactId>core.wcm.components.examples.ui.content</artifactId>
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
-                <scope>provided</scope>
             </dependency>
 #end
 #if ( $includeCommerce == "y" )
