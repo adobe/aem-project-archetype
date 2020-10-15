@@ -18,7 +18,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/content/${appId}/${language_country.split('_').get(1)}/${language_country.split('_').get(0)}/home.html",
+  "start_url": "/content/${appId}/${country}/${language}/home.html",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
