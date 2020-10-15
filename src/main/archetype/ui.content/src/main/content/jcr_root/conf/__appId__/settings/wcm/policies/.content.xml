@@ -458,6 +458,18 @@
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </default>
                 </featuredcategorylist>
+                <categorycarousel jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:lastModified="{Date}2020-10-15T10:12:01.134+02:00"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="AEM CIF Core Components Category Carousel"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        allowedTypes="[h2,h3,h4,h5,h6]"
+                        type="h2">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </default>
+                </categorycarousel>
             </commerce>
 #end
         </components>
