@@ -52,6 +52,7 @@
         <module>ui.frontend.angular</module>
         <module>ui.frontend.react</module>
         <module>ui.tests</module>
+        <module>analyse</module>
     </modules>
 
     <properties>
@@ -315,6 +316,13 @@ Bundle-DocURL:
                             <version>6.5.5.0</version>
                         </dependency>
                     </dependencies>
+                </plugin>
+                <!-- AEM Analyser Plugin -->
+                <plugin>
+                    <groupId>com.adobe.aem</groupId>
+                    <artifactId>aemanalyser-maven-plugin</artifactId>
+                    <version>0.0.1-SNAPSHOT</version>
+                    <extensions>true</extensions>
                 </plugin>
                 <!-- Content Package Plugin -->
                 <plugin>
@@ -746,7 +754,7 @@ Bundle-DocURL:
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
             </dependency>
-#if ( $amp == "y" || $includeExamples == "y")
+#if ( $amp == "y" || $includeExamples == "y" )
             <dependency>
                 <groupId>com.adobe.cq</groupId>
                 <artifactId>core.wcm.components.extensions.amp</artifactId>
@@ -760,6 +768,8 @@ Bundle-DocURL:
             </dependency>
 #end
 #else
+#end
+#if ( $aemVersion == "cloud" )
             <dependency>
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>aem-sdk-api</artifactId>
