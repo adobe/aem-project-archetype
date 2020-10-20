@@ -33,6 +33,9 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Content Image"
                     sling:resourceType="wcm/core/components/policy/policy"
+#if ( $enableDynamicMedia == "y")
+                    enableDmFeatures="true"
+#end
 #if ( $amp == "y")
                     disableLazyLoading="true"
 #else
@@ -244,11 +247,15 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Content"
                     sling:resourceType="wcm/core/components/policy/policy"
-#if ( $includeCommerce == "n" )
-                    components="[group:${appTitle} - Content,/apps/${appId}/components/form/container]">
-#else
+#if ( $includeCommerce == "y" and $enableDynamicMedia == "y" )                    
+                    components="[group:Dynamic Media,group:${appTitle} - Content,group:${appTitle} - Commerce,/apps/${appId}/components/form/container]">
+#elseif ( $includeCommerce == "y" and $enableDynamicMedia == "n")
                     components="[group:${appTitle} - Content,group:${appTitle} - Commerce,/apps/${appId}/components/form/container]">
-#end                    
+#elseif ( $includeCommerce == "n" and $enableDynamicMedia == "y")
+                    components="[group:Dynamic Media,group:${appTitle} - Content,/apps/${appId}/components/form/container]">
+#else
+                    components="[group:${appTitle} - Content,/apps/${appId}/components/form/container]">
+#end  
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
