@@ -52,9 +52,7 @@
         <module>ui.frontend.angular</module>
         <module>ui.frontend.react</module>
         <module>ui.tests</module>
-#if ( $aemVersion == "cloud" )
         <module>analyse</module>
-#end
     </modules>
 
     <properties>
@@ -770,8 +768,6 @@ Bundle-DocURL:
             </dependency>
 #end
 #else
-#end
-#if ( $aemVersion == "cloud" )
             <dependency>
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>aem-sdk-api</artifactId>
