@@ -64,7 +64,7 @@
         <vault.user>admin</vault.user>
         <vault.password>admin</vault.password>
 #if ( $aemVersion != "cloud" || $includeExamples == "y")
-        <core.wcm.components.version>2.12.0</core.wcm.components.version>
+        <core.wcm.components.version>2.12.1</core.wcm.components.version>
 #end
 #if ( $includeCommerce == "y" )
         <core.cif.components.version>1.3.0</core.cif.components.version>
