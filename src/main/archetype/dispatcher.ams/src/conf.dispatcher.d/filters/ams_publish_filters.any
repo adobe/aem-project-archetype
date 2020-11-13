@@ -39,3 +39,6 @@
 
 # Enable specific mime types clientlibs directories
 /0105 { /type "allow" /extension '(gltf|stl|obj|usdz|glb)' /method "GET" /path "/content/dam/*" }
+
+# Allow webmanifest extension
+/0106 { /type "allow" /extension "webmanifest" /path "/content/*" }
