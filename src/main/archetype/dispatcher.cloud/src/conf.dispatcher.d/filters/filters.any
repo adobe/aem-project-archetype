@@ -10,4 +10,4 @@ $include "./default_filters.any"
 /0101 { /type "allow" /extension "json" /selectors "model" /path "/content/*" }
 
 # Allow webmanifest extension
-/0102 { /type "allow" /extension "webmanifest" /path "/content/*" }
+/0102 { /type "allow" /extension "webmanifest" /path "/content/*/manifest" }
