@@ -64,6 +64,16 @@ if (aemVersion == "cloud") {
     }
     println "Using AEM as a Cloud Service SDK version: " + sdkVersion
     rootPom.text = rootPom.text.replaceAll('SDK_VERSION', sdkVersion.toString())
+} else {
+    // remove the analyser module as it's only for cloud
+    assert new File(rootDir, 'analyse').deleteDir();
+    removeModule(rootPom, 'analyse')
+}
+
+// Temporary until the cif-cloud project supports the feature model analysers
+if (aemVersion == "cloud" && includeCommerce == "y") {
+    assert new File(rootDir, 'analyse').deleteDir();
+    removeModule(rootPom, 'analyse')
 }
 
 buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, language, country)
