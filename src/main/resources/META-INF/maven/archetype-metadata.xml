@@ -164,6 +164,8 @@
                 </fileSet>
             </fileSets>
         </module>
+        <module id="${rootArtifactId}.analyse" dir="analyse" name="analyse">
+        </module>
         <module id="${rootArtifactId}.core" dir="core" name="core">
             <fileSets>
                 <fileSet filtered="true" packaged="true"
