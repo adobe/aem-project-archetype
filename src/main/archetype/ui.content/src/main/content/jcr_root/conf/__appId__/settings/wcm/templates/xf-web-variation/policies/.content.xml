@@ -45,8 +45,13 @@
                             cq:policy="${appId}/components/commerce/featuredcategorylist/default"
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="wcm/core/components/policies/mapping" />
-                        <categorycarousel jcr:primaryType="nt:unstructured"
+                        <categorycarousel
                             cq:policy="${appId}/components/commerce/categorycarousel/default"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="wcm/core/components/policies/mapping" />
+                        <teaser
+                            cq:policy="${appId}/components/commerce/teaser/default"
+                            jcr:primaryType="nt:unstructured"
                             sling:resourceType="wcm/core/components/policies/mapping" />
                     </commerce>
 #end
