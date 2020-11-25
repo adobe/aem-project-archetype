@@ -69,6 +69,33 @@
                                                 rootPath="/content"/>
                                         </items>
                                     </pagesSection>
+#if ( $aemVersion == "cloud" )
+                                    <productsPickerSection
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Product selection"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <products
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="commerce/gui/components/common/cifproductfield"
+                                                fieldDescription="Select the products associated with this experience fragment variation."
+                                                fieldLabel="Product SKUs."
+                                                filter="folderOrProductOrVariant"
+                                                multiple="true"
+                                                name="./cq:products"
+                                                rootPath="/var/commerce/products"
+                                                selectionId="combinedSku">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    metaType="text"/>
+                                            </products>
+                                            <productstab
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="commerce/gui/components/common/productreferencetab"
+                                                targetProperty="jcr:content/cq:products"/>
+                                        </items>
+                                    </productsPickerSection>
+#end
                                 </items>
                             </column>
                         </items>
