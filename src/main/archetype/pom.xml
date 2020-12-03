@@ -88,7 +88,7 @@
 #end
 #if ( $aemVersion == "cloud")
         <aem.sdk.api>SDK_VERSION</aem.sdk.api>
-        <aemanalyser.version>0.0.12</aemanalyser.version>
+        <aemanalyser.version>0.0.16</aemanalyser.version>
 #end
         <componentGroupName>$appTitle</componentGroupName>
     </properties>
