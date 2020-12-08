@@ -150,6 +150,13 @@
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
 
+        <!--
+            Option to enable DynamicMedia components in project policy settings.
+        -->
+        <requiredProperty key="enableDynamicMedia">
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>  
     </requiredProperties>
 
     <modules>
