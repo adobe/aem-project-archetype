@@ -42,9 +42,9 @@ import static org.junit.Assert.fail;
  * AEM client that maintains a WebClient instance from HttpUnit framework
  */
 public class HtmlUnitClient extends CQClient {
-	
-	
-	private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(HtmlUnitClient.class);
+
+
+    private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(HtmlUnitClient.class);
 
     private final WebClient webClient = new WebClient();
 
@@ -123,7 +123,7 @@ public class HtmlUnitClient extends CQClient {
         }
         return result;
     }
-    
+
     /**
      * Extract all image core components and their references from the page.
      * @param page the page to scan
@@ -133,33 +133,33 @@ public class HtmlUnitClient extends CQClient {
     private static List<URI> getCoreComponentImageRenditions (HtmlPage page) throws URISyntaxException {
         URI baseUri = new URI(page.getBaseURI());
         List<URI> result = new ArrayList<>();
-        
+
         // detect images core components based on the CSS class name
         List<DomNode> coreComponents = page.getByXPath("//div[contains(@class, 'cmp-image')]");
         for (DomNode child:  coreComponents) {
-        	String src = null;
-        	String width = null;
-        	if (child.getAttributes().getNamedItem("data-cmp-src") != null) {
-        		src = child.getAttributes().getNamedItem("data-cmp-src").getNodeValue();
-        	}
-        	if (child.getAttributes().getNamedItem("data-cmp-widths") != null) {
-        		width = child.getAttributes().getNamedItem("data-cmp-widths").getNodeValue();
-        	}
-        	if (src != null && width != null) {
-	        	String[] widths = width.split(",");
-	        	for (String w: widths) {
-	        		String ref = src.replace("{.width}", "."+w);
-	        		result.add(baseUri.resolve(ref));
-	        	}
-        	} else if (src != null && width == null) {
-        		// happens with SVG and GIFs
-        		String ref = src.replace("{.width}", "");
-        		result.add(baseUri.resolve(ref));
-        	}
+            String src = null;
+            String width = null;
+            if (child.getAttributes().getNamedItem("data-cmp-src") != null) {
+                src = child.getAttributes().getNamedItem("data-cmp-src").getNodeValue();
+            }
+            if (child.getAttributes().getNamedItem("data-cmp-widths") != null) {
+                width = child.getAttributes().getNamedItem("data-cmp-widths").getNodeValue();
+            }
+            if (src != null && width != null) {
+                String[] widths = width.split(",");
+                for (String w: widths) {
+                    String ref = src.replace("{.width}", "."+w);
+                    result.add(baseUri.resolve(ref));
+                }
+            } else if (src != null && width == null) {
+                // happens with SVG and GIFs
+                String ref = src.replace("{.width}", "");
+                result.add(baseUri.resolve(ref));
+            }
         }
         return result;
     }
-    
+
 
     /**
      *  Loads requested page while suppressing CSS errors (logged as warnings)

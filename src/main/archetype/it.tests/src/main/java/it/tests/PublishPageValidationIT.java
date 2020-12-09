@@ -51,18 +51,18 @@ import java.util.List;
  * 
  */
 public class PublishPageValidationIT {
-	
-	
-	// the page to test
-	private static final String HOMEPAGE = "/";
 
-	// list files which do return a zerobyte response body
+
+    // the page to test
+    private static final String HOMEPAGE = "/";
+
+    // list files which do return a zerobyte response body
     private static final List<String> ZEROBYTEFILES = Arrays.asList();
-    
-    
-    
+
+
+
     private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(PublishPageValidationIT.class);
-    
+
     @ClassRule
     public static CQAuthorPublishClassRule cqBaseClassRule = new CQAuthorPublishClassRule(true);
 
@@ -81,27 +81,27 @@ public class PublishPageValidationIT {
     public static void afterClass() {
         closeQuietly(adminPublish);
     }
-    
 
-    
+
+
     @Test
     public void validateHomepage() throws ClientException, IOException, URISyntaxException {
-    	String path = HOMEPAGE;
-    	verifyPage(adminPublish, path);
-    	verifyLinkedResources(adminPublish,path);
-    	
+        String path = HOMEPAGE;
+        verifyPage(adminPublish, path);
+        verifyLinkedResources(adminPublish,path);
+
     }
-    
-    
+
+
     private static void verifyPage (HtmlUnitClient client, String path) throws ClientProtocolException, IOException {
-    	URI baseURI = client.getUrl();
+        URI baseURI = client.getUrl();
         LOG.info("Using {} as baseURL", baseURI.toString());
         HttpGet get = new HttpGet(baseURI.toString() + path);
         org.apache.http.HttpResponse validationResponse = client.execute(get);
         assertEquals("Request to [" + get.getURI().toString() + "] does not return expected returncode 200",
                 200, validationResponse.getStatusLine().getStatusCode());
     }
-    
+
     private static void verifyLinkedResources(HtmlUnitClient client, String path) throws ClientException, IOException, URISyntaxException {
 
         List<URI> references = client.getResourceRefs(path);
@@ -116,24 +116,24 @@ public class PublishPageValidationIT {
                 if (! ZEROBYTEFILES.stream().anyMatch(s -> ref.getPath().startsWith(s))) {
                     assertTrue("Empty response body from [" + ref + "]", responseSize > 0);
                 }
-               
+
             } else {
                 LOG.info("skipping linked resource from another domain {}", ref.toString());
             }
         }
     }
-    
+
     /** Checks if two URIs have the same origin.
-    *
-    * @param uri1 first URI
-    * @param uri2 second URI
-    * @return true if two URI come from the same host, port and use the same scheme
-    */
-   private static boolean isSameOrigin(URI uri1, URI uri2) {
-       if (!uri1.getScheme().equals(uri2.getScheme())) {
-           return false;
-       } else return uri1.getAuthority().equals(uri2.getAuthority());
-   }
-    
+     *
+     * @param uri1 first URI
+     * @param uri2 second URI
+     * @return true if two URI come from the same host, port and use the same scheme
+     */
+    private static boolean isSameOrigin(URI uri1, URI uri2) {
+        if (!uri1.getScheme().equals(uri2.getScheme())) {
+            return false;
+        } else return uri1.getAuthority().equals(uri2.getAuthority());
+    }
+
 
 }
