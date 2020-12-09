@@ -39,7 +39,7 @@ import java.util.logging.Logger;
 import static org.junit.Assert.fail;
 
 /**
- * AEM client that maintains a WebClient instance from HttpUnit framework
+ * AEM client that maintains a WebClient instance from HTMLUnit framework
  */
 public class HtmlUnitClient extends CQClient {
 
