@@ -1,0 +1,2 @@
+# Put hostnames that would be honored for publish blob matching works.
+"${PUBLISH_DEFAULT_HOSTNAME}"

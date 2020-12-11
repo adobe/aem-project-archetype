@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/testing-dynamicmedia" mode="merge"/>
+    <filter root="/content/testing-dynamicmedia" mode="merge"/>
+    <filter root="/content/dam/testing-dynamicmedia" mode="merge"/>
+    <filter root="/content/experience-fragments/testing-dynamicmedia" mode="merge"/>
+</workspaceFilter>

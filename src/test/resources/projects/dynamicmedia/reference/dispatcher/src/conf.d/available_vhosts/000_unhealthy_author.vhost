@@ -1,0 +1,31 @@
+<VirtualHost *:80>
+	ServerName	unhealthyauthor
+	ServerAlias	${AUTHOR_DEFAULT_HOSTNAME}
+
+	DocumentRoot	/mnt/var/www/default
+
+	<Directory />
+		Options FollowSymLinks
+		AllowOverride None
+		# Insert filter
+		SetOutputFilter DEFLATE
+		# Don't compress images
+		SetEnvIfNoCase Request_URI \
+		\.(?:gif|jpe?g|png)$ no-gzip dont-vary
+		# Make sure proxies don't deliver the wrong content
+		Header append Vary User-Agent env=!dont-vary
+	</Directory>
+	<Directory "/mnt/var/www/default">
+		AllowOverride None
+		Require all granted
+	</Directory>
+	<IfModule mod_headers.c>
+		Header always add X-Dispatcher ${DISP_ID}
+		Header always add X-Vhost "unhealthy-author"
+	</IfModule>
+	<IfModule mod_rewrite.c>
+		ReWriteEngine   on
+		RewriteCond %{REQUEST_URI} !^/error.html$
+		RewriteRule ^/* /error.html [R=301,L,NC]
+	</IfModule>
+</VirtualHost>

@@ -81,6 +81,25 @@
                             </resources>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>default-testResources</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>testResources</goal>
+                        </goals>
+                        <configuration>
+                            <includeEmptyDirs>true</includeEmptyDirs>
+                            <resources>
+                                <resource>
+                                    <directory>src/test/resources</directory>
+                                    <excludes>
+                                        <exclude>projects/dynamicmedia/reference/it.tests/src/test/java/it/pkg/.gitignore</exclude>
+                                        <exclude>projects/dynamicmedia/reference/ui.apps.structure/src/main/content/.gitignore</exclude>
+                                    </excludes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
             <!-- add enforcer rules for immutable dispatcher files -->
@@ -168,6 +187,13 @@
                 <archetype.test.projectsDirectory>${project.build.testOutputDirectory}/projects/basic</archetype.test.projectsDirectory>
             </properties>
         </profile>
+        
+        <profile>
+            <id>dynamicmedia</id>
+            <properties>
+                <archetype.test.projectsDirectory>${project.build.testOutputDirectory}/projects/dynamicmedia</archetype.test.projectsDirectory>
+            </properties>
+        </profile>        
 
         <profile>
             <!-- This is the release profile. -->

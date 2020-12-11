@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/testing-dynamicmedia/clientlibs"/>
+    <filter root="/apps/testing-dynamicmedia/components"/>
+    <filter root="/apps/testing-dynamicmedia/i18n"/>
+    <filter root="/apps/msm/testing-dynamicmedia_blueprint" mode="merge"/>
+</workspaceFilter>

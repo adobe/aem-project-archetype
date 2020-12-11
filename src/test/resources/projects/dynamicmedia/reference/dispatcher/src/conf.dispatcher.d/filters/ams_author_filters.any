@@ -1,0 +1,21 @@
+# allow everything
+/0001 { /type "allow"  /url "*" }
+# block admin tools
+/0010 { /type "deny" /url "/admin/*" }
+/0011 { /type "deny" /url "/system/*" }
+/0012 { /type "deny" /url "/_?jcr[:_]system.*" }
+/0013 {/type "allow" /path "/_jcr_system/_jcr_versionStorage/*" /extension '(js|json|css|png|jpeg|gif|html)' }
+# CRX tools are default blocked but can be allowed in /etc/sysconfig/httpd but never in a production environment.
+/0014 { /type "${CRX_FILTER}" /url "/crx/*" }
+/0015 { /type "${CRX_FILTER}" /url "/bin/crxde*" }
+
+# Block public access to our health check page
+/0016 { /type "deny" /path "/content/ams/healthcheck/*"}
+/0017 { /type "deny" /url "/content/regent.html"}
+
+# allow some requests
+/0052 { /type "allow" /method "GET" /extension "html" /url "/system/sling/logout.html*" } # allow logout
+#Asset download defaults to deny but can be allowed in /etc/httpd/conf.d/variables/ams_default.vars
+/0070 { /type "${ASSET_DOWNLOAD_RULE}" /method "GET" /url "*.assetdownload.zip/assets.zip*" }
+
+

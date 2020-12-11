@@ -1,0 +1,6 @@
+# Add values for any livecycle instances you'll pull content from.
+/0 {
+	/hostname "${LIVECYCLE_IP}"
+	/port "${LIVECYCLE_PORT}"
+	/timeout "10000"
+}

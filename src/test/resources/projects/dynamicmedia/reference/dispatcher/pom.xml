@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!-- ====================================================================== -->
+    <!-- P A R E N T  P R O J E C T  D E S C R I P T I O N                      -->
+    <!-- ====================================================================== -->
+    <parent>
+        <groupId>archetype.it</groupId>
+        <artifactId>testing-dynamicmedia</artifactId>
+        <version>0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>testing-dynamicmedia.dispatcher.ams</artifactId>
+    <name>Test DynamicMedia Project - Dispatcher</name>
+    <packaging>pom</packaging>
+    <description>HTTP &amp; Dispatcher configurations for Test DynamicMedia Project</description>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.1.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptors>
+                                <descriptor>assembly.xml</descriptor>
+                            </descriptors>
+                            <appendAssemblyId>false</appendAssemblyId>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>notOnWindows</id>
+            <activation>
+                <os>
+                    <family>!windows</family>
+                </os>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-enforcer-plugin</artifactId>
+                        <executions>
+                            <!-- enforce that immutable files are not touched: https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html -->
+                            <execution>
+                                <id>enforce-checksum-of-immutable-files</id>
+                                <goals>
+                                    <goal>enforce</goal>
+                                </goals>
+                                <configuration>
+                                    <rules>
+                                        <!-- rules being inserted by archetype-pre-package.groovy -->
+                                        <requireFileChecksum>
+                                            <file>src/conf/httpd.conf</file>
+                                            <checksum>b6a3184f6c69b0a3334e455eeec12d45</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf/httpd.conf</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/available_vhosts/aem_author.vhost</file>
+                                            <checksum>f84df5d0901bc36c1970eaa18e8a7a26</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/available_vhosts/aem_author.vhost</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/available_vhosts/aem_publish.vhost</file>
+                                            <checksum>e698f4979ed3e671086e37dbf759ace3</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/available_vhosts/aem_publish.vhost</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/available_vhosts/aem_lc.vhost</file>
+                                            <checksum>fb7e8f320e318da8ae26f952f7ec606c</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/available_vhosts/aem_lc.vhost</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/available_vhosts/aem_flush.vhost</file>
+                                            <checksum>885206c33162cba7c5dbafd4437f4d7b</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/available_vhosts/aem_flush.vhost</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/available_vhosts/aem_health.vhost</file>
+                                            <checksum>4079c275d8a7d7271fe4117dc665241a</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/available_vhosts/aem_health.vhost</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/available_vhosts/000_unhealthy_author.vhost</file>
+                                            <checksum>02ffeb1c577b9b01fb42e456217eb36e</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/available_vhosts/000_unhealthy_author.vhost</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/available_vhosts/000_unhealthy_publish.vhost</file>
+                                            <checksum>1ac489084811ee55897187f65422d95a</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/available_vhosts/000_unhealthy_publish.vhost</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/rewrites/base_rewrite.rules</file>
+                                            <checksum>0aaa800c099f557c555c3de24c2baf06</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/rewrites/base_rewrite.rules</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/rewrites/xforwarded_forcessl_rewrite.rules</file>
+                                            <checksum>cd1373a055f245de6e9ed78f74f974a6</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/rewrites/xforwarded_forcessl_rewrite.rules</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/whitelists/000_base_whitelist.rules</file>
+                                            <checksum>92af3b7176ac87649d713b7945d940aa</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/whitelists/000_base_whitelist.rules</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/dispatcher_vhost.conf</file>
+                                            <checksum>0de6205c0bd47d9993e27efea72c0e64</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/dispatcher_vhost.conf</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/logformat.conf</file>
+                                            <checksum>7c08b796b926acf66737dfaca7bc6e51</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/logformat.conf</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/security.conf</file>
+                                            <checksum>e502a56c8ee2212f3b3300955ecfeede</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/security.conf</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.modules.d/02-dispatcher.conf</file>
+                                            <checksum>e5801c9a1e4769938a3a73d038c0ddab</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.modules.d/02-dispatcher.conf</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/available_farms/000_ams_author_farm.any</file>
+                                            <checksum>d27007f61c66b0be56803a6fa093ddd4</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/available_farms/000_ams_author_farm.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/available_farms/999_ams_publish_farm.any</file>
+                                            <checksum>f8e839c441827c4a2deb4de789fddede</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/available_farms/999_ams_publish_farm.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/available_farms/001_ams_lc_farm.any</file>
+                                            <checksum>bf04c934b68ce0b4136d9479ab164681</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/available_farms/001_ams_lc_farm.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/cache/ams_author_cache.any</file>
+                                            <checksum>7552db0d129c78c67b4484063628c7ab</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/cache/ams_author_cache.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/cache/ams_author_invalidate_allowed.any</file>
+                                            <checksum>a66be278d68472073241fc78db7af993</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/cache/ams_author_invalidate_allowed.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/cache/ams_publish_cache.any</file>
+                                            <checksum>c8209f2d3c54c4b583554d82bedebe7e</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/cache/ams_publish_cache.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/cache/ams_publish_invalidate_allowed.any</file>
+                                            <checksum>a66be278d68472073241fc78db7af993</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/cache/ams_publish_invalidate_allowed.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/clientheaders/ams_author_clientheaders.any</file>
+                                            <checksum>eb07068a43905a5b2f7dc197b0397897</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/clientheaders/ams_author_clientheaders.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/clientheaders/ams_publish_clientheaders.any</file>
+                                            <checksum>4d8acb52e3279ee8bc3d912786de2a4f</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/clientheaders/ams_publish_clientheaders.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/clientheaders/ams_common_clientheaders.any</file>
+                                            <checksum>51a6ced4f3ef97003bb1a1b08b92822a</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/clientheaders/ams_common_clientheaders.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/clientheaders/ams_lc_clientheaders.any</file>
+                                            <checksum>bc6294202adef39490689ddd9c98c857</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/clientheaders/ams_lc_clientheaders.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/filters/ams_author_filters.any</file>
+                                            <checksum>e70e1b739350671fb5c4e93daa37657e</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/filters/ams_author_filters.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/filters/ams_publish_filters.any</file>
+                                            <checksum>e584f53f4a5dab6baaab6fdb111e124a</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/filters/ams_publish_filters.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/filters/ams_lc_filters.any</file>
+                                            <checksum>bd5b6c2a81e2af76a5420e0504d97575</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/filters/ams_lc_filters.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/renders/ams_author_renders.any</file>
+                                            <checksum>5f436fb05aa044010a85fd4a6e63a2b8</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/renders/ams_author_renders.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/renders/ams_publish_renders.any</file>
+                                            <checksum>715633e3b9d1421d582adfe9008a8bde</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/renders/ams_publish_renders.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/renders/ams_lc_renders.any</file>
+                                            <checksum>cc66973b050657f3a105001300b35646</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/renders/ams_lc_renders.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/vhosts/ams_author_vhosts.any</file>
+                                            <checksum>2b81518bba61214a272bcab57dea7094</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/vhosts/ams_author_vhosts.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/vhosts/ams_publish_vhosts.any</file>
+                                            <checksum>5a1824326f4201c8d909fffd4c9bd33a</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/vhosts/ams_publish_vhosts.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/vhosts/ams_lc_vhosts.any</file>
+                                            <checksum>d88634e4f773d324f1930075b93c18c7</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/vhosts/ams_lc_vhosts.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/dispatcher.any</file>
+                                            <checksum>f5d46f2963bf5cf6e61dff7b34832d2b</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/dispatcher.any</message>
+                                        </requireFileChecksum>
+
+                                    </rules>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>onWindows</id>
+            <activation>
+                <os>
+                    <family>windows</family>
+                </os>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-enforcer-plugin</artifactId>
+                        <executions>
+                            <!-- enforce that immutable files are not touched: https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html -->
+                            <execution>
+                                <id>enforce-checksum-of-immutable-files</id>
+                                <goals>
+                                    <goal>enforce</goal>
+                                </goals>
+                                <configuration>
+                                    <rules>
+                                        <!-- rules being inserted by archetype-pre-package.groovy -->
+                                        <requireFileChecksum>
+                                            <file>src/conf/httpd.conf</file>
+                                            <checksum>c48971b67c8b7f2ed8d551ed64cafe4c</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf/httpd.conf</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/available_vhosts/aem_author.vhost</file>
+                                            <checksum>8577793fdd798a2884a586303c9cdbc4</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/available_vhosts/aem_author.vhost</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/available_vhosts/aem_publish.vhost</file>
+                                            <checksum>9421132c380faf5cbe0744cde36d06b3</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/available_vhosts/aem_publish.vhost</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/available_vhosts/aem_lc.vhost</file>
+                                            <checksum>90ca931831b6d07f3a1e19acc02dc9ab</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/available_vhosts/aem_lc.vhost</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/available_vhosts/aem_flush.vhost</file>
+                                            <checksum>d4da5ed8cb386119e33fcb2c2c801115</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/available_vhosts/aem_flush.vhost</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/available_vhosts/aem_health.vhost</file>
+                                            <checksum>748680ff592d37102dba7fa4cc054d5c</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/available_vhosts/aem_health.vhost</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/available_vhosts/000_unhealthy_author.vhost</file>
+                                            <checksum>311d0cddf690456b055691bd432865b5</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/available_vhosts/000_unhealthy_author.vhost</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/available_vhosts/000_unhealthy_publish.vhost</file>
+                                            <checksum>b770434a32c76e312faa74238cb0f893</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/available_vhosts/000_unhealthy_publish.vhost</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/rewrites/base_rewrite.rules</file>
+                                            <checksum>4f257caeeed04f5ab352c6ef0a63bdff</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/rewrites/base_rewrite.rules</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/rewrites/xforwarded_forcessl_rewrite.rules</file>
+                                            <checksum>d38ce8c43a098f3c7d0bb609cc2e84c1</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/rewrites/xforwarded_forcessl_rewrite.rules</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/whitelists/000_base_whitelist.rules</file>
+                                            <checksum>a9caccb5b30576de84ec99dd620b9693</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/whitelists/000_base_whitelist.rules</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/dispatcher_vhost.conf</file>
+                                            <checksum>adc3ff73e00f5a3a97076670e16901aa</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/dispatcher_vhost.conf</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/logformat.conf</file>
+                                            <checksum>514ad1b2d6bfca59d0d3fc1f864f290f</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/logformat.conf</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.d/security.conf</file>
+                                            <checksum>453beab89b16dd1c6647f1d92eaf5ec2</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.d/security.conf</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.modules.d/02-dispatcher.conf</file>
+                                            <checksum>c47bb28f62b8f802e63265c63cd9b0ac</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.modules.d/02-dispatcher.conf</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/available_farms/000_ams_author_farm.any</file>
+                                            <checksum>c78bc0dc17b2c80939986bda83a8b96e</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/available_farms/000_ams_author_farm.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/available_farms/999_ams_publish_farm.any</file>
+                                            <checksum>ecd32e947a9c40e8ea40752d6de86465</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/available_farms/999_ams_publish_farm.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/available_farms/001_ams_lc_farm.any</file>
+                                            <checksum>d211f58545639a703d25e19165ce6862</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/available_farms/001_ams_lc_farm.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/cache/ams_author_cache.any</file>
+                                            <checksum>525839af8d81403532613012f936d6c7</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/cache/ams_author_cache.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/cache/ams_author_invalidate_allowed.any</file>
+                                            <checksum>131b6b483b8bde9d04011b99f8aa3b99</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/cache/ams_author_invalidate_allowed.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/cache/ams_publish_cache.any</file>
+                                            <checksum>5f6dd7e7a1801cdcd2b1a2d968e3605e</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/cache/ams_publish_cache.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/cache/ams_publish_invalidate_allowed.any</file>
+                                            <checksum>131b6b483b8bde9d04011b99f8aa3b99</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/cache/ams_publish_invalidate_allowed.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/clientheaders/ams_author_clientheaders.any</file>
+                                            <checksum>3b5ea613e5fe17608272f83df7a50733</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/clientheaders/ams_author_clientheaders.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/clientheaders/ams_publish_clientheaders.any</file>
+                                            <checksum>4d8acb52e3279ee8bc3d912786de2a4f</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/clientheaders/ams_publish_clientheaders.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/clientheaders/ams_common_clientheaders.any</file>
+                                            <checksum>5b35c0f43809132842b64a0bab33268f</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/clientheaders/ams_common_clientheaders.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/clientheaders/ams_lc_clientheaders.any</file>
+                                            <checksum>f64c8f55a1ed3d722b610ea13d7f1ef7</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/clientheaders/ams_lc_clientheaders.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/filters/ams_author_filters.any</file>
+                                            <checksum>28de56195053fd78ec4fa55123e4495d</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/filters/ams_author_filters.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/filters/ams_publish_filters.any</file>
+                                            <checksum>d3c4346ffe93f25959bb2764c4762cc2</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/filters/ams_publish_filters.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/filters/ams_lc_filters.any</file>
+                                            <checksum>e8f5032a1ed8c1abd3b371c34e5c1921</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/filters/ams_lc_filters.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/renders/ams_author_renders.any</file>
+                                            <checksum>d89287f6c49d6cd105b48cec8c8e23de</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/renders/ams_author_renders.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/renders/ams_publish_renders.any</file>
+                                            <checksum>40e05c5e0b3214fa4656ce67887c4903</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/renders/ams_publish_renders.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/renders/ams_lc_renders.any</file>
+                                            <checksum>231aa71c54b3a2792e9aa128e6faca69</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/renders/ams_lc_renders.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/vhosts/ams_author_vhosts.any</file>
+                                            <checksum>a4d4a6760f1d4009b2bcee20b0e8968a</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/vhosts/ams_author_vhosts.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/vhosts/ams_publish_vhosts.any</file>
+                                            <checksum>73220dacf7af675b489f4e8f7ac8c15b</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/vhosts/ams_publish_vhosts.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/vhosts/ams_lc_vhosts.any</file>
+                                            <checksum>ca6dcac76cea1839e8cdc30c7e8bf14b</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/vhosts/ams_lc_vhosts.any</message>
+                                        </requireFileChecksum>
+                                        <requireFileChecksum>
+                                            <file>src/conf.dispatcher.d/dispatcher.any</file>
+                                            <checksum>6d9f744dfd6e0563e967a0d77497b6b8</checksum>
+                                            <type>md5</type>
+                                            <message>There have been changes detected in a file which is supposed to be immutable according to https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html: src/conf.dispatcher.d/dispatcher.any</message>
+                                        </requireFileChecksum>
+
+                                    </rules>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

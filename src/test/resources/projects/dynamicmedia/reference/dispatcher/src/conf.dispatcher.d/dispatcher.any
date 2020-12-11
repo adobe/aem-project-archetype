@@ -1,0 +1,10 @@
+# Name of the dispatcher
+/name "internet-server"
+
+# each farm configures a set of (load-balanced) renders
+# Include the author first on purpose
+# Include the publish farm last.  That way if the hostname isn't matched they'll end up on the last farm, better for 404 errors that are non descript than 403 authentication and redirect to a login page
+
+/farms {
+	$include "enabled_farms/*_farm.any"
+}
