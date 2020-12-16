@@ -70,7 +70,7 @@
 #if ( $includeCommerce == "y" )
         <core.cif.components.version>1.6.0</core.cif.components.version>
         <graphql.client.version>1.7.0</graphql.client.version>
-        <magento.graphql.version>7.2.0-magento240</magento.graphql.version>
+        <magento.graphql.version>6.0.0-magento235</magento.graphql.version>
 #end
         <bnd.version>5.1.2</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
