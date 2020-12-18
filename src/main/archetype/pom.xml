@@ -154,9 +154,9 @@
                     <groupId>com.github.eirslett</groupId>
                     <artifactId>frontend-maven-plugin</artifactId>
                     <version>1.7.6</version>
-                    <configuration>
-                        <nodeVersion>v10.13.0</nodeVersion>
-                        <npmVersion>6.9.0</npmVersion>
+                    <configuration> <!-- todo fix this -->
+                        <nodeVersion>v12.16.3</nodeVersion>
+                        <npmVersion>6.14.4</npmVersion>
                     </configuration>
                     <executions>
                         <execution>
