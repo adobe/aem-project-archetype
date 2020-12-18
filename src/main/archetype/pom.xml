@@ -800,6 +800,12 @@ Bundle-DocURL:
             </dependency>
             <dependency>
                 <groupId>com.adobe.commerce.cif</groupId>
+                <artifactId>core-cif-components-config</artifactId>
+                <type>zip</type>
+                <version>${core.cif.components.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.commerce.cif</groupId>
                 <artifactId>core-cif-components-core</artifactId>
                 <version>${core.cif.components.version}</version>
             </dependency>
