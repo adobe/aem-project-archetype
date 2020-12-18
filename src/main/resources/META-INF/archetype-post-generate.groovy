@@ -130,6 +130,11 @@ if (includeCommerce == "n") {
     assert new File("$appsFolder/components/xfpage/_cq_dialog").deleteDir()
     assert new File("$confFolder/cloudconfigs/commerce").deleteDir()
     assert new File("$varFolder").deleteDir();
+    assert new File("$confFolder/settings/wcm/templates/catalog-page").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/category-page").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/landing-page").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/product-page").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/root-page").deleteDir()
 
     def packageFolder = javaPackage.replaceAll("\\.", "/")
     assert new File(coreBundle, "src/main/java/$packageFolder/core/models/commerce").deleteDir()
