@@ -81,6 +81,12 @@
                             <artifactId>core-cif-components-apps</artifactId>
                         </dependency>
 #end
+#if ( $includeForms == "y" and $aemVersion == "cloud" )
+                        <dependency>
+                            <groupId>com.adobe.aem</groupId>
+                            <artifactId>core-forms-components-apps</artifactId>
+                        </dependency>
+#end
                     </dependencies>
                 </configuration>
             </plugin>
@@ -233,6 +239,22 @@
         <dependency>
             <groupId>com.adobe.commerce.cif</groupId>
             <artifactId>magento-graphql</artifactId>
+        </dependency>
+#end
+#if ( $includeForms == "y" and $aemVersion == "cloud")
+        <!-- AEM Forms Dependencies -->
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>aem-forms-sdk-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>core-forms-components-apps</artifactId>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>core-forms-components-core</artifactId>
         </dependency>
 #end
         <!-- HTL dependencies needed for the HTL Maven Plugin source code generation -->

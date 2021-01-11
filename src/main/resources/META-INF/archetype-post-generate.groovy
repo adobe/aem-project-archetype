@@ -23,6 +23,8 @@ def aemVersion = request.getProperties().get("aemVersion")
 def sdkVersion = request.getProperties().get("sdkVersion")
 def includeDispatcherConfig = request.getProperties().get("includeDispatcherConfig")
 def includeCommerce = request.getProperties().get("includeCommerce")
+def includeForms = request.getProperties().get("includeForms")
+def sdkFormsVersion = request.getProperties().get("sdkFormsVersion")
 
 def appsFolder = new File("$uiAppsPackage/src/main/content/jcr_root/apps/$appId")
 def configFolder = new File("$uiConfigPackage/src/main/content/jcr_root/apps/$appId/osgiconfig")
@@ -153,6 +155,25 @@ if (includeCommerce == "n") {
     }
 }
 
+// if forms flag is not set, forms specific content/configuration/proxy components should be deleted
+if (includeForms == "n") {
+    assert new File("$appsFolder/components/aemformscontainer").deleteDir()
+} else {
+    if (aemVersion == "cloud") {
+        // if forms is included and aem version is set to cloud, set the forms sdk version
+        if (sdkFormsVersion == "latest") {
+            println "No Forms SDK version specified, trying to fetch latest"
+            sdkFormsVersion = getLatestFormsSDK(request.getArchetypeVersion())
+        }
+        println "Using AEM Forms as a Cloud Service SDK version: " + sdkFormsVersion
+        rootPom.text = rootPom.text.replaceAll('SDK_FORMS_VERSION', sdkFormsVersion.toString())
+
+        // Temporary until the forms-cloud project supports the feature model analysers
+        assert new File(rootDir, 'analyse').deleteDir();
+        removeModule(rootPom, 'analyse')
+    }
+}
+
 // if config.publish folder ends up empty, remove it, otherwise the filevault-package-maven-plugin will throw
 // an violation with severity=ERROR
 if(new File("$configFolder/config.publish").list().length == 0) {
@@ -252,6 +273,15 @@ def removeModule(pomFile, module) {
 
 def getLatestSDK(archetypeVersion) {
     def metadata = new XmlSlurper().parse("https://repo1.maven.org/maven2/com/adobe/aem/aem-sdk-api/maven-metadata.xml")
+    def sdkVersion = metadata.versioning.latest
+    if (sdkVersion == null || sdkVersion == "") {
+        sdkVersion = System.console().readLine("Cannot get latest SDK version, please provide it manually: ")
+    }
+    return sdkVersion
+}
+
+def getLatestFormsSDK(archetypeVersion) {
+    def metadata = new XmlSlurper().parse("https://repo1.maven.org/maven2/com/adobe/aem/aem-forms-sdk-api/maven-metadata.xml")
     def sdkVersion = metadata.versioning.latest
     if (sdkVersion == null || sdkVersion == "") {
         sdkVersion = System.console().readLine("Cannot get latest SDK version, please provide it manually: ")

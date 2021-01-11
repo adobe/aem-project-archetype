@@ -163,6 +163,19 @@
                         </embedded>
 #end
 #end
+#if ( $includeForms == "y" and $aemVersion == "cloud" )
+                        <embedded>
+                            <groupId>com.adobe.aem</groupId>
+                            <artifactId>core-forms-components-apps</artifactId>
+                            <type>zip</type>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.adobe.aem</groupId>
+                            <artifactId>core-forms-components-core</artifactId>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
+                        </embedded>
+#end
                     </embeddeds>
                 </configuration>
             </plugin>
@@ -317,6 +330,14 @@
         <dependency>
             <groupId>com.adobe.commerce.cif</groupId>
             <artifactId>core-cif-components-apps</artifactId>
+            <type>zip</type>
+        </dependency>
+#end
+#if ( $includeForms == "y" and $aemVersion == "cloud" )
+        <!-- AEM Forms Dependencies -->
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>core-forms-components-apps</artifactId>
             <type>zip</type>
         </dependency>
 #end
