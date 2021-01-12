@@ -135,6 +135,22 @@
         </requiredProperty>
 
         <!--
+           Option to include Forms Core Components & corresponding configuration.
+       -->
+        <requiredProperty key="includeForms">
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
+
+        <!--
+           AEM Forms as a Cloud Service SDK API version.
+       -->
+        <requiredProperty key="sdkFormsVersion">
+            <defaultValue>latest</defaultValue>
+            <validationRegex>^(\d{4}\.\d{2}\.\d{2}\.\d{2}|latest)$</validationRegex>
+        </requiredProperty>
+
+        <!--
             Adobe Client Data Layer integration
         -->
         <requiredProperty key="datalayer">

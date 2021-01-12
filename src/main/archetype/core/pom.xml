@@ -188,6 +188,18 @@ Import-Package: javax.annotation;version=0.0.0,*
             <artifactId>magento-graphql</artifactId>
         </dependency>
 #end
+
+#if ( $includeForms == "y" and $aemVersion == "cloud" )
+        <!-- AEM Forms Dependencies -->
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>aem-forms-sdk-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>core-forms-components-core</artifactId>
+        </dependency>
+#end
         <!-- Testing -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>

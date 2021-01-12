@@ -27,6 +27,7 @@ Maven template that creates a minimal, best-practices-based Adobe Experience Man
 * **Front-End Build:** Front-end devs can [mock AEM pages](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/archetype/uifrontend.html#webpack-dev-server) and [build client libraries](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/archetype/uifrontend.html) with Webpack, TypeScript, and SASS.
 * **WebApp-Ready:** For sites using [React](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/archetype/uifrontend-react.html) or [Angular](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/archetype/uifrontend-angular.html), use the [SPA SDK](https://docs.adobe.com/content/help/en/experience-manager-64/developing/headless/spas/spa-architecture.html) to retain [in-context authoring of the app](https://docs.adobe.com/content/help/en/experience-manager-learn/sites/spa-editor/spa-editor-framework-feature-video-use.html).
 * **Commerce Enabled:** For projects that want to use Commerce Integration Framework ([CIF](https://github.com/adobe/aem-core-cif-components)) to integrate with commerce solutions like Magento.
+* **Forms Enabled:** For projects that want to use ([Forms](https://github.com/adobe/aem-core-forms-components)).
 * **Testing:** ready-to-use Functional and UI testing modules, start adding your own tests
 * **Example Code:** Checkout the HelloWorld component, and the sample models, servelets, filters, and schedulers.
 * **Open Sourced:** If something is not as it should, [contribute](https://github.com/adobe/aem-core-wcm-components/blob/master/CONTRIBUTING.md) your improvements!
@@ -79,6 +80,8 @@ Name                      | Default        | Description
 `includeErrorHandler`     | `n`            | Includes a custom 404 response page that will be global to the entire instance (can be `y` or `n`).
 `includeCommerce`         | `n`            | Includes [CIF Core Components](https://github.com/adobe/aem-core-cif-components) dependecies and generates corresponding artifacts.
 `commerceEndpoint`        |                | Required for CIF only. Optional endpoint of the commerce system GraphQL service to be used (e.g. `https://hostname.com/grapql`).
+`includeForms`            | `n`            | Includes [Forms Core Components](https://github.com/adobe/aem-core-forms-components) dependencies and generates corresponding artifacts.
+`sdkFormsVersion`         | `latest`       | When `aemVersion=cloud` and `includeForms=y` an Forms SDK version can be specified (e.g. `2020.12.17.02`).
 `datalayer`               | `y`            | Activate integration with [Adobe Client Data Layer](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/data-layer/overview.html).
 `amp`                     | `n`            | Enable [AMP](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/amp.html) support for genenerated project templates. 
 `enableDynamicMedia`      | `n`            | Enabled foundation DynamicMedia components in project policy settings and activates Dynamic Media features in Core Image component's policy.
