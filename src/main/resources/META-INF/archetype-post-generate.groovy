@@ -130,6 +130,7 @@ if (includeCommerce == "n") {
     assert new File("$configFolder/config.publish/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.cfg.json").delete()
     assert new File("$configFolder/config.publish/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.config").delete()
     assert new File("$appsFolder/components/xfpage/_cq_dialog").deleteDir()
+    assert new File("$appsFolder/components/header").deleteDir()
     assert new File("$confFolder/cloudconfigs/commerce").deleteDir()
     assert new File("$varFolder").deleteDir();
     assert new File("$confFolder/settings/wcm/templates/catalog-page").deleteDir()
@@ -137,6 +138,14 @@ if (includeCommerce == "n") {
     assert new File("$confFolder/settings/wcm/templates/landing-page").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/product-page").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/root-page").deleteDir()
+    assert new File("$contentFolder/language-masters/en/my-account").deleteDir()
+    assert new File("$contentFolder/language-masters/en/products").deleteDir()
+    assert new File("$contentFolder/language-masters/en/reset-password").deleteDir()
+    assert new File("$contentFolder/language-masters/en/search").deleteDir()
+    assert new File("$contentFolder/us/en/my-account").deleteDir()
+    assert new File("$contentFolder/us/en/products").deleteDir()
+    assert new File("$contentFolder/us/en/reset-password").deleteDir()
+    assert new File("$contentFolder/us/en/search").deleteDir()
 
     def packageFolder = javaPackage.replaceAll("\\.", "/")
     assert new File(coreBundle, "src/main/java/$packageFolder/core/models/commerce").deleteDir()
