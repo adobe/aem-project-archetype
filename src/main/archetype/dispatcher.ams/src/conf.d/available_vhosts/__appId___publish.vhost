@@ -18,9 +18,9 @@ PassEnv DISP_ID
 		Header append Vary User-Agent env=!dont-vary
 	</IfModule>
 	<Directory />
-		# Update /etc/sysconfig/httpd with setting the PUBLISH_WHITELIST_ENABLED from 0 or 1 to enable or disable ip restriction rules
-		<If "${PUBLISH_WHITELIST_ENABLED} == 1">
-			Include conf.d/whitelists/*_whitelist.rules
+		# Update /etc/sysconfig/httpd with setting the PUBLISH_ALLOWLIST_ENABLED from 0 or 1 to enable or disable ip restriction rules
+		<If "${PUBLISH_ALLOWLIST_ENABLED} == 1">
+			Include conf.d/allowlists/*_allowlist.rules
 		</If>
 		<IfModule disp_apache2.c>
 			# Some items cache with the wrong mime type
