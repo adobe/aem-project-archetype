@@ -118,6 +118,7 @@
                 <version>2.15</version>
                 <configuration>
                     <includes>**\/*.java,**\/*.xml</includes>
+                    <excludes>**/node_modules/**/*</excludes>
                     <sourceDirectory>src/main/archetype</sourceDirectory>
                     <configLocation>src/main/resources/checkstyle.xml</configLocation>
                     <encoding>UTF-8</encoding>
