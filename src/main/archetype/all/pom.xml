@@ -167,12 +167,6 @@
                             <artifactId>graphql-client</artifactId>
                             <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
-                        <embedded>
-                            <groupId>com.adobe.commerce.cif</groupId>
-                            <artifactId>cif-connector-all</artifactId>
-                            <type>zip</type>
-                            <target>/apps/${appId}-vendor-packages/application/install</target>
-                        </embedded>
 #end
 #end
 #if ( $includeForms == "y" and $aemVersion == "cloud" )
@@ -347,11 +341,6 @@
         <dependency>
             <groupId>com.adobe.commerce.cif</groupId>
             <artifactId>core-cif-components-config</artifactId>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.commerce.cif</groupId>
-            <artifactId>cif-connector-all</artifactId>
             <type>zip</type>
         </dependency>
 #end

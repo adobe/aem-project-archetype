@@ -3,4 +3,4 @@
     jcr:title="Reset Password Form"
     sling:resourceSuperType="core/cif/components/commerce/resetpassword/v1/resetpassword"
     jcr:primaryType="cq:Component"
-    componentGroup="${appTitle} - Commerce"/>
+    componentGroup=".hidden"/>

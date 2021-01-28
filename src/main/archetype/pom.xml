@@ -69,7 +69,6 @@
 #end
 #if ( $includeCommerce == "y" )
         <core.cif.components.version>1.6.0</core.cif.components.version>
-        <cif.connector.version>1.6.0</cif.connector.version>
         <graphql.client.version>1.7.0</graphql.client.version>
         <magento.graphql.version>6.0.0-magento235</magento.graphql.version>
 #end
@@ -823,12 +822,6 @@ Bundle-DocURL:
                 <groupId>com.adobe.commerce.cif</groupId>
                 <artifactId>magento-graphql</artifactId>
                 <version>${magento.graphql.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.adobe.commerce.cif</groupId>
-                <artifactId>cif-connector-all</artifactId>
-                <type>zip</type>
-                <version>${cif.connector.version}</version>
             </dependency>
 #end
 #if ( $includeForms == "y" and $aemVersion == "cloud")

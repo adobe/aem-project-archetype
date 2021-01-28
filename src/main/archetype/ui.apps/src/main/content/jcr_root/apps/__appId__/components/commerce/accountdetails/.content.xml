@@ -3,6 +3,6 @@
           xmlns:jcr="http://www.jcp.org/jcr/1.0"
           jcr:primaryType="cq:Component"
           sling:resourceSuperType="core/cif/components/commerce/accountdetails/v1/accountdetails"
-          componentGroup="${appTitle} - Commerce"
+          componentGroup=".hidden"
           jcr:title="Account Details">
 </jcr:root>

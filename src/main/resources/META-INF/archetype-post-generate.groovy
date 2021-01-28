@@ -125,8 +125,6 @@ if (includeCommerce == "n") {
     assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.config").delete()
     assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory~default.cfg.json").delete()
     assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory-default.config").delete()
-    assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.magento.GraphqlDataServiceImpl~default.cfg.json").delete()
-    assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.magento.GraphqlDataServiceImpl-default.config").delete()
     assert new File("$configFolder/config.publish/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.cfg.json").delete()
     assert new File("$configFolder/config.publish/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.config").delete()
     assert new File("$appsFolder/components/xfpage/_cq_dialog").deleteDir()
@@ -163,13 +161,11 @@ if (includeCommerce == "n") {
         assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.cfg.json").delete()
         assert new File("$configFolder/config.publish/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.cfg.json").delete()
         assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory~default.cfg.json").delete()
-        assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.magento.GraphqlDataServiceImpl~default.cfg.json").delete()
     } else {
         assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-default.config").delete()
         assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.config").delete()
         assert new File("$configFolder/config.publish/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.config").delete()
         assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory-default.config").delete()
-        assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.magento.GraphqlDataServiceImpl-default.config").delete()
     }
 }
 
