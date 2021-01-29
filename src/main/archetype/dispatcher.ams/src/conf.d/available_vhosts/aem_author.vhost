@@ -68,4 +68,8 @@ PassEnv DISP_ID
 			Include conf.d/rewrites/xforwarded_forcessl_rewrite.rules
 		</If>
 	</IfModule>
+	<IfModule mod_proxy.c>
+        SSLProxyEngine on
+        Include /etc/httpd/conf.d/proxy/*.conf
+    </IfModule>
 </VirtualHost>
