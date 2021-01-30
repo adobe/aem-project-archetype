@@ -41,19 +41,19 @@ import {
     ListV2,ListV2IsEmptyFn
 } from '@adobe/aem-core-components-react-base';
 
-MapTo('${projectName}/components/download')(DownloadV1, {isEmpty: DownloadV1IsEmptyFn});
-MapTo('${projectName}/components/list')(ListV2, {isEmpty: ListV2IsEmptyFn});
-MapTo('${projectName}/components/separator')(SeparatorV1, {isEmpty: SeparatorV1IsEmptyFn});
-MapTo('${projectName}/components/breadcrumb')(BreadCrumbV2, {isEmpty: BreadCrumbV2IsEmptyFn});
-MapTo('${projectName}/components/button')(ButtonV1, {isEmpty: ButtonV1IsEmptyFn});
-MapTo('${projectName}/components/teaser')(TeaserV1, {isEmpty: TeaserV1IsEmptyFn});
-MapTo('${projectName}/components/image')(ImageV2, {isEmpty: ImageV2IsEmptyFn});
-MapTo('${projectName}/components/title')(TitleV2, {isEmpty: TitleV2IsEmptyFn});
+MapTo('${appId}/components/download')(DownloadV1, {isEmpty: DownloadV1IsEmptyFn});
+MapTo('${appId}/components/list')(ListV2, {isEmpty: ListV2IsEmptyFn});
+MapTo('${appId}/components/separator')(SeparatorV1, {isEmpty: SeparatorV1IsEmptyFn});
+MapTo('${appId}/components/breadcrumb')(BreadCrumbV2, {isEmpty: BreadCrumbV2IsEmptyFn});
+MapTo('${appId}/components/button')(ButtonV1, {isEmpty: ButtonV1IsEmptyFn});
+MapTo('${appId}/components/teaser')(TeaserV1, {isEmpty: TeaserV1IsEmptyFn});
+MapTo('${appId}/components/image')(ImageV2, {isEmpty: ImageV2IsEmptyFn});
+MapTo('${appId}/components/title')(TitleV2, {isEmpty: TitleV2IsEmptyFn});
 
-MapTo('${projectName}/components/navigation')(NavigationV1);
-MapTo('${projectName}/components/languagenavigation')(LanguageNavigationV1);
+MapTo('${appId}/components/navigation')(NavigationV1);
+MapTo('${appId}/components/languagenavigation')(LanguageNavigationV1);
 
-MapTo('${projectName}/components/tabs')(TabsV1, {isEmpty: TabsV1IsEmptyFn});
-MapTo('${projectName}/components/accordion')(AccordionV1, {isEmpty: AccordionV1IsEmptyFn});
-MapTo('${projectName}/components/carousel')(CarouselV1, {isEmpty: CarouselV1IsEmptyFn});
-MapTo('${projectName}/components/container')(ContainerV1, {isEmpty: ContainerV1IsEmptyFn});
+MapTo('${appId}/components/tabs')(TabsV1, {isEmpty: TabsV1IsEmptyFn});
+MapTo('${appId}/components/accordion')(AccordionV1, {isEmpty: AccordionV1IsEmptyFn});
+MapTo('${appId}/components/carousel')(CarouselV1, {isEmpty: CarouselV1IsEmptyFn});
+MapTo('${appId}/components/container')(ContainerV1, {isEmpty: ContainerV1IsEmptyFn});
