@@ -36,19 +36,19 @@ import {CarouselV1Component} from '@adobe/aem-core-components-angular-spa/contai
 import {LanguageNavigationV1Component} from '@adobe/aem-core-components-angular-base/layout/language-navigation/v1';
 
 
-MapTo('${projectName}/components/navigation')(NavigationV1Component, {isEmpty: NavigationV1IsEmptyFn});
-MapTo('${projectName}/components/teaser')(TeaserV1Component, {isEmpty: TeaserV1IsEmptyFn});
-MapTo('${projectName}/components/title')(TitleV2Component, {isEmpty: TitleV2IsEmptyFn});
-MapTo('${projectName}/components/separator')(SeparatorV1Component);
+MapTo('${appId}/components/navigation')(NavigationV1Component, {isEmpty: NavigationV1IsEmptyFn});
+MapTo('${appId}/components/teaser')(TeaserV1Component, {isEmpty: TeaserV1IsEmptyFn});
+MapTo('${appId}/components/title')(TitleV2Component, {isEmpty: TitleV2IsEmptyFn});
+MapTo('${appId}/components/separator')(SeparatorV1Component);
 
 
-MapTo('${projectName}/components/download')(DownloadV1Component,{isEmpty: DownloadV1IsEmptyFn});
-MapTo('${projectName}/components/languagenavigation')(LanguageNavigationV1Component);
-MapTo('${projectName}/components/list')(ListV2Component, {isEmpty: ListV2IsEmptyFn});
-MapTo('${projectName}/components/breadcrumb')(BreadCrumbV2Component, {isEmpty: BreadCrumbV2IsEmptyFn})
-MapTo('${projectName}/components/button')(ButtonV1Component, {isEmpty: ButtonV1IsEmptyFn});
-MapTo('${projectName}/components/image')(ImageV2Component, {isEmpty: ImageV2IsEmptyFn});
+MapTo('${appId}/components/download')(DownloadV1Component,{isEmpty: DownloadV1IsEmptyFn});
+MapTo('${appId}/components/languagenavigation')(LanguageNavigationV1Component);
+MapTo('${appId}/components/list')(ListV2Component, {isEmpty: ListV2IsEmptyFn});
+MapTo('${appId}/components/breadcrumb')(BreadCrumbV2Component, {isEmpty: BreadCrumbV2IsEmptyFn})
+MapTo('${appId}/components/button')(ButtonV1Component, {isEmpty: ButtonV1IsEmptyFn});
+MapTo('${appId}/components/image')(ImageV2Component, {isEmpty: ImageV2IsEmptyFn});
 
-MapTo('${projectName}/components/carousel')(CarouselV1Component);
-MapTo('${projectName}/components/accordion')(AccordionV1Component);
-MapTo('${projectName}/components/tabs')(TabsV1Component);
+MapTo('${appId}/components/carousel')(CarouselV1Component);
+MapTo('${appId}/components/accordion')(AccordionV1Component);
+MapTo('${appId}/components/tabs')(TabsV1Component);
