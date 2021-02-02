@@ -14,13 +14,11 @@
     limitations under the License.
 */-->
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
-    <sly data-sly-call="${symbol_dollar}{clientlib.css @ categories='${appId}.base'}">
-</sly>
+    <sly data-sly-call="${symbol_dollar}{clientlib.css @ categories='${appId}.base'}"/>
 #if ( $includeCommerce == "y" )
-<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
-    <sly data-sly-call="${symbol_dollar}{clientlib.css @ categories='${appId}.cif'}">
-</sly>
+    <sly data-sly-call="${symbol_dollar}{clientlib.css @ categories='${appId}.cif'}" />
 #end
+</sly>
 
 #if ( $frontendModule == "angular" )
 <!--/* Angular Base Path */-->
