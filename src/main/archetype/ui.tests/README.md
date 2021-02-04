@@ -30,7 +30,7 @@ mvn verify -Pui-tests-local-execution
 ```
 
 ${hash}${hash}${hash}${hash} Remarks
-* After execution, reports and logs are available in `test-module/reports` folder
+* After execution, reports and logs are available in `target/reports` folder
 
 ${hash}${hash}${hash} Parameters
 
