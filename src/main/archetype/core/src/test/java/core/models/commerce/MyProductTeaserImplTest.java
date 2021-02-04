@@ -81,7 +81,7 @@ class MyProductTeaserImplTest {
 
     void createResource(Page page, String name, Object badge, Object age) {
         Map<String, Object> props = new HashMap<>();
-        props.put("sling:resourceType", "venia/components/commerce/productteaser");
+        props.put("sling:resourceType", "${appId}/components/commerce/productteaser");
         props.put("sling:resourceSuperType", "core/cif/components/commerce/productteaser/v1/productteaser");
         if (badge != null) {
             props.put("badge", badge);

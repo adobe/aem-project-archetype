@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" 
+    xmlns:cq="http://www.day.com/jcr/cq/1.0" 
+    xmlns:jcr="http://www.jcp.org/jcr/1.0" 
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0" 
+    jcr:primaryType="cq:Page">
+    <jcr:content cq:deviceGroups="[/etc/mobile/groups/responsive]" 
+        cq:template="/conf/${appId}/settings/wcm/templates/product-page"
+        jcr:primaryType="cq:PageContent" 
+        sling:resourceType="${appId}/components/page">
+        <root jcr:primaryType="nt:unstructured" 
+            sling:resourceType="${appId}/components/container"
+            layout="simple">
+            <header jcr:created="{Date}2019-03-05T11:43:21.074+02:00" 
+                jcr:createdBy="admin" 
+                jcr:lastModified="{Date}2019-03-05T11:43:21.074+02:00" 
+                jcr:lastModifiedBy="admin" 
+                jcr:primaryType="nt:unstructured" 
+                sling:resourceType="${appId}/components/header">
+                <logo.svg />
+                <navigation collectAllPages="false" 
+                    jcr:primaryType="nt:unstructured"
+#if ( $singleCountry == "n" )
+                    navigationRoot="/content/${appId}/${language}"
+#else
+                    navigationRoot="/content/${appId}/${country}/${language}"
+#end
+                    skipNavigationRoot="true" 
+                    sling:resourceType="${appId}/components/commerce/navigation"
+                    structureDepth="2">
+                    <miniaccount jcr:primaryType="nt:unstructured" 
+                        sling:resourceType="${appId}/components/commerce/miniaccount" />
+                </navigation>
+                <miniaccount jcr:primaryType="nt:unstructured" 
+                    sling:resourceType="${appId}/components/commerce/miniaccount" />
+                <minicart jcr:primaryType="nt:unstructured" 
+                    sling:resourceType="${appId}/components/commerce/minicart" />
+                <searchbar jcr:primaryType="nt:unstructured" 
+                    sling:resourceType="${appId}/components/commerce/searchbar" />
+            </header>
+            <container jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appId}/components/container"
+                layout="responsiveGrid">
+                <breadcrumb
+                    jcr:created="{Date}2020-08-17T16:22:56.378+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2020-08-17T16:22:56.378+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appId}/components/commerce/breadcrumb"
+                    startLevel="3"
+                    structureDepth="2"/>
+                <container jcr:primaryType="nt:unstructured" 
+                    sling:resourceType="${appId}/components/container"
+                    editable="{Boolean}true" />
+            </container>
+
+            <footer jcr:created="{Date}2019-03-05T11:43:17.308+02:00" 
+                jcr:createdBy="admin" 
+                jcr:lastModified="{Date}2019-03-05T11:43:17.308+02:00" 
+                jcr:lastModifiedBy="admin" 
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appId}/components/experiencefragment"
+#if ( $singleCountry == "n" )
+                fragmentVariationPath="/content/experience-fragments/${appId}/language-masters/${language}/site/footer/master"/>
+#else
+                fragmentVariationPath="/content/experience-fragments/${appId}/${country}/${language}/site/footer/master"/>
+#end
+        </root>
+        <cq:responsive jcr:primaryType="nt:unstructured">
+            <breakpoints jcr:primaryType="nt:unstructured">
+                <phone jcr:primaryType="nt:unstructured" 
+                    title="Smaller Screen" 
+                    width="{Long}768" />
+                <tablet jcr:primaryType="nt:unstructured" 
+                    title="Tablet" 
+                    width="{Long}1200" />
+            </breakpoints>
+        </cq:responsive>
+    </jcr:content>
+</jcr:root>

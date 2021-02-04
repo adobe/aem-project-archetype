@@ -5,4 +5,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Commerce Address Book"
     sling:resourceSuperType="core/cif/components/commerce/addressbook/v1/addressbook"
-    componentGroup="${appTitle} - Commerce" />
+    componentGroup=".hidden" />
