@@ -18,8 +18,9 @@ ${hash}${hash} Structure
 ${hash}${hash} Requirements
 
 * Maven
-* Chrome and/or Firefox browser installed locally in default location
+* Latest version of Chrome and/or Firefox browser installed locally in default location
 * An AEM author instance running at http://localhost:4502
+* Sample application deployed on your AEM author instance (see [../README.md](../README.md))
 
 
 ${hash}${hash} Run Tests
@@ -66,8 +67,8 @@ This project also provides Maven profiles to build and execute the tests using D
 ${hash}${hash}${hash} Requirements
 
 * Maven
-* Docker
-* An AEM author instance
+* Docker and `docker-compose`
+* An AEM author instance running at http://localhost:4502
 
 ${hash}${hash}${hash} Build test image
 
