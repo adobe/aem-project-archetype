@@ -68,10 +68,16 @@
         <core.wcm.components.version>2.13.0</core.wcm.components.version>
 #end
 #if ( $includeCommerce == "y" )
-        <core.cif.components.version>1.6.0</core.cif.components.version>
-        <graphql.client.version>1.7.0</graphql.client.version>
+        <core.cif.components.version>1.7.0</core.cif.components.version>
         <magento.graphql.version>6.0.0-magento235</magento.graphql.version>
+#if ( $aemVersion != "cloud")
+        <graphql.client.version>1.7.1</graphql.client.version>
 #end
+#if ( $aemVersion == "cloud")
+        <aem.cif.sdk.api>2021.02.01</aem.cif.sdk.api>
+#end
+#end
+
 #if ( $includeForms == "y" and $aemVersion == "cloud" )
         <core.forms.components.version>0.0.20</core.forms.components.version>
         <aem.forms.sdk.api>SDK_FORMS_VERSION</aem.forms.sdk.api>
@@ -815,14 +821,24 @@ Bundle-DocURL:
             </dependency>
             <dependency>
                 <groupId>com.adobe.commerce.cif</groupId>
-                <artifactId>graphql-client</artifactId>
-                <version>${graphql.client.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.adobe.commerce.cif</groupId>
                 <artifactId>magento-graphql</artifactId>
                 <version>${magento.graphql.version}</version>
             </dependency>
+#if ( $aemVersion != "cloud")
+            <dependency>
+                <groupId>com.adobe.commerce.cif</groupId>
+                <artifactId>graphql-client</artifactId>
+                <version>${graphql.client.version}</version>
+            </dependency>
+#end
+#if ( $aemVersion == "cloud")
+            <dependency>
+                <groupId>com.adobe.aem</groupId>
+                <artifactId>aem-cif-sdk-api</artifactId>
+                <version>${aem.cif.sdk.api}</version>
+                <scope>provided</scope>
+            </dependency>
+#end
 #end
 #if ( $includeForms == "y" and $aemVersion == "cloud")
         <!-- AEM Forms Dependencies -->
