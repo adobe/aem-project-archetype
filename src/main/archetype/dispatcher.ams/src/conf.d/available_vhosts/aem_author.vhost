@@ -70,6 +70,6 @@ PassEnv DISP_ID
 	</IfModule>
 	<IfModule mod_proxy.c>
         SSLProxyEngine on
-        Include /etc/httpd/conf.d/proxy/*.conf
+        Include /etc/httpd/conf.d/proxy/*.proxy
     </IfModule>
 </VirtualHost>
