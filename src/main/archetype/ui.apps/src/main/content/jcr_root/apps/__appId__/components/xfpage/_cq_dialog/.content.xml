@@ -95,6 +95,29 @@
                                                 targetProperty="jcr:content/cq:products"/>
                                         </items>
                                     </productsPickerSection>
+                                    <categoriesPickerSection
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Category selection"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <categories
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="commerce/gui/components/common/cifcategoryfield"
+                                                fieldDescription="Select the categories associated with this experience fragment variation."
+                                                fieldLabel="Category IDs."
+                                                multiple="{Boolean}true"
+                                                name="./cq:categories"
+                                                selectionId="id">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    metaType="text"/>
+                                            </categories>
+                                            <categoriestab
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="commerce/gui/components/common/categoryreferencetab"
+                                                targetProperty="jcr:content/cq:categories"/>
+                                        </items>
+                                    </categoriesPickerSection>
 #end
                                 </items>
                             </column>
