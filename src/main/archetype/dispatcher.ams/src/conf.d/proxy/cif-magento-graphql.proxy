@@ -4,6 +4,6 @@ Include /etc/httpd/conf.d/variables/cif-magento-proxy.vars
 # Defines the proxy rule to access the Magento GraphQL endpoint
 
 <IfDefine ENABLE_CIF_MAGENTO_PROXY>
-    ProxyPass "/api/graphql" "${MAGENTO_HOST}/graphql" max=20 connectiontimeout=5 timeout=5 ttl=30
-    ProxyPassReverse "/api/graphql" "${MAGENTO_HOST}/graphql"
+	ProxyPass "/api/graphql" "${MAGENTO_HOST}/graphql" max=20 connectiontimeout=5 timeout=5 ttl=30
+	ProxyPassReverse "/api/graphql" "${MAGENTO_HOST}/graphql"
 </IfDefine>
