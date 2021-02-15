@@ -16,9 +16,9 @@
 		Header append Vary User-Agent env=!dont-vary
 	</IfModule>
 	<Directory />
-		# Update /etc/sysconfig/httpd with setting the LIVECYCLE_WHITELIST_ENABLED from 0 or 1 to enable or disable ip restriction rules
-		<If "${LIVECYCLE_WHITELIST_ENABLED} == 1">
-			Include conf.d/whitelists/*_whitelist.rules
+		# Update /etc/sysconfig/httpd with setting the LIVECYCLE_ALLOWLIST_ENABLED from 0 or 1 to enable or disable ip restriction rules
+		<If "${LIVECYCLE_ALLOWLIST_ENABLED} == 1">
+			Include conf.d/allowlists/*_allowlist.rules
 		</If>
 		<IfModule disp_apache2.c>
 			# Some items cache with the wrong mime type

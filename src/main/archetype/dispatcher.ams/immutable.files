@@ -8,7 +8,7 @@ src/conf.d/available_vhosts/000_unhealthy_author.vhost
 src/conf.d/available_vhosts/000_unhealthy_publish.vhost
 src/conf.d/rewrites/base_rewrite.rules
 src/conf.d/rewrites/xforwarded_forcessl_rewrite.rules
-src/conf.d/whitelists/000_base_whitelist.rules
+src/conf.d/allowlists/000_base_allowlist.rules
 src/conf.d/dispatcher_vhost.conf
 src/conf.d/logformat.conf
 src/conf.d/security.conf
