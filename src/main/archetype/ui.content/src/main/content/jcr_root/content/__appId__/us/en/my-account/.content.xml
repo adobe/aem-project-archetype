@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/${appId}/settings/wcm/templates/page-content"
+#if ( $singleCountry == "n" )
+        jcr:mixinTypes="[cq:LiveRelationship]"
+#end
+        jcr:primaryType="cq:PageContent"
+        jcr:title="My Account"
+        sling:resourceType="${appId}/components/page"
+        hideInNav="true"
+        pageTitle="My Account">
+        <root
+#if ( $singleCountry == "n" )
+            jcr:mixinTypes="[cq:LiveRelationship]"
+#end
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="${appId}/components/container">
+            <container
+#if ( $singleCountry == "n" )
+                jcr:mixinTypes="[cq:LiveRelationship]"
+#end
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appId}/components/container">
+                <title
+#if ( $singleCountry == "n" )
+                    jcr:mixinTypes="[cq:LiveRelationship]"
+#end
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appId}/components/title"/>
+                <container
+#if ( $singleCountry == "n" )
+                    jcr:mixinTypes="[cq:LiveRelationship]"
+#end
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appId}/components/container"
+                    layout="responsiveGrid"/>
+            </container>
+        </root>
+    </jcr:content>
+    <address-book/>
+    <account-details/>
+</jcr:root>

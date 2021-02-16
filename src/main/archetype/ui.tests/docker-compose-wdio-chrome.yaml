@@ -32,7 +32,7 @@ services:
       - SHARED_FOLDER=/tmp/shared
       - HEADLESS_BROWSER
     volumes:
-      - ./reports:/tmp/reports
+      - ./target/reports:/tmp/reports
       - 'shared:/tmp/shared'
     image: '${groupId}-${artifactId}/ui.tests:latest'
   selenium-chrome:

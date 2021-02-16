@@ -1,4 +1,4 @@
-# Include this in a directory context of the virtual host you want to restrict and apply a whitelist of IP's
+# Include this in a directory context of the virtual host you want to restrict and apply a allowlist of IP's
 
 # Here are some examples:
 # Regular expressions are used for X-FORWARDED-FOR if your dispatcher is behind a load balancer

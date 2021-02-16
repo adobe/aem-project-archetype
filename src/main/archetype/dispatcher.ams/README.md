@@ -38,8 +38,8 @@ and can be downloaded and unzipped to a local folder for development.
 │   ├── variables
 │   │   └── ams_default.vars
 │   ├── welcome.conf
-│   └── whitelists
-│       └── 000_base_whitelist.rules
+│   └── allowlists
+│       └── 000_base_allowlist.rules
 ├── conf.dispatcher.d
 │   ├── available_farms
 │   │   ├── 000_ams_author_farm.any
@@ -140,7 +140,7 @@ conf.d/available_vhosts/000_unhealthy_publish.vhost
 conf.d/rewrites/base_rewrite.rules
 conf.d/rewrites/xforwarded_forcessl_rewrite.rules
 
-conf.d/whitelists/000_base_whitelist.rules
+conf.d/allowlists/000_base_allowlist.rules
 
 conf.modules.d/02-dispatcher.conf
 

@@ -28,7 +28,7 @@ npm install
 
   > For local testing we suggest to use the [AEM as a Cloud Service SDK](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/implementing/developing/aem-as-a-cloud-service-sdk.html)
 
-* Chrome or Firefox browser installed locally in default location
+* Latest version of Chrome or Firefox browser installed locally in default location
 
 #### Run
 
