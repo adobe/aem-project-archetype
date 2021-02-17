@@ -18,3 +18,42 @@ import './Page/Page';
 import './Text/Text';
 import './Container/Container';
 import './ExperienceFragment/ExperienceFragment';
+
+import {MapTo} from '@adobe/aem-react-editable-components';
+
+import {
+    ContainerV1, ContainerV1IsEmptyFn,
+    TabsV1, TabsV1IsEmptyFn,
+    AccordionV1,AccordionV1IsEmptyFn,
+    CarouselV1,CarouselV1IsEmptyFn
+} from '@adobe/aem-core-components-react-spa';
+
+import {
+    TitleV2,TitleV2IsEmptyFn,
+    BreadCrumbV2,BreadCrumbV2IsEmptyFn,
+    ButtonV1,ButtonV1IsEmptyFn,
+    ImageV2,ImageV2IsEmptyFn,
+    LanguageNavigationV1,
+    NavigationV1,
+    TeaserV1,TeaserV1IsEmptyFn,
+    DownloadV1,DownloadV1IsEmptyFn,
+    SeparatorV1,SeparatorV1IsEmptyFn,
+    ListV2,ListV2IsEmptyFn
+} from '@adobe/aem-core-components-react-base';
+
+MapTo('${appId}/components/download')(DownloadV1, {isEmpty: DownloadV1IsEmptyFn});
+MapTo('${appId}/components/list')(ListV2, {isEmpty: ListV2IsEmptyFn});
+MapTo('${appId}/components/separator')(SeparatorV1, {isEmpty: SeparatorV1IsEmptyFn});
+MapTo('${appId}/components/breadcrumb')(BreadCrumbV2, {isEmpty: BreadCrumbV2IsEmptyFn});
+MapTo('${appId}/components/button')(ButtonV1, {isEmpty: ButtonV1IsEmptyFn});
+MapTo('${appId}/components/teaser')(TeaserV1, {isEmpty: TeaserV1IsEmptyFn});
+MapTo('${appId}/components/image')(ImageV2, {isEmpty: ImageV2IsEmptyFn});
+MapTo('${appId}/components/title')(TitleV2, {isEmpty: TitleV2IsEmptyFn});
+
+MapTo('${appId}/components/navigation')(NavigationV1);
+MapTo('${appId}/components/languagenavigation')(LanguageNavigationV1);
+
+MapTo('${appId}/components/tabs')(TabsV1, {isEmpty: TabsV1IsEmptyFn});
+MapTo('${appId}/components/accordion')(AccordionV1, {isEmpty: AccordionV1IsEmptyFn});
+MapTo('${appId}/components/carousel')(CarouselV1, {isEmpty: CarouselV1IsEmptyFn});
+MapTo('${appId}/components/container')(ContainerV1, {isEmpty: ContainerV1IsEmptyFn});
