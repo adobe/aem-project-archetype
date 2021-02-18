@@ -1,0 +1,17 @@
+
+Include /etc/httpd/conf.d/variables/aem-commerce.vars
+
+# Defines the proxy rule to access the Commerce GraphQL endpoint
+# Cookies are removed by default so that AEM Cookies are not forwarded to the Commerce endpoint
+
+<IfDefine ENABLE_COMMERCE_PROXY>
+	<Location "/api/graphql">
+		ProxyPass ${COMMERCE_GRAPHQL_ENDPOINT} max=20 connectiontimeout=5 timeout=5 ttl=30
+		ProxyPassReverse ${COMMERCE_GRAPHQL_ENDPOINT}
+		RewriteEngine Off
+		<IfModule mod_headers.c>
+			RequestHeader unset Cookie
+			Header unset Set-Cookie
+		</IfModule>
+	</Location>
+</IfDefine>
