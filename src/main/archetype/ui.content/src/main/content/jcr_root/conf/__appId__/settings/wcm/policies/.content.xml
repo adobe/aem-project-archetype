@@ -8,7 +8,7 @@
             <form jcr:primaryType="nt:unstructured">
                 <container jcr:primaryType="nt:unstructured">
                     <form-container
-                        jcr:description="Allows the form components to be dropped into this form container."
+                        jcr:description="Allows the form components to be dropped into this core form container."
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Content Form"
                         sling:resourceType="wcm/core/components/policy/policy"
