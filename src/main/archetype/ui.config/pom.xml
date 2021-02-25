@@ -39,7 +39,7 @@
     <!-- B U I L D   D E F I N I T I O N                                        -->
     <!-- ====================================================================== -->
     <build>
-        <sourceDirectory>src/content/jcr_root</sourceDirectory>
+        <sourceDirectory>src/main/content/jcr_root</sourceDirectory>
 
         <plugins>
             <plugin>
