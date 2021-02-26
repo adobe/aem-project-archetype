@@ -51,7 +51,6 @@
                     <group>${groupId}</group>
                     <name>${artifactId}</name>
                     <packageType>application</packageType>
-                    <accessControlHandling>merge</accessControlHandling>
                     <repositoryStructurePackages>
                         <repositoryStructurePackage>
                             <groupId>${groupId}</groupId>

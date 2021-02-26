@@ -52,10 +52,6 @@
                     <packageType>content</packageType>
                     <accessControlHandling>merge</accessControlHandling>
                     <validatorsSettings>
-                        <!-- disable nodetype validation as workaround until JCRVLT-463 got fixed -->
-                        <jackrabbit-nodetypes>
-                            <isDisabled>true</isDisabled>
-                        </jackrabbit-nodetypes>
                         <jackrabbit-filter>
                             <options>
                                 <validRoots>/conf,/content,/content/experience-fragments,/content/dam</validRoots>
