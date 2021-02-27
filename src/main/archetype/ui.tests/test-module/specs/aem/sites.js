@@ -18,8 +18,8 @@ const config = require('../../lib/config');
 const commons = require('../../lib/commons');
 const { expect } = require('chai');
 
-const AEM_SAMPLE_PAGE_PARENT = '/content/${appId}/us';
-const AEM_SAMPLE_PAGE_ID = 'en';
+const AEM_SAMPLE_PAGE_PARENT = '/content/${appId}/${country}';
+const AEM_SAMPLE_PAGE_ID = '${language}';
 
 describe('AEM Sites Console', () => {
 
