@@ -27,7 +27,6 @@ import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
-import org.apache.sling.settings.SlingSettingsService;
 
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
@@ -41,8 +40,6 @@ public class HelloWorldModel {
     @Default(values="No resourceType")
     protected String resourceType;
 
-    @OSGiService
-    private SlingSettingsService settings;
     @SlingObject
     private Resource currentResource;
     @SlingObject
@@ -59,8 +56,7 @@ public class HelloWorldModel {
 
         message = "Hello World!\n"
             + "Resource type is: " + resourceType + "\n"
-            + "Current page is:  " + currentPagePath + "\n"
-            + "This is instance: " + settings.getSlingId() + "\n";
+            + "Current page is:  " + currentPagePath + "\n";
     }
 
     public String getMessage() {
