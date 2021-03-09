@@ -68,7 +68,7 @@ The project accepts contributions primarily using GitHub pull requests. This pro
 
 Creating a pull request involves creating a fork of the project in your personal space, adding your new code in a branch and triggering a pull request. Check the GitHub [Using Pull Requests](https://help.github.com/articles/using-pull-requests) article on how to perform pull requests.
 
-Please base your pull request on the `development` branch and make sure to check you have incorporated or merged the latest changes! Once the pull request got accepted and merged to the `development` branch the changes will be part to the next release (git-flow).
+Please base your pull request on the `development` branch and make sure to check you have incorporated or merged the latest changes! Once the pull request got accepted and merged to the `development` branch the changes will be part of the next release (git-flow).
 
 The title of the pull request typically matches that of the issue it fixes, see the [issue report guidelines](#issue-report-guidelines).
 Have a look at our [pull request template](.github/pull_request_template.md) to see what is expected to be included in the pull request description. The same template is available when the pull request is triggered. 
