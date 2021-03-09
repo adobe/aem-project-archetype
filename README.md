@@ -5,6 +5,10 @@
 
 Maven template that creates a minimal, best-practices-based Adobe Experience Manager (AEM) project as a starting point for your website.
 
+## Welcome
+
+* **Contributions** are welcome, read our [contributing guide](CONTRIBUTING.md) for more information.
+
 ## Documentation
 
 * **[Archetype Documentation](https://www.adobe.com/go/aem_archetype):** Overview of the archetype architecture and its different modules.
