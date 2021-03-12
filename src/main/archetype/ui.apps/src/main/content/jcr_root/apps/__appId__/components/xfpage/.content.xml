@@ -2,5 +2,9 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Component"
     jcr:title="${appTitle} Experience Fragment"
+#if ( $includeCommerce == "y" )
+    sling:resourceSuperType="core/cif/components/structure/xfpage/v1/xfpage"
+#else
     sling:resourceSuperType="cq/experience-fragments/components/xfpage"
+#end
     componentGroup=".hidden"/>
