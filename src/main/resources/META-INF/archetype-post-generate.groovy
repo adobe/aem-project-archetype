@@ -182,10 +182,6 @@ if (includeForms == "n") {
         }
         println "Using AEM Forms as a Cloud Service SDK version: " + sdkFormsVersion
         rootPom.text = rootPom.text.replaceAll('SDK_FORMS_VERSION', sdkFormsVersion.toString())
-
-        // Temporary until the forms-cloud project supports the feature model analysers
-        assert new File(rootDir, 'analyse').deleteDir();
-        removeModule(rootPom, 'analyse')
     }
 }
 

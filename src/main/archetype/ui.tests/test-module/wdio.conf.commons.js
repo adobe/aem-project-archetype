@@ -28,12 +28,16 @@ exports.config = {
 
     // Tests
     specs: [
-        './specs/**/*.js'
+        './specs/**/*.js',
     ],
 
     logLevel: 'debug',
 
     bail: 0,
+
+    // Enforce complete spec file retry when a test fail
+    specFileRetries: 1,
+    specFileRetriesDeferred: false,
 
     baseUrl: conf.aem.author.base_url,
 

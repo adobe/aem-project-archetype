@@ -5,6 +5,10 @@
 
 Maven template that creates a minimal, best-practices-based Adobe Experience Manager (AEM) project as a starting point for your website.
 
+## Welcome
+
+* **Contributions** are welcome, read our [contributing guide](CONTRIBUTING.md) for more information.
+
 ## Documentation
 
 * **[Archetype Documentation](https://www.adobe.com/go/aem_archetype):** Overview of the archetype architecture and its different modules.
@@ -49,7 +53,7 @@ To generate a project, adjust the following command line to your needs:
 mvn -B archetype:generate \
  -D archetypeGroupId=com.adobe.aem \
  -D archetypeArtifactId=aem-project-archetype \
- -D archetypeVersion=25 \
+ -D archetypeVersion=26 \
  -D appTitle="My Site" \
  -D appId="mysite" \
  -D groupId="com.mysite"
@@ -90,7 +94,7 @@ Name                      | Default        | Description
 
 Archetype | AEM as a Cloud Service | AEM 6.5 | AEM 6.4 | Java SE | Maven
 ---------|---------|---------|---------|---------|---------
-[25](https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-25) | Continual | 6.5.5.0+ | 6.4.8.1+ | 8, 11 | 3.3.9+
+[27](https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-27) | Continual | 6.5.7.0+ | 6.4.8.4+ | 8, 11 | 3.3.9+
 
 Setup your local development environment for [AEM as a Cloud Service SDK](https://docs.adobe.com/content/help/en/experience-manager-learn/cloud-service/local-development-environment-set-up/overview.html) or for [older versions of AEM](https://docs.adobe.com/content/help/en/experience-manager-learn/foundation/development/set-up-a-local-aem-development-environment.html).
 
