@@ -35,6 +35,10 @@ exports.config = {
 
     bail: 0,
 
+    // Enforce complete spec file retry when a test fail
+    specFileRetries: 1,
+    specFileRetriesDeferred: false,
+
     baseUrl: conf.aem.author.base_url,
 
     sync: true,
