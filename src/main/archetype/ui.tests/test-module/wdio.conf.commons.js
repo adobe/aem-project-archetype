@@ -28,7 +28,7 @@ exports.config = {
 
     // Tests
     specs: [
-        './specs/**/*.js'
+        './specs/**/*.js',
     ],
 
     logLevel: 'debug',
