@@ -806,6 +806,12 @@ Bundle-DocURL:
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.adobe.cq</groupId>
+                <artifactId>core.wcm.components.examples.ui.config</artifactId>
+                <version>${core.wcm.components.version}</version>
+                <type>zip</type>
+            </dependency>
 #end
 #if ( $includeCommerce == "y" )
             <!-- Adobe CIF Dependencies -->
