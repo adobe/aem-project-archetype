@@ -156,7 +156,6 @@ Import-Package: javax.annotation;version=0.0.0,*
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>uber-jar</artifactId>
-            <classifier>apis</classifier>
         </dependency>
         <dependency>
             <groupId>com.adobe.cq</groupId>
