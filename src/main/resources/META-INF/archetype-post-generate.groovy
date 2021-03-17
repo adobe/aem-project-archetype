@@ -130,7 +130,6 @@ if (includeCommerce == "n") {
     assert new File("$appsFolder/components/xfpage/_cq_dialog").deleteDir()
     assert new File("$appsFolder/components/header").deleteDir()
     assert new File("$confFolder/settings/cloudconfigs/commerce").deleteDir()
-    assert new File("$confFolder/settings/dam").deleteDir()
     assert new File("$varFolder").deleteDir();
     assert new File("$confFolder/settings/wcm/templates/catalog-page").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/category-page").deleteDir()
