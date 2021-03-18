@@ -129,7 +129,7 @@ if (includeCommerce == "n") {
     assert new File("$configFolder/config.publish/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.config").delete()
     assert new File("$appsFolder/components/xfpage/_cq_dialog").deleteDir()
     assert new File("$appsFolder/components/header").deleteDir()
-    assert new File("$confFolder/cloudconfigs/commerce").deleteDir()
+    assert new File("$confFolder/settings/cloudconfigs/commerce").deleteDir()
     assert new File("$varFolder").deleteDir();
     assert new File("$confFolder/settings/wcm/templates/catalog-page").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/category-page").deleteDir()
