@@ -52,7 +52,7 @@
                     <group>${groupId}</group>
                     <packageType>container</packageType>
                     <properties>
-                        <cloudManagerTarget>all</cloudManagerTarget>
+                        <cloudManagerTarget>none</cloudManagerTarget>
                     </properties>
                     <!-- skip sub package validation for now as some vendor packages like CIF apps will not pass -->
                     <skipSubPackageValidation>true</skipSubPackageValidation>
