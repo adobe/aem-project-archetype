@@ -42,7 +42,7 @@ To generate a project, adjust the following command line to your needs:
 
 * Set `aemVersion=cloud` for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html);  
  Set `aemVersion=6.5.5` for [Adobe Managed Services](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams), or on-premise.
- The Core Components dependency is only added for non cloud aem versions as the Core Components are provided OOTB for AEM as a Cloud 
+ The Core Components dependency is only added for non cloud aem versions as the Core Components are provided OOTB for AEM as a Cloud
  Service.
 * Adjust `appTitle="My Site"` to define the website title and components groups.
 * Adjust `appId="mysite"` to define the Maven artifactId, the component, config and content folder names, as well as client library names.
@@ -87,14 +87,14 @@ Name                      | Default        | Description
 `includeForms`            | `n`            | Includes [Forms Core Components](https://github.com/adobe/aem-core-forms-components) dependencies and generates corresponding artifacts.
 `sdkFormsVersion`         | `latest`       | When `aemVersion=cloud` and `includeForms=y` an Forms SDK version can be specified (e.g. `2020.12.17.02`).
 `datalayer`               | `y`            | Activate integration with [Adobe Client Data Layer](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/data-layer/overview.html).
-`amp`                     | `n`            | Enable [AMP](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/amp.html) support for genenerated project templates. 
+`amp`                     | `n`            | Enable [AMP](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/amp.html) support for genenerated project templates.
 `enableDynamicMedia`      | `n`            | Enabled foundation DynamicMedia components in project policy settings and activates Dynamic Media features in Core Image component's policy.
 
 ## System Requirements
 
 Archetype | AEM as a Cloud Service | AEM 6.5 | AEM 6.4 | Java SE | Maven
 ---------|---------|---------|---------|---------|---------
-[26](https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-26) | Continual | 6.5.5.0+ | 6.4.8.1+ | 8, 11 | 3.3.9+
+[27](https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-27) | Continual | 6.5.7.0+ | 6.4.8.4+ | 8, 11 | 3.3.9+
 
 Setup your local development environment for [AEM as a Cloud Service SDK](https://docs.adobe.com/content/help/en/experience-manager-learn/cloud-service/local-development-environment-set-up/overview.html) or for [older versions of AEM](https://docs.adobe.com/content/help/en/experience-manager-learn/foundation/development/set-up-a-local-aem-development-environment.html).
 
