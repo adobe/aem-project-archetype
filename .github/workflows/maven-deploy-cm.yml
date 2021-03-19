@@ -38,11 +38,19 @@ jobs:
       - uses: actions/checkout@v2
         with:
           path: archetype
+      # Set up dependency cache
+      - name: Cache local Maven repository
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('archetype/**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
       # Install archetype snapshot and store version in a variable
       - name: Clean project
         run: |
           cd archetype
-          mvn clean install -DskipTests
+          mvn clean install -Darchetype.test.skip
           echo "ARCHETYPE_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)" >> $GITHUB_ENV
           cd ..
       # Create new project
