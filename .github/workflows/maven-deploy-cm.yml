@@ -99,7 +99,7 @@ jobs:
           max=${CM_TEST_RETRIES}
           until [[ $(curl --silent ${CM_TEST_URL} | grep ${ARCHETYPE_COMMIT}) ]]; do \
             if [ ${counter} -eq ${max} ]; then \
-              echo "Could not find ${ARCHETYPE_COMMIT} in ${CM_TEST_URL} after ${counter} tries!"; \
+              echo "Could not find ${ARCHETYPE_COMMIT} after ${counter} tries!"; \
               exit 1; \
             fi;
             counter=$(($counter+1)); \
