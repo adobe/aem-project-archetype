@@ -24,7 +24,7 @@ env:
   CM_USER_NAME: ${{ secrets.CM_USER_NAME }}
   CM_USER_PWD: ${{ secrets.CM_USER_PWD }}
   # Cloud Manager deployment testing details
-  CM_TEST_URL: ${{ secrests.CM_TEST_URL }}
+  CM_TEST_URL: ${{ secrets.CM_TEST_URL }}
   CM_TEST_RETRIES: 3
 
 # Only run on a push to develop branch or manually
