@@ -33,7 +33,6 @@
                         <cloudManagerTarget>none</cloudManagerTarget>
                     </properties>
                     <filters>
-
                         <!-- /apps root -->
                         <filter><root>/apps</root></filter>
                         <filter><root>/apps/${appId}</root></filter>
