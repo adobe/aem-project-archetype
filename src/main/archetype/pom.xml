@@ -316,9 +316,6 @@ Bundle-DocURL:
                     <version>1.1.6</version>
                     <configuration>
                         <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
-                        <properties>
-                            <cloudManagerTarget>none</cloudManagerTarget>
-                        </properties>
                         <validatorsSettings>
                             <jackrabbit-nodetypes>
                                 <options>
