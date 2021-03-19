@@ -25,7 +25,7 @@ env:
   CM_USER_PWD: ${{ secrets.CM_USER_PWD }}
   # Cloud Manager deployment testing details
   CM_TEST_URL: ${{ secrets.CM_TEST_URL }}
-  CM_TEST_RETRIES: 3
+  CM_TEST_RETRIES: 120
 
 # Only run on a push to develop branch or manually
 on:
@@ -82,7 +82,7 @@ jobs:
         run: |
           git -C ${CM_PROJECT_DIR} rm -rf .
           mv sitesdemo/* ${CM_PROJECT_DIR}
-          sed -i -e "s/USA/USA, $ARCHETYPE_COMMIT/g" ${CM_PROJECT_DIR}/ui.content/src/main/content/jcr_root/content/experience-fragments/sitesdemo/us/en/site/footer/master/.content.xml
+          sed -i -e "s/USA/USA, ${ARCHETYPE_COMMIT}/g" ${CM_PROJECT_DIR}/ui.content/src/main/content/jcr_root/content/experience-fragments/sitesdemo/us/en/site/footer/master/.content.xml
       # Commit and push changes to CM repo
       - name: Commit Changes
         run: |
@@ -97,7 +97,7 @@ jobs:
           max=${CM_TEST_RETRIES}
           until [[ $(curl --silent ${CM_TEST_URL} | grep ${ARCHETYPE_COMMIT}) ]]; do \
             if [ ${counter} -eq ${max} ]; then \
-              echo "Max reached!"; \
+              echo "Could not find ${ARCHETYPE_COMMIT} in ${CM_TEST_URL} after ${counter} tries!"; \
               exit 1; \
             fi;
             counter=$(($counter+1)); \
