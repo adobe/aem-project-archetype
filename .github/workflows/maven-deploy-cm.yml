@@ -1,5 +1,5 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Copyright 2020 Adobe Systems Incorporated
+# Copyright 2021 Adobe Systems Incorporated
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -66,7 +66,8 @@ jobs:
            -D archetypeVersion=${ARCHETYPE_VERSION} \
            -D appTitle="Sites 30 Demo" \
            -D appId="sitesdemo" \
-           -D groupId="com.sites30demo"
+           -D groupId="com.sites30demo" \
+           -D includeExamples="y"
       # Set global git configuration
       - name: Set git config
         run: |
