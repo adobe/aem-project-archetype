@@ -1,0 +1,80 @@
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Copyright 2020 Adobe Systems Incorporated
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+name: Deploy to Components Library
+env:
+  ARCHETYPE_DIR: archetype
+  CM_PROJECT_DIR: cm-project
+  # Cloud Manager connection details
+  CM_REPO: ${{ secrets.CM_REPO }}
+  CM_BRANCH: ${{ secrets.CM_BRANCH }}
+  CM_USER_EMAIL: ${{ secrets.CM_USER_EMAIL }}
+  CM_USER_NAME: ${{ secrets.CM_USER_NAME }}
+  CM_USER_PWD: ${{ secrets.CM_USER_PWD }}
+
+# Only run on a push to develop branch or manually
+on:
+  push:
+    branches: [ develop ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout this project into a sub folder
+      - uses: actions/checkout@v2
+        with:
+          path: ${ARCHETPE_DIR}
+      # Install archetype snapshot and store version in a variable
+      - name: Clean project
+        run: |
+          cd ${ARCHETYPE_DIR}
+          mvn clean install -DskipTests
+          echo "ARCHETYPE_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)" >> $GITHUB_ENV
+          cd ..
+      # Create new project
+      - name: Create new project with the archetype
+        run: |
+          mvn -B archetype:generate \
+           -D archetypeGroupId=com.adobe.aem \
+           -D archetypeArtifactId=aem-project-archetype \
+           -D archetypeVersion=${ARCHETYPE_VERSION} \
+           -D appTitle="Sites 30 Demo" \
+           -D appId="sitesdemo" \
+           -D groupId="com.sites30demo"
+      # Set global git configuration
+      - name: Set git config
+        run: |
+          git config --global credential.helper cache
+          git config --global user.email ${CM_USER_EMAIL}
+          git config --global user.name ${CM_USER_NAME}
+      # Checkout the CM project
+      - name: Checkout Cloud Manager project
+        run:
+          git clone -b ${CM_BRANCH} https://${CM_USER_EMAIL}:${CM_USER_PWD}@${CM_REPO} ${CM_PROJECT_DIR}
+      # Move new project to CM dir
+      - name: Move project to CM dir
+        run: |
+          git -C ${CM_PROJECT_DIR} rm -rf .
+          mv sitesdemo/* ${CM_PROJECT_DIR}
+      # Commit and push changes to CM repo
+      - name: Commit Changes
+        run: |
+          git -C ${ARCHETYPE_DIR} log --format="%an : %s" -n 1 > commit.txt
+          git -C ${CM_PROJECT_DIR} add .
+          git -C ${CM_PROJECT_DIR} commit -F ../commit.txt
+          git -C ${CM_PROJECT_DIR} push
