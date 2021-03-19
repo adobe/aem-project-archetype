@@ -14,7 +14,7 @@
 # limitations under the License.
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-name: Deploy to Components Library
+name: Deploy to Cloud Manager
 env:
   ARCHETYPE_DIR: archetype
   CM_PROJECT_DIR: cm-project
