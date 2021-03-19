@@ -84,6 +84,7 @@ jobs:
           git -C ${CM_PROJECT_DIR} rm -rf .
           mv sitesdemo/* ${CM_PROJECT_DIR}
           sed -i -e "s/USA/USA, ${ARCHETYPE_COMMIT}/g" ${CM_PROJECT_DIR}/ui.content/src/main/content/jcr_root/content/experience-fragments/sitesdemo/us/en/site/footer/master/.content.xml
+          sed -i -e "s/merge/replace/g" ${CM_PROJECT_DIR}/ui.content/src/main/content/META-INF/vault/filter.xml
       # Commit and push changes to CM repo
       - name: Commit Changes
         run: |
