@@ -16,7 +16,6 @@
 
 name: Deploy to Cloud Manager
 env:
-  ARCHETYPE_DIR: archetype
   CM_PROJECT_DIR: cm-project
   # Cloud Manager connection details
   CM_REPO: ${{ secrets.CM_REPO }}
@@ -38,10 +37,11 @@ jobs:
       # Checkout this project into a sub folder
       - uses: actions/checkout@v2
         with:
-          path: ${ARCHETPE_DIR}
+          path: archetype
       # Install archetype snapshot and store version in a variable
       - name: Clean project
         run: |
+          cd archetype
           mvn clean install -DskipTests
           echo "ARCHETYPE_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)" >> $GITHUB_ENV
           cd ..
@@ -73,7 +73,7 @@ jobs:
       # Commit and push changes to CM repo
       - name: Commit Changes
         run: |
-          git -C ${ARCHETYPE_DIR} log --format="%an : %s" -n 1 > commit.txt
+          git -C archetype log --format="%an : %s" -n 1 > commit.txt
           git -C ${CM_PROJECT_DIR} add .
           git -C ${CM_PROJECT_DIR} commit -F ../commit.txt
           git -C ${CM_PROJECT_DIR} push
