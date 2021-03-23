@@ -64,7 +64,7 @@ public class PublishPageValidationIT {
     private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(PublishPageValidationIT.class);
 
     @ClassRule
-    public static CQAuthorPublishClassRule cqBaseClassRule = new CQAuthorPublishClassRule(true);
+    public static final CQAuthorPublishClassRule cqBaseClassRule = new CQAuthorPublishClassRule(true);
 
     @Rule
     public CQRule cqBaseRule = new CQRule(cqBaseClassRule.publishRule);
