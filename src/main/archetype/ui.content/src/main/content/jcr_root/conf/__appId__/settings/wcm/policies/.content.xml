@@ -547,7 +547,7 @@
                         components="[/libs/wcm/foundation/components/responsivegrid,/apps/${appId}/components/text]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </spa-default>
-    #if ( $includeForms == "y" and $aemVersion != "cloud")
+    #if ( $includeForms == "y" and $aemVersion == "cloud")
                     <afpolicy
                             jcr:description="Policy of the Adaptive Form"
                             jcr:primaryType="nt:unstructured"
