@@ -29,7 +29,7 @@ module.exports = env => {
             }],
             before: (app, server, compiler) => {
                 app.use(injectScripts(compiler));
-            };
+            },
         }
     });
 }
