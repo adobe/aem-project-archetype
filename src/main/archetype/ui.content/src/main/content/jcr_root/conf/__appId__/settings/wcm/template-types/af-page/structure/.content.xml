@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:deviceGroups="[mobile/groups/responsive]"
+        guideComponentType="fd/af/templates"
+        sling:resourceType="fd/af/components/page2/aftemplatedpage"
+        jcr:primaryType="cq:PageContent">
+        <parsys1
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/responsivegrid"/>
+        <guideContainer
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="fd/af/components/guideContainer"
+            editable="{Boolean}true"
+            guideCss="guideContainer"
+            guideNodeClass="guideContainerNode"
+            name="guide1">
+            <layout
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="fd/af/layouts/defaultGuideLayout"
+                editable="{Boolean}true"
+                toolbarPosition="Bottom"/>
+            <rootPanel
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="fd/af/components/rootPanel"
+                    jcr:title="Root Panel"
+                    editable="{Boolean}true"
+                    guideNodeClass="rootPanelNode"
+                    name="guideRootPanel"
+                    panelSetType="Navigable"
+                    dorExcludeTitle="true"
+                    dorExcludeDescription="true">
+                <layout
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="fd/af/layouts/gridFluidLayout2"
+                        nonNavigable="{Boolean}true"
+                        editable="{Boolean}true"
+                        toolbarPosition="Bottom"/>
+                <items
+                    jcr:primaryType="nt:unstructured"
+                    editable="{Boolean}true">
+                </items>
+            </rootPanel>
+        </guideContainer>
+        <parsys2
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/responsivegrid"/>
+        <cq:responsive jcr:primaryType="nt:unstructured">
+            <breakpoints jcr:primaryType="nt:unstructured">
+                <smallScreen
+                        jcr:primaryType="nt:unstructured"
+                        title="Smaller Screen"
+                        width="{Decimal}479"/>
+                <phone
+                        jcr:primaryType="nt:unstructured"
+                        title="Phone"
+                        width="{Decimal}767"/>
+                <tablet
+                        jcr:primaryType="nt:unstructured"
+                        title="Tablet"
+                        width="{Decimal}991"/>
+            </breakpoints>
+        </cq:responsive>
+    </jcr:content>
+</jcr:root>
