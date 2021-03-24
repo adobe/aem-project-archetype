@@ -4,7 +4,7 @@ module.exports = function(app) {
     app.use(
         [
             '/content',
-            '/etc.clientlibs/opp/clientlibs/clientlib-base.*.*',
+            '/etc.clientlibs/*/clientlibs/clientlib-base.*.*',
         ],
         createProxyMiddleware({
             target: 'http://localhost:4502',

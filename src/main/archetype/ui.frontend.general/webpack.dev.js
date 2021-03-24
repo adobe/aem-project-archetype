@@ -23,7 +23,7 @@ module.exports = env => {
             proxy: [{
                 context: [
                     '/content',
-                    '/etc.clientlibs/opp/clientlibs/clientlib-base.*.*'
+                    '/etc.clientlibs/*/clientlibs/clientlib-base.*.*'
                 ],
                 target: 'http://localhost:4502',
             }],
