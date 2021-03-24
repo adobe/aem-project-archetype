@@ -46,12 +46,12 @@ PassEnv DISP_ID
 		AllowOverride None
 	</Directory>
 	<LocationMatch "/(libs|apps|etc|etc\.clientlibs)">
-            SetOutputFilter DEFLATE
-            # Don't compress images and html files
-            SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|html)$ no-gzip dont-vary
-            # Don't compress token.json
-            SetEnvIfNoCase Request_URI libs\/granite\/csrf\/token.json no-gzip dont-vary
-    </LocationMatch>
+		SetOutputFilter DEFLATE
+		# Don't compress images and html files
+		SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|html)$ no-gzip dont-vary
+		# Don't compress token.json
+		SetEnvIfNoCase Request_URI libs\/granite\/csrf\/token.json no-gzip dont-vary
+	</LocationMatch>
 	<IfModule disp_apache2.c>
 		# Enabled to allow rewrites to take affect and not be ignored by the dispatcher module
 		DispatcherUseProcessedURL	1
