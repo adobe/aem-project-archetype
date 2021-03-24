@@ -9,5 +9,7 @@
 #end
 #if ( $includeForms == "y" and $aemVersion == "cloud")
     <filter root="/content/dam/formsanddocuments-themes/${appId}" mode="merge"/>
+    <filter root="/content/dam/${appId}/sample_logo.png" mode="merge"/>
+    <filter root="/content/dam/${appId}/sample_terms.png" mode="merge"/>
 #end
 </workspaceFilter>
