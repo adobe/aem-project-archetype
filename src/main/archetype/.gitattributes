@@ -1,0 +1,8 @@
+* text=auto
+
+*.conf text
+*.vhost text
+*.rules text
+*.vars text
+*.any text
+magic text
