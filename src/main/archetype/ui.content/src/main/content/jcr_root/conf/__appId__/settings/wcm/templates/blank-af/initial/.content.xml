@@ -5,6 +5,7 @@
         cq:deviceGroups="[mobile/groups/responsive]"
         cq:template="/conf/${appId}/settings/wcm/templates/blank-af"
         jcr:primaryType="cq:PageContent"
+        jcr:lastModified="{Date}2021-03-24T18:22:20.809+05:30"
         sling:resourceType="fd/af/components/page2/aftemplatedpage"
         guideComponentType="fd/af/templates">
         <guideContainer

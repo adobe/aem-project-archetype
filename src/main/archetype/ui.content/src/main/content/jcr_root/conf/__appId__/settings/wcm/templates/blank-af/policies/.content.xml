@@ -4,6 +4,7 @@
     <jcr:content
         cq:policy="fd/af/components/page2/aftemplatedpage/default"
         jcr:primaryType="nt:unstructured"
+        jcr:lastModified="{Date}2021-03-24T18:22:20.809+05:30"
         sling:resourceType="wcm/core/components/policies/mappings">
         <parsys1
             cq:policy="wcm/foundation/components/responsivegrid/afpolicy"

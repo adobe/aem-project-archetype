@@ -3,6 +3,7 @@
     jcr:primaryType="dam:Asset">
     <jcr:content
         jcr:primaryType="dam:AssetContent"
+        jcr:lastModified="{Date}2021-03-24T18:22:20.809+05:30"
         sling:resourceType="fd/fm/theme/render"
         theme="1"
         type="theme">
