@@ -51,9 +51,6 @@
                 <configuration>
                     <group>${groupId}</group>
                     <packageType>container</packageType>
-                    <properties>
-                        <cloudManagerTarget>all</cloudManagerTarget>
-                    </properties>
                     <!-- skip sub package validation for now as some vendor packages like CIF apps will not pass -->
                     <skipSubPackageValidation>true</skipSubPackageValidation>
                     <embeddeds>
@@ -125,6 +122,12 @@
 #end
 #end
 #if ( $includeExamples == "y" )
+                        <embedded>
+                            <groupId>com.adobe.cq</groupId>
+                            <artifactId>core.wcm.components.examples.ui.config</artifactId>
+                            <type>zip</type>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
+                        </embedded>
                         <embedded>
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.examples.ui.apps</artifactId>
@@ -353,6 +356,11 @@
         </dependency>
 #end
 #if ( $includeExamples == "y" )
+        <dependency>
+            <groupId>com.adobe.cq</groupId>
+            <artifactId>core.wcm.components.examples.ui.config</artifactId>
+            <type>zip</type>
+        </dependency>
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.examples.ui.apps</artifactId>

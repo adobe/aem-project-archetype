@@ -49,7 +49,7 @@ describe('AEM Sites Console', () => {
 
 
     describe('Page Properties form', () => {
-        let originalTitle = '';
+        let originalTitle = 'original-page-title';
 
         it('should let user modify the title of a page', () => {
             let modifiedTitle = `modified-title-${Date.now()}`;

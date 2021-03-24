@@ -35,3 +35,16 @@
 	/glob "/libs/cq/core/content/welcome.*"
 	/type "deny"
 }
+# cache client libraries
+/0007 {
+	/glob "/etc.clientlibs/*"
+	/type "allow"
+}
+/0008 {
+	/glob "/etc/*"
+	/type "allow"
+}
+/0009 {
+	/glob "/etc/*.html"
+	/type "deny"
+}

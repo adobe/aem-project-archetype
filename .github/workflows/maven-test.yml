@@ -18,9 +18,9 @@ name: Test
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, develop ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, develop ]
 
 jobs:
   build:
@@ -32,6 +32,8 @@ jobs:
         java: [8, 11]
 
     steps:
+      - name: Configure git with longpath enabled (for windows)
+        run: git config --global core.longpaths true
       # Check out Git repository
       - name: Checkout code
         uses: actions/checkout@v2

@@ -44,14 +44,14 @@ PassEnv DISP_ID
 		</IfModule>
 		Options FollowSymLinks
 		AllowOverride None
-		# Insert filter
-		SetOutputFilter DEFLATE
-		# Don't compress images
-		SetEnvIfNoCase Request_URI \
-		\.(?:gif|jpe?g|png)$ no-gzip dont-vary
-		# Don't compress AEM assets
-		SetEnvIfNoCase Request_URI assetdownload no-gzip dont-vary
 	</Directory>
+	<LocationMatch "/(libs|apps|etc|etc\.clientlibs)">
+		SetOutputFilter DEFLATE
+		# Don't compress images and html files
+		SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|html)$ no-gzip dont-vary
+		# Don't compress token.json
+		SetEnvIfNoCase Request_URI libs\/granite\/csrf\/token.json no-gzip dont-vary
+	</LocationMatch>
 	<IfModule disp_apache2.c>
 		# Enabled to allow rewrites to take affect and not be ignored by the dispatcher module
 		DispatcherUseProcessedURL	1
