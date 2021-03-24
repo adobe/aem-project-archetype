@@ -4,9 +4,122 @@
     <cq:inplaceEditing
         jcr:primaryType="cq:InplaceEditingConfig"
         active="{Boolean}true"
+        configPath="inplaceEditingConfig"
         editorType="text">
-        <config
-            jcr:primaryType="nt:unstructured"
-            editElementQuery="\[data-rte-editelement]"/>
+        <inplaceEditingConfig jcr:primaryType="nt:unstructured">
+            <rtePlugins jcr:primaryType="nt:unstructured">
+                <tracklinks
+                    jcr:primaryType="nt:unstructured"
+                    features="*"/>
+                <table
+                    jcr:primaryType="nt:unstructured"
+                    features="-">
+                    <hiddenHeaderConfig
+                        jcr:primaryType="nt:unstructured"
+                        hiddenHeaderClassName="cq-wcm-foundation-aria-visuallyhidden"/>
+                </table>
+                <paraformat jcr:primaryType="nt:unstructured">
+                    <formats jcr:primaryType="nt:unstructured">
+                        <default_p
+                            jcr:primaryType="nt:unstructured"
+                            description="Paragraph"
+                            tag="p"/>
+                        <default_h1
+                            jcr:primaryType="nt:unstructured"
+                            description="Heading 1"
+                            tag="h1"/>
+                        <default_h2
+                            jcr:primaryType="nt:unstructured"
+                            description="Heading 2"
+                            tag="h2"/>
+                        <default_h3
+                            jcr:primaryType="nt:unstructured"
+                            description="Heading 3"
+                            tag="h3"/>
+                        <default_h4
+                            jcr:primaryType="nt:unstructured"
+                            description="Heading 4"
+                            tag="h4"/>
+                        <default_h5
+                            jcr:primaryType="nt:unstructured"
+                            description="Heading 5"
+                            tag="h5"/>
+                        <default_h6
+                            jcr:primaryType="nt:unstructured"
+                            description="Heading 6"
+                            tag="h6"/>
+                        <default_blockquote
+                            jcr:primaryType="nt:unstructured"
+                            description="Quote"
+                            tag="blockquote"/>
+                        <default_hr
+                            jcr:primaryType="nt:unstructured"
+                            description="Horizontal Rule (visual line break)"
+                            tag="hr"/>
+                        <default_pre
+                            jcr:primaryType="nt:unstructured"
+                            description="Preformatted"
+                            tag="pre"/>
+                    </formats>
+                </paraformat>
+                <misctools jcr:primaryType="nt:unstructured">
+                    <specialCharsConfig jcr:primaryType="nt:unstructured">
+                        <chars jcr:primaryType="nt:unstructured">
+                            <default_copyright
+                                jcr:primaryType="nt:unstructured"
+                                entity="&amp;copy;"
+                                name="copyright"/>
+                            <default_euro
+                                jcr:primaryType="nt:unstructured"
+                                entity="&amp;euro;"
+                                name="euro"/>
+                            <default_registered
+                                jcr:primaryType="nt:unstructured"
+                                entity="&amp;reg;"
+                                name="registered"/>
+                            <default_trademark
+                                jcr:primaryType="nt:unstructured"
+                                entity="&amp;trade;"
+                                name="trademark"/>
+                        </chars>
+                    </specialCharsConfig>
+                </misctools>
+                <links
+                    jcr:primaryType="nt:unstructured"
+                    features="modifylink,unlink"/>
+                <justify
+                    jcr:primaryType="nt:unstructured"
+                    features="-"/>
+                <format
+                    jcr:primaryType="nt:unstructured"
+                    features="bold,italic"/>
+            </rtePlugins>
+            <uiSettings jcr:primaryType="nt:unstructured">
+                <cui jcr:primaryType="nt:unstructured">
+                    <inline
+                        jcr:primaryType="nt:unstructured"
+                        toolbar="[#format,#justify,#lists,links#modifylink,links#unlink,#paraformat,fullscreen#start,control#close,control#save]">
+                        <popovers jcr:primaryType="nt:unstructured">
+                            <format
+                                jcr:primaryType="nt:unstructured"
+                                items="[format#bold,format#italic,format#underline]"
+                                ref="format"/>
+                            <justify
+                                jcr:primaryType="nt:unstructured"
+                                items="[justify#justifyleft,justify#justifycenter,justify#justifyright,justify#justifyjustify]"
+                                ref="justify"/>
+                            <lists
+                                jcr:primaryType="nt:unstructured"
+                                items="[lists#unordered,lists#ordered,lists#outdent,lists#indent]"
+                                ref="lists"/>
+                            <paraformat
+                                jcr:primaryType="nt:unstructured"
+                                items="paraformat:getFormats:paraformat-pulldown"
+                                ref="paraformat"/>
+                        </popovers>
+                    </inline>
+                </cui>
+            </uiSettings>
+        </inplaceEditingConfig>
     </cq:inplaceEditing>
 </jcr:root>
