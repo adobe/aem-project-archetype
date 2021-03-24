@@ -37,12 +37,12 @@
 }
 # cache client libraries
 /0007 {
-  /glob "/etc.clientlibs/*"
-  /type "allow"
+	/glob "/etc.clientlibs/*"
+	/type "allow"
 }
 /0008 {
-  /glob "/etc/*"
-  /type "allow"
+	/glob "/etc/*"
+	/type "allow"
 }
 /0009 {
 	/glob "/etc/*.html"
