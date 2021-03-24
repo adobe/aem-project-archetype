@@ -169,9 +169,15 @@ if (includeCommerce == "n") {
     }
 }
 
-// if forms flag is not set, forms specific content/configuration/proxy components should be deleted
+// if forms flag is not set, forms specific components, template-types, templates, themes should be deleted
 if (includeForms == "n") {
     assert new File("$appsFolder/components/aemformscontainer").deleteDir()
+    assert new File("$confFolder/settings/wcm/template-types/af-page").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/basic-af").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/blank-af").deleteDir()
+    assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/formsanddocuments-themes").deleteDir()
+    assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/sample_logo.png").deleteDir()
+    assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/sample_terms.png").deleteDir()
 } else {
     if (aemVersion == "cloud") {
         // if forms is included and aem version is set to cloud, set the forms sdk version
