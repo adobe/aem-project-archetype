@@ -2,9 +2,14 @@
 <workspaceFilter version="1.0">
     <filter root="/conf/${appId}" mode="merge"/>
     <filter root="/content/${appId}" mode="merge"/>
-    <filter root="/content/dam/${appId}" mode="merge"/>
+    <filter root="/content/dam/${appId}/asset.jpg" mode="merge"/>
     <filter root="/content/experience-fragments/${appId}" mode="merge"/>
 #if ( $includeCommerce == "y" and $aemVersion != "cloud")
     <filter root="/var/commerce/products/${appId}-default" mode="merge"/>
+#end
+#if ( $includeForms == "y" and $aemVersion == "cloud")
+    <filter root="/content/dam/formsanddocuments-themes/${appId}" mode="merge"/>
+    <filter root="/content/dam/${appId}/sample_logo.png" mode="merge"/>
+    <filter root="/content/dam/${appId}/sample_terms.png" mode="merge"/>
 #end
 </workspaceFilter>

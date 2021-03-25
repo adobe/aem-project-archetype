@@ -39,7 +39,7 @@
     <!-- B U I L D   D E F I N I T I O N                                        -->
     <!-- ====================================================================== -->
     <build>
-        <scriptSourceDirectory>src/main/content/jcr_root</scriptSourceDirectory>
+        <sourceDirectory>src/main/content/jcr_root</sourceDirectory>
         <plugins>
             <!-- ====================================================================== -->
             <!-- V A U L T   P A C K A G E   P L U G I N S                              -->
@@ -48,6 +48,9 @@
                 <groupId>org.apache.jackrabbit</groupId>
                 <artifactId>filevault-package-maven-plugin</artifactId>
                 <configuration>
+                    <properties>
+                        <cloudManagerTarget>none</cloudManagerTarget>
+                    </properties>
                     <group>${groupId}</group>
                     <name>${artifactId}</name>
                     <packageType>application</packageType>
@@ -112,6 +115,7 @@
                         <configuration>
                             <generateJavaClasses>true</generateJavaClasses>
                             <generatedJavaClassesPrefix>org.apache.sling.scripting.sightly</generatedJavaClassesPrefix>
+                            <sourceDirectory>${project.build.sourceDirectory}</sourceDirectory>
                             <allowedExpressionOptions>
                                 <allowedExpressionOption>cssClassName</allowedExpressionOption>
                                 <allowedExpressionOption>decoration</allowedExpressionOption>
@@ -196,7 +200,6 @@
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>uber-jar</artifactId>
-            <classifier>apis</classifier>
         </dependency>
 
         <dependency>

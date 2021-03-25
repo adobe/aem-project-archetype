@@ -65,7 +65,7 @@
         <vault.user>admin</vault.user>
         <vault.password>admin</vault.password>
 #if ( $aemVersion != "cloud" || $includeExamples == "y")
-        <core.wcm.components.version>2.15.0</core.wcm.components.version>
+        <core.wcm.components.version>2.15.2</core.wcm.components.version>
 #end
 #if ( $includeCommerce == "y" )
         <core.cif.components.version>1.7.0</core.cif.components.version>
@@ -79,14 +79,14 @@
 #end
 
 #if ( $includeForms == "y" and $aemVersion == "cloud" )
-        <core.forms.components.version>0.0.20</core.forms.components.version>
+        <core.forms.components.version>0.0.22</core.forms.components.version>
         <aem.forms.sdk.api>SDK_FORMS_VERSION</aem.forms.sdk.api>
 #end
         <bnd.version>5.1.2</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 #if ( $isSpaProject )
-        <spa.project.core.version>1.2.0</spa.project.core.version>
+        <spa.project.core.version>1.3.0</spa.project.core.version>
 #end
 #if ( $frontendModule == "angular" )
         <!--
@@ -98,7 +98,7 @@
 #end
 #if ( $aemVersion == "cloud")
         <aem.sdk.api>SDK_VERSION</aem.sdk.api>
-        <aemanalyser.version>0.9.0</aemanalyser.version>
+        <aemanalyser.version>0.9.2</aemanalyser.version>
 #end
         <componentGroupName>$appTitle</componentGroupName>
     </properties>
@@ -316,9 +316,6 @@ Bundle-DocURL:
                     <version>1.1.6</version>
                     <configuration>
                         <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
-                        <properties>
-                            <cloudManagerTarget>none</cloudManagerTarget>
-                        </properties>
                         <validatorsSettings>
                             <jackrabbit-nodetypes>
                                 <options>
@@ -712,7 +709,6 @@ Bundle-DocURL:
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>uber-jar</artifactId>
                 <version>$aemVersion</version>
-                <classifier>apis</classifier>
                 <scope>provided</scope>
             </dependency>
             <!-- Apache Sling Dependencies -->
@@ -806,6 +802,12 @@ Bundle-DocURL:
                 <artifactId>core.wcm.components.examples.ui.content</artifactId>
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.cq</groupId>
+                <artifactId>core.wcm.components.examples.ui.config</artifactId>
+                <version>${core.wcm.components.version}</version>
+                <type>zip</type>
             </dependency>
 #end
 #if ( $includeCommerce == "y" )
