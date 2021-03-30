@@ -1,0 +1,773 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:fdm="http://www.adobe.com/aemfd/fdm/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="sling:Folder">
+    <jcr:content
+        jcr:primaryType="nt:unstructured"
+        name="salesforce-fdm"
+        rendition.handler.id="fdm.structure"
+        title="Salesforce FDM">
+        <definitions jcr:primaryType="nt:unstructured">
+            <All
+                fdm:binaryEntity="{Boolean}false"
+                fdm:bindRef="All"
+                fdm:defaultBinaryEntity="{Boolean}false"
+                fdm:genericOperationAllowed="{Boolean}false"
+                fdm:rootEntity="{Boolean}true"
+                fdm:schemaName="DEFAULT_SCHEMA"
+                fdm:source="source1"
+                jcr:primaryType="nt:unstructured"
+                id="All"
+                name="All">
+                <links jcr:primaryType="nt:unstructured"/>
+                <properties jcr:primaryType="nt:unstructured">
+                    <totalSize
+                        fdm:bindRef="totalSize"
+                        fdm:computed="{Boolean}false"
+                        fdm:nullable="{Boolean}true"
+                        fdm:primaryKey="{Boolean}false"
+                        fdm:protected="{Boolean}false"
+                        fdm:required="{Boolean}false"
+                        jcr:primaryType="nt:unstructured"
+                        name="totalSize"
+                        title="totalSize"
+                        type="integer"/>
+                    <records
+                        fdm:bindRef="records"
+                        fdm:computed="{Boolean}false"
+                        fdm:nullable="{Boolean}true"
+                        fdm:primaryKey="{Boolean}false"
+                        fdm:protected="{Boolean}false"
+                        fdm:required="{Boolean}false"
+                        jcr:primaryType="nt:unstructured"
+                        name="records"
+                        title="records"
+                        type="array">
+                        <items
+                            jcr:primaryType="nt:unstructured"
+                            _x0024_ref="Records"
+                            type="object"/>
+                    </records>
+                </properties>
+            </All>
+            <Account
+                fdm:binaryEntity="{Boolean}false"
+                fdm:bindRef="Account"
+                fdm:defaultBinaryEntity="{Boolean}false"
+                fdm:genericOperationAllowed="{Boolean}false"
+                fdm:rootEntity="{Boolean}true"
+                fdm:schemaName="DEFAULT_SCHEMA"
+                fdm:source="source1"
+                jcr:primaryType="nt:unstructured"
+                id="Account"
+                name="Account"
+                required="[Phone,Name,Website]">
+                <links jcr:primaryType="nt:unstructured">
+                    <get_services_datav320sobjectsaccountid1609735639377
+                        fdm:source="source1"
+                        jcr:primaryType="nt:unstructured"
+                        description="Fetch Account Information From SDFC"
+                        genericOperation="{Boolean}false"
+                        href="trialcompany2-dev-ed.my.salesforce.com"
+                        id="GET /services/data/v32.0/sobjects/Account/{id}_1609735639377"
+                        method="GET"
+                        name="GET /services/data/v32.0/sobjects/Account/{id}"
+                        rel="self">
+                        <fdm:data
+                            jcr:primaryType="nt:unstructured"
+                            id="${request.attribute.accountid}"/>
+                        <schema
+                            fdm:bindRef="schema"
+                            fdm:computed="{Boolean}false"
+                            fdm:nullable="{Boolean}true"
+                            fdm:primaryKey="{Boolean}false"
+                            fdm:protected="{Boolean}false"
+                            fdm:required="{Boolean}false"
+                            jcr:primaryType="nt:unstructured"
+                            description="operation input description"
+                            name="schema"
+                            type="object">
+                            <properties jcr:primaryType="nt:unstructured">
+                                <id
+                                    fdm:bindRef="id"
+                                    fdm:computed="{Boolean}false"
+                                    fdm:in="path"
+                                    fdm:nullable="{Boolean}true"
+                                    fdm:primaryKey="{Boolean}false"
+                                    fdm:protected="{Boolean}false"
+                                    fdm:required="{Boolean}true"
+                                    jcr:primaryType="nt:unstructured"
+                                    description="path to store data into"
+                                    name="id"
+                                    type="string"/>
+                            </properties>
+                        </schema>
+                        <targetSchema
+                            fdm:bindRef="Account"
+                            fdm:computed="{Boolean}false"
+                            fdm:nullable="{Boolean}true"
+                            fdm:primaryKey="{Boolean}false"
+                            fdm:protected="{Boolean}false"
+                            fdm:required="{Boolean}false"
+                            jcr:primaryType="nt:unstructured"
+                            _x0024_ref="Account"
+                            name="Account"
+                            title="Account"
+                            type="object"/>
+                    </get_services_datav320sobjectsaccountid1609735639377>
+                    <post_services_datav320sobjectsaccount1609735639377
+                        fdm:source="source1"
+                        jcr:primaryType="nt:unstructured"
+                        description="Create Account Data"
+                        genericOperation="{Boolean}false"
+                        href="trialcompany2-dev-ed.my.salesforce.com"
+                        id="POST /services/data/v32.0/sobjects/Account_1609735639377"
+                        method="POST"
+                        name="POST /services/data/v32.0/sobjects/Account"
+                        rel="self">
+                        <fdm:data jcr:primaryType="nt:unstructured"/>
+                        <schema
+                            fdm:bindRef="schema"
+                            fdm:computed="{Boolean}false"
+                            fdm:nullable="{Boolean}true"
+                            fdm:primaryKey="{Boolean}false"
+                            fdm:protected="{Boolean}false"
+                            fdm:required="{Boolean}false"
+                            jcr:primaryType="nt:unstructured"
+                            description="operation input description"
+                            name="schema"
+                            type="object">
+                            <properties jcr:primaryType="nt:unstructured">
+                                <Account
+                                    fdm:bindRef="Account"
+                                    fdm:computed="{Boolean}false"
+                                    fdm:in="body"
+                                    fdm:nullable="{Boolean}true"
+                                    fdm:primaryKey="{Boolean}false"
+                                    fdm:protected="{Boolean}false"
+                                    fdm:required="{Boolean}true"
+                                    jcr:primaryType="nt:unstructured"
+                                    _x0024_ref="Account"
+                                    description="account object that needs to be added"
+                                    name="Account"
+                                    title="Account"
+                                    type="object"/>
+                            </properties>
+                        </schema>
+                        <targetSchema
+                            fdm:bindRef="SFResult"
+                            fdm:computed="{Boolean}false"
+                            fdm:nullable="{Boolean}true"
+                            fdm:primaryKey="{Boolean}false"
+                            fdm:protected="{Boolean}false"
+                            fdm:required="{Boolean}false"
+                            jcr:primaryType="nt:unstructured"
+                            _x0024_ref="SFResult"
+                            name="SFResult"
+                            type="object"/>
+                    </post_services_datav320sobjectsaccount1609735639377>
+                </links>
+                <properties jcr:primaryType="nt:unstructured">
+                    <Phone
+                        fdm:bindRef="Phone"
+                        fdm:computed="{Boolean}false"
+                        fdm:nullable="{Boolean}true"
+                        fdm:primaryKey="{Boolean}false"
+                        fdm:protected="{Boolean}false"
+                        fdm:required="{Boolean}true"
+                        jcr:primaryType="nt:unstructured"
+                        name="Phone"
+                        title="Phone"
+                        type="string"/>
+                    <Name
+                        fdm:bindRef="Name"
+                        fdm:computed="{Boolean}false"
+                        fdm:nullable="{Boolean}true"
+                        fdm:primaryKey="{Boolean}false"
+                        fdm:protected="{Boolean}false"
+                        fdm:required="{Boolean}true"
+                        jcr:primaryType="nt:unstructured"
+                        name="Name"
+                        title="Name"
+                        type="string"/>
+                    <Website
+                        fdm:bindRef="Website"
+                        fdm:computed="{Boolean}false"
+                        fdm:nullable="{Boolean}true"
+                        fdm:primaryKey="{Boolean}false"
+                        fdm:protected="{Boolean}false"
+                        fdm:required="{Boolean}true"
+                        jcr:primaryType="nt:unstructured"
+                        name="Website"
+                        title="Website"
+                        type="string"/>
+                    <BillingCountry
+                        fdm:bindRef="BillingCountry"
+                        fdm:computed="{Boolean}false"
+                        fdm:nullable="{Boolean}true"
+                        fdm:primaryKey="{Boolean}false"
+                        fdm:protected="{Boolean}false"
+                        fdm:required="{Boolean}false"
+                        jcr:primaryType="nt:unstructured"
+                        name="BillingCountry"
+                        title="BillingCountry"
+                        type="string"/>
+                    <BillingPostalCode
+                        fdm:bindRef="BillingPostalCode"
+                        fdm:computed="{Boolean}false"
+                        fdm:nullable="{Boolean}true"
+                        fdm:primaryKey="{Boolean}false"
+                        fdm:protected="{Boolean}false"
+                        fdm:required="{Boolean}false"
+                        jcr:primaryType="nt:unstructured"
+                        name="BillingPostalCode"
+                        title="BillingPostalCode"
+                        type="string"/>
+                </properties>
+            </Account>
+            <SFResult
+                fdm:binaryEntity="{Boolean}false"
+                fdm:bindRef="SFResult"
+                fdm:defaultBinaryEntity="{Boolean}false"
+                fdm:genericOperationAllowed="{Boolean}false"
+                fdm:rootEntity="{Boolean}true"
+                fdm:schemaName="DEFAULT_SCHEMA"
+                fdm:source="source1"
+                jcr:primaryType="nt:unstructured"
+                id="SFResult"
+                name="SFResult"
+                required="[id]">
+                <links jcr:primaryType="nt:unstructured"/>
+                <properties jcr:primaryType="nt:unstructured">
+                    <id
+                        fdm:bindRef="id"
+                        fdm:computed="{Boolean}false"
+                        fdm:nullable="{Boolean}true"
+                        fdm:primaryKey="{Boolean}false"
+                        fdm:protected="{Boolean}false"
+                        fdm:required="{Boolean}true"
+                        jcr:primaryType="nt:unstructured"
+                        name="id"
+                        title="id"
+                        type="string"/>
+                </properties>
+            </SFResult>
+            <Lead
+                fdm:binaryEntity="{Boolean}false"
+                fdm:bindRef="Lead"
+                fdm:defaultBinaryEntity="{Boolean}false"
+                fdm:genericOperationAllowed="{Boolean}false"
+                fdm:rootEntity="{Boolean}true"
+                fdm:schemaName="DEFAULT_SCHEMA"
+                fdm:source="source1"
+                jcr:primaryType="nt:unstructured"
+                id="Lead"
+                name="Lead"
+                required="[Phone,Company,LastName,FirstName]">
+                <links jcr:primaryType="nt:unstructured">
+                    <get_services_datav320sobjectsleadid1609735658193
+                        fdm:source="source1"
+                        jcr:primaryType="nt:unstructured"
+                        description="Fetch Lead Information From SDFC"
+                        genericOperation="{Boolean}false"
+                        href="trialcompany2-dev-ed.my.salesforce.com"
+                        id="GET /services/data/v32.0/sobjects/Lead/{id}_1609735658193"
+                        method="GET"
+                        name="GET /services/data/v32.0/sobjects/Lead/{id}"
+                        rel="self">
+                        <fdm:data
+                            jcr:primaryType="nt:unstructured"
+                            id="${request.attribute.leadid}"/>
+                        <schema
+                            fdm:bindRef="schema"
+                            fdm:computed="{Boolean}false"
+                            fdm:nullable="{Boolean}true"
+                            fdm:primaryKey="{Boolean}false"
+                            fdm:protected="{Boolean}false"
+                            fdm:required="{Boolean}false"
+                            jcr:primaryType="nt:unstructured"
+                            description="operation input description"
+                            name="schema"
+                            type="object">
+                            <properties jcr:primaryType="nt:unstructured">
+                                <id
+                                    fdm:bindRef="id"
+                                    fdm:computed="{Boolean}false"
+                                    fdm:in="path"
+                                    fdm:nullable="{Boolean}true"
+                                    fdm:primaryKey="{Boolean}false"
+                                    fdm:protected="{Boolean}false"
+                                    fdm:required="{Boolean}true"
+                                    jcr:primaryType="nt:unstructured"
+                                    description="path to store data into"
+                                    name="id"
+                                    type="string"/>
+                            </properties>
+                        </schema>
+                        <targetSchema
+                            fdm:bindRef="Lead"
+                            fdm:computed="{Boolean}false"
+                            fdm:nullable="{Boolean}true"
+                            fdm:primaryKey="{Boolean}false"
+                            fdm:protected="{Boolean}false"
+                            fdm:required="{Boolean}false"
+                            jcr:primaryType="nt:unstructured"
+                            _x0024_ref="Lead"
+                            name="Lead"
+                            title="Lead"
+                            type="object"/>
+                    </get_services_datav320sobjectsleadid1609735658193>
+                    <post_services_datav320sobjectslead1609735658193
+                        fdm:source="source1"
+                        jcr:primaryType="nt:unstructured"
+                        description="Create Lead Data"
+                        genericOperation="{Boolean}false"
+                        href="trialcompany2-dev-ed.my.salesforce.com"
+                        id="POST /services/data/v32.0/sobjects/Lead_1609735658193"
+                        method="POST"
+                        name="POST /services/data/v32.0/sobjects/Lead"
+                        rel="self">
+                        <fdm:data jcr:primaryType="nt:unstructured"/>
+                        <schema
+                            fdm:bindRef="schema"
+                            fdm:computed="{Boolean}false"
+                            fdm:nullable="{Boolean}true"
+                            fdm:primaryKey="{Boolean}false"
+                            fdm:protected="{Boolean}false"
+                            fdm:required="{Boolean}false"
+                            jcr:primaryType="nt:unstructured"
+                            description="operation input description"
+                            name="schema"
+                            type="object">
+                            <properties jcr:primaryType="nt:unstructured">
+                                <Lead
+                                    fdm:bindRef="Lead"
+                                    fdm:computed="{Boolean}false"
+                                    fdm:in="body"
+                                    fdm:nullable="{Boolean}true"
+                                    fdm:primaryKey="{Boolean}false"
+                                    fdm:protected="{Boolean}false"
+                                    fdm:required="{Boolean}true"
+                                    jcr:primaryType="nt:unstructured"
+                                    _x0024_ref="Lead"
+                                    description="lead object that needs to be added"
+                                    name="Lead"
+                                    title="Lead"
+                                    type="object"/>
+                            </properties>
+                        </schema>
+                        <targetSchema
+                            fdm:bindRef="SFResult"
+                            fdm:computed="{Boolean}false"
+                            fdm:nullable="{Boolean}true"
+                            fdm:primaryKey="{Boolean}false"
+                            fdm:protected="{Boolean}false"
+                            fdm:required="{Boolean}false"
+                            jcr:primaryType="nt:unstructured"
+                            _x0024_ref="SFResult"
+                            name="SFResult"
+                            type="object"/>
+                    </post_services_datav320sobjectslead1609735658193>
+                </links>
+                <properties jcr:primaryType="nt:unstructured">
+                    <Phone
+                        fdm:bindRef="Phone"
+                        fdm:computed="{Boolean}false"
+                        fdm:nullable="{Boolean}true"
+                        fdm:primaryKey="{Boolean}false"
+                        fdm:protected="{Boolean}false"
+                        fdm:required="{Boolean}true"
+                        jcr:primaryType="nt:unstructured"
+                        name="Phone"
+                        title="Phone"
+                        type="string"/>
+                    <Company
+                        fdm:bindRef="Company"
+                        fdm:computed="{Boolean}false"
+                        fdm:nullable="{Boolean}true"
+                        fdm:primaryKey="{Boolean}false"
+                        fdm:protected="{Boolean}false"
+                        fdm:required="{Boolean}true"
+                        jcr:primaryType="nt:unstructured"
+                        name="Company"
+                        title="Company"
+                        type="string"/>
+                    <LastName
+                        fdm:bindRef="LastName"
+                        fdm:computed="{Boolean}false"
+                        fdm:nullable="{Boolean}true"
+                        fdm:primaryKey="{Boolean}false"
+                        fdm:protected="{Boolean}false"
+                        fdm:required="{Boolean}true"
+                        jcr:primaryType="nt:unstructured"
+                        name="LastName"
+                        title="LastName"
+                        type="string"/>
+                    <FirstName
+                        fdm:bindRef="FirstName"
+                        fdm:computed="{Boolean}false"
+                        fdm:nullable="{Boolean}true"
+                        fdm:primaryKey="{Boolean}false"
+                        fdm:protected="{Boolean}false"
+                        fdm:required="{Boolean}true"
+                        jcr:primaryType="nt:unstructured"
+                        name="FirstName"
+                        title="FirstName"
+                        type="string"/>
+                    <LeadSource
+                        fdm:bindRef="LeadSource"
+                        fdm:computed="{Boolean}false"
+                        fdm:nullable="{Boolean}true"
+                        fdm:primaryKey="{Boolean}false"
+                        fdm:protected="{Boolean}false"
+                        fdm:required="{Boolean}false"
+                        jcr:primaryType="nt:unstructured"
+                        name="LeadSource"
+                        title="LeadSource"
+                        type="string"/>
+                </properties>
+            </Lead>
+            <Records
+                fdm:binaryEntity="{Boolean}false"
+                fdm:bindRef="Records"
+                fdm:defaultBinaryEntity="{Boolean}false"
+                fdm:genericOperationAllowed="{Boolean}false"
+                fdm:rootEntity="{Boolean}false"
+                fdm:schemaName="DEFAULT_SCHEMA"
+                fdm:source="source1"
+                jcr:primaryType="nt:unstructured"
+                id="Records"
+                name="Records">
+                <links jcr:primaryType="nt:unstructured"/>
+                <properties jcr:primaryType="nt:unstructured">
+                    <attributes
+                        fdm:bindRef="attributes"
+                        fdm:computed="{Boolean}false"
+                        fdm:nullable="{Boolean}true"
+                        fdm:primaryKey="{Boolean}false"
+                        fdm:protected="{Boolean}false"
+                        fdm:required="{Boolean}false"
+                        jcr:primaryType="nt:unstructured"
+                        _x0024_ref="Attributes"
+                        name="attributes"
+                        title="attributes"
+                        type="object"/>
+                </properties>
+            </Records>
+            <Attributes
+                fdm:binaryEntity="{Boolean}false"
+                fdm:bindRef="Attributes"
+                fdm:defaultBinaryEntity="{Boolean}false"
+                fdm:genericOperationAllowed="{Boolean}false"
+                fdm:rootEntity="{Boolean}false"
+                fdm:schemaName="DEFAULT_SCHEMA"
+                fdm:source="source1"
+                jcr:primaryType="nt:unstructured"
+                id="Attributes"
+                name="Attributes">
+                <links jcr:primaryType="nt:unstructured"/>
+                <properties jcr:primaryType="nt:unstructured">
+                    <type
+                        fdm:bindRef="type"
+                        fdm:computed="{Boolean}false"
+                        fdm:nullable="{Boolean}true"
+                        fdm:primaryKey="{Boolean}false"
+                        fdm:protected="{Boolean}false"
+                        fdm:required="{Boolean}false"
+                        jcr:primaryType="nt:unstructured"
+                        name="type"
+                        title="type"
+                        type="string"/>
+                    <url
+                        fdm:bindRef="url"
+                        fdm:computed="{Boolean}false"
+                        fdm:nullable="{Boolean}true"
+                        fdm:primaryKey="{Boolean}false"
+                        fdm:protected="{Boolean}false"
+                        fdm:required="{Boolean}false"
+                        jcr:primaryType="nt:unstructured"
+                        name="url"
+                        title="url"
+                        type="string"/>
+                </properties>
+            </Attributes>
+        </definitions>
+        <links jcr:primaryType="nt:unstructured">
+            <get_services_datav320query
+                fdm:source="source1"
+                jcr:primaryType="nt:unstructured"
+                description="Query Execution"
+                genericOperation="{Boolean}false"
+                href="trialcompany2-dev-ed.my.salesforce.com"
+                id="GET /services/data/v32.0/query"
+                method="GET"
+                name="GET /services/data/v32.0/query">
+                <fdm:data jcr:primaryType="nt:unstructured"/>
+                <schema
+                    fdm:bindRef="schema"
+                    fdm:computed="{Boolean}false"
+                    fdm:nullable="{Boolean}true"
+                    fdm:primaryKey="{Boolean}false"
+                    fdm:protected="{Boolean}false"
+                    fdm:required="{Boolean}false"
+                    jcr:primaryType="nt:unstructured"
+                    description="operation input description"
+                    name="schema"
+                    type="object">
+                    <properties jcr:primaryType="nt:unstructured">
+                        <q
+                            fdm:bindRef="q"
+                            fdm:computed="{Boolean}false"
+                            fdm:in="query"
+                            fdm:nullable="{Boolean}true"
+                            fdm:primaryKey="{Boolean}false"
+                            fdm:protected="{Boolean}false"
+                            fdm:required="{Boolean}false"
+                            jcr:primaryType="nt:unstructured"
+                            description="contacts"
+                            name="q"
+                            type="string"/>
+                    </properties>
+                </schema>
+                <targetSchema
+                    fdm:bindRef="All"
+                    fdm:computed="{Boolean}false"
+                    fdm:nullable="{Boolean}true"
+                    fdm:primaryKey="{Boolean}false"
+                    fdm:protected="{Boolean}false"
+                    fdm:required="{Boolean}false"
+                    jcr:primaryType="nt:unstructured"
+                    _x0024_ref="All"
+                    name="All"
+                    type="object"/>
+            </get_services_datav320query>
+            <post_services_datav320sobjectsaccount
+                fdm:source="source1"
+                jcr:primaryType="nt:unstructured"
+                description="Create Account Data"
+                genericOperation="{Boolean}false"
+                href="trialcompany2-dev-ed.my.salesforce.com"
+                id="POST /services/data/v32.0/sobjects/Account"
+                method="POST"
+                name="POST /services/data/v32.0/sobjects/Account">
+                <fdm:data jcr:primaryType="nt:unstructured"/>
+                <schema
+                    fdm:bindRef="schema"
+                    fdm:computed="{Boolean}false"
+                    fdm:nullable="{Boolean}true"
+                    fdm:primaryKey="{Boolean}false"
+                    fdm:protected="{Boolean}false"
+                    fdm:required="{Boolean}false"
+                    jcr:primaryType="nt:unstructured"
+                    description="operation input description"
+                    name="schema"
+                    type="object">
+                    <properties jcr:primaryType="nt:unstructured">
+                        <Account
+                            fdm:bindRef="Account"
+                            fdm:computed="{Boolean}false"
+                            fdm:in="body"
+                            fdm:nullable="{Boolean}true"
+                            fdm:primaryKey="{Boolean}false"
+                            fdm:protected="{Boolean}false"
+                            fdm:required="{Boolean}true"
+                            jcr:primaryType="nt:unstructured"
+                            _x0024_ref="Account"
+                            description="account object that needs to be added"
+                            name="Account"
+                            type="object"/>
+                    </properties>
+                </schema>
+                <targetSchema
+                    fdm:bindRef="SFResult"
+                    fdm:computed="{Boolean}false"
+                    fdm:nullable="{Boolean}true"
+                    fdm:primaryKey="{Boolean}false"
+                    fdm:protected="{Boolean}false"
+                    fdm:required="{Boolean}false"
+                    jcr:primaryType="nt:unstructured"
+                    _x0024_ref="SFResult"
+                    name="SFResult"
+                    type="object"/>
+            </post_services_datav320sobjectsaccount>
+            <get_services_datav320sobjectsaccountid
+                fdm:source="source1"
+                jcr:primaryType="nt:unstructured"
+                description="Fetch Account Information From SDFC"
+                genericOperation="{Boolean}false"
+                href="trialcompany2-dev-ed.my.salesforce.com"
+                id="GET /services/data/v32.0/sobjects/Account/{id}"
+                method="GET"
+                name="GET /services/data/v32.0/sobjects/Account/{id}">
+                <fdm:data jcr:primaryType="nt:unstructured"/>
+                <schema
+                    fdm:bindRef="schema"
+                    fdm:computed="{Boolean}false"
+                    fdm:nullable="{Boolean}true"
+                    fdm:primaryKey="{Boolean}false"
+                    fdm:protected="{Boolean}false"
+                    fdm:required="{Boolean}false"
+                    jcr:primaryType="nt:unstructured"
+                    description="operation input description"
+                    name="schema"
+                    type="object">
+                    <properties jcr:primaryType="nt:unstructured">
+                        <id
+                            fdm:bindRef="id"
+                            fdm:computed="{Boolean}false"
+                            fdm:in="path"
+                            fdm:nullable="{Boolean}true"
+                            fdm:primaryKey="{Boolean}false"
+                            fdm:protected="{Boolean}false"
+                            fdm:required="{Boolean}true"
+                            jcr:primaryType="nt:unstructured"
+                            description="path to store data into"
+                            name="id"
+                            type="string"/>
+                    </properties>
+                </schema>
+                <targetSchema
+                    fdm:bindRef="Account"
+                    fdm:computed="{Boolean}false"
+                    fdm:nullable="{Boolean}true"
+                    fdm:primaryKey="{Boolean}false"
+                    fdm:protected="{Boolean}false"
+                    fdm:required="{Boolean}false"
+                    jcr:primaryType="nt:unstructured"
+                    _x0024_ref="Account"
+                    name="Account"
+                    type="object"/>
+            </get_services_datav320sobjectsaccountid>
+            <post_services_datav320sobjectslead
+                fdm:source="source1"
+                jcr:primaryType="nt:unstructured"
+                description="Create Lead Data"
+                genericOperation="{Boolean}false"
+                href="trialcompany2-dev-ed.my.salesforce.com"
+                id="POST /services/data/v32.0/sobjects/Lead"
+                method="POST"
+                name="POST /services/data/v32.0/sobjects/Lead">
+                <fdm:data jcr:primaryType="nt:unstructured"/>
+                <schema
+                    fdm:bindRef="schema"
+                    fdm:computed="{Boolean}false"
+                    fdm:nullable="{Boolean}true"
+                    fdm:primaryKey="{Boolean}false"
+                    fdm:protected="{Boolean}false"
+                    fdm:required="{Boolean}false"
+                    jcr:primaryType="nt:unstructured"
+                    description="operation input description"
+                    name="schema"
+                    type="object">
+                    <properties jcr:primaryType="nt:unstructured">
+                        <Lead
+                            fdm:bindRef="Lead"
+                            fdm:computed="{Boolean}false"
+                            fdm:in="body"
+                            fdm:nullable="{Boolean}true"
+                            fdm:primaryKey="{Boolean}false"
+                            fdm:protected="{Boolean}false"
+                            fdm:required="{Boolean}true"
+                            jcr:primaryType="nt:unstructured"
+                            _x0024_ref="Lead"
+                            description="lead object that needs to be added"
+                            name="Lead"
+                            type="object"/>
+                    </properties>
+                </schema>
+                <targetSchema
+                    fdm:bindRef="SFResult"
+                    fdm:computed="{Boolean}false"
+                    fdm:nullable="{Boolean}true"
+                    fdm:primaryKey="{Boolean}false"
+                    fdm:protected="{Boolean}false"
+                    fdm:required="{Boolean}false"
+                    jcr:primaryType="nt:unstructured"
+                    _x0024_ref="SFResult"
+                    name="SFResult"
+                    type="object"/>
+            </post_services_datav320sobjectslead>
+            <get_services_datav320sobjectsleadid
+                fdm:source="source1"
+                jcr:primaryType="nt:unstructured"
+                description="Fetch Lead Information From SDFC"
+                genericOperation="{Boolean}false"
+                href="trialcompany2-dev-ed.my.salesforce.com"
+                id="GET /services/data/v32.0/sobjects/Lead/{id}"
+                method="GET"
+                name="GET /services/data/v32.0/sobjects/Lead/{id}">
+                <fdm:data jcr:primaryType="nt:unstructured"/>
+                <schema
+                    fdm:bindRef="schema"
+                    fdm:computed="{Boolean}false"
+                    fdm:nullable="{Boolean}true"
+                    fdm:primaryKey="{Boolean}false"
+                    fdm:protected="{Boolean}false"
+                    fdm:required="{Boolean}false"
+                    jcr:primaryType="nt:unstructured"
+                    description="operation input description"
+                    name="schema"
+                    type="object">
+                    <properties jcr:primaryType="nt:unstructured">
+                        <id
+                            fdm:bindRef="id"
+                            fdm:computed="{Boolean}false"
+                            fdm:in="path"
+                            fdm:nullable="{Boolean}true"
+                            fdm:primaryKey="{Boolean}false"
+                            fdm:protected="{Boolean}false"
+                            fdm:required="{Boolean}true"
+                            jcr:primaryType="nt:unstructured"
+                            description="path to store data into"
+                            name="id"
+                            type="string"/>
+                    </properties>
+                </schema>
+                <targetSchema
+                    fdm:bindRef="Lead"
+                    fdm:computed="{Boolean}false"
+                    fdm:nullable="{Boolean}true"
+                    fdm:primaryKey="{Boolean}false"
+                    fdm:protected="{Boolean}false"
+                    fdm:required="{Boolean}false"
+                    jcr:primaryType="nt:unstructured"
+                    _x0024_ref="Lead"
+                    name="Lead"
+                    type="object"/>
+            </get_services_datav320sobjectsleadid>
+        </links>
+        <properties jcr:primaryType="nt:unstructured">
+            <All
+                fdm:computed="{Boolean}false"
+                fdm:nullable="{Boolean}true"
+                fdm:protected="{Boolean}false"
+                fdm:required="{Boolean}false"
+                jcr:primaryType="nt:unstructured"
+                _x0024_ref="All"
+                name="All"/>
+            <Account
+                fdm:computed="{Boolean}false"
+                fdm:nullable="{Boolean}true"
+                fdm:protected="{Boolean}false"
+                fdm:required="{Boolean}false"
+                jcr:primaryType="nt:unstructured"
+                _x0024_ref="Account"
+                name="Account"/>
+            <SFResult
+                fdm:computed="{Boolean}false"
+                fdm:nullable="{Boolean}true"
+                fdm:protected="{Boolean}false"
+                fdm:required="{Boolean}false"
+                jcr:primaryType="nt:unstructured"
+                _x0024_ref="SFResult"
+                name="SFResult"/>
+            <Lead
+                fdm:computed="{Boolean}false"
+                fdm:nullable="{Boolean}true"
+                fdm:protected="{Boolean}false"
+                fdm:required="{Boolean}false"
+                jcr:primaryType="nt:unstructured"
+                _x0024_ref="Lead"
+                name="Lead"/>
+        </properties>
+    </jcr:content>
+</jcr:root>
