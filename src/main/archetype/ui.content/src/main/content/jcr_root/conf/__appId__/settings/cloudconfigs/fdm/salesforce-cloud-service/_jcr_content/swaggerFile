@@ -1,0 +1,243 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "Sales Force Swagger Definition",
+		"version": "1.0.0",
+		"title": "Swagger Definition"
+	},
+	"schemes": [
+		"https"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"/services/data/v32.0/query": {
+			"get": {
+				"summary": "Query Execution",
+				"operationId": "query",
+				"parameters": [
+					{
+						"in": "query",
+						"name": "q",
+						"description": "contacts",
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Echo test-path",
+						"schema": {
+							"$ref": "#/definitions/All"
+						}
+					}
+				}
+			}
+		},
+		"/services/data/v32.0/sobjects/Lead/{id}": {
+			"get": {
+				"summary": "Fetch Lead Information From SDFC",
+				"produces": ["application/json"],
+				"consumes": ["application/json"],
+				"operationId": "GetLead",
+				"parameters": [					
+					{
+						"in": "path",
+						"name" : "id",
+						"type" : "string",
+						"description": "path to store data into",
+						"required": true						
+					}
+				],
+				"responses": {
+					"200" : {
+					  "description": "Valid Lead output",
+						"schema" : {							
+							"$ref" : "#/definitions/Lead"							
+						}
+					},
+					"405": {
+						"description": "Invalid input"
+					}
+				}
+			}
+		},
+		"/services/data/v32.0/sobjects/Account/{id}": {
+			"get": {
+				"summary": "Fetch Account Information From SDFC",
+				"produces": ["application/json"],
+				"consumes": ["application/json"],
+				"operationId": "GetAccount",
+				"parameters": [					
+					{
+						"in": "path",
+						"name" : "id",
+						"type" : "string",
+						"description": "path to store data into",
+						"required": true						
+					}
+				],
+				"responses": {
+					"200" : {
+					  "description": "Valid Account output",
+						"schema" : {							
+							"$ref" : "#/definitions/Account"							
+						}
+					},
+					"405": {
+						"description": "Invalid input"
+					}
+				}
+			}
+		},
+		"/services/data/v32.0/sobjects/Account": {
+			"post": {
+				"summary": "Create Account Data",
+				"produces": ["application/json"],
+				"consumes": ["application/json"],
+				"operationId": "CreateAccount",
+				"parameters": [
+					{
+						"in": "body",
+						"name": "account",
+						"description": "account object that needs to be added",
+						"required": true,
+						"schema" : {
+							"$ref" : "#/definitions/Account"
+						}
+					}
+				],
+				"responses": {
+					"200" : {
+					  "description": "Valid output",
+						"schema" : {							
+							"$ref" : "#/definitions/SFResult"							
+						}
+					},
+					"405": {
+						"description": "Invalid input"
+					}
+				}
+			}
+		},
+		"/services/data/v32.0/sobjects/Lead": {
+			"post": {
+				"summary": "Create Lead Data",
+				"produces": ["application/json"],
+				"consumes": ["application/json"],
+				"operationId": "CreateLead",
+				"parameters": [
+					{
+						"in": "body",
+						"name": "lead",
+						"description": "lead object that needs to be added",
+						"required": true,
+						"schema" : {
+							"$ref" : "#/definitions/Lead"
+						}
+					}
+				],
+				"responses": {
+					"200" : {
+					  "description": "Valid output",
+						"schema" : {							
+							"$ref" : "#/definitions/SFResult"							
+						}
+					},
+					"405": {
+						"description": "Invalid input"
+					}
+				}
+			}
+		}			
+	},
+	"definitions": {
+		"Lead": {
+			"type": "object",
+			"properties": {
+				"Phone": {
+					"type": "string"
+				},
+				"Company":{
+					"type": "string"
+				},
+				"LastName":{
+					"type": "string"
+				},
+				"FirstName":{
+					"type": "string"
+				},				
+				"LeadSource" :{
+					"type" : "string"
+				}
+			},
+			"required" : ["Phone", "Company", "LastName", "FirstName"]
+		},
+		"Account": {
+			"type": "object",
+			"properties": {
+				"Phone": {
+					"type": "string"					
+				},
+				"Name":{
+					"type": "string"
+				},
+				"Website":{
+					"type": "string"					
+				},
+				"BillingCountry":{
+					"type": "string"					
+				},
+				"BillingPostalCode":{
+					"type": "string"					
+				}				
+			},
+			"required" : ["Phone", "Name", "Website"]
+		},
+		"SFResult": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				}				
+			},
+			"required" : ["id"]
+		},		
+	  "All": {
+			"type": "object",
+			"properties": {
+			  "totalSize": {
+			    "type": "integer"
+			  },
+				"records": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Records"
+					 }
+				}
+			}
+		},
+		"Records": {
+			"type": "object",
+			"properties": {
+				"attributes": {
+					"$ref": "#/definitions/Attributes"
+				}
+			}
+		},
+		"Attributes": {
+			"type": "object",
+			"properties": {
+				"type": {
+					"type": "string"
+				},
+				"url": {
+					"type": "string"
+				}			
+			}
+		}
+	}
+}
