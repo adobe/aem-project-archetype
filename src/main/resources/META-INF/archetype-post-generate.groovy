@@ -127,7 +127,6 @@ if (includeCommerce == "n") {
     assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory-default.config").delete()
     assert new File("$configFolder/config.publish/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.cfg.json").delete()
     assert new File("$configFolder/config.publish/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.config").delete()
-    assert new File("$appsFolder/components/xfpage/_cq_dialog").deleteDir()
     assert new File("$appsFolder/components/header").deleteDir()
     assert new File("$confFolder/settings/cloudconfigs/commerce").deleteDir()
     assert new File("$varFolder").deleteDir();
@@ -169,9 +168,15 @@ if (includeCommerce == "n") {
     }
 }
 
-// if forms flag is not set, forms specific content/configuration/proxy components should be deleted
+// if forms flag is not set, forms specific components, template-types, templates, themes should be deleted
 if (includeForms == "n") {
     assert new File("$appsFolder/components/aemformscontainer").deleteDir()
+    assert new File("$confFolder/settings/wcm/template-types/af-page").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/basic-af").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/blank-af").deleteDir()
+    assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/formsanddocuments-themes").deleteDir()
+    assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/sample_logo.png").deleteDir()
+    assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/sample_terms.png").deleteDir()
 } else {
     if (aemVersion == "cloud") {
         // if forms is included and aem version is set to cloud, set the forms sdk version

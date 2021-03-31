@@ -3,6 +3,38 @@
     jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="cq:Page">
     <rep:policy/>
+#if ( $includeForms == "y" and $aemVersion == "cloud")
+    <fd jcr:primaryType="nt:unstructured">
+        <af jcr:primaryType="nt:unstructured">
+            <components jcr:primaryType="nt:unstructured">
+                <afpage2 jcr:primaryType="nt:unstructured">
+                    <aftemplatedpage jcr:primaryType="nt:unstructured">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <default
+                                jcr:description="Policy of the Adaptive Form page"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Default Page"
+                                sling:resourceType="wcm/core/components/policy/policy"
+                                clientlibs="[wcm.foundation.components.page.responsive]">
+                                <jcr:content jcr:primaryType="nt:unstructured"/>
+                            </default>
+                    </aftemplatedpage>
+                </afpage2>
+                <guideContainer jcr:primaryType="nt:unstructured">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                        <default
+                            jcr:description="Policy of the Adaptive Form Guide Container"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Simple Adaptive Form Guide Container Policy"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            components="[group:Adaptive Form]">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                        </default>
+                </guideContainer>
+            </components>
+        </af>
+    </fd>
+#end
     <${appId} jcr:primaryType="nt:unstructured">
         <components jcr:primaryType="nt:unstructured">
             <form jcr:primaryType="nt:unstructured">
@@ -515,6 +547,45 @@
                         components="[/libs/wcm/foundation/components/responsivegrid,/apps/${appId}/components/text]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </spa-default>
+    #if ( $includeForms == "y" and $aemVersion == "cloud")
+                    <afpolicy
+                            jcr:description="Policy of the Adaptive Form"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Simple Adaptive Form Policy"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            components="[group:${appTitle} - Content,group:${appTitle} - Structure,/libs/fd/af/components/guideheader,/libs/fd/af/components/guidefooter,/libs/fd/af/components/guideimage,/libs/fd/af/components/guidetextdraw,/libs/fd/af/components/afFormTitle]">
+                        <cq:authoring jcr:primaryType="nt:unstructured">
+                            <assetToComponentMapping jcr:primaryType="nt:unstructured">
+                                <mapping_1
+                                        jcr:primaryType="nt:unstructured"
+                                        assetGroup="media"
+                                        assetMimetype="image/*"
+                                        droptarget="image"
+                                        resourceType="${appId}/components/image"/>
+                                <mapping_2
+                                        jcr:primaryType="nt:unstructured"
+                                        assetGroup="content"
+                                        assetMimetype="text/html"
+                                        droptarget="experiencefragment"
+                                        resourceType="${appId}/components/experiencefragment"/>
+                                <mapping_3
+                                        jcr:primaryType="nt:unstructured"
+                                        assetGroup="media"
+                                        assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
+                                        droptarget="contentfragment"
+                                        resourceType="${appId}/components/contentfragment"/>
+                            </assetToComponentMapping>
+                        </cq:authoring>
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </afpolicy>
+                    <policy_1518118565779
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Reference Header Footer Policy"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            components="[/libs/fd/af/components/guidefooter,/libs/fd/af/components/guideheader,/libs/fd/af/components/guideimage,/libs/fd/af/components/guidetextdraw,/libs/fd/af/components/afFormTitle]">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_1518118565779>
+    #end
                 </responsivegrid>
             </components>
         </foundation>
