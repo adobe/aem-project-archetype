@@ -39,8 +39,6 @@ Include conf.d/variables/custom.vars
 		SetOutputFilter DEFLATE
 		# Don't compress images
 		SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
-		# Make sure proxies don't deliver the wrong content
-		Header append Vary User-Agent env=!dont-vary
 		# Prevent clickjacking
 		Header always append X-Frame-Options SAMEORIGIN
 	</Directory>
