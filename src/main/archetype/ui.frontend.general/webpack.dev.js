@@ -1,6 +1,7 @@
 const merge             = require('webpack-merge');
 const common            = require('./webpack.common.js');
 const path              = require('path');
+const { exec }          = require('child_process');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const SOURCE_ROOT = __dirname + '/src/main/webpack';
@@ -15,7 +16,15 @@ module.exports = env => {
         plugins: [
             new HtmlWebpackPlugin({
                 template: path.resolve(__dirname, SOURCE_ROOT + '/static/index.html')
-            })
+            }),
+            {
+                apply: compiler => {
+                    compiler.hooks.afterEmit.tap('ClientlibsPlugin', () => exec('npm run clientlib', (_, stdout, stderr) => {
+                        stdout && process.stdout.write(stdout);
+                        stderr && process.stderr.write(stderr);
+                    }));
+                }
+            }
         ],
         devServer: {
             inline: true,

@@ -28,6 +28,8 @@ The following npm scripts drive the frontend workflow:
 * `npm run dev` - Full build of client libraries with JS optimization disabled (tree shaking, etc) and source maps enabled and CSS optimization disabled.
 * `npm run prod` - Full build of client libraries build with JS optimization enabled (tree shaking, etc), source maps disabled and CSS optimization enabled.
 * `npm run start` - Starts a static webpack development server for local development with minimal dependencies on AEM.
+* `npm run scrape` - Downloads the specified pages' HTML and saves it as static files for use by the webpack development server. See `Scraper Configurtion` section
+* `npm run dev:live` - Runs webpack and aemsync in watch mode pushing changes directly to AEM. CSS and JS changes are automatically reflected on any local AEM page opened (JS changes cause a page refresh)
 
 ${hash}${hash}${hash} General
 
@@ -108,3 +110,45 @@ ${hash}${hash}${hash}${hash} Using
 2. Navigate inside the `ui.frontend` folder.
 3. Run the following command `npm run start` to start the webpack dev server. Once started it should open a browser (localhost:8080 or the next available port).
 4. You can now modify CSS, JS, SCSS, and TS files and see the changes immediately reflected in the webpack dev server.
+
+${hash}${hash}${hash} Scraper configuration
+
+The scraper downloads the specified AEM pages as static HTML files and saves to the `src/main/webpack/site/static/` directory. It's used by the webpack development server.
+It can be run with the `npm run scrape` command.
+It can be configured either by passing command line arguments or using a configuration file (by default `scraper.config.json`).
+Note that not all options can be set by command line parameters. Configuration file must contain `index` property which define a page that will be downloaded and saved into `webpack/static/index.html`
+
+${hash}${hash}${hash}${hash} Command line parameters
+Example of specifying a custom instance and password:
+```bash
+npm run scrape -- --host http://localhost:1234 --pass mypassword42
+```
+
+All the options:
+
+Option | Alias | Default value | Description
+--- | --- | --- | ---
+--help | -h | n/a | Shows this table
+--dir | -d | n/a | Directory to save the files to
+--page | -p | n/a | AEM page to download as index.html
+--config | -c | ./scraper.config.json | Configuration file
+--host | n/a | http://localhost:4502 | AEM instance url
+--user | n/a | admin | AEM username
+--pass | n/a | admin | AEM password
+
+${hash}${hash}${hash} Configuration file
+
+By default, the `scraper.config.json` file is used. Sample configuration:
+
+```json
+{
+    "dir": "./src/main/webpack/static",
+    "index": "content/${appId}/us/en.html",
+    "pages": [
+        "content/${appId}/us/en.html",
+        "content/${appId}/us.html"
+    ]
+}
+```
+
+The same options can be set as via the CLI. Additional pages to download can also be specified via the `pages` array. The necessary directory structure will be created.
