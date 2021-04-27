@@ -1,4 +1,3 @@
-const webpack                 = require('webpack');
 const merge                   = require('webpack-merge');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin            = require('terser-webpack-plugin');
@@ -42,8 +41,5 @@ module.exports = merge(common, {
         }
     },
     devtool: 'none',
-    performance: { hints: false },
-    plugins: [
-        new webpack.NormalModuleReplacementPlugin(/development\/.+$/, './development/empty.js')
-    ]
+    performance: { hints: false }
 });

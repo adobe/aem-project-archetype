@@ -13,6 +13,9 @@ module.exports = env => {
         mode: 'development',
         devtool: 'inline-source-map',
         performance: { hints: 'warning' },
+        entry: {
+            liveReload: SOURCE_ROOT + '/site/development/live.js'
+        },
         plugins: [
             new HtmlWebpackPlugin({
                 template: path.resolve(__dirname, SOURCE_ROOT + '/static/index.html')
