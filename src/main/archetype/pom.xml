@@ -51,6 +51,7 @@
         <module>ui.frontend.general</module>
         <module>ui.frontend.angular</module>
         <module>ui.frontend.react</module>
+        <module>ui.frontend.react-ssr</module>
         <module>ui.tests</module>
         <module>analyse</module>
     </modules>
@@ -64,6 +65,11 @@
         <sling.password>admin</sling.password>
         <vault.user>admin</vault.user>
         <vault.password>admin</vault.password>
+#if ($enableAdobeIoRuntime == "y")
+        <frontend-maven-plugin.version>1.6</frontend-maven-plugin.version>
+        <aio.runtime.namespace>${env.AIO_RUNTIME_NAMESPACE}</aio.runtime.namespace>
+        <aio.runtime.auth>${env.AIO_RUNTIME_AUTH}</aio.runtime.auth>
+#end
 #if ( $aemVersion != "cloud" || $includeExamples == "y")
         <core.wcm.components.version>2.16.0</core.wcm.components.version>
 #end
@@ -609,6 +615,18 @@ Bundle-DocURL:
             </properties>
 #end
         </profile>
+#if ( $enableAdobeIoRuntime == "y")
+        <profile>
+            <id>serverSideRender-runtime</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+        
+            <modules>
+                <module>ui.frontend.ssr.ioruntime</module>
+            </modules>
+        </profile>
+#end
     </profiles>
 
 

@@ -24,6 +24,7 @@ def sdkVersion = request.getProperties().get("sdkVersion")
 def includeDispatcherConfig = request.getProperties().get("includeDispatcherConfig")
 def includeCommerce = request.getProperties().get("includeCommerce")
 def includeForms = request.getProperties().get("includeForms")
+def enableAdobeIoRuntime = request.getProperties().get("enableAdobeIoRuntime");
 def sdkFormsVersion = request.getProperties().get("sdkFormsVersion")
 
 def appsFolder = new File("$uiAppsPackage/src/main/content/jcr_root/apps/$appId")
@@ -264,12 +265,27 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
 
         // Delete SPA content
         assert new File("$contentFolder/us/en/home").deleteDir()
+
+    }
+
+    //We will always remove react-ssr from the modules pom. This will be included in a profile.
+    removeModule(rootPom, "ui.frontend.react-ssr")
+
+    if(optionFrontendModule != "react")
+    {
+        assert new File(rootDir, "ui.frontend.react-ssr").deleteDir()
     }
 
     // Generating SPA: Delete non-SPA specific files
     if (optionFrontendModule == "angular" || optionFrontendModule == "react") {
         assert new File("$confFolder/settings/wcm/templates/page-content").deleteDir()
         assert new File("$confFolder/settings/wcm/template-types/page").deleteDir()
+
+        if(enableAdobeIoRuntime == "y" && optionFrontendModule == "react"){
+            assert new File(rootDir, "ui.frontend.$optionFrontendModule-ssr").renameTo(new File(rootDir, "ui.frontend.ssr.ioruntime"))
+        }else{
+            assert new File(rootDir,"ui.frontend.react-ssr").deleteDir()
+        }
     }
 }
 

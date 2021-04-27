@@ -172,7 +172,16 @@
         <requiredProperty key="enableDynamicMedia">
             <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
-        </requiredProperty>  
+        </requiredProperty>
+    
+        <!--
+            Option to enable SSR for the front-end project (currently only supported for react)
+         -->
+        <requiredProperty key="enableAdobeIoRuntime">
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
+
     </requiredProperties>
 
     <modules>
@@ -329,6 +338,43 @@
             </fileSets>
         </module>
         <module id="${rootArtifactId}.ui.frontend.react" dir="ui.frontend.react" name="ui.frontend.react">
+            <fileSets>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory></directory>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                    <excludes>
+                        <!-- Exclude Node.js installation (frontend-maven-plugin) -->
+                        <exclude>**/node/</exclude>
+                        <!-- Exclude NPM dependencies -->
+                        <exclude>**/node_modules/</exclude>
+                        <exclude>**/package-lock.json</exclude>
+                        <exclude>**/yarn.lock</exclude>
+                        <!-- Do not filter binary files (will become corrupted) -->
+                        <exclude>**/*.gif</exclude>
+                        <exclude>**/*.ico</exclude>
+                        <exclude>**/*.jpeg</exclude>
+                        <exclude>**/*.jpg</exclude>
+                        <exclude>**/*.png</exclude>
+                        <exclude>**/*.svg</exclude>
+                    </excludes>
+                </fileSet>
+                <fileSet filtered="false">
+                    <directory></directory>
+                    <includes>
+                        <!-- Do not filter binary files (will become corrupted) -->
+                        <include>**/*.gif</include>
+                        <include>**/*.ico</include>
+                        <include>**/*.jpeg</include>
+                        <include>**/*.jpg</include>
+                        <include>**/*.png</include>
+                        <include>**/*.svg</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
+        <module id="${rootArtifactId}.ui.frontend.react-ssr" dir="ui.frontend.react-ssr" name="ui.frontend.react-ssr">
             <fileSets>
                 <fileSet filtered="true" encoding="UTF-8">
                     <directory></directory>
