@@ -615,18 +615,6 @@ Bundle-DocURL:
             </properties>
 #end
         </profile>
-#if ( $enableAdobeIoRuntime == "y" and $frontendModule == "react" )
-        <profile>
-            <id>serverSideRender-runtime</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-        
-            <modules>
-                <module>ui.frontend.ssr.ioruntime</module>
-            </modules>
-        </profile>
-#end
     </profiles>
 
 

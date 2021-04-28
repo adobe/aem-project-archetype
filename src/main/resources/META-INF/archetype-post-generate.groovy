@@ -268,12 +268,11 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
 
     }
 
-    //We will always remove react-ssr from the modules pom. This will be included in a profile.
-    removeModule(rootPom, "ui.frontend.react-ssr")
-
     //cleanup SSR related files / folders when not choosing react (only react is supported for now)
     if(optionFrontendModule != "react")
     {
+        removeModule(rootPom, "ui.frontend.react-ssr")
+
         assert new File(rootDir, "ui.frontend.react-ssr").deleteDir()
         assert new File("$appsFolder/components/page/body.html").delete();
         assert new File("$configFolder/config/com.adobe.cq.remote.content.renderer.impl.factory.ConfigurationFactoryImpl~${appId}.cfg.json").delete()
@@ -289,6 +288,8 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
         }
         else if(optionFrontendModule == "react"){
             //cleanup the adobeio webpack config is we don't use ioruntime
+            removeModule(rootPom, "ui.frontend.react-ssr")
+
             assert new File(rootDir, "ui.frontend/webpack.config.adobeio.js").delete();
             assert new File("$configFolder/config/com.adobe.cq.remote.content.renderer.impl.factory.ConfigurationFactoryImpl~${appId}.cfg.json").delete()
             assert new File("$appsFolder/components/page/body.html").delete();
