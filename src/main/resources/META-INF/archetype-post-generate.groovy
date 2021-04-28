@@ -80,7 +80,7 @@ if (aemVersion == "cloud" && includeCommerce == "y") {
 }
 
 buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, language, country)
-cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder)
+cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder,enableAdobeIoRuntime)
 
 if ( includeDispatcherConfig == "n"){
     // remove the unneeded config file
@@ -230,7 +230,7 @@ def buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, 
 /**
  * Renames and deletes frontend related files as necessary
  */
-def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder) {
+def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder, enableAdobeIoRuntime) {
     // Delete unwanted frontend modules
     frontendModules.each { def frontendModule ->
         // Clean up POM file
@@ -299,6 +299,10 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
     }
 
     removeModule(rootPom, "ui.frontend.react-ssr")
+    
+    if (enableAdobeIoRuntime != "y" || optionFrontendModule != "react") {
+        removeModule(rootPom, "ui.frontend.ssr.ioruntime")
+    }
 }
 
 /**
