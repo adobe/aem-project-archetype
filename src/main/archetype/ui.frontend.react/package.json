@@ -5,7 +5,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && clientlib --verbose",
-    "build-with-ssr": "react-scripts build && webpack && clientlib --verbose",
+#if ( $enableAdobeIoRuntime == "y")
+    "build-with-ssr": "react-scripts build && webpack --config webpack.config.adobeio.js && clientlib --verbose",
+#end
     "build-express": "webpack --config webpack.config.express.js",
     "start-express": "node dist/express.js",
     "test": "react-scripts test",

@@ -283,7 +283,13 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
 
         if(enableAdobeIoRuntime == "y" && optionFrontendModule == "react"){
             assert new File(rootDir, "ui.frontend.$optionFrontendModule-ssr").renameTo(new File(rootDir, "ui.frontend.ssr.ioruntime"))
-        }else{
+        }
+        else if(optionFrontendModule == "react"){
+            //cleanup the adobeio webpack config is we don't use ioruntime (react only for now)
+            assert new File(rootDir, "ui.frontend/webpack.config.adobeio.js").delete();
+            assert new File(rootDir,"ui.frontend.react-ssr").deleteDir()
+        }
+        else{
             assert new File(rootDir,"ui.frontend.react-ssr").deleteDir()
         }
     }
