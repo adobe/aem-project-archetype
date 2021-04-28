@@ -14,7 +14,7 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-// webpack.config.js
+// webpack.config.adobeio.js
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const webpack = require('webpack');

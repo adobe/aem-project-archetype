@@ -80,7 +80,7 @@ if (aemVersion == "cloud" && includeCommerce == "y") {
 }
 
 buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, language, country)
-cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, contentFolder)
+cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder)
 
 if ( includeDispatcherConfig == "n"){
     // remove the unneeded config file
@@ -230,7 +230,7 @@ def buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, 
 /**
  * Renames and deletes frontend related files as necessary
  */
-def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, contentFolder) {
+def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder) {
     // Delete unwanted frontend modules
     frontendModules.each { def frontendModule ->
         // Clean up POM file
@@ -271,9 +271,12 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
     //We will always remove react-ssr from the modules pom. This will be included in a profile.
     removeModule(rootPom, "ui.frontend.react-ssr")
 
+    //cleanup SSR related files / folders when not choosing react (only react is supported for now)
     if(optionFrontendModule != "react")
     {
         assert new File(rootDir, "ui.frontend.react-ssr").deleteDir()
+        assert new File("$appsFolder/components/page/body.html").delete();
+        assert new File("$configFolder/config/com.adobe.cq.remote.content.renderer.impl.factory.ConfigurationFactoryImpl~${appId}.cfg.json").delete()
     }
 
     // Generating SPA: Delete non-SPA specific files
@@ -285,9 +288,11 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
             assert new File(rootDir, "ui.frontend.$optionFrontendModule-ssr").renameTo(new File(rootDir, "ui.frontend.ssr.ioruntime"))
         }
         else if(optionFrontendModule == "react"){
-            //cleanup the adobeio webpack config is we don't use ioruntime (react only for now)
+            //cleanup the adobeio webpack config is we don't use ioruntime
             assert new File(rootDir, "ui.frontend/webpack.config.adobeio.js").delete();
-            assert new File(rootDir,"ui.frontend.react-ssr").deleteDir()
+            assert new File("$configFolder/config/com.adobe.cq.remote.content.renderer.impl.factory.ConfigurationFactoryImpl~${appId}.cfg.json").delete()
+            assert new File("$appsFolder/components/page/body.html").delete();
+            assert new File(rootDir,"ui.frontend.$optionFrontendModule-ssr").deleteDir()
         }
         else{
             assert new File(rootDir,"ui.frontend.react-ssr").deleteDir()
