@@ -7,8 +7,6 @@ import { Constants, EditorContext } from '@adobe/aem-react-editable-components';
 import { ModelManager } from '@adobe/aem-spa-page-model-manager';
 import '../components/import-components';
 
-global.fetch = require('node-fetch/lib/index');
-
 function renderModelToHTMLString(model, pagePath, requestUrl, requestPath, pageModelRootPath, isInEditor) {
     const html = ReactDOMServer.renderToString(
         <StaticRouter location={ requestUrl } context={{}}>
@@ -30,46 +28,19 @@ function renderModelToHTMLString(model, pagePath, requestUrl, requestPath, pageM
      <script type="application/json" id="__INITIAL_STATE__">
          ${stateStr}
      </script>`;
-};
-
-async function processSPA(args) {
-    if(args.method && args.method === 'GET') {
-        return processGet(args);
-    } else {
-        return processPost(args);
-    }
 }
-
-async function processPost(args) {
-    const APP_ROOT_PATH = '/content/wknd-events/react';
+async function processSPA(args) {
+    const APP_ROOT_PATH = '/content/${appId}/${country}/${language}';
     const wcmMode = args.wcmmode;
     const isInEditor = wcmMode && wcmMode === 'EDIT' || wcmMode === 'PREVIEW';
     const pageModelRootPath = args.pageRoot || APP_ROOT_PATH;
     let modelData = args.data;
     let pagePath = args.pagePath.replace('.html', '');
 
-    let modelClient = new CustomModelClient('Basic YWRtaW46YWRtaW4=');
+    let modelClient = new CustomModelClient();
     await ModelManager.initialize({path: pageModelRootPath, model: modelData, modelClient: modelClient});
     const response = await renderModelToHTMLString(modelData, pagePath, args.pagePath, args.pagePath, pageModelRootPath, isInEditor);
     return response;
-}
-
-async function processGet(args) {
-    const APP_ROOT_PATH = args.pageRoot || '/content/wknd-events/react';
-    const API_HOST = args.apiHost || 'http://localhost:4502'
-
-    const wcmMode = args.wcmmode;
-    const isInEditor = wcmMode && wcmMode === 'EDIT' || wcmMode === 'PREVIEW';
-    const pageModelRootPath = args.pageRoot || APP_ROOT_PATH;
-    let modelData = args.data;
-    let pagePath = args.pagePath.replace('.html', '');
-
-    let modelClient = new CustomModelClient('Basic YWRtaW46YWRtaW4=', API_HOST);
-    await ModelManager.initialize({path: pageModelRootPath, model: modelData, modelClient: modelClient});
-    const model = await ModelManager.getData({path: pagePath});
-    const response = await renderModelToHTMLString(model, pagePath, args.pagePath, args.pagePath, pageModelRootPath, isInEditor);
-    return response;
-
 }
 
 export default processSPA;

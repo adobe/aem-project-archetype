@@ -19,7 +19,6 @@ const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const WebpackShellPlugin = require('webpack-shell-plugin');
 
 var isTestEnvironment = process.env.NODE_ENV == 'test';
 

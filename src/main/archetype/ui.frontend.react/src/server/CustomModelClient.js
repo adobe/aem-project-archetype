@@ -16,48 +16,24 @@
 import fetch from "node-fetch";
 import { ModelClient } from '@adobe/aem-spa-page-model-manager';
 
+
 /**
- * Custom ModelClient meant to demonstrate how to customize the request sent to the remote server
+ * Custom ModelClient for the server that will throw an error on the fetch.
+ * We want the payload to be sent over to the nodeJS server at all times to prevent circular dependencies,
+ * and to compatibility in cases where we cannot access the author instance.
  */
 export class CustomModelClient extends ModelClient {
 
-    constructor(auth, apiHost) {
-        super(apiHost);
-        this.FETCH_CONFIG = {}
-        if(auth) {
-            this.FETCH_CONFIG = {
-                headers: {
-                    Authorization: auth
-                }
-            };
-        }
+    constructor() {
+        super();
     }
 
-    /**
-     * Fetches a model using the given a resource path
-     *
-     * @param {string} modelPath - Path to the model
-     * @return {*}
-     */
     fetch(modelPath) {
+        let err = 'Model ' + modelPath + ' not provided in initial model payload to the render function.';
+        err += 'Please make sure the JSON being sent over to the server is full and complete,';
+        err += 'And that only the requested page is being rendered in the request.'
 
-        if (!modelPath) {
-            let err = 'Fetching model rejected for path: ' + modelPath;
-            return Promise.reject(new Error(err));
-        }
-
-        // Either the API host has been provided or we make an absolute request relative to the current host
-        let url = '' + this._apiHost + modelPath;
-
-        return fetch(url, this.FETCH_CONFIG).then(function(response) {
-            if (response.status >= 200 && response.status < 300) {
-                return response.json();
-            } else {
-                let error = new Error('while fetching the model for url: ' + url, response.statusText || response.status);
-                error.response = response;
-
-                return Promise.reject(error);
-            }
-        });
+        return Promise.reject(new Error(err));
     }
 }
+

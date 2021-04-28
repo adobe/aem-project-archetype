@@ -13,6 +13,7 @@ async function main(args) {
 
     try {
         const response = await processor.processSPA(refinedArgs);
+        console.log("Response", response);
         return {
             headers: {
                 'Content-Type': 'text/html'
@@ -20,7 +21,7 @@ async function main(args) {
             statusCode: 200,
             body: response
         };
-        console.log("Response", response);
+
     } catch (err) {
         console.error("Error!", err);
         return {
