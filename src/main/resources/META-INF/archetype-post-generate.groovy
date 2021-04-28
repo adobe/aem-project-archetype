@@ -271,8 +271,6 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
     //cleanup SSR related files / folders when not choosing react (only react is supported for now)
     if(optionFrontendModule != "react")
     {
-        removeModule(rootPom, "ui.frontend.react-ssr")
-
         assert new File(rootDir, "ui.frontend.react-ssr").deleteDir()
         assert new File("$appsFolder/components/page/body.html").delete();
         assert new File("$configFolder/config/com.adobe.cq.remote.content.renderer.impl.factory.ConfigurationFactoryImpl~${appId}.cfg.json").delete()
@@ -299,6 +297,8 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
             assert new File(rootDir,"ui.frontend.react-ssr").deleteDir()
         }
     }
+
+    removeModule(rootPom, "ui.frontend.react-ssr")
 }
 
 /**
