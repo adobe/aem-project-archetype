@@ -4,7 +4,7 @@
     <jcr:content
         cq:allowedTemplates="[/conf/${appId}/settings/wcm/templates/(?!xf-).*]"
         cq:conf="/conf/${appId}"
-        cq:redirectTarget="/content/${appId}/${country}/${language}">
+        cq:redirectTarget="/content/${appId}/${country}/${language}"
 #if ( $isSpaProject )
         cq:template="/conf/${appId}/settings/wcm/templates/spa-app-template"
 #else
@@ -15,7 +15,7 @@
         sling:configRef="/conf/${appId}"
         sling:redirect="{Boolean}true"
         sling:redirectStatus="{Long}302"
-        sling:resourceType="${appId}/components/page"
+        sling:resourceType="${appId}/components/page">
         <image jcr:primaryType="nt:unstructured">
             <file/>
         </image>
