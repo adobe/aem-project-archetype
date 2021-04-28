@@ -1,11 +1,18 @@
-const fs = require('fs');
+var fs = require('fs');
+var path = require('path');
+
+var appJsDistPath = path.join(__dirname, '..', 'dist','app.js');
+var appJsDestPath = path.join(__dirname, '..', '..', 'ui.frontend.ssr.ioruntime', 'actions', 'common', 'app.js');
 
 // destination.txt will be created or overwritten by default.
-fs.copyFile(__dirname + '/../dist/app.js', __dirname + '/../../ui.frontend.ssr.ioruntime/actions/common/app.js', (err) => {
+fs.copyFile(appJsDistPath, appJsDestPath, (err) => {
     if (err) throw err;
 
-    if(fs.existsSync(__dirname + '/../dist/app.js.map')){
-        fs.copyFile(__dirname + '/../dist/app.js.map', __dirname + '/../../ui.frontend.ssr.ioruntime/actions/common/app.js.map', (err) => {
+    var appJsMapDistPath = path.join(__dirname, '..', 'dist','app.js.map');
+    var appJsMapDestPath = path.join(__dirname, '..', '..', 'ui.frontend.ssr.ioruntime', 'actions', 'common', 'app.js.map');
+
+    if(fs.existsSync(appJsMapDistPath)){
+        fs.copyFile(appJsMapDistPath, appJsMapDestPath, (err) => {
 
             if (err) throw err;
 
