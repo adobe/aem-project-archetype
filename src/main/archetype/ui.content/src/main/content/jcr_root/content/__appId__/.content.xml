@@ -4,13 +4,13 @@
     <jcr:content
         cq:allowedTemplates="[/conf/${appId}/settings/wcm/templates/(?!xf-).*]"
         cq:conf="/conf/${appId}"
+        cq:redirectTarget="/content/${appId}/${country}/${language}">
         jcr:primaryType="cq:PageContent"
         jcr:title="${appTitle}"
         sling:configRef="/conf/${appId}"
         sling:redirect="{Boolean}true"
         sling:redirectStatus="{Long}302"
-        sling:resourceType="foundation/components/redirect"
-        redirectTarget="/content/${appId}/${country}/${language}">
+        sling:resourceType="${appId}/components/page"
         <image jcr:primaryType="nt:unstructured">
             <file/>
         </image>
