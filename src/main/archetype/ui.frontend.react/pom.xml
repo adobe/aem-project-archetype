@@ -102,7 +102,7 @@
     <profiles>
         <profile>
             <id>serverSideRender-runtime</id>
-    
+            
             <build>
                 <pluginManagement>
                     <plugins>
@@ -133,6 +133,22 @@
                                         <arguments>run build-with-ssr</arguments>
                                     </configuration>
                                 </execution>
+                                <execution>
+                                    <id>npm run deploy</id>
+                                    <goals>
+                                        <goal>npm</goal>
+                                    </goals>
+                                    <phase>install</phase>
+                                    <configuration>
+                                        <arguments>run deploy-ssr-ioruntime</arguments>
+                                        
+                                        <environmentVariables>
+                                            <AIO_RUNTIME_NAMESPACE>${aio.runtime.namespace}</AIO_RUNTIME_NAMESPACE>
+                                            <AIO_RUNTIME_AUTH>${aio.runtime.auth}</AIO_RUNTIME_AUTH>
+                                        </environmentVariables>
+                                    </configuration>
+                                </execution>
+                            
                             </executions>
                         </plugin>
                     </plugins>

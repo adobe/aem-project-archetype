@@ -1,0 +1,14 @@
+packages:
+  __APP_PACKAGE__:
+    license: Apache-2.0
+    actions:
+      ssr:
+        function: actions/ssr/index.js
+        include:
+          - ["actions/common/app.js", "./common/app"]
+        web: 'yes'
+        runtime: 'nodejs:10'
+        inputs:
+          LOG_LEVEL: debug
+        annotations:
+          final: true

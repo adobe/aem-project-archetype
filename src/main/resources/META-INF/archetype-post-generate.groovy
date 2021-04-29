@@ -268,10 +268,9 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
 
     }
 
-    //cleanup SSR related files / folders when not choosing react (only react is supported for now)
-    if(optionFrontendModule != "react")
+    //cleanup SSR related files / folders when not choosing react (only react is supported for now) or not choosing SSR
+    if(optionFrontendModule != "react" || enableAdobeIoRuntime == "n" )
     {
-        assert new File(rootDir, "ui.frontend.react-ssr").deleteDir()
         assert new File("$appsFolder/components/page/body.html").delete();
         assert new File("$configFolder/config/com.adobe.cq.remote.content.renderer.impl.factory.ConfigurationFactoryImpl~${appId}.cfg.json").delete()
     }
@@ -281,28 +280,17 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
         assert new File("$confFolder/settings/wcm/templates/page-content").deleteDir()
         assert new File("$confFolder/settings/wcm/template-types/page").deleteDir()
 
-        if(enableAdobeIoRuntime == "y" && optionFrontendModule == "react"){
-            assert new File(rootDir, "ui.frontend.$optionFrontendModule-ssr").renameTo(new File(rootDir, "ui.frontend.ssr.ioruntime"))
-        }
-        else if(optionFrontendModule == "react"){
-            //cleanup the adobeio webpack config is we don't use ioruntime
-            removeModule(rootPom, "ui.frontend.react-ssr")
-
+        if(enableAdobeIoRuntime == "n" && optionFrontendModule == "react"){
+            //cleanup IO runtime related files from react module
+            assert new File(rootDir, "ui.frontend/webpack.config.express.js").delete();
             assert new File(rootDir, "ui.frontend/webpack.config.adobeio.js").delete();
-            assert new File("$configFolder/config/com.adobe.cq.remote.content.renderer.impl.factory.ConfigurationFactoryImpl~${appId}.cfg.json").delete()
-            assert new File("$appsFolder/components/page/body.html").delete();
-            assert new File(rootDir,"ui.frontend.$optionFrontendModule-ssr").deleteDir()
-        }
-        else{
-            assert new File(rootDir,"ui.frontend.react-ssr").deleteDir()
+            assert new File(rootDir, "ui.frontend/manifest.yml").delete();
+            assert new File(rootDir, "ui.frontend/src/server").deleteDir();
+            assert new File(rootDir, "ui.frontend/actions").deleteDir();
+            assert new File(rootDir, "ui.frontend/scripts").deleteDir();
         }
     }
 
-    removeModule(rootPom, "ui.frontend.react-ssr")
-    
-    if (enableAdobeIoRuntime != "y" || optionFrontendModule != "react") {
-        removeModule(rootPom, "ui.frontend.ssr.ioruntime")
-    }
 }
 
 /**

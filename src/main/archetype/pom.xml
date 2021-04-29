@@ -51,9 +51,6 @@
         <module>ui.frontend.general</module>
         <module>ui.frontend.angular</module>
         <module>ui.frontend.react</module>
-#if ($enableAdobeIoRuntime == "y")
-        <module>ui.frontend.ssr.ioruntime</module>
-#end
         <module>ui.tests</module>
         <module>analyse</module>
     </modules>

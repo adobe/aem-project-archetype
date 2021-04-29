@@ -1,5 +1,5 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- ~ Copyright 2018 Adobe Systems Incorporated
+ ~ Copyright 2021 Adobe Systems Incorporated
  ~
  ~ Licensed under the Apache License, Version 2.0 (the "License");
  ~ you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ exapp.use(bodyParser.urlencoded({ extended: false }));
 exapp.use(bodyParser.json());
 exapp.use(express.static("dist"));
 
-exapp.post('/*', (req, res, next) => {
+exapp.post('/api/v1/web/guest/${appId}-0.1.0/ssr/*', (req, res, next) => {
 
     const args = {
         pagePath: req.path.replace('.html', ''),
@@ -41,4 +41,4 @@ exapp.post('/*', (req, res, next) => {
     });
 });
 
-exapp.listen(4200, () => console.log('Example exapp listening on port 4200!'));
+exapp.listen(3233, () => console.log('Express SSR handler running on 3233!'));
