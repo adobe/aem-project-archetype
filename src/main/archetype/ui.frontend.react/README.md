@@ -37,6 +37,10 @@ ${hash}${hash} Browser Support
 
 By default, this project uses [Browserslist](https://github.com/browserslist/browserslist)'s `defaults` option to identify target browsers. Additionally, it includes polyfills for modern language features to support older browsers (e.g. Internet Explorer 11). If supporting such browsers isn't a requirement, the polyfill dependencies and imports can be removed.
 
+${hash}${hash} Custom Model Client
+
+For scenarios where the react application doesn't have access to the model json payload a request to AEM has to be made to fetch it. This may require a custom model client that can provide additional capabilities over the default one provided via the [`aem-spa-page-model-manager`](https://github.com/adobe/aem-spa-page-model-manager/blob/master/src/ModelClient.ts) such as authentication.
+
 ${hash}${hash} Code Splitting
 
 The React app is configured to make use of [code splitting](https://webpack.js.org/guides/code-splitting) by default. When building the app for production, the code will be output in several chunks:
