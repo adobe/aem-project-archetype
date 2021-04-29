@@ -10,6 +10,9 @@ ${hash}${hash} Installation
 
 1. Install [NodeJS](https://nodejs.org/en/download/) (v10+), globally. This will also install `npm`.
 2. Navigate to `ui.frontend.ssr.ioruntime` in your project and run `npm install`. (You must have run the archetype with `-DfrontendModule=react` and `-DenableAdobeIoRuntime=y`  to populate the ui.frontend.ssr.ioruntime folder)
+3. If running locally the following images must be installed:
+    * docker pull openwhisk/action-nodejs-v10:latest
+    * docker pull adobeapiplatform/adobe-action-nodejs-v10:3.0.21 
 
 ${hash}${hash} Usage
 
@@ -27,6 +30,7 @@ ${hash}${hash}${hash}${hash}${hash} 2: the serverless code consumes the JSON and
 ${hash}${hash}${hash}${hash}${hash} 3: the servlet puts this inside the HTML
 ${hash}${hash}${hash}${hash}${hash} 4: the react app detects the pre-rendered HTML and hydrates the app instead of rendering it:
 
+${hash}${hash}${hash}${hash}${hash} The Runtime action depends on the code produced by ui.frontend.react. This dependency is automatically copied over as part of the maven build via a post-build webhook. When developing/testing, you will need to trigger this process before deploying the action for the changes to take effect.
 
 ${hash}${hash}${hash}${hash} Details:
 
