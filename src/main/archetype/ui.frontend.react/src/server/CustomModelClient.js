@@ -18,8 +18,7 @@ import { ModelClient } from '@adobe/aem-spa-page-model-manager';
 
 /**
  * Custom ModelClient for the server that will throw an error on the fetch.
- * We want the payload to be sent over to the nodeJS server at all times to prevent circular dependencies,
- * and to compatibility in cases where we cannot access the author instance.
+ * Alternative is to use node-fetch to retrieve the model JSON but in this case we will always send over the payload.
  */
 export class CustomModelClient extends ModelClient {
 
@@ -29,9 +28,6 @@ export class CustomModelClient extends ModelClient {
 
     fetch(modelPath) {
         let err = 'Model ' + modelPath + ' not provided in initial model payload to the render function.';
-        err += 'Please make sure the JSON being sent over to the server is full and complete,';
-        err += 'And that only the requested page is being rendered in the request.'
-
         return Promise.reject(new Error(err));
     }
 }
