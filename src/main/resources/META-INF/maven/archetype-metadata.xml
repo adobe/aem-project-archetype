@@ -173,6 +173,11 @@
             <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>  
+
+        <!--
+            Option to enable Archetype Version components in project policy settings.
+        -->
+        <requiredProperty key="archetypeVersion" />
     </requiredProperties>
 
     <modules>
