@@ -175,7 +175,7 @@
         </requiredProperty>  
 
         <!--
-            Option to enable Archetype Version components in project policy settings.
+            Maven Archetype Version variable
         -->
         <requiredProperty key="archetypeVersion" />
     </requiredProperties>
