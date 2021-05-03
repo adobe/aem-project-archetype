@@ -8,6 +8,11 @@
     "build:production": "ng lint && ng build --prod && clientlib",
     "test": "ng test",
     "sync": "aemsync -d -w ../ui.apps/src/main/content"
+  
+#if ( $enableAdobeIoRuntime == "y")
+    ,"build:ssr": "ng build --prod && ng run angular-app:server:production",
+    "serve:ssr": "node dist/server/main.js"
+#end
   },
   "dependencies": {
     "@adobe/aem-angular-editable-components": "~1.2.0",
@@ -28,6 +33,13 @@
     "tslib": "^1.10.0",
     "whatwg-fetch": "^3.0.0",
     "zone.js": "~0.10.3"
+  
+#if ( $enableAdobeIoRuntime == "y")
+    ,"@angular/platform-server": "~9.1.12",
+    "@nguniversal/express-engine": "^9.1.1",
+    "express-serve-static-core": "^0.1.1",
+    "node-html-parser": "^2.2.1"
+#end
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.12",

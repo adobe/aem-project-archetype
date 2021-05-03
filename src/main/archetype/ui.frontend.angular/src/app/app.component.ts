@@ -16,8 +16,14 @@
 
 import { Constants } from '@adobe/aem-angular-editable-components';
 import { ModelManager } from '@adobe/aem-spa-page-model-manager';
-import { Component } from '@angular/core';
 
+#if ( $enableAdobeIoRuntime == "y")
+import { Component } from '@angular/core';
+#end
+#if ( $enableAdobeIoRuntime == "y")
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+#end
 @Component({
   selector: '#spa-root', // tslint:disable-line
   styleUrls: ['./app.component.css'],
@@ -27,11 +33,29 @@ export class AppComponent {
   items: any;
   itemsOrder: any;
   path: any;
-
+#if ( $enableAdobeIoRuntime == "n")
   constructor() {
     ModelManager.initialize().then(this.updateData);
   }
+#end
+#if ( $enableAdobeIoRuntime == "y")
+  constructor(@Inject(PLATFORM_ID) private _platformId: Object) {
 
+    if(isPlatformBrowser(_platformId)){
+
+      //@ts-ignore
+      if(window.initialModel){
+        //@ts-ignore
+        ModelManager.initialize({model:window.initialModel});
+      }else{
+        ModelManager.initialize();
+      }
+
+      ModelManager.initialize();
+
+    }
+  }
+#end
   private updateData = pageModel => {
     this.path = pageModel[Constants.PATH_PROP];
     this.items = pageModel[Constants.ITEMS_PROP];

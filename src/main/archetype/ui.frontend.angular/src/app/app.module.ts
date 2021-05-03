@@ -44,7 +44,14 @@ import {AemAngularCoreWcmComponentsLanguageNavigationV1} from '@adobe/aem-core-c
 
 @NgModule({
   imports: [
+#if ( $enableAdobeIoRuntime == "n")
     BrowserModule,
+#end
+#if ( $enableAdobeIoRuntime == "y")
+    BrowserModule.withServerTransition({
+        appId: '${appId}'
+    }),
+#end
     SpaAngularEditableComponentsModule,
     AppRoutingModule,
     AemAngularCoreWcmComponentsTabsV1,

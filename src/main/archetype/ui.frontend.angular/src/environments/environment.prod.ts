@@ -19,5 +19,9 @@ export const environment = {
     "/content/${appId}/${country}/${language}/home.html", // tslint:disable-line
   production: true,
   publicUrl:
-    '/etc.clientlibs/${appId}/clientlibs/clientlib-angular/resources'
+    '/etc.clientlibs/${appId}/clientlibs/clientlib-angular/resources',
+#if ( $enableAdobeIoRuntime == "y")
+  API_HOST: 'http://localhost:4502',
+  APP_ROOT_PATH: ''
+#end
 };

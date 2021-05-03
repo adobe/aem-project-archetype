@@ -1,0 +1,23 @@
+{
+    "extends": "./tsconfig.app.json",
+    "sourceMap": false,
+    "inlineSourceMap": true,
+    "compilerOptions": {
+        "outDir": "../out-tsc/app-server",
+        "baseUrl": "./",
+        "module": "commonjs",
+        "types": [ "node" ],
+        "typeRoots": [ "../node_modules/@types" ]
+    },
+    "files": [
+        "src/main.server.ts",
+        "server.ts"
+    ],
+    "exclude": [
+        "test.ts",
+        "**/*.spec.ts"
+    ],
+    "angularCompilerOptions": {
+        "entryModule": "app/app.server.module#AppServerModule"
+    }
+}

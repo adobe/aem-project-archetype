@@ -280,14 +280,23 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
         assert new File("$confFolder/settings/wcm/templates/page-content").deleteDir()
         assert new File("$confFolder/settings/wcm/template-types/page").deleteDir()
 
-        if(enableAdobeIoRuntime == "n" && optionFrontendModule == "react"){
-            //cleanup IO runtime related files from react module
-            assert new File(rootDir, "ui.frontend/webpack.config.express.js").delete();
-            assert new File(rootDir, "ui.frontend/webpack.config.adobeio.js").delete();
-            assert new File(rootDir, "ui.frontend/manifest.yml").delete();
-            assert new File(rootDir, "ui.frontend/src/server").deleteDir();
-            assert new File(rootDir, "ui.frontend/actions").deleteDir();
-            assert new File(rootDir, "ui.frontend/scripts").deleteDir();
+        if(enableAdobeIoRuntime == "n"){
+
+            if(optionFrontendModule == "react"){
+                //cleanup IO runtime related files from react module
+                assert new File(rootDir, "ui.frontend/webpack.config.express.js").delete();
+                assert new File(rootDir, "ui.frontend/webpack.config.adobeio.js").delete();
+                assert new File(rootDir, "ui.frontend/manifest.yml").delete();
+                assert new File(rootDir, "ui.frontend/src/server").deleteDir();
+                assert new File(rootDir, "ui.frontend/actions").deleteDir();
+                assert new File(rootDir, "ui.frontend/scripts").deleteDir();
+            }else if(optionFrontendModule == "angular"){
+                assert new File(rootDir, "ui.frontend/server.ts").delete();
+                assert new File(rootDir, "ui.frontend/tsconfig.server.json").delete();
+                assert new File(rootDir, "ui.frontend/src/main.server.ts").delete();
+                assert new File(rootDir, "ui.frontend/src/app/app.server.module.ts").delete();
+            }
+
         }
     }
 
