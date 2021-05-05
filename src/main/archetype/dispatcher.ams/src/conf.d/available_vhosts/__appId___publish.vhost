@@ -14,8 +14,6 @@ PassEnv DISP_ID
 		Header always add X-Vhost "publish"
 		Header merge X-Frame-Options SAMEORIGIN "expr=%{resp:X-Frame-Options}!='SAMEORIGIN'"
 		Header merge X-Content-Type-Options nosniff "expr=%{resp:X-Content-Type-Options}!='nosniff'"
-		# Make sure proxies don't deliver the wrong content
-		Header append Vary User-Agent env=!dont-vary
 	</IfModule>
 	<Directory />
 		# Update /etc/sysconfig/httpd with setting the PUBLISH_ALLOWLIST_ENABLED from 0 or 1 to enable or disable ip restriction rules
