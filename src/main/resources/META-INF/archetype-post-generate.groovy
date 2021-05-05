@@ -269,7 +269,7 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
     }
 
     //cleanup SSR related files / folders when not choosing react (only react is supported for now) or not choosing SSR
-    if(optionFrontendModule != "react" || enableAdobeIoRuntime == "n" )
+    if(enableAdobeIoRuntime == "n" )
     {
         assert new File("$appsFolder/components/page/body.html").delete();
         assert new File("$configFolder/config/com.adobe.cq.remote.content.renderer.impl.factory.ConfigurationFactoryImpl~${appId}.cfg.json").delete()
@@ -292,9 +292,14 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
                 assert new File(rootDir, "ui.frontend/scripts").deleteDir();
             }else if(optionFrontendModule == "angular"){
                 assert new File(rootDir, "ui.frontend/server.ts").delete();
+                assert new File(rootDir, "ui.frontend/serverless.ts").delete();
+                assert new File(rootDir, "ui.frontend/fix-formidable").deleteDir();
                 assert new File(rootDir, "ui.frontend/tsconfig.server.json").delete();
                 assert new File(rootDir, "ui.frontend/src/main.server.ts").delete();
                 assert new File(rootDir, "ui.frontend/src/app/app.server.module.ts").delete();
+                assert new File(rootDir, "ui.frontend/CustomModelClient.js").delete();
+
+
             }
 
         }

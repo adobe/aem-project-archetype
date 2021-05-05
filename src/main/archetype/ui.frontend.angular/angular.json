@@ -30,6 +30,38 @@
             "scripts": []
           },
           "configurations": {
+#if ( $enableAdobeIoRuntime == "y")
+            "serverless": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "outputPath": "actions/webapp",
+              "optimization": false,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            },
+#end
             "production": {
               "fileReplacements": [
                 {
@@ -96,23 +128,19 @@
             "scripts": []
           }
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": ["tsconfig.app.json", "tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**"]
-          }
-        }
-  
 #if ( $enableAdobeIoRuntime == "y")
-        ,"server": {
+        "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/server",
+            "outputPath": "actions/webapp/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json"
           },
           "configurations": {
+            "serverless": {
+              "main": "serverless.ts",
+              "outputPath": "actions/webapp/server"
+            },
             "production": {
               "outputHashing": "media",
               "fileReplacements": [
@@ -122,13 +150,25 @@
                 }
               ],
               "sourceMap": false,
-              "optimization": true
+              "optimization": false
             }
           }
         },
 #end
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["tsconfig.app.json", "tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+
+        
       }
     }
   },
   "defaultProject": "angular-app"
 }
+
+
+

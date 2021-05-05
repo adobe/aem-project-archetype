@@ -6,12 +6,14 @@
         "outDir": "../out-tsc/app-server",
         "baseUrl": "./",
         "module": "commonjs",
+        "target": "ES6",
         "types": [ "node" ],
         "typeRoots": [ "../node_modules/@types" ]
     },
     "files": [
         "src/main.server.ts",
-        "server.ts"
+        "server.ts",
+        "serverless.ts"
     ],
     "exclude": [
         "test.ts",

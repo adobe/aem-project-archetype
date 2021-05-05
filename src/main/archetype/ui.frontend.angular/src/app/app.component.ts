@@ -14,13 +14,15 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import { Constants } from '@adobe/aem-angular-editable-components';
+
 import { ModelManager } from '@adobe/aem-spa-page-model-manager';
 
-#if ( $enableAdobeIoRuntime == "y")
+#if ( $enableAdobeIoRuntime == "n")
+import { Constants } from '@adobe/aem-angular-editable-components';
 import { Component } from '@angular/core';
 #end
 #if ( $enableAdobeIoRuntime == "y")
+import { Constants, Utils } from '@adobe/aem-angular-editable-components';
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 #end
@@ -39,19 +41,17 @@ export class AppComponent {
   }
 #end
 #if ( $enableAdobeIoRuntime == "y")
-  constructor(@Inject(PLATFORM_ID) private _platformId: Object) {
+  constructor(@Inject(PLATFORM_ID) private _platformId: object) {
 
     if(isPlatformBrowser(_platformId)){
-
-      //@ts-ignore
-      if(window.initialModel){
-        //@ts-ignore
+      // for some reason we cannot hydrate on the author, this causes edit mode to break.
+      // @ts-ignore
+      if(!Utils.isInEditor() && window.initialModel){
+        // @ts-ignore
         ModelManager.initialize({model:window.initialModel});
       }else{
         ModelManager.initialize();
       }
-
-      ModelManager.initialize();
 
     }
   }
