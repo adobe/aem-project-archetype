@@ -65,7 +65,7 @@
         <vault.user>admin</vault.user>
         <vault.password>admin</vault.password>
         <frontend-maven-plugin.version>1.7.6</frontend-maven-plugin.version>
-#if ($enableAdobeIoRuntime == "y")
+#if ($enableSSR == "y")
         <aio.runtime.namespace>${env.AIO_RUNTIME_NAMESPACE}</aio.runtime.namespace>
         <aio.runtime.auth>${env.AIO_RUNTIME_AUTH}</aio.runtime.auth>
 #end

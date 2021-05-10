@@ -177,7 +177,7 @@
         <!--
             Option to enable SSR for the front-end project (currently only supported for react)
          -->
-        <requiredProperty key="enableAdobeIoRuntime">
+        <requiredProperty key="enableSSR">
             <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
