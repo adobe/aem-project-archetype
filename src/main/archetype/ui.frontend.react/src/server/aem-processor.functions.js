@@ -1,4 +1,3 @@
-import { CustomModelClient } from "./CustomModelClient";
 import React from "react";
 import ReactDOMServer from 'react-dom/server';
 import App from "../App";
@@ -37,8 +36,7 @@ async function processSPA(args) {
     let modelData = args.data;
     let pagePath = args.pagePath.replace('.html', '');
 
-    let modelClient = new CustomModelClient();
-    await ModelManager.initialize({path: pageModelRootPath, model: modelData, modelClient: modelClient});
+    await ModelManager.initialize({path: pageModelRootPath, model: modelData});
     const response = await renderModelToHTMLString(modelData, pagePath, args.pagePath, args.pagePath, pageModelRootPath, isInEditor);
     return response;
 }
