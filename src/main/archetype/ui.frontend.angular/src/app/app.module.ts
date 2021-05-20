@@ -44,10 +44,10 @@ import {AemAngularCoreWcmComponentsLanguageNavigationV1} from '@adobe/aem-core-c
 
 @NgModule({
   imports: [
-#if ( $enableAdobeIoRuntime == "n")
+#if ( $enableSSR == "n")
     BrowserModule,
 #end
-#if ( $enableAdobeIoRuntime == "y")
+#if ( $enableSSR == "y")
     BrowserModule.withServerTransition({
         appId: '${appId}'
     }),

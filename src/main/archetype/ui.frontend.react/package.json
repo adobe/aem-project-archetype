@@ -5,7 +5,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && clientlib --verbose",
-#if ( $enableAdobeIoRuntime == "y")
+#if ( $enableSSR == "y")
     "build-with-ssr": "react-scripts build && webpack --config webpack.config.adobeio.js && clientlib --verbose",
     "build-with-express": "react-scripts build && webpack --config webpack.config.express.js && clientlib --verbose",
     "start-ssr-ioruntime": "cross-env NODE_ENV=development aio app run --local",
@@ -30,7 +30,7 @@
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0"
-#if ( $enableAdobeIoRuntime == "y")
+#if ( $enableSSR == "y")
     ,"@adobe/aio-sdk": "^3.0.0",
     "minimist": "^1.2.0",
     "node-fetch": "^2.6.0",
@@ -62,7 +62,7 @@
     "webpack-node-externals": "^1.7.2",
     "webpack-shell-plugin": "^0.5.0"
   
-#if ( $enableAdobeIoRuntime == "y")
+#if ( $enableSSR == "y")
     ,"cross-env": "^7.0.3",
     "@adobe/aio-cli": "^6.0.0",
     "@adobe/wskdebug": "^1.1.3",

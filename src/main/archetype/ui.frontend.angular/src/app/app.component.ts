@@ -17,11 +17,11 @@
 
 import { ModelManager } from '@adobe/aem-spa-page-model-manager';
 
-#if ( $enableAdobeIoRuntime == "n")
+#if ( $enableSSR == "n")
 import { Constants } from '@adobe/aem-angular-editable-components';
 import { Component } from '@angular/core';
 #end
-#if ( $enableAdobeIoRuntime == "y")
+#if ( $enableSSR == "y")
 import { Constants, Utils } from '@adobe/aem-angular-editable-components';
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
@@ -35,12 +35,12 @@ export class AppComponent {
   items: any;
   itemsOrder: any;
   path: any;
-#if ( $enableAdobeIoRuntime == "n")
+#if ( $enableSSR == "n")
   constructor() {
     ModelManager.initialize().then(this.updateData);
   }
 #end
-#if ( $enableAdobeIoRuntime == "y")
+#if ( $enableSSR == "y")
   constructor(@Inject(PLATFORM_ID) private _platformId: object) {
 
     if(isPlatformBrowser(_platformId)){

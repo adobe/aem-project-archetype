@@ -98,7 +98,7 @@
             </plugins>
         </pluginManagement>
     </build>
-#if ( $enableAdobeIoRuntime == "y")
+#if ( $enableSSR == "y")
     <profiles>
         <profile>
             <id>serverSideRender-runtime</id>

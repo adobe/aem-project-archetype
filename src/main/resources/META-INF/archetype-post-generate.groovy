@@ -24,7 +24,7 @@ def sdkVersion = request.getProperties().get("sdkVersion")
 def includeDispatcherConfig = request.getProperties().get("includeDispatcherConfig")
 def includeCommerce = request.getProperties().get("includeCommerce")
 def includeForms = request.getProperties().get("includeForms")
-def enableAdobeIoRuntime = request.getProperties().get("enableAdobeIoRuntime");
+def enableSSR = request.getProperties().get("enableSSR");
 def sdkFormsVersion = request.getProperties().get("sdkFormsVersion")
 
 def appsFolder = new File("$uiAppsPackage/src/main/content/jcr_root/apps/$appId")
@@ -80,7 +80,7 @@ if (aemVersion == "cloud" && includeCommerce == "y") {
 }
 
 buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, language, country)
-cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder,enableAdobeIoRuntime)
+cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder,enableSSR)
 
 if ( includeDispatcherConfig == "n"){
     // remove the unneeded config file
@@ -230,7 +230,7 @@ def buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, 
 /**
  * Renames and deletes frontend related files as necessary
  */
-def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder, enableAdobeIoRuntime) {
+def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder, enableSSR) {
     // Delete unwanted frontend modules
     frontendModules.each { def frontendModule ->
         // Clean up POM file
@@ -269,7 +269,7 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
     }
 
     //cleanup SSR related files / folders when not choosing react (only react is supported for now) or not choosing SSR
-    if(enableAdobeIoRuntime == "n" )
+    if(enableSSR == "n" )
     {
         assert new File("$appsFolder/components/page/body.html").delete();
         assert new File("$configFolder/config/com.adobe.cq.remote.content.renderer.impl.factory.ConfigurationFactoryImpl~${appId}.cfg.json").delete()
@@ -280,7 +280,7 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
         assert new File("$confFolder/settings/wcm/templates/page-content").deleteDir()
         assert new File("$confFolder/settings/wcm/template-types/page").deleteDir()
 
-        if(enableAdobeIoRuntime == "n"){
+        if(enableSSR == "n"){
 
             if(optionFrontendModule == "react"){
                 //cleanup IO runtime related files from react module
@@ -292,14 +292,9 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
                 assert new File(rootDir, "ui.frontend/scripts").deleteDir();
             }else if(optionFrontendModule == "angular"){
                 assert new File(rootDir, "ui.frontend/server.ts").delete();
-                assert new File(rootDir, "ui.frontend/serverless.ts").delete();
-                assert new File(rootDir, "ui.frontend/fix-formidable").deleteDir();
                 assert new File(rootDir, "ui.frontend/tsconfig.server.json").delete();
                 assert new File(rootDir, "ui.frontend/src/main.server.ts").delete();
                 assert new File(rootDir, "ui.frontend/src/app/app.server.module.ts").delete();
-                assert new File(rootDir, "ui.frontend/CustomModelClient.js").delete();
-
-
             }
 
         }

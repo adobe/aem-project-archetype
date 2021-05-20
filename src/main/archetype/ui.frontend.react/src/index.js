@@ -5,10 +5,10 @@ import 'custom-event-polyfill';
 import { Constants, ModelManager } from '@adobe/aem-spa-page-model-manager';
 import { createBrowserHistory } from 'history';
 import React from 'react';
-#if ( $enableAdobeIoRuntime == "y")
+#if ( $enableSSR == "y")
 import { render, hydrate } from 'react-dom';
 #end
-#if ( $enableAdobeIoRuntime == "n")
+#if ( $enableSSR == "n")
 import { render } from 'react-dom';
 #end
 import { Router } from 'react-router-dom';
@@ -35,7 +35,7 @@ const renderApp = () => {
     });
 };
 
-#if ( $enableAdobeIoRuntime == "y")
+#if ( $enableSSR == "y")
 const hydrateApp = (initialState) => {
     ModelManager.initialize({
         model: initialState.rootModel
@@ -60,7 +60,7 @@ const hydrateApp = (initialState) => {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-#if ( $enableAdobeIoRuntime == "y")
+#if ( $enableSSR == "y")
     const initialStateScriptTag = document.getElementById('__INITIAL_STATE__');
     if(!!initialStateScriptTag){
         try{
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderApp();
     }
 #end
-#if ( $enableAdobeIoRuntime == "n")
+#if ( $enableSSR == "n")
     renderApp();
 #end
 });

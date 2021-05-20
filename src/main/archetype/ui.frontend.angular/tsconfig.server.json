@@ -12,8 +12,7 @@
     },
     "files": [
         "src/main.server.ts",
-        "server.ts",
-        "serverless.ts"
+        "server.ts"
     ],
     "exclude": [
         "test.ts",

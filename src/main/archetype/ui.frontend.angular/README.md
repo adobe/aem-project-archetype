@@ -43,7 +43,7 @@ By default, this project uses [Browserslist](https://github.com/browserslist/bro
 
 
 
-#if ( $enableAdobeIoRuntime == "y" )
+#if ( $enableSSR == "y" )
 
 ${hash} Frontend Serverless Build (Adobe IO Runtime)
 
