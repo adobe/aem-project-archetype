@@ -14,6 +14,7 @@ function renderModelToHTMLString(model, pagePath, requestUrl, requestPath, pageM
             </EditorContext.Provider>
         </StaticRouter>
     );
+    
 
     // We are using ' for the string to we need to make sure we are encoding all other '
     let state = {
