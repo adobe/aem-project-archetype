@@ -13,42 +13,99 @@
  ~ See the License for the specific language governing permissions and
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-import {MapTo} from '@adobe/aem-angular-editable-components';
+import {LazyMapTo} from '@adobe/aem-angular-editable-components';
 
 import './container/container.component';
 import './responsive-grid/responsive-grid.component';
 
-import {TabsV1Component} from '@adobe/aem-core-components-angular-spa/containers/tabs/v1';
 
-import {TitleV2Component, TitleV2IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/title/v2';
-import {BreadCrumbV2Component, BreadCrumbV2IsEmptyFn} from '@adobe/aem-core-components-angular-base/layout/breadcrumb/v2';
-import {NavigationV1Component, NavigationV1IsEmptyFn} from '@adobe/aem-core-components-angular-base/layout/navigation/v1';
-import {ButtonV1Component, ButtonV1IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/button/v1';
-import {ImageV2Component, ImageV2IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/image/v2';
+import {
+    TitleV2IsEmptyFn,
+    BreadCrumbV2IsEmptyFn,
+    NavigationV1IsEmptyFn,
+    ImageV2IsEmptyFn,
+    TeaserV1IsEmptyFn,
+    DownloadV1IsEmptyFn,
+    ListV2IsEmptyFn,
+} from '@adobe/aem-core-components-angular-base/core';
 
-import {TeaserV1Component, TeaserV1IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/teaser/v1';
-import {DownloadV1Component, DownloadV1IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/download/v1';
+/**
+ * Loading the following components with LazyMapTo - so they are loaded only when we need them!
+ */
 
-import {ListV2Component, ListV2IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/list/v2';
-import {SeparatorV1Component} from '@adobe/aem-core-components-angular-base/authoring/separator/v1';
-import {AccordionV1Component} from '@adobe/aem-core-components-angular-spa/containers/accordion/v1';
-import {CarouselV1Component} from '@adobe/aem-core-components-angular-spa/containers/carousel/v1';
-import {LanguageNavigationV1Component} from '@adobe/aem-core-components-angular-base/layout/language-navigation/v1';
-
-
-MapTo('${appId}/components/navigation')(NavigationV1Component, {isEmpty: NavigationV1IsEmptyFn});
-MapTo('${appId}/components/teaser')(TeaserV1Component, {isEmpty: TeaserV1IsEmptyFn});
-MapTo('${appId}/components/title')(TitleV2Component, {isEmpty: TitleV2IsEmptyFn});
-MapTo('${appId}/components/separator')(SeparatorV1Component);
+const NavigationV1Component = () => import('@adobe/aem-core-components-angular-base/layout/navigation/v1').then(
+    Module => Module.NavigationV1Component
+);
+LazyMapTo('${appId}/components/navigation')(NavigationV1Component, {isEmpty: NavigationV1IsEmptyFn});
 
 
-MapTo('${appId}/components/download')(DownloadV1Component,{isEmpty: DownloadV1IsEmptyFn});
-MapTo('${appId}/components/languagenavigation')(LanguageNavigationV1Component);
-MapTo('${appId}/components/list')(ListV2Component, {isEmpty: ListV2IsEmptyFn});
-MapTo('${appId}/components/breadcrumb')(BreadCrumbV2Component, {isEmpty: BreadCrumbV2IsEmptyFn})
-MapTo('${appId}/components/button')(ButtonV1Component, {isEmpty: ButtonV1IsEmptyFn});
-MapTo('${appId}/components/image')(ImageV2Component, {isEmpty: ImageV2IsEmptyFn});
+const TeaserV1Component = () => import('@adobe/aem-core-components-angular-base/authoring/teaser/v1').then(
+    Module => Module.TeaserV1Component
+);
+LazyMapTo('${appId}/components/teaser')(TeaserV1Component, {isEmpty: TeaserV1IsEmptyFn});
 
-MapTo('${appId}/components/carousel')(CarouselV1Component);
-MapTo('${appId}/components/accordion')(AccordionV1Component);
-MapTo('${appId}/components/tabs')(TabsV1Component);
+
+const TitleV2Component = () => import('@adobe/aem-core-components-angular-base/authoring/title/v2').then(
+    Module => Module.TitleV2Component
+);
+LazyMapTo('${appId}/components/title')(TitleV2Component, {isEmpty: TitleV2IsEmptyFn});
+
+
+const SeparatorV1Component = () => import('@adobe/aem-core-components-angular-base/authoring/separator/v1').then(
+    Module => Module.SeparatorV1Component
+);
+LazyMapTo('${appId}/components/separator')(SeparatorV1Component);
+
+
+const DownloadV1Component = () => import('@adobe/aem-core-components-angular-base/authoring/download/v1').then(
+    Module => Module.DownloadV1Component
+);
+LazyMapTo('${appId}/components/download')(DownloadV1Component, {isEmpty: DownloadV1IsEmptyFn});
+
+
+const LanguageNavigationV1Component = () => import('@adobe/aem-core-components-angular-base/layout/language-navigation/v1').then(
+    Module => Module.LanguageNavigationV1Component
+);
+LazyMapTo('${appId}/components/languagenavigation')(LanguageNavigationV1Component);
+
+
+const ListV2Component = () => import('@adobe/aem-core-components-angular-base/authoring/list/v2').then(
+    Module => Module.ListV2Component
+);
+LazyMapTo('${appId}/components/list')(ListV2Component, {isEmpty: ListV2IsEmptyFn});
+
+
+const BreadCrumbV2Component = () => import('@adobe/aem-core-components-angular-base/layout/breadcrumb/v2').then(
+    Module => Module.BreadCrumbV2Component
+);
+LazyMapTo('${appId}/components/breadcrumb')(BreadCrumbV2Component, {isEmpty: BreadCrumbV2IsEmptyFn});
+
+
+const ButtonV1Component = () => import('@adobe/aem-core-components-angular-base/authoring/button/v1').then(
+    Module => Module.ButtonV1Component
+);
+LazyMapTo('${appId}/components/button')(ButtonV1Component);
+
+
+const ImageV2Component = () => import('@adobe/aem-core-components-angular-base/authoring/image/v2').then(
+    Module => Module.ImageV2Component
+);
+LazyMapTo('${appId}/components/image')(ImageV2Component, {isEmpty: ImageV2IsEmptyFn});
+
+
+const CarouselV1Component = () => import('@adobe/aem-core-components-angular-spa/containers/carousel/v1').then(
+    Module => Module.CarouselV1Component
+);
+LazyMapTo('${appId}/components/carousel')(CarouselV1Component);
+
+
+const AccordionV1Component = () => import('@adobe/aem-core-components-angular-spa/containers/accordion/v1').then(
+    Module => Module.AccordionV1Component
+);
+LazyMapTo('${appId}/components/accordion')(AccordionV1Component);
+
+
+const TabsV1Component = () => import('@adobe/aem-core-components-angular-spa/containers/tabs/v1').then(
+    Module => Module.TabsV1Component
+);
+LazyMapTo('${appId}/components/tabs')(TabsV1Component);

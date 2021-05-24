@@ -46,20 +46,7 @@ import {AemAngularCoreWcmComponentsLanguageNavigationV1} from '@adobe/aem-core-c
   imports: [
     BrowserModule,
     SpaAngularEditableComponentsModule,
-    AppRoutingModule,
-    AemAngularCoreWcmComponentsTabsV1,
-    AemAngularCoreWcmComponentsTitleV2,
-    AemAngularCoreWcmComponentsBreadCrumbV2,
-    AemAngularCoreWcmComponentsNavigationV1,
-    AemAngularCoreWcmComponentsButtonV1,
-    AemAngularCoreWcmComponentsImageV2,
-    AemAngularCoreWcmComponentsTeaserV1,
-    AemAngularCoreWcmComponentsDownloadV1,
-    AemAngularCoreWcmComponentsListV2,
-    AemAngularCoreWcmComponentsSeparatorV1,
-    AemAngularCoreWcmComponentsAccordionV1,
-    AemAngularCoreWcmComponentsCarouselV1,
-    AemAngularCoreWcmComponentsLanguageNavigationV1
+    AppRoutingModule
   ],
   providers: [ ModelManagerService,
     { provide: APP_BASE_HREF, useValue: '/' } ],
