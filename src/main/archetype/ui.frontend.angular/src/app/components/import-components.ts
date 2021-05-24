@@ -30,6 +30,7 @@ import {
 } from '@adobe/aem-core-components-angular-base/core';
 
 /**
+ * Demonstrating lazy loading external modules and components.
  * Loading the following components with LazyMapTo - so they are loaded only when we need them!
  */
 
@@ -109,3 +110,22 @@ const TabsV1Component = () => import('@adobe/aem-core-components-angular-spa/con
     Module => Module.TabsV1Component
 );
 LazyMapTo('${appId}/components/tabs')(TabsV1Component);
+
+/**
+ * Demonstrates lazy loading an internal component.
+ */
+
+/**
+ * Default Edit configuration for the Text component that interact with the Core Text component and sub-types
+ */
+const TextEditConfig = {
+    emptyLabel: 'Text',
+    isEmpty: cqModel =>
+        !cqModel || !cqModel.text || cqModel.text.trim().length < 1
+};
+
+const TextModule = () => import('./text/text.component').then(
+    Module => Module.TextComponent
+);
+
+LazyMapTo('${appId}/components/text')(TextModule, TextEditConfig);

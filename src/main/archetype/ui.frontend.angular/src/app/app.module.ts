@@ -23,24 +23,7 @@ import { AppComponent } from './app.component';
 import './components/import-components';
 import { ModelManagerService } from './components/model-manager.service';
 import { PageComponent } from './components/page/page.component';
-import { TextComponent } from './components/text/text.component';
 
-import {AemAngularCoreWcmComponentsTabsV1} from '@adobe/aem-core-components-angular-spa/containers/tabs/v1';
-
-import {AemAngularCoreWcmComponentsTitleV2} from '@adobe/aem-core-components-angular-base/authoring/title/v2';
-import {AemAngularCoreWcmComponentsBreadCrumbV2} from '@adobe/aem-core-components-angular-base/layout/breadcrumb/v2';
-import {AemAngularCoreWcmComponentsNavigationV1} from '@adobe/aem-core-components-angular-base/layout/navigation/v1';
-import {AemAngularCoreWcmComponentsButtonV1} from '@adobe/aem-core-components-angular-base/authoring/button/v1';
-import {AemAngularCoreWcmComponentsImageV2} from '@adobe/aem-core-components-angular-base/authoring/image/v2';
-
-import {AemAngularCoreWcmComponentsTeaserV1} from '@adobe/aem-core-components-angular-base/authoring/teaser/v1';
-import {AemAngularCoreWcmComponentsDownloadV1} from '@adobe/aem-core-components-angular-base/authoring/download/v1';
-
-import {AemAngularCoreWcmComponentsListV2} from '@adobe/aem-core-components-angular-base/authoring/list/v2';
-import {AemAngularCoreWcmComponentsSeparatorV1} from '@adobe/aem-core-components-angular-base/authoring/separator/v1';
-import {AemAngularCoreWcmComponentsAccordionV1} from '@adobe/aem-core-components-angular-spa/containers/accordion/v1';
-import {AemAngularCoreWcmComponentsCarouselV1} from '@adobe/aem-core-components-angular-spa/containers/carousel/v1';
-import {AemAngularCoreWcmComponentsLanguageNavigationV1} from '@adobe/aem-core-components-angular-base/layout/language-navigation/v1';
 
 @NgModule({
   imports: [
@@ -50,8 +33,8 @@ import {AemAngularCoreWcmComponentsLanguageNavigationV1} from '@adobe/aem-core-c
   ],
   providers: [ ModelManagerService,
     { provide: APP_BASE_HREF, useValue: '/' } ],
-  declarations: [AppComponent, TextComponent, PageComponent],
-  entryComponents: [TextComponent, PageComponent],
+  declarations: [AppComponent, PageComponent],
+  entryComponents: [ PageComponent],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {}
