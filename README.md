@@ -89,7 +89,6 @@ Name                      | Default        | Description
 `datalayer`               | `y`            | Activate integration with [Adobe Client Data Layer](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/data-layer/overview.html).
 `amp`                     | `n`            | Enable [AMP](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/amp.html) support for genenerated project templates.
 `enableDynamicMedia`      | `n`            | Enabled foundation DynamicMedia components in project policy settings and activates Dynamic Media features in Core Image component's policy.
-`enableSSR`    | `n`            | Option to enable SSR for the front-end project (currently only supported for react)
 
 ## System Requirements
 
