@@ -90,7 +90,6 @@ yarn.lock
 # Webpack
 build/
 dist/
-actions/common/
 
 # Frontend Maven Plugin
 node/

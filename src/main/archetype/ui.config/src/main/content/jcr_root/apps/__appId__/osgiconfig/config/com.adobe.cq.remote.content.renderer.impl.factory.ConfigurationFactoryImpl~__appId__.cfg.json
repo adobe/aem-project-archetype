@@ -1,8 +1,0 @@
-{
-    "getContentPathPattern": "/content/${appId}/(.*)|/conf/${appId}/(.*)/settings/wcm/templates/(.*)",
-    "getRemoteHTMLRendererUrl" : "http://localhost:3233/api/v1/web/guest/${appId}-0.1.0/ssr",
-    "getRequestTimeout": 10000,
-    "getAdditionalRequestHeaders": [
-    
-    ]
-}
