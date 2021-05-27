@@ -86,3 +86,6 @@
 
 # GraphQL Persisted Queries & preflight requests
 /0061 { /type "allow" /method '(GET|POST|OPTIONS)' /url "/graphql/execute.json*" }
+
+# Allow Forms Doc Generation requests
+/0062 { /type "allow" /method "POST" /url "/adobe/forms/doc/*" }

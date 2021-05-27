@@ -64,6 +64,11 @@
         <sling.password>admin</sling.password>
         <vault.user>admin</vault.user>
         <vault.password>admin</vault.password>
+        <frontend-maven-plugin.version>1.7.6</frontend-maven-plugin.version>
+#if ($enableSSR == "y")
+        <aio.runtime.namespace>${env.AIO_RUNTIME_NAMESPACE}</aio.runtime.namespace>
+        <aio.runtime.auth>${env.AIO_RUNTIME_AUTH}</aio.runtime.auth>
+#end
 #if ( $aemVersion != "cloud" || $includeExamples == "y")
         <core.wcm.components.version>2.16.0</core.wcm.components.version>
 #end
@@ -171,7 +176,7 @@
                 <plugin>
                     <groupId>com.github.eirslett</groupId>
                     <artifactId>frontend-maven-plugin</artifactId>
-                    <version>1.7.6</version>
+                    <version>${frontend-maven-plugin.version}</version>
                     <configuration>
                         <nodeVersion>v10.13.0</nodeVersion>
                         <npmVersion>6.9.0</npmVersion>
