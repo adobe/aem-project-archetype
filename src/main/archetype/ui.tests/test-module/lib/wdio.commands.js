@@ -139,6 +139,12 @@ browser.addCommand('AEMSitesSetPageTitle', function(parentPath, name, title) {
     return originalTitle;
 });
 
+browser.addCommand('focus', function () {
+    browser.execute(function (domElement) {
+        domElement.focus();
+    }, this);
+}, true);
+
 async function fileHandle(filePath) {
     if (config.upload_url) {
         return fileHandleByUploadUrl(config.upload_url, filePath);
