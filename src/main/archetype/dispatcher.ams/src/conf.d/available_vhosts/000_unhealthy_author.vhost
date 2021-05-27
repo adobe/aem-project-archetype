@@ -12,8 +12,6 @@
 		# Don't compress images
 		SetEnvIfNoCase Request_URI \
 		\.(?:gif|jpe?g|png)$ no-gzip dont-vary
-		# Make sure proxies don't deliver the wrong content
-		Header append Vary User-Agent env=!dont-vary
 	</Directory>
 	<Directory "/mnt/var/www/default">
 		AllowOverride None

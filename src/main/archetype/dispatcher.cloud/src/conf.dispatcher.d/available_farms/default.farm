@@ -74,6 +74,12 @@
 				/glob "*.html"
 				/type "allow"
 			}
+			# to ensure that AEM forms HTMLs are not auto-invalidated due to invalidation of any other resource. It is supposed to be deleted only after its own activation.
+			/0002
+			{
+				/glob "/content/forms/**/*.html"
+				/type "deny"
+			}
 		}
 		/allowedClients {
 			$include "../cache/default_invalidate.any"
