@@ -209,6 +209,20 @@
                     </execution>
                 </executions>
             </plugin>
+#if ( $aemVersion == "cloud" && $includeCommerce != "y" )
+            <plugin>
+                <groupId>com.adobe.aem</groupId>
+                <artifactId>aemanalyser-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>aem-analyser</id>
+                        <goals>
+                            <goal>project-analyse</goal>                           
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+#end
         </plugins>
     </build>
 
