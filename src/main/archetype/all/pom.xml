@@ -209,7 +209,7 @@
                     </execution>
                 </executions>
             </plugin>
-#if ( $aemVersion == "cloud" && $includeCommerce != "y" )
+#if ( $aemVersion == "cloud" )
             <plugin>
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>aemanalyser-maven-plugin</artifactId>
