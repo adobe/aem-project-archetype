@@ -88,7 +88,7 @@ describe('AEM Forms Reference Artifacts', () => {
 
     });
 
-    describe('AEM Forms Temlpates', () => {
+    describe('AEM Forms Temlplates', () => {
         let templates = [
                 {path : '/conf/${appId}/settings/wcm/templates/basic-af', isBlankForm : false},
                 {path : '/conf/${appId}/settings/wcm/templates/blank-af', isBlankForm : true}
@@ -117,7 +117,7 @@ describe('AEM Forms Reference Artifacts', () => {
 
                 //Click on specific area of AF container overlay and verify toolbar
                 expect($(afContainerOverlaySelector).waitForDisplayed()).toBe(true);
-                $(afContainerOverlaySelector).focus();
+                browser.execute('$(\'' + `${afContainerOverlaySelector}` + '\').focus()');
                 expect($(afContainerOverlaySpanSelector).waitForDisplayed()).toBe(true);
                 $(afContainerOverlaySpanSelector).click();
 

@@ -20,11 +20,11 @@ var selectors = {
             guideFieldLabelOvelaySelector : '#af-overlay-selector-text > button[data-target-selector="af_fieldlabel"]'
         },
         themeEditor : {
-            themeEditorObjSelector : '#theme-objectHierarchy > div.sidepanel-tree-component-items > .toplevel-list > li.toplevel-element > ul >li.themeEditableObject'
+            themeEditorObjSelector : '.themeEditableObject'
         }
     },
     content : {
-        genericAFField : '#guideContainerForm .guideContainerNode .guideRootPanel .guideFieldNode',
+        genericAFField : '.guideFieldNode',
         guideFieldLabelSelector : '.guideFieldLabel > label',
     }
 
