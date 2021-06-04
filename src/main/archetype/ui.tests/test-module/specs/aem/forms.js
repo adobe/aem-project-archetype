@@ -88,7 +88,7 @@ describe('AEM Forms Reference Artifacts', () => {
 
     });
 
-    describe('AEM Forms Temlplates', () => {
+    describe('AEM Forms Templates', () => {
         let templates = [
                 {path : '/conf/${appId}/settings/wcm/templates/basic-af', isBlankForm : false},
                 {path : '/conf/${appId}/settings/wcm/templates/blank-af', isBlankForm : true}
