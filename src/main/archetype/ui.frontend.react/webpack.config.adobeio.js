@@ -90,7 +90,7 @@ const serverConfig = {
         // the server side.
         new webpack.optimize.LimitChunkCountPlugin({
             maxChunks: 1,
-        }),
+        })
     ]
 };
 
