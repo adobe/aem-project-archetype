@@ -85,7 +85,12 @@ const serverConfig = {
             "APP_ROOT_PATH": process.env.APP_ROOT_PATH
         }),
         new CleanWebpackPlugin(['dist']),
-        new WebpackShellPlugin({onBuildEnd:['node ./scripts/postWebhook.js']})
+        new WebpackShellPlugin({onBuildEnd:['node ./scripts/postWebhook.js']}),
+        // Output a single chunk at most to make sure all code is loaded on
+        // the server side.
+        new webpack.optimize.LimitChunkCountPlugin({
+            maxChunks: 1,
+        }),
     ]
 };
 
