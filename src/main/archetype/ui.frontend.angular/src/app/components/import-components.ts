@@ -19,13 +19,12 @@ import './container/container.component';
 import './responsive-grid/responsive-grid.component';
 
 
-import {TitleV2IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/title/v2';
+import {TitleV2Component, TitleV2IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/title/v2';
 import {BreadCrumbV2Component, BreadCrumbV2IsEmptyFn} from '@adobe/aem-core-components-angular-base/layout/breadcrumb/v2';
 import {NavigationV1Component, NavigationV1IsEmptyFn} from '@adobe/aem-core-components-angular-base/layout/navigation/v1';
 import {ButtonV1Component, ButtonV1IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/button/v1';
 import {ImageV2Component, ImageV2IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/image/v2';
 
-import {TeaserV1Component, TeaserV1IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/teaser/v1';
 import {DownloadV1Component, DownloadV1IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/download/v1';
 
 import {ListV2Component, ListV2IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/list/v2';
@@ -39,9 +38,7 @@ import {LanguageNavigationV1Component} from '@adobe/aem-core-components-angular-
  * Normal MapTo - maps angular components to aem models
  */
 MapTo('${appId}/components/navigation')(NavigationV1Component, {isEmpty: NavigationV1IsEmptyFn});
-MapTo('${appId}/components/teaser')(TeaserV1Component, {isEmpty: TeaserV1IsEmptyFn});
 MapTo('${appId}/components/separator')(SeparatorV1Component);
-
 
 MapTo('${appId}/components/download')(DownloadV1Component,{isEmpty: DownloadV1IsEmptyFn});
 MapTo('${appId}/components/languagenavigation')(LanguageNavigationV1Component);
@@ -49,7 +46,7 @@ MapTo('${appId}/components/list')(ListV2Component, {isEmpty: ListV2IsEmptyFn});
 MapTo('${appId}/components/breadcrumb')(BreadCrumbV2Component, {isEmpty: BreadCrumbV2IsEmptyFn})
 MapTo('${appId}/components/button')(ButtonV1Component, {isEmpty: ButtonV1IsEmptyFn});
 MapTo('${appId}/components/image')(ImageV2Component, {isEmpty: ImageV2IsEmptyFn});
-
+MapTo('${appId}/components/title')(TitleV2Component, {isEmpty: TitleV2IsEmptyFn});
 
 MapTo('${appId}/components/accordion')(AccordionV1Component);
 MapTo('${appId}/components/tabs')(TabsV1Component);
@@ -59,10 +56,10 @@ MapTo('${appId}/components/tabs')(TabsV1Component);
  * Loading the following components with LazyMapTo - so they are loaded only when we need them!
  */
 
-const TitleV2Component = () => import('@adobe/aem-core-components-angular-base/authoring/title/v2').then(
-    Module => Module.TitleV2Component
+const TeaserV1Component = () => import('@adobe/aem-core-components-angular-base/authoring/teaser/v1').then(
+    Module => Module.TeaserV1Component
 );
-LazyMapTo('${appId}/components/title')(TitleV2Component, {isEmpty: TitleV2IsEmptyFn});
+LazyMapTo('${appId}/components/teaser')(TeaserV1Component);
 
 const CarouselV1Component = () => import('@adobe/aem-core-components-angular-spa/containers/carousel/v1').then(
     Module => Module.CarouselV1Component
