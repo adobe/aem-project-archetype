@@ -22,40 +22,37 @@ import './ExperienceFragment/ExperienceFragment';
 import {MapTo} from '@adobe/aem-react-editable-components';
 
 import {
-    ContainerV1IsEmptyFn,
-    TabsV1IsEmptyFn,
-    AccordionV1IsEmptyFn,
     CarouselV1IsEmptyFn
 } from '@adobe/aem-core-components-react-spa/dist/isEmptyFunctions';
 
 import {
-    TitleV2IsEmptyFn,
-    BreadCrumbV2IsEmptyFn,
-    ButtonV1IsEmptyFn,
-    ImageV2IsEmptyFn,
-    TeaserV1IsEmptyFn,
-    DownloadV1IsEmptyFn,
-    SeparatorV1IsEmptyFn,
-    ListV2IsEmptyFn
+    TitleV2IsEmptyFn
 } from '@adobe/aem-core-components-react-base/dist/isEmptyFunctions';
 
-//lazyload / code splitting of external components
+import {
+    ContainerV1, ContainerV1IsEmptyFn,
+    TabsV1, TabsV1IsEmptyFn,
+    AccordionV1,AccordionV1IsEmptyFn,
+} from '@adobe/aem-core-components-react-spa';
 
-const HelloWorldComponent = withAsyncImport(() => import(`./Text/Text`));
-const DownloadV1 = withAsyncImport(() => import(`@adobe/aem-core-components-react-base/dist/authoring/download/v1/DownloadV1`));
-const ListV2 = withAsyncImport(() => import(`@adobe/aem-core-components-react-base/dist/authoring/list/v2/ListV2`));
-const SeparatorV1 = withAsyncImport(() => import(`@adobe/aem-core-components-react-base/dist/authoring/separator/v1/SeparatorV1`));
+import {
+    BreadCrumbV2,BreadCrumbV2IsEmptyFn,
+    ButtonV1,ButtonV1IsEmptyFn,
+    ImageV2,ImageV2IsEmptyFn,
+    LanguageNavigationV1,
+    NavigationV1,
+    TeaserV1,TeaserV1IsEmptyFn,
+    DownloadV1,DownloadV1IsEmptyFn,
+    SeparatorV1,SeparatorV1IsEmptyFn,
+    ListV2,ListV2IsEmptyFn
+} from '@adobe/aem-core-components-react-base';
+
+//lazyload / code splitting example of an internal component
+const LazyTextComponent = withAsyncImport(() => import(`./Text/Text`));
+
+//lazyload / code splitting examples of external components
 const TitleV2 = withAsyncImport(() => import(`@adobe/aem-core-components-react-base/dist/authoring/title/v2/TitleV2`));
-const ButtonV1 = withAsyncImport(() => import(`@adobe/aem-core-components-react-base/dist/authoring/button/v1/ButtonV1`));
-const ImageV2 = withAsyncImport(() => import(`@adobe/aem-core-components-react-base/dist/authoring/image/v2/ImageV2`));
-const TeaserV1 = withAsyncImport(() => import(`@adobe/aem-core-components-react-base/dist/authoring/teaser/v1/TeaserV1`));
-const BreadCrumbV2 = withAsyncImport(() => import(`@adobe/aem-core-components-react-base/dist/layout/breadcrumb/v2/BreadCrumbV2`));
-const LanguageNavigationV1 = withAsyncImport(() => import(`@adobe/aem-core-components-react-base/dist/layout/language-navigation/v1/LanguageNavigationV1`));
-const NavigationV1 = withAsyncImport(() => import(`@adobe/aem-core-components-react-base/dist/layout/navigation/v1/NavigationV1`));
-const TabsV1 = withAsyncImport(() => import(`@adobe/aem-core-components-react-spa/dist/container/tabs/v1/TabsV1`));
-const AccordionV1 = withAsyncImport(() => import(`@adobe/aem-core-components-react-spa/dist/container/accordion/v1/AccordionV1`));
 const CarouselV1 = withAsyncImport(() => import(`@adobe/aem-core-components-react-spa/dist/container/carousel/v1/CarouselV1`));
-const ContainerV1 = withAsyncImport(() => import(`@adobe/aem-core-components-react-spa/dist/container/container/v1/ContainerV1`));
 
 
 MapTo('${appId}/components/download')(DownloadV1, {isEmpty: DownloadV1IsEmptyFn});
@@ -94,4 +91,4 @@ const TextEditConfig = {
     }
 };
 
-MapTo('${appId}/components/text')(HelloWorldComponent, TextEditConfig);
+MapTo('${appId}/components/text')(LazyTextComponent, TextEditConfig);
