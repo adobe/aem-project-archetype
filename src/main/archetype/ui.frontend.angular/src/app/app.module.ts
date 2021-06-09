@@ -23,7 +23,6 @@ import { AppComponent } from './app.component';
 import './components/import-components';
 import { ModelManagerService } from './components/model-manager.service';
 import { PageComponent } from './components/page/page.component';
-import { TextComponent } from './components/text/text.component';
 
 import {AemAngularCoreWcmComponentsTabsV1} from '@adobe/aem-core-components-angular-spa/containers/tabs/v1';
 
@@ -33,13 +32,11 @@ import {AemAngularCoreWcmComponentsNavigationV1} from '@adobe/aem-core-component
 import {AemAngularCoreWcmComponentsButtonV1} from '@adobe/aem-core-components-angular-base/authoring/button/v1';
 import {AemAngularCoreWcmComponentsImageV2} from '@adobe/aem-core-components-angular-base/authoring/image/v2';
 
-import {AemAngularCoreWcmComponentsTeaserV1} from '@adobe/aem-core-components-angular-base/authoring/teaser/v1';
 import {AemAngularCoreWcmComponentsDownloadV1} from '@adobe/aem-core-components-angular-base/authoring/download/v1';
 
 import {AemAngularCoreWcmComponentsListV2} from '@adobe/aem-core-components-angular-base/authoring/list/v2';
 import {AemAngularCoreWcmComponentsSeparatorV1} from '@adobe/aem-core-components-angular-base/authoring/separator/v1';
 import {AemAngularCoreWcmComponentsAccordionV1} from '@adobe/aem-core-components-angular-spa/containers/accordion/v1';
-import {AemAngularCoreWcmComponentsCarouselV1} from '@adobe/aem-core-components-angular-spa/containers/carousel/v1';
 import {AemAngularCoreWcmComponentsLanguageNavigationV1} from '@adobe/aem-core-components-angular-base/layout/language-navigation/v1';
 
 @NgModule({
@@ -60,18 +57,16 @@ import {AemAngularCoreWcmComponentsLanguageNavigationV1} from '@adobe/aem-core-c
     AemAngularCoreWcmComponentsNavigationV1,
     AemAngularCoreWcmComponentsButtonV1,
     AemAngularCoreWcmComponentsImageV2,
-    AemAngularCoreWcmComponentsTeaserV1,
     AemAngularCoreWcmComponentsDownloadV1,
     AemAngularCoreWcmComponentsListV2,
-    AemAngularCoreWcmComponentsSeparatorV1,
     AemAngularCoreWcmComponentsAccordionV1,
-    AemAngularCoreWcmComponentsCarouselV1,
+    AemAngularCoreWcmComponentsSeparatorV1,
     AemAngularCoreWcmComponentsLanguageNavigationV1
   ],
   providers: [ ModelManagerService,
     { provide: APP_BASE_HREF, useValue: '/' } ],
-  declarations: [AppComponent, TextComponent, PageComponent],
-  entryComponents: [TextComponent, PageComponent],
+  declarations: [AppComponent, PageComponent],
+  entryComponents: [PageComponent],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {}

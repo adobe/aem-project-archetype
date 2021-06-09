@@ -9,7 +9,7 @@
     "start-ssr-express": "node dist/server/main.js",
 #end
     "start": "ng serve --open --proxy-config ./proxy.conf.json",
-    "build": "ng lint && ng build && clientlib",
+    "build": "ng lint && ng build --configuration=aem-develop && clientlib",
     "build:production": "ng lint && ng build --prod && clientlib",
     "test": "ng test",
     "sync": "aemsync -d -w ../ui.apps/src/main/content"
@@ -30,8 +30,8 @@
     "@adobe/aem-angular-editable-components": "~1.2.0",
     "@adobe/aem-spa-component-mapping": "~1.1.0",
     "@adobe/aem-spa-page-model-manager": "~1.3.3",
-    "@adobe/aem-core-components-angular-base": "^1.0.4",
-    "@adobe/aem-core-components-angular-spa": "^1.0.4",
+    "@adobe/aem-core-components-angular-base": "^1.0.14",
+    "@adobe/aem-core-components-angular-spa": "^1.0.6",
     "@angular/animations": "~9.1.12",
     "@angular/common": "~9.1.12",
     "@angular/compiler": "~9.1.12",

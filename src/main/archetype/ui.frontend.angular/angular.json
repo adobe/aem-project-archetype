@@ -30,7 +30,11 @@
             "scripts": []
           },
           "configurations": {
+            "aem-develop": {
+              "deployUrl": "/etc.clientlibs/${appId}/clientlibs/clientlib-angular/resources/"
+            },
             "production": {
+              "deployUrl": "/etc.clientlibs/${appId}/clientlibs/clientlib-angular/resources/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",

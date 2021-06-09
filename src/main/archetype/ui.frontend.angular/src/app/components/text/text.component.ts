@@ -14,18 +14,9 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import { MapTo } from '@adobe/aem-angular-editable-components';
 import { Component, Input, HostBinding } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
-/**
- * Default Edit configuration for the Text component that interact with the Core Text component and sub-types
- */
-const TextEditConfig = {
-  emptyLabel: 'Text',
-  isEmpty: cqModel =>
-    !cqModel || !cqModel.text || cqModel.text.trim().length < 1
-};
 
 @Component({
   selector: 'app-text',
@@ -46,8 +37,3 @@ export class TextComponent {
 
   constructor(private sanitizer: DomSanitizer) {}
 }
-
-MapTo('${appId}/components/text')(
-  TextComponent,
-  TextEditConfig
-);
