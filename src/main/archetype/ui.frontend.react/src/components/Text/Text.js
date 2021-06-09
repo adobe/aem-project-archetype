@@ -14,7 +14,6 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import {MapTo} from '@adobe/aem-react-editable-components';
 import sanitizeHtml from 'sanitize-html';
 import sanitizeWhiteList from '../sanitize-html.whitelist';
 
@@ -22,19 +21,6 @@ import React, { Component } from 'react';
 import extractModelId from '../../utils/extract-model-id';
 
 require('./Text.css');
-
-/**
- * Default Edit configuration for the Text component that interact with the Core Text component and sub-types
- *
- * @type EditConfig
- */
-const TextEditConfig = {
-  emptyLabel: 'Text',
-
-  isEmpty: function(props) {
-    return !props || !props.text || props.text.trim().length < 1;
-  }
-};
 
 /**
  * Text React component
@@ -61,7 +47,4 @@ class Text extends Component {
   }
 }
 
-export default MapTo('${appId}/components/text')(
-  Text,
-  TextEditConfig
-);
+export default Text;
