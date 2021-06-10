@@ -8,13 +8,14 @@
         jcr:primaryType="nt:unstructured"
         sling:resourceType="wcm/core/components/policies/mappings">
         <root
-            cq:policy="wcm/foundation/components/responsivegrid/spa-default"
+            cq:policy="${appId}/components/container/policy_1574694950110"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/core/components/policies/mapping">
-            <responsivegrid
-                cq:policy="wcm/foundation/components/responsivegrid/spa-default"
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="wcm/core/components/policies/mapping"/>
+            <navigation
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appId}/components/navigation"
+                    editable="{Boolean}true"
+            />
         </root>
     </jcr:content>
 </jcr:root>

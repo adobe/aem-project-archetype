@@ -6,10 +6,10 @@
         sling:resourceType="${appId}/components/page">
         <root
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="wcm/foundation/components/responsivegrid">
-            <responsivegrid
+            sling:resourceType="${appId}/components/container">
+            <container
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="wcm/foundation/components/responsivegrid"/>
+                sling:resourceType="${appId}/components/container"/>
         </root>
     </jcr:content>
 </jcr:root>

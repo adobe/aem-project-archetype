@@ -15,10 +15,6 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 import {LazyMapTo,MapTo} from '@adobe/aem-angular-editable-components';
 
-import './container/container.component';
-import './responsive-grid/responsive-grid.component';
-
-
 import {TitleV2Component, TitleV2IsEmptyFn} from '@adobe/aem-core-components-angular-base/authoring/title/v2';
 import {BreadCrumbV2Component, BreadCrumbV2IsEmptyFn} from '@adobe/aem-core-components-angular-base/layout/breadcrumb/v2';
 import {NavigationV1Component, NavigationV1IsEmptyFn} from '@adobe/aem-core-components-angular-base/layout/navigation/v1';
@@ -31,7 +27,7 @@ import {ListV2Component, ListV2IsEmptyFn} from '@adobe/aem-core-components-angul
 import {SeparatorV1Component} from '@adobe/aem-core-components-angular-base/authoring/separator/v1';
 import {AccordionV1Component} from '@adobe/aem-core-components-angular-spa/containers/accordion/v1';
 import {TabsV1Component} from '@adobe/aem-core-components-angular-spa/containers/tabs/v1';
-
+import {ContainerV1Component} from '@adobe/aem-core-components-angular-spa/containers/container/v1';
 import {LanguageNavigationV1Component} from '@adobe/aem-core-components-angular-base/layout/language-navigation/v1';
 
 /**
@@ -47,7 +43,7 @@ MapTo('${appId}/components/breadcrumb')(BreadCrumbV2Component, {isEmpty: BreadCr
 MapTo('${appId}/components/button')(ButtonV1Component, {isEmpty: ButtonV1IsEmptyFn});
 MapTo('${appId}/components/image')(ImageV2Component, {isEmpty: ImageV2IsEmptyFn});
 MapTo('${appId}/components/title')(TitleV2Component, {isEmpty: TitleV2IsEmptyFn});
-
+MapTo('${appId}/components/container')(ContainerV1Component);
 MapTo('${appId}/components/accordion')(AccordionV1Component);
 MapTo('${appId}/components/tabs')(TabsV1Component);
 

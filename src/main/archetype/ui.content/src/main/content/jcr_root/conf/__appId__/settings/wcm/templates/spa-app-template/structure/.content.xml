@@ -10,7 +10,19 @@
         sling:resourceType="${appId}/components/spa">
         <root
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="wcm/foundation/components/responsivegrid"/>
+            sling:resourceType="${appId}/components/container">
+            <navigation
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appId}/components/navigation"
+                    editable="{Boolean}true"
+            />
+            <dummyText
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appId}/components/text"
+                    text="&lt;p>Hello! I come from the app template!&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"
+            />
+        </root>
         <cq:responsive jcr:primaryType="nt:unstructured"/>
     </jcr:content>
 </jcr:root>
