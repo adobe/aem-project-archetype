@@ -43,7 +43,7 @@ MapTo('${appId}/components/separator')(SeparatorV1Component);
 MapTo('${appId}/components/download')(DownloadV1Component,{isEmpty: DownloadV1IsEmptyFn});
 MapTo('${appId}/components/languagenavigation')(LanguageNavigationV1Component);
 MapTo('${appId}/components/list')(ListV2Component, {isEmpty: ListV2IsEmptyFn});
-MapTo('${appId}/components/breadcrumb')(BreadCrumbV2Component, {isEmpty: BreadCrumbV2IsEmptyFn})
+MapTo('${appId}/components/breadcrumb')(BreadCrumbV2Component, {isEmpty: BreadCrumbV2IsEmptyFn});
 MapTo('${appId}/components/button')(ButtonV1Component, {isEmpty: ButtonV1IsEmptyFn});
 MapTo('${appId}/components/image')(ImageV2Component, {isEmpty: ImageV2IsEmptyFn});
 MapTo('${appId}/components/title')(TitleV2Component, {isEmpty: TitleV2IsEmptyFn});
