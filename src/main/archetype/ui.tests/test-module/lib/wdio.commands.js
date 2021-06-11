@@ -15,6 +15,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const Buffer = require('buffer').Buffer;
 const request = require('request-promise');
 const url = require('url');
 const config = require('./config');
@@ -131,6 +132,15 @@ browser.addCommand('AEMSitesSetPageTitle', function(parentPath, name, title) {
     $(`[data-foundation-collection-item-id="${path.posix.join(parentPath, name)}"] [type="checkbox"]`).waitForExist();
 
     return originalTitle;
+});
+
+//validate the text content against file content
+browser.addCommand('validateFileContent', function(textContent, filePath) {
+    return browser.call(() => {
+        var fileBuffer = fs.readFileSync(filePath);
+        var textContentBuffer = Buffer.from(textContent, 'utf-8');
+        return fileBuffer.equals(textContentBuffer);
+    });
 });
 
 async function fileHandle(filePath) {

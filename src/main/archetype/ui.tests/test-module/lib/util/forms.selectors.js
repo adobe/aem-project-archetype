@@ -12,15 +12,29 @@ var selectors = {
         editToolBar : {
             configure : '#EditableToolbar button[data-action="CONFIGURE"]'
         },
+        sidePanelToggleButton : '.toggle-sidepanel.editor-GlobalBar-item',
+        sidePanelOpen : '#SidePanel.sidepanel-opened',
         sidePanel : {
             afPropertiesContainer : '#sidepanel-guide-properties',
-            stylePropertySheetSelector : '#style-propertySheetContainer'
+            stylePropertySheetSelector : '#style-propertySheetContainer',
+            propertiesTab : 'coral-tab[title="Properties"]'
         },
         overlay : {
             guideFieldLabelOvelaySelector : '#af-overlay-selector-text > button[data-target-selector="af_fieldlabel"]'
         },
         themeEditor : {
             themeEditorObjSelector : '.themeEditableObject'
+        },
+        templateEditor : {
+            structureLayer : {
+                policyButton : 'button.cq-editable-action[title="Policy"]',
+                policyPage : {
+                    allowedComponent : {
+                        adaptiveFormGroup : '.js-cq-AllowedComponents-groupCheckbox[value="group:Adaptive Form"]'
+                    },
+                    cancel : 'button.cq-dialog-header-action[title="Cancel"]'
+                }
+            }
         }
     },
     content : {

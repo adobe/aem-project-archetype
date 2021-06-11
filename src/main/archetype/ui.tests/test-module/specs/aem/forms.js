@@ -14,11 +14,16 @@
  *  limitations under the License.
  */
 
+const path = require('path');
 const config = require('../../lib/config');
 const commons = require('../../lib/commons');
 const selectors = require('../../lib/util/forms.selectors.js');
 
 describe('AEM Forms Reference Artifacts', () => {
+
+    let onboardingHdler,
+        testName,
+        consoleErrors = [];
 
     // AEM Login
     beforeEach(() => {
@@ -26,10 +31,13 @@ describe('AEM Forms Reference Artifacts', () => {
         browser.AEMForceLogout();
         browser.url(config.aem.author.base_url);
         browser.AEMLogin(config.aem.author.username, config.aem.author.password);
-
+        consoleErrors = commons.trackConsoleErrors(browser);
     });
 
-    let onboardingHdler;
+    afterEach(() => {
+        //Print console error logs for diagnosis in case test fails before console log verification steps
+        console.log('Console error logs during test execution of [' + testName + '] : \n' + consoleErrors);
+    });
 
     before(function() {
         // Enable helper to handle onboarding dialog popup
@@ -45,8 +53,11 @@ describe('AEM Forms Reference Artifacts', () => {
 
     describe('AEM Forms Theme', () => {
 
-        it('Basic Testing of Canvas Theme', () => {
-            let themePath = '/content/dam/formsanddocuments-themes/${appId}/canvas-3-0/jcr:content';
+        it('Basic Testing of Canvas Theme', function () {
+            testName = this.test.parent.title + '.' + this.test.title;
+            let themePath = '/content/dam/formsanddocuments-themes/${appId}/canvas-3-0/jcr:content',
+                themeCssPath = '/etc/clientlibs/fd/themes/${appId}/canvas-3-0.css',
+                goldenCssFilePath = path.join(__dirname, '..', '..', 'assets', 'canvas-theme-3.0.css');
 
             //Open Canvas theme in editing mode
             browser.url(`${config.aem.author.base_url}/editor.html${themePath}`);
@@ -54,18 +65,8 @@ describe('AEM Forms Reference Artifacts', () => {
             //Verify Selectors list is visible
             expect($(selectors.editor.themeEditor.themeEditorObjSelector).waitForDisplayed()).toBe(true);
 
-            //Switch to content frame and click on first field label
-            browser.switchToFrame(0);
-            expect($(selectors.content.guideFieldLabelSelector).waitForDisplayed()).toBe(true);
-            browser.$(selectors.content.guideFieldLabelSelector).click();
-
-            //Switch to top frame and verify field label overlay visible.
-            browser.switchToParentFrame();
-            expect($(selectors.editor.overlay.guideFieldLabelOvelaySelector).waitForDisplayed()).toBe(true);
-
-            //Click the overlay and verify style propertysheet is displayed
-            browser.$(selectors.editor.overlay.guideFieldLabelOvelaySelector).click();
-            expect($(selectors.editor.sidePanel.stylePropertySheetSelector).waitForDisplayed()).toBe(true);
+            //Verify no console error present in edit mode so far
+            expect(consoleErrors).toHaveLength(0);
 
             //Click preview layer button
             expect($(selectors.editor.previewButtonSelector)).toBeDisplayed();
@@ -75,15 +76,13 @@ describe('AEM Forms Reference Artifacts', () => {
             browser.switchToFrame(0);
             expect($(selectors.editor.previewLayerSelector).waitForDisplayed()).toBe(true);
 
-            //Switch back to top frame and click edit layer button
-            browser.switchToParentFrame();
-            expect($(selectors.editor.currentLayerButtonSelector)).toBeDisplayed();
-            browser.$(selectors.editor.currentLayerButtonSelector).click();
+            //Verify no console error present in preview mode
+            expect(consoleErrors).toHaveLength(0);
 
-            //Switch to content frame and verify edit layer mode
-            browser.switchToFrame(0);
-            expect($(selectors.editor.editorLayerSelector).waitForExist()).toBe(true);
-
+            //compare theme css with golden file
+            browser.url(themeCssPath);
+            let cssContent = $('body').getText();
+            expect(browser.validateFileContent(cssContent, goldenCssFilePath)).toBe(true);
         });
 
     });
@@ -99,45 +98,59 @@ describe('AEM Forms Reference Artifacts', () => {
             verifyTemplate = (templatePath, isBlankForm) => {
                 let templateStructure = templatePath + '/structure/jcr:content',
                     templateInitialContent = templatePath + '/initial/jcr:content',
-                    afContainerOverlaySelector = '#OverlayWrapper ' + getContainerSelector(templateInitialContent,'guideContainer'),
-                    afContainerOverlaySpanSelector = afContainerOverlaySelector + ' > span';
+                    afContainerOverlaySelector = '#OverlayWrapper ' + getContainerSelector(templateInitialContent,'guideContainer');
 
                 //Open template in editing mode
                 browser.url(`${config.aem.author.base_url}/editor.html${templatePath}/structure.html`);
+
+                //First open structure layer
+                expect($(selectors.editor.layerSwitcher).waitForDisplayed()).toBe(true);
+                $(selectors.editor.layerSwitcher).click();
+                expect($(selectors.editor.layerSelector.structure).waitForDisplayed()).toBe(true);
+                $(selectors.editor.layerSelector.structure).click();
 
                 //Verify all three containers are visible
                 expect($(getContainerSelector(templateStructure,'parsys1'))).toBeDisplayed();
                 expect($(getContainerSelector(templateStructure,'parsys2'))).toBeDisplayed();
                 expect($(getContainerSelector(templateStructure,'guideContainer'))).toBeDisplayed();
 
+                //Verify Applied Policy Content
+                $(getContainerSelector(templateStructure,'guideContainer')).click();
+                expect($(selectors.editor.templateEditor.structureLayer.policyButton).waitForDisplayed()).toBe(true);
+                $(selectors.editor.templateEditor.structureLayer.policyButton).click();
+                expect($(selectors.editor.templateEditor.structureLayer.policyPage.allowedComponent.adaptiveFormGroup + '[checked]').waitForDisplayed()).toBe(true);
+                expect($(selectors.editor.templateEditor.structureLayer.policyPage.cancel).waitForDisplayed()).toBe(true);
+                $(selectors.editor.templateEditor.structureLayer.policyPage.cancel).click();
+
                 //Switch to initial content layer
+                expect($(selectors.editor.layerSwitcher).waitForDisplayed()).toBe(true);
                 $(selectors.editor.layerSwitcher).click();
                 expect($(selectors.editor.layerSelector.initial).waitForDisplayed()).toBe(true);
                 $(selectors.editor.layerSelector.initial).click();
-
-                //Click on specific area of AF container overlay and verify toolbar
                 expect($(afContainerOverlaySelector).waitForDisplayed()).toBe(true);
-                browser.execute('$(\'' + `${afContainerOverlaySelector}` + '\').focus()');
-                expect($(afContainerOverlaySpanSelector).waitForDisplayed()).toBe(true);
-                $(afContainerOverlaySpanSelector).click();
 
-                //In toolbar, click on configure button and verify properties container
-                expect($(selectors.editor.editToolBar.configure).waitForDisplayed()).toBe(true);
-                $(selectors.editor.editToolBar.configure).click();
-                expect($(selectors.editor.sidePanel.afPropertiesContainer).waitForDisplayed()).toBe(true);
+                //Verify no console error present in structure and initial content layer
+                expect(consoleErrors).toHaveLength(0);
 
-                //Switching back to Structure layer
-                $(selectors.editor.layerSwitcher).click();
-                expect($(selectors.editor.layerSelector.structure).waitForDisplayed()).toBe(true);
-                $(selectors.editor.layerSelector.structure).click();
+                //Open Side panel, verify that no invalid item in properties tab and then close the side panel
+                expect($(selectors.editor.sidePanelToggleButton).waitForDisplayed()).toBe(true);
+                $(selectors.editor.sidePanelToggleButton).click();
+                expect($(selectors.editor.sidePanelOpen).waitForDisplayed()).toBe(true);
+                expect($(selectors.editor.sidePanel.propertiesTab + '.is-invalid').waitForDisplayed({reverse : true})).toBe(true);
+                $(selectors.editor.sidePanelToggleButton).click();
+                expect($(selectors.editor.sidePanelOpen).waitForDisplayed({reverse : true})).toBe(true);
 
                 //Preview the template using url and verify AF field presence in the form
                 browser.url(`${config.aem.author.base_url}/${templatePath}/initial.html?wcmmode=preview`);
-                expect($(selectors.content.genericAFField).waitForDisplayed({ reverse: isBlankForm })).toBe(true);
+                expect($(selectors.content.genericAFField).waitForDisplayed({ reverse : isBlankForm })).toBe(true);
+
+                //Verify no console error present in preview mode
+                expect(consoleErrors).toHaveLength(0);
             };
 
         templates.forEach(function (template) {
-            it('Basic Testing of Template '+ template.path , () => {
+            it('Basic Testing of Template '+ template.path , function () {
+                testName = this.test.parent.title + '.' + this.test.title;
                 verifyTemplate(template.path, template.isBlankForm);
             });
         });
