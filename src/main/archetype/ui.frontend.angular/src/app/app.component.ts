@@ -14,10 +14,18 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import { Constants } from '@adobe/aem-angular-editable-components';
-import { ModelManager } from '@adobe/aem-spa-page-model-manager';
-import { Component } from '@angular/core';
 
+import { ModelManager } from '@adobe/aem-spa-page-model-manager';
+
+#if ( $enableSSR == "n")
+import { Constants } from '@adobe/aem-angular-editable-components';
+import { Component } from '@angular/core';
+#end
+#if ( $enableSSR == "y")
+import { Constants, Utils } from '@adobe/aem-angular-editable-components';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+#end
 @Component({
   selector: '#spa-root', // tslint:disable-line
   styleUrls: ['./app.component.css'],
@@ -27,11 +35,27 @@ export class AppComponent {
   items: any;
   itemsOrder: any;
   path: any;
-
+#if ( $enableSSR == "n")
   constructor() {
     ModelManager.initialize().then(this.updateData);
   }
+#end
+#if ( $enableSSR == "y")
+  constructor(@Inject(PLATFORM_ID) private _platformId: object) {
 
+    if(isPlatformBrowser(_platformId)){
+      // for some reason we cannot hydrate on the author, this causes edit mode to break.
+      // @ts-ignore
+      if(!Utils.isInEditor() && window.initialModel){
+        // @ts-ignore
+        ModelManager.initialize({model:window.initialModel});
+      }else{
+        ModelManager.initialize();
+      }
+
+    }
+  }
+#end
   private updateData = pageModel => {
     this.path = pageModel[Constants.PATH_PROP];
     this.items = pageModel[Constants.ITEMS_PROP];

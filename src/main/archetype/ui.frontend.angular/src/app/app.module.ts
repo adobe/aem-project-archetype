@@ -41,7 +41,14 @@ import {AemAngularCoreWcmComponentsLanguageNavigationV1} from '@adobe/aem-core-c
 
 @NgModule({
   imports: [
+#if ( $enableSSR == "n")
     BrowserModule,
+#end
+#if ( $enableSSR == "y")
+    BrowserModule.withServerTransition({
+        appId: '${appId}'
+    }),
+#end
     SpaAngularEditableComponentsModule,
     AppRoutingModule,
     AemAngularCoreWcmComponentsTabsV1,

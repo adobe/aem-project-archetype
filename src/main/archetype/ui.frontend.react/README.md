@@ -62,11 +62,11 @@ To get this feature to work with AEM, the app needs to be able to identify which
 
 #if ( $enableSSR == "y" )
 
-${hash} Server-Side rendering in IO runtime and express
+${hash} Frontend Serverless Build (Adobe IO Runtime)
 
 ${hash}${hash} Features
 
-* AdobeIO Runtime (Serverless) rendering of the SPA editor (Currently react only)
+* AdobeIO Runtime (Serverless) rendering of the SPA editor 
 * Local + Remote development
 * Uses AIO CLI
 
