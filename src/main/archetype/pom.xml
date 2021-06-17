@@ -69,7 +69,7 @@
         <aio.runtime.auth>${env.AIO_RUNTIME_AUTH}</aio.runtime.auth>
 #end
 #if ( $aemVersion != "cloud" || $includeExamples == "y")
-        <core.wcm.components.version>2.16.0</core.wcm.components.version>
+        <core.wcm.components.version>2.17.0</core.wcm.components.version>
 #end
 #if ( $includeCommerce == "y" )
         <core.cif.components.version>1.10.0</core.cif.components.version>
