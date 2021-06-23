@@ -52,7 +52,7 @@
 
 # AEM Forms specific filters
 # to allow AF specific endpoints for prefill, submit and sign
-/0032 { /type "allow" /path "/content/forms/af/*" /method "POST" /selectors '(submit|internalsubmit|agreement|signSubmit|prefilldata)' /extension '(jsp|json)' }
+/0032 { /type "allow" /path "/content/forms/af/*" /method "POST" /selectors '(submit|internalsubmit|agreement|signSubmit|prefilldata|save)' /extension '(jsp|json)' }
 
 # to allow AF specific endpoints for thank you page
 /0033 { /type "allow" /path "/content/forms/af/*"  /method "GET" /selectors '(guideThankYouPage|guideAsyncThankYouPage)'  /extension '(html)'}
