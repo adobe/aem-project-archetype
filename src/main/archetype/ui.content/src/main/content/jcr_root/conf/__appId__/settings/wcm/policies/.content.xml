@@ -534,20 +534,11 @@
 #end
         </components>
     </${appId}>
-#if ( $isSpaProject )
+#if ( $includeForms == "y" and $aemVersion == "cloud")
     <wcm jcr:primaryType="nt:unstructured">
         <foundation jcr:primaryType="nt:unstructured">
             <components jcr:primaryType="nt:unstructured">
                 <responsivegrid jcr:primaryType="nt:unstructured">
-                    <spa-default
-                        jcr:description="Includes only SPA-Enabled components."
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="SPA Content"
-                        sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/libs/wcm/foundation/components/responsivegrid,/apps/${appId}/components/text]">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
-                    </spa-default>
-    #if ( $includeForms == "y" and $aemVersion == "cloud")
                     <afpolicy
                             jcr:description="Policy of the Adaptive Form"
                             jcr:primaryType="nt:unstructured"
@@ -585,7 +576,6 @@
                             components="[/libs/fd/af/components/guidefooter,/libs/fd/af/components/guideheader,/libs/fd/af/components/guideimage,/libs/fd/af/components/guidetextdraw,/libs/fd/af/components/afFormTitle]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </policy_1518118565779>
-    #end
                 </responsivegrid>
             </components>
         </foundation>

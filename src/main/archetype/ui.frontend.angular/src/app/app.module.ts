@@ -25,6 +25,8 @@ import { ModelManagerService } from './components/model-manager.service';
 import { PageComponent } from './components/page/page.component';
 
 import {AemAngularCoreWcmComponentsTabsV1} from '@adobe/aem-core-components-angular-spa/containers/tabs/v1';
+import {AemAngularCoreWcmComponentsContainerV1} from '@adobe/aem-core-components-angular-spa/containers/container/v1';
+import {AemAngularCoreWcmComponentsAccordionV1} from '@adobe/aem-core-components-angular-spa/containers/accordion/v1';
 
 import {AemAngularCoreWcmComponentsTitleV2} from '@adobe/aem-core-components-angular-base/authoring/title/v2';
 import {AemAngularCoreWcmComponentsBreadCrumbV2} from '@adobe/aem-core-components-angular-base/layout/breadcrumb/v2';
@@ -36,7 +38,7 @@ import {AemAngularCoreWcmComponentsDownloadV1} from '@adobe/aem-core-components-
 
 import {AemAngularCoreWcmComponentsListV2} from '@adobe/aem-core-components-angular-base/authoring/list/v2';
 import {AemAngularCoreWcmComponentsSeparatorV1} from '@adobe/aem-core-components-angular-base/authoring/separator/v1';
-import {AemAngularCoreWcmComponentsAccordionV1} from '@adobe/aem-core-components-angular-spa/containers/accordion/v1';
+
 import {AemAngularCoreWcmComponentsLanguageNavigationV1} from '@adobe/aem-core-components-angular-base/layout/language-navigation/v1';
 
 @NgModule({
@@ -52,6 +54,9 @@ import {AemAngularCoreWcmComponentsLanguageNavigationV1} from '@adobe/aem-core-c
     SpaAngularEditableComponentsModule,
     AppRoutingModule,
     AemAngularCoreWcmComponentsTabsV1,
+    AemAngularCoreWcmComponentsAccordionV1,
+    AemAngularCoreWcmComponentsContainerV1,
+
     AemAngularCoreWcmComponentsTitleV2,
     AemAngularCoreWcmComponentsBreadCrumbV2,
     AemAngularCoreWcmComponentsNavigationV1,
@@ -59,7 +64,6 @@ import {AemAngularCoreWcmComponentsLanguageNavigationV1} from '@adobe/aem-core-c
     AemAngularCoreWcmComponentsImageV2,
     AemAngularCoreWcmComponentsDownloadV1,
     AemAngularCoreWcmComponentsListV2,
-    AemAngularCoreWcmComponentsAccordionV1,
     AemAngularCoreWcmComponentsSeparatorV1,
     AemAngularCoreWcmComponentsLanguageNavigationV1
   ],
