@@ -43,7 +43,7 @@ MapTo('${appId}/components/navigation')(NavigationV1Component, {isEmpty: Navigat
 MapTo('${appId}/components/separator')(SeparatorV1Component);
 
 MapTo('${appId}/components/container')(ContainerV1Component, {isEmpty: ContainerIsEmptyFn});
-MapTo('${appId}/components/components/experiencefragment')(ContainerV1Component, {isEmpty: ContainerIsEmptyFn});
+MapTo('${appId}/components/experiencefragment')(ContainerV1Component, {isEmpty: ContainerIsEmptyFn});
 
 MapTo('${appId}/components/download')(DownloadV1Component,{isEmpty: DownloadV1IsEmptyFn});
 MapTo('${appId}/components/languagenavigation')(LanguageNavigationV1Component);
