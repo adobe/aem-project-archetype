@@ -33,7 +33,8 @@ import {AccordionV1Component} from '@adobe/aem-core-components-angular-spa/conta
 import {TabsV1Component} from '@adobe/aem-core-components-angular-spa/containers/tabs/v1';
 
 import {LanguageNavigationV1Component} from '@adobe/aem-core-components-angular-base/layout/language-navigation/v1';
-import {ContainerV1Component, ContainerIsEmptyFn} from "@adobe/aem-core-components-angular-spa";
+import {ContainerV1Component} from '@adobe/aem-core-components-angular-spa/containers/container/v1';
+import {ContainerIsEmptyFn} from '@adobe/aem-core-components-angular-spa/core';
 
 /**
  * Normal MapTo - maps angular components to aem models
