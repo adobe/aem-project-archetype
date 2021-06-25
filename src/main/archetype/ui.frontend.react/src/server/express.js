@@ -37,7 +37,10 @@ exapp.post('/api/v1/web/guest/${appId}-0.1.0/ssr/*', (req, res, next) => {
     return processSPA(args).then((response) => {
         res.send(response);
     }).catch((error) => {
-        next(error);
+        console.error(error);
+        //send the error message to the response so AEM can log it as well.
+        const msg = (error.stack) ? error + ' stack: ' + error.stack : error;
+        res.status(500).send(msg);
     });
 });
 
