@@ -13,8 +13,8 @@
     "dev": "webpack -d --env dev --config ./webpack.dev.js && clientlib --verbose",
     "prod": "webpack -p --config ./webpack.prod.js && clientlib --verbose",
     "start": "webpack-dev-server --open --config ./webpack.dev.js",
-    "sync": "aemsync -p ../ui.apps/src/main/content/jcr_root/apps/${appId}/clientlibs",
-    "watch": "webpack-dev-server --config ./webpack.dev.js --env.writeToDisk"
+    "sync": "aemsync -d -p ../ui.apps/src/main/content",
+    "watch": "webpack-dev-server --config ./webpack.dev.js --env.writeToDisk & watch 'clientlib' ./dist & aemsync -w ../ui.apps/src/main/content"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -50,8 +50,7 @@
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.9.0",
-    "webpack-merge": "^4.2.1",
-    "webpack-shell-plugin": "^0.5.0"
+    "webpack-merge": "^4.2.1"
   },
   "dependencies": {},
   "browserslist": [

@@ -28,7 +28,6 @@ The following npm scripts drive the frontend workflow:
 * `npm run dev` - Full build of client libraries with JS optimization disabled (tree shaking, etc) and source maps enabled and CSS optimization disabled.
 * `npm run prod` - Full build of client libraries build with JS optimization enabled (tree shaking, etc), source maps disabled and CSS optimization enabled.
 * `npm run start` - Starts a static webpack development server for local development with minimal dependencies on AEM.
-* `npm run watch` - Runs webpack and slings the bundled clientlib to a local AEM instance when a change is made.
 
 ${hash}${hash}${hash} General
 
