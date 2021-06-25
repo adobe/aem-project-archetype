@@ -239,7 +239,7 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
     // Not generating SPA: Delete SPA-specific files
     if (optionFrontendModule != "angular" && optionFrontendModule != "react") {
         // Delete app component
-        assert new File("$appsFolder/components/spa").deleteDir()
+        assert new File("$appsFolder/components/structure/spa").deleteDir()
         assert new File("$appsFolder/components/xfpage/body.html").delete()
 
         // Delete EditConfigs
