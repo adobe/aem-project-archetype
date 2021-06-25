@@ -33,12 +33,16 @@ import {AccordionV1Component} from '@adobe/aem-core-components-angular-spa/conta
 import {TabsV1Component} from '@adobe/aem-core-components-angular-spa/containers/tabs/v1';
 
 import {LanguageNavigationV1Component} from '@adobe/aem-core-components-angular-base/layout/language-navigation/v1';
+import {ContainerV1Component, ContainerIsEmptyFn} from "@adobe/aem-core-components-angular-spa";
 
 /**
  * Normal MapTo - maps angular components to aem models
  */
 MapTo('${appId}/components/navigation')(NavigationV1Component, {isEmpty: NavigationV1IsEmptyFn});
 MapTo('${appId}/components/separator')(SeparatorV1Component);
+
+MapTo('${appId}/components/container')(ContainerV1Component, {isEmpty: ContainerIsEmptyFn});
+MapTo('${appId}/components/components/experiencefragment')(ContainerV1Component, {isEmpty: ContainerIsEmptyFn});
 
 MapTo('${appId}/components/download')(DownloadV1Component,{isEmpty: DownloadV1IsEmptyFn});
 MapTo('${appId}/components/languagenavigation')(LanguageNavigationV1Component);
