@@ -239,7 +239,8 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
     // Not generating SPA: Delete SPA-specific files
     if (optionFrontendModule != "angular" && optionFrontendModule != "react") {
         // Delete app component
-        assert new File("$appsFolder/components/structure/spa").deleteDir()
+        assert new File("$appsFolder/components/spa").deleteDir()
+        assert new File("$appsFolder/components/xfpage/body.html").delete()
 
         // Delete EditConfigs
         assert new File("$appsFolder/components/text/_cq_editConfig.xml").delete()
@@ -255,6 +256,8 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
         // Delete SPA content
         assert new File("$contentFolder/us/en/home").deleteDir()
 
+    }else{
+        assert new File("$appsFolder/components/xfpage/content.html").delete()
     }
 
     //cleanup SSR related files / folders when not choosing react (only react is supported for now) or not choosing SSR
