@@ -30,6 +30,7 @@
     <artifactId>${artifactId}</artifactId>
     <packaging>pom</packaging>
     <version>${version}</version>
+    <name>${appTitle}</name>
     <description>${appTitle}</description>
 
     <modules>
