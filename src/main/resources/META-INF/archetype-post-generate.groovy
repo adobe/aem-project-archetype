@@ -67,16 +67,6 @@ if (aemVersion == "cloud") {
     }
     println "Using AEM as a Cloud Service SDK version: " + sdkVersion
     rootPom.text = rootPom.text.replaceAll('SDK_VERSION', sdkVersion.toString())
-} else {
-    // remove the analyser module as it's only for cloud
-    assert new File(rootDir, 'analyse').deleteDir();
-    removeModule(rootPom, 'analyse')
-}
-
-// Temporary until the cif-cloud project supports the feature model analysers
-if (aemVersion == "cloud" && includeCommerce == "y") {
-    assert new File(rootDir, 'analyse').deleteDir();
-    removeModule(rootPom, 'analyse')
 }
 
 buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, language, country)
@@ -268,7 +258,7 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
     }
 
     //cleanup SSR related files / folders when not choosing react (only react is supported for now) or not choosing SSR
-    if(optionFrontendModule != "react" || enableSSR == "n" )
+    if(enableSSR == "n" )
     {
         assert new File("$appsFolder/components/page/body.html").delete();
         assert new File("$configFolder/config/com.adobe.cq.remote.content.renderer.impl.factory.ConfigurationFactoryImpl~${appId}.cfg.json").delete()
@@ -279,14 +269,23 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
         assert new File("$confFolder/settings/wcm/templates/page-content").deleteDir()
         assert new File("$confFolder/settings/wcm/template-types/page").deleteDir()
 
-        if(enableSSR == "n" && optionFrontendModule == "react"){
-            //cleanup IO runtime related files from react module
-            assert new File(rootDir, "ui.frontend/webpack.config.express.js").delete();
-            assert new File(rootDir, "ui.frontend/webpack.config.adobeio.js").delete();
-            assert new File(rootDir, "ui.frontend/manifest.yml").delete();
-            assert new File(rootDir, "ui.frontend/src/server").deleteDir();
-            assert new File(rootDir, "ui.frontend/actions").deleteDir();
-            assert new File(rootDir, "ui.frontend/scripts").deleteDir();
+        if(enableSSR == "n"){
+
+            if(optionFrontendModule == "react"){
+                //cleanup IO runtime related files from react module
+                assert new File(rootDir, "ui.frontend/webpack.config.express.js").delete();
+                assert new File(rootDir, "ui.frontend/webpack.config.adobeio.js").delete();
+                assert new File(rootDir, "ui.frontend/manifest.yml").delete();
+                assert new File(rootDir, "ui.frontend/src/server").deleteDir();
+                assert new File(rootDir, "ui.frontend/actions").deleteDir();
+                assert new File(rootDir, "ui.frontend/scripts").deleteDir();
+            }else if(optionFrontendModule == "angular"){
+                assert new File(rootDir, "ui.frontend/server.ts").delete();
+                assert new File(rootDir, "ui.frontend/tsconfig.server.json").delete();
+                assert new File(rootDir, "ui.frontend/src/main.server.ts").delete();
+                assert new File(rootDir, "ui.frontend/src/app/app.server.module.ts").delete();
+            }
+
         }
     }
 

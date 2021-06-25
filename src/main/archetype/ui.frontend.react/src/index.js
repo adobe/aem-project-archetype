@@ -58,6 +58,7 @@ const hydrateApp = (initialState) => {
 }
 #end
 
+
 document.addEventListener('DOMContentLoaded', () => {
 
 #if ( $enableSSR == "y")
