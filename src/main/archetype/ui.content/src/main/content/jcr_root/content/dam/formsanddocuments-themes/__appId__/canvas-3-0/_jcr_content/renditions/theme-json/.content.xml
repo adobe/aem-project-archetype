@@ -8,6 +8,9 @@
             <af_guideContainer
                 jcr:primaryType="nt:unstructured"
                 component="fd/af/components/guideContainer">
+                <af_captchawidget
+                        jcr:primaryType="nt:unstructured"
+                        default_x0023_default="[min-height:20px,cssOverride:max-width:max-content]"/>
                 <af_guideimage
                     jcr:primaryType="nt:unstructured"
                     default_x0023_default="[height:auto,max-height:100%,margin-right:0.75rem,margin-left:0.75rem,margin-top:1rem,width:inherit,max-width:calc(100% - 1.5rem)]"

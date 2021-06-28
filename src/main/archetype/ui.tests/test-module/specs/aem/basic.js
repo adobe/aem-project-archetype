@@ -29,7 +29,11 @@ describe('AEM Basic', () => {
 
         $('[data-foundation-toggleable-control-src$="solutionswitcher.html"]').click();
 
+#if ( $aemVersion != "cloud" )
         $('coral-shell-solutionswitcher').waitForDisplayed();
+#else
+        $('coral-shell-menu[aria-label$="solutions"]').waitForDisplayed();
+#end
     });
 
 });
