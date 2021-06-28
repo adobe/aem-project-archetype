@@ -69,7 +69,10 @@ export function app() {
 
             });
         }).catch((error) => {
-            next(error);
+            console.error(error);
+            //send error message back to response so AEM can log it.
+            const msg = (error.stack) ? error + ' stack: ' + error.stack : error;
+            res.status(500).send(msg);
         });
     });
 

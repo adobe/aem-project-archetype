@@ -19,7 +19,7 @@
 # /005 { /type "allow" /url "/bin/*"    }  # allow bin path access
 
 # This rule allows content to be access
-/0010 { /type "allow" /extension '(css|eot|gif|ico|jpeg|jpg|js|gif|pdf|png|svg|swf|ttf|woff|woff2|html)' /path "/content/*" }  # disable this rule to allow mapped content only
+/0010 { /type "allow" /extension '(css|eot|gif|ico|jpeg|jpg|js|gif|pdf|png|svg|swf|ttf|woff|woff2|html|mp4|mov|m4v)' /path "/content/*" }  # disable this rule to allow mapped content only
 
 # Enable specific mime types in non-public content directories
 /0011 { /type "allow" /method "GET" /extension '(css|eot|gif|ico|jpeg|jpg|js|gif|png|svg|swf|ttf|woff|woff2)' }
@@ -52,7 +52,7 @@
 
 # AEM Forms specific filters
 # to allow AF specific endpoints for prefill, submit and sign
-/0032 { /type "allow" /path "/content/forms/af/*" /method "POST" /selectors '(submit|internalsubmit|agreement|signSubmit|prefilldata)' /extension '(jsp|json)' }
+/0032 { /type "allow" /path "/content/forms/af/*" /method "POST" /selectors '(submit|internalsubmit|agreement|signSubmit|prefilldata|save)' /extension '(jsp|json)' }
 
 # to allow AF specific endpoints for thank you page
 /0033 { /type "allow" /path "/content/forms/af/*"  /method "GET" /selectors '(guideThankYouPage|guideAsyncThankYouPage)'  /extension '(html)'}
