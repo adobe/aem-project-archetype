@@ -73,7 +73,7 @@ Name                      | Default        | Description
 `groupId`                 |                | Base Maven group ID (e.g. `"com.mysite"`).
 `package`                 | *`${groupId}`* | Java Source Package (e.g. `"com.mysite"`).
 `version`                 | `1.0-SNAPSHOT` | Project version (e.g. `1.0-SNAPSHOT`).
-`aemVersion`              | `cloud`        | Target AEM version (can be `cloud` for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html); or `6.5.5`, `6.4.8`for [Adobe Managed Services](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) or on-premise).
+`aemVersion`              | `cloud`        | Target AEM version (can be `cloud` for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html); or `6.5.5` for [Adobe Managed Services](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) or on-premise).
 `sdkVersion`              | `latest`       | When `aemVersion=cloud` an [SDK](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/implementing/developing/aem-as-a-cloud-service-sdk.html) version can be specified (e.g. `2020.02.2265.20200217T222518Z-200130`).
 `includeDispatcherConfig` | `y`            | Includes a dispatcher configuration either for cloud or for AMS/on-premise, depending of the value of `aemVersion` (can be `y` or `n`).
 `frontendModule`          | `general`      | Includes a Webpack frontend build module that generates the client libraries (can be `general` or `none` for regular sites; can be `angular` or `react` for a Single Page App that implements the [SPA Editor](https://docs.adobe.com/content/help/en/experience-manager-65/developing/headless/spas/spa-overview.html)).
@@ -93,9 +93,9 @@ Name                      | Default        | Description
 
 ## System Requirements
 
-Archetype | AEM as a Cloud Service | AEM 6.5 | AEM 6.4 | Java SE | Maven
----------|---------|---------|---------|---------|---------
-[27](https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-27) | Continual | 6.5.7.0+ | 6.4.8.4+ | 8, 11 | 3.3.9+
+Archetype | AEM as a Cloud Service | AEM 6.5 | Java SE | Maven
+---------|---------|---------|---------|---------
+[28](https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-27) | Continual | 6.5.7.0+ | 8, 11 | 3.3.9+
 
 Setup your local development environment for [AEM as a Cloud Service SDK](https://docs.adobe.com/content/help/en/experience-manager-learn/cloud-service/local-development-environment-set-up/overview.html) or for [older versions of AEM](https://docs.adobe.com/content/help/en/experience-manager-learn/foundation/development/set-up-a-local-aem-development-environment.html).
 
