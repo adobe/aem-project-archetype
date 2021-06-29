@@ -180,7 +180,6 @@ if (includeForms == "n") {
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/sample_terms.png").deleteDir()
     assert new File("$uiTestPackage/test-module/specs/aem/forms.js").delete()
     assert new File("$uiTestPackage/test-module/lib/util/forms.selectors.js").delete()
-    assert new File("$uiTestPackage/test-module/assets/canvas-theme-3.0.css").delete()
 
 } else {
     if (aemVersion == "cloud") {
