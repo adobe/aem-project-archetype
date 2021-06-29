@@ -14,7 +14,6 @@
  *  limitations under the License.
  */
 
-const path = require('path');
 const config = require('../../lib/config');
 const commons = require('../../lib/commons');
 const selectors = require('../../lib/util/forms.selectors.js');
@@ -55,9 +54,7 @@ describe('AEM Forms Reference Artifacts', () => {
 
         it('Basic Testing of Canvas Theme', function () {
             testName = this.test.parent.title + '.' + this.test.title;
-            let themePath = '/content/dam/formsanddocuments-themes/${appId}/canvas-3-0/jcr:content',
-                themeCssPath = '/etc/clientlibs/fd/themes/${appId}/canvas-3-0.css',
-                goldenCssFilePath = path.join(__dirname, '..', '..', 'assets', 'canvas-theme-3.0.css');
+            let themePath = '/content/dam/formsanddocuments-themes/${appId}/canvas-3-0/jcr:content';
 
             //Open Canvas theme in editing mode
             browser.url(`${config.aem.author.base_url}/editor.html${themePath}`);
@@ -79,10 +76,6 @@ describe('AEM Forms Reference Artifacts', () => {
             //Verify no console error present in preview mode
             expect(consoleErrors).toHaveLength(0);
 
-            //compare theme css with golden file
-            browser.url(themeCssPath);
-            let cssContent = $('body').getText();
-            expect(browser.validateFileContent(cssContent, goldenCssFilePath)).toBe(true);
         });
 
     });
