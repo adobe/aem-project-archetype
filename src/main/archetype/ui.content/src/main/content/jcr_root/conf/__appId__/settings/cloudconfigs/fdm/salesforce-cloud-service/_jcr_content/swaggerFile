@@ -63,6 +63,56 @@
 						"description": "Invalid input"
 					}
 				}
+			},
+			"delete": {
+				"summary": "Delete Lead Information From SDFC",
+				"produces": ["application/json"],
+				"consumes": ["application/json"],
+				"operationId": "DeleteLead",
+				"parameters": [
+					{
+						"in": "path",
+						"name" : "id",
+						"type" : "string",
+						"description": "path to delete data from",
+						"required": true
+					}
+				],
+				"responses": {
+					"405": {
+						"description": "Invalid input"
+					}
+				}
+			}
+		},
+		"/services/data/v32.0/sobjects/Lead": {
+			"post": {
+				"summary": "Create Lead Data",
+				"produces": ["application/json"],
+				"consumes": ["application/json"],
+				"operationId": "CreateLead",
+				"parameters": [
+					{
+						"in": "body",
+						"name": "lead",
+						"description": "lead object that needs to be added",
+						"required": true,
+						"schema" : {
+							"$ref" : "#/definitions/Lead"
+						}
+					}
+				],
+				"responses": {
+					"200" : {
+					  "description": "Valid output",
+						"schema" : {
+							"$ref" : "#/definitions/SFResult"
+						}
+					},
+					"405": {
+						"description": "Invalid input"
+					}
+				}
 			}
 		},
 		"/services/data/v32.0/sobjects/Account/{id}": {
@@ -87,6 +137,26 @@
 							"$ref" : "#/definitions/Account"							
 						}
 					},
+					"405": {
+						"description": "Invalid input"
+					}
+				}
+			},
+			"delete": {
+				"summary": "Delete Account Information From SDFC",
+				"produces": ["application/json"],
+				"consumes": ["application/json"],
+				"operationId": "DeleteAccount",
+				"parameters": [
+					{
+						"in": "path",
+						"name" : "id",
+						"type" : "string",
+						"description": "path to delete data from",
+						"required": true
+					}
+				],
+				"responses": {
 					"405": {
 						"description": "Invalid input"
 					}
@@ -123,28 +193,76 @@
 				}
 			}
 		},
-		"/services/data/v32.0/sobjects/Lead": {
-			"post": {
-				"summary": "Create Lead Data",
+		"/services/data/v32.0/sobjects/Contact/{id}": {
+			"get": {
+				"summary": "Fetch Contact Information From SDFC",
 				"produces": ["application/json"],
 				"consumes": ["application/json"],
-				"operationId": "CreateLead",
+				"operationId": "GetContact",
+				"parameters": [
+					{
+						"in": "path",
+						"name" : "id",
+						"type" : "string",
+						"description": "path to store data into",
+						"required": true
+					}
+				],
+				"responses": {
+					"200" : {
+					  "description": "Valid Contact output",
+						"schema" : {
+							"$ref" : "#/definitions/Contact"
+						}
+					},
+					"405": {
+						"description": "Invalid input"
+					}
+				}
+			},
+			"delete": {
+				"summary": "Delete Contact Information From SDFC",
+				"produces": ["application/json"],
+				"consumes": ["application/json"],
+				"operationId": "DeleteContact",
+				"parameters": [
+					{
+						"in": "path",
+						"name" : "id",
+						"type" : "string",
+						"description": "path to delete data from",
+						"required": true
+					}
+				],
+				"responses": {
+					"405": {
+						"description": "Invalid input"
+					}
+				}
+			}
+		},
+		"/services/data/v32.0/sobjects/Contact": {
+			"post": {
+				"summary": "Create Contact Data",
+				"produces": ["application/json"],
+				"consumes": ["application/json"],
+				"operationId": "CreateContact",
 				"parameters": [
 					{
 						"in": "body",
-						"name": "lead",
-						"description": "lead object that needs to be added",
+						"name": "contact",
+						"description": "contact object that needs to be added",
 						"required": true,
 						"schema" : {
-							"$ref" : "#/definitions/Lead"
+							"$ref" : "#/definitions/Contact"
 						}
 					}
 				],
 				"responses": {
 					"200" : {
 					  "description": "Valid output",
-						"schema" : {							
-							"$ref" : "#/definitions/SFResult"							
+						"schema" : {
+							"$ref" : "#/definitions/SFResult"
 						}
 					},
 					"405": {
@@ -152,7 +270,7 @@
 					}
 				}
 			}
-		}			
+		}
 	},
 	"definitions": {
 		"Lead": {
@@ -167,6 +285,9 @@
 				"LastName":{
 					"type": "string"
 				},
+                "Email":{
+                    "type": "string"
+                },
 				"FirstName":{
 					"type": "string"
 				},				
@@ -197,6 +318,33 @@
 			},
 			"required" : ["Phone", "Name", "Website"]
 		},
+        "Contact": {
+            "type": "object",
+            "properties": {
+                "Phone": {
+                    "type": "string"
+                },
+				"LastName":{
+					"type": "string"
+				},
+				"FirstName":{
+					"type": "string"
+				},
+                "Email":{
+                    "type": "string"
+                },
+                "Department":{
+                    "type": "string"
+                },
+                "Title":{
+                    "type": "string"
+                },
+                "Description":{
+                    "type": "string"
+                }
+            },
+            "required" : ["Phone", "Name", "Email"]
+        },
 		"SFResult": {
 			"type": "object",
 			"properties": {
