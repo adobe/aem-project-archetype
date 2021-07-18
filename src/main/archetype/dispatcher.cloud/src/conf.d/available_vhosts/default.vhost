@@ -17,6 +17,8 @@ Include conf.d/variables/custom.vars
 	ServerAlias	 "*"
 	# Use a document root that matches the one in conf.dispatcher.d/default.farm
 	DocumentRoot "${DOCROOT}"
+	# URI dereferencing algorithm is applied at Sling's level, do not decode parameters here
+	AllowEncodedSlashes NoDecode
 	# Add header breadcrumbs for help in troubleshooting
 	<IfModule mod_headers.c>
 		Header add X-Vhost "publish"
@@ -39,8 +41,6 @@ Include conf.d/variables/custom.vars
 		SetOutputFilter DEFLATE
 		# Don't compress images
 		SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
-		# Make sure proxies don't deliver the wrong content
-		Header append Vary User-Agent env=!dont-vary
 		# Prevent clickjacking
 		Header always append X-Frame-Options SAMEORIGIN
 	</Directory>

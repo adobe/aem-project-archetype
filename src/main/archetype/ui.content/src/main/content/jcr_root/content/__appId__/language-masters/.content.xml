@@ -10,7 +10,7 @@
 #end
         jcr:primaryType="cq:PageContent"
         jcr:title="Language Masters"
-        sling:resourceType="foundation/components/redirect"
+        sling:resourceType="${appId}/components/page"
         hideInNav="{Boolean}true"/>
     <${language}/>
 </jcr:root>

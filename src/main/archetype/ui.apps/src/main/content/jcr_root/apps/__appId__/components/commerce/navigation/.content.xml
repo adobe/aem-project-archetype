@@ -4,4 +4,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Commerce Navigation"
     componentGroup="${appTitle} - Structure"
-    sling:resourceSuperType="core/cif/components/structure/navigation/v1/navigation"/>
+    sling:resourceSuperType="core/cif/components/structure/navigation/v2/navigation"/>

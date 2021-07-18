@@ -13,6 +13,29 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
+#if ( $isSpaProject )
+
+<meta
+        property="cq:pagemodel_root_url"
+        data-sly-use.page="com.adobe.aem.spa.project.core.models.Page"
+        content="${symbol_dollar}{page.hierarchyRootJsonExportUrl}"
+/>
+
+<base href="/"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="cq:datatype" data-sly-test="${symbol_dollar}{wcmmode.edit || wcmmode.preview}" content="JSON"/>
+<meta property="cq:wcmmode" data-sly-test="${symbol_dollar}{wcmmode.edit}" content="edit"/>
+<meta property="cq:wcmmode" data-sly-test="${symbol_dollar}{wcmmode.preview}" content="preview"/>
+<meta property="cq:wcmmode" data-sly-test="${symbol_dollar}{wcmmode.disabled}" content="disabled"/>
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
+
+<sly data-sly-call="${symbol_dollar}{clientlib.all @ categories=['coralui3']}"/>
+<sly data-sly-call="${symbol_dollar}{clientlib.css @ categories=['${appId}.base']}"/>
+
+#else
+
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
      data-sly-call="${symbol_dollar}{clientlib.js @ categories='${appId}.dependencies'}"/>
@@ -21,3 +44,5 @@
 
 <!--/* Include Context Hub */-->
 <sly data-sly-resource="${'contexthub' @ resourceType='granite/contexthub/components/contexthub'}"/>
+
+#end

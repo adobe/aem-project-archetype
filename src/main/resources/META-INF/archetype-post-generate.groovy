@@ -24,6 +24,7 @@ def sdkVersion = request.getProperties().get("sdkVersion")
 def includeDispatcherConfig = request.getProperties().get("includeDispatcherConfig")
 def includeCommerce = request.getProperties().get("includeCommerce")
 def includeForms = request.getProperties().get("includeForms")
+def enableSSR = request.getProperties().get("enableSSR");
 def sdkFormsVersion = request.getProperties().get("sdkFormsVersion")
 
 def appsFolder = new File("$uiAppsPackage/src/main/content/jcr_root/apps/$appId")
@@ -66,20 +67,10 @@ if (aemVersion == "cloud") {
     }
     println "Using AEM as a Cloud Service SDK version: " + sdkVersion
     rootPom.text = rootPom.text.replaceAll('SDK_VERSION', sdkVersion.toString())
-} else {
-    // remove the analyser module as it's only for cloud
-    assert new File(rootDir, 'analyse').deleteDir();
-    removeModule(rootPom, 'analyse')
-}
-
-// Temporary until the cif-cloud project supports the feature model analysers
-if (aemVersion == "cloud" && includeCommerce == "y") {
-    assert new File(rootDir, 'analyse').deleteDir();
-    removeModule(rootPom, 'analyse')
 }
 
 buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, language, country)
-cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, contentFolder)
+cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder,enableSSR)
 
 if ( includeDispatcherConfig == "n"){
     // remove the unneeded config file
@@ -127,7 +118,6 @@ if (includeCommerce == "n") {
     assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory-default.config").delete()
     assert new File("$configFolder/config.publish/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.cfg.json").delete()
     assert new File("$configFolder/config.publish/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.config").delete()
-    assert new File("$appsFolder/components/xfpage/_cq_dialog").deleteDir()
     assert new File("$appsFolder/components/header").deleteDir()
     assert new File("$confFolder/settings/cloudconfigs/commerce").deleteDir()
     assert new File("$varFolder").deleteDir();
@@ -231,7 +221,7 @@ def buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, 
 /**
  * Renames and deletes frontend related files as necessary
  */
-def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, contentFolder) {
+def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder, enableSSR) {
     // Delete unwanted frontend modules
     frontendModules.each { def frontendModule ->
         // Clean up POM file
@@ -252,6 +242,7 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
     if (optionFrontendModule != "angular" && optionFrontendModule != "react") {
         // Delete app component
         assert new File("$appsFolder/components/structure/spa").deleteDir()
+        assert new File("$appsFolder/components/xfpage/body.html").delete()
 
         // Delete EditConfigs
         assert new File("$appsFolder/components/text/_cq_editConfig.xml").delete()
@@ -266,13 +257,43 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
 
         // Delete SPA content
         assert new File("$contentFolder/us/en/home").deleteDir()
+
+    }else{
+        assert new File("$appsFolder/components/xfpage/content.html").delete()
+    }
+
+    //cleanup SSR related files / folders when not choosing react (only react is supported for now) or not choosing SSR
+    if(enableSSR == "n" )
+    {
+        assert new File("$appsFolder/components/page/body.html").delete();
+        assert new File("$configFolder/config/com.adobe.cq.remote.content.renderer.impl.factory.ConfigurationFactoryImpl~${appId}.cfg.json").delete()
     }
 
     // Generating SPA: Delete non-SPA specific files
     if (optionFrontendModule == "angular" || optionFrontendModule == "react") {
         assert new File("$confFolder/settings/wcm/templates/page-content").deleteDir()
         assert new File("$confFolder/settings/wcm/template-types/page").deleteDir()
+
+        if(enableSSR == "n"){
+
+            if(optionFrontendModule == "react"){
+                //cleanup IO runtime related files from react module
+                assert new File(rootDir, "ui.frontend/webpack.config.express.js").delete();
+                assert new File(rootDir, "ui.frontend/webpack.config.adobeio.js").delete();
+                assert new File(rootDir, "ui.frontend/manifest.yml").delete();
+                assert new File(rootDir, "ui.frontend/src/server").deleteDir();
+                assert new File(rootDir, "ui.frontend/actions").deleteDir();
+                assert new File(rootDir, "ui.frontend/scripts").deleteDir();
+            }else if(optionFrontendModule == "angular"){
+                assert new File(rootDir, "ui.frontend/server.ts").delete();
+                assert new File(rootDir, "ui.frontend/tsconfig.server.json").delete();
+                assert new File(rootDir, "ui.frontend/src/main.server.ts").delete();
+                assert new File(rootDir, "ui.frontend/src/app/app.server.module.ts").delete();
+            }
+
+        }
     }
+
 }
 
 /**
