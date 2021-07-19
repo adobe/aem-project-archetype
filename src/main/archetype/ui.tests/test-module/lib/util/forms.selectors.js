@@ -35,6 +35,21 @@ var selectors = {
                     cancel : 'button.cq-dialog-header-action[title="Cancel"]'
                 }
             }
+        },
+        fdmEditor : {
+            title : '#fdm-editor-header-title',
+            modelTab : 'coral-tab=Model',
+            servicesTab : 'coral-tab=Services'
+        },
+        dataSourceEditor : {
+            generalTab : 'coral-tab=General',
+            authenticationTab : 'coral-tab=Authentication Settings',
+            title : '[name="./jcr:title"]',
+            authenticationSelector : '[name="./selectAuthentication"]',
+            oAuthUrl : '[name="./oAuthUrl"]',
+            refreshTokenUrl : '[name="./refresh_token_uri"]',
+            accessTokenUrl : '[name="./access_token_uri"]',
+            authScope : '[name="./authorization_scope"]'
         }
     },
     content : {

@@ -11,7 +11,6 @@
         sling:resourceType="fd/fdm/gui/components/admin/fdmcloudservice/rest"
         access_token_uri="https://login.salesforce.com/services/oauth2/token"
         authenticationType="OAuth 2.0"
-        authorization_scope="1"
         dataSourceType="REST"
         filename="salesforce_swagger.json"
         location="header"

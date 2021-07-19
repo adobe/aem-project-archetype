@@ -9,14 +9,13 @@
         jcr:primaryType="cq:PageContent"
         jcr:title="MS Dynamics OData Cloud Service"
         sling:resourceType="fd/fdm/gui/components/admin/fdmcloudservice/rest"
-        access_token_uri="https://login.microsoftonline.com/organizations/oauth2/token"
+        access_token_uri="https://login.microsoftonline.com/{tenant}/oauth2/token"
         authenticationType="OAuth 2.0"
-        authorization_scope="1"
         dataSourceType="ODATA_REST"
         location="header"
         name="ms-dynamics-odata-cloud-service"
-        oAuthUrl="https://login.microsoftonline.com/organizations/oauth2/authorize"
-        refresh_token_uri="https://login.microsoftonline.com/organizations/oauth2/token"
+        oAuthUrl="https://login.microsoftonline.com/{tenant}/oauth2/authorize"
+        refresh_token_uri="https://login.microsoftonline.com/{tenant}/oauth2/token"
         selectAuthentication="OAuth 2.0"
         selectHeader="Authorization Bearer"/>
 </jcr:root>
