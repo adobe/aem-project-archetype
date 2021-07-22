@@ -198,49 +198,351 @@
 		"Lead": {
 			"type": "object",
 			"properties": {
-				"Phone": {
-					"type": "string"
-				},
-				"Company":{
-					"type": "string"
-				},
-				"LastName":{
-					"type": "string"
-				},
-                "Email":{
-                    "type": "string"
+                "Address": {
+                  "type": "string"
                 },
-				"FirstName":{
-					"type": "string"
-				},				
-				"LeadSource" :{
-					"type" : "string"
-				}
-			},
+                "AnnualRevenue": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "City": {
+                  "type": "string"
+                },
+                "Company": {
+                  "type": "string"
+                },
+                "ConvertedAccountId": {
+                  "type": "string"
+                },
+                "ConvertedContactId": {
+                  "type": "string"
+                },
+                "ConvertedDate": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "ConvertedOpportunityId": {
+                  "type": "string"
+                },
+                "Country": {
+                  "type": "string"
+                },
+                "CreatedById": {
+                  "type": "string"
+                },
+                "CreatedDate": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "Description": {
+                  "type": "string"
+                },
+                "Email": {
+                  "type": "string"
+                },
+                "EmailBouncedDate": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "EmailBouncedReason": {
+                  "type": "string"
+                },
+                "FirstName": {
+                  "type": "string"
+                },
+                "GeocodeAccuracy": {
+                  "type": "string"
+                },
+                "Id": {
+                  "type": "string"
+                },
+                "IndividualId": {
+                  "type": "string"
+                },
+                "Industry": {
+                  "type": "string"
+                },
+                "IsConverted": {
+                  "type": "boolean"
+                },
+                "IsDeleted": {
+                  "type": "boolean"
+                },
+                "IsUnreadByOwner": {
+                  "type": "boolean"
+                },
+                "Jigsaw": {
+                  "type": "string"
+                },
+                "JigsawContactId": {
+                  "type": "string"
+                },
+                "LastActivityDate": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "LastModifiedById": {
+                  "type": "string"
+                },
+                "LastModifiedDate": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "LastName": {
+                  "type": "string"
+                },
+                "LastReferencedDate": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "LastViewedDate": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "Latitude": {
+                  "type": "number"
+                },
+                "LeadSource": {
+                  "type": "string"
+                },
+                "Longitude": {
+                  "type": "number"
+                },
+                "MasterRecordId": {
+                  "type": "string"
+                },
+                "Name": {
+                  "type": "string"
+                },
+                "NumberOfEmployees": {
+                  "type": "number",
+                  "format": "int32"
+                },
+                "OwnerId": {
+                  "type": "string"
+                },
+                "Phone": {
+                  "type": "string"
+                },
+                "PhotoUrl": {
+                  "type": "string"
+                },
+                "PostalCode": {
+                  "type": "string"
+                },
+                "Rating": {
+                  "type": "string"
+                },
+                "Salutation": {
+                  "type": "string"
+                },
+                "State": {
+                  "type": "string"
+                },
+                "Status": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string"
+                },
+                "SystemModstamp": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "Title": {
+                  "type": "string"
+                },
+                "Website": {
+                  "type": "string"
+                }
+            },
 			"required" : ["Phone", "Company", "LastName", "FirstName"]
 		},
         "Contact": {
             "type": "object",
             "properties": {
+                "AccountId": {
+                    "type": "string"
+                },
+                "AssistantName": {
+                    "type": "string"
+                },
+                "AssistantPhone": {
+                    "type": "string"
+                },
+                "Birthdate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "CreatedById": {
+                    "type": "string"
+                },
+                "CreatedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "Department": {
+                    "type": "string"
+                },
+                "Description": {
+                    "type": "string"
+                },
+                "Email": {
+                    "type": "string"
+                },
+                "EmailBouncedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "EmailBouncedReason": {
+                    "type": "string"
+                },
+                "Fax": {
+                    "type": "string"
+                },
+                "FirstName": {
+                    "type": "string"
+                },
+                "HomePhone": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "string"
+                },
+                "IndividualId": {
+                    "type": "string"
+                },
+                "IsDeleted": {
+                    "type": "boolean"
+                },
+                "IsEmailBounced": {
+                    "type": "boolean"
+                },
+                "Jigsaw": {
+                    "type": "string"
+                },
+                "JigsawContactId": {
+                    "type": "string"
+                },
+                "LastActivityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "LastCURequestDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "LastCUUpdateDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "LastModifiedById": {
+                    "type": "string"
+                },
+                "LastModifiedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "LastName": {
+                    "type": "string"
+                },
+                "LastReferencedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "LastViewedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "LeadSource": {
+                    "type": "string"
+                },
+                "MailingAddress": {
+                    "type": "string"
+                },
+                "MailingCity": {
+                    "type": "string"
+                },
+                "MailingCountry": {
+                    "type": "string"
+                },
+                "MailingGeocodeAccuracy": {
+                    "type": "string"
+                },
+                "MailingLatitude": {
+                    "type": "number"
+                },
+                "MailingLongitude": {
+                    "type": "number"
+                },
+                "MailingPostalCode": {
+                    "type": "string"
+                },
+                "MailingState": {
+                    "type": "string"
+                },
+                "MailingStreet": {
+                    "type": "string"
+                },
+                "MasterRecordId": {
+                    "type": "string"
+                },
+                "MobilePhone": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "OtherAddress": {
+                    "type": "string"
+                },
+                "OtherCity": {
+                    "type": "string"
+                },
+                "OtherCountry": {
+                    "type": "string"
+                },
+                "OtherGeocodeAccuracy": {
+                    "type": "string"
+                },
+                "OtherLatitude": {
+                    "type": "number"
+                },
+                "OtherLongitude": {
+                    "type": "number"
+                },
+                "OtherPhone": {
+                    "type": "string"
+                },
+                "OtherPostalCode": {
+                    "type": "string"
+                },
+                "OtherState": {
+                    "type": "string"
+                },
+                "OtherStreet": {
+                    "type": "string"
+                },
+                "OwnerId": {
+                    "type": "string"
+                },
                 "Phone": {
                     "type": "string"
                 },
-				"LastName":{
-					"type": "string"
-				},
-				"FirstName":{
-					"type": "string"
-				},
-                "Email":{
+                "PhotoUrl": {
                     "type": "string"
                 },
-                "Department":{
+                "ReportsToId": {
                     "type": "string"
                 },
-                "Title":{
+                "Salutation": {
                     "type": "string"
                 },
-                "Description":{
+                "SystemModstamp": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "Title": {
                     "type": "string"
                 }
             },

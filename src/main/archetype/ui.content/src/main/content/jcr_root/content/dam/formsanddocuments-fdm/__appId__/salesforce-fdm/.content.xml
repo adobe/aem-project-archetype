@@ -11,6 +11,6 @@
             jcr:primaryType="nt:unstructured"
             author="admin"
             title="Salesforce FDM"
-            uiModel="\{&quot;models&quot;:{&quot;Contact&quot;:{&quot;x&quot;:810,&quot;y&quot;:70},&quot;SFResult&quot;:{&quot;x&quot;:250,&quot;y&quot;:80},&quot;Lead&quot;:{&quot;x&quot;:470,&quot;y&quot;:70}}}"/>
+            uiModel="\{&quot;models&quot;:{&quot;Contact&quot;:{&quot;x&quot;:60,&quot;y&quot;:80},&quot;SFResult&quot;:{&quot;x&quot;:700,&quot;y&quot;:80},&quot;Lead&quot;:{&quot;x&quot;:390,&quot;y&quot;:80}}}"/>
     </jcr:content>
 </jcr:root>
