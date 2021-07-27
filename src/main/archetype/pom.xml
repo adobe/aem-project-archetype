@@ -921,7 +921,11 @@ Bundle-DocURL:
             <dependency>
                 <groupId>io.wcm</groupId>
                 <artifactId>io.wcm.testing.aem-mock.junit5</artifactId>
-                <version>3.0.2</version>
+#if ( $aemVersion != "cloud" )
+                <version>3.0.2</ersion>
+#else
+                <version>4.1.0</version>
+#end
                 <scope>test</scope>
             </dependency>
             <dependency>
