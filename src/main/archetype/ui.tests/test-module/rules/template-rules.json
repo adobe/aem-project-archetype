@@ -1,0 +1,83 @@
+{
+  "template": {
+    "content": {
+      "formContainer": {
+        "rootPanel": {
+          "layout": "tabsLeft",
+          "items": [
+            {
+              "title": "General",
+              "type": "panel",
+              "layout": "tabsLeft",
+              "items": [
+                {
+                  "title": "Basic Information",
+                  "type": "panel",
+                  "layout": "Responsive",
+                  "items": {
+                    "type": "guidefield",
+                    "count": 6
+                  }
+                },
+                {
+                  "title": "Address",
+                  "type": "panel",
+                  "layout": "Responsive",
+                  "items": {
+                    "type": "guidefield",
+                    "count": 6
+                  }
+                },
+                {
+                  "title": "Employment",
+                  "type": "panel",
+                  "layout": "Responsive",
+                  "items": {
+                    "type": "guidefield",
+                    "count": 5
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Expenditure",
+              "type": "panel",
+              "layout": "Responsive",
+              "items": {
+                "type": "guidefield",
+                "count": 15
+              }
+            },
+            {
+              "title": "Documents",
+              "type": "panel",
+              "layout": "Responsive",
+              "items": {
+                "type": "guidefield",
+                "count": 2
+              }
+            },
+            {
+              "title": "Communication",
+              "type": "panel",
+              "layout": "Responsive",
+              "items": {
+                "type": "guidefield",
+                "count": 3
+              }
+            },
+            {
+              "title": "Confirmation",
+              "type": "panel",
+              "layout": "Responsive",
+              "items": {
+                "type": "guidefield",
+                "count": 5
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
