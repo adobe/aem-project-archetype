@@ -184,7 +184,7 @@
 
         <!--
             Option to include Experience Template
-            aem-experience-template directory.
+            ${appId}-template directory.
         -->
         <requiredProperty key="includeExperienceTemplate">
             <defaultValue>n</defaultValue>
@@ -542,7 +542,7 @@
     </fileSet>
     <fileSet filtered="true" packaged="false"
               encoding="UTF-8">
-      <directory>aem-experience-template</directory>
+      <directory>__appId__-template</directory>
       <includes>
           <include>**/*</include>
       </includes>
@@ -557,7 +557,7 @@
     </fileSet>
     <fileSet filtered="false" packaged="false"
              encoding="UTF-8">
-      <directory>aem-experience-template</directory>
+      <directory>__appId__-template</directory>
       <includes>
         <include>**/*.png</include>
         <include>**/image</include>

@@ -30,7 +30,7 @@ renameFolder( './site/src/main/content/jcr_root/content/experience-fragments', n
 
 // All options are optional, defaults provided.
 // to walk synchronously, do it this way:
-const result = walk.sync(
+walk.sync(
   {
       path: '.', // root dir to start in. defaults to process.cwd()
       ignoreFiles: [ '.gitignore' ], // list of filenames. defaults to ['.ignore']

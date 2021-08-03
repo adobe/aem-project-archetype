@@ -30,7 +30,7 @@
     <!-- ====================================================================== -->
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
-    <artifactId>${rootArtifactId}.aem-experience-template</artifactId>
+    <artifactId>${artifactId}-template</artifactId>
     <packaging>pom</packaging>
     <name>${appTitle} - AEM Experience Template</name>
 

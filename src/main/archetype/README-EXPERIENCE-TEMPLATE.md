@@ -15,7 +15,7 @@ $ mvn clean install -PautoInstallSinglePackage
 3. Deploy the Experience Template to AEM.
 
 ```
-$ cd aem-experience-template
+$ cd <app-id>-template
 $ npm run deploy
 ```
 

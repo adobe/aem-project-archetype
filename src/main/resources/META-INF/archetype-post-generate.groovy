@@ -107,9 +107,9 @@ assert new File(rootDir, 'dispatcher.cloud').deleteDir()
 removeModule(rootPom, 'dispatcher.cloud')
 
 if (includeExperienceTemplate == "n") {
-    assert new File(rootDir, "aem-experience-template").deleteDir()
+    assert new File(rootDir, "$appId-template").deleteDir()
     assert new File(rootDir, "README-EXPERIENCE-TEMPLATE.md").delete()
-    removeModule(rootPom, 'aem-experience-template')
+    removeModule(rootPom, "$appId-template")
 } else {
     // Experience Templates should be used to create sites if enabled. ui.content module not needed.
     removeModule(rootPom, 'ui.content')

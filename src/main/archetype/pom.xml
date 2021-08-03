@@ -54,7 +54,7 @@
         <module>ui.frontend.react</module>
         <module>ui.tests</module>
 #if ( $includeExperienceTemplate == "y" )
-        <module>aem-experience-template</module>
+        <module>${appId}-template</module>
 #end
     </modules>
 
