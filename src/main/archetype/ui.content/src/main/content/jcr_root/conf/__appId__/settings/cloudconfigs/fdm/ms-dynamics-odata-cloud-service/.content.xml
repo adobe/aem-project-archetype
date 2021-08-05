@@ -7,7 +7,7 @@
         jcr:lastModified="{Date}2018-01-29T07:02:40.882Z"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="cq:PageContent"
-        jcr:title="MS Dynamics OData Cloud Service"
+        jcr:title="Microsoft Dynamics OData Cloud Service"
         sling:resourceType="fd/fdm/gui/components/admin/fdmcloudservice/rest"
         access_token_uri="https://login.microsoftonline.com/{tenant}/oauth2/token"
         authenticationType="OAuth 2.0"

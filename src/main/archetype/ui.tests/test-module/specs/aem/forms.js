@@ -54,7 +54,7 @@ describe('AEM Forms OOTB Content Tests', () => {
     describe('DataSource Tests', () => {
         let dataSources = [
                 {name : 'salesforce-cloud-service', title : 'Salesforce Cloud Service'},
-                {name : 'ms-dynamics-odata-cloud-service', title : 'MS Dynamics OData Cloud Service'}
+                {name : 'ms-dynamics-odata-cloud-service', title : 'Microsoft Dynamics OData Cloud Service'}
             ],
             basePath = 'mnt/overlay/fd/fdm/gui/components/admin/fdmcloudservice/properties.html',
             confPath = '/conf/${appId}/settings/cloudconfigs/fdm',
