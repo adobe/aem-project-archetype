@@ -17,8 +17,10 @@
 const config = require('../../lib/config');
 const commons = require('../../lib/commons');
 const selectors = require('../../lib/util/forms.selectors.js');
-
-describe('AEM Forms Reference Artifacts', () => {
+/*
+    E2E UI Testing of AEM Forms OOTB Sample Content included in archetype ui.content package.
+*/
+describe('AEM Forms OOTB Content Tests', () => {
 
     let onboardingHdler,
         testName,
@@ -48,7 +50,8 @@ describe('AEM Forms Reference Artifacts', () => {
         onboardingHdler.disable();
     });
 
-    describe('AEM Forms DataSource Tests', () => {
+    // Validate rendering of Data Source properties page with partially filled OAuth details.
+    describe('DataSource Tests', () => {
         let dataSources = [
                 {name : 'salesforce-cloud-service', title : 'Salesforce Cloud Service'},
                 {name : 'ms-dynamics-odata-cloud-service', title : 'MS Dynamics OData Cloud Service'}
@@ -91,14 +94,15 @@ describe('AEM Forms Reference Artifacts', () => {
             };
 
         dataSources.forEach(function (dataSource) {
-            it('Testing of Data Source '+ dataSource.title , function () {
+            it('Testing Data Source : '+ dataSource.title , function () {
                 testName = this.test.parent.title + '.' + this.test.title;
                 verifyDataSource(dataSource);
             });
         });
     });
 
-    describe('AEM Forms Form Data Model Tests', () => {
+    // Validate rendering of FDM in editor mode with already added entity/services.
+    describe('Form Data Model Tests', () => {
 
         let formDataModels = [
                 {name : 'salesforce-fdm', title : 'Salesforce FDM', entities : ['Contact', 'Lead'],
@@ -147,7 +151,7 @@ describe('AEM Forms Reference Artifacts', () => {
             };
 
         formDataModels.forEach(function (formDataModel) {
-            it('Testing of Form Data Model '+ formDataModel.title , function () {
+            it('Testing Form Data Model : '+ formDataModel.title , function () {
                 testName = this.test.parent.title + '.' + this.test.title;
                 verifyformDataModel(formDataModel);
             });
