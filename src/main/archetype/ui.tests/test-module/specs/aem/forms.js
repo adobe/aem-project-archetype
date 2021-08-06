@@ -22,9 +22,7 @@ const path = require('path');
 
 describe('AEM Forms Reference Artifacts', () => {
 
-    let onboardingHdler,
-        testName,
-        consoleErrors = [];
+    let onboardingHdler;
 
     // AEM Login
     beforeEach(() => {
@@ -32,12 +30,6 @@ describe('AEM Forms Reference Artifacts', () => {
         browser.AEMForceLogout();
         browser.url(config.aem.author.base_url);
         browser.AEMLogin(config.aem.author.username, config.aem.author.password);
-        consoleErrors = commons.trackConsoleErrors(browser);
-    });
-
-    afterEach(() => {
-        //Print console error logs for diagnosis in case test fails before console log verification steps
-        console.log('Console error logs during test execution of [' + testName + '] : \n' + consoleErrors);
     });
 
     before(function() {
@@ -53,7 +45,6 @@ describe('AEM Forms Reference Artifacts', () => {
 
     describe('AEM Forms Theme E2E', () => {
         it('E2E Testing of Canvas 3.0 Theme', function () {
-            testName = this.test.parent.title + '.' + this.test.title;
             let themePath = '/content/dam/formsanddocuments-themes/${appId}/canvas-3-0/jcr:content',
                 failedRules = [],
                 verifyCSS = function (selectors, cssProperty, expectedCSSValue) {
@@ -68,9 +59,6 @@ describe('AEM Forms Reference Artifacts', () => {
 
             //Open Canvas theme in editing mode
             browser.url(`${config.aem.author.base_url}/editor.html${themePath}`);
-
-            //Verify no console error present in edit mode so far
-            expect(consoleErrors).toHaveLength(0);
 
             //Preview theme
             browser.url(`${config.aem.author.base_url}/${themePath}?wcmmode=disabled`);
@@ -89,8 +77,6 @@ describe('AEM Forms Reference Artifacts', () => {
                 console.error(failedRule);
             }
             expect(failedRules).toHaveLength(0);
-            //Verify console errors for preview mode
-            expect(consoleErrors).toHaveLength(0);
 
         });
 
@@ -171,15 +157,12 @@ describe('AEM Forms Reference Artifacts', () => {
                 $(selectors.editor.templateEditor.structureLayer.policyPage.cancel).waitForClickable();
                 $(selectors.editor.templateEditor.structureLayer.policyPage.cancel).click();
 
-                //Switch to initial content layer to just check any console error in edit layer
+                //Switch to initial content layer
                 $(selectors.editor.layerSwitcher).waitForClickable();
                 $(selectors.editor.layerSwitcher).click();
                 $(selectors.editor.layerSelector.initial).waitForClickable();
                 $(selectors.editor.layerSelector.initial).click();
                 expect($(afContainerOverlaySelector).waitForDisplayed()).toBe(true);
-
-                //Verify no console error present in structure and initial content layer
-                expect(consoleErrors).toHaveLength(0);
 
                 //Preview the template using url and verify no. of AF field presence in the form/panel
                 browser.url(`${config.aem.author.base_url}/${templatePath}/initial.html?wcmmode=preview`);
@@ -193,14 +176,10 @@ describe('AEM Forms Reference Artifacts', () => {
                     tabbedLayoutCount = 0;
                     verifyTabbedPanelContent(rules.template.content.formContainer.rootPanel);
                 }
-
-                //Verify no console error present in preview mode
-                expect(consoleErrors).toHaveLength(0);
             };
 
         templates.forEach(function (template) {
             it('E2E Testing of Template '+ template.path , function () {
-                testName = this.test.parent.title + '.' + this.test.title;
                 verifyTemplate(template.path, template.isBlankForm, template.verificationRuleFilePath);
             });
         });
