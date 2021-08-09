@@ -19,8 +19,10 @@ const commons = require('../../lib/commons');
 const selectors = require('../../lib/util/forms.selectors.js');
 const fs = require('fs');
 const path = require('path');
-
-describe('AEM Forms Reference Artifacts', () => {
+/*
+    E2E UI Testing of AEM Forms OOTB Sample Content included in archetype ui.content package.
+*/
+describe('AEM Forms OOTB Content Tests', () => {
 
     let onboardingHdler;
 
@@ -50,8 +52,10 @@ describe('AEM Forms Reference Artifacts', () => {
                 verifyCSS = function (selectors, cssProperty, expectedCSSValue) {
                     let selectorList = selectors.split(',');
                     selectorList.forEach(selector => {
-                        let actualCSSValue = $(selector).getCSSProperty(cssProperty).value;
-                        if ( actualCSSValue !== expectedCSSValue) {
+                        let actualCSSValue = $(selector).getCSSProperty(cssProperty).value,
+                            //For some browser only rgb value is returned for alpha value 1, e.g. firefox
+                            expectedCSSValueRGBOnly = expectedCSSValue.toString().replace('rgba','rgb').replace(',1)',')');
+                        if ( actualCSSValue !== expectedCSSValue && actualCSSValue !== expectedCSSValueRGBOnly) {
                             failedRules.push('Verification failed for selector ' + selector + ' and style rule ' + cssProperty + ' [Expected : ' + expectedCSSValue + ' but ' + 'Received : ' + actualCSSValue + ']');
                         }
                     });
@@ -89,9 +93,6 @@ describe('AEM Forms Reference Artifacts', () => {
             ],
             tabbedLayoutCount = 0,
             tabNavigatorSelector = '.tab-navigators-vertical',
-            getContainerSelector = (templateContentPath, container) => {
-                return `div[data-path="${templateContentPath}/${container}"]`;
-            },
             getVisibleFieldCount = function () {
                 var fields = browser.$$('.tab-pane.active ' + selectors.content.genericAFField);
                 let count = 0;
@@ -130,42 +131,15 @@ describe('AEM Forms Reference Artifacts', () => {
 
             },
             verifyTemplate = (templatePath, isBlankForm, verificationRuleFilePath) => {
-                let templateStructure = templatePath + '/structure/jcr:content',
-                    templateInitialContent = templatePath + '/initial/jcr:content',
-                    afContainerOverlaySelector = '#OverlayWrapper ' + getContainerSelector(templateInitialContent,'guideContainer');
-
-                //Open template in editing mode
-                browser.url(`${config.aem.author.base_url}/editor.html${templatePath}/structure.html`);
-
-                //First open structure layer
-                $(selectors.editor.layerSwitcher).waitForClickable();
-                $(selectors.editor.layerSwitcher).click();
-                $(selectors.editor.layerSelector.structure).waitForClickable();
-                $(selectors.editor.layerSelector.structure).click();
-
-                //Content Verification - Verify all three containers are visible in structure
-                expect($(getContainerSelector(templateStructure,'parsys1'))).toBeDisplayed();
-                expect($(getContainerSelector(templateStructure,'parsys2'))).toBeDisplayed();
-                expect($(getContainerSelector(templateStructure,'guideContainer'))).toBeDisplayed();
-
-                //Content Verification - Verify Applied Policy
-                $(getContainerSelector(templateStructure,'guideContainer')).waitForClickable();
-                $(getContainerSelector(templateStructure,'guideContainer')).click();
-                $(selectors.editor.templateEditor.structureLayer.policyButton).waitForClickable();
-                $(selectors.editor.templateEditor.structureLayer.policyButton).click();
-                expect($(selectors.editor.templateEditor.structureLayer.policyPage.allowedComponent.adaptiveFormGroup + '[checked]').waitForDisplayed()).toBe(true);
-                $(selectors.editor.templateEditor.structureLayer.policyPage.cancel).waitForClickable();
-                $(selectors.editor.templateEditor.structureLayer.policyPage.cancel).click();
-
-                //Switch to initial content layer
-                $(selectors.editor.layerSwitcher).waitForClickable();
-                $(selectors.editor.layerSwitcher).click();
-                $(selectors.editor.layerSelector.initial).waitForClickable();
-                $(selectors.editor.layerSelector.initial).click();
-                expect($(afContainerOverlaySelector).waitForDisplayed()).toBe(true);
 
                 //Preview the template using url and verify no. of AF field presence in the form/panel
                 browser.url(`${config.aem.author.base_url}/${templatePath}/initial.html?wcmmode=preview`);
+
+                //Content Verification - Verify all three containers are visible in runtime
+                expect($('body>.parsys1')).toBeDisplayed();
+                expect($('body>.guideContainer')).toBeDisplayed();
+                expect($('body>.parsys2')).toBeDisplayed();
+
                 if(isBlankForm) {
                     //For blank template, there should be no AF field present
                     expect($(selectors.content.genericAFField).waitForDisplayed({ reverse : isBlankForm })).toBe(true);

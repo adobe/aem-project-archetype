@@ -261,9 +261,6 @@
     },
     ".guideTableNode table td": {
       "text-align": "left",
-      "border-style": "solid solid none none",
-      "border-width": "1px 1px 0px 0px",
-      "border-color": "rgba(255,255,255,1)",
       "height": "70px"
     },
     ".guideHelpQuestionMark": {
