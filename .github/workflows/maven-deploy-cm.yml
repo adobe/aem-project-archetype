@@ -79,13 +79,15 @@ jobs:
       - name: Checkout Cloud Manager project
         run:
           git clone -b ${CM_BRANCH} https://${CM_USER_NAMEL}:${CM_USER_PWD}@${CM_REPO} ${CM_PROJECT_DIR}
-      # Move new project to CM dir
+      # Move new project to CM dir and enable opt-in for ui.tests execution
       - name: Move project to CM dir
         run: |
           git -C ${CM_PROJECT_DIR} rm -rf .
           mv sitesdemo/* ${CM_PROJECT_DIR}
           sed -i -e "s/USA/USA, ${ARCHETYPE_COMMIT}/g" ${CM_PROJECT_DIR}/ui.content/src/main/content/jcr_root/content/experience-fragments/sitesdemo/us/en/site/footer/master/.content.xml
           sed -i -e "s/merge/replace/g" ${CM_PROJECT_DIR}/ui.content/src/main/content/META-INF/vault/filter.xml
+          sed -i -e "s#<include>Dockerfile</include>#<include>Dockerfile</include>\n \t\t\t\t<include>testing.properties</include>#" ${CM_PROJECT_DIR}/ui.tests/assembly-ui-test-docker-context.xml
+          echo -n "ui-tests.version=1" > ${CM_PROJECT_DIR}/ui.tests/testing.properties
       # Commit and push changes to CM repo
       - name: Commit Changes
         run: |
