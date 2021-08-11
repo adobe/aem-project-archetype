@@ -45,47 +45,6 @@ describe('AEM Forms OOTB Content Tests', () => {
         onboardingHdler.disable();
     });
 
-    describe('AEM Forms Theme E2E', () => {
-        it('E2E Testing of Canvas 3.0 Theme', function () {
-            let themePath = '/content/dam/formsanddocuments-themes/${appId}/canvas-3-0/jcr:content',
-                failedRules = [],
-                verifyCSS = function (selectors, cssProperty, expectedCSSValue) {
-                    let selectorList = selectors.split(',');
-                    selectorList.forEach(selector => {
-                        let actualCSSValue = $(selector).getCSSProperty(cssProperty).value,
-                            //For some browser only rgb value is returned for alpha value 1, e.g. firefox
-                            expectedCSSValueRGBOnly = expectedCSSValue.toString().replace('rgba','rgb').replace(',1)',')');
-                        if ( actualCSSValue !== expectedCSSValue && actualCSSValue !== expectedCSSValueRGBOnly) {
-                            failedRules.push('Verification failed for selector ' + selector + ' and style rule ' + cssProperty + ' [Expected : ' + expectedCSSValue + ' but ' + 'Received : ' + actualCSSValue + ']');
-                        }
-                    });
-                };
-
-            //Open Canvas theme in editing mode
-            browser.url(`${config.aem.author.base_url}/editor.html${themePath}`);
-
-            //Preview theme
-            browser.url(`${config.aem.author.base_url}/${themePath}?wcmmode=disabled`);
-
-            let ruleJson = fs.readFileSync(path.resolve(__dirname, '../../rules/canvas-3.0-theme-rules.json'));
-            let rules = JSON.parse(ruleJson);
-
-            for (let selectors in rules.cssRules) {
-                let selectorRules = rules.cssRules[selectors];
-                for (let cssProperty in selectorRules ) {
-                    verifyCSS(selectors, cssProperty, selectorRules[cssProperty] );
-                }
-            }
-            //Print all error messages for all the failed rules
-            for (let failedRule of failedRules) {
-                console.error(failedRule);
-            }
-            expect(failedRules).toHaveLength(0);
-
-        });
-
-    });
-
     describe('AEM Forms Templates E2E Testing', () => {
         let templates = [
                 {path : '/conf/${appId}/settings/wcm/templates/basic-af', isBlankForm : false, verificationRuleFilePath : '../../rules/template-rules.json'},
