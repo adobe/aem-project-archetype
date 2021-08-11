@@ -65,7 +65,6 @@ function _getLoginCookies(browser) {
     );
 }
 
-
 class OnboardingDialogHandler {
     constructor(browser) {
         this.browser = browser;
