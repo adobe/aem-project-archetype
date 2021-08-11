@@ -22,9 +22,7 @@ const selectors = require('../../lib/util/forms.selectors.js');
 */
 describe('AEM Forms OOTB Content Tests', () => {
 
-    let onboardingHdler,
-        testName,
-        consoleErrors = [];
+    let onboardingHdler;
 
     // AEM Login
     beforeEach(() => {
@@ -32,11 +30,6 @@ describe('AEM Forms OOTB Content Tests', () => {
         browser.AEMForceLogout();
         browser.url(config.aem.author.base_url);
         browser.AEMLogin(config.aem.author.username, config.aem.author.password);
-    });
-
-    afterEach(() => {
-        //Print console error logs for diagnosis in case test fails before console log verification steps
-        console.log('Console error logs during test execution of [' + testName + '] : \n' + consoleErrors);
     });
 
     before(function() {
@@ -61,8 +54,6 @@ describe('AEM Forms OOTB Content Tests', () => {
             verifyDataSource = (dataSource) => {
                 //Open datasource in editing mode
                 browser.url(`${config.aem.author.base_url}/${basePath}?item=${confPath}/${dataSource.name}`);
-                //Verify no console error present
-                //expect(consoleErrors).toHaveLength(0);
 
                 //Verify title value populated with correct value
                 expect($(selectors.editor.dataSourceEditor.title)).toBeDisplayed();
@@ -71,9 +62,6 @@ describe('AEM Forms OOTB Content Tests', () => {
                 //click authentication settings tab
                 expect($(selectors.editor.dataSourceEditor.authenticationTab)).toBeDisplayed();
                 $(selectors.editor.dataSourceEditor.authenticationTab).click();
-
-                //Verify no console error present
-                //expect(consoleErrors).toHaveLength(0);
 
                 //Verify OAuth authentication mechanism selected
                 expect($(selectors.editor.dataSourceEditor.authenticationSelector)).toBeDisplayed();
@@ -95,7 +83,6 @@ describe('AEM Forms OOTB Content Tests', () => {
 
         dataSources.forEach(function (dataSource) {
             it('Testing Data Source : '+ dataSource.title , function () {
-                testName = this.test.parent.title + '.' + this.test.title;
                 verifyDataSource(dataSource);
             });
         });
@@ -120,8 +107,6 @@ describe('AEM Forms OOTB Content Tests', () => {
             verifyformDataModel = (formDataModel) => {
                 //Open form data model in editing mode
                 browser.url(`${config.aem.author.base_url}/${basePath}/${formDataModel.name}`);
-                //Verify no console error present
-                //expect(consoleErrors).toHaveLength(0);
 
                 //Verify title value populated with correct value
                 expect($(selectors.editor.fdmEditor.title).waitForDisplayed()).toBe(true);
@@ -140,9 +125,6 @@ describe('AEM Forms OOTB Content Tests', () => {
                 expect($(selectors.editor.fdmEditor.servicesTab)).toBeDisplayed();
                 $(selectors.editor.fdmEditor.servicesTab).click();
 
-                //Verify no console error present
-                //expect(consoleErrors).toHaveLength(0);
-
                 //Verify Each operations present in services panel.
                 formDataModel.operations.forEach(function (operation) {
                     expect($(getOperationSelector(operation))).toBeDisplayed();
@@ -152,7 +134,6 @@ describe('AEM Forms OOTB Content Tests', () => {
 
         formDataModels.forEach(function (formDataModel) {
             it('Testing Form Data Model : '+ formDataModel.title , function () {
-                testName = this.test.parent.title + '.' + this.test.title;
                 verifyformDataModel(formDataModel);
             });
         });
