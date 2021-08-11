@@ -53,8 +53,8 @@ describe('AEM Forms OOTB Content Tests', () => {
     // Validate rendering of Data Source properties page with partially filled OAuth details.
     describe('DataSource Tests', () => {
         let dataSources = [
-                {name : 'salesforce-cloud-service', title : 'Salesforce Cloud Service'},
-                {name : 'ms-dynamics-odata-cloud-service', title : 'Microsoft Dynamics OData Cloud Service'}
+                {name : 'salesforce-cloud-service', title : 'Salesforce Cloud Config'},
+                {name : 'ms-dynamics-odata-cloud-service', title : 'Microsoft Dynamics Cloud Config'}
             ],
             basePath = 'mnt/overlay/fd/fdm/gui/components/admin/fdmcloudservice/properties.html',
             confPath = '/conf/${appId}/settings/cloudconfigs/fdm',
@@ -105,9 +105,9 @@ describe('AEM Forms OOTB Content Tests', () => {
     describe('Form Data Model Tests', () => {
 
         let formDataModels = [
-                {name : 'salesforce-fdm', title : 'Salesforce FDM', entities : ['Contact', 'Lead'],
+                {name : 'salesforce-fdm', title : 'Salesforce Data Model', entities : ['Contact', 'Lead'],
                     operations : ['POST /services/data/v32.0/sobjects/Contact', 'GET /services/data/v32.0/sobjects/Contact/{id}'] },
-                {name : 'ms-dynamics-fdm', title : 'Microsoft Dynamics FDM', entities : ['contact', 'lead'],
+                {name : 'ms-dynamics-fdm', title : 'Microsoft Dynamics Data Model', entities : ['contact', 'lead'],
                     operations : ['GET contact /contacts', 'POST contact /contacts', 'DELETE contact /contacts'] }
             ],
             getEntitySelector = (entityName) => {

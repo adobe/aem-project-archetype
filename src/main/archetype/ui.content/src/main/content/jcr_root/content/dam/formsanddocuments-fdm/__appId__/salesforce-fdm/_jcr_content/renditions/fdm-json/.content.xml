@@ -5,7 +5,7 @@
         jcr:primaryType="nt:unstructured"
         name="salesforce-fdm"
         rendition.handler.id="fdm.structure"
-        title="Salesforce FDM">
+        title="Salesforce Data Model">
         <definitions jcr:primaryType="nt:unstructured">
             <Contact
                 fdm:binaryEntity="{Boolean}false"

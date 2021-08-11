@@ -7,7 +7,7 @@
         jcr:lastModified="{Date}2020-12-21T22:03:43.915+05:30"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Salesforce Cloud Service"
+        jcr:title="Salesforce Cloud Config"
         sling:resourceType="fd/fdm/gui/components/admin/fdmcloudservice/rest"
         access_token_uri="https://login.salesforce.com/services/oauth2/token"
         authenticationType="OAuth 2.0"
