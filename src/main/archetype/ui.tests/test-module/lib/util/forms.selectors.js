@@ -1,8 +1,11 @@
 var selectors = {
     content : {
-        genericAFField : '.guidefield'
+        afFieldTypes : {
+            genericAFField : '.guidefield',
+            afImage : '.guideimage',
+            aftable : '.table'
+        }
     }
-
 };
 
 module.exports = selectors;

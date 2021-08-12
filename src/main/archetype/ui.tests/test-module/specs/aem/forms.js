@@ -52,8 +52,8 @@ describe('AEM Forms OOTB Content Tests', () => {
             ],
             tabbedLayoutCount = 0,
             tabNavigatorSelector = '.tab-navigators-vertical',
-            getVisibleFieldCount = function () {
-                var fields = browser.$$('.tab-pane.active ' + selectors.content.genericAFField);
+            getVisibleFieldCount = function (fieldSelector) {
+                var fields = browser.$$('.tab-pane.active ' + fieldSelector);
                 let count = 0;
                 for (let field of fields){
                     if(field.isDisplayed()){
@@ -62,24 +62,29 @@ describe('AEM Forms OOTB Content Tests', () => {
                 }
                 return count;
             },
-            verifyTabbedPanelContent = function (panel) {
-                if (panel.layout === 'tabsLeft' ) {
+            verifyPanelContent = function (panel) {
+                if (panel && panel.layout === 'tabsOnLeft' ) {
                     tabbedLayoutCount++;
-                    let tabbedLayoutLevel = tabbedLayoutCount,
+                    let tabbedLayoutNestingLevel = tabbedLayoutCount,
                         items = panel.items;
                     if (items instanceof Array ) {
-                        //Verify No. of tabs
+                        //Verify No. of tabs in the navigator for this particular panel
                         expect(browser.$$(tabNavigatorSelector + ':nth-child(' + tabbedLayoutCount + ')>li')).toHaveLength(items.length);
                         for (let i = 0; i < items.length; i++ ) {
-                            let childPanel = items[i];
-                            if (childPanel.layout === 'Responsive' && !(childPanel.items instanceof Array)) {
+                            let childPanel = items[i].panel,
+                                afFieldTypes = selectors.content.afFieldTypes,
+                                visibleFieldCount = 0;
+                            if (!childPanel.items) {
                                 //Navigate through all the panels by clicking navigator tab
-                                browser.$$(tabNavigatorSelector + ':nth-child(' + tabbedLayoutLevel + ')>li')[[i]].waitForClickable();
-                                browser.$$(tabNavigatorSelector + ':nth-child(' + tabbedLayoutLevel + ')>li')[[i]].click();
-                                //Verify field count for each panel
-                                expect(getVisibleFieldCount()).toBe(childPanel.items.count);
+                                browser.$$(tabNavigatorSelector + ':nth-child(' + tabbedLayoutNestingLevel + ')>li')[i].waitForClickable();
+                                browser.$$(tabNavigatorSelector + ':nth-child(' + tabbedLayoutNestingLevel + ')>li')[i].click();
+                                //Verify count of AF field, image and table etc for each panel
+                                for (let key in afFieldTypes){
+                                    visibleFieldCount = visibleFieldCount + getVisibleFieldCount(afFieldTypes[key]);
+                                }
+                                expect(visibleFieldCount).toBe(childPanel.afFieldCount);
                             } else {
-                                verifyTabbedPanelContent(items[i]);
+                                verifyPanelContent(childPanel);
                             }
                         }
                     }
@@ -101,13 +106,13 @@ describe('AEM Forms OOTB Content Tests', () => {
 
                 if(isBlankForm) {
                     //For blank template, there should be no AF field present
-                    expect($(selectors.content.genericAFField).waitForDisplayed({ reverse : isBlankForm })).toBe(true);
+                    expect($(selectors.content.afFieldTypes.genericAFField).waitForDisplayed({ reverse : isBlankForm })).toBe(true);
                 }else {
                     //Load the verification rule and validate content
                     let ruleJson = fs.readFileSync(path.resolve(__dirname, verificationRuleFilePath));
                     let rules = JSON.parse(ruleJson);
                     tabbedLayoutCount = 0;
-                    verifyTabbedPanelContent(rules.template.content.formContainer.rootPanel);
+                    verifyPanelContent(rules.panel);
                 }
             };
 

@@ -1,83 +1,58 @@
 {
-  "template": {
-    "content": {
-      "formContainer": {
-        "rootPanel": {
-          "layout": "tabsLeft",
+  "panel": {
+    "title": "Root",
+    "layout": "tabsOnLeft",
+    "items": [
+      {
+        "panel": {
+          "title": "General",
+          "layout": "tabsOnLeft",
           "items": [
             {
-              "title": "General",
-              "type": "panel",
-              "layout": "tabsLeft",
-              "items": [
-                {
-                  "title": "Basic Information",
-                  "type": "panel",
-                  "layout": "Responsive",
-                  "items": {
-                    "type": "guidefield",
-                    "count": 6
-                  }
-                },
-                {
-                  "title": "Address",
-                  "type": "panel",
-                  "layout": "Responsive",
-                  "items": {
-                    "type": "guidefield",
-                    "count": 6
-                  }
-                },
-                {
-                  "title": "Employment",
-                  "type": "panel",
-                  "layout": "Responsive",
-                  "items": {
-                    "type": "guidefield",
-                    "count": 5
-                  }
-                }
-              ]
-            },
-            {
-              "title": "Expenditure",
-              "type": "panel",
-              "layout": "Responsive",
-              "items": {
-                "type": "guidefield",
-                "count": 15
+              "panel": {
+                "title": "Basic Information",
+                "afFieldCount": 6
               }
             },
             {
-              "title": "Documents",
-              "type": "panel",
-              "layout": "Responsive",
-              "items": {
-                "type": "guidefield",
-                "count": 2
+              "panel": {
+                "title": "Address",
+                "afFieldCount": 6
               }
             },
             {
-              "title": "Communication",
-              "type": "panel",
-              "layout": "Responsive",
-              "items": {
-                "type": "guidefield",
-                "count": 3
-              }
-            },
-            {
-              "title": "Confirmation",
-              "type": "panel",
-              "layout": "Responsive",
-              "items": {
-                "type": "guidefield",
-                "count": 5
+              "panel": {
+                "title": "Employment",
+                "afFieldCount": 5
               }
             }
           ]
         }
+      },
+      {
+        "panel": {
+          "title": "Expenditure",
+          "afFieldCount": 16
+        }
+      },
+      {
+        "panel": {
+          "title": "Documents",
+          "afFieldCount": 2
+        }
+      },
+      {
+        "panel": {
+          "title": "Communication",
+          "afFieldCount": 3
+        }
+      },
+      {
+        "panel": {
+          "title": "Confirmation",
+          "afFieldCount": 6
+        }
       }
-    }
+    ]
   }
 }
