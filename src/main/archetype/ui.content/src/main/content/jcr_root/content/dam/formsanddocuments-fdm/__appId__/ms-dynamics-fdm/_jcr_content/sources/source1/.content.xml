@@ -3,4 +3,4 @@
     jcr:primaryType="nt:unstructured"
     configurationPath="ms-dynamics-odata-cloud-service"
     dataSourceType="ODATA_REST"
-    displayName="Microsoft Dynamics Cloud Config"/>
+    displayName="Microsoft Dynamics 365 Cloud Config"/>

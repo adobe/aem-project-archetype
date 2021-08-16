@@ -4,7 +4,7 @@
     <jcr:content
         jcr:primaryType="nt:unstructured"
         name="ms-dynamics-fdm"
-        title="Microsoft Dynamics Data Model">
+        title="Microsoft Dynamics 365 Data Model">
         <definitions jcr:primaryType="nt:unstructured">
             <contact_1501573930059
                 fdm:binaryEntity="{Boolean}false"

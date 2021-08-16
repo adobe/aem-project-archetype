@@ -7,7 +7,7 @@
         jcr:lastModified="{Date}2018-01-29T07:02:40.882Z"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Microsoft Dynamics Cloud Config"
+        jcr:title="Microsoft Dynamics 365 Cloud Config"
         sling:resourceType="fd/fdm/gui/components/admin/fdmcloudservice/rest"
         access_token_uri="https://login.microsoftonline.com/{tenant}/oauth2/token"
         authenticationType="OAuth 2.0"
