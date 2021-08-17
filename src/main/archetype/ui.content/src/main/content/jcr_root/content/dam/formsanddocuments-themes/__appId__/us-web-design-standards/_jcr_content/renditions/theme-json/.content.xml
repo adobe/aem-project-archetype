@@ -1,0 +1,811 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="sling:OrderedFolder">
+    <jcr:content
+        jcr:lastModified="{Long}1491465054549"
+        jcr:primaryType="nt:unstructured"
+        rendition.handler.id="theme.structure">
+        <components jcr:primaryType="nt:unstructured">
+            <af_guideContainer
+                jcr:primaryType="nt:unstructured"
+                component="fd/af/components/guideContainer">
+                <af_captchawidget
+                        jcr:primaryType="nt:unstructured"
+                        default_x0023_default="[min-height:20px,cssOverride:max-width:max-content]"/>
+                <af_guideimage
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[height:auto,max-width:100%,max-height:100%,margin-left:1.5rem,margin-right:1.5rem,width:calc(100% - 3rem),margin-top:1.5rem]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:1.5rem\, 1.5rem\, —\, 1.5rem]"
+                    phone_x0023_default="[margin-right:0.5rem,margin-left:0.5rem,width:calc(100% - 1rem)]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, 0.5rem\, —\, 0.5rem]"/>
+                <af_page
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[font-family:Arial,z-index:-10000,margin-left:0px,margin-bottom:0px,margin-top:0px,margin-right:0px,cssOverride:font-family: &quot;Merriweather&quot;\, &quot;Georgia&quot;\, &quot;Cambria&quot;\, &quot;Times New Roman&quot;\, &quot;Times&quot;\, serif;]"
+                    default_x0023_default_x0023_ui="[marginPopover:0px,positionPopover:Set]"/>
+                <af_chart
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[height:100%,width:inherit,max-width:100%,max-height:100%]"/>
+                <af_field
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[margin-top:0.4rem,padding-left:1.5rem,padding-right:1.5rem,padding-top:.8rem,margin-bottom:0.4rem,border-color:rgba(255\,255\,255\,0),padding-bottom:0.8rem,border-left-width:4px,border-style:solid,border-right-width:0px,border-top-width:0px,border-bottom-width:0px,cssOverride:font-family: &quot;Source Sans Pro&quot;\, &quot;Helvetica Neue&quot;\, &quot;Helvetica&quot;\, &quot;Roboto&quot;\, &quot;Arial&quot;\, sans-serif;]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,paddingLock:linkOff,paddingPopover:.8rem\, 1.5rem\, 0.8rem\, 1.5rem,borderRadiusPopover:Set,borderWidthLock:linkOff,marginPopover:0.4rem\, —\, 0.4rem\, —,borderWidthPopover:0px\, 0px\, 0px\, 4px]"
+                    default_x0023_error="[border-color:#cd2026]"
+                    default_x0023_error_x0023_ui="[borderWidthLock:link,borderRadiusPopover:Set,borderWidthPopover:Set]"
+                    default_x0023_success="[border-color:#4aa564]"
+                    default_x0023_success_x0023_ui="[borderWidthLock:link,borderWidthPopover:Set,paddingLock:linkOff,paddingPopover:Set]"
+                    phone_x0023_default="[padding-left:0.5rem]"
+                    phone_x0023_default_x0023_ui="[paddingPopover:0.5rem,paddingLock:linkOff]"/>
+                <af_fielddescriptionlong
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[margin-bottom:0.5rem,margin-right:0px,margin-left:0px,margin-top:0.5rem,clear:both,display:none,cssOverride:font-family: &quot;Source Sans Pro&quot;\, &quot;Helvetica Neue&quot;\, &quot;Helvetica&quot;\, &quot;Roboto&quot;\, &quot;Arial&quot;\, sans-serif;&#xa;,font-size:1.7rem,color:#212121,background:rgb(225\, 243\, 248),padding-left:1em,padding-bottom:1em,padding-top:1em,padding-right:1em,line-height:0]"
+                    default_x0023_default_x0023_mask="[]"
+                    default_x0023_default_x0023_ui="[marginPopover:0.5rem\, 0px\, 0.5rem\, 0px,borderRadiusLock:link,paddingLock:link,borderWidthLock:link,marginLock:linkOff,backgroundColor:rgb(225\, 243\, 248),borderWidthPopover:Set,paddingPopover:1em,borderRadiusPopover:Set]"
+                    phone_x0023_default="[line-height:1]"/>
+                <af_fieldlabel
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[color:#212121,font-size:1.7rem,font-weight:normal,addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot; .guideFieldLabel&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;auto&quot;\,&quot;max-width&quot;:&quot;46rem&quot;\,&quot;display&quot;:&quot;block&quot;}}}},max-width:46rem]"
+                    default_x0023_default_x0023_ui="[width:auto,marginLock:linkOff,display:block,paddingPopover:Set,marginPopover:Set]"/>
+                <af_widgetAndText
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[border-style:solid,border-top-width:1px,border-left-width:1px,border-bottom-width:1px,border-right-width:1px,color:#212121,font-size:1.7rem,padding-bottom:1rem,padding-left:0.7em,padding-top:1rem,padding-right:0.7em,margin-bottom:0.2em,margin-top:0.2em,margin-right:0px,addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot; .guideFieldWidget&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;100%&quot;\,&quot;max-width&quot;:&quot;46rem&quot;\,&quot;display&quot;:&quot;block&quot;}}}},border-color:#5b616b,max-width:46rem,margin-left:0px,cssOverride:font-family: &quot;Source Sans Pro&quot;\, &quot;Helvetica Neue&quot;\, &quot;Helvetica&quot;\, &quot;Roboto&quot;\, &quot;Arial&quot;\, sans-serif;]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,paddingPopover:1rem\, 0.7em\, 1rem\, 0.7em,paddingLock:linkOff,borderWidthPopover:1px,borderWidthLock:link,borderRadiusLock:link,display:block,shadowContainer:{&quot;itemList&quot;:[]},borderRadiusPopover:Set,marginPopover:0.2em\, 0px\, 0.2em\, 0px,width:100%]"
+                    default_x0023_disabled="[color:#666666,background:#d6d7d9,border-color:#aeb0b5]"
+                    default_x0023_disabled_x0023_ui="[backgroundColor:#d6d7d9]"
+                    default_x0023_error="[border-color:#cd2026,border-left-width:3px,border-bottom-width:3px,border-top-width:3px,border-right-width:3px,border-style:solid,addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot; .guideFieldWidget&quot;\,&quot;properties&quot;:{}}}}]"
+                    default_x0023_error_x0023_ui="[borderWidthPopover:3px]"
+                    default_x0023_success="[border-color:#4aa564,border-style:solid,border-left-width:3px,border-bottom-width:3px,border-top-width:3px,border-right-width:3px]"
+                    default_x0023_success_x0023_ui="[borderWidthPopover:3px]"
+                    phone_x0023_default="[max-width:100%,addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot; .guideFieldWidget:not(.guideFieldButtonWidget)&quot;\,&quot;properties&quot;:{&quot;max-width&quot;:&quot;100%&quot;}}}},margin-top:1rem]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:1rem\, —\, —\, —]"/>
+                <af_checkboxfieldwidgetandtext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[width:100%,display:block,margin-top:1rem]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:1rem\, —\, —\, —]"/>
+                <af_checkboxlabel
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_checked="[beforePseudoElement:background-color: #0071bc;&#xa;box-shadow: 0 0 0 2px #ffffff\, 0 0 0 4px #0071bc;]"
+                    default_x0023_checked_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]}]"
+                    default_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guideCheckBoxItem .guideWidgetLabel&quot;\,&quot;properties&quot;:{&quot;display&quot;:&quot;inline&quot;}}}},color:#212121,beforePseudoElement:background: white;&#xa;border-radius: 0.3rem;&#xa;content: '\\a0';&#xa;display: inline-block;&#xa;height: 1.6rem;&#xa;line-height: 0.8;&#xa;margin-right: 0.6em;&#xa;text-indent: 0.15em;&#xa;vertical-align: 0.2em;&#xa;width: 1.6rem;&#xa;box-shadow: 0 0 0 2px #ffffff\, 0 0 0 3px #757575;,line-height:1.8,cssOverride:cursor: pointer;]"
+                    default_x0023_default_x0023_ui="[display:inline-block,marginLock:linkOff,backgroundContainer:{&quot;itemList&quot;:[]},marginPopover:Set]"
+                    default_x0023_disabled="[beforePseudoElement:content: &quot;_&quot;;&#xa;background:url(../assets/Checkbox-disabled-01.svg) left center / contain no-repeat;&#xa;margin-right: 5px;&#xa;margin-top: 5px;&#xa;font-size: 40px;&#xa;color: #fff;&#xa;vertical-align: top;]"
+                    default_x0023_disabled_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]}]"/>
+                <af_checkboxwidgetandtext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[float:none,width:0.75rem,display:none]"/>
+                <af_numericstepperwidgetandtext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[width:40%,min-width:200px,border-top-width:1px,border-left-width:1px,border-bottom-width:1px,border-right-width:1px,border-style:solid,border-color:#5b616b,margin-top:0.2em]"
+                    default_x0023_default_x0023_ui="[borderWidthPopover:1px,borderWidthLock:link,marginLock:linkOff,marginPopover:0.2em\, —\, —\, —,borderRadiusPopover:Set]"/>
+                <af_numericstepperinput
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[width:calc(100% - 8rem),text-align:center,border-bottom-right-radius:0px,border-bottom-left-radius:0px,border-top-left-radius:0px,border-top-right-radius:0px,background:rgba(255\,255\,255\,0),border-right-width:1px,border-left-width:1px,border-style:solid,border-color:#5b616b,margin-left:0px,margin-bottom:0px,margin-top:0px,margin-right:0px]"
+                    default_x0023_default_x0023_ui="[borderWidthLock:linkOff,borderRadiusPopover:0px,borderWidthPopover:—\, 1px\, —\, 1px,backgroundColor:rgba(255\,255\,255\,0),marginPopover:0px]"/>
+                <af_numericstepperdecrementbutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[display:inline-block,float:left,cssOverride:cursor : pointer;&#xa;,background:url(../assets/minus.svg) center center / 1.3rem auto no-repeat\,#f1f1f1,padding-top:2rem,padding-right:2rem,padding-left:2rem,padding-bottom:2rem,height:4.2rem]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1452501163808&quot;\,&quot;imageSrc&quot;:&quot;../assets/minus.svg&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;1.3rem&quot;\,&quot;height&quot;:&quot;auto&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]},borderRadiusLock:link,paddingLock:link,paddingPopover:2rem,backgroundColor:#f1f1f1,borderWidthPopover:Set,borderRadiusPopover:Set]"
+                    default_x0023_focus="[background:url(../assets/Minus_Hover.svg) center center / 1.3rem auto no-repeat]"
+                    default_x0023_focus_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1452501353416&quot;\,&quot;imageSrc&quot;:&quot;../assets/Minus_Hover.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;1.3rem&quot;\,&quot;height&quot;:&quot;auto&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]}]"
+                    default_x0023_hover="[background:url(../assets/minus.svg) center center / 1.3rem 1.3rem no-repeat\,#d6d7d9]"
+                    default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1452501353412&quot;\,&quot;imageSrc&quot;:&quot;../assets/minus.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;1.3rem&quot;\,&quot;height&quot;:&quot;1.3rem&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]},backgroundColor:#d6d7d9,borderWidthPopover:Set]"
+                    phone_x0023_default="[padding-top:1.9rem,padding-bottom:1.9rem]"
+                    phone_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:1.9rem]"/>
+                <af_numericstepperincrementbutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[float:right,display:inline-block,cssOverride:cursor : pointer;&#xa;,background:url(../assets/plus.svg) center center / 1.3rem 1.3rem no-repeat\,#f1f1f1,padding-left:2rem,padding-bottom:2rem,padding-right:2rem,padding-top:2rem,height:4.2rem]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1452501353410&quot;\,&quot;imageSrc&quot;:&quot;../assets/plus.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;1.3rem&quot;\,&quot;height&quot;:&quot;1.3rem&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]},borderRadiusLock:link,paddingPopover:2rem,backgroundColor:#f1f1f1,borderWidthPopover:Set,borderRadiusPopover:Set]"
+                    default_x0023_focus="[background:url(../assets/plus.svg) center center / 1.3rem auto no-repeat]"
+                    default_x0023_focus_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1452501353415&quot;\,&quot;imageSrc&quot;:&quot;../assets/plus.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;1.3rem&quot;\,&quot;height&quot;:&quot;auto&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]}]"
+                    default_x0023_hover="[background:url(../assets/plus.svg) center center / 1.3rem auto no-repeat\,#d6d7d9]"
+                    default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1460371219810&quot;\,&quot;imageSrc&quot;:&quot;../assets/plus.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;1.3rem&quot;\,&quot;height&quot;:&quot;auto&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]},backgroundColor:#d6d7d9]"
+                    phone_x0023_default="[padding-bottom:1.9rem,padding-top:1.9rem]"
+                    phone_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:1.9rem\, —\, 1.9rem\, —]"/>
+                <af_radiobuttonwidgetandtext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[display:block,width:100%,margin-top:1rem,margin-right:0px]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:1rem\, 0px\, —\, —]"/>
+                <af_radiobuttonitemlabel
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_checked="[beforePseudoElement:background-color: #0071bc;&#xa;    box-shadow: 0 0 0 2px #ffffff\, 0 0 0 4px #0071bc;]"
+                    default_x0023_checked_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]}]"
+                    default_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guideRadioButtonItem .guideWidgetLabel&quot;\,&quot;properties&quot;:{&quot;display&quot;:&quot;inline&quot;\,&quot;float&quot;:&quot;none&quot;}}}},vertical-align:text-bottom,color:#212121,beforePseudoElement:background: white;&#xa;border-radius: 100%;&#xa;content: '\\a0';&#xa;display: inline-block;&#xa;height: 1.8rem;&#xa;line-height: 0.8;&#xa;margin-right: 0.6em;&#xa;text-indent: 0.15em;&#xa;vertical-align: 0.2em;&#xa;width: 1.8rem;&#xa;box-shadow: 0 0 0 2px #ffffff\, 0 0 0 3px #757575;,cssOverride:cursor: pointer;,line-height:1.8]"
+                    default_x0023_default_x0023_ui="[display:inline-block,float:none,marginLock:linkOff,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1460028063985&quot;\,&quot;imageSrc&quot;:&quot;&quot;}]},marginPopover:Set]"
+                    default_x0023_error_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]}]"
+                    default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]}]"
+                    default_x0023_success_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]}]"/>
+                <af_radiobuttonwidget
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[float:none,border-bottom-right-radius:15px,border-bottom-left-radius:15px,border-top-right-radius:15px,border-top-left-radius:15px,width:0.75rem,display:none]"
+                    default_x0023_default_x0023_ui="[borderRadiusPopover:15px]"/>
+                <af_textareawidgetandtext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[height:80px]"/>
+                <af_mobiletitlebarnextnav
+                    jcr:primaryType="nt:unstructured"
+                    phone_x0023_default="[margin-left:1rem,margin-bottom:0px,margin-right:0px,width:4rem,height:4rem,cssOverride:cursor : pointer;&#xa;,background:url(../assets/MobileBarChevron-Right.svg) center center / auto 2rem no-repeat]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1461142984848&quot;\,&quot;imageSrc&quot;:&quot;../assets/MobileBarChevron-Right.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;height&quot;:&quot;2rem&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;width&quot;:&quot;auto&quot;}]},marginPopover:—\, 0px\, 0px\, 1rem,positionPopover:Set]"/>
+                <af_mobiletitlebarprevnav
+                    jcr:primaryType="nt:unstructured"
+                    phone_x0023_default="[position:relative,background:url(../assets/MobileBarChevron-Left.svg) center center /  2rem no-repeat,width:4rem,cssOverride:cursor : pointer;&#xa;,margin-right:1rem,margin-left:0px,height:4rem]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1454240604557&quot;\,&quot;imageSrc&quot;:&quot;../assets/MobileBarChevron-Left.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;width&quot;:&quot;&quot;\,&quot;height&quot;:&quot;2rem&quot;}]},marginPopover:—\, 1rem\, —\, 0px,paddingPopover:Set]"/>
+                <af_switchwidgetandtext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_checked="[font-weight:normal]"
+                    default_x0023_checked_x0023_ui="[borderWidthPopover:Set]"
+                    default_x0023_default="[margin-top:0.25rem,padding-bottom:0px,padding-top:0px,height:24px,addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot; .guideCheckBoxGroupItems.guideSwitch&quot;\,&quot;properties&quot;:{&quot;display&quot;:&quot;inline-block&quot;\,&quot;position&quot;:&quot;relative&quot;}}}}]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:0.25rem\, —\, —\, —,display:inline-block,paddingPopover:0px\, —\, 0px\, —,position:relative,positionPopover:relative,paddingLock:linkOff,borderWidthPopover:Set,borderRadiusPopover:Set]"/>
+                <af_switchhandle
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[background:\,#d6d7d9,width:22px,height:22px,display:block,position:absolute,margin-top:0px,margin-left:0px,margin-right:0px,margin-bottom:0px,border-bottom-right-radius:3px,border-bottom-left-radius:3px,border-top-left-radius:3px,border-top-right-radius:3px,border-style:solid,border-left-width:1px,border-bottom-width:1px,border-top-width:1px,border-right-width:1px,border-color:#aeb0b5]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;gradient.1455189229940&quot;\,&quot;color1&quot;:&quot;&quot;\,&quot;color2&quot;:&quot;rgb(22\,252\,252)&quot;}]},borderRadiusLock:link,positionPopover:absolute,paddingPopover:Set,marginLock:link,marginPopover:0px,backgroundColor:#d6d7d9,borderRadiusPopover:3px,borderWidthPopover:1px]"/>
+                <af_switchonlabel
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[font-size:1.5rem,font-weight:bold,text-transform:uppercase,padding-top:0.25rem,display:block,margin-bottom:0.25rem,margin-top:0px,overflow:hidden,position:absolute,color:rgb(255\,255\,255),padding-left:0px,height:20px,border-bottom-right-radius:3px,border-bottom-left-radius:3px,border-top-left-radius:3px,border-top-right-radius:3px,background:#0071bc,line-height:1.9rem]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]},borderRadiusPopover:3px,paddingLock:linkOff,marginPopover:0px\, —\, 0.25rem\, —,marginLock:linkOff,positionPopover:absolute,paddingPopover:0.25rem\, —\, —\, 0px,backgroundColor:#0071bc]"/>
+                <af_switchofflabel
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[font-size:1.5rem,font-weight:bold,text-transform:uppercase,padding-top:0.25rem,padding-right:0px,display:block,margin-bottom:0.25rem,margin-top:0px,overflow:hidden,position:absolute,background:#323a45,height:20px,border-bottom-right-radius:3px,border-bottom-left-radius:3px,border-top-left-radius:3px,border-top-right-radius:3px,color:#ffffff]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]},paddingLock:linkOff,paddingPopover:0.25rem\, 0px\, —\, —,marginPopover:0px\, —\, 0.25rem\, —,marginLock:linkOff,positionPopover:absolute,backgroundColor:#323a45,borderWidthPopover:Set,borderRadiusPopover:3px]"/>
+                <af_tncwidgetandtext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[border-left-width:1px,border-bottom-width:1px,border-right-width:1px,border-top-width:1px,border-style:solid,border-color:#5b616b,padding-left:1.5rem,padding-top:1.5rem,padding-right:1.5rem]"
+                    default_x0023_default_x0023_ui="[borderWidthPopover:1px,borderRadiusPopover:Set,paddingLock:linkOff,paddingPopover:1.5rem\, 1.5rem\, —\, 1.5rem]"/>
+                <af_tncconsentcheckbox
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[margin-right:1rem,width:2rem,height:2rem,margin-top:1rem,margin-left:0.5rem,cssOverride:text-indent: 0.2em;]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:1rem\, 1rem\, —\, 0.5rem,paddingPopover:Set,shadowContainer:{&quot;itemList&quot;:[]}]"/>
+                <af_tnccontent
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[overflow:auto,border-style:solid,border-top-width:1px,border-left-width:1px,border-bottom-width:1px,border-right-width:1px,border-color:#aeb0b5,padding-left:1.6rem,padding-right:1.6rem,font-size:1.5rem,line-height:1.5,color:#666666,max-height:19rem]"
+                    default_x0023_default_x0023_ui="[borderWidthPopover:1px,borderWidthLock:link,marginLock:link,paddingLock:linkOff,marginPopover:Set,borderRadiusPopover:Set,paddingPopover:—\, 1.6rem\, —\, 1.6rem]"
+                    phone_x0023_default="[max-height:10rem]"/>
+                <af_imagechoicewidget
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_checked="[background:url(../assets/ImageChoiceSelectIcon.svg) center center no-repeat\,rgba(23\,107\,230\,0.5)]"
+                    default_x0023_checked_x0023_ui="[backgroundColor:rgba(23\,107\,230\,0.5),backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1456750106392&quot;\,&quot;imageSrc&quot;:&quot;../assets/ImageChoiceSelectIcon.svg&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;position&quot;:&quot;center center&quot;}]}]"
+                    default_x0023_default_x0023_ui="[borderRadiusPopover:Set,paddingPopover:Set]"/>
+                <af_tncpopupcontent
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[margin-left:1rem,margin-bottom:1rem,margin-right:1rem,margin-top:1rem,padding-top:0px,padding-bottom:0px,max-height:20rem]"
+                    default_x0023_default_x0023_ui="[marginPopover:1rem,paddingLock:linkOff,paddingPopover:0px\, —\, 0px\, —]"/>
+                <af_tncpopupheader
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[background:#AFB0B5,min-height:16.42857143px,border-top-right-radius:0.25rem,border-top-left-radius:0.25rem,padding-left:1rem,padding-bottom:1rem,padding-right:1rem,padding-top:1rem,border-left-width:0px,border-bottom-width:1px,border-right-width:0px,border-top-width:0px,border-style:solid,border-color:#e5e5e5]"
+                    default_x0023_default_x0023_ui="[backgroundColor:#AFB0B5,borderRadiusLock:linkOff,borderRadiusPopover:0.25rem\, 0.25rem\, —\, —,paddingPopover:1rem\, 1rem\, 1rem\, 1rem,borderWidthPopover:0px\, 0px\, 1px\, 0px,borderWidthLock:linkOff,paddingLock:linkOff]"/>
+                <af_dropdownlistwidgetandtext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[background:url(../assets/arrow-down.png) calc(100% - 1.3rem) 50% / 1.3rem auto no-repeat,cssOverride:-webkit-appearance: none;&#xa;-moz-appearance: none;&#xa;appearance: none;&#xa;cursor: pointer;,color:#212121]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1459331720576&quot;\,&quot;imageSrc&quot;:&quot;../assets/arrow-down.png&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;width&quot;:&quot;1.3rem&quot;\,&quot;height&quot;:&quot;auto&quot;\,&quot;position&quot;:&quot;custom&quot;\,&quot;x-position&quot;:&quot;calc(100% - 1.3rem)&quot;\,&quot;y-position&quot;:&quot;50%&quot;}]},marginPopover:Set,paddingLock:link,paddingPopover:Set]"
+                    default_x0023_focus_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]}]"
+                    default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]}]"/>
+                <af_formtitle
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[font-size:4rem,color:#112e51,padding-left:0px,font-weight:bold,line-height:1.3,display:none,clear:both,margin-left:3rem,margin-top:11.7rem,padding-right:0px,margin-right:3rem,margin-bottom:1rem]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,paddingPopover:—\, 0px\, —\, 0px,paddingLock:linkOff,positionPopover:Set,marginPopover:11.7rem\, 3rem\, 1rem\, 3rem]"
+                    phone_x0023_default="[margin-left:0.5rem,margin-bottom:0.5rem]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, —\, 0.5rem\, 0.5rem]"/>
+                <af_helpicon
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[display:inline-block,position:absolute,top:8px,right:8px,width:2.5rem,height:2.5rem,border-bottom-right-radius:50%,border-bottom-left-radius:50%,border-top-left-radius:50%,border-top-right-radius:50%,cssOverride:cursor : pointer;&#xa;,background:url(../assets/help.svg) center center / 3.5rem 3.5rem no-repeat\,#5b616b,margin-right:1rem]"
+                    default_x0023_default_x0023_ui="[positionPopover:absolute,borderRadiusPopover:50%,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1459326431393&quot;\,&quot;imageSrc&quot;:&quot;../assets/help.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;width&quot;:&quot;3.5rem&quot;\,&quot;height&quot;:&quot;3.5rem&quot;}]},marginLock:linkOff,backgroundColor:#5b616b,borderWidthPopover:Set,marginPopover:—\, 1rem\, —\, —]"
+                    default_x0023_hover="[background:url(../assets/help-hover.svg) center center / 3.5rem 3.5rem no-repeat\,#0071bc,border-color:#205493]"
+                    default_x0023_hover_x0023_ui="[backgroundColor:#0071bc,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1454170474665&quot;\,&quot;imageSrc&quot;:&quot;../assets/help-hover.svg&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;width&quot;:&quot;3.5rem&quot;\,&quot;height&quot;:&quot;3.5rem&quot;}]}]"/>
+                <af_panelhelpicon
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[position:relative,left:5px,top:4px,border-color:#5b616b]"
+                    default_x0023_default_x0023_ui="[positionPopover:relative,backgroundContainer:{&quot;itemList&quot;:[]}]"
+                    default_x0023_hover="[border-color:#0071bc]"
+                    default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]}]"/>
+                <af_panelhelp
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[background:rgb(225\, 243\, 248),padding-left:1em,padding-right:1em,padding-top:1em,padding-bottom:1em,margin-left:0px,margin-right:0px,margin-top:0.5em,color:#212121,font-size:1.7rem,text-transform:none,cssOverride:font-family: &quot;Source Sans Pro&quot;\, &quot;Helvetica Neue&quot;\, &quot;Helvetica&quot;\, &quot;Roboto&quot;\, &quot;Arial&quot;\, sans-serif;,line-height:0]"
+                    default_x0023_default_x0023_mask="[]"
+                    default_x0023_default_x0023_ui="[backgroundColor:rgb(225\, 243\, 248),borderWidthLock:link,paddingPopover:1em,marginLock:linkOff,paddingLock:link,borderWidthPopover:Set,marginPopover:0.5em\, 0px\, —\, 0px,borderRadiusPopover:Set]"
+                    phone_x0023_default="[line-height:1]"/>
+                <af_responsivepaneldescription
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[font-size:3rem,color:#205493,line-height:1.3,font-weight:bold,margin-left:1.5rem,margin-right:1.5rem,margin-bottom:1.5rem,cssOverride:font-family: &quot;Merriweather&quot;\, &quot;Georgia&quot;\, &quot;Cambria&quot;\, &quot;Times New Roman&quot;\, &quot;Times&quot;\, serif;]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,paddingPopover:Set,marginPopover:—\, 1.5rem\, 1.5rem\, 1.5rem]"
+                    phone_x0023_default="[margin-bottom:0.5rem,margin-left:0.5rem,margin-right:0.5rem]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, 0.5rem\, 0.5rem\, 0.5rem]"/>
+                <af_mobilemenu
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[background:#ffffff]"
+                    default_x0023_default_x0023_ui="[backgroundColor:#ffffff,borderWidthPopover:Set]"
+                    phone_x0023_default="[cssOverride:list-style: none;&#xa;cursor: pointer;,padding-left:0px,padding-bottom:0px,padding-top:0px,padding-right:0px,margin-left:0px,margin-bottom:0px,margin-top:0px,margin-right:0px,border-left-width:0.1rem,border-bottom-width:0.1rem,border-top-width:0.1rem,border-right-width:0.1rem,border-style:solid,border-color:#5b616b,background:#ffffff,max-width:100%,width:100%]"
+                    phone_x0023_default_x0023_ui="[paddingPopover:0px,marginPopover:0px,shadowContainer:{&quot;itemList&quot;:[]},borderWidthPopover:0.1rem,backgroundColor:#ffffff]"/>
+                <af_mobilemenubutton
+                    jcr:primaryType="nt:unstructured"
+                    phone_x0023_default="[border:none,float:right,cursor:pointer,margin-right:1rem,border-bottom-right-radius:0px,border-bottom-left-radius:0px,border-top-left-radius:0px,border-top-right-radius:0px,margin-left:1.5rem,margin-bottom:1rem,beforePseudoElement:content: &quot;Menu&quot;;&#xa;font-size: 1.5rem;&#xa;color: #ffffff;&#xa;&#xa;,background:#0071bc,padding-top:1.5rem,padding-bottom:1.5rem,width:15%,min-width:75px]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,paddingLock:linkOff,backgroundContainer:{&quot;itemList&quot;:[]},borderRadiusPopover:0px,paddingPopover:1.5rem\, —\, 1.5rem\, —,marginPopover:—\, 1rem\, 1rem\, 1.5rem,backgroundColor:#0071bc]"
+                    phone_x0023_hover="[background:#205493]"
+                    phone_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]},backgroundColor:#205493]"/>
+                <af_mobilemenuitem
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active_x0023_ui="[borderWidthLock:link,borderWidthPopover:Set]"
+                    default_x0023_default_x0023_ui="[paddingLock:link,paddingPopover:Set,marginPopover:Set]"
+                    phone_x0023_active="[background:#ffffff,font-weight:bold,color:#0071bc,border-left-width:0.4rem,border-bottom-width:0px,border-top-width:0px,border-right-width:0px,border-style:solid,border-color:#0071bc]"
+                    phone_x0023_active_x0023_ui="[backgroundColor:#ffffff,borderWidthPopover:0px\, 0px\, 0px\, 0.4rem,borderWidthLock:linkOff]"
+                    phone_x0023_default="[padding-right:1rem,padding-top:1rem,padding-bottom:1rem,cssOverride:text-decoration: none;&#xa;box-sizing: content-box;&#xa;border-bottom-color: #5b616b;&#xa;border-width: 0 0 1px 0;&#xa;border-style: solid;&#xa;outline: 0;,background:#ffffff,margin-left:0px,margin-bottom:0px,margin-top:0px,margin-right:0px,color:#212121,font-size:1.7rem,border-right-width:0px,border-top-width:0px,border-bottom-width:0px,border-left-width:0.4rem,border-style:solid,border-color:rgba(0\,0\,0\,0),height:auto,padding-left:1.2rem,width:100%]"
+                    phone_x0023_default_x0023_ui="[paddingLock:linkOff,marginLock:link,shadowContainer:{&quot;itemList&quot;:[]},backgroundColor:#ffffff,marginPopover:0px,borderWidthLock:linkOff,borderWidthPopover:0px\, 0px\, 0px\, 0.4rem,paddingPopover:1rem\, 1rem\, 1rem\, 1.2rem]"
+                    phone_x0023_disabled="[background:#d6d7d9,color:#323a45]"
+                    phone_x0023_disabled_x0023_ui="[backgroundColor:#d6d7d9]"
+                    phone_x0023_hover="[background:#f1f1f1,color:#0071bc]"
+                    phone_x0023_hover_x0023_ui="[backgroundColor:#f1f1f1]"
+                    phone_x0023_stepped="[color:#4c2c92]"/>
+                <af_mobilescrollindicator
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]}]"
+                    phone_x0023_default="[display:block,z-index:55,position:fixed,bottom:5rem,right:0px,width:5rem,height:5rem,background:url(../assets/ScrollDown.svg) left top / 2.5rem 2.5rem no-repeat]"
+                    phone_x0023_default_x0023_ui="[positionPopover:fixed,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1454264518458&quot;\,&quot;imageSrc&quot;:&quot;../assets/ScrollDown.svg&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;2.5rem&quot;\,&quot;height&quot;:&quot;2.5rem&quot;\,&quot;position&quot;:&quot;left top&quot;}]},marginLock:link,marginPopover:Set,paddingPopover:Set]"/>
+                <af_mobiletitlebar
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[]"
+                    phone_x0023_default="[color:#ffffff,padding-left:0.5rem,text-transform:uppercase,position:static,top:0px,height:4rem,background:#d6d7d9]"
+                    phone_x0023_default_x0023_ui="[paddingLock:linkOff,positionPopover:static,marginLock:linkOff,marginPopover:Set,backgroundColor:#d6d7d9]"/>
+                <af_mobiletitlebartitle
+                    jcr:primaryType="nt:unstructured"
+                    phone_x0023_default="[float:left,margin-right:1rem,line-height:4rem,color:#212121,font-size:1.7rem,margin-left:1rem,font-weight:bold,cssOverride:white-space: nowrap;&#xa; overflow: hidden;&#xa; text-overflow: ellipsis;,width:calc(100% - 12rem)]"
+                    phone_x0023_default_x0023_ui="[paddingLock:linkOff,marginLock:linkOff,marginPopover:—\, 1rem\, —\, 1rem,paddingPopover:Set]"/>
+                <af_accordionpanelheader
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active="[color:#212121,background:url(../assets/minus.svg) calc(100% - 3rem) 50% / 1.8rem auto no-repeat\,#f1f1f1]"
+                    default_x0023_active_x0023_ui="[backgroundColor:#f1f1f1,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1460095231406&quot;\,&quot;imageSrc&quot;:&quot;../assets/minus.svg&quot;\,&quot;position&quot;:&quot;custom&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;1.8rem&quot;\,&quot;x-position&quot;:&quot;calc(100% - 3rem)&quot;\,&quot;y-position&quot;:&quot;50%&quot;\,&quot;height&quot;:&quot;auto&quot;}]},borderWidthLock:link,borderWidthPopover:Set]"
+                    default_x0023_default="[display:block,padding-bottom:1.5rem,padding-left:3rem,padding-top:1.5rem,padding-right:5.5rem,font-size:1.7rem,text-decoration:none,color:#212121,cursor:pointer,background:url(../assets/plus.svg) calc(100% - 3rem) 54% /  1.8rem no-repeat\,#f1f1f1,margin-top:0.5em,font-weight:bold]"
+                    default_x0023_default_x0023_ui="[backgroundColor:#f1f1f1,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1460095176517&quot;\,&quot;imageSrc&quot;:&quot;../assets/plus.svg&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;position&quot;:&quot;custom&quot;\,&quot;x-position&quot;:&quot;calc(100% - 3rem)&quot;\,&quot;y-position&quot;:&quot;54%&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;height&quot;:&quot;1.8rem&quot;\,&quot;width&quot;:&quot;&quot;}]},paddingPopover:1.5rem\, 5.5rem\, 1.5rem\, 3rem,paddingLock:linkOff,borderWidthLock:link,marginLock:linkOff,marginPopover:0.5em\, —\, —\, —,borderWidthPopover:Set]"
+                    default_x0023_hover="[background:url(../assets/plus.svg) calc(100% - 3rem) 54% / 1.8rem 1.8rem no-repeat\,#d6d7d9]"
+                    default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1460372527210&quot;\,&quot;imageSrc&quot;:&quot;../assets/plus.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;1.8rem&quot;\,&quot;height&quot;:&quot;1.8rem&quot;\,&quot;position&quot;:&quot;custom&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;x-position&quot;:&quot;calc(100% - 3rem)&quot;\,&quot;y-position&quot;:&quot;54%&quot;}]},backgroundColor:#d6d7d9,paddingLock:linkOff,paddingPopover:Set]"/>
+                <af_accordionpaneladdbutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active="[background:url(../assets/Accordion-Add-Hover.svg) 50% 40% / 2.5rem 2.5rem no-repeat]"
+                    default_x0023_active_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1457351339202&quot;\,&quot;imageSrc&quot;:&quot;../assets/Accordion-Add-Hover.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;2.5rem&quot;\,&quot;height&quot;:&quot;2.5rem&quot;\,&quot;position&quot;:&quot;custom&quot;\,&quot;x-position&quot;:&quot;50%&quot;\,&quot;y-position&quot;:&quot;40%&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]}]"
+                    default_x0023_default="[border:none,width:2.5rem,height:2.5rem,background:url(../assets/Accordion-Add-Default.svg) 50% 40% / 2.5rem 2.5rem no-repeat]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1457351281503&quot;\,&quot;imageSrc&quot;:&quot;../assets/Accordion-Add-Default.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;2.5rem&quot;\,&quot;height&quot;:&quot;2.5rem&quot;\,&quot;position&quot;:&quot;custom&quot;\,&quot;x-position&quot;:&quot;50%&quot;\,&quot;y-position&quot;:&quot;40%&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]}]"
+                    default_x0023_hover="[background:url(../assets/Accordion-Add-Hover.svg) 50% 40% / 2.5rem 2.5rem no-repeat]"
+                    default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1457351378318&quot;\,&quot;imageSrc&quot;:&quot;../assets/Accordion-Add-Hover.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;2.5rem&quot;\,&quot;height&quot;:&quot;2.5rem&quot;\,&quot;position&quot;:&quot;custom&quot;\,&quot;x-position&quot;:&quot;50%&quot;\,&quot;y-position&quot;:&quot;40%&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]}]"/>
+                <af_accordionpanelremovebutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active="[background:url(../assets/Accordion-Delete-Hover.svg) 50% 40% / 2.5rem 2.5rem no-repeat]"
+                    default_x0023_active_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1457351228344&quot;\,&quot;imageSrc&quot;:&quot;../assets/Accordion-Delete-Hover.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;2.5rem&quot;\,&quot;height&quot;:&quot;2.5rem&quot;\,&quot;position&quot;:&quot;custom&quot;\,&quot;x-position&quot;:&quot;50%&quot;\,&quot;y-position&quot;:&quot;40%&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]}]"
+                    default_x0023_default="[border:none,width:2.5rem,height:2.5rem,margin-left:0.5rem,background:url(../assets/Accordion-Delete-Default.svg) 50% 40% / 2.5rem 2.5rem no-repeat]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1457351093419&quot;\,&quot;imageSrc&quot;:&quot;../assets/Accordion-Delete-Default.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;2.5rem&quot;\,&quot;height&quot;:&quot;2.5rem&quot;\,&quot;position&quot;:&quot;custom&quot;\,&quot;x-position&quot;:&quot;50%&quot;\,&quot;y-position&quot;:&quot;40%&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]},marginLock:linkOff,marginPopover:—\, —\, —\, 0.5rem]"
+                    default_x0023_hover="[background:url(../assets/Accordion-Delete-Hover.svg) 50% 40% / 2.5rem 2.5rem no-repeat]"
+                    default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1457351183906&quot;\,&quot;imageSrc&quot;:&quot;../assets/Accordion-Delete-Hover.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;2.5rem&quot;\,&quot;height&quot;:&quot;2.5rem&quot;\,&quot;position&quot;:&quot;custom&quot;\,&quot;x-position&quot;:&quot;50%&quot;\,&quot;y-position&quot;:&quot;40%&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]}]"/>
+                <af_responsivepanel
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[color:#666666,background:#fff]"
+                    default_x0023_default_x0023_ui="[marginPopover:Set,backgroundColor:#fff,paddingLock:link,paddingPopover:Set]"
+                    phone_x0023_default="[padding-top:0.5rem,padding-left:0px,padding-right:0px,padding-bottom:0.5rem]"
+                    phone_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:0.5rem\, 0px\, 0.5rem\, 0px]"/>
+                <af_tabsonleft
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[z-index:1,display:block,width:100%,cssOverride:font-family: &quot;Source Sans Pro&quot;\, &quot;Helvetica Neue&quot;\, &quot;Helvetica&quot;\, &quot;Roboto&quot;\, &quot;Arial&quot;\, sans-serif;]"
+                    default_x0023_default_x0023_ui="[paddingLock:link,paddingPopover:Set,borderWidthLock:link,marginPopover:Set,borderWidthPopover:Set]"/>
+                <af_tabsonleftcontentarea
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[border-top-width:0px,border-left-width:1px,border-bottom-width:0px,border-right-width:0px,border-style:solid,border-color:#aeb0b5,max-width:1040px,display:block,padding-top:5rem,padding-left:3rem,padding-right:3rem,padding-bottom:3rem,margin-left:210px]"
+                    default_x0023_default_x0023_ui="[paddingLock:linkOff,borderWidthPopover:0px\, 0px\, 0px\, 1px,borderWidthLock:linkOff,marginLock:linkOff,paddingPopover:5rem\, 3rem\, 3rem\, 3rem,positionPopover:Set,marginPopover:—\, —\, —\, 210px]"
+                    phone_x0023_default="[padding-top:0.25rem,padding-right:0.5rem,padding-left:0.5rem,border-top-width:1px,margin-left:0px]"
+                    phone_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:0.25rem\, 0.5rem\, —\, 0.5rem,borderWidthLock:linkOff,borderWidthPopover:1px\, —\, —\, —,positionPopover:Set,marginLock:linkOff,marginPopover:0px]"
+                    smallScreen_x0023_default_x0023_ui="[borderWidthLock:linkOff,borderWidthPopover:Set]"
+                    tablet_x0023_default="[border-top-width:0px]"
+                    tablet_x0023_default_x0023_ui="[borderWidthLock:linkOff,borderWidthPopover:0px\, —\, —\, —]"/>
+                <af_tabsonleftnavgrp1
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[list-style:none,cursor:pointer,width:190px,position:fixed,top:11.7rem,left:0px,margin-left:30px,margin-right:30px,margin-top:12rem]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,paddingLock:link,borderWidthLock:link,paddingPopover:Set,borderWidthPopover:Set,positionPopover:fixed,marginPopover:12rem\, 30px\, —\, 30px]"
+                    tablet_x0023_default="[border-right-width:1px]"
+                    tablet_x0023_default_x0023_ui="[borderWidthLock:linkOff,borderWidthPopover:1px]"/>
+                <af_tabsonleftnavgrp1title
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active="[color:#0071bc,border-color:#0071bc,background:rgba(0\,0\,0\,0),cssOverride:border-bottom-color: #5b616b;,font-weight:bold,border-left-width:0.4rem,border-style:solid,padding-left:1.4rem]"
+                    default_x0023_active_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]},backgroundColor:rgba(0\,0\,0\,0),borderWidthLock:linkOff,borderWidthPopover:—\, —\, —\, 0.4rem,paddingLock:linkOff,paddingPopover:—\, —\, —\, 1.4rem]"
+                    default_x0023_default="[color:#212121,margin-bottom:0px,margin-top:0px,margin-left:0px,margin-right:0px,display:block,padding-bottom:1rem,padding-left:1.8rem,padding-top:1rem,padding-right:1rem,text-decoration:none,line-height:1,background:rgba(0\,0\,0\,0),font-size:1.7rem,afterPseudoElement:content: &quot;&quot;;&#xa;margin-bottom: 0.5em;,beforePseudoElement:display: none;&#xa;content: &quot;\\2022&quot;;&#xa;padding-right: 0.4em;&#xa;list-style-type: none;&#xa;list-style: none;&#xa;,cssOverride:box-sizing: content-box;&#xa;border-bottom-color: #5b616b;&#xa;border-width: 0 0 1px 0;&#xa;border-style: solid;&#xa;outline: 0;&#xa;word-break: break-word;&#xa;white-space: normal;&#xa;]"
+                    default_x0023_default_x0023_ui="[marginPopover:0px,marginLock:link,paddingPopover:1rem\, 1rem\, 1rem\, 1.8rem,paddingLock:linkOff,borderPopover:0px\, 0px\, 2px\, 0px,borderWidthLock:link,backgroundColor:rgba(0\,0\,0\,0),borderWidthPopover:Set]"
+                    default_x0023_hover="[color:#0071bc,background:#f1f1f1,cssOverride:border-bottom-color: #5b616b;]"
+                    default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]},borderWidthLock:linkOff,borderWidthPopover:Set,backgroundColor:#f1f1f1]"
+                    default_x0023_stepped="[background:rgba(255\,255\,255\,0)]"
+                    default_x0023_stepped_x0023_ui="[backgroundColor:rgba(255\,255\,255\,0)]"/>
+                <af_tabsonleftnavgrp2title
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active="[padding-left:2.8rem,font-weight:normal]"
+                    default_x0023_active_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]},borderWidthLock:link,borderWidthPopover:Set,paddingLock:linkOff,paddingPopover:—\, —\, —\, 2.8rem]"
+                    default_x0023_default="[color:#212121,border-left-width:0px,border-bottom-width:0px,border-top-width:0px,border-right-width:0px,background:#ffffff,padding-left:2.8rem,line-height:1.3,font-size:1.5rem]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]},borderWidthPopover:0px,borderWidthLock:link,marginLock:linkOff,marginPopover:Set,paddingLock:linkOff,backgroundColor:#ffffff,paddingPopover:—\, —\, —\, 2.8rem]"
+                    default_x0023_hover="[color:#0071bc,background:#f1f1f1,border-left-width:0px,border-bottom-width:0px,border-top-width:0px,border-right-width:0px]"
+                    default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]},backgroundColor:#f1f1f1,borderWidthPopover:0px]"/>
+                <af_tabsontopnavgrp1
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[cssOverride:list-style: none;,overflow:hidden,border-style:solid,border-bottom-width:1px,border-color:#5b616b,border-right-width:0px,border-left-width:0px,border-top-width:0px,width:100%]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,paddingPopover:Set,borderWidthLock:linkOff,borderWidthPopover:0px\, 0px\, 1px\, 0px]"/>
+                <af_tabsontopnavgrp1title
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active="[color:#0071bc,border-left-width:0px,border-bottom-width:4px,border-top-width:0px,border-right-width:0px,border-color:#0071bc,border-style:solid]"
+                    default_x0023_active_x0023_ui="[borderWidthPopover:0px\, 0px\, 4px\, 0px,borderWidthLock:linkOff]"
+                    default_x0023_default="[color:#212121,padding-right:1rem,padding-top:1rem,padding-bottom:1rem,margin-left:0px,padding-left:1rem,background:#ffffff,font-size:1.7rem,margin-right:3rem,cssOverride:&#xa;,margin-top:4px,line-height:1]"
+                    default_x0023_default_x0023_ui="[paddingLock:link,marginLock:linkOff,paddingPopover:1rem,backgroundColor:#ffffff,marginPopover:4px\, 3rem\, —\, 0px]"
+                    default_x0023_hover="[color:#0071bc,border-style:solid,border-left-width:0px,border-bottom-width:4px,border-top-width:0px,border-right-width:0px,border-color:#d6d7d9]"
+                    default_x0023_hover_x0023_ui="[borderWidthPopover:0px\, 0px\, 4px\, 0px,borderWidthLock:linkOff]"
+                    default_x0023_stepped="[color:#212121]"/>
+                <af_wizardnavgrp
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[list-style-type:none,font-size:16px,overflow:hidden,white-space:nowrap,cursor:default,text-transform:uppercase,counter-reset:item,margin-left:0px,margin-bottom:0px,margin-top:0px,margin-right:0px,padding-left:0px]"
+                    default_x0023_default_x0023_ui="[marginLock:link,paddingLock:linkOff,marginPopover:0px,paddingPopover:0px]"
+                    phone_x0023_default="[margin-left:1rem]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, —\, —\, 1rem]"/>
+                <af_wizardnavitemtitle
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active="[color:#0071bc,beforePseudoElement:color: #ffffff;&#xa;background-color: #0071bc;]"
+                    default_x0023_default="[display:inline-block,counter-increment:item,color:#212121,text-transform:capitalize,font-size:1.7rem,width:100%,padding-left:0px,padding-right:0px,position:relative,beforePseudoElement:content: counter(item);&#xa;float: left;&#xa;color: #000000;&#xa;height: 2.5rem;&#xa;width: 2.5rem;&#xa;font-size: 1.5rem;&#xa;font-weight: bold;&#xa;text-align: center;&#xa;line-height: 2.5rem;&#xa;background-color: #d6d7d9;&#xa;margin-right: 11px;,padding-top:8px,padding-bottom:8px,cssOverride:text-decoration: none;&#xa;white-space: nowrap;&#xa;overflow: hidden;&#xa;box-sizing: border-box;&#xa;text-overflow: ellipsis;&#xa;]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,borderRadiusLock:link,borderWidthLock:link,borderRadiusPopover:Set,borderWidthPopover:Set,paddingLock:linkOff,marginPopover:Set,positionPopover:relative,paddingPopover:8px\, 0px\, 8px\, 0px]"
+                    default_x0023_hover="[cssOverride:text-decoration: none;,beforePseudoElement:color: #f1f1f1;&#xa;background-color: #8ba6ca;,color:#0071bc]"
+                    default_x0023_stepped="[beforePseudoElement:content: &quot;&quot;;&#xa;background:url(../assets/Tick.svg) center center / 1.3rem 1rem no-repeat\,#4c2c92;&#xa;color: #ffffff;&#xa;,color:#4c2c92]"
+                    phone_x0023_default="[margin-right:3.5em]"
+                    phone_x0023_default_x0023_ui="[marginPopover:—\, 3.5em\, —\, —,marginLock:linkOff]"/>
+                <af_wizardnavitemprogressindicator
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active="[cssOverride:border-bottom-color : #0079c1;,display:none]"
+                    default_x0023_default="[width:0px,height:0px,border-style:solid,border-bottom-right-radius:0px,border-bottom-left-radius:0px,border-top-right-radius:0px,border-top-left-radius:0px,margin-top:-39px,z-index:20,cssOverride:border-bottom-color : #999999;,border-left-width:8px,border-bottom-width:8px,border-right-width:8px,border-top-width:8px,border-color:rgba(255\,255\,255\,0),display:none,margin-left:6px]"
+                    default_x0023_default_x0023_ui="[borderWidthLock:link,borderRadiusPopover:0px,marginLock:linkOff,borderWidthPopover:8px,marginPopover:-39px\, —\, —\, 6px]"
+                    default_x0023_stepped="[cssOverride:border-bottom-color : #02874e;,display:none]"/>
+                <af_wizardnavitemprogressbar
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active="[background:#0071bc]"
+                    default_x0023_active_x0023_ui="[backgroundColor:#0071bc]"
+                    default_x0023_default="[height:3px,border-bottom-left-radius:0px,border-top-right-radius:0px,border-top-left-radius:0px,border-bottom-right-radius:0px,background:#d6d7d9,margin-top:0.5rem,display:block,margin-bottom:0px,box-shadow:50px 36px 75px 80px rgba(127\,127\,127\,0) inset]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,borderRadiusPopover:0px,backgroundColor:#d6d7d9,shadowContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;shadow.1456907373880&quot;\,&quot;shadowHorizontal&quot;:&quot;50px&quot;\,&quot;shadowVertical&quot;:&quot;36px&quot;\,&quot;shadowBlur&quot;:&quot;75px&quot;\,&quot;shadowSpread&quot;:&quot;80px&quot;\,&quot;shadowPosition&quot;:&quot;inset&quot;\,&quot;shadowColor&quot;:&quot;rgba(127\,127\,127\,0)&quot;}]}]"
+                    default_x0023_hover="[background:#8ba6ca]"
+                    default_x0023_hover_x0023_ui="[backgroundColor:#8ba6ca]"
+                    default_x0023_stepped="[background:#4c2c92]"
+                    default_x0023_stepped_x0023_ui="[backgroundColor:#4c2c92]"/>
+                <af_wizardpanelnextscroll
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[height:4.5rem,cursor:pointer,cssOverride:cursor : pointer;,margin-top:7.5rem,width:4.5rem,margin-right:1rem,position:absolute,border-bottom-right-radius:50%,border-bottom-left-radius:50%,border-top-left-radius:50%,border-top-right-radius:50%,background:url(../assets/Chevron-Right-White.svg) center center / auto 1.7rem no-repeat\,#0071bc,right:2%]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1457071641013&quot;\,&quot;imageSrc&quot;:&quot;../assets/Chevron-Right-White.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;auto&quot;\,&quot;height&quot;:&quot;1.7rem&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;position&quot;:&quot;center center&quot;}]},marginLock:linkOff,marginPopover:7.5rem\, 1rem\, —\, —,borderRadiusPopover:50%,positionPopover:absolute,backgroundColor:#0071bc,borderWidthPopover:Set,shadowContainer:{&quot;itemList&quot;:[]},paddingPopover:Set]"
+                    default_x0023_hover="[background:url(../assets/Chevron-Right-White.svg) center center / 1.7rem 1.7rem no-repeat\,#205493]"
+                    default_x0023_hover_x0023_ui="[backgroundColor:#205493,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1457073629303&quot;\,&quot;imageSrc&quot;:&quot;../assets/Chevron-Right-White.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;1.7rem&quot;\,&quot;height&quot;:&quot;1.7rem&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]},shadowContainer:{&quot;itemList&quot;:[]}]"
+                    phone_x0023_default="[display:none]"/>
+                <af_wizardpanelprevscroll
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[cursor:pointer,cssOverride:cursor : pointer;,margin-top:7.5rem,right:10%,border-bottom-right-radius:50%,border-bottom-left-radius:50%,border-top-left-radius:50%,border-top-right-radius:50%,position:absolute,margin-right:2rem,background:url(../assets/Chevron-Left-White.svg) center center / 1.7rem 1.7rem no-repeat\,#5b616b,width:4.5rem,height:4.5rem]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1457071726384&quot;\,&quot;imageSrc&quot;:&quot;../assets/Chevron-Left-White.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;1.7rem&quot;\,&quot;height&quot;:&quot;1.7rem&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]},paddingLock:link,marginLock:linkOff,marginPopover:2rem,borderRadiusPopover:50%,positionPopover:absolute,backgroundColor:#5b616b,borderWidthPopover:Set,shadowContainer:{&quot;itemList&quot;:[]},paddingPopover:Set]"
+                    default_x0023_hover="[background:url(../assets/Chevron-Left-White.svg) center center / 1.7rem 1.7rem no-repeat\,#323a45]"
+                    default_x0023_hover_x0023_ui="[backgroundColor:#323a45,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1457073542661&quot;\,&quot;imageSrc&quot;:&quot;../assets/Chevron-Left-White.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;1.7rem&quot;\,&quot;height&quot;:&quot;1.7rem&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]},shadowContainer:{&quot;itemList&quot;:[]}]"
+                    phone_x0023_default="[display:none]"/>
+                <af_wizardtoolbarnextscroll
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[cursor:pointer,height:4rem,background:url(../assets/Chevron-Right.svg) center center / 1.3rem 1.3rem no-repeat,display:block]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1453996082700&quot;\,&quot;imageSrc&quot;:&quot;../assets/Chevron-Right.svg&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;1.3rem&quot;\,&quot;height&quot;:&quot;1.3rem&quot;}]},paddingPopover:Set,marginPopover:Set]"
+                    default_x0023_hover="[background:url(../assets/Chevron-Right-Hover.svg) center center / 1.3rem 1.3rem no-repeat]"
+                    default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1456908387282&quot;\,&quot;imageSrc&quot;:&quot;../assets/Chevron-Right-Hover.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;1.3rem&quot;\,&quot;height&quot;:&quot;1.3rem&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]}]"/>
+                <af_wizardtoolbarprevscroll
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[cursor:pointer,height:4rem,background:url(../assets/Chevron-Left.svg) center center / 1.3rem 1.3rem no-repeat,display:block,cssOverride:visibility : none;]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1453996111341&quot;\,&quot;imageSrc&quot;:&quot;../assets/Chevron-Left.svg&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;1.3rem&quot;\,&quot;height&quot;:&quot;1.3rem&quot;}]},paddingLock:linkOff,paddingPopover:Set,marginPopover:Set]"
+                    default_x0023_hover="[background:url(../assets/Chevron-Left-Hover.svg) center center / 1.3rem 1.3rem no-repeat]"
+                    default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1456908430442&quot;\,&quot;imageSrc&quot;:&quot;../assets/Chevron-Left-Hover.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;1.3rem&quot;\,&quot;height&quot;:&quot;1.3rem&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]}]"/>
+                <af_tableaddbutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[background:url(../assets/Accordion-Add-Default.svg) center center / 2.5rem 2.5rem no-repeat,width:4rem,height:4rem,cssOverride:cursor : pointer;&#xa;,display:inline-block,margin-top:1.8rem,margin-bottom:1.8rem]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1454172256767&quot;\,&quot;imageSrc&quot;:&quot;../assets/Accordion-Add-Default.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;width&quot;:&quot;2.5rem&quot;\,&quot;height&quot;:&quot;2.5rem&quot;}]},marginLock:linkOff,paddingPopover:Set]"
+                    default_x0023_hover="[background:url(../assets/Accordion-Add-Hover.svg) center center / 2.5rem 2.5rem no-repeat]"
+                    default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1457004995815&quot;\,&quot;imageSrc&quot;:&quot;../assets/Accordion-Add-Hover.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;2.5rem&quot;\,&quot;height&quot;:&quot;2.5rem&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]}]"/>
+                <af_tableeditbutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[display:inline-block,width:4rem,height:4rem,cssOverride:cursor : pointer;&#xa;,background:url(../assets/Table-Edit-Default.svg) center center / 2.5rem 2.5rem no-repeat,margin-left:1rem,margin-bottom:1.8rem,margin-top:1.8rem]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1454174080458&quot;\,&quot;imageSrc&quot;:&quot;../assets/Table-Edit-Default.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;width&quot;:&quot;2.5rem&quot;\,&quot;height&quot;:&quot;2.5rem&quot;\,&quot;position&quot;:&quot;center center&quot;}]},marginLock:linkOff,marginPopover:1.8rem\, —\, 1.8rem\, 1rem]"
+                    default_x0023_hover="[background:url(../assets/Table-Edit-Hover.svg) center center / 2.5rem 2.5rem no-repeat]"
+                    default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1457005542738&quot;\,&quot;imageSrc&quot;:&quot;../assets/Table-Edit-Hover.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;2.5rem&quot;\,&quot;height&quot;:&quot;2.5rem&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]}]"/>
+                <af_tableremovebutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[background:url(../assets/Accordion-Delete-Default.svg) center center / 2.5rem 2.5rem no-repeat,width:4rem,height:4rem,cssOverride:cursor : pointer;&#xa;,margin-top:1.8rem,display:inline-block,margin-bottom:1.8rem,margin-left:1rem]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1454172256769&quot;\,&quot;imageSrc&quot;:&quot;../assets/Accordion-Delete-Default.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;width&quot;:&quot;2.5rem&quot;\,&quot;height&quot;:&quot;2.5rem&quot;}]},marginLock:linkOff,marginPopover:1.8rem\, —\, 1.8rem\, 1rem]"
+                    default_x0023_hover="[background:url(../assets/Accordion-Delete-Hover.svg) center center / 2.5rem 2.5rem no-repeat]"
+                    default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1457004884270&quot;\,&quot;imageSrc&quot;:&quot;../assets/Accordion-Delete-Hover.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;2.5rem&quot;\,&quot;height&quot;:&quot;2.5rem&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]}]"/>
+                <af_toolbar
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[padding-top:1rem,height:6rem,padding-bottom:1rem,padding-left:1.5rem,padding-right:1.5rem,background:rgb(255\,255\,255)]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,paddingLock:linkOff,paddingPopover:1rem\, 1.5rem\, 1rem\, 1.5rem,marginPopover:Set,borderWidthLock:link,borderWidthPopover:Set,positionPopover:Set,backgroundColor:rgb(255\,255\,255)]"
+                    phone_x0023_default="[position:fixed,bottom:0px,width:100%,padding-right:1rem,padding-left:1rem,padding-top:0.5rem,padding-bottom:0.5rem,border-left-width:0px,border-bottom-width:0px,border-top-width:3px,border-right-width:0px,border-style:solid,border-color:#e6e6e6,height:6rem,beforePseudoElement:border-width: 0px 0px 0px 0px;&#xa;&#xa;,left:0px]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,paddingLock:linkOff,paddingPopover:0.5rem\, 1rem\, 0.5rem\, 1rem,borderWidthPopover:3px,borderWidthLock:linkOff,marginPopover:Set,positionPopover:fixed]"/>
+                <af_attachmentlistingbuttonicon
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[background:url(../assets/fileattachmentlisting-ip.png) center top / contain no-repeat]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1453091947182&quot;\,&quot;imageSrc&quot;:&quot;../assets/fileattachmentlisting-ip.png&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;position&quot;:&quot;center top&quot;\,&quot;size&quot;:&quot;contain&quot;}]}]"/>
+                <af_button
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active="[color:#112e51,background:#ffffff,border-left-width:0px,border-bottom-width:0px,border-top-width:0px,border-right-width:0px,box-shadow:0px 0px 0px 2px #205493 inset]"
+                    default_x0023_active_x0023_ui="[backgroundColor:#ffffff,borderWidthPopover:0px,shadowContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;shadow.1461129020166&quot;\,&quot;shadowHorizontal&quot;:&quot;0px&quot;\,&quot;shadowVertical&quot;:&quot;0px&quot;\,&quot;shadowBlur&quot;:&quot;0px&quot;\,&quot;shadowSpread&quot;:&quot;2px&quot;\,&quot;shadowColor&quot;:&quot;#205493&quot;\,&quot;shadowPosition&quot;:&quot;inset&quot;}]}]"
+                    default_x0023_default="[margin-bottom:0px,margin-top:0px,margin-left:0px,margin-right:0px,padding-bottom:1rem,padding-left:2rem,padding-top:1rem,padding-right:2rem,border-bottom-left-radius:0.3rem,border-bottom-right-radius:0.3rem,border-top-right-radius:0.3rem,border-top-left-radius:0.3rem,line-height:1,color:#0071bc,font-size:1.7rem,background:#ffffff,font-weight:bold,border-left-width:0px,border-bottom-width:0px,border-top-width:0px,border-right-width:0px,box-shadow:0px 0px 0px 2px #0071bc inset]"
+                    default_x0023_default_x0023_ui="[marginPopover:0px\, 0px\, 0px\, 0px,marginLock:linkOff,paddingPopover:1rem\, 2rem\, 1rem\, 2rem,paddingLock:linkOff,borderWidthLock:link,borderRadiusPopover:0.3rem,borderRadiusLock:link,shadowContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;shadow.1461657109199&quot;\,&quot;shadowHorizontal&quot;:&quot;0px&quot;\,&quot;shadowVertical&quot;:&quot;0px&quot;\,&quot;shadowBlur&quot;:&quot;0px&quot;\,&quot;shadowSpread&quot;:&quot;2px&quot;\,&quot;shadowColor&quot;:&quot;#0071bc&quot;\,&quot;shadowPosition&quot;:&quot;inset&quot;}]},backgroundColor:#ffffff,borderWidthPopover:0px]"
+                    default_x0023_disabled="[background:#d6d7d9,color:#323a45]"
+                    default_x0023_disabled_x0023_ui="[backgroundColor:#d6d7d9,borderWidthPopover:Set]"
+                    default_x0023_hover="[background:#fff,color:#205493,box-shadow:0px 0px 0px 2px #205493 inset]"
+                    default_x0023_hover_x0023_ui="[backgroundColor:#fff,shadowContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;shadow.1461129087433&quot;\,&quot;shadowHorizontal&quot;:&quot;0px&quot;\,&quot;shadowVertical&quot;:&quot;0px&quot;\,&quot;shadowBlur&quot;:&quot;0px&quot;\,&quot;shadowSpread&quot;:&quot;2px&quot;\,&quot;shadowColor&quot;:&quot;#205493&quot;\,&quot;shadowPosition&quot;:&quot;inset&quot;}]},borderWidthPopover:Set]"
+                    phone_x0023_default="[padding-left:1rem,padding-bottom:1rem,padding-top:1rem,padding-right:1rem]"
+                    phone_x0023_default_x0023_ui="[paddingPopover:1rem]"/>
+                <af_buttonicon
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[display:none,width:2.5rem,height:2.5rem]"
+                    default_x0023_default_x0023_ui="[paddingPopover:Set]"
+                    phone_x0023_default_x0023_ui="[paddingPopover:Set]"/>
+                <af_nextitemnavbuttonicon
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[background:url(../assets/Chevron-Right-White.svg) center top / contain no-repeat]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1453091983041&quot;\,&quot;imageSrc&quot;:&quot;../assets/Chevron-Right-White.svg&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;position&quot;:&quot;center top&quot;\,&quot;size&quot;:&quot;contain&quot;}]}]"/>
+                <af_previtemnavbuttonicon
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[background:url(../assets/Chevron-Left.svg) center top / contain no-repeat]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1453092015635&quot;\,&quot;imageSrc&quot;:&quot;../assets/Chevron-Left.svg&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;position&quot;:&quot;center top&quot;\,&quot;size&quot;:&quot;contain&quot;}]}]"/>
+                <af_resetbuttonicon
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active="[background:url(../assets/Reset-Hover.svg) center center / auto 1.3em no-repeat,border-color:#555555]"
+                    default_x0023_active_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1457077494239&quot;\,&quot;imageSrc&quot;:&quot;../assets/Reset-Hover.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;auto&quot;\,&quot;height&quot;:&quot;1.3em&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]}]"
+                    default_x0023_default="[background:url(../assets/Reset.svg) center center / auto 1.3em no-repeat]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1453091910636&quot;\,&quot;imageSrc&quot;:&quot;../assets/Reset.svg&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;auto&quot;\,&quot;height&quot;:&quot;1.3em&quot;}]},borderWidthPopover:Set]"
+                    default_x0023_disabled="[color:#323a45]"
+                    default_x0023_focus="[background:url(../assets/Reset-Hover.svg) center center / auto 1.5em no-repeat]"
+                    default_x0023_focus_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1457077722255&quot;\,&quot;imageSrc&quot;:&quot;../assets/Reset-Hover.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;auto&quot;\,&quot;height&quot;:&quot;1.5em&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]}]"
+                    default_x0023_hover="[background:url(../assets/Reset-Hover.svg) center center / auto 1.3em no-repeat]"
+                    default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1457077451761&quot;\,&quot;imageSrc&quot;:&quot;../assets/Reset-Hover.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;auto&quot;\,&quot;height&quot;:&quot;1.3em&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]},borderRadiusPopover:Set,borderWidthPopover:Set]"
+                    phone_x0023_default="[border-left-width:0px,border-bottom-width:0px,border-top-width:0px,border-right-width:0px]"
+                    phone_x0023_default_x0023_ui="[borderWidthPopover:0px]"
+                    phone_x0023_focus_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]}]"/>
+                <af_savebuttonicon
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active="[background:url(../assets/Save-Hover.svg) center center / auto 1.5em no-repeat]"
+                    default_x0023_active_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1457077823820&quot;\,&quot;imageSrc&quot;:&quot;../assets/Save-Hover.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;auto&quot;\,&quot;height&quot;:&quot;1.5em&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]}]"
+                    default_x0023_default="[background:url(../assets/Save.svg) center center / auto 1.5em no-repeat]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1453091365611&quot;\,&quot;imageSrc&quot;:&quot;../assets/Save.svg&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;auto&quot;\,&quot;height&quot;:&quot;1.5em&quot;}]}]"
+                    default_x0023_focus="[background:url(../assets/Save-Hover.svg) center center / auto 1.5em no-repeat]"
+                    default_x0023_focus_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1457077886794&quot;\,&quot;imageSrc&quot;:&quot;../assets/Save-Hover.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;auto&quot;\,&quot;height&quot;:&quot;1.5em&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]}]"
+                    default_x0023_hover="[background:url(../assets/Save-Hover.svg) center center / auto 1.5em no-repeat]"
+                    default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1457077785454&quot;\,&quot;imageSrc&quot;:&quot;../assets/Save-Hover.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;auto&quot;\,&quot;height&quot;:&quot;1.5em&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]},borderWidthPopover:Set]"/>
+                <af_submitbuttonicon
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active="[background:url(../assets/Submit-Hover.svg) center center / auto 1.5em no-repeat]"
+                    default_x0023_active_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1457348779932&quot;\,&quot;imageSrc&quot;:&quot;../assets/Submit-Hover.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;auto&quot;\,&quot;height&quot;:&quot;1.5em&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]}]"
+                    default_x0023_default="[background:url(../assets/Submit-Hover.svg) center center / auto 1.5em no-repeat]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1453091490352&quot;\,&quot;imageSrc&quot;:&quot;../assets/Submit-Hover.svg&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;auto&quot;\,&quot;height&quot;:&quot;1.5em&quot;}]}]"
+                    default_x0023_focus="[background:url(../assets/Submit-Hover.svg) center center / auto 1.3rem no-repeat]"
+                    default_x0023_focus_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1457078205290&quot;\,&quot;imageSrc&quot;:&quot;../assets/Submit-Hover.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;auto&quot;\,&quot;height&quot;:&quot;1.3rem&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]}]"
+                    default_x0023_hover="[background:url(../assets/Submit-Hover.svg) center center / auto 1.5em no-repeat,border-color:#555555]"
+                    default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1457078160053&quot;\,&quot;imageSrc&quot;:&quot;../assets/Submit-Hover.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;auto&quot;\,&quot;height&quot;:&quot;1.5em&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]}]"/>
+                <af_toolbarbuttontext
+                    jcr:primaryType="nt:unstructured"
+                    phone_x0023_default="[display:none]"/>
+                <af_toolbarbuttonicon
+                    jcr:primaryType="nt:unstructured"
+                    phone_x0023_default="[display:block]"/>
+                <af_tooltip
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[background:rgba(32\,84\,147\,0.7),max-width:350px,text-align:left,cssOverride:text-decoration: none;&#xa;white-space: normal;&#xa;word-break: break-word;&#xa;word-wrap: break-word;,border-bottom-right-radius:0px,border-bottom-left-radius:0px,border-top-right-radius:0px,border-top-left-radius:0px,width:auto,addonCss:{&quot;selectors&quot;:{&quot;tip&quot;:{&quot;cssSelector&quot;:&quot;.guideContainerWrapperNode .tooltip.bottom .tooltip-arrow&quot;\,&quot;properties&quot;:{&quot;border-bottom-color&quot;:&quot;rgba(32\,84\,147\,0.7)&quot;}}}},color:#ffffff,font-size:1.5rem]"
+                    default_x0023_default_x0023_ui="[backgroundColor:rgba(32\,84\,147\,0.7),paddingLock:link,borderRadiusPopover:0px,paddingPopover:Set]"/>
+                <af_fielderrormessage
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[padding-top:3px,color:#cd2026,margin-left:0px,margin-bottom:0px,margin-top:0px,font-size:1.7rem,padding-bottom:3px,padding-right:0px,font-weight:bold]"
+                    default_x0023_default_x0023_ui="[paddingLock:linkOff,backgroundContainer:{&quot;itemList&quot;:[]},marginLock:linkOff,marginPopover:0px\, —\, 0px\, 0px,paddingPopover:3px\, 0px\, 3px\, —]"/>
+                <af_datewidgetlabel
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[font-size:1.7rem,padding-bottom:0px,padding-right:0px,padding-top:0px,padding-left:0px,margin-left:0px,margin-bottom:0.125rem,margin-top:0.5rem,margin-right:0px,color:#212121]"
+                    default_x0023_default_x0023_ui="[paddingLock:link,marginPopover:0.5rem\, 0px\, 0.125rem\, 0px,paddingPopover:0px,marginLock:linkOff]"/>
+                <af_monthinput
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[text-transform:uppercase,width:5.5rem,padding-bottom:auto,padding-right:auto,padding-top:auto,padding-left:auto,text-align:center,font-size:1.7rem,line-height:2rem,margin-left:0px,margin-bottom:0.2em,margin-top:0.2em]"
+                    default_x0023_default_x0023_ui="[paddingPopover:auto,marginLock:linkOff,marginPopover:0.2em\, —\, 0.2em\, 0px]"/>
+                <af_dayinput
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[width:5.5rem,text-align:center,padding-left:auto,padding-bottom:auto,padding-top:auto,padding-right:auto,font-size:1.7rem,line-height:2rem,margin-top:0.2em,margin-bottom:0.2em,margin-left:0px]"
+                    default_x0023_default_x0023_ui="[paddingPopover:auto,marginLock:linkOff,marginPopover:0.2em\, —\, 0.2em\, 0px]"/>
+                <af_yearinput
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[width:7rem,text-align:center,font-size:1.7rem,line-height:2rem,margin-bottom:0.2em,margin-top:0.2em,margin-left:0px,padding-top:auto,padding-bottom:auto,padding-left:auto,padding-right:auto]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:0.2em\, —\, 0.2em\, 0px,paddingPopover:auto]"/>
+                <af_scribblewidgetandtext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[background:#f1f1f1,border-color:#5b616b]"
+                    default_x0023_default_x0023_ui="[backgroundColor:#f1f1f1]"
+                    default_x0023_empty="[background:url(../assets/signature.png) left top no-repeat]"
+                    default_x0023_empty_x0023_ui="[shadowContainer:{&quot;itemList&quot;:[]},backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1456987307286&quot;\,&quot;imageSrc&quot;:&quot;../assets/signature.png&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]}]"/>
+                <af_tabsonleftnavgrp2
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[border-left-width:0px,border-bottom-width:0px,border-top-width:0px,border-right-width:0px,background:#fff,margin-left:0px,margin-bottom:0px,margin-top:0px,margin-right:0px,position:relative,top:0px,width:100%]"
+                    default_x0023_default_x0023_ui="[borderWidthPopover:0px,backgroundColor:#fff,marginPopover:0px,positionPopover:relative]"/>
+                <af_toolbarbutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot; .afToolbarButton&quot;\,&quot;properties&quot;:{&quot;display&quot;:&quot;inline-block&quot;}}}},margin-right:0.5em]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,display:inline-block,marginPopover:—\, 0.5em\, —\, —]"/>
+                <af_fielddescriptionshort
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[font-size:1.7rem,color:#757575]"/>
+                <af_tableheadercell
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[height:8rem,text-align:left,font-weight:bold,color:#212121,background:#f1f1f1,border-left-width:1px,border-bottom-width:0px,border-top-width:0px,border-right-width:1px,border-style:solid,border-color:#5b616b]"
+                    default_x0023_default_x0023_ui="[paddingLock:linkOff,backgroundColor:#f1f1f1,paddingPopover:Set,borderWidthPopover:1px,borderWidthLock:linkOff]"/>
+                <af_tableheaderrow
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[height:6rem]"/>
+                <af_tablecell
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[text-align:left,border-right-width:1px,border-bottom-width:0px,border-left-width:1px,border-top-width:0px,border-style:solid]"
+                    default_x0023_default_x0023_ui="[borderWidthPopover:0px\, 1px\, 0px\, 1px,borderWidthLock:linkOff]"
+                    phone_x0023_default="[color:#212121]"/>
+                <af_table
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[margin-top:0.2em,border-style:solid,margin-left:1.5rem,border-bottom-width:1px,border-top-width:1px,border-right-width:0px,border-color:#5b616b,border-left-width:0px,margin-bottom:3.8rem]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,borderWidthLock:linkOff,borderWidthPopover:1px\, 0px\, 1px\, 0px,marginPopover:3.8rem]"
+                    phone_x0023_default="[border-left-width:0px,border-bottom-width:0px,border-top-width:0px,border-right-width:0px,margin-right:0.5rem,margin-left:0.5rem,max-width:calc(100% - 1rem)]"
+                    phone_x0023_default_x0023_ui="[borderWidthPopover:0px,marginLock:linkOff,marginPopover:—\, 0.5rem\, —\, 0.5rem]"/>
+                <af_tableevenrow
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:Set,borderWidthLock:link,borderWidthPopover:Set]"/>
+                <af_tableevencolumn
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[border-color:#5b616b]"
+                    phone_x0023_default="[border-left-width:0px,border-bottom-width:0px,border-top-width:0px,border-right-width:0px]"
+                    phone_x0023_default_x0023_ui="[borderWidthPopover:0px]"/>
+                <af_tabledescription
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[color:#212121,width:auto,max-width:46rem,font-size:1.7rem,margin-left:1.5rem]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, —\, —\, 1.5rem,positionPopover:Set]"
+                    phone_x0023_default="[margin-left:0.5rem,margin-right:0.5rem]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, 0.5rem\, —\, 0.5rem]"/>
+                <af_fieldhelpicon
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default_x0023_ui="[marginLock:link]"/>
+                <af_textdraw
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[font-size:1.7rem,line-height:1.5,color:#212121,margin-right:1.5rem,margin-left:1.5rem]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, 1.5rem\, —\, 1.5rem,paddingLock:link,paddingPopover:Set]"
+                    phone_x0023_default="[margin-left:0.5rem,margin-right:0.5rem]"
+                    phone_x0023_default_x0023_ui="[paddingLock:link,paddingPopover:Set,marginLock:linkOff,marginPopover:—\, 0.5rem\, —\, 0.5rem]"/>
+                <af_tabsontop
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[padding-top:3em,cssOverride:font-family: &quot;Source Sans Pro&quot;\, &quot;Helvetica Neue&quot;\, &quot;Helvetica&quot;\, &quot;Roboto&quot;\, &quot;Arial&quot;\, sans-serif;]"
+                    default_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:3em\, —\, —\, —]"
+                    phone_x0023_default="[padding-right:0px,padding-left:0px]"
+                    phone_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:—\, 0px\, —\, 0px]"
+                    tablet_x0023_default="[padding-left:0rem,padding-right:0rem]"
+                    tablet_x0023_default_x0023_ui="[paddingPopover:—\, 0rem\, —\, 0rem,paddingLock:linkOff]"/>
+                <af_accordionpanel
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[border-left-width:2px,border-bottom-width:2px,border-top-width:2px,border-right-width:2px,border-style:hidden,border-color:#ffffff,background:#FFFFFF,cssOverride:font-family: &quot;Source Sans Pro&quot;\, &quot;Helvetica Neue&quot;\, &quot;Helvetica&quot;\, &quot;Roboto&quot;\, &quot;Arial&quot;\, sans-serif;]"
+                    default_x0023_default_x0023_ui="[borderWidthPopover:2px,borderWidthLock:link,backgroundColor:#FFFFFF]"
+                    phone_x0023_default="[padding-left:0.5em,padding-right:0.5em]"
+                    phone_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:—\, 0.5em\, —\, 0.5em]"/>
+                <af_form
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[background:rgba(0\,0\,0\,0),z-index:-9999,border-left-width:0px,border-bottom-width:0px,border-right-width:0px,margin-top:9.7rem]"
+                    default_x0023_default_x0023_ui="[backgroundColor:rgba(0\,0\,0\,0),positionPopover:Set,borderWidthLock:linkOff,marginLock:linkOff,marginPopover:9.7rem\, —\, —\, —,borderWidthPopover:—\, 0px\, 0px\, 0px]"
+                    phone_x0023_default="[padding-left:0px,margin-top:64px]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:64px\, —\, —\, —,paddingLock:linkOff,paddingPopover:0px,positionPopover:Set]"/>
+                <af_separator
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[margin-top:1rem,margin-bottom:1rem,margin-left:1.5rem,margin-right:1.5rem,border-style:solid,border-color:#aeb0b5]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:1rem\, 1.5rem\, 1rem\, 1.5rem,shadowContainer:{&quot;itemList&quot;:[]}]"
+                    phone_x0023_default="[margin-right:0.5rem,margin-left:0.5rem]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, 0.5rem\, —\, 0.5rem]"/>
+                <af_wizard
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[background:#fff,padding-top:3rem,margin-bottom:2.5em,cssOverride:font-family: &quot;Source Sans Pro&quot;\, &quot;Helvetica Neue&quot;\, &quot;Helvetica&quot;\, &quot;Roboto&quot;\, &quot;Arial&quot;\, sans-serif;]"
+                    default_x0023_default_x0023_ui="[backgroundColor:#fff,paddingLock:linkOff,paddingPopover:3rem\, —\, —\, —,borderWidthPopover:Set,marginLock:linkOff,marginPopover:2.5em]"
+                    phone_x0023_default="[border-left-width:0px,border-bottom-width:0px,border-top-width:0px,border-right-width:0px,padding-top:0px]"
+                    phone_x0023_default_x0023_ui="[borderWidthPopover:0px,paddingLock:linkOff,paddingPopover:0px\, —\, —\, —]"/>
+                <af_tableoddrow
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[background:#ffffff]"
+                    default_x0023_default_x0023_ui="[borderWidthLock:linkOff,borderWidthPopover:Set,backgroundColor:#ffffff]"
+                    phone_x0023_default="[background:#f1f1f1]"
+                    phone_x0023_default_x0023_ui="[backgroundColor:#f1f1f1]"/>
+                <af_nextitemnavbutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active="[box-shadow:0px 0px 0px 2px rgba(0\,0\,0\,0) inset]"
+                    default_x0023_active_x0023_ui="[shadowContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;shadow.1461130324339&quot;\,&quot;shadowHorizontal&quot;:&quot;0px&quot;\,&quot;shadowVertical&quot;:&quot;0px&quot;\,&quot;shadowBlur&quot;:&quot;0px&quot;\,&quot;shadowSpread&quot;:&quot;2px&quot;\,&quot;shadowColor&quot;:&quot;rgba(0\,0\,0\,0)&quot;\,&quot;shadowPosition&quot;:&quot;inset&quot;}]}]"
+                    default_x0023_default="[border-left-width:0px,border-bottom-width:0px,border-right-width:0px,border-top-width:0px,background:#5b616b,color:#ffffff,box-shadow:0px 0px 0px 2px rgba(0\,0\,0\,0) inset]"
+                    default_x0023_default_x0023_ui="[borderWidthPopover:0px,borderRadiusPopover:Set,backgroundColor:#5b616b,shadowContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;shadow.1461130216815&quot;\,&quot;shadowHorizontal&quot;:&quot;0px&quot;\,&quot;shadowVertical&quot;:&quot;0px&quot;\,&quot;shadowBlur&quot;:&quot;0px&quot;\,&quot;shadowSpread&quot;:&quot;2px&quot;\,&quot;shadowColor&quot;:&quot;rgba(0\,0\,0\,0)&quot;\,&quot;shadowPosition&quot;:&quot;inset&quot;}]}]"
+                    default_x0023_hover="[background:#323a45,box-shadow:0px 0px 0px 2px rgba(0\,0\,0\,0) inset]"
+                    default_x0023_hover_x0023_ui="[borderWidthPopover:Set,shadowContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;shadow.1461130295152&quot;\,&quot;shadowHorizontal&quot;:&quot;0px&quot;\,&quot;shadowVertical&quot;:&quot;0px&quot;\,&quot;shadowBlur&quot;:&quot;0px&quot;\,&quot;shadowSpread&quot;:&quot;2px&quot;\,&quot;shadowColor&quot;:&quot;rgba(0\,0\,0\,0)&quot;\,&quot;shadowPosition&quot;:&quot;inset&quot;}]},backgroundColor:#323a45]"/>
+                <af_submitbutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active="[background:#112e51]"
+                    default_x0023_active_x0023_ui="[backgroundColor:#112e51]"
+                    default_x0023_default="[background:#0071bc,color:#ffffff,border-left-width:0px,border-bottom-width:0px,border-right-width:0px,border-top-width:0px]"
+                    default_x0023_default_x0023_ui="[backgroundColor:#0071bc,borderWidthPopover:0px]"
+                    default_x0023_disabled="[color:#323a45,background:#d6d7d9]"
+                    default_x0023_disabled_x0023_ui="[backgroundColor:#d6d7d9]"
+                    default_x0023_focus="[background:#205493]"
+                    default_x0023_focus_x0023_ui="[backgroundColor:#205493]"
+                    default_x0023_hover="[background:#205493]"
+                    default_x0023_hover_x0023_ui="[backgroundColor:#205493,shadowContainer:{&quot;itemList&quot;:[]}]"
+                    phone_x0023_default_x0023_ui="[paddingLock:linkOff]"/>
+                <af_datepickerwidgetandtext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[font-family:Arial,color:#212121]"/>
+                <af_wizardcontentarea
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[padding-left:16%,padding-bottom:1rem,padding-right:5.5rem,padding-top:3rem]"
+                    default_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:3rem\, 5.5rem\, 1rem\, 16%,marginLock:linkOff,marginPopover:Set]"
+                    phone_x0023_default="[padding-left:0.5em,padding-right:0.5em,padding-top:0px]"
+                    phone_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:0px\, 0.5em\, —\, 0.5em]"
+                    smallScreen_x0023_default="[padding-left:0.5rem,padding-right:0.5rem]"
+                    smallScreen_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:0.5rem]"/>
+                <af_resetbutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default_x0023_ui="[borderWidthPopover:Set]"
+                    phone_x0023_active="[background:#205493]"
+                    phone_x0023_active_x0023_ui="[backgroundColor:#205493]"
+                    phone_x0023_default="[background:rgba(255\,255\,255\,0),border-left-width:0px,border-bottom-width:0px,border-top-width:0px,border-right-width:0px,box-shadow:0px 0px 0px 2px rgba(0\,0\,0\,0) inset]"
+                    phone_x0023_default_x0023_ui="[paddingLock:linkOff,backgroundColor:rgba(255\,255\,255\,0),borderWidthPopover:0px,shadowContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;shadow.1461582876808&quot;\,&quot;shadowHorizontal&quot;:&quot;0px&quot;\,&quot;shadowVertical&quot;:&quot;0px&quot;\,&quot;shadowBlur&quot;:&quot;0px&quot;\,&quot;shadowSpread&quot;:&quot;2px&quot;\,&quot;shadowColor&quot;:&quot;rgba(0\,0\,0\,0)&quot;\,&quot;shadowPosition&quot;:&quot;inset&quot;}]}]"
+                    phone_x0023_disabled="[background:#d6d7d9]"
+                    phone_x0023_disabled_x0023_ui="[backgroundColor:#d6d7d9]"
+                    phone_x0023_focus="[background:#0071bc]"
+                    phone_x0023_focus_x0023_ui="[backgroundColor:#0071bc]"
+                    phone_x0023_hover="[background:#0071bc]"
+                    phone_x0023_hover_x0023_ui="[backgroundColor:#0071bc]"/>
+                <af_savebutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[border-left-width:0px,border-bottom-width:0px,border-right-width:0px,border-top-width:0px]"
+                    default_x0023_default_x0023_ui="[borderWidthPopover:0px]"
+                    phone_x0023_active="[background:#205493]"
+                    phone_x0023_active_x0023_ui="[backgroundColor:#205493]"
+                    phone_x0023_default="[border-left-width:2px,border-bottom-width:2px,border-top-width:2px,border-right-width:2px,border-style:solid,border-color:rgba(255\,255\,255\,0),box-shadow:0px 0px 0px 2px rgba(0\,0\,0\,0) inset,background:rgba(0\,0\,0\,0)]"
+                    phone_x0023_default_x0023_ui="[paddingLock:link,borderWidthPopover:2px,paddingPopover:Set,shadowContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;shadow.1461582920912&quot;\,&quot;shadowHorizontal&quot;:&quot;0px&quot;\,&quot;shadowVertical&quot;:&quot;0px&quot;\,&quot;shadowBlur&quot;:&quot;0px&quot;\,&quot;shadowSpread&quot;:&quot;2px&quot;\,&quot;shadowColor&quot;:&quot;rgba(0\,0\,0\,0)&quot;\,&quot;shadowPosition&quot;:&quot;inset&quot;}]},backgroundColor:rgba(0\,0\,0\,0)]"
+                    phone_x0023_disabled="[background:#d6d7d9]"
+                    phone_x0023_disabled_x0023_ui="[backgroundColor:#d6d7d9]"
+                    phone_x0023_focus="[background:#0071bc]"
+                    phone_x0023_focus_x0023_ui="[backgroundColor:#0071bc]"
+                    phone_x0023_hover="[background:#0071bc]"
+                    phone_x0023_hover_x0023_ui="[backgroundColor:#0071bc]"/>
+                <af_tabsontopcontentarea
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[padding-bottom:1rem,padding-top:3rem,padding-right:3rem,padding-left:5.3rem,margin-bottom:5rem]"
+                    default_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:3rem\, 3rem\, 1rem\, 5.3rem,marginLock:linkOff,marginPopover:—\, —\, 5rem\, —]"
+                    phone_x0023_default="[padding-top:0px,padding-right:0px,padding-left:0px]"
+                    phone_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:0px\, 0px\, —\, 0px]"
+                    tablet_x0023_default="[padding-right:0px,padding-left:0px]"
+                    tablet_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:—\, 0px\, —\, 0px]"/>
+                <af_tnccheckboxlabel
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[vertical-align:middle]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:Set]"/>
+                <af_accordionpanelcontentarea
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[border-style:solid,border-left-width:3px,border-bottom-width:3px,border-top-width:0px,border-right-width:3px,border-color:#f1f1f1,padding-left:1.5rem,padding-bottom:1.5rem,padding-top:3rem,padding-right:1.5rem]"
+                    default_x0023_default_x0023_ui="[paddingLock:linkOff,borderWidthPopover:0px\, 3px\, 3px\, 3px,borderWidthLock:linkOff,paddingPopover:1.5rem]"
+                    phone_x0023_default="[padding-left:0.5em,padding-bottom:0.5em,padding-top:0.5em,padding-right:0.5em]"
+                    phone_x0023_default_x0023_ui="[paddingPopover:0.5em]"
+                    smallScreen_x0023_default="[padding-left:0.5em,padding-right:0.5em]"
+                    smallScreen_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:—\, 0.5em\, —\, 0.5em]"/>
+                <af_tncconsentarea
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[margin-top:0px]"
+                    default_x0023_default_x0023_ui="[paddingPopover:Set,marginLock:linkOff,marginPopover:0px\, —\, —\, —]"/>
+                <af_accordionpaneldescription
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[margin-bottom:1.5rem,font-size:4rem,color:#205493,line-height:1.3,font-weight:bold,cssOverride:font-family: &quot;Merriweather&quot;\, &quot;Georgia&quot;\, &quot;Cambria&quot;\, &quot;Times New Roman&quot;\, &quot;Times&quot;\, serif;]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, —\, 1.5rem\, —]"
+                    phone_x0023_default="[margin-bottom:0px]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, —\, 0px\, —]"/>
+                <af_tablerow
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[border-bottom-width:1px,border-top-width:0px,border-style:solid,border-color:#5b616b,border-right-width:0px,border-left-width:0px]"
+                    default_x0023_default_x0023_ui="[borderWidthLock:linkOff,borderWidthPopover:0px\, 0px\, 1px\, 0px]"
+                    phone_x0023_default="[font-size:1.7rem]"/>
+                <af_accordionpaneltitle jcr:primaryType="nt:unstructured"/>
+                <af_tncpopuptitle
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[font-size:1rem,margin-top:0px,margin-bottom:0px]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:0px\, —\, 0px\, —]"/>
+                <af_tncpopup
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[padding-bottom:1rem,padding-top:1rem,padding-left:1rem,border-bottom-right-radius:0.25rem,border-bottom-left-radius:0.25rem,border-top-left-radius:0.25rem,border-top-right-radius:0.25rem]"
+                    default_x0023_default_x0023_ui="[shadowContainer:{&quot;itemList&quot;:[]},paddingPopover:1rem,borderRadiusPopover:0.25rem]"/>
+                <af_textboxwidgetandtext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[color:#212121]"/>
+                <af_tableoddcolumn
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[border-color:#5b616b,border-right-width:1px,border-left-width:1px,border-style:solid,border-top-width:0px,border-bottom-width:0px]"
+                    default_x0023_default_x0023_ui="[borderWidthLock:linkOff,borderWidthPopover:0px\, 1px\, 0px\, 1px]"
+                    phone_x0023_default="[border-left-width:0px,border-bottom-width:0px,border-top-width:0px,border-right-width:0px]"
+                    phone_x0023_default_x0023_ui="[borderWidthPopover:0px]"/>
+                <af_radiobuttonitem
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[margin-right:3rem,margin-bottom:0.5em,cssOverride:width:max-content;]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]},marginLock:linkOff,marginPopover:—\, 3rem\, 0.5em\, —]"/>
+                <af_previtemnavbutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[border-left-width:0px,border-bottom-width:0px,border-right-width:0px,border-top-width:0px]"
+                    default_x0023_default_x0023_ui="[borderWidthPopover:0px]"/>
+                <af_fileuploadfieldwidgetandtext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[margin-bottom:0.2em,margin-top:0.2em,box-shadow:0px 0px 0px 2px #0071bc inset]"
+                    default_x0023_default_x0023_ui="[shadowContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;shadow.1461657424000&quot;\,&quot;shadowHorizontal&quot;:&quot;0px&quot;\,&quot;shadowVertical&quot;:&quot;0px&quot;\,&quot;shadowBlur&quot;:&quot;0px&quot;\,&quot;shadowSpread&quot;:&quot;2px&quot;\,&quot;shadowColor&quot;:&quot;#0071bc&quot;\,&quot;shadowPosition&quot;:&quot;inset&quot;}]},borderWidthPopover:Set,marginLock:linkOff,marginPopover:0.2em\, —\, 0.2em\, —]"/>
+                <af_tabsonleftdescription
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[font-size:4rem,font-weight:bold,line-height:1.3,margin-left:1.5rem,margin-bottom:1.5rem,margin-right:1.5rem,display:none,cssOverride:font-family: &quot;Merriweather&quot;\, &quot;Georgia&quot;\, &quot;Cambria&quot;\, &quot;Times New Roman&quot;\, &quot;Times&quot;\, serif;]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, 1.5rem\, 1.5rem\, 1.5rem]"/>
+                <af_checkboxitem
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[margin-right:3rem,margin-bottom:0.5em,cssOverride:width:max-content;]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, 3rem\, 0.5em\, —]"/>
+                <af_tabsontopdescription
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[color:#205493,font-weight:bold,font-size:4rem,line-height:1.3,padding-left:1.5rem,padding-bottom:1.5rem,padding-right:1.5rem,cssOverride:font-family: &quot;Merriweather&quot;\, &quot;Georgia&quot;\, &quot;Cambria&quot;\, &quot;Times New Roman&quot;\, &quot;Times&quot;\, serif;]"
+                    default_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:—\, 1.5rem\, 1.5rem\, 1.5rem]"/>
+                <af_wizarddescription
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[color:#205493,font-size:4rem,line-height:1.3,font-weight:bold,padding-left:1.5rem,padding-bottom:1.5rem,padding-right:1.5rem,cssOverride:font-family: &quot;Merriweather&quot;\, &quot;Georgia&quot;\, &quot;Cambria&quot;\, &quot;Times New Roman&quot;\, &quot;Times&quot;\, serif;]"
+                    default_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:—\, 1.5rem\, 1.5rem\, 1.5rem]"/>
+                <af_adobeSignText
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[border-right-width:1px,border-bottom-width:1px,border-left-width:1px,border-top-width:1px,border-style:solid,border-top-left-radius:4px,border-top-right-radius:4px,border-bottom-right-radius:4px,border-bottom-left-radius:4px,border-color:rgba(0\,0\,0\,0.15),padding-top:0.5rem,padding-bottom:0.5rem,padding-left:0.5rem,padding-right:0.5rem,color:#212121,font-size:1.7rem]"
+                    default_x0023_default_x0023_mask="[backgroundColor]"
+                    default_x0023_default_x0023_ui="[borderWidthPopover:1px,borderRadiusPopover:4px,backgroundColor:rgba(0\,0\,0\,0.02),paddingPopover:0.5rem]"/>
+                <af_summary
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[max-width:100%,height:540px,position:relative,overflow:auto,border-top-width:1px,border-bottom-width:1px,border-left-width:1px,border-right-width:1px,border-style:solid,border-top-left-radius:0.25rem,border-bottom-left-radius:0.25rem,border-bottom-right-radius:0.25rem,border-top-right-radius:0.25rem,padding-right:0.625rem,padding-bottom:0.625rem,padding-left:0.625rem,padding-top:0.625rem,margin-right:0.75rem,margin-left:0.75rem,margin-bottom:0.25rem,margin-top:0.25rem,color:#212121,font-size:1.7rem,border-color:#5b616b]"
+                    default_x0023_default_x0023_ui="[positionPopover:relative,borderWidthPopover:1px,borderRadiusPopover:0.25rem,paddingPopover:0.625rem,marginLock:linkOff,marginPopover:0.25rem\, 0.75rem\, 0.25rem\, 0.75rem]"
+                    phone_x0023_default="[margin-right:0px,margin-left:0px]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, 0px\, —\, 0px]"/>
+                <af_verify
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[height:540px,position:relative,overflow:auto,border-top-width:1px,border-bottom-width:1px,border-left-width:1px,border-right-width:1px,border-style:solid,max-width:100%,padding-top:0.625rem,padding-bottom:0.625rem,padding-left:0.625rem,padding-right:0.625rem,margin-bottom:0.25rem,margin-top:0.25rem,margin-right:0.75rem,margin-left:0.75rem,border-top-left-radius:0.25rem,border-bottom-left-radius:0.25rem,border-bottom-right-radius:0.25rem,border-top-right-radius:0.25rem,font-size: 1.7rem,color:#212121,border-color:#5b616b]"
+                    default_x0023_default_x0023_ui="[positionPopover:relative,borderWidthPopover:1px,paddingPopover:0.625rem,marginLock:linkOff,marginPopover:0.25rem\, 0.75rem\, 0.25rem\, 0.75rem,borderRadiusPopover:0.25rem]"
+                    phone_x0023_default="[margin-right:0px,margin-left:0px]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, 0px\, —\, 0px]"/>
+                <af_esign
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[max-width:100%,height:540px,position:relative,overflow:auto,border-top-width:1px,border-bottom-width:1px,border-left-width:1px,border-right-width:1px,border-style:solid,border-color:#5b616b,color:#212121,font-size:1.7rem,padding-top:0.625rem,padding-bottom:0.625rem,padding-left:0.625rem,padding-right:0.625rem,margin-left:0.75rem,margin-right:0.75rem,margin-top:0.25rem,margin-bottom:0.25rem,border-top-left-radius:0.25rem,border-bottom-left-radius:0.25rem,border-bottom-right-radius:0.25rem,border-top-right-radius:0.25rem]"
+                    default_x0023_default_x0023_ui="[positionPopover:relative,borderWidthPopover:1px,paddingPopover:0.625rem,marginLock:linkOff,marginPopover:0.25rem\, 0.75rem\, 0.25rem\, 0.75rem,borderRadiusPopover:0.25rem]"
+                    phone_x0023_default="[margin-right:0px,margin-left:0px]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, 0px\, —\, 0px]"/>
+                <af_adobeSignTitle
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[font-size:1.7rem,color:#212121]"/>
+                <af_adobeSignBlock
+                    jcr:primaryType="nt:unstructured"
+                    phone_x0023_default="[margin-right:0px,margin-left:0px]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, 0px\, —\, 0px]"/>
+            </af_guideContainer>
+            <af_guideFooter
+                jcr:primaryType="nt:unstructured"
+                component="fd/af/components/guidefooter">
+                <af_footer
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[text-align:center,background:#205493,cssOverride:font-family: &quot;Source Sans Pro&quot;\, &quot;Helvetica Neue&quot;\, &quot;Helvetica&quot;\, &quot;Roboto&quot;\, &quot;Arial&quot;\, sans-serif;&#xa;box-sizing : content-box;,padding-top:1.5rem,padding-bottom:1.5rem,display:block,margin-left:auto,margin-right:auto,right:-1px,margin-top:6rem]"
+                    default_x0023_default_x0023_ui="[paddingLock:linkOff,marginLock:linkOff,backgroundColor:#205493,paddingPopover:1.5rem\, —\, 1.5rem\, —,marginPopover:6rem\, auto\, —\, auto,positionPopover:Set]"
+                    phone_x0023_default="[margin-bottom:6rem]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, —\, 6rem\, —]"/>
+                <af_footertext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[color:#ffffff,font-size:1.5rem,line-height:1.5,margin-top:0px,margin-bottom:0px]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:0px\, —\, 0px\, —]"/>
+            </af_guideFooter>
+            <af_guideHeader
+                jcr:primaryType="nt:unstructured"
+                component="fd/af/components/guideheader">
+                <af_header
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[top:0px,left:0px,border-left-width:0px,border-bottom-width:1px,border-right-width:0px,border-top-width:0px,border-style:solid,height:9.7rem,border-color:#aeb0b5,background:#ffffff,width:100%,z-index:1,position:fixed,right:0px]"
+                    default_x0023_default_x0023_ui="[borderWidthPopover:0px\, 0px\, 1px\, 0px,paddingLock:link,paddingPopover:Set,borderWidthLock:linkOff,marginLock:linkOff,backgroundColor:#ffffff,marginPopover:Set,positionPopover:fixed]"
+                    phone_x0023_default="[height:64px,padding-left:1rem,padding-right:1rem]"
+                    phone_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:1rem,marginLock:linkOff,marginPopover:Set]"/>
+                <af_headerlogo
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[height:6rem,width:auto,position:absolute,left:3rem,top:0.6rem]"
+                    default_x0023_default_x0023_ui="[marginLock:link,backgroundContainer:{&quot;itemList&quot;:[]},positionPopover:absolute,marginPopover:Set]"
+                    phone_x0023_default="[height:3.5rem,position:absolute,left:1em,top:0px,margin-left:0px]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, —\, —\, 0px,positionPopover:absolute]"/>
+                <af_headertext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[font-size:2rem,color:#5b616b,vertical-align:top,font-weight:bold,left:11rem,position:absolute,top:3.6rem]"
+                    default_x0023_default_x0023_ui="[paddingLock:linkOff,marginLock:linkOff,paddingPopover:Set,positionPopover:absolute,marginPopover:Set]"
+                    phone_x0023_default="[position:absolute,top:1.8rem,left:5rem]"
+                    phone_x0023_default_x0023_ui="[positionPopover:absolute]"/>
+            </af_guideHeader>
+        </components>
+        <assetLibrary jcr:primaryType="nt:unstructured"/>
+        <rawCss/>
+    </jcr:content>
+</jcr:root>
