@@ -13,7 +13,7 @@
         authenticationType="OAuth 2.0"
         dataSourceType="ODATA_REST"
         location="header"
-        name="ms-dynamics-odata-cloud-service"
+        name="microsoft-dynamics-365-cloud-config"
         oAuthUrl="https://login.microsoftonline.com/{tenant}/oauth2/authorize"
         refresh_token_uri="https://login.microsoftonline.com/{tenant}/oauth2/token"
         selectAuthentication="OAuth 2.0"

@@ -14,7 +14,7 @@
         dataSourceType="REST"
         filename="salesforce_swagger.json"
         location="header"
-        name="salesforce-cloud-service"
+        name="salesforce-cloud-config"
         oAuthUrl="https://login.salesforce.com/services/oauth2/authorize"
         refresh_token_uri="https://login.salesforce.com/services/oauth2/token"
         selectAuthentication="OAuth 2.0"

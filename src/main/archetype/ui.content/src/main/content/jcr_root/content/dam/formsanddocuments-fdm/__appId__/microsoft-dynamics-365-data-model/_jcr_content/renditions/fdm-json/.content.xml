@@ -3,7 +3,7 @@
     jcr:primaryType="sling:Folder">
     <jcr:content
         jcr:primaryType="nt:unstructured"
-        name="ms-dynamics-fdm"
+        name="microsoft-dynamics-365-data-model"
         title="Microsoft Dynamics 365 Data Model">
         <definitions jcr:primaryType="nt:unstructured">
             <contact_1501573930059

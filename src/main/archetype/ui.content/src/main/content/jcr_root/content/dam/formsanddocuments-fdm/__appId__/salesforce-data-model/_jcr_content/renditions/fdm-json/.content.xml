@@ -3,7 +3,7 @@
     jcr:primaryType="sling:Folder">
     <jcr:content
         jcr:primaryType="nt:unstructured"
-        name="salesforce-fdm"
+        name="salesforce-data-model"
         rendition.handler.id="fdm.structure"
         title="Salesforce Data Model">
         <definitions jcr:primaryType="nt:unstructured">

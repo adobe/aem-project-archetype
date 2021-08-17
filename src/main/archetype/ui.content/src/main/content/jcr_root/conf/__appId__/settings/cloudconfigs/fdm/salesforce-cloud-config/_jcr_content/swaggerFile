@@ -15,28 +15,6 @@
 		"application/json"
 	],
 	"paths": {
-		"/services/data/v32.0/query": {
-			"get": {
-				"summary": "Query Execution",
-				"operationId": "query",
-				"parameters": [
-					{
-						"in": "query",
-						"name": "q",
-						"description": "contacts",
-						"type": "string"
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "Echo test-path",
-						"schema": {
-							"$ref": "#/definitions/All"
-						}
-					}
-				}
-			}
-		},
 		"/services/data/v32.0/sobjects/Lead/{id}": {
 			"get": {
 				"summary": "Fetch Lead Information From SDFC",
@@ -556,39 +534,6 @@
 				}				
 			},
 			"required" : ["id"]
-		},		
-	  "All": {
-			"type": "object",
-			"properties": {
-			  "totalSize": {
-			    "type": "integer"
-			  },
-				"records": {
-					"type": "array",
-					"items": {
-						"$ref": "#/definitions/Records"
-					 }
-				}
-			}
-		},
-		"Records": {
-			"type": "object",
-			"properties": {
-				"attributes": {
-					"$ref": "#/definitions/Attributes"
-				}
-			}
-		},
-		"Attributes": {
-			"type": "object",
-			"properties": {
-				"type": {
-					"type": "string"
-				},
-				"url": {
-					"type": "string"
-				}			
-			}
 		}
 	}
 }
