@@ -95,7 +95,7 @@ Name                      | Default        | Description
 
 Archetype | AEM as a Cloud Service | AEM 6.5 | Java SE | Maven
 ---------|---------|---------|---------|---------
-[28](https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-28) | Continual | 6.5.7.0+ | 8, 11 | 3.3.9+
+[29](https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-29) | Continual | 6.5.7.0+ | 8, 11 | 3.3.9+
 
 Setup your local development environment for [AEM as a Cloud Service SDK](https://docs.adobe.com/content/help/en/experience-manager-learn/cloud-service/local-development-environment-set-up/overview.html) or for [older versions of AEM](https://docs.adobe.com/content/help/en/experience-manager-learn/foundation/development/set-up-a-local-aem-development-environment.html).
 
