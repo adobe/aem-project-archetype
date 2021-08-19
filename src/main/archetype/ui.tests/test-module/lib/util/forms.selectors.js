@@ -16,6 +16,13 @@ var selectors = {
             authScope : '[name="./authorization_scope"]'
         }
     }
+    content : {
+        afFieldTypes : {
+            genericAFField : '.guidefield',
+            afImage : '.guideimage',
+            aftable : '.table'
+        }
+    }
 };
 
 module.exports = selectors;
