@@ -408,6 +408,12 @@
                         <include>**/*.jpeg</include>
                         <include>**/image</include>
                         <include>**/original</include>
+                        <include>**/*.eot</include>
+                        <include>**/*.svg</include>
+                        <include>**/*.ttf</include>
+                        <include>**/*.woff</include>
+                        <include>**/*.woff2</include>
+                        <include>**/*.otf</include>
                     </includes>
                 </fileSet>
             </fileSets>
