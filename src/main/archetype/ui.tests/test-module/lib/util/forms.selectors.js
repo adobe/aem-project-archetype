@@ -15,7 +15,7 @@ var selectors = {
             accessTokenUrl : '[name="./access_token_uri"]',
             authScope : '[name="./authorization_scope"]'
         }
-    }
+    },
     content : {
         afFieldTypes : {
             genericAFField : '.guidefield',
