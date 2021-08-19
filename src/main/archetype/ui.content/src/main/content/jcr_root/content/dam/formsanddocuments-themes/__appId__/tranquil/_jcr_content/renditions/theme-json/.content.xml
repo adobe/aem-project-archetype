@@ -63,7 +63,7 @@
                     default_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guideCheckBoxItem .guideWidgetLabel&quot;\,&quot;properties&quot;:{&quot;display&quot;:&quot;inline&quot;}}}},vertical-align:text-bottom,color:#888888,margin-right:1.5rem,beforePseudoElement:content: &quot;_&quot;;&#xa;background:url(../assets/Checkbox-default-01.svg) left center / contain no-repeat;&#xa;font-size: 30px;&#xa;color: #E8F6F7;&#xa;vertical-align: middle;&#xa;margin-right: 0.5rem;,cssOverride:cursor: pointer;]"
                     default_x0023_default_x0023_ui="[display:inline-block,marginLock:linkOff,marginPopover:—\, 1.5rem\, —\, —,backgroundContainer:{&quot;itemList&quot;:[]}]"
                     default_x0023_error="[beforePseudoElement:content: &quot;_&quot;;&#xa;background:url(../assets/Checkbox-error-01.svg) left center / contain no-repeat;&#xa;font-size: 30px;&#xa;color: #E8F6F7;&#xa;vertical-align: middle;&#xa;margin-right: 0.5rem;,color:#b22d2d]"
-                    default_x0023_hover="[beforePseudoElement:content: &quot;_&quot;;&#xa;background:url(../assets/Checkbox-hover-01.svg) left center / contain no-repeat;&#xa;font-size: 30px;&#xa;color: #E8F6F7;&#xa;vertical-align: middle;&#xa;margin-right: 0.5rem;,color:#007d88]"/>
+                    default_x0023_hover="[beforePseudoElement:content: &quot;_&quot;;&#xa;font-size: 30px;&#xa;color: #E8F6F7;&#xa;vertical-align: middle;&#xa;margin-right: 0.5rem;,color:#007d88]"/>
                 <af_checkboxwidgetandtext
                     jcr:primaryType="nt:unstructured"
                     default_x0023_default="[float:none,width:0.75rem,display:none]"/>
@@ -106,7 +106,7 @@
                     default_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guideRadioButtonItem .guideWidgetLabel&quot;\,&quot;properties&quot;:{&quot;display&quot;:&quot;inline&quot;\,&quot;float&quot;:&quot;none&quot;}}}},margin-right:1.5rem,vertical-align:text-bottom,color:#888888,beforePseudoElement:content: &quot;_&quot;;&#xa;background:url(../assets/Radio-default-01.svg) left center / contain no-repeat;&#xa;font-size: 30px;&#xa;color: #E8F6F7;&#xa;vertical-align: middle;&#xa;margin-right: 0.5rem;,cssOverride:cursor: pointer;]"
                     default_x0023_default_x0023_ui="[display:inline-block,float:none,marginLock:linkOff,backgroundContainer:{&quot;itemList&quot;:[]},marginPopover:—\, 1.5rem\, —\, —]"
                     default_x0023_error="[beforePseudoElement:content: &quot;_&quot;;&#xa;background:url(../assets/Radio-Error-01.svg) left center / contain no-repeat;&#xa;font-size: 30px;&#xa;color: #E8F6F7;&#xa;vertical-align: middle;&#xa;margin-right: 0.5rem;]"
-                    default_x0023_hover="[beforePseudoElement:content: &quot;_&quot;;&#xa;background:url(../assets/Radio-hover-01.svg) left center / contain no-repeat;&#xa;font-size: 30px;&#xa;color: #E8F6F7;&#xa;vertical-align: middle;&#xa;margin-right: 0.5rem;,color:#007d88]"
+                    default_x0023_hover="[beforePseudoElement:content: &quot;_&quot;;&#xa;font-size: 30px;&#xa;color: #E8F6F7;&#xa;vertical-align: middle;&#xa;margin-right: 0.5rem;,color:#007d88]"
                     default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]}]"/>
                 <af_radiobuttonwidget
                     jcr:primaryType="nt:unstructured"
@@ -609,7 +609,7 @@
                     tablet_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:—\, 0px\, —\, 0px]"/>
                 <af_tnccheckboxlabel
                     jcr:primaryType="nt:unstructured"
-                    default_x0023_default="[font-size:0.875rem,color:#888888,vertical-align:middle]"/>
+                    default_x0023_default="[font-size:0.875rem,color:#888888,vertical-align:middle,line-height:50px]"/>
                 <af_accordionpanelcontentarea
                     jcr:primaryType="nt:unstructured"
                     default_x0023_default="[padding-bottom:1rem,border-style:solid,border-left-width:2px,border-bottom-width:2px,border-top-width:0px,border-right-width:2px,border-color:rgba(0\,0\,0\,0.15),background:#E8F6F7]"

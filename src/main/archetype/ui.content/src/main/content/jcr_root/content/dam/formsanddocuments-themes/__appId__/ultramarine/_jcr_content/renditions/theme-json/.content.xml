@@ -638,7 +638,7 @@
                     tablet_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:—\, 0px\, —\, 0px]"/>
                 <af_tnccheckboxlabel
                     jcr:primaryType="nt:unstructured"
-                    default_x0023_default="[font-size:0.875rem,color:#888888]"/>
+                    default_x0023_default="[font-size:0.875rem,color:#888888,line-height:50px]"/>
                 <af_accordionpanelcontentarea
                     jcr:primaryType="nt:unstructured"
                     default_x0023_default="[padding-left:3.5rem,padding-bottom:1rem,padding-right:3.5rem,padding-top:1rem,border-style:solid,border-left-width:1px,border-bottom-width:1px,border-top-width:0px,border-right-width:1px,border-color:#0f79c0]"

@@ -496,7 +496,7 @@
                     default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:30px\, —\, —\, —,paddingPopover:Set]"/>
                 <af_fieldhelpicon
                     jcr:primaryType="nt:unstructured"
-                    default_x0023_default="[margin-top:10px,margin-right:25px]"
+                    default_x0023_default="[margin-top:15px,margin-right:25px]"
                     default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:25px]"
                     smallScreen_x0023_default_x0023_ui="[paddingPopover:Set,marginLock:linkOff,marginPopover:Set]"/>
                 <af_textdraw jcr:primaryType="nt:unstructured"/>

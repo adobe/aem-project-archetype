@@ -27,8 +27,8 @@
                     default_x0023_hover="[cssOverride:cursor : pointer;&#xa;]"
                     phone_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot; .afToolbarButton&quot;\,&quot;properties&quot;:{&quot;display&quot;:&quot;inline-block&quot;}}}},height:50px,margin-right:7px,font-size:13px]"
                     phone_x0023_default_x0023_ui="[paddingPopover:Set,marginPopover:—\, 7px\, —\, —,marginLock:linkOff,display:inline-block]"
-                    tablet_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot; .afToolbarButton&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;32.3%&quot;}}\,&quot;button&quot;:{&quot;cssSelector&quot;:&quot; .afToolbarButton button&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;100%&quot;}}}}]"
-                    tablet_x0023_default_x0023_ui="[width:32.3%]"/>
+                    tablet_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot; .afToolbarButton&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;24%.3%&quot;}}\,&quot;button&quot;:{&quot;cssSelector&quot;:&quot; .afToolbarButton button&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;100%&quot;}}}}]"
+                    tablet_x0023_default_x0023_ui="[width:24%]"/>
                 <af_radiobuttonwidgetandtext
                     jcr:primaryType="nt:unstructured"
                     default_x0023_default="[width:100%]"/>
@@ -202,6 +202,10 @@
                     jcr:primaryType="nt:unstructured"
                     default_x0023_default="[background:rgba(0\,0\,0\,0.8),max-width:350px,padding-left:8px,padding-bottom:3px,padding-right:8px,padding-top:3px,color:#FFFFFF,text-align:center,cssOverride:text-decoration: none;&#xa;white-space: normal;&#xa;word-break: break-word;&#xa;word-wrap: break-word;,border-bottom-right-radius:4px,border-bottom-left-radius:4px,border-top-right-radius:4px,border-top-left-radius:4px,width:auto]"
                     default_x0023_default_x0023_ui="[backgroundColor:rgba(0\,0\,0\,0.8),paddingPopover:3px\, 8px\, 3px\, 8px,paddingLock:linkOff,borderRadiusPopover:4px]"/>
+                <af_fielderrormessage
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[padding-top:0.25rem,margin-left:0px,margin-bottom:0px,margin-top:0px,padding-bottom:0.25rem,padding-left:0.25rem,padding-right:0px]"
+                    default_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:0.25rem\, 0px\, 0.25rem\, 0.25rem,backgroundContainer:{&quot;itemList&quot;:[]},marginLock:linkOff,marginPopover:0px\, —\, 0px\, 0px]"/>
                 <af_toolbar
                     jcr:primaryType="nt:unstructured"
                     default_x0023_default="[text-align:center,padding-top:0.125rem,padding-bottom:0.125rem,margin-top:1.5rem,margin-bottom:1.5rem]"
@@ -299,7 +303,7 @@
                     phone_x0023_default_x0023_ui="[paddingPopover:0.5rem\, 0px\, —\, 0px,paddingLock:linkOff]"/>
                 <af_tnccheckboxlabel
                     jcr:primaryType="nt:unstructured"
-                    default_x0023_default="[padding-left:10px]"
+                    default_x0023_default="[padding-left:10px,color:#555555]"
                     default_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:—\, —\, —\, 10px]"/>
                 <af_form
                     jcr:primaryType="nt:unstructured"
