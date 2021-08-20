@@ -100,10 +100,10 @@ describe('AEM Forms OOTB Content Tests', () => {
                     operations : ['GET contact /contacts', 'POST contact /contacts', 'DELETE contact /contacts'] }
             ],
             getEntitySelector = (entityName) => {
-                return `div[data-id*="${entityName}"]`;
+                return `.fdmEntity[data-id*="${entityName}"]`;
             },
             getOperationSelector = (operationName) => {
-                return `tr[data-operationid*="${operationName}"]`;
+                return `.fdmOperation[data-operationid*="${operationName}"]`;
             },
             basePath = 'aem/fdm/editor.html/content/dam/formsanddocuments-fdm/${appId}',
             verifyformDataModel = (formDataModel) => {
