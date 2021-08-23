@@ -45,6 +45,102 @@ describe('AEM Forms OOTB Content Tests', () => {
         onboardingHdler.disable();
     });
 
+    // Validate rendering of Data Source properties page with partially filled OAuth details.
+    describe('DataSource Tests', () => {
+        let dataSources = [
+                {name : 'salesforce-cloud-config', title : 'Salesforce Cloud Config'},
+                {name : 'microsoft-dynamics-365-cloud-config', title : 'Microsoft Dynamics 365 Cloud Config'}
+            ],
+            basePath = 'mnt/overlay/fd/fdm/gui/components/admin/fdmcloudservice/properties.html',
+            confPath = '/conf/${appId}/settings/cloudconfigs/fdm',
+            verifyDataSource = (dataSource) => {
+                //Open datasource in editing mode
+                browser.url(`${config.aem.author.base_url}/${basePath}?item=${confPath}/${dataSource.name}`);
+
+                //Verify title value populated with correct value
+                expect($(selectors.editor.dataSourceEditor.title)).toBeDisplayed();
+                expect($(selectors.editor.dataSourceEditor.title).getValue()).toEqual(dataSource.title);
+
+                //click authentication settings tab
+                expect($(selectors.editor.dataSourceEditor.authenticationTab)).toBeDisplayed();
+                $(selectors.editor.dataSourceEditor.authenticationTab).click();
+
+                //Verify OAuth authentication mechanism selected
+                expect($(selectors.editor.dataSourceEditor.authenticationSelector)).toBeDisplayed();
+                expect($(selectors.editor.dataSourceEditor.authenticationSelector).getValue()).toEqual('OAuth 2.0');
+
+                //Verify Auth url not empty
+                expect($(selectors.editor.dataSourceEditor.oAuthUrl)).toBeDisplayed();
+                expect($(selectors.editor.dataSourceEditor.oAuthUrl).getValue()).not.toEqual('');
+
+                //Verify refresh token url not empty
+                expect($(selectors.editor.dataSourceEditor.refreshTokenUrl)).toBeDisplayed();
+                expect($(selectors.editor.dataSourceEditor.refreshTokenUrl).getValue()).not.toEqual('');
+
+                //Verify access token url not empty
+                expect($(selectors.editor.dataSourceEditor.accessTokenUrl)).toBeDisplayed();
+                expect($(selectors.editor.dataSourceEditor.accessTokenUrl).getValue()).not.toEqual('');
+
+            };
+
+        dataSources.forEach(function (dataSource) {
+            it('Testing Data Source : '+ dataSource.title , function () {
+                verifyDataSource(dataSource);
+            });
+        });
+    });
+
+    // Validate rendering of FDM in editor mode with already added entity/services.
+    describe('Form Data Model Tests', () => {
+
+        let formDataModels = [
+                {name : 'salesforce-data-model', title : 'Salesforce Data Model', entities : ['Contact', 'Lead'],
+                    operations : ['POST /services/data/v32.0/sobjects/Contact', 'GET /services/data/v32.0/sobjects/Contact/{id}'] },
+                {name : 'microsoft-dynamics-365-data-model', title : 'Microsoft Dynamics 365 Data Model', entities : ['contact', 'lead'],
+                    operations : ['GET contact /contacts', 'POST contact /contacts', 'DELETE contact /contacts'] }
+            ],
+            getEntitySelector = (entityName) => {
+                return `.fdmEntity[data-id*="${entityName}"]`;
+            },
+            getOperationSelector = (operationName) => {
+                return `.fdmOperation[data-operationid*="${operationName}"]`;
+            },
+            basePath = 'aem/fdm/editor.html/content/dam/formsanddocuments-fdm/${appId}',
+            verifyformDataModel = (formDataModel) => {
+                //Open form data model in editing mode
+                browser.url(`${config.aem.author.base_url}/${basePath}/${formDataModel.name}`);
+
+                //Verify title value populated with correct value
+                expect($(selectors.editor.fdmEditor.title).waitForDisplayed()).toBe(true);
+                expect($(selectors.editor.fdmEditor.title).getText()).toEqual(formDataModel.title);
+
+                //click model tab
+                expect($(selectors.editor.fdmEditor.modelTab)).toBeDisplayed();
+                $(selectors.editor.fdmEditor.modelTab).click();
+
+                //Verify Each entity present in model panel
+                formDataModel.entities.forEach(function (entity) {
+                    expect($(getEntitySelector(entity))).toBeDisplayed();
+                });
+
+                //click services tab
+                expect($(selectors.editor.fdmEditor.servicesTab)).toBeDisplayed();
+                $(selectors.editor.fdmEditor.servicesTab).click();
+
+                //Verify Each operations present in services panel.
+                formDataModel.operations.forEach(function (operation) {
+                    expect($(getOperationSelector(operation))).toBeDisplayed();
+                });
+
+            };
+
+        formDataModels.forEach(function (formDataModel) {
+            it('Testing Form Data Model : '+ formDataModel.title , function () {
+                verifyformDataModel(formDataModel);
+            });
+        });
+    });
+
     describe('AEM Forms Templates E2E Testing', () => {
         let templates = [
                 {path : '/conf/${appId}/settings/wcm/templates/basic-af', isBlankForm : false, verificationRuleFilePath : '../../rules/template-rules.json'},
