@@ -343,9 +343,9 @@
 #elseif ($includeCommerce == "n" and  $includeForms == "y" )
                     components="[group:${appTitle} - Content,group:${appTitle} - Forms,/apps/${appId}/components/form/container]">
 #elseif ($includeCommerce == "y" and  $includeForms == "n" )
-                    components="[group:${appTitle} - Content,group:${appTitle} - Commerce,/apps/${appId}/components/form/container]">
+                    components="[group:${appTitle} - Content,group:${appTitle} - Commerce,group:${appTitle} - Header,/apps/${appId}/components/form/container]">
 #elseif ($includeCommerce == "y" and  $includeForms == "y" )
-                    components="[group:${appTitle} - Content,group:${appTitle} - Commerce,group:${appTitle} - Forms,/apps/${appId}/components/form/container]">
+                    components="[group:${appTitle} - Content,group:${appTitle} - Commerce,group:${appTitle} - Header,group:${appTitle} - Forms,/apps/${appId}/components/form/container]">
 #end  
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">

@@ -35,6 +35,7 @@ header.experiencefragment {
         grid-template-columns: 4fr 1fr 1fr;
     }
 
+#if ( $includeCommerce != "y" )
     //== Navigation
 
     .cmp-navigation__group {
@@ -57,6 +58,7 @@ header.experiencefragment {
     .cmp-navigation__item--active > .cmp-navigation__item-link {
         font-weight: bold;
     }
+#end
 
     //== Language Navigation
 
