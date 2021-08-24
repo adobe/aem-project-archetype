@@ -27,7 +27,7 @@ export default class LocalDevModelClient extends ModelClient{
                 return response.json() ;
             }
 
-            throw { response };
+            return Promise.reject(response);
         }).catch((error) => {
             return Promise.reject(error);
         });
