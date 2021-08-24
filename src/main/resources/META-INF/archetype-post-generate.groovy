@@ -153,8 +153,6 @@ if (includeCommerce == "n") {
 } else {
     if (aemVersion == "cloud") {
         assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl~default.cfg.json").delete()
-        assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl~default.cfg.json").delete()
-
         assert new File("$varFolder").deleteDir()
     }
     if (aemVersion.startsWith("6.4")){
