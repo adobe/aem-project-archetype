@@ -51,6 +51,14 @@ if (aemVersion.startsWith("6.4")){
     assert new File("$configFolder/config.publish/org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl.config").delete()
 }
 
+if(aemVersion == "cloud"){
+    //on cloud, we don't allow setting log level to ERROR.
+    assert new File("$configFolder/config.prod/org.apache.sling.commons.log.LogManager.factory.config~${appId}.cfg.json").delete()
+    assert new File("$configFolder/config.stage/org.apache.sling.commons.log.LogManager.factory.config~${appId}.cfg.json").delete()
+    assert new File("$configFolder/config.stage").deleteDir()
+    assert new File("$configFolder/config.prod").deleteDir()
+}
+
 if (amp == "n"){
     assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/" + appId + "/components/page/customheadlibs.amp.html").delete()
     assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/" + appId + "/components/image/clientlibs").deleteDir()
