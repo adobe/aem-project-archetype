@@ -13,11 +13,17 @@ import { render } from 'react-dom';
 #end
 import { Router } from 'react-router-dom';
 import App from './App';
+import LocalDevModelClient from './LocalDevModelClient';
 import './components/import-components';
 import './index.css';
 
+const modelManagerOptions = {};
+if(process.env.REACT_APP_PROXY_ENABLED) {
+    modelManagerOptions.modelClient = new LocalDevModelClient(process.env.REACT_APP_API_HOST);
+}
+
 const renderApp = () => {
-    ModelManager.initialize().then(pageModel => {
+    ModelManager.initialize(modelManagerOptions).then(pageModel => {
         const history = createBrowserHistory();
         render(
             <Router history={history}>
@@ -37,9 +43,9 @@ const renderApp = () => {
 
 #if ( $enableSSR == "y")
 const hydrateApp = (initialState) => {
-    ModelManager.initialize({
-        model: initialState.rootModel
-    }).then(pageModel => {
+
+    modelManagerOptions.model = initialState.rootModel;
+    ModelManager.initialize(modelManagerOptions).then(pageModel => {
         const history = createBrowserHistory();
         hydrate(
             <Router history={history}>

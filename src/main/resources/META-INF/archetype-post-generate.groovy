@@ -51,6 +51,14 @@ if (aemVersion.startsWith("6.4")){
     assert new File("$configFolder/config.publish/org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl.config").delete()
 }
 
+if(aemVersion == "cloud"){
+    //on cloud, we don't allow setting log level to ERROR.
+    assert new File("$configFolder/config.prod/org.apache.sling.commons.log.LogManager.factory.config~${appId}.cfg.json").delete()
+    assert new File("$configFolder/config.stage/org.apache.sling.commons.log.LogManager.factory.config~${appId}.cfg.json").delete()
+    assert new File("$configFolder/config.stage").deleteDir()
+    assert new File("$configFolder/config.prod").deleteDir()
+}
+
 if (amp == "n"){
     assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/" + appId + "/components/page/customheadlibs.amp.html").delete()
     assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/" + appId + "/components/image/clientlibs").deleteDir()
@@ -160,12 +168,14 @@ if (includeCommerce == "n") {
     }
 }
 
-// if forms flag is not set, forms specific components, template-types, templates, themes should be deleted
+// if forms flag is not set, forms specific components, template-types, templates, themes, fdm, cloudconfigs should be deleted
 if (includeForms == "n") {
     assert new File("$appsFolder/components/aemformscontainer").deleteDir()
     assert new File("$confFolder/settings/wcm/template-types/af-page").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/basic-af").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/blank-af").deleteDir()
+    assert new File("$confFolder/settings/cloudconfigs/fdm").deleteDir()
+    assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/formsanddocuments-fdm").deleteDir()
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/formsanddocuments-themes").deleteDir()
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/sample_logo.png").deleteDir()
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/sample_terms.png").deleteDir()
