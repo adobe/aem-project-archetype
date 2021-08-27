@@ -9,10 +9,22 @@
             cq:policy="${appId}/components/container/policy_1574694950110"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/core/components/policies/mapping">
+#if ( $includeCommerce == "y" )
+            <container
+                cq:policy="venia/components/container/policy_1574695586800"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/core/components/policies/mapping">
+                <container
+                    cq:policy="venia/components/container/policy_1574695586800"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wcm/core/components/policies/mapping"/>
+            </container>
+#else
             <container
                 cq:policy="${appId}/components/container/policy_1574695586800"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/core/components/policies/mapping"/>
+#end
         </root>
     </jcr:content>
 </jcr:root>
