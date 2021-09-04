@@ -69,9 +69,7 @@
         <aio.runtime.namespace>${env.AIO_RUNTIME_NAMESPACE}</aio.runtime.namespace>
         <aio.runtime.auth>${env.AIO_RUNTIME_AUTH}</aio.runtime.auth>
 #end
-#if ( $aemVersion != "cloud" || $includeExamples == "y")
-        <core.wcm.components.version>2.17.2</core.wcm.components.version>
-#end
+        <core.wcm.components.version>2.17.10</core.wcm.components.version>
 #if ( $includeCommerce == "y" )
         <core.cif.components.version>2.1.0</core.cif.components.version>
         <magento.graphql.version>9.0.0-magento242ee</magento.graphql.version>
@@ -796,6 +794,11 @@ Bundle-DocURL:
                 <version>${aem.sdk.api}</version>
                 <scope>provided</scope>
             </dependency>
+            <dependency>
+                <groupId>com.adobe.cq</groupId>
+                <artifactId>core.wcm.components.core</artifactId>
+                <version>${core.wcm.components.version}</version>
+            </dependency>
 #end
 #if ( $includeExamples == "y" )
             <dependency>
@@ -921,11 +924,13 @@ Bundle-DocURL:
             <dependency>
                 <groupId>io.wcm</groupId>
                 <artifactId>io.wcm.testing.aem-mock.junit5</artifactId>
-#if ( $aemVersion != "cloud" )
-                <version>3.0.2</version>
-#else
-                <version>4.1.0</version>
-#end
+                <version>4.1.2</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.cq</groupId>
+                <artifactId>core.wcm.components.testing.aem-mock-plugin</artifactId>
+                <version>${core.wcm.components.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
