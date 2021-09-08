@@ -16,8 +16,6 @@ PassEnv DISP_ID
 		Header always add X-Vhost "publish"
 		Header merge X-Frame-Options SAMEORIGIN "expr=%{resp:X-Frame-Options}!='SAMEORIGIN'"
 		Header merge X-Content-Type-Options nosniff "expr=%{resp:X-Content-Type-Options}!='nosniff'"
-		# Make sure proxies don't deliver the wrong content
-		Header append Vary User-Agent env=!dont-vary
 		# Force SSL for author
 		# Add HSTS for avoiding man in the middle during browser redirect to SSL
 		Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains;"

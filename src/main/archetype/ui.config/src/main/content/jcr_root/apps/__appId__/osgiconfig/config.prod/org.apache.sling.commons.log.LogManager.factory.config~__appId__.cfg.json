@@ -3,7 +3,7 @@
   "org.apache.sling.commons.log.names": [
     "${package}"
   ],
-  "org.apache.sling.commons.log.level": "error",
+  "org.apache.sling.commons.log.level": "WARN",
   "org.apache.sling.commons.log.file": "logs/error.log",
   "org.apache.sling.commons.log.additiv": "true"
 }

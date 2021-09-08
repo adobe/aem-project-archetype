@@ -178,6 +178,16 @@
             Maven Archetype Version variable
         -->
         <requiredProperty key="archetypeVersion" />
+        </requiredProperty>
+    
+        <!--
+            Option to enable SSR for the front-end project (currently only supported for react)
+         -->
+        <requiredProperty key="enableSSR">
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
+
     </requiredProperties>
 
     <modules>
@@ -191,8 +201,6 @@
                     </includes>
                 </fileSet>
             </fileSets>
-        </module>
-        <module id="${rootArtifactId}.analyse" dir="analyse" name="analyse">
         </module>
         <module id="${rootArtifactId}.core" dir="core" name="core">
             <fileSets>
@@ -255,6 +263,7 @@
                     <includes>
                         <include>**/README*</include>
                         <include>immutable.files</include>
+                        <include>**/opt-in/**</include>
                     </includes>
                 </fileSet>
             </fileSets>
