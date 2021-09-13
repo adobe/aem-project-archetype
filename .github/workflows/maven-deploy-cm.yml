@@ -113,9 +113,9 @@ jobs:
       # Check project was deployed
       - name: Check project was deployed
         run: |
-          counter=0 \
-          max=${CM_TEST_RETRIES} \
-          echo "Looking for ${{needs.deploy.outputs.ARCHETYPE_COMMIT}}: ${counter}/${max}" \
+          counter=0
+          max=${CM_TEST_RETRIES}
+          echo "Looking for ${{needs.deploy.outputs.ARCHETYPE_COMMIT}}: ${counter}/${max}"
           until [[ $(curl --silent ${CM_TEST_URL} | grep ${{needs.deploy.outputs.ARCHETYPE_COMMIT}}) ]]; do \
             if [ ${counter} -eq ${max} ]; then \
               echo "Could not find ${{needs.deploy.outputs.ARCHETYPE_COMMIT}} after ${counter} tries!"; \
