@@ -115,8 +115,8 @@ jobs:
         run: |
           counter=0
           max=${CM_TEST_RETRIES}
-          echo "Looking for ${{needs.deploy.outputs.ARCHETYPE_COMMIT}}: ${counter}/${max}"
           until [[ $(curl --silent ${CM_TEST_URL} | grep ${{needs.deploy.outputs.ARCHETYPE_COMMIT}}) ]]; do \
+            echo "Looking for ${{needs.deploy.outputs.ARCHETYPE_COMMIT}}: ${counter}/${max}" \
             if [ ${counter} -eq ${max} ]; then \
               echo "Could not find ${{needs.deploy.outputs.ARCHETYPE_COMMIT}} after ${counter} tries!"; \
               exit 1; \
