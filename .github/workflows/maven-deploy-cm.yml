@@ -127,5 +127,6 @@ jobs:
             fi;
             counter=$(($counter+1)); \
             echo "Looking for ${ARCHETYPE_COMMIT}: ${counter}"; \
+            echo "From previous job: ${{jobs.deploy.outputs.commit}}"
             sleep 60; \
           done
