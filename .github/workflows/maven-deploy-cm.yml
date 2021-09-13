@@ -23,9 +23,6 @@ env:
   CM_USER_EMAIL: ${{ secrets.CM_USER_EMAIL }}
   CM_USER_NAME: ${{ secrets.CM_USER_NAME }}
   CM_USER_PWD: ${{ secrets.CM_USER_PWD }}
-  # Cloud Manager deployment testing details
-  CM_TEST_URL: ${{ secrets.CM_TEST_URL }}
-  CM_TEST_RETRIES: 120
 
 # Only run on a push to develop branch or manually
 on:
@@ -95,6 +92,18 @@ jobs:
           git -C ${CM_PROJECT_DIR} add .
           git -C ${CM_PROJECT_DIR} commit -F ../commit.txt
           git -C ${CM_PROJECT_DIR} push
+
+  check:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        envName: [DEV, PROD]
+    environment: ${{ matrix.envName }}
+    env:
+      # Cloud Manager deployment testing details
+      CM_TEST_URL: ${{ secrets.CM_TEST_URL }}
+      CM_TEST_RETRIES: ${{ secrets.CM_TEST_RETRIES }}
+    steps:
       # Check project was deployed
       - name: Check project was deployed
         run: |
