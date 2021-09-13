@@ -15,6 +15,7 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 name: Deploy to Cloud Manager
+concurrency: deploy
 env:
   CM_PROJECT_DIR: cm-project
   # Cloud Manager git connection details
@@ -94,6 +95,7 @@ jobs:
           git -C ${CM_PROJECT_DIR} push
 
   check:
+    needs: build
     runs-on: ubuntu-latest
     strategy:
       matrix:
