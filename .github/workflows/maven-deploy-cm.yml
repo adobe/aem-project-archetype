@@ -61,7 +61,7 @@ jobs:
         id: getCommit
         run: |
           echo "Commit: ${ARCHETYPE_COMMIT}"
-          echo "::set-output name=commit::${ARCHETYPE_COMMIT}"
+          echo ::set-output name=commit::${ARCHETYPE_COMMIT}
       # Create new project
       - name: Create new project with the archetype
         run: |
@@ -127,6 +127,5 @@ jobs:
             fi;
             counter=$(($counter+1)); \
             echo "Looking for ${ARCHETYPE_COMMIT}: ${counter}"; \
-            echo "From previous job: ${{jobs.deploy.outputs.commit}}"
             sleep 60; \
           done
