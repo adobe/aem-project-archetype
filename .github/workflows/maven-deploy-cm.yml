@@ -32,8 +32,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    outputs:
+      ARCHETYPE_COMMIT: ${{ steps.getVersions.outputs.ARCHETYPE_COMMIT }}
     steps:
       # Checkout this project into a sub folder
       - uses: actions/checkout@v2
@@ -49,12 +51,14 @@ jobs:
             ${{ runner.os }}-maven-
       # Install archetype snapshot and store version in a variable
       - name: Install archetype snapshot and store version in a variable
+        id: getVersions
         run: |
           cd archetype
           mvn clean install -Darchetype.test.skip
           echo "ARCHETYPE_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)" >> $GITHUB_ENV
           echo "ARCHETYPE_COMMIT=$(git rev-parse HEAD)" >> $GITHUB_ENV
           cd ..
+          echo "::set-output name=ARCHETYPE_COMMIT::$ARCHETYPE_COMMIT"
       # Create new project
       - name: Create new project with the archetype
         run: |
@@ -95,7 +99,7 @@ jobs:
           git -C ${CM_PROJECT_DIR} push
 
   check:
-    needs: build
+    needs: deploy
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -109,14 +113,14 @@ jobs:
       # Check project was deployed
       - name: Check project was deployed
         run: |
-          counter=0
-          max=${CM_TEST_RETRIES}
-          until [[ $(curl --silent ${CM_TEST_URL} | grep ${ARCHETYPE_COMMIT}) ]]; do \
+          counter=0 \
+          max=${CM_TEST_RETRIES} \
+          echo "Looking for ${{needs.deploy.outputs.ARCHETYPE_COMMIT}}: ${counter}/${max}" \
+          until [[ $(curl --silent ${CM_TEST_URL} | grep ${{needs.deploy.outputs.ARCHETYPE_COMMIT}}) ]]; do \
             if [ ${counter} -eq ${max} ]; then \
-              echo "Could not find ${ARCHETYPE_COMMIT} after ${counter} tries!"; \
+              echo "Could not find ${{needs.deploy.outputs.ARCHETYPE_COMMIT}} after ${counter} tries!"; \
               exit 1; \
             fi;
             counter=$(($counter+1)); \
-            echo "$counter"; \
             sleep 60; \
           done
