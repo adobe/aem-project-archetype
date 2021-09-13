@@ -1,6 +1,3 @@
-#base=resources/fonts/Open-Sans-Webfont-Kit
-open-sans.css
-
 #base=resources/fonts/source-sans-pro
 source-sans-pro.css
 

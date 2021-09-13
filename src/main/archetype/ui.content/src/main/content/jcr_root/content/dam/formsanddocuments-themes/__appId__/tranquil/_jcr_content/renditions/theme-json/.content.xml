@@ -44,7 +44,7 @@
                     default_x0023_error="[color:#b22d2d]"/>
                 <af_widgetAndText
                     jcr:primaryType="nt:unstructured"
-                    default_x0023_default="[border-style:solid,border-top-width:1px,border-left-width:1px,border-bottom-width:1px,border-right-width:1px,border-bottom-left-radius:0.25rem,border-bottom-right-radius:0.25rem,border-top-right-radius:0.25rem,border-top-left-radius:0.25rem,border-color:#cdcecf,height:3rem,color:#3c3c3c,font-size:0.875rem,line-height:1.42857143,padding-bottom:0.625rem,padding-left:0.625rem,padding-top:0.625rem,padding-right:0.625rem,margin-bottom:0px,margin-top:0px,margin-left:0px,margin-right:0px,background:rgba(255\,255\,255\,0.5),addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guideFieldWidget&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;100%&quot;\,&quot;display&quot;:&quot;block&quot;}}}},cssOverride:font-family: &quot;Open Sans&quot;\, Helvetica\, Arial\, sans-serif;]"
+                    default_x0023_default="[border-style:solid,border-top-width:1px,border-left-width:1px,border-bottom-width:1px,border-right-width:1px,border-bottom-left-radius:0.25rem,border-bottom-right-radius:0.25rem,border-top-right-radius:0.25rem,border-top-left-radius:0.25rem,border-color:#cdcecf,height:3rem,color:#3c3c3c,font-size:0.875rem,line-height:1.42857143,padding-bottom:0.625rem,padding-left:0.625rem,padding-top:0.625rem,padding-right:0.625rem,margin-bottom:0px,margin-top:0px,margin-left:0px,margin-right:0px,background:rgba(255\,255\,255\,0.5),addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guideFieldWidget&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;100%&quot;\,&quot;display&quot;:&quot;block&quot;}}}},cssOverride:font-family: &quot;Source Sans Pro&quot;\, Helvetica\, Arial\, sans-serif;]"
                     default_x0023_default_x0023_ui="[marginPopover:0px,marginLock:link,paddingPopover:0.625rem,paddingLock:link,borderWidthPopover:1px,borderWidthLock:link,borderRadiusPopover:0.25rem,borderRadiusLock:link,backgroundColor:rgba(255\,255\,255\,0.5),width:100%,display:block,shadowContainer:{&quot;itemList&quot;:[]}]"
                     default_x0023_error="[border-color:#c88788]"
                     default_x0023_error_x0023_ui="[borderWidthPopover:Set]"
@@ -546,7 +546,7 @@
                     default_x0023_default_x0023_ui="[borderWidthPopover:2px,borderWidthLock:link]"/>
                 <af_form
                     jcr:primaryType="nt:unstructured"
-                    default_x0023_default="[cssOverride:font-family: &quot;Open Sans&quot;\, Helvetica\, Arial\, sans-serif;]"
+                    default_x0023_default="[cssOverride:font-family: &quot;Source Sans Pro&quot;\, Helvetica\, Arial\, sans-serif;]"
                     phone_x0023_default="[padding-left:0px]"
                     phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:Set,paddingLock:linkOff,paddingPopover:0px]"/>
                 <af_separator
