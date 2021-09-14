@@ -119,7 +119,7 @@ jobs:
         run: |
           counter=0
           max=${CM_TEST_RETRIES}
-          echo "ARCHETYPE_COMMIT=${{ needs.deploy.outputs.commit }}" >> $GITHUB_ENV
+          echo ::set-env name=ARCHETYPE_COMMIT::$(echo "${{ needs.deploy.outputs.commit }}")
           echo "Looking for ${ARCHETYPE_COMMIT}: ${counter}"
           until [[ $(curl --silent ${CM_TEST_URL} | grep ${ARCHETYPE_COMMIT}) ]]; do \
             if [ ${counter} -eq ${max} ]; then \
