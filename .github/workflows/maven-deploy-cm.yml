@@ -113,13 +113,13 @@ jobs:
       # Cloud Manager deployment testing details
       CM_TEST_URL: ${{ secrets.CM_TEST_URL }}
       CM_TEST_RETRIES: ${{ secrets.CM_TEST_RETRIES }}
+      ARCHETYPE_COMMIT: ${{ needs.deploy.outputs.commit }}
     steps:
       # Check project was deployed
       - name: Check project was deployed
         run: |
           counter=0
           max=${CM_TEST_RETRIES}
-          echo ::set-env name=ARCHETYPE_COMMIT::$(echo "${{ needs.deploy.outputs.commit }}")
           echo "Looking for ${ARCHETYPE_COMMIT}: ${counter}"
           until [[ $(curl --silent ${CM_TEST_URL} | grep ${ARCHETYPE_COMMIT}) ]]; do \
             if [ ${counter} -eq ${max} ]; then \
