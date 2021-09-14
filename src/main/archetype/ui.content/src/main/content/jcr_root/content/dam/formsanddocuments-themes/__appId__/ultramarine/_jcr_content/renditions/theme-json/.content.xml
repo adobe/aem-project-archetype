@@ -92,8 +92,8 @@
                     jcr:primaryType="nt:unstructured"
                     default_x0023_checked="[color:#fff]"
                     default_x0023_checked_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]}]"
-                    default_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guideRadioButtonItem .guideWidgetLabel&quot;\,&quot;properties&quot;:{&quot;display&quot;:&quot;inline&quot;\,&quot;float&quot;:&quot;none&quot;}}}},margin-bottom:0px,margin-top:0px,vertical-align:text-bottom,padding-left:0.75rem,padding-bottom:0.75rem,padding-top:0.75rem,padding-right:0.75rem]"
-                    default_x0023_default_x0023_ui="[display:inline-block,float:none,marginLock:linkOff,backgroundContainer:{&quot;itemList&quot;:[]},marginPopover:0px\, —\, 0px\, —,paddingPopover:0.75rem]"
+                    default_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guideRadioButtonItem .guideWidgetLabel&quot;\,&quot;properties&quot;:{&quot;display&quot;:&quot;inline&quot;\,&quot;float&quot;:&quot;none&quot;}}}},margin-bottom:0px,margin-top:0px,vertical-align:text-bottom]"
+                    default_x0023_default_x0023_ui="[display:inline-block,float:none,marginLock:linkOff,backgroundContainer:{&quot;itemList&quot;:[]},marginPopover:0px\, —\, 0px\, —,paddingPopover:Set]"
                     default_x0023_disabled="[color:#666]"
                     default_x0023_hover="[color:#212121]"/>
                 <af_radiobuttonwidget
@@ -658,17 +658,17 @@
                     smallScreen_x0023_default_x0023_ui="[borderWidthPopover:Set]"/>
                 <af_checkboxitem
                     jcr:primaryType="nt:unstructured"
-                    default_x0023_checked="[background:#0071bc,border-left-width:2px,border-bottom-width:2px,border-top-width:2px,border-right-width:2px,border-style:solid,border-color:#0071bc]"
-                    default_x0023_checked_x0023_ui="[backgroundColor:#0071bc,borderWidthPopover:2px]"
-                    default_x0023_default="[display:block,margin-top:20px,padding-left:15px,width:100%,height:50px,padding-top:2px,background:rgba(0\,113\,188\,0.1)]"
-                    default_x0023_default_x0023_ui="[paddingPopover:2px\, —\, —\, 15px,marginLock:linkOff,marginPopover:20px\, —\, —\, —,paddingLock:linkOff,backgroundColor:rgba(0\,113\,188\,0.1),borderWidthPopover:Set]"
+                    default_x0023_checked="[background:#0071bc,border-style:solid,border-color:#0071bc,border-top-width:4px,border-right-width:4px,border-left-width:4px,border-bottom-width:4px]"
+                    default_x0023_checked_x0023_ui="[backgroundColor:#0071bc,borderWidthPopover:4px]"
+                    default_x0023_default="[display:block,margin-top:20px,padding-left:15px,width:100%,padding-top:2px,background:rgba(0\,113\,188\,0.1),border-style:solid,border-color:rgba(255\,255\,255\,0),border-bottom-width:4px]"
+                    default_x0023_default_x0023_ui="[paddingPopover:2px\, —\, —\, 15px,marginLock:linkOff,marginPopover:20px\, —\, —\, —,paddingLock:linkOff,backgroundColor:rgba(0\,113\,188\,0.1),borderWidthLock:linkOff,borderWidthPopover:—\, —\, 4px\, —]"
                     default_x0023_hover="[cssOverride:border-bottom: 4px solid #0071bc;&#xa;]"/>
                 <af_radiobuttonitem
                     jcr:primaryType="nt:unstructured"
-                    default_x0023_checked="[background:#0071bc,border-color:#0071bc,border-left-width:1px,border-bottom-width:1px,border-top-width:1px,border-right-width:1px]"
-                    default_x0023_checked_x0023_ui="[backgroundColor:#0071bc,borderWidthPopover:1px]"
-                    default_x0023_default="[display:block,margin-top:20px,width:100%,height:50px,padding-top:3px,background:rgba(0\,113\,188\,0.1)]"
-                    default_x0023_default_x0023_ui="[paddingLock:linkOff,marginLock:linkOff,marginPopover:20px,borderWidthPopover:Set,backgroundColor:rgba(0\,113\,188\,0.1),paddingPopover:3px\, —\, —\, —]"
+                    default_x0023_checked="[background:#0071bc,border-color:#0071bc]"
+                    default_x0023_checked_x0023_ui="[backgroundColor:#0071bc,borderWidthPopover:Set]"
+                    default_x0023_default="[display:block,margin-top:20px,width:100%,padding-top:3px,background:rgba(0\,113\,188\,0.1),padding-left:15px,border-bottom-width:4px,border-style:solid,border-color:rgba(255\,255\,255\,0),padding-right:15px]"
+                    default_x0023_default_x0023_ui="[paddingLock:linkOff,marginLock:linkOff,marginPopover:20px,backgroundColor:rgba(0\,113\,188\,0.1),borderWidthLock:linkOff,borderWidthPopover:—\, —\, 4px\, —,paddingPopover:3px\, 15px\, —\, 15px]"
                     default_x0023_disabled="[background:#f8f8f8]"
                     default_x0023_disabled_x0023_ui="[backgroundColor:#f8f8f8]"
                     default_x0023_hover="[cssOverride:border-bottom: 4px solid #0071bc;]"/>
