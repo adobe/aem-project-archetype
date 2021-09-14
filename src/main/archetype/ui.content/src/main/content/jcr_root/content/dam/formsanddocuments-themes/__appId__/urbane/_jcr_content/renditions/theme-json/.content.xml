@@ -622,7 +622,6 @@
                     default_x0023_default_x0023_ui="[backgroundColor:#fff]"/>
                 <af_checkboxitem
                     jcr:primaryType="nt:unstructured"
-                    default_x0023_default="[cssOverride:width: max-content;]"
                     phone_x0023_default="[display:block,margin-bottom:10px]"
                     phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:10px]"/>
                 <af_passwordboxwidgetandtext
@@ -677,9 +676,6 @@
                     default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:0.25rem\, 0.75rem\, 0.25rem\, 0.75rem]"
                     phone_x0023_default="[margin-right:0px,margin-left:0px]"
                     phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, 0px\, —\, 0px]"/>
-                <af_radiobuttonitem
-                    jcr:primaryType="nt:unstructured"
-                    default_x0023_default="[cssOverride:width: max-content;]"/>
             </af_guideContainer>
             <af_guideFooter
                 jcr:primaryType="nt:unstructured"
