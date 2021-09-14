@@ -108,6 +108,7 @@ jobs:
       matrix:
         envName: [DEV, PROD]
     environment: ${{ matrix.envName }}
+    continue-on-error: ${{ matrix.envName == 'PROD' }}
     env:
       # Cloud Manager deployment testing details
       CM_TEST_URL: ${{ secrets.CM_TEST_URL }}
