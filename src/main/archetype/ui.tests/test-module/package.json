@@ -32,7 +32,11 @@
     "request": "^2.88.2",
     "request-promise": "^4.2.6",
     "source-map-support": "^0.5.0",
-    "tough-cookie": "^4.0.0"
+    "tough-cookie": "^4.0.0",
+    "@wdio/logger": "^7.7.0",
+    "file-system": "^2.2.2",
+    "pngjs": "^6.0.0",
+    "pixelmatch": "^5.2.1"
   },
   "scripts": {
     "lint": "eslint .",

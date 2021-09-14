@@ -19,6 +19,7 @@ const commons = require('../../lib/commons');
 const selectors = require('../../lib/util/forms.selectors.js');
 const fs = require('fs');
 const path = require('path');
+const expect = require('chai').expect;
 /*
     E2E UI Testing of AEM Forms OOTB Sample Content included in archetype ui.content package.
 */
@@ -218,6 +219,23 @@ describe('AEM Forms OOTB Content Tests', () => {
             });
         });
 
+    });
+
+    describe('Theme testing', () => {
+        before(() => {
+            browser.url(config.aem.author.base_url);
+            browser.AEMLogin(config.aem.author.username, config.aem.author.password);
+        });
+
+        const getThemePath = (theme) => `/content/dam/formsanddocuments-themes/param/${theme}/jcr:content?wcmmode=disabled`;
+        const themes = ['beryl', 'urbane'];
+        themes.forEach((theme) => {
+            it(theme, () => {
+                browser.url(getThemePath(theme));
+                const isMatched = browser.call(() => browser.matchScreenshot('Preview', { errorThreshold: .2 }));
+                expect(isMatched, 'Screenshot did not match').true;
+            });
+        });
     });
 
 });
