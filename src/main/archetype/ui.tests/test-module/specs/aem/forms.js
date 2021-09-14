@@ -227,12 +227,12 @@ describe('AEM Forms OOTB Content Tests', () => {
             browser.AEMLogin(config.aem.author.username, config.aem.author.password);
         });
 
-        const getThemePath = (theme) => `/content/dam/formsanddocuments-themes/param/${theme}/jcr:content?wcmmode=disabled`;
-        const themes = ['beryl', 'urbane'];
+        const getThemePath = (theme) => '/content/dam/formsanddocuments-themes/${appId}/'+theme+'/jcr:content?wcmmode=disabled';
+        const themes = ['beryl', 'ultramarine', 'urbane', 'tranquil', 'canvas-3-0'];
         themes.forEach((theme) => {
             it(theme, () => {
                 browser.url(getThemePath(theme));
-                const isMatched = browser.call(() => browser.matchScreenshot('Preview', { errorThreshold: .2 }));
+                const isMatched = browser.call(() => browser.matchScreenshot('Theme preview', { errorThreshold: .2 }));
                 expect(isMatched, 'Screenshot did not match').true;
             });
         });
