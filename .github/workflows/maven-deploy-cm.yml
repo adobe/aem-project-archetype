@@ -130,3 +130,4 @@ jobs:
             echo "Looking for ${ARCHETYPE_COMMIT}: ${counter}"; \
             sleep 60; \
           done
+          echo "Found ${ARCHETYPE_COMMIT} after ${counter} tries!"
