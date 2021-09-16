@@ -1,22 +1,30 @@
 /* eslint-disable no-unused-vars */
+/*
+ *  Copyright 2021 Adobe Systems Incorporated
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
 const PNG = require('pngjs').PNG;
 const pixelmatch = require('pixelmatch');
 const logger = require('@wdio/logger').default;
 const log = logger('PixelMatchPlugin');
 const { checkFileExists, makeDirectories, readPng, writePng } = require('./fileutils');
 const comparisonStrategy = require('./comparisonstrategy');
-const PathUtils = require('./pathutils');
+const { PathUtils, SCREENSHOTTYPES } = require('./pathutils');
+/**
+ * A WDIO visual regression service based on pixelmatch plugin
+ */
 class PixelMatchPlugin {
-    /**
-     * `serviceOptions` contains all options specific to the service
-     * e.g. if defined as follows:
-     *
-     * ```
-     * services: [['custom', { foo: 'bar' }]]
-     * ```
-     *
-     * the `serviceOptions` parameter will be: `{ foo: 'bar' }`
-     */
 
     constructor(serviceOptions, capabilities, config) {
         this.options = serviceOptions;
@@ -42,20 +50,20 @@ class PixelMatchPlugin {
      * If it exists it takes a new screenshot and matches it with baseline
      * Write diff and new screenshot files in respective directories
      */
-    async matchScreenshot(screenshotName, config) {
+    async matchScreenshot(screenshotName, config = {}) {
         const viewportSize = this.options.viewportSize || { width: 1024, height: 768 };
         await browser.setWindowSize(viewportSize.width, viewportSize.height);
-        const testProperties = { viewportSize, screenshotName };
-        testProperties.context = this.currentContext;
-        makeDirectories(this.pathUtils.getScreenshotDirectories(testProperties.context));
-        const baseScreenshotPath = this.pathUtils.getBaseScreenshotPath(testProperties);
+        const { baseDir } = config;
+        const screenshotDirectory = this.pathUtils.getScreenshotDirectory(this.currentContext, baseDir);
+        makeDirectories([screenshotDirectory]);
+        const baseScreenshotPath = this.pathUtils.getScreenshotPath(viewportSize, screenshotName, SCREENSHOTTYPES.BASE, screenshotDirectory);
         const isExists = await checkFileExists(baseScreenshotPath);
         if (!isExists) {
             await browser.saveScreenshot(baseScreenshotPath);
             log.info('New baseline screenshot added at ' + baseScreenshotPath);
             return true;
         }
-        const screenshotPath = this.pathUtils.getCurrentScreenshotPath(testProperties);
+        const screenshotPath = this.pathUtils.getScreenshotPath(viewportSize, screenshotName, SCREENSHOTTYPES.CURR, screenshotDirectory);
         await browser.saveScreenshot(screenshotPath);
 
         const baseImage = await readPng(baseScreenshotPath);
@@ -64,7 +72,7 @@ class PixelMatchPlugin {
         const diff = new PNG({ width, height });
         const mismatchedPixels = pixelmatch(baseImage.data, currentImage.data, diff.data, width, height, { threshold: 0.1, includeAA: true });
         log.debug($`Comparing screenshots ${screenshotPath} and ${baseScreenshotPath}`);
-        writePng(this.pathUtils.getDiffScreenshotPath(testProperties), diff);
+        writePng(this.pathUtils.getScreenshotPath(viewportSize, screenshotName, SCREENSHOTTYPES.DIFF, screenshotDirectory), diff);
         return comparisonStrategy(mismatchedPixels, width, height, config);
     }
 

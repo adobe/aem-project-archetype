@@ -1,33 +1,34 @@
+/*
+ *  Copyright 2021 Adobe Systems Incorporated
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+
 const path = require('path');
-const BASE_DIR = 'base',
-    CURR_DIR = 'screenshot',
-    DIFF_DIR = 'diff';
-
+const SCREENSHOTTYPES = {
+    BASE: 'base',
+    CURR: 'current',
+    DIFF: 'diff'
+};
 class PathUtils {
-    constructor(pixelmatchDirectory) {
-        this.pixelmatchDirectory = pixelmatchDirectory || './pixelmatch';
+    constructor(baseDirectory) {
+        this.baseDirectory = baseDirectory || './assets';
     }
-
-    getScreenshotName({ viewportSize, screenshotName }) {
-        return `${screenshotName} ${viewportSize.width}x${viewportSize.height}.png`;
+    getScreenshotDirectory(context, baseDir) {
+        return path.join(baseDir ? baseDir : this.baseDirectory, context.test.title, browser.capabilities.platformName, browser.capabilities.browserName);
     }
-    getScreenshotDirectory(context, type) {
-        return path.join(this.pixelmatchDirectory, context.test.title, browser.capabilities.platformName, browser.capabilities.browserName, type);
-    }
-    getBaseScreenshotPath(testProperties) {
-        const { context } = testProperties;
-        return path.join(this.getScreenshotDirectory(context, BASE_DIR), this.getScreenshotName(testProperties));
-    }
-    getCurrentScreenshotPath(testProperties) {
-        const { context } = testProperties;
-        return path.join(this.getScreenshotDirectory(context, CURR_DIR), this.getScreenshotName(testProperties));
-    }
-    getDiffScreenshotPath(testProperties) {
-        const { context } = testProperties;
-        return path.join(this.getScreenshotDirectory(context, DIFF_DIR), this.getScreenshotName(testProperties));
-    }
-    getScreenshotDirectories(context) {
-        return [this.getScreenshotDirectory(context, BASE_DIR), this.getScreenshotDirectory(context, CURR_DIR), this.getScreenshotDirectory(context, DIFF_DIR)];
+    getScreenshotPath(viewportSize, screenshotName, type, baseDir) {
+        return path.join(baseDir, `${screenshotName} ${viewportSize.width}x${viewportSize.height}-${type}.png`);
     }
 }
-module.exports = PathUtils;
+module.exports = { PathUtils, SCREENSHOTTYPES };

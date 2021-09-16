@@ -232,8 +232,8 @@ describe('AEM Forms OOTB Content Tests', () => {
         themes.forEach((theme) => {
             it(theme, () => {
                 browser.url(getThemePath(theme));
-                const isMatched = browser.call(() => browser.matchScreenshot('Theme preview', { errorThreshold: .2 }));
-                expect(isMatched, 'Screenshot did not match').true;
+                const isMatched = browser.call(() => browser.matchScreenshot('Theme preview', { errorThreshold: .2, baseDir:'./assets/form/themes' }));
+                expect(isMatched, `${theme} screenshot did not match`).true;
             });
         });
     });
