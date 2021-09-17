@@ -222,13 +222,37 @@ describe('AEM Forms OOTB Content Tests', () => {
     });
 
     describe('Theme testing', () => {
-        const getThemePath = (theme) => '/content/dam/formsanddocuments-themes/${appId}/'+theme+'/jcr:content?wcmmode=disabled';
+        const getThemePath = (theme) => '/content/dam/formsanddocuments-themes/fire/' + theme + '/jcr:content?wcmmode=disabled';
         const themes = ['beryl', 'ultramarine', 'urbane', 'tranquil', 'canvas-3-0'];
+        const pixelmatchConfig = { errorThreshold: .2, baseDir: './assets/form/themes' };
+        function verifyThemePanel(theme, panelName) {
+            const isMatched = browser.call(() => browser.matchScreenshot(panelName, pixelmatchConfig));
+            expect(isMatched, `${theme} ${panelName} panel screenshot did not match`).true;
+        }
+        const panels = {
+            address: '#guideContainer-rootPanel-basics-basics2___guide-item-nav',
+            employment: '#guideContainer-rootPanel-basics-employment___guide-item-nav',
+            expenditure: '#guideContainer-rootPanel-expenditure___guide-item-nav',
+            documents: '#guideContainer-rootPanel___guide-item-nav-container > li[title="Documents"]',
+            communication: '#guideContainer-rootPanel-communication___guide-item-nav',
+            confirmation: '#guideContainer-rootPanel___guide-item-nav-container > li[title="Confirmation"]'
+        };
         themes.forEach((theme) => {
             it(theme, () => {
                 browser.url(getThemePath(theme));
-                const isMatched = browser.call(() => browser.matchScreenshot('Theme preview', { errorThreshold: .2, baseDir:'./assets/form/themes' }));
-                expect(isMatched, `${theme} screenshot did not match`).true;
+                verifyThemePanel(theme, 'Basic info');
+                $(panels.address).click();
+                verifyThemePanel(theme, 'Address');
+                $(panels.employment).click();
+                verifyThemePanel(theme, 'Employment');
+                $(panels.expenditure).click();
+                verifyThemePanel(theme, 'Expenditure');
+                $(panels.documents).click();
+                verifyThemePanel(theme, 'Documents');
+                $(panels.communication).click();
+                verifyThemePanel(theme, 'Communication');
+                $(panels.confirmation).click();
+                verifyThemePanel(theme, 'Confirmation');
             });
         });
     });
