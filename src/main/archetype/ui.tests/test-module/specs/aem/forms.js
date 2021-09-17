@@ -222,11 +222,6 @@ describe('AEM Forms OOTB Content Tests', () => {
     });
 
     describe('Theme testing', () => {
-        before(() => {
-            browser.url(config.aem.author.base_url);
-            browser.AEMLogin(config.aem.author.username, config.aem.author.password);
-        });
-
         const getThemePath = (theme) => '/content/dam/formsanddocuments-themes/${appId}/'+theme+'/jcr:content?wcmmode=disabled';
         const themes = ['beryl', 'ultramarine', 'urbane', 'tranquil', 'canvas-3-0'];
         themes.forEach((theme) => {
