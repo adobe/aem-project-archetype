@@ -226,7 +226,7 @@ describe('AEM Forms OOTB Content Tests', () => {
         const themes = ['beryl', 'ultramarine', 'urbane', 'tranquil', 'canvas-3-0'];
         const pixelmatchConfig = { errorThreshold: .2, baseDir: './assets/form/themes' };
         function verifyThemePanel(theme, panelName) {
-            const isMatched = browser.call(() => browser.matchScreenshot(panelName, pixelmatchConfig));
+            const isMatched = browser.call(() => browser.matchScreenshot(this, panelName, pixelmatchConfig));
             expect(isMatched, `${theme} ${panelName} panel screenshot did not match`).true;
         }
         const panels = {
@@ -238,21 +238,22 @@ describe('AEM Forms OOTB Content Tests', () => {
             confirmation: '#guideContainer-rootPanel___guide-item-nav-container > li[title="Confirmation"]'
         };
         themes.forEach((theme) => {
-            it(theme, () => {
+            it(theme, function () {
+                const verifyPanel = verifyThemePanel.bind(this, theme);
                 browser.url(getThemePath(theme));
-                verifyThemePanel(theme, 'Basic info');
+                verifyPanel('Basic info');
                 $(panels.address).click();
-                verifyThemePanel(theme, 'Address');
+                verifyPanel('Address');
                 $(panels.employment).click();
-                verifyThemePanel(theme, 'Employment');
+                verifyPanel('Employment');
                 $(panels.expenditure).click();
-                verifyThemePanel(theme, 'Expenditure');
+                verifyPanel('Expenditure');
                 $(panels.documents).click();
-                verifyThemePanel(theme, 'Documents');
+                verifyPanel('Documents');
                 $(panels.communication).click();
-                verifyThemePanel(theme, 'Communication');
+                verifyPanel('Communication');
                 $(panels.confirmation).click();
-                verifyThemePanel(theme, 'Confirmation');
+                verifyPanel('Confirmation');
             });
         });
     });

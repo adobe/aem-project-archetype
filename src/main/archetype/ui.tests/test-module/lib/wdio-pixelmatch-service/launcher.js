@@ -43,6 +43,7 @@ class PixelMatchPlugin {
     }
     /**
      *
+     * @param {reference} inst Instance (this) of current test
      * @param {string} screenshotName file name for the screenshot
      * @returns {boolean} Whether the match was successful or not
      * Sets the viewport size
@@ -50,7 +51,7 @@ class PixelMatchPlugin {
      * If it exists it takes a new screenshot and matches it with baseline
      * Write diff and new screenshot files in respective directories
      */
-    async matchScreenshot(screenshotName, config = {}) {
+    async matchScreenshot(inst, screenshotName, config = {}) {
         const viewportSize = this.options.viewportSize || { width: 1024, height: 768 };
         await browser.setWindowSize(viewportSize.width, viewportSize.height);
         const { baseDir } = config;
@@ -69,6 +70,12 @@ class PixelMatchPlugin {
         const baseImage = await readPng(baseScreenshotPath);
         const currentImage = await readPng(screenshotPath);
         const { width, height } = baseImage;
+        //Skip test case when the baseline screenshot and current screenshot have different dimensions
+        //Pixelmatch generates error in case of different image dimensions
+        if (width !== currentImage.width || height !== currentImage.height) {
+            log.warn('Different dimension of baseline and current screenshot skipping the test');
+            inst.skip();
+        }
         const diff = new PNG({ width, height });
         const mismatchedPixels = pixelmatch(baseImage.data, currentImage.data, diff.data, width, height, { threshold: 0.1, includeAA: true });
         log.debug($`Comparing screenshots ${screenshotPath} and ${baseScreenshotPath}`);

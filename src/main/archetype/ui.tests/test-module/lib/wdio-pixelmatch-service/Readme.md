@@ -8,14 +8,15 @@ it('Basic Visual test', () => {
 
 browser.url('https://www.example.com');
 
-const  isMatched = browser.call(() =>  browser.matchScreenshot('Homepage', { errorThreshold:  .2, baseDir:'./assets/homepage' }));
+const  isMatched = browser.call(() =>  browser.matchScreenshot(this, 'Homepage', { errorThreshold:  .2, baseDir:'./assets/homepage' }));
 
 expect(isMatched, `screenshot did not match`).true;
 
 });
 ```
-The first param to matchScreenshot is the screenshot name (required),
-the second param is config object.
+The first param is the instance(this) of current executing test
+The second param to matchScreenshot is the screenshot name (required),
+the third param is config object.
 The config object takes 2 properties for now
 1. errorThreshold : The smaller the more sensitive comparison is
 More examples:
@@ -27,7 +28,6 @@ More examples:
 | .50 | > 50% |
 | .75 | > 75% |
 2. baseDir: the dir where the screenshots should be stored. (base, current and diff screenshot)
-
 ## How to import
 ```
 let  PixelMatchPlugin = require('./lib/wdio-pixelmatch-service/launcher').PixelMatchPlugin;
