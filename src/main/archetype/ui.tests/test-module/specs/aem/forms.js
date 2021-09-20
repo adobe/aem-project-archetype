@@ -19,6 +19,7 @@ const commons = require('../../lib/commons');
 const selectors = require('../../lib/util/forms.selectors.js');
 const fs = require('fs');
 const path = require('path');
+const expect = require('chai').expect;
 /*
     E2E UI Testing of AEM Forms OOTB Sample Content included in archetype ui.content package.
 */
@@ -218,6 +219,43 @@ describe('AEM Forms OOTB Content Tests', () => {
             });
         });
 
+    });
+
+    describe('Theme testing', () => {
+        const getThemePath = (theme) => '/content/dam/formsanddocuments-themes/fire/' + theme + '/jcr:content?wcmmode=disabled';
+        const themes = ['beryl', 'ultramarine', 'urbane', 'tranquil', 'canvas-3-0'];
+        const pixelmatchConfig = { errorThreshold: .2, baseDir: './assets/form/themes' };
+        function verifyThemePanel(theme, panelName) {
+            const isMatched = browser.call(() => browser.matchScreenshot(this, panelName, pixelmatchConfig));
+            expect(isMatched, `${theme} ${panelName} panel screenshot did not match`).true;
+        }
+        const panels = {
+            address: '#guideContainer-rootPanel-basics-basics2___guide-item-nav',
+            employment: '#guideContainer-rootPanel-basics-employment___guide-item-nav',
+            expenditure: '#guideContainer-rootPanel-expenditure___guide-item-nav',
+            documents: '#guideContainer-rootPanel___guide-item-nav-container > li[title="Documents"]',
+            communication: '#guideContainer-rootPanel-communication___guide-item-nav',
+            confirmation: '#guideContainer-rootPanel___guide-item-nav-container > li[title="Confirmation"]'
+        };
+        themes.forEach((theme) => {
+            it(theme, function () {
+                const verifyPanel = verifyThemePanel.bind(this, theme);
+                browser.url(getThemePath(theme));
+                verifyPanel('Basic info');
+                $(panels.address).click();
+                verifyPanel('Address');
+                $(panels.employment).click();
+                verifyPanel('Employment');
+                $(panels.expenditure).click();
+                verifyPanel('Expenditure');
+                $(panels.documents).click();
+                verifyPanel('Documents');
+                $(panels.communication).click();
+                verifyPanel('Communication');
+                $(panels.confirmation).click();
+                verifyPanel('Confirmation');
+            });
+        });
     });
 
 });
