@@ -38,7 +38,6 @@ def varFolder = new File("$uiContentPackage/src/main/content/jcr_root/var")
 if (aemVersion.startsWith("6.4")){
     // remove json config files with ~ in naming as they are not compatible with 6.4.8.2
     assert new File("$configFolder/config/org.apache.sling.commons.log.LogManager.factory.config~${appId}.cfg.json").delete()
-    assert new File("$configFolder/config/org.apache.sling.jcr.repoinit.RepositoryInitializer~${appId}.cfg.json").delete()
     assert new File("$configFolder/config.author/com.day.cq.wcm.mobile.core.impl.MobileEmulatorProvider~${appId}.cfg.json").delete()
     assert new File("$configFolder/config.prod/org.apache.sling.commons.log.LogManager.factory.config~${appId}.cfg.json").delete()
     assert new File("$configFolder/config.stage/org.apache.sling.commons.log.LogManager.factory.config~${appId}.cfg.json").delete()
@@ -46,7 +45,6 @@ if (aemVersion.startsWith("6.4")){
 } else {
     // remove the old style config files
     assert new File("$configFolder/config/org.apache.sling.commons.log.LogManager.factory.config-${appId}.config").delete()
-    assert new File("$configFolder/config/org.apache.sling.jcr.repoinit.RepositoryInitializer-${appId}.config").delete()
     assert new File("$configFolder/config.author/com.day.cq.wcm.mobile.core.impl.MobileEmulatorProvider-${appId}.config").delete()
     assert new File("$configFolder/config.prod/org.apache.sling.commons.log.LogManager.factory.config-${appId}.config").delete()
     assert new File("$configFolder/config.stage/org.apache.sling.commons.log.LogManager.factory.config-${appId}.config").delete()
