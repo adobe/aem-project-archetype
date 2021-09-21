@@ -19,7 +19,7 @@ const commons = require('../../lib/commons');
 const selectors = require('../../lib/util/forms.selectors.js');
 const fs = require('fs');
 const path = require('path');
-const expect = require('chai').expect;
+const chaiExpect = require('chai').expect;
 /*
     E2E UI Testing of AEM Forms OOTB Sample Content included in archetype ui.content package.
 */
@@ -227,7 +227,7 @@ describe('AEM Forms OOTB Content Tests', () => {
         const pixelmatchConfig = { errorThreshold: .2, baseDir: './assets/form/themes' };
         function verifyThemePanel(theme, panelName) {
             const isMatched = browser.call(() => browser.matchScreenshot(this, panelName, pixelmatchConfig));
-            expect(isMatched, `${theme} ${panelName} panel screenshot did not match`).true;
+            chaiExpect(isMatched, `${theme} ${panelName} panel screenshot did not match`).true;
         }
         const panels = {
             address: '#guideContainer-rootPanel-basics-basics2___guide-item-nav',
