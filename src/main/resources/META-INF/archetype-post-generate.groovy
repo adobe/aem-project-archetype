@@ -46,7 +46,7 @@ if (aemVersion.startsWith("6.4")){
 } else {
     // remove the old style config files
     assert new File("$configFolder/config/org.apache.sling.commons.log.LogManager.factory.config-${appId}.config").delete()
-    assert new File("$configFolder/config/org.apache.sling.jcr.repoinit.RepositoryInitializer~${appId}.config").delete()
+    assert new File("$configFolder/config/org.apache.sling.jcr.repoinit.RepositoryInitializer-${appId}.config").delete()
     assert new File("$configFolder/config.author/com.day.cq.wcm.mobile.core.impl.MobileEmulatorProvider-${appId}.config").delete()
     assert new File("$configFolder/config.prod/org.apache.sling.commons.log.LogManager.factory.config-${appId}.config").delete()
     assert new File("$configFolder/config.stage/org.apache.sling.commons.log.LogManager.factory.config-${appId}.config").delete()
