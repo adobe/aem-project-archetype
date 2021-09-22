@@ -182,6 +182,14 @@
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
 
+        <!--
+            Option to precompile the server-side scripts from ui.apps and attach them to the build as a secondary bundle artifact in the ui.apps project. aemVersion should be set to "cloud".
+        -->
+        <requiredProperty key="precompiledScripts">
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
+
     </requiredProperties>
 
     <modules>
@@ -521,6 +529,7 @@
       <includes>
         <include>README.md</include>
         <include>README-CIF.md</include>
+        <include>README-precompiled-scripts.md</include>
         <include>.gitignore</include>
         <include>LICENSE</include>
       </includes>
