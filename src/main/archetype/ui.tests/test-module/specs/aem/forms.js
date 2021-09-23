@@ -68,7 +68,7 @@ describe('AEM Forms OOTB Content Tests', () => {
 
                 //Verify OAuth authentication mechanism selected
                 expect($(selectors.editor.dataSourceEditor.authenticationSelector)).toBeDisplayed();
-                expect($(selectors.editor.dataSourceEditor.authenticationSelector).getValue()).toEqual('OAuth 2.0');
+                expect($(selectors.editor.dataSourceEditor.authenticationSelectorInput).getValue()).toEqual('OAuth 2.0');
 
                 //Verify Auth url not empty
                 expect($(selectors.editor.dataSourceEditor.oAuthUrl)).toBeDisplayed();
