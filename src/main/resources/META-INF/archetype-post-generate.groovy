@@ -27,6 +27,7 @@ def includeCommerce = request.getProperties().get("includeCommerce")
 def includeForms = request.getProperties().get("includeForms")
 def enableSSR = request.getProperties().get("enableSSR");
 def sdkFormsVersion = request.getProperties().get("sdkFormsVersion")
+def precompiledScripts = request.getProperties().get("precompiledScripts")
 
 def appsFolder = new File("$uiAppsPackage/src/main/content/jcr_root/apps/$appId")
 def configFolder = new File("$uiConfigPackage/src/main/content/jcr_root/apps/$appId/osgiconfig")
@@ -201,6 +202,10 @@ if (includeForms == "n") {
 // an violation with severity=ERROR
 if(new File("$configFolder/config.publish").list().length == 0) {
     assert new File("$configFolder/config.publish").deleteDir()
+}
+
+if (precompiledScripts == "n") {
+    assert new File(rootDir, "README-precompiled-scripts.md").delete()
 }
 
 /**

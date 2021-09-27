@@ -246,6 +246,11 @@ Bundle-DocURL:
                             <artifactId>org.apache.sling.bnd.models</artifactId>
                             <version>1.0.0</version>
                         </dependency>
+                        <dependency>
+                            <groupId>org.apache.sling</groupId>
+                            <artifactId>scriptingbundle-maven-plugin</artifactId>
+                            <version>0.5.0</version>
+                        </dependency>
                     </dependencies>
                 </plugin>
                 <plugin>
