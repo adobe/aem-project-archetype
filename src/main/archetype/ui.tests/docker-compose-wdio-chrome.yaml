@@ -34,6 +34,7 @@ services:
     volumes:
       - ./target/reports:/tmp/reports
       - 'shared:/tmp/shared'
+      - 'shared:/usr/src/app/assets'
     image: '${groupId}-${artifactId}/ui.tests:latest'
   selenium-chrome:
     image: 'selenium/standalone-chrome-debug:latest'

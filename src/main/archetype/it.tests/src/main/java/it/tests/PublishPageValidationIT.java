@@ -32,6 +32,7 @@ import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.Ignore;
 import org.slf4j.LoggerFactory;
 
 import static java.util.concurrent.TimeUnit.MINUTES;
@@ -85,6 +86,7 @@ public class PublishPageValidationIT {
 
 
     @Test
+    @Ignore
     public void validateHomepage() throws ClientException, IOException, URISyntaxException {
         String path = HOMEPAGE;
         verifyPage(adminPublish, path);
@@ -114,7 +116,9 @@ public class PublishPageValidationIT {
                 int responseSize = response.getContent().length();
                 assertEquals("Unexpected status returned from [" + ref + "]", 200, statusCode);
                 if (! ZEROBYTEFILES.stream().anyMatch(s -> ref.getPath().startsWith(s))) {
-                    assertTrue("Empty response body from [" + ref + "]", responseSize > 0);
+                    if (responseSize == 0) {
+                        LOG.warn("Empty response body from [" + ref.getPath() + "], please validate if this is correct");
+                    }
                 }
 
             } else {

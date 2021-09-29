@@ -1,0 +1,539 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "Sales Force Swagger Definition",
+		"version": "1.0.0",
+		"title": "Swagger Definition"
+	},
+	"schemes": [
+		"https"
+	],
+	"produces": [
+		"application/json"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"paths": {
+		"/services/data/v32.0/sobjects/Lead/{id}": {
+			"get": {
+				"summary": "Fetch Lead Information From SDFC",
+				"produces": ["application/json"],
+				"consumes": ["application/json"],
+				"operationId": "GetLead",
+				"parameters": [					
+					{
+						"in": "path",
+						"name" : "id",
+						"type" : "string",
+						"description": "path to store data into",
+						"required": true						
+					}
+				],
+				"responses": {
+					"200" : {
+					  "description": "Valid Lead output",
+						"schema" : {							
+							"$ref" : "#/definitions/Lead"							
+						}
+					},
+					"405": {
+						"description": "Invalid input"
+					}
+				}
+			},
+			"delete": {
+				"summary": "Delete Lead Information From SDFC",
+				"produces": ["application/json"],
+				"consumes": ["application/json"],
+				"operationId": "DeleteLead",
+				"parameters": [
+					{
+						"in": "path",
+						"name" : "id",
+						"type" : "string",
+						"description": "path to delete data from",
+						"required": true
+					}
+				],
+				"responses": {
+					"405": {
+						"description": "Invalid input"
+					}
+				}
+			}
+		},
+		"/services/data/v32.0/sobjects/Lead": {
+			"post": {
+				"summary": "Create Lead Data",
+				"produces": ["application/json"],
+				"consumes": ["application/json"],
+				"operationId": "CreateLead",
+				"parameters": [
+					{
+						"in": "body",
+						"name": "lead",
+						"description": "lead object that needs to be added",
+						"required": true,
+						"schema" : {
+							"$ref" : "#/definitions/Lead"
+						}
+					}
+				],
+				"responses": {
+					"200" : {
+					  "description": "Valid output",
+						"schema" : {
+							"$ref" : "#/definitions/SFResult"
+						}
+					},
+					"405": {
+						"description": "Invalid input"
+					}
+				}
+			}
+		},
+		"/services/data/v32.0/sobjects/Contact/{id}": {
+			"get": {
+				"summary": "Fetch Contact Information From SDFC",
+				"produces": ["application/json"],
+				"consumes": ["application/json"],
+				"operationId": "GetContact",
+				"parameters": [
+					{
+						"in": "path",
+						"name" : "id",
+						"type" : "string",
+						"description": "path to store data into",
+						"required": true
+					}
+				],
+				"responses": {
+					"200" : {
+					  "description": "Valid Contact output",
+						"schema" : {
+							"$ref" : "#/definitions/Contact"
+						}
+					},
+					"405": {
+						"description": "Invalid input"
+					}
+				}
+			},
+			"delete": {
+				"summary": "Delete Contact Information From SDFC",
+				"produces": ["application/json"],
+				"consumes": ["application/json"],
+				"operationId": "DeleteContact",
+				"parameters": [
+					{
+						"in": "path",
+						"name" : "id",
+						"type" : "string",
+						"description": "path to delete data from",
+						"required": true
+					}
+				],
+				"responses": {
+					"405": {
+						"description": "Invalid input"
+					}
+				}
+			}
+		},
+		"/services/data/v32.0/sobjects/Contact": {
+			"post": {
+				"summary": "Create Contact Data",
+				"produces": ["application/json"],
+				"consumes": ["application/json"],
+				"operationId": "CreateContact",
+				"parameters": [
+					{
+						"in": "body",
+						"name": "contact",
+						"description": "contact object that needs to be added",
+						"required": true,
+						"schema" : {
+							"$ref" : "#/definitions/Contact"
+						}
+					}
+				],
+				"responses": {
+					"200" : {
+					  "description": "Valid output",
+						"schema" : {
+							"$ref" : "#/definitions/SFResult"
+						}
+					},
+					"405": {
+						"description": "Invalid input"
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"Lead": {
+			"type": "object",
+			"properties": {
+                "Address": {
+                  "type": "string"
+                },
+                "AnnualRevenue": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "City": {
+                  "type": "string"
+                },
+                "Company": {
+                  "type": "string"
+                },
+                "ConvertedAccountId": {
+                  "type": "string"
+                },
+                "ConvertedContactId": {
+                  "type": "string"
+                },
+                "ConvertedDate": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "ConvertedOpportunityId": {
+                  "type": "string"
+                },
+                "Country": {
+                  "type": "string"
+                },
+                "CreatedById": {
+                  "type": "string"
+                },
+                "CreatedDate": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "Description": {
+                  "type": "string"
+                },
+                "Email": {
+                  "type": "string"
+                },
+                "EmailBouncedDate": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "EmailBouncedReason": {
+                  "type": "string"
+                },
+                "FirstName": {
+                  "type": "string"
+                },
+                "GeocodeAccuracy": {
+                  "type": "string"
+                },
+                "Id": {
+                  "type": "string"
+                },
+                "IndividualId": {
+                  "type": "string"
+                },
+                "Industry": {
+                  "type": "string"
+                },
+                "IsConverted": {
+                  "type": "boolean"
+                },
+                "IsDeleted": {
+                  "type": "boolean"
+                },
+                "IsUnreadByOwner": {
+                  "type": "boolean"
+                },
+                "Jigsaw": {
+                  "type": "string"
+                },
+                "JigsawContactId": {
+                  "type": "string"
+                },
+                "LastActivityDate": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "LastModifiedById": {
+                  "type": "string"
+                },
+                "LastModifiedDate": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "LastName": {
+                  "type": "string"
+                },
+                "LastReferencedDate": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "LastViewedDate": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "Latitude": {
+                  "type": "number"
+                },
+                "LeadSource": {
+                  "type": "string"
+                },
+                "Longitude": {
+                  "type": "number"
+                },
+                "MasterRecordId": {
+                  "type": "string"
+                },
+                "Name": {
+                  "type": "string"
+                },
+                "NumberOfEmployees": {
+                  "type": "number",
+                  "format": "int32"
+                },
+                "OwnerId": {
+                  "type": "string"
+                },
+                "Phone": {
+                  "type": "string"
+                },
+                "PhotoUrl": {
+                  "type": "string"
+                },
+                "PostalCode": {
+                  "type": "string"
+                },
+                "Rating": {
+                  "type": "string"
+                },
+                "Salutation": {
+                  "type": "string"
+                },
+                "State": {
+                  "type": "string"
+                },
+                "Status": {
+                  "type": "string"
+                },
+                "Street": {
+                  "type": "string"
+                },
+                "SystemModstamp": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "Title": {
+                  "type": "string"
+                },
+                "Website": {
+                  "type": "string"
+                }
+            },
+			"required" : ["Phone", "Company", "LastName", "FirstName"]
+		},
+        "Contact": {
+            "type": "object",
+            "properties": {
+                "AccountId": {
+                    "type": "string"
+                },
+                "AssistantName": {
+                    "type": "string"
+                },
+                "AssistantPhone": {
+                    "type": "string"
+                },
+                "Birthdate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "CreatedById": {
+                    "type": "string"
+                },
+                "CreatedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "Department": {
+                    "type": "string"
+                },
+                "Description": {
+                    "type": "string"
+                },
+                "Email": {
+                    "type": "string"
+                },
+                "EmailBouncedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "EmailBouncedReason": {
+                    "type": "string"
+                },
+                "Fax": {
+                    "type": "string"
+                },
+                "FirstName": {
+                    "type": "string"
+                },
+                "HomePhone": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "string"
+                },
+                "IndividualId": {
+                    "type": "string"
+                },
+                "IsDeleted": {
+                    "type": "boolean"
+                },
+                "IsEmailBounced": {
+                    "type": "boolean"
+                },
+                "Jigsaw": {
+                    "type": "string"
+                },
+                "JigsawContactId": {
+                    "type": "string"
+                },
+                "LastActivityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "LastCURequestDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "LastCUUpdateDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "LastModifiedById": {
+                    "type": "string"
+                },
+                "LastModifiedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "LastName": {
+                    "type": "string"
+                },
+                "LastReferencedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "LastViewedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "LeadSource": {
+                    "type": "string"
+                },
+                "MailingAddress": {
+                    "type": "string"
+                },
+                "MailingCity": {
+                    "type": "string"
+                },
+                "MailingCountry": {
+                    "type": "string"
+                },
+                "MailingGeocodeAccuracy": {
+                    "type": "string"
+                },
+                "MailingLatitude": {
+                    "type": "number"
+                },
+                "MailingLongitude": {
+                    "type": "number"
+                },
+                "MailingPostalCode": {
+                    "type": "string"
+                },
+                "MailingState": {
+                    "type": "string"
+                },
+                "MailingStreet": {
+                    "type": "string"
+                },
+                "MasterRecordId": {
+                    "type": "string"
+                },
+                "MobilePhone": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "OtherAddress": {
+                    "type": "string"
+                },
+                "OtherCity": {
+                    "type": "string"
+                },
+                "OtherCountry": {
+                    "type": "string"
+                },
+                "OtherGeocodeAccuracy": {
+                    "type": "string"
+                },
+                "OtherLatitude": {
+                    "type": "number"
+                },
+                "OtherLongitude": {
+                    "type": "number"
+                },
+                "OtherPhone": {
+                    "type": "string"
+                },
+                "OtherPostalCode": {
+                    "type": "string"
+                },
+                "OtherState": {
+                    "type": "string"
+                },
+                "OtherStreet": {
+                    "type": "string"
+                },
+                "OwnerId": {
+                    "type": "string"
+                },
+                "Phone": {
+                    "type": "string"
+                },
+                "PhotoUrl": {
+                    "type": "string"
+                },
+                "ReportsToId": {
+                    "type": "string"
+                },
+                "Salutation": {
+                    "type": "string"
+                },
+                "SystemModstamp": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "Title": {
+                    "type": "string"
+                }
+            },
+            "required" : ["Phone", "Name", "Email"]
+        },
+		"SFResult": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				}				
+			},
+			"required" : ["id"]
+		}
+	}
+}

@@ -190,6 +190,14 @@
             <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
+
+        <!--
+            Option to precompile the server-side scripts from ui.apps and attach them to the build as a secondary bundle artifact in the ui.apps project. aemVersion should be set to "cloud".
+        -->
+        <requiredProperty key="precompiledScripts">
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
     </requiredProperties>
 
     <modules>
@@ -400,6 +408,12 @@
                         <exclude>**/*.jpeg</exclude>
                         <exclude>**/image</exclude>
                         <exclude>**/original</exclude>
+                        <exclude>**/*.eot</exclude>
+                        <exclude>**/*.svg</exclude>
+                        <exclude>**/*.ttf</exclude>
+                        <exclude>**/*.woff</exclude>
+                        <exclude>**/*.woff2</exclude>
+                        <exclude>**/*.otf</exclude>
                     </excludes>
                 </fileSet>
                 <fileSet filtered="false" packaged="false"
@@ -410,6 +424,12 @@
                         <include>**/*.jpeg</include>
                         <include>**/image</include>
                         <include>**/original</include>
+                        <include>**/*.eot</include>
+                        <include>**/*.svg</include>
+                        <include>**/*.ttf</include>
+                        <include>**/*.woff</include>
+                        <include>**/*.woff2</include>
+                        <include>**/*.otf</include>
                     </includes>
                 </fileSet>
             </fileSets>
@@ -530,6 +550,7 @@
         <include>README.md</include>
         <include>README-CIF.md</include>
         <include>README-EXPERIENCE-TEMPLATE.md</include>
+        <include>README-precompiled-scripts.md</include>
         <include>.gitignore</include>
         <include>LICENSE</include>
       </includes>

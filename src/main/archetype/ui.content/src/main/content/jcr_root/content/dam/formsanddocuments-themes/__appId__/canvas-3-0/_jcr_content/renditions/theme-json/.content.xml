@@ -590,10 +590,10 @@
                     phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:0.25rem\, —\, 0.5rem\, —]"/>
                 <af_checkboxitem
                     jcr:primaryType="nt:unstructured"
-                    default_x0023_default="[cssOverride:cursor: pointer;&#xa;width: max-content;]"/>
+                    default_x0023_default="[cssOverride:cursor: pointer;]"/>
                 <af_radiobuttonitem
                     jcr:primaryType="nt:unstructured"
-                    default_x0023_default="[cssOverride:cursor: pointer;&#xa;width: max-content;]"/>
+                    default_x0023_default="[cssOverride:cursor: pointer;]"/>
                 <af_previtemnavbutton
                     jcr:primaryType="nt:unstructured"
                     phone_x0023_default="[padding-right:0.625rem,padding-left:0.625rem]"

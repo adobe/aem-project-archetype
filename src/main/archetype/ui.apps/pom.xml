@@ -114,7 +114,9 @@
                         <phase>generate-sources</phase>
                         <configuration>
                             <generateJavaClasses>true</generateJavaClasses>
+#if ( $precompiledScripts == "n")
                             <generatedJavaClassesPrefix>org.apache.sling.scripting.sightly</generatedJavaClassesPrefix>
+#end
                             <sourceDirectory>${project.build.sourceDirectory}</sourceDirectory>
                             <allowedExpressionOptions>
                                 <allowedExpressionOption>cssClassName</allowedExpressionOption>
@@ -128,6 +130,73 @@
             </plugin>
         </plugins>
     </build>
+
+#if ( $precompiledScripts == "y" and $aemVersion == "cloud" )
+    <profiles>
+        <profile>
+            <id>precompiledScripts</id>
+            <activation>
+                <property>
+                    <name>skipScriptPrecompilation</name>
+                    <value>!true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>biz.aQute.bnd</groupId>
+                        <artifactId>bnd-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>bnd-process</id>
+                                <goals>
+                                    <goal>bnd-process</goal>
+                                </goals>
+                                <configuration>
+                                    <packagingTypes>content-package</packagingTypes>
+                                    <bnd><![CDATA[
+Bundle-Name: ${project.name} - precompiled scripts
+Bundle-SymbolicName: ${project.groupId}.${project.artifactId}.precompiled-scripts
+-plugin:  org.apache.sling.scriptingbundle.plugin.bnd.BundledScriptsScannerPlugin; \
+          sourceDirectories="src/main/content/jcr_root"; \
+          includes="**/.content.xml,**/*.html"
+Require-Capability: osgi.extender;filter:="(&(osgi.extender=sling.scripting)(version>=1.0.0)(!(version>=2.0.0)))"
+                            ]]>
+                                    </bnd>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jar-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                                <configuration>
+                                    <classifier>precompiled-scripts</classifier>
+                                    <archive>
+                                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                                    </archive>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.sling</groupId>
+                        <artifactId>sling-maven-plugin</artifactId>
+                        <configuration>
+                            <bundleFileName>${project.build.directory}/${project.build.finalName}-precompiled-scripts.jar</bundleFileName>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+#end
 
     <!-- ====================================================================== -->
     <!-- D E P E N D E N C I E S                                                -->

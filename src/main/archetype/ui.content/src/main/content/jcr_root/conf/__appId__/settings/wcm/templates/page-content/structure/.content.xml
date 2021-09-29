@@ -10,7 +10,6 @@
             jcr:primaryType="nt:unstructured"
             sling:resourceType="${appId}/components/container"
             layout="responsiveGrid">
-#if ( $includeCommerce == "n" )
             <experiencefragment-header
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="${appId}/components/experiencefragment"
@@ -18,33 +17,6 @@
                 fragmentVariationPath="/content/experience-fragments/${appId}/language-masters/${language}/site/header/master"/>
 #else
                 fragmentVariationPath="/content/experience-fragments/${appId}/${country}/${language}/site/header/master"/>
-#end
-#else
-            <header
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="${appId}/components/header">
-                <logo.svg />
-                <navigation
-                        collectAllPages="false"
-                            jcr:primaryType="nt:unstructured"
-#if ( $singleCountry == "n" )
-                            navigationRoot="/content/${appId}/${language}"
-#else
-                            navigationRoot="/content/${appId}/${country}/${language}"
-#end
-                            skipNavigationRoot="true"
-                            sling:resourceType="${appId}/components/commerce/navigation"
-                            structureDepth="2">
-                    <miniaccount jcr:primaryType="nt:unstructured"
-                                 sling:resourceType="${appId}/components/commerce/miniaccount" />
-                </navigation>
-                <miniaccount jcr:primaryType="nt:unstructured"
-                             sling:resourceType="${appId}/components/commerce/miniaccount" />
-                <minicart jcr:primaryType="nt:unstructured"
-                          sling:resourceType="${appId}/components/commerce/minicart" />
-                <searchbar jcr:primaryType="nt:unstructured"
-                           sling:resourceType="${appId}/components/commerce/searchbar" />
-            </header>
 #end
             <container
                 jcr:primaryType="nt:unstructured"
