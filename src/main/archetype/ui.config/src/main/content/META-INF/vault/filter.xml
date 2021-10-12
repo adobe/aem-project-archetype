@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
+#if ( $includeCommerce == "y" )
+    <filter root="/apps/${appId}/config"/>
+#end
     <filter root="/apps/${appId}/osgiconfig"/>
 </workspaceFilter>

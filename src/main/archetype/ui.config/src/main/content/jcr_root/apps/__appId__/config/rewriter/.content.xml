@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:Folder">
+    <commercelinks jcr:primaryType="nt:unstructured"
+        cotentTypes="[text/html]"
+        enabled="{Boolean}true"
+        generatorType="htmlparser"
+        order="1000"
+        serializerType="htmlwriter"
+        transformerTypes="[commercelinks,linkchecker]">
+    </commercelinks>
+</jcr:root>
