@@ -77,7 +77,7 @@ class PixelMatchPlugin {
             inst.skip();
         }
         const diff = new PNG({ width, height });
-        const mismatchedPixels = pixelmatch(baseImage.data, currentImage.data, diff.data, width, height, { threshold: 0.1, includeAA: true });
+        const mismatchedPixels = pixelmatch(baseImage.data, currentImage.data, diff.data, width, height, { threshold: 0.3, includeAA: true });
         log.debug($`Comparing screenshots ${screenshotPath} and ${baseScreenshotPath}`);
         writePng(this.pathUtils.getScreenshotPath(viewportSize, screenshotName, SCREENSHOTTYPES.DIFF, screenshotDirectory), diff);
         return comparisonStrategy(mismatchedPixels, width, height, config);

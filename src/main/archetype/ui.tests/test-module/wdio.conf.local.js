@@ -27,7 +27,7 @@ wdio_config.services = [
         logPath: config.reports_path}
     ],
     [PixelMatchPlugin, {
-        viewportSize: { height: 768, width: 1024 },
+        viewportSize: { height: 768, width: 1366 },
         pixelmatchDirectory: './assets'
     }]
 ];

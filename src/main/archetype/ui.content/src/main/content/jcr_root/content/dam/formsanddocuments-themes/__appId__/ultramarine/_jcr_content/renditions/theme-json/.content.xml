@@ -667,7 +667,7 @@
                     jcr:primaryType="nt:unstructured"
                     default_x0023_checked="[background:#0071bc,border-color:#0071bc]"
                     default_x0023_checked_x0023_ui="[backgroundColor:#0071bc,borderWidthPopover:Set]"
-                    default_x0023_default="[display:block,margin-top:20px,width:100%,padding-top:3px,background:rgba(0\,113\,188\,0.1),padding-left:15px,border-bottom-width:4px,border-style:solid,border-color:rgba(255\,255\,255\,0),padding-right:15px]"
+                    default_x0023_default="[margin-top:20px,padding-top:3px,background:rgba(0\,113\,188\,0.1),padding-left:15px,border-bottom-width:4px,border-style:solid,border-color:rgba(255\,255\,255\,0),padding-right:15px]"
                     default_x0023_default_x0023_ui="[paddingLock:linkOff,marginLock:linkOff,marginPopover:20px,backgroundColor:rgba(0\,113\,188\,0.1),borderWidthLock:linkOff,borderWidthPopover:—\, —\, 4px\, —,paddingPopover:3px\, 15px\, —\, 15px]"
                     default_x0023_disabled="[background:#f8f8f8]"
                     default_x0023_disabled_x0023_ui="[backgroundColor:#f8f8f8]"
