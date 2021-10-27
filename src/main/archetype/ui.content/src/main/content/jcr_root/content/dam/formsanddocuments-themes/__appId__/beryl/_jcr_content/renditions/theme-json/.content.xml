@@ -387,8 +387,8 @@
                     jcr:primaryType="nt:unstructured"
                     default_x0023_checked="[background:#0079C1,cssOverride:background-size: cover;]"
                     default_x0023_checked_x0023_ui="[backgroundColor:#0079C1]"
-                    default_x0023_default="[font-size:14px,padding-left:5px,padding-bottom:10px,padding-right:5px,padding-top:10px,margin-top:5px,margin-bottom:5px,margin-right:0px,margin-left:0px,cssOverride:cursor:pointer;&#xa;,color:#FFFFFF,background:#132b4d,display:block]"
-                    default_x0023_default_x0023_ui="[paddingPopover:10px\, 5px\, 10px\, 5px,marginPopover:5px\, 0px\, 5px\, 0px,paddingLock:linkOff,marginLock:linkOff,backgroundColor:#132b4d]"/>
+                    default_x0023_default="[font-size:14px,padding-left:5px,padding-bottom:10px,padding-right:5px,padding-top:10px,margin-top:5px,margin-bottom:5px,margin-right:5px,margin-left:5px,cssOverride:cursor:pointer;&#xa;,color:#FFFFFF,background:#132b4d]"
+                    default_x0023_default_x0023_ui="[paddingPopover:10px\, 5px\, 10px\, 5px,marginPopover:5px\, 5px\, 5px\, 5px,paddingLock:linkOff,marginLock:linkOff,backgroundColor:#132b4d]"/>
                 <af_radiobuttonitemlabel
                     jcr:primaryType="nt:unstructured"
                     default_x0023_default="[font-size:14px,margin-bottom:5px,addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot; .guideRadioButtonItem .guideWidgetLabel&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;98%&quot;\,&quot;display&quot;:&quot;inline&quot;}}}},padding-top:10px,padding-bottom:10px,padding-right:10px,height:auto,padding-left:0px]"
