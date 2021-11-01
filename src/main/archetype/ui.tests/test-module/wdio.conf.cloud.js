@@ -26,7 +26,7 @@ wdio_config.port = config.selenium.port;
 wdio_config.path = '/wd/hub';
 wdio_config.services = [
     [PixelMatchPlugin, {
-        viewportSize: { height: 768, width: 1024 },
+        viewportSize: { height: 768, width: 1366 },
         pixelmatchDirectory: './assets'
     }]
 ];

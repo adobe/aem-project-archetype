@@ -46,3 +46,6 @@ pixelmatchDirectory:  './assets'
 The config object for the plugin takes two properties for now,
 1. viewportSize : The size of screenshot you want
 2. pixelmatchDirectory : top level config of where to store screenshots.
+
+## How to update the snapshots
+In case when you want to accept some changes, just delete the existing baseline image. The plugin will then create a new baseline image for you, which will be used for future comparisons.
