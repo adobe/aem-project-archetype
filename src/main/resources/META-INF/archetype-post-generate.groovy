@@ -82,7 +82,7 @@ if (aemVersion == "cloud") {
 }
 
 buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, language, country)
-cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder,enableSSR)
+cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder,enableSSR, includeCommerce)
 
 if ( includeDispatcherConfig == "n"){
     // remove the unneeded config file
@@ -121,6 +121,7 @@ removeModule(rootPom, 'dispatcher.cloud')
 if (includeCommerce == "n") {
     assert new File(rootDir, "README-CIF.md").delete()
     assert new File("$appsFolder/components/commerce").deleteDir()
+    assert new File("$appsFolder/components/text/_cq_dialog.xml").delete()
     assert new File("$appsFolder/clientlibs/clientlib-cif").deleteDir()
     assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl~default.cfg.json").delete()
     assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-default.config").delete()
@@ -241,7 +242,7 @@ def buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, 
 /**
  * Renames and deletes frontend related files as necessary
  */
-def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder, enableSSR) {
+def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder, enableSSR, includeCommerce) {
     // Delete unwanted frontend modules
     frontendModules.each { def frontendModule ->
         // Clean up POM file
@@ -265,7 +266,9 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
         assert new File("$appsFolder/components/xfpage/body.html").delete()
 
         // Delete EditConfigs
-        assert new File("$appsFolder/components/text/_cq_editConfig.xml").delete()
+        if (includeCommerce == "n") {
+            assert new File("$appsFolder/components/text/_cq_editConfig.xml").delete()
+        }
 
         // Delete SPA templates
         assert new File("$confFolder/settings/wcm/templates/spa-app-template").deleteDir()
