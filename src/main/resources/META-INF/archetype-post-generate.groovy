@@ -25,6 +25,8 @@ def sdkVersion = request.getProperties().get("sdkVersion")
 def includeDispatcherConfig = request.getProperties().get("includeDispatcherConfig")
 def includeCommerce = request.getProperties().get("includeCommerce")
 def includeForms = request.getProperties().get("includeForms")
+def includeFormsenrollment = request.getProperties().get("includeFormsenrollment")
+def includeFormscommunications = request.getProperties().get("includeFormscommunications")
 def enableSSR = request.getProperties().get("enableSSR");
 def sdkFormsVersion = request.getProperties().get("sdkFormsVersion")
 def precompiledScripts = request.getProperties().get("precompiledScripts")
@@ -173,7 +175,7 @@ if (includeCommerce == "n") {
 }
 
 // if forms flag is not set, forms specific components, template-types, templates, themes, fdm, cloudconfigs should be deleted
-if (includeForms == "n") {
+if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunications == "n") {
     assert new File("$appsFolder/components/aemformscontainer").deleteDir()
     assert new File("$confFolder/settings/wcm/template-types/af-page").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/basic-af").deleteDir()
