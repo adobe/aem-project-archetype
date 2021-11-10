@@ -81,7 +81,7 @@
 #end
 #end
 
-#if ( $includeForms == "y" and $aemVersion == "cloud" )
+#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud" )
         <core.forms.components.version>0.0.22</core.forms.components.version>
         <aem.forms.sdk.api>SDK_FORMS_VERSION</aem.forms.sdk.api>
 #end
@@ -865,7 +865,7 @@ Bundle-DocURL:
             </dependency>
 #end
 #end
-#if ( $includeForms == "y" and $aemVersion == "cloud")
+#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud")
         <!-- AEM Forms Dependencies -->
         <dependency>
             <groupId>com.adobe.aem</groupId>

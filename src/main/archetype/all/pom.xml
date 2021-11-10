@@ -181,7 +181,7 @@
                         </embedded>
 #end
 #end
-#if ( $includeForms == "y" and $aemVersion == "cloud" )
+#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud" )
                         <embedded>
                             <groupId>com.adobe.aem</groupId>
                             <artifactId>core-forms-components-apps</artifactId>
@@ -389,7 +389,7 @@
             <type>zip</type>
         </dependency>
 #end
-#if ( $includeForms == "y" and $aemVersion == "cloud" )
+#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud" )
         <!-- AEM Forms Dependencies -->
         <dependency>
             <groupId>com.adobe.aem</groupId>

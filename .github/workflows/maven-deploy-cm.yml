@@ -73,7 +73,7 @@ jobs:
            -D appId="sitesdemo" \
            -D groupId="com.sites30demo" \
            -D includeExamples="y" \
-           -D includeForms="y"
+           -D includeFormsenrollment="y"
       # Set global git configuration
       - name: Set git config
         run: |

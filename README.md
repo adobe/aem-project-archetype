@@ -84,8 +84,9 @@ Name                      | Default        | Description
 `includeErrorHandler`     | `n`            | Includes a custom 404 response page that will be global to the entire instance (can be `y` or `n`).
 `includeCommerce`         | `n`            | Includes [CIF Core Components](https://github.com/adobe/aem-core-cif-components) dependecies and generates corresponding artifacts.
 `commerceEndpoint`        |                | Required for CIF only. Optional endpoint of the commerce system GraphQL service to be used (e.g. `https://hostname.com/grapql`).
-`includeForms`            | `n`            | Includes [Forms Core Components](https://github.com/adobe/aem-core-forms-components) dependencies and generates corresponding artifacts.
-`sdkFormsVersion`         | `latest`       | When `aemVersion=cloud` and `includeForms=y` an Forms SDK version can be specified (e.g. `2020.12.17.02`).
+`includeFormscommunications`   | `n`       | Includes [Forms Core Components](https://github.com/adobe/aem-core-forms-components) dependencies and generates corresponding artifacts.
+`includeFormsenrollment`  | `n`            | Includes [Forms Core Components](https://github.com/adobe/aem-core-forms-components) dependencies and generates corresponding artifacts.
+`sdkFormsVersion`         | `latest`       | When `aemVersion=cloud` and one of `includeFormsenrollment=y` or `includeFormscommunications=y` an Forms SDK version can be specified (e.g. `2020.12.17.02`).
 `datalayer`               | `y`            | Activate integration with [Adobe Client Data Layer](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/data-layer/overview.html).
 `amp`                     | `n`            | Enable [AMP](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/amp.html) support for genenerated project templates.
 `enableDynamicMedia`      | `n`            | Enabled foundation DynamicMedia components in project policy settings and activates Dynamic Media features in Core Image component's policy.

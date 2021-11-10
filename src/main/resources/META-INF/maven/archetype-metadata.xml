@@ -141,7 +141,14 @@
             <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
-
+        <requiredProperty key="includeFormsenrollment">
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
+        <requiredProperty key="includeFormscommunications">
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
         <!--
            AEM Forms as a Cloud Service SDK API version.
        -->
