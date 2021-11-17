@@ -25,6 +25,8 @@
 #set( $startbrace = "{" )
 #set( $endbrace = "}" )
 #set( $isSpaProject = $frontendModule == "angular" || $frontendModule == "react" )
+#set( $includeClassifierOnUberJar = $aemVersion.matches("6\.5\.[0-5]") )
+
     <modelVersion>4.0.0</modelVersion>
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}</artifactId>
@@ -719,6 +721,9 @@ Bundle-DocURL:
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>uber-jar</artifactId>
                 <version>$aemVersion</version>
+#if ( $includeClassifierOnUberJar)
+                <classifier>apis</classifier>
+#end
                 <scope>provided</scope>
             </dependency>
             <!-- Apache Sling Dependencies -->
