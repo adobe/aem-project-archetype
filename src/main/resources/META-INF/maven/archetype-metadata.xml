@@ -141,7 +141,14 @@
             <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
-
+        <requiredProperty key="includeFormsenrollment">
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
+        <requiredProperty key="includeFormscommunications">
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
         <!--
            AEM Forms as a Cloud Service SDK API version.
        -->
@@ -400,6 +407,12 @@
                         <exclude>**/*.jpeg</exclude>
                         <exclude>**/image</exclude>
                         <exclude>**/original</exclude>
+                        <exclude>**/*.eot</exclude>
+                        <exclude>**/*.svg</exclude>
+                        <exclude>**/*.ttf</exclude>
+                        <exclude>**/*.woff</exclude>
+                        <exclude>**/*.woff2</exclude>
+                        <exclude>**/*.otf</exclude>
                     </excludes>
                 </fileSet>
                 <fileSet filtered="false" packaged="false"
@@ -410,6 +423,12 @@
                         <include>**/*.jpeg</include>
                         <include>**/image</include>
                         <include>**/original</include>
+                        <include>**/*.eot</include>
+                        <include>**/*.svg</include>
+                        <include>**/*.ttf</include>
+                        <include>**/*.woff</include>
+                        <include>**/*.woff2</include>
+                        <include>**/*.otf</include>
                     </includes>
                 </fileSet>
             </fileSets>

@@ -17,6 +17,7 @@
 /**
  * DO NOT MODIFY
  */
+let PixelMatchPlugin = require('./lib/wdio-pixelmatch-service/launcher').PixelMatchPlugin;
 let wdio_config = require('./wdio.conf.commons.js').config;
 let config = require('./lib/config');
 
@@ -24,7 +25,11 @@ wdio_config.hostname = 'localhost';
 wdio_config.services = [
     ['selenium-standalone', {
         logPath: config.reports_path}
-    ]
+    ],
+    [PixelMatchPlugin, {
+        viewportSize: { height: 768, width: 1366 },
+        pixelmatchDirectory: './assets'
+    }]
 ];
 
 // Define capabilities based on configuration

@@ -19,6 +19,20 @@ const commons = require('../../lib/commons');
 const selectors = require('../../lib/util/forms.selectors.js');
 const fs = require('fs');
 const path = require('path');
+const chaiExpect = require('chai').expect;
+
+function waitUntilPageLoad(timeoutMsg) {
+    browser.waitUntil(function () {
+        const state = browser.execute(function () {
+            return document.readyState;// eslint-disable-line
+        });
+        return state === 'complete';
+    },
+    {
+        timeout: 60000, //60secs
+        timeoutMsg: timeoutMsg
+    });
+}
 /*
     E2E UI Testing of AEM Forms OOTB Sample Content included in archetype ui.content package.
 */
@@ -67,7 +81,7 @@ describe('AEM Forms OOTB Content Tests', () => {
 
                 //Verify OAuth authentication mechanism selected
                 expect($(selectors.editor.dataSourceEditor.authenticationSelector)).toBeDisplayed();
-                expect($(selectors.editor.dataSourceEditor.authenticationSelector).getValue()).toEqual('OAuth 2.0');
+                expect($(selectors.editor.dataSourceEditor.authenticationSelectorInput).getValue()).toEqual('OAuth 2.0');
 
                 //Verify Auth url not empty
                 expect($(selectors.editor.dataSourceEditor.oAuthUrl)).toBeDisplayed();
@@ -218,6 +232,60 @@ describe('AEM Forms OOTB Content Tests', () => {
             });
         });
 
+    });
+
+    describe('Theme testing', () => {
+        const getThemePath = (theme) => '/content/dam/formsanddocuments-themes/${appId}/' + theme + '/jcr:content?wcmmode=disabled';
+        const themes = ['beryl', 'ultramarine', 'urbane', 'tranquil', 'canvas-3-0'];
+        const pixelmatchConfig = { errorThreshold: .3, baseDir: './assets/form/themes' };
+        function verifyThemePanel(theme, panelName) {
+            const isMatched = browser.call(() => browser.matchScreenshot(this, panelName, pixelmatchConfig));
+            chaiExpect(isMatched, `${theme} ${panelName} panel screenshot did not match`).true;
+        }
+        const panels = {
+            address: '#guideContainer-rootPanel-basics-basics2___guide-item-nav',
+            employment: '#guideContainer-rootPanel-basics-employment___guide-item-nav',
+            expenditure: '#guideContainer-rootPanel-expenditure___guide-item-nav',
+            documents: '#guideContainer-rootPanel___guide-item-nav-container > li[title="Documents"]',
+            communication: '#guideContainer-rootPanel-communication___guide-item-nav',
+            confirmation: '#guideContainer-rootPanel___guide-item-nav-container > li[title="Confirmation"]'
+        };
+        const footer = '.guidefooter';
+        const header = '.guideheader';
+        themes.forEach((theme) => {
+            //For each theme take screenshot of all the panels
+            //For those panels whose content does not fit in single screenshot take two screenshots
+            it(theme, function () {
+                const verifyPanel = verifyThemePanel.bind(this, theme);
+                browser.url(getThemePath(theme));
+                //Wait for the page resources to load
+                waitUntilPageLoad('Instance slow' + theme + ' could not be loaded');
+                verifyPanel('Basic info');
+                $(footer).scrollIntoView();
+                verifyPanel('Basic info Submit');
+                $(header).scrollIntoView();
+                $(panels.address).click();
+                verifyPanel('Address');
+                $(footer).scrollIntoView();
+                verifyPanel('Address Submit');
+                $(header).scrollIntoView();
+                $(panels.employment).click();
+                verifyPanel('Employment');
+                $(footer).scrollIntoView();
+                verifyPanel('Employment Submit');
+                $(header).scrollIntoView();
+                $(panels.expenditure).click();
+                verifyPanel('Expenditure');
+                $(panels.documents).click();
+                verifyPanel('Documents');
+                $(panels.communication).click();
+                verifyPanel('Communication');
+                $(panels.confirmation).click();
+                verifyPanel('Confirmation');
+                $(footer).scrollIntoView();
+                verifyPanel('Confirmation Submit');
+            });
+        });
     });
 
 });
