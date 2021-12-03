@@ -62,4 +62,8 @@ Include conf.d/variables/custom.vars
 		RewriteRule "^(/?)$" "/index.html" [PT]
 
 	</IfModule>
+	# Set Cache-Control header for assets
+	<LocationMatch "^/content/dam/.*\.(gif|jpeg|jpg|js|mov|png|svg|txt|zip|webp|jpf|avif)$">
+        	Header set Cache-Control "max-age=60,s-maxage=86400,stale-while-revalidate=21600,stale-if-error=86400"
+    	</LocationMatch>
 </VirtualHost>
