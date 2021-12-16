@@ -33,7 +33,10 @@ module.exports = env => {
                 },
             },
             watchFiles: ['src/**/*'],
-            hot: false
+            hot: false,
+            devMiddleware: {
+                writeToDisk: writeToDisk
+            }
         }
     });
 }
