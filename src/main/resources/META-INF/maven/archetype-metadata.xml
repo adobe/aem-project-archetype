@@ -550,6 +550,7 @@
         <include>README-CIF.md</include>
         <include>README-precompiled-scripts.md</include>
         <include>.gitignore</include>
+        <include>.gitattributes</include>
         <include>LICENSE</include>
       </includes>
     </fileSet>
