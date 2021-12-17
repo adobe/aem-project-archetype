@@ -1,7 +1,7 @@
-const { merge }             = require('webpack-merge');
-const TerserPlugin            = require('terser-webpack-plugin');
-const CssMinimizerPlugin      = require("css-minimizer-webpack-plugin");
-const common                  = require('./webpack.common.js');
+const {merge} = require('webpack-merge');
+const TerserPlugin = require('terser-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
     mode: 'production',
@@ -9,7 +9,23 @@ module.exports = merge(common, {
         minimize: true,
         minimizer: [
             new TerserPlugin(),
-            new CssMinimizerPlugin(),
+            new CssMinimizerPlugin({
+                minimizerOptions: {
+                    preset: ['default', {
+                        calc: true,
+                        convertValues: true,
+                        discardComments: {
+                            removeAll: true
+                        },
+                        discardDuplicates: true,
+                        discardEmpty: true,
+                        mergeRules: true,
+                        normalizeCharset: true,
+                        reduceInitial: true, // This is since IE11 does not support the value Initial
+                        svgo: true
+                    }],
+                }
+            }),
         ],
         splitChunks: {
             cacheGroups: {
@@ -22,5 +38,5 @@ module.exports = merge(common, {
             }
         }
     },
-    performance: { hints: false }
+    performance: {hints: false}
 });

@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 const conf   = require('./config');
-const format = require('date-fns').format;
+const moment = require('moment');
 const path   = require('path');
 const request = require('request-promise');
 const tough = require('tough-cookie');
@@ -23,7 +23,7 @@ const AEMSitesViewTypes = Object.freeze({'CARD': 'card', 'COLUMN': 'column', 'LI
 
 function takeScreenshot(browser, prefix) {
     prefix = prefix == null ? '' : prefix + '-';
-    const timestamp = format(new Date(), 'yyyyMMdd-HHmmss.SSS');
+    const timestamp = moment().format('YYYYMMDD-HHmmss.SSS');
     const filepath = path.join(conf.screenshots_path, prefix + timestamp + '.png');
     browser.saveScreenshot(filepath);
     process.emit('test:screenshot', filepath);

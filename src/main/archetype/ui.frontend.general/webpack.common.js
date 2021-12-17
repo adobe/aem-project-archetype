@@ -1,10 +1,10 @@
 'use strict';
 
-const path                    = require('path');
-const MiniCssExtractPlugin    = require('mini-css-extract-plugin');
-const TSConfigPathsPlugin     = require('tsconfig-paths-webpack-plugin');
-const CopyWebpackPlugin       = require('copy-webpack-plugin');
-const { CleanWebpackPlugin }  = require('clean-webpack-plugin');
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TSConfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 const SOURCE_ROOT = __dirname + '/src/main/webpack';
@@ -88,7 +88,8 @@ module.exports = {
         new CopyWebpackPlugin({
             patterns: [
                 { from: path.resolve(__dirname, SOURCE_ROOT + '/resources'), to: './clientlib-site/' }
-            ]})
+            ]
+        })
     ],
     stats: {
         assetsSort: 'chunks',
