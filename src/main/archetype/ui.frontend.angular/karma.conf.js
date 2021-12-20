@@ -45,6 +45,7 @@ module.exports = function(config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['ChromeHeadless'], // To be able to run tests in Docker
+    browserNoActivityTimeout: 60000,
     singleRun: true, // To be able to run tests in Docker
     restartOnFileChange: true
   });
