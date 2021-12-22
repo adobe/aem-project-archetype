@@ -37,7 +37,7 @@
     "react-app-polyfill": "^1.0.5",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
-    "react-universal-component": "^4.5.0",
+    "react-universal-component": "^4.5.0"
   },
   "devDependencies": {
 #if ( $enableSSR == "y")
