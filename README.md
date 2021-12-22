@@ -53,7 +53,7 @@ To generate a project, adjust the following command line to your needs:
 mvn -B archetype:generate \
  -D archetypeGroupId=com.adobe.aem \
  -D archetypeArtifactId=aem-project-archetype \
- -D archetypeVersion=32 \
+ -D archetypeVersion=33 \
  -D appTitle="My Site" \
  -D appId="mysite" \
  -D groupId="com.mysite"
@@ -97,7 +97,7 @@ Name                      | Default        | Description
 
 Archetype | AEM as a Cloud Service | AEM 6.5 | Java SE | Maven
 ---------|---------|---------|---------|---------
-[32](https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-32) | Continual | 6.5.7.0+ | 8, 11 | 3.3.9+
+[33](https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-33) | Continual | 6.5.7.0+ | 8, 11 | 3.3.9+
 
 Setup your local development environment for [AEM as a Cloud Service SDK](https://docs.adobe.com/content/help/en/experience-manager-learn/cloud-service/local-development-environment-set-up/overview.html) or for [older versions of AEM](https://docs.adobe.com/content/help/en/experience-manager-learn/foundation/development/set-up-a-local-aem-development-environment.html).
 
