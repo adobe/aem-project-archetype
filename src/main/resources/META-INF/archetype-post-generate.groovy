@@ -8,6 +8,7 @@ def rootDir = new File(request.getOutputDirectory() + "/" + request.getArtifactI
 def uiAppsPackage = new File(rootDir, "ui.apps")
 def uiContentPackage = new File(rootDir, "ui.content")
 def uiConfigPackage = new File(rootDir, "ui.config")
+def uiTestPackage = new File(rootDir, "ui.tests")
 def coreBundle = new File(rootDir, "core")
 def rootPom = new File(rootDir, "pom.xml")
 def frontendModules = ["general", "angular", "react"]
@@ -24,8 +25,11 @@ def sdkVersion = request.getProperties().get("sdkVersion")
 def includeDispatcherConfig = request.getProperties().get("includeDispatcherConfig")
 def includeCommerce = request.getProperties().get("includeCommerce")
 def includeForms = request.getProperties().get("includeForms")
+def includeFormsenrollment = request.getProperties().get("includeFormsenrollment")
+def includeFormscommunications = request.getProperties().get("includeFormscommunications")
 def enableSSR = request.getProperties().get("enableSSR");
 def sdkFormsVersion = request.getProperties().get("sdkFormsVersion")
+def precompiledScripts = request.getProperties().get("precompiledScripts")
 
 def appsFolder = new File("$uiAppsPackage/src/main/content/jcr_root/apps/$appId")
 def configFolder = new File("$uiConfigPackage/src/main/content/jcr_root/apps/$appId/osgiconfig")
@@ -37,6 +41,7 @@ def varFolder = new File("$uiContentPackage/src/main/content/jcr_root/var")
 if (aemVersion.startsWith("6.4")){
     // remove json config files with ~ in naming as they are not compatible with 6.4.8.2
     assert new File("$configFolder/config/org.apache.sling.commons.log.LogManager.factory.config~${appId}.cfg.json").delete()
+    assert new File("$configFolder/config/org.apache.sling.jcr.repoinit.RepositoryInitializer~${appId}.cfg.json").delete()
     assert new File("$configFolder/config.author/com.day.cq.wcm.mobile.core.impl.MobileEmulatorProvider~${appId}.cfg.json").delete()
     assert new File("$configFolder/config.prod/org.apache.sling.commons.log.LogManager.factory.config~${appId}.cfg.json").delete()
     assert new File("$configFolder/config.stage/org.apache.sling.commons.log.LogManager.factory.config~${appId}.cfg.json").delete()
@@ -44,10 +49,19 @@ if (aemVersion.startsWith("6.4")){
 } else {
     // remove the old style config files
     assert new File("$configFolder/config/org.apache.sling.commons.log.LogManager.factory.config-${appId}.config").delete()
+    assert new File("$configFolder/config/org.apache.sling.jcr.repoinit.RepositoryInitializer-${appId}.config").delete()
     assert new File("$configFolder/config.author/com.day.cq.wcm.mobile.core.impl.MobileEmulatorProvider-${appId}.config").delete()
     assert new File("$configFolder/config.prod/org.apache.sling.commons.log.LogManager.factory.config-${appId}.config").delete()
     assert new File("$configFolder/config.stage/org.apache.sling.commons.log.LogManager.factory.config-${appId}.config").delete()
     assert new File("$configFolder/config.publish/org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl.config").delete()
+}
+
+if(aemVersion == "cloud"){
+    //on cloud, we don't allow setting log level to ERROR.
+    assert new File("$configFolder/config.prod/org.apache.sling.commons.log.LogManager.factory.config~${appId}.cfg.json").delete()
+    assert new File("$configFolder/config.stage/org.apache.sling.commons.log.LogManager.factory.config~${appId}.cfg.json").delete()
+    assert new File("$configFolder/config.stage").deleteDir()
+    assert new File("$configFolder/config.prod").deleteDir()
 }
 
 if (amp == "n"){
@@ -70,7 +84,7 @@ if (aemVersion == "cloud") {
 }
 
 buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, language, country)
-cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder,enableSSR)
+cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder,enableSSR, includeCommerce)
 
 if ( includeDispatcherConfig == "n"){
     // remove the unneeded config file
@@ -109,6 +123,7 @@ removeModule(rootPom, 'dispatcher.cloud')
 if (includeCommerce == "n") {
     assert new File(rootDir, "README-CIF.md").delete()
     assert new File("$appsFolder/components/commerce").deleteDir()
+    assert new File("$appsFolder/components/text/_cq_dialog.xml").delete()
     assert new File("$appsFolder/clientlibs/clientlib-cif").deleteDir()
     assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl~default.cfg.json").delete()
     assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-default.config").delete()
@@ -159,15 +174,21 @@ if (includeCommerce == "n") {
     }
 }
 
-// if forms flag is not set, forms specific components, template-types, templates, themes should be deleted
-if (includeForms == "n") {
+// if forms flag is not set, forms specific components, template-types, templates, themes, fdm, cloudconfigs should be deleted
+if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunications == "n") {
     assert new File("$appsFolder/components/aemformscontainer").deleteDir()
     assert new File("$confFolder/settings/wcm/template-types/af-page").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/basic-af").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/blank-af").deleteDir()
+    assert new File("$confFolder/settings/cloudconfigs/fdm").deleteDir()
+    assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/formsanddocuments-fdm").deleteDir()
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/formsanddocuments-themes").deleteDir()
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/sample_logo.png").deleteDir()
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/sample_terms.png").deleteDir()
+    assert new File("$uiTestPackage/test-module/specs/aem/forms.js").delete()
+    assert new File("$uiTestPackage/test-module/lib/util").deleteDir()
+    assert new File("$uiTestPackage/test-module/rules").deleteDir()
+    assert new File("$appsFolder/clientlibs/clientlibs-forms").deleteDir()
 } else {
     if (aemVersion == "cloud") {
         // if forms is included and aem version is set to cloud, set the forms sdk version
@@ -184,6 +205,10 @@ if (includeForms == "n") {
 // an violation with severity=ERROR
 if(new File("$configFolder/config.publish").list().length == 0) {
     assert new File("$configFolder/config.publish").deleteDir()
+}
+
+if (precompiledScripts == "n") {
+    assert new File(rootDir, "README-precompiled-scripts.md").delete()
 }
 
 /**
@@ -219,7 +244,7 @@ def buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, 
 /**
  * Renames and deletes frontend related files as necessary
  */
-def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder, enableSSR) {
+def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder, enableSSR, includeCommerce) {
     // Delete unwanted frontend modules
     frontendModules.each { def frontendModule ->
         // Clean up POM file
@@ -243,7 +268,9 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
         assert new File("$appsFolder/components/xfpage/body.html").delete()
 
         // Delete EditConfigs
-        assert new File("$appsFolder/components/text/_cq_editConfig.xml").delete()
+        if (includeCommerce == "n") {
+            assert new File("$appsFolder/components/text/_cq_editConfig.xml").delete()
+        }
 
         // Delete SPA templates
         assert new File("$confFolder/settings/wcm/templates/spa-app-template").deleteDir()

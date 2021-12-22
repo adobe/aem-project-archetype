@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="sling:OrderedFolder">
+    <jcr:content
+        jcr:lastModified="{Long}1491464706510"
+        jcr:primaryType="nt:unstructured"
+        rendition.handler.id="theme.structure">
+        <components jcr:primaryType="nt:unstructured">
+            <af_guideContainer
+                jcr:primaryType="nt:unstructured"
+                component="fd/af/components/guideContainer">
+                <af_captchawidget
+                        jcr:primaryType="nt:unstructured"
+                        default_x0023_default="[min-height:20px,cssOverride:max-width:max-content]"/>
+                <af_widgetAndText
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[border-style:solid,border-top-width:1px,border-left-width:1px,border-bottom-width:1px,border-right-width:1px,border-bottom-left-radius:4px,border-bottom-right-radius:4px,border-top-right-radius:4px,border-top-left-radius:4px,border-color:#cde0ec,height:38px,color:#333333,font-size:14px,line-height:1.42857143,padding-bottom:4px,padding-left:4px,padding-top:4px,padding-right:4px,margin-bottom:0px,margin-top:0px,margin-left:0px,margin-right:0px,addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot; .guideFieldWidget&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;100%&quot;\,&quot;display&quot;:&quot;inline-block&quot;}}}},background:rgb(255\,255\,255)]"
+                    default_x0023_default_x0023_ui="[width:100%,marginPopover:0px,marginLock:link,paddingPopover:4px,paddingLock:link,borderWidthPopover:1px,borderWidthLock:link,borderRadiusPopover:4px,borderRadiusLock:link,display:inline-block,backgroundColor:rgb(255\,255\,255)]"/>
+                <af_fieldlabel
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[line-height:1.42857143,font-weight:normal,addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot; .guideFieldLabel&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;auto&quot;\,&quot;display&quot;:&quot;block&quot;}}}},padding-left:5px,padding-bottom:5px,padding-right:5px,padding-top:5px,color:#FFFFFF]"
+                    default_x0023_default_x0023_ui="[width:auto,marginLock:linkOff,paddingLock:link,paddingPopover:5px,marginPopover:Set,display:block]"/>
+                <af_toolbarbutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[margin-bottom:0px,margin-top:0px,margin-left:0px,margin-right:0.5rem,border-style:outset,border-top-width:0px,border-left-width:0px,border-bottom-width:0px,border-right-width:0px,border-color:#285e8e,font-size:14px,border-bottom-left-radius:0px,border-bottom-right-radius:0px,border-top-right-radius:0px,border-top-left-radius:0px,line-height:30px,addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot; .afToolbarButton&quot;\,&quot;properties&quot;:{&quot;float&quot;:&quot;none&quot;\,&quot;display&quot;:&quot;inline-block&quot;}}}},height:50px]"
+                    default_x0023_default_x0023_ui="[marginPopover:0px\, 0.5rem\, 0px\, 0px,marginLock:linkOff,paddingPopover:Set,paddingLock:link,borderWidthPopover:0px,borderWidthLock:link,borderRadiusPopover:0px,borderRadiusLock:link,float:none,display:inline-block]"
+                    default_x0023_hover="[cssOverride:cursor : pointer;&#xa;]"
+                    phone_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot; .afToolbarButton&quot;\,&quot;properties&quot;:{&quot;display&quot;:&quot;inline-block&quot;}}}},height:50px,margin-right:7px,font-size:13px]"
+                    phone_x0023_default_x0023_ui="[paddingPopover:Set,marginPopover:—\, 7px\, —\, —,marginLock:linkOff,display:inline-block]"
+                    tablet_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot; .afToolbarButton&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;24%.3%&quot;}}\,&quot;button&quot;:{&quot;cssSelector&quot;:&quot; .afToolbarButton button&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;100%&quot;}}}}]"
+                    tablet_x0023_default_x0023_ui="[width:24%]"/>
+                <af_radiobuttonwidgetandtext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[width:100%]"/>
+                <af_checkboxfieldwidgetandtext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[display:block,width:100%]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:Set]"/>
+                <af_textareawidgetandtext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[height:76px]"/>
+                <af_guideimage
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[height:auto,max-width:610px,max-height:100%,margin-right:auto,margin-left:auto,display:block,width:100%]"
+                    default_x0023_default_x0023_ui="[paddingPopover:Set,marginPopover:—\, auto\, —\, auto,marginLock:linkOff]"/>
+                <af_chart
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[height:100%,width:inherit,max-width:100%,max-height:100%]"/>
+                <af_toolbarbuttonicon
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[height:25px,width:25px,display:none,margin-top:0px,margin-bottom:0px,margin-right:Auto,margin-left:Auto]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:0px\, Auto\, 0px\, Auto]"
+                    phone_x0023_default="[display:block,height:0px]"/>
+                <af_accordionpanelheader
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active="[color:#fffafa,background:url(../assets/Down_Chev_Accordion@2x.png) 1rem 48% / 20px 13.33px no-repeat\,#2a60ae]"
+                    default_x0023_active_x0023_ui="[backgroundColor:#2a60ae,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1467370603236&quot;\,&quot;imageSrc&quot;:&quot;../assets/Down_Chev_Accordion@2x.png&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;20px&quot;\,&quot;height&quot;:&quot;13.33px&quot;\,&quot;position&quot;:&quot;custom&quot;\,&quot;x-position&quot;:&quot;1rem&quot;\,&quot;y-position&quot;:&quot;48%&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]},paddingPopover:Set,paddingLock:link]"
+                    default_x0023_default="[display:block,border-style:solid,border-top-width:0px,border-left-width:0px,border-bottom-width:0px,border-right-width:0px,border-color:#000000,padding-bottom:20px,padding-left:40px,padding-top:20px,padding-right:10px,font-size:16px,text-decoration:none,color:#fffafa,cursor:pointer,margin-left:0px,margin-right:0px,margin-top:0px,margin-bottom:10px,background:url(../assets/Up_Chev_Accordion@2x.png) 1rem 48% / 20px 13.33px no-repeat\,#132b4d]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1467916221189&quot;\,&quot;imageSrc&quot;:&quot;../assets/Up_Chev_Accordion@2x.png&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;20px&quot;\,&quot;height&quot;:&quot;13.33px&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;position&quot;:&quot;custom&quot;\,&quot;x-position&quot;:&quot;1rem&quot;\,&quot;y-position&quot;:&quot;48%&quot;}]},paddingPopover:20px\, 10px\, 20px\, 40px,paddingLock:linkOff,marginPopover:0px\, 0px\, 10px\, 0px,marginLock:linkOff,backgroundColor:#132b4d]"
+                    default_x0023_hover="[color:#fffafa]"
+                    default_x0023_stepped="[color:#fffafa]"/>
+                <af_accordionpaneladdbutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]}]"
+                    default_x0023_default="[border:none,width:25px,height:25px,background:url(../assets/Add_w@2x.png) left center / 20px 20px no-repeat,margin-right:5px]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1453966913379&quot;\,&quot;imageSrc&quot;:&quot;../assets/Add_w@2x.png&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;position&quot;:&quot;left center&quot;\,&quot;width&quot;:&quot;20px&quot;\,&quot;height&quot;:&quot;20px&quot;}]},marginPopover:—\, 5px\, —\, —,marginLock:linkOff]"
+                    default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]}]"/>
+                <af_accordionpanelremovebutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]}]"
+                    default_x0023_default="[border:none,width:25px,height:25px,background:url(../assets/Delete_w@2x.png) left center / 20px 20px no-repeat]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1453967268027&quot;\,&quot;imageSrc&quot;:&quot;../assets/Delete_w@2x.png&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;position&quot;:&quot;left center&quot;\,&quot;width&quot;:&quot;20px&quot;\,&quot;height&quot;:&quot;20px&quot;}]}]"
+                    default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]}]"/>
+                <af_tabsonleft
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default_x0023_ui="[borderWidthPopover:Set]"/>
+                <af_tabsonleftnavgrp1
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[margin-bottom:0px,margin-top:0px,margin-left:0px,margin-right:0px,padding-bottom:0px,padding-left:0px,padding-top:0px,padding-right:0px,list-style:none,cursor:pointer,overflow:hidden]"
+                    default_x0023_default_x0023_ui="[marginPopover:0px,marginLock:link,paddingPopover:0px,paddingLock:link,borderWidthPopover:Set,borderWidthLock:link,borderRadiusPopover:Set]"/>
+                <af_tabsonleftnavgrp1title
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active="[color:#17b28d,background:#0079C1,font-weight:bold]"
+                    default_x0023_active_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]},backgroundColor:#0079C1]"
+                    default_x0023_default="[font-size:16px,color:#FFFFFF,margin-bottom:0px,margin-top:0px,margin-left:0px,margin-right:0px,display:block,padding-bottom:1rem,padding-left:1rem,padding-top:1rem,padding-right:0.25rem,text-decoration:none,border-top-width:0px,border-left-width:0px,border-bottom-width:2px,border-right-width:0px,background:rgba(0\,0\,0\,0),font-weight:bold,cssOverride:box-sizing: content-box;&#xa;white-space:normal;&#xa;word-break: break-word;]"
+                    default_x0023_default_x0023_ui="[marginPopover:0px\, 0px\, 0px\, 0px,marginLock:linkOff,paddingPopover:1rem\, 0.25rem\, 1rem\, 1rem,paddingLock:linkOff,borderPopover:0px\, 0px\, 2px\, 0px,borderWidthLock:linkOff,backgroundContainer:{&quot;itemList&quot;:[]},backgroundColor:rgba(0\,0\,0\,0)]"
+                    default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]}]"/>
+                <af_wizardnavgrp
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[counter-reset:item,margin-bottom:10px,margin-top:0px,padding-bottom:0.5rem,padding-left:0.5rem,padding-top:0.5rem,padding-right:0.5rem,list-style-type:none,font-size:16px,overflow:hidden,white-space:nowrap,cursor:default,text-transform:uppercase]"
+                    default_x0023_default_x0023_ui="[marginPopover:0px\, —\, 10px\, —,marginLock:linkOff,paddingPopover:0.5rem\, 0.5rem\, 0.5rem\, 0.5rem,paddingLock:linkOff]"/>
+                <af_wizardnavitemtitle
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active="[color:#17b28d,beforePseudoElement:background-color: #17b28d;,min-height:1px]"
+                    default_x0023_active_x0023_ui="[borderWidthPopover:Set,borderWidthLock:linkOff,borderRadiusLock:link,borderRadiusPopover:Set]"
+                    default_x0023_default="[counter-increment:item,border-top-width:0px,border-left-width:0px,border-bottom-width:0px,border-right-width:0px,border-style:hidden,border-color:#000000,border-top-right-radius:0px,border-bottom-right-radius:0px,border-bottom-left-radius:0px,border-top-left-radius:0px,color:rgba(255\,250\,250\,0.6),font-size:0.875rem,text-transform:capitalize,width:100%,display:inline-block,position:relative,margin-right:4rem,beforePseudoElement:content: counter(item);&#xa;float: left;&#xa;bottom:0px;&#xa;border-width: 0px;&#xa;margin-right: 10px;&#xa;border-radius: 5px;&#xa;padding: 3px 8px;&#xa;color: #ffffff;&#xa;font-size: 12px;&#xa;background-color: #122a4e;&#xa;,cssOverride:text-decoration: none;&#xa;word-break: break-word;&#xa;overflow: hidden;&#xa;text-overflow:ellipsis ;]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,borderRadiusPopover:0px,borderRadiusLock:link,borderWidthPopover:0px,borderWidthLock:link,marginPopover:—\, 4rem\, —\, —,positionPopover:relative,paddingPopover:Set]"
+                    default_x0023_hover="[cssOverride:text-decoration: none;]"
+                    default_x0023_stepped="[color:rgba(255\,250\,250\,0.6)]"/>
+                <af_wizardtoolbarnextscroll
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[margin-top:8px,height:1.5rem,cursor:pointer,background:url(../assets/Right_ChevDisabled_Wizard@2x.png) center center / 0.80rem 1rem no-repeat]"
+                    default_x0023_default_x0023_ui="[marginPopover:8px\, —\, —\, —,marginLock:linkOff,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1453972035665&quot;\,&quot;imageSrc&quot;:&quot;../assets/Right_ChevDisabled_Wizard@2x.png&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;0.80rem&quot;\,&quot;height&quot;:&quot;1rem&quot;}]}]"
+                    default_x0023_hover="[background:url(../assets/Right_Chev_Wizard@2x.png) center center / 0.80rem 1rem no-repeat]"
+                    default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1467370035860&quot;\,&quot;imageSrc&quot;:&quot;../assets/Right_Chev_Wizard@2x.png&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;0.80rem&quot;\,&quot;height&quot;:&quot;1rem&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]}]"/>
+                <af_wizardtoolbarprevscroll
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[margin-top:10px,height:1.5rem,cursor:pointer,background:url(../assets/Left_ChevDisabled_Wizard@2x.png) center center / 0.80rem 1rem no-repeat,display:block]"
+                    default_x0023_default_x0023_ui="[marginPopover:10px\, —\, —\, —,marginLock:linkOff,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1453972080325&quot;\,&quot;imageSrc&quot;:&quot;../assets/Left_ChevDisabled_Wizard@2x.png&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;0.80rem&quot;\,&quot;height&quot;:&quot;1rem&quot;}]}]"
+                    default_x0023_hover="[background:url(../assets/Left_Chev_Wizard@2x.png) center center / 0.80rem 1rem no-repeat]"
+                    default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1467370119562&quot;\,&quot;imageSrc&quot;:&quot;../assets/Left_Chev_Wizard@2x.png&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;0.80rem&quot;\,&quot;height&quot;:&quot;1rem&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]}]"/>
+                <af_wizardpanelprevscroll
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[height:2.5rem,cursor:pointer,cssOverride:cursor : pointer;,background:url(../assets/Left_ChevButton@2x.png) center center / 2.5rem 2.5rem no-repeat,width:2.5rem,position:absolute,right:10%,margin-right:0.5rem,margin-top:4.25rem,float:right]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1453922631541&quot;\,&quot;imageSrc&quot;:&quot;../assets/Left_ChevButton@2x.png&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;2.5rem&quot;\,&quot;height&quot;:&quot;2.5rem&quot;}]},positionPopover:absolute,marginPopover:4.25rem\, 0.5rem\, —\, —,marginLock:linkOff,borderWidthPopover:Set,borderRadiusPopover:Set]"
+                    phone_x0023_default="[display:none]"/>
+                <af_wizardpanelnextscroll
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[height:2.5rem,cursor:pointer,cssOverride:cursor : pointer;,background:url(../assets/Right_ChevButton@2x.png) center center / 2.5rem 2.5rem no-repeat,width:2.5rem,float:right,position:absolute,right:2%,margin-right:1rem,margin-top:4.25rem]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1453922521891&quot;\,&quot;imageSrc&quot;:&quot;../assets/Right_ChevButton@2x.png&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;2.5rem&quot;\,&quot;height&quot;:&quot;2.5rem&quot;}]},positionPopover:absolute,marginPopover:4.25rem\, 1rem\, —\, —,marginLock:linkOff,borderWidthPopover:Set,borderRadiusPopover:Set]"
+                    phone_x0023_default="[display:none]"/>
+                <af_mobiletitlebar
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[color:rgb(255\,255\,255),display:none]"
+                    phone_x0023_default="[color:#ffffff,padding-bottom:0px,padding-left:0px,padding-top:0px,padding-right:0px,text-transform:uppercase,background:#00283c]"
+                    phone_x0023_default_x0023_ui="[paddingPopover:0px,paddingLock:link,backgroundColor:#00283c]"/>
+                <af_mobiletitlebartitle
+                    jcr:primaryType="nt:unstructured"
+                    phone_x0023_default="[float:left,padding-top:10px,padding-bottom:10px,padding-left:10px,color:#FFFFFF,cssOverride:white-space: nowrap;&#xa; overflow: hidden;&#xa; text-overflow: ellipsis;&#xa;,width:calc(100% - 5rem)]"
+                    phone_x0023_default_x0023_ui="[paddingPopover:10px\, —\, 10px\, 10px,paddingLock:linkOff]"/>
+                <af_mobiletitlebarnextnav
+                    jcr:primaryType="nt:unstructured"
+                    phone_x0023_default="[position:relative,display:inline-block,background:url(../assets/next.svg) center center / cover no-repeat,margin-left:10px,margin-bottom:0px,margin-top:8px,margin-right:0px,width:30px,height:30px,cssOverride:cursor : pointer;&#xa;]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1454240604557&quot;\,&quot;imageSrc&quot;:&quot;../assets/next.svg&quot;\,&quot;size&quot;:&quot;cover&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]},marginPopover:8px\, 0px\, 0px\, 10px]"
+                    smallScreen_x0023_default="[margin-top:10px]"
+                    smallScreen_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:Set,marginLock:linkOff,marginPopover:10px\, —\, —\, —]"/>
+                <af_mobiletitlebarprevnav
+                    jcr:primaryType="nt:unstructured"
+                    phone_x0023_default="[position:relative,display:inline-block,background:url(../assets/prev.svg) center center / cover no-repeat,margin-left:0px,margin-bottom:0px,margin-top:8px,margin-right:10px,width:30px,height:30px,cssOverride:cursor : pointer;&#xa;]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1454240604557&quot;\,&quot;imageSrc&quot;:&quot;../assets/prev.svg&quot;\,&quot;size&quot;:&quot;cover&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]},marginPopover:8px\, 10px\, 0px\, 0px]"
+                    smallScreen_x0023_default="[margin-top:10px]"
+                    smallScreen_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:Set,marginLock:linkOff,marginPopover:10px\, —\, —\, —]"/>
+                <af_mobilemenubutton
+                    jcr:primaryType="nt:unstructured"
+                    phone_x0023_default="[margin-bottom:13px,border:none,float:right,cursor:pointer,padding-top:0px,padding-right:0px,padding-bottom:0px,padding-left:0px,width:34px,height:30px,background:url(../assets/menu.svg) 10px 8px / cover no-repeat\,#d53058,display:none]"
+                    phone_x0023_default_x0023_ui="[marginPopover:—\, —\, 13px\, —,marginLock:linkOff,paddingPopover:0px,paddingLock:link,backgroundColor:#d53058,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1454232845918&quot;\,&quot;imageSrc&quot;:&quot;../assets/menu.svg&quot;\,&quot;size&quot;:&quot;cover&quot;\,&quot;position&quot;:&quot;custom&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;x-position&quot;:&quot;10px&quot;\,&quot;y-position&quot;:&quot;8px&quot;}]}]"
+                    phone_x0023_hover="[background:url(../assets/menu.svg) 10px 8px / cover no-repeat\,#c6264c]"
+                    phone_x0023_hover_x0023_ui="[backgroundColor:#c6264c,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1454232873068&quot;\,&quot;imageSrc&quot;:&quot;../assets/menu.svg&quot;\,&quot;size&quot;:&quot;cover&quot;\,&quot;position&quot;:&quot;custom&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;x-position&quot;:&quot;10px&quot;\,&quot;y-position&quot;:&quot;8px&quot;}]}]"/>
+                <af_numericstepperdecrementbutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[background:url(../assets/Minus.svg) center center / 0.75rem 0.75rem no-repeat\,#FFFFFF,width:2rem,height:2.5rem,top:0px,display:inline-block,float:left]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1452501163808&quot;\,&quot;imageSrc&quot;:&quot;../assets/Minus.svg&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;0.75rem&quot;\,&quot;height&quot;:&quot;0.75rem&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]},positionPopover:Set,paddingPopover:Set,paddingLock:link,marginPopover:Set,marginLock:link,backgroundColor:#FFFFFF]"/>
+                <af_numericstepperinput
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[top:0px,border-top-width:0px,border-left-width:0px,border-bottom-width:0px,border-right-width:0px,background:#FFFFFF,text-align:center,width:calc(100% - 4rem),height:2.5rem]"
+                    default_x0023_default_x0023_ui="[paddingLock:link,paddingPopover:Set,marginPopover:Set,marginLock:link,borderWidthPopover:0px,borderWidthLock:link,backgroundColor:#FFFFFF]"/>
+                <af_numericstepperincrementbutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[background:url(../assets/Plus.svg) center center / 0.75rem 0.75rem no-repeat,width:2rem,height:2.5rem,top:0px,display:inline-block,float:right]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1452501353410&quot;\,&quot;imageSrc&quot;:&quot;../assets/Plus.svg&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;width&quot;:&quot;0.75rem&quot;\,&quot;height&quot;:&quot;0.75rem&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]},positionPopover:Set,marginPopover:Set,marginLock:link,paddingLock:link,paddingPopover:Set]"/>
+                <af_formtitle
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[margin-bottom:0.8125rem,color:#ffffff,font-size:1.5rem,max-width:1140px]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, —\, 0.8125rem\, —]"
+                    phone_x0023_default="[margin-left:1rem,margin-bottom:0.5rem,margin-top:0.5rem,display:none]"
+                    phone_x0023_default_x0023_ui="[marginPopover:0.5rem\, —\, 0.5rem\, 1rem,marginLock:linkOff]"/>
+                <af_helpicon
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[display:inline-block,width:1rem,height:1rem,border-bottom-right-radius:9px,border-bottom-left-radius:9px,border-top-left-radius:9px,border-top-right-radius:9px,background:url(../assets/questionmark.svg) center center / cover no-repeat\,#007fa2,cssOverride:cursor : pointer;&#xa;,position:absolute,top:18px,right:2%]"
+                    default_x0023_default_x0023_ui="[borderRadiusPopover:9px,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1453643419962&quot;\,&quot;imageSrc&quot;:&quot;../assets/questionmark.svg&quot;\,&quot;size&quot;:&quot;cover&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;position&quot;:&quot;center center&quot;}]},backgroundColor:#007fa2,positionPopover:absolute]"
+                    default_x0023_hover="[background:url(../assets/questionmark.svg) left top / cover no-repeat\,#016e8f]"
+                    default_x0023_hover_x0023_ui="[backgroundColor:#016e8f,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1454170474665&quot;\,&quot;imageSrc&quot;:&quot;../assets/questionmark.svg&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;size&quot;:&quot;cover&quot;}]}]"
+                    phone_x0023_default="[display:inline-block]"
+                    phone_x0023_default_x0023_ui="[positionPopover:Set]"
+                    smallScreen_x0023_default="[top:10px,position:absolute,right:2%]"
+                    smallScreen_x0023_default_x0023_ui="[positionPopover:absolute]"/>
+                <af_wizardnavitemprogressindicator
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active="[cssOverride:border-bottom-color : #0079c1;,display:none]"
+                    default_x0023_default="[width:0px,height:0px,border-style:solid,border-bottom-right-radius:0px,border-bottom-left-radius:0px,border-top-right-radius:0px,border-top-left-radius:0px,margin-top:0px,z-index:20,cssOverride:border-bottom-color : #999999;,border-left-width:8px,border-bottom-width:8px,border-right-width:8px,border-top-width:8px,border-color:rgba(255\,255\,255\,0),display:none,margin-left:0px,margin-bottom:0px,margin-right:0px]"
+                    default_x0023_default_x0023_ui="[borderWidthLock:link,borderRadiusPopover:0px,marginLock:link,borderWidthPopover:8px,marginPopover:0px,paddingPopover:Set]"
+                    default_x0023_stepped="[cssOverride:border-bottom-color : #02874e;,display:none]"/>
+                <af_wizardnavitemprogressbar
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active="[background:#17b28d]"
+                    default_x0023_active_x0023_ui="[backgroundColor:#17b28d]"
+                    default_x0023_default="[border-bottom-left-radius:0px,border-top-right-radius:0px,border-top-left-radius:0px,border-bottom-right-radius:0px,background:#999999,display:block,margin-top:9px,margin-right:3px,margin-bottom:0px,height:3px]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,borderRadiusPopover:0px,backgroundColor:#999999,marginPopover:9px\, 3px\, 0px\, —]"/>
+                <af_tableaddbutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[background:url(../assets/Add@2x.png) center center / cover no-repeat,width:1.5rem,height:1.5rem,cssOverride:cursor : pointer;&#xa;,margin-top:1rem,display:inline-block,margin-right:0.5rem]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1454172256767&quot;\,&quot;imageSrc&quot;:&quot;../assets/Add@2x.png&quot;\,&quot;size&quot;:&quot;cover&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]},marginLock:linkOff,marginPopover:1rem\, 0.5rem\, —\, —]"/>
+                <af_tableremovebutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[background:url(../assets/Delete@2x.png) center center / cover no-repeat,width:1.5rem,height:1.5rem,cssOverride:cursor : pointer;&#xa;,margin-top:1rem,display:inline-block,margin-right:0.5rem]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1454172256769&quot;\,&quot;imageSrc&quot;:&quot;../assets/Delete@2x.png&quot;\,&quot;size&quot;:&quot;cover&quot;\,&quot;position&quot;:&quot;center center&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]},marginLock:linkOff,marginPopover:1rem\, 0.5rem\, —\, —]"/>
+                <af_tableeditbutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[display:inline-block,width:20px,height:24px,cssOverride:cursor : pointer;&#xa;,background:url(../assets/table-edit.png) left top / cover no-repeat]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1454174080458&quot;\,&quot;imageSrc&quot;:&quot;../assets/table-edit.png&quot;\,&quot;size&quot;:&quot;cover&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]}]"/>
+                <af_tooltip
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[background:rgba(0\,0\,0\,0.8),max-width:350px,padding-left:8px,padding-bottom:3px,padding-right:8px,padding-top:3px,color:#FFFFFF,text-align:center,cssOverride:text-decoration: none;&#xa;white-space: normal;&#xa;word-break: break-word;&#xa;word-wrap: break-word;,border-bottom-right-radius:4px,border-bottom-left-radius:4px,border-top-right-radius:4px,border-top-left-radius:4px,width:auto]"
+                    default_x0023_default_x0023_ui="[backgroundColor:rgba(0\,0\,0\,0.8),paddingPopover:3px\, 8px\, 3px\, 8px,paddingLock:linkOff,borderRadiusPopover:4px]"/>
+                <af_fielderrormessage
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[padding-top:0.25rem,margin-left:0px,margin-bottom:0px,margin-top:0px,padding-bottom:0.25rem,padding-left:0.25rem,padding-right:0px]"
+                    default_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:0.25rem\, 0px\, 0.25rem\, 0.25rem,backgroundContainer:{&quot;itemList&quot;:[]},marginLock:linkOff,marginPopover:0px\, —\, 0px\, 0px]"/>
+                <af_toolbar
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[text-align:center,padding-top:0.125rem,padding-bottom:0.125rem,margin-top:1.5rem,margin-bottom:1.5rem]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,positionPopover:Set,marginPopover:1.5rem\, —\, 1.5rem\, —,paddingPopover:0.125rem\, —\, 0.125rem\, —,paddingLock:linkOff]"
+                    phone_x0023_default="[background:#013853,position:fixed,bottom:0px,width:100%,left:0%,padding-bottom:0px,margin-bottom:0px]"
+                    phone_x0023_default_x0023_ui="[backgroundColor:#013853,positionPopover:fixed,marginLock:linkOff,paddingLock:linkOff,paddingPopover:—\, —\, 0px\, —,marginPopover:—\, —\, 0px\, —]"
+                    smallScreen_x0023_default_x0023_ui="[positionPopover:Set]"/>
+                <af_toolbarbuttontext jcr:primaryType="nt:unstructured"/>
+                <af_fielddescriptionlong
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[margin-left:0px,margin-bottom:5px,margin-right:0px,margin-top:5px,clear:both,border-bottom-right-radius:0px,border-bottom-left-radius:0px,border-top-right-radius:0px,border-top-left-radius:0px,display:none,padding-left:0px,padding-right:0px,border-color:#17b28d,border-left-width:3px,border-bottom-width:0px,border-right-width:0px,border-top-width:0px,cssOverride:transition: all 2s;,background:rgba(238\,238\,238\,0),width:100%,font-size:14px,color:rgba(255\,250\,250\,0.8),min-width:-1px]"
+                    default_x0023_default_x0023_ui="[marginPopover:5px\, 0px\, 5px\, 0px,borderRadiusPopover:0px\, 0px\, 0px\, 0px,borderRadiusLock:linkOff,paddingLock:linkOff,borderWidthPopover:0px\, 0px\, 0px\, 3px,borderWidthLock:linkOff,marginLock:linkOff,backgroundColor:rgba(238\,238\,238\,0),paddingPopover:—\, 0px\, —\, 0px]"
+                    phone_x0023_default="[padding-right:0px,padding-left:0px]"
+                    phone_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:—\, 0px\, —\, 0px]"/>
+                <af_field
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[margin-bottom:5px,margin-top:5px,width:100%,max-width:610px,margin-right:auto,margin-left:auto,padding-right:5px,padding-left:5px,padding-top:5px]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:5px\, auto\, 5px\, auto,paddingPopover:5px\, 5px\, —\, 5px,paddingLock:linkOff]"
+                    default_x0023_error="[color:#d9534f]"/>
+                <af_mobilescrollindicator
+                    jcr:primaryType="nt:unstructured"
+                    phone_x0023_default="[display:none,z-index:55,position:fixed,bottom:20px,right:0px,width:50px,height:50px,background:url(../assets/more-arrow.png) left top no-repeat]"
+                    phone_x0023_default_x0023_ui="[positionPopover:fixed,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1454264518458&quot;\,&quot;imageSrc&quot;:&quot;../assets/more-arrow.png&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;}]}]"/>
+                <af_mobilemenu
+                    jcr:primaryType="nt:unstructured"
+                    phone_x0023_default="[background:#f1f1f1,cssOverride:list-style: none;&#xa;cursor: pointer;&#xa;overflow: hidden,padding-left:0px,padding-bottom:0px,padding-top:0px,padding-right:0px,margin-left:0px,margin-bottom:0px,margin-top:0px,margin-right:0px]"
+                    phone_x0023_default_x0023_ui="[backgroundColor:#f1f1f1,paddingPopover:0px,marginPopover:0px]"/>
+                <af_mobilemenuitem
+                    jcr:primaryType="nt:unstructured"
+                    phone_x0023_active="[background:#007fa2,color:#FFFFFF]"
+                    phone_x0023_active_x0023_ui="[backgroundColor:#007fa2]"
+                    phone_x0023_default="[color:#3d3d3d,background:#f1f1f1,font-size:16px,padding-left:30px,width:100%,margin-left:0px,margin-bottom:2px,margin-top:0px,margin-right:0px,padding-right:16px,padding-top:10px,padding-bottom:10px,cssOverride:text-decoration: none;]"
+                    phone_x0023_default_x0023_ui="[backgroundColor:#f1f1f1,paddingLock:linkOff,paddingPopover:10px\, 16px\, 10px\, 30px,marginPopover:0px\, 0px\, 2px\, 0px,marginLock:linkOff]"
+                    phone_x0023_disabled="[opacity:0.5]"/>
+                <af_tabsonleftnavgrp2title
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active="[background:url(../assets/arrow-blue.png) 96% 50% no-repeat,border-left-width:0px,border-bottom-width:0px,border-right-width:0px,border-top-width:0px]"
+                    default_x0023_active_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1454335252676&quot;\,&quot;imageSrc&quot;:&quot;../assets/arrow-blue.png&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;position&quot;:&quot;custom&quot;\,&quot;x-position&quot;:&quot;96%&quot;\,&quot;y-position&quot;:&quot;50%&quot;}]},borderWidthPopover:0px,paddingPopover:Set,paddingLock:linkOff]"
+                    default_x0023_default="[padding-left:34px]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]},paddingPopover:—\, —\, —\, 34px,paddingLock:linkOff]"
+                    default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]}]"/>
+                <af_page
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[font-family:Arial,line-height:1.42857143,height:100%,margin-left:0px,margin-bottom:0px,margin-right:0px,margin-top:0px,background:linear-gradient(180deg\,#294d7e\,#296d80)]"
+                    default_x0023_default_x0023_ui="[marginPopover:0px,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;gradient.1469181950980&quot;\,&quot;color2&quot;:&quot;#296d80&quot;\,&quot;color1&quot;:&quot;#294d7e&quot;\,&quot;angle&quot;:&quot;180deg&quot;}]}]"
+                    phone_x0023_default="[background:#1A3A65]"
+                    phone_x0023_default_x0023_ui="[backgroundColor:#1A3A65,backgroundContainer:{&quot;itemList&quot;:[]}]"/>
+                <af_switchwidgetandtext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot; .guideCheckBoxGroupItems.guideSwitch&quot;\,&quot;properties&quot;:{&quot;display&quot;:&quot;inline-block&quot;\,&quot;position&quot;:&quot;relative&quot;}}}},padding-top:0px,padding-bottom:0px,height:24px,border-top-left-radius:4px,border-bottom-left-radius:4px,border-bottom-right-radius:4px,border-top-right-radius:4px]"
+                    default_x0023_default_x0023_ui="[display:inline-block,paddingPopover:0px\, —\, 0px\, —,paddingLock:linkOff,marginPopover:Set,marginLock:linkOff,positionPopover:relative,position:relative,borderWidthPopover:Set,borderRadiusPopover:4px]"
+                    default_x0023_unchecked="[padding-right:0px]"
+                    default_x0023_unchecked_x0023_ui="[paddingLock:linkOff,paddingPopover:—\, 0px\, —\, —]"/>
+                <af_tnccontent
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[background:rgba(255\,250\,250\,0.8),overflow:scroll,border-style:solid,border-top-width:1px,border-left-width:1px,border-bottom-width:1px,border-right-width:1px,border-color:#cde0ec,padding-left:20px,padding-bottom:0px,padding-right:20px,padding-top:20px,color:#555555,font-size:14px,font-weight:normal,height:640px,position:relative,text-align:justify]"
+                    default_x0023_default_x0023_ui="[backgroundColor:rgba(255\,250\,250\,0.8),borderWidthPopover:1px,borderWidthLock:link,marginLock:linkOff,paddingPopover:20px\, 20px\, 0px\, 20px,paddingLock:linkOff,marginPopover:Set,positionPopover:relative]"/>
+                <af_tncpopupcontent
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[margin-left:20px,margin-bottom:20px,margin-right:20px,margin-top:20px]"
+                    default_x0023_default_x0023_ui="[marginPopover:20px]"/>
+                <af_tncconsentcheckbox
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[width:13px,margin-left:10px,margin-right:10px,margin-top:2px]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:2px\, 10px\, —\, 10px]"/>
+                <af_fieldhelpicon
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default_x0023_ui="[marginLock:link,marginPopover:Set,positionPopover:Set]"
+                    phone_x0023_default_x0023_ui="[positionPopover:Set]"/>
+                <af_tncwidgetandtext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[border-left-width:0px,border-bottom-width:0px,border-right-width:0px,border-top-width:0px]"
+                    default_x0023_default_x0023_ui="[borderWidthPopover:0px]"/>
+                <af_tabsontopnavgrp1
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[margin-bottom:12px,background:rgba(241\,241\,241\,0),cssOverride:list-style: none;,overflow:hidden,border-top-width:0px,border-bottom-width:2px,border-right-width:0px,border-left-width:0px,border-style:solid,border-color:#122a4e]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, —\, 12px\, —,backgroundColor:rgba(241\,241\,241\,0),borderWidthPopover:0px\, 0px\, 2px\, 0px,borderWidthLock:linkOff]"/>
+                <af_tabsontopnavgrp1title
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active="[background:rgba(0\,127\,162\,0),color:#17b28d,border-bottom-width:5px,border-style:solid,border-top-width:0px,border-right-width:0px,border-left-width:0px,border-color:#17b28d,border-bottom-right-radius:0px,border-top-right-radius:0px,border-top-left-radius:0px,border-bottom-left-radius:0px]"
+                    default_x0023_active_x0023_ui="[backgroundColor:rgba(0\,127\,162\,0),borderWidthLock:linkOff,borderWidthPopover:0px\, 0px\, 5px\, 0px,borderRadiusLock:link,borderRadiusPopover:0px]"
+                    default_x0023_default="[background:rgba(241\,241\,241\,0),color:rgba(255\,250\,250\,0.6),font-weight:bold,padding-right:0px,padding-left:0px,margin-left:0px,margin-right:3rem,padding-top:.75rem,padding-bottom:.75rem]"
+                    default_x0023_default_x0023_ui="[backgroundColor:rgba(241\,241\,241\,0),paddingLock:linkOff,paddingPopover:.75rem\, 0px\, .75rem\, 0px,marginLock:linkOff,marginPopover:—\, 3rem\, —\, 0px]"
+                    default_x0023_hover="[background:rgba(0\,127\,162\,0)]"
+                    default_x0023_hover_x0023_ui="[backgroundColor:rgba(0\,127\,162\,0)]"
+                    default_x0023_stepped="[background:rgba(241\,241\,241\,0)]"
+                    default_x0023_stepped_x0023_ui="[backgroundColor:rgba(241\,241\,241\,0)]"
+                    phone_x0023_active="[color:#fffafa,background:#214980,border-left-width:0px,border-bottom-width:0px,border-top-width:0px,border-right-width:0px]"
+                    phone_x0023_active_x0023_ui="[backgroundColor:#214980,borderWidthPopover:0px]"/>
+                <af_responsivepanel
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[padding-top:0.25rem,padding-right:0px,padding-left:0px,color:#666666]"
+                    default_x0023_default_x0023_ui="[paddingPopover:0.25rem\, 0px\, —\, 0px,marginLock:linkOff,marginPopover:Set,paddingLock:linkOff]"
+                    phone_x0023_default="[padding-top:0.5rem,padding-right:0px,padding-left:0px]"
+                    phone_x0023_default_x0023_ui="[paddingPopover:0.5rem\, 0px\, —\, 0px,paddingLock:linkOff]"/>
+                <af_tnccheckboxlabel
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[padding-left:10px,color:#555555]"
+                    default_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:—\, —\, —\, 10px]"/>
+                <af_form
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[cssOverride:&#xa;]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]},marginLock:linkOff,paddingLock:linkOff,positionPopover:Set,paddingPopover:Set,marginPopover:Set]"
+                    phone_x0023_default="[margin-bottom:70px]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,paddingLock:linkOff,marginPopover:—\, —\, 70px\, —,paddingPopover:Set]"/>
+                <af_dropdownlistwidgetandtext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[height:38px]"
+                    default_x0023_default_x0023_ui="[width:100%]"/>
+                <af_wizard
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[padding-top:0.5rem]"
+                    default_x0023_default_x0023_ui="[marginPopover:Set,paddingPopover:0.5rem\, —\, —\, —,marginLock:linkOff,paddingLock:linkOff,borderWidthPopover:Set]"/>
+                <af_accordionpaneltitle
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_active="[color:#fffafa]"
+                    default_x0023_default="[color:#fffafa,font-weight:normal,font-size:16px,padding-left:10px]"
+                    default_x0023_default_x0023_ui="[paddingPopover:—\, —\, —\, 10px,paddingLock:linkOff]"
+                    default_x0023_hover="[color:#fffafa]"
+                    default_x0023_stepped="[color:#fffafa]"/>
+                <af_accordionpanel
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[padding-top:10px,padding-bottom:10px,padding-right:5px,padding-left:5px]"
+                    default_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:10px\, 5px\, 10px\, 5px]"
+                    phone_x0023_default="[padding-top:0.5rem,padding-bottom:0.5rem,padding-left:0.5rem,padding-right:0.5rem]"
+                    phone_x0023_default_x0023_ui="[paddingLock:link,paddingPopover:0.5rem]"/>
+                <af_accordionpaneldescription
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[color:#FFFFFF,margin-bottom:10px,padding-bottom:5px,padding-left:5px,padding-right:5px,padding-top:5px,font-size:1.25rem,font-weight:normal,letter-spacing:-0.2px]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, —\, 10px\, —,paddingLock:linkOff,paddingPopover:5px\, 5px\, 5px\, 5px]"/>
+                <af_responsivepaneldescription
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[color:#FFFFFF,margin-right:auto,margin-left:auto,margin-bottom:1.5rem,font-size:1.25rem,max-width:610px]"
+                    default_x0023_default_x0023_ui="[paddingLock:link,paddingPopover:Set,marginLock:linkOff,marginPopover:—\, auto\, 1.5rem\, auto]"
+                    phone_x0023_default="[padding-right:0.5rem,padding-left:0.5rem]"
+                    phone_x0023_default_x0023_ui="[paddingPopover:—\, 0.5rem\, —\, 0.5rem,paddingLock:linkOff]"/>
+                <af_separator
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[border-left-width:0px,border-right-width:0px,border-top-width:0px,border-bottom-width:2px,border-style:solid,border-bottom-right-radius:0px,border-bottom-left-radius:0px,border-top-right-radius:0px,border-top-left-radius:0px,color:#132b4d,margin-top:10px,margin-bottom:10px,cssOverride:border-bottom-width:2px !important;,margin-right:auto,margin-left:auto,max-width:610px]"
+                    default_x0023_default_x0023_ui="[borderWidthPopover:0px\, 0px\, 2px\, 0px,borderWidthLock:linkOff,borderRadiusPopover:0px,marginLock:linkOff,marginPopover:10px\, auto\, 10px\, auto]"/>
+                <af_fileuploadfieldwidgetandtext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot; .guideFieldWidget.afFileUpload&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;auto&quot;}}\,&quot;button&quot;:{&quot;cssSelector&quot;:&quot; .guideFieldWidget.afFileUpload button&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;100%&quot;}}}},text-align:left,padding-top:15px,padding-bottom:15px,padding-left:50px,border-bottom-right-radius:0px,border-bottom-left-radius:0px,border-top-right-radius:0px,border-top-left-radius:0px,cssOverride:width:100%;,overflow:hidden,background:url(../assets/1455253799707.png) -12px -1698px / 246px 1909px no-repeat\,#17b28d]"
+                    default_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:15px\, —\, 15px\, 50px,borderRadiusPopover:0px,marginLock:linkOff,marginPopover:Set,width:auto,backgroundColor:#17b28d,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1461928043196&quot;\,&quot;imageSrc&quot;:&quot;../assets/1455253799707.png&quot;\,&quot;size&quot;:&quot;custom&quot;\,&quot;position&quot;:&quot;custom&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;width&quot;:&quot;246px&quot;\,&quot;height&quot;:&quot;1909px&quot;\,&quot;x-position&quot;:&quot;-12px&quot;\,&quot;y-position&quot;:&quot;-1698px&quot;}]}]"/>
+                <af_nextitemnavbuttontext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[line-height:30px,text-align:right]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]}]"/>
+                <af_nextitemnavbutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[line-height:30px,addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guidebutton.nextitemnav&quot;\,&quot;properties&quot;:{&quot;float&quot;:&quot;none&quot;\,&quot;right&quot;:&quot;-1px&quot;}}}},text-align:center,color:#FFFFFF,background:#17b28d]"
+                    default_x0023_default_x0023_ui="[right:-1px,positionPopover:Set,float:none,backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1457950063467&quot;\,&quot;imageSrc&quot;:&quot;&quot;}]},backgroundColor:#17b28d]"
+                    phone_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guidebutton.nextitemnav&quot;\,&quot;properties&quot;:{}}}}]"
+                    tablet_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guidebutton.nextitemnav&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;100%&quot;}}\,&quot;button&quot;:{&quot;cssSelector&quot;:&quot;.guidebutton.nextitemnav button&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;100%&quot;}}}}]"
+                    tablet_x0023_default_x0023_ui="[width:100%]"/>
+                <af_previtemnavbutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[background:#ffffff,line-height:30px,addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guidebutton.previtemnav&quot;\,&quot;properties&quot;:{}}}},text-align:center,z-index:1,color:#b2b2b2]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]},backgroundColor:#ffffff]"
+                    phone_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guidebutton.previtemnav&quot;\,&quot;properties&quot;:{}}}}]"
+                    tablet_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guidebutton.previtemnav&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;100%&quot;}}\,&quot;button&quot;:{&quot;cssSelector&quot;:&quot;.guidebutton.previtemnav button&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;100%&quot;}}}}]"
+                    tablet_x0023_default_x0023_ui="[width:100%]"/>
+                <af_previtemnavbuttontext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[color:#707070,text-align:left,display:inline-block]"/>
+                <af_savebutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guidebutton.saveGuideDraft&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;339px&quot;}}}},color:#808080,background:#ffffff]"
+                    default_x0023_default_x0023_ui="[backgroundColor:#ffffff,width:339px]"
+                    phone_x0023_default="[]"
+                    phone_x0023_default_x0023_ui="[marginLock:link,marginPopover:Set]"
+                    smallScreen_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guidebutton.saveGuideDraft&quot;\,&quot;properties&quot;:{}}}}]"
+                    tablet_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guidebutton.saveGuideDraft&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;100%&quot;}}\,&quot;button&quot;:{&quot;cssSelector&quot;:&quot;.guidebutton.saveGuideDraft button&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;100%&quot;}}}}]"
+                    tablet_x0023_default_x0023_ui="[width:100%]"/>
+                <af_savebuttontext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[display:inline-block,color:#707070,line-height:30px,text-align:center]"/>
+                <af_radiobuttonitem
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_checked="[background:#0079C1,cssOverride:background-size: cover;]"
+                    default_x0023_checked_x0023_ui="[backgroundColor:#0079C1]"
+                    default_x0023_default="[font-size:14px,padding-left:5px,padding-bottom:10px,padding-right:5px,padding-top:10px,margin-top:5px,margin-bottom:5px,margin-right:5px,margin-left:5px,cssOverride:cursor:pointer;&#xa;,color:#FFFFFF,background:#132b4d]"
+                    default_x0023_default_x0023_ui="[paddingPopover:10px\, 5px\, 10px\, 5px,marginPopover:5px\, 5px\, 5px\, 5px,paddingLock:linkOff,marginLock:linkOff,backgroundColor:#132b4d]"/>
+                <af_radiobuttonitemlabel
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[font-size:14px,margin-bottom:5px,addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot; .guideRadioButtonItem .guideWidgetLabel&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;98%&quot;\,&quot;display&quot;:&quot;inline&quot;}}}},padding-top:10px,padding-bottom:10px,padding-right:10px,height:auto,padding-left:0px]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,display:inline-block,width:98%,marginPopover:—\, —\, 5px\, —,paddingLock:linkOff,paddingPopover:10px\, 10px\, 10px\, 0px]"/>
+                <af_accordionpanelcontentarea
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[padding-top:0px,padding-bottom:5px,padding-right:5px,padding-left:5px,display:block,margin-bottom:10px]"
+                    default_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:0px\, 5px\, 5px\, 5px,marginLock:linkOff,marginPopover:—\, —\, 10px\, —]"
+                    phone_x0023_default="[padding-top:0.5rem,padding-bottom:0.5rem,padding-left:0.5rem,padding-right:0.5rem]"
+                    phone_x0023_default_x0023_ui="[paddingPopover:0.5rem]"/>
+                <af_textboxwidgetandtext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[border-bottom-right-radius:4px,border-bottom-left-radius:4px,border-top-right-radius:4px,border-top-left-radius:4px]"
+                    default_x0023_default_x0023_ui="[borderRadiusPopover:4px]"/>
+                <af_button
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guidebutton&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;auto&quot;\,&quot;min-width&quot;:&quot;100px&quot;\,&quot;display&quot;:&quot;inline-block&quot;}}\,&quot;button&quot;:{&quot;cssSelector&quot;:&quot;.guidebutton button&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;100%&quot;}}}},padding-left:16px,color:#FFFFFF,padding-bottom:10px,padding-top:10px,background:#17b28d,height:50px,padding-right:16px,font-size:14px,font-weight:normal,text-align:center,border-style:hidden,min-width:100px]"
+                    default_x0023_default_x0023_ui="[paddingLock:linkOff,display:inline-block,paddingPopover:10px\, 16px\, 10px\, 16px,backgroundColor:#17b28d,width:auto,marginPopover:Set,marginLock:linkOff]"
+                    phone_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guidebutton&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;121px&quot;\,&quot;min-width&quot;:&quot;60px&quot;}}\,&quot;button&quot;:{&quot;cssSelector&quot;:&quot;.guidebutton button&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;100%&quot;}}}},min-width:60px,padding-right:8px,padding-left:8px,padding-top:10px,padding-bottom:10px]"
+                    phone_x0023_default_x0023_ui="[paddingPopover:10px\, 8px\, 10px\, 8px,paddingLock:linkOff,width:121px]"/>
+                <af_textdraw
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[margin-right:auto,margin-left:auto,max-width:610px,font-size:16px,margin-bottom:0px,display:block,color:#ffffff]"
+                    default_x0023_default_x0023_ui="[marginPopover:—\, auto\, 0px\, auto,marginLock:linkOff,paddingPopover:Set,paddingLock:linkOff,borderWidthPopover:Set,borderWidthLock:link]"/>
+                <af_checkboxitem
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_checked_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]},paddingLock:link,marginLock:link,borderRadiusLock:link,borderRadiusPopover:Set,positionPopover:Set,paddingPopover:Set,marginPopover:Set]"
+                    default_x0023_default="[cssOverride:cursor:pointer;]"
+                    default_x0023_default_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]},marginPopover:Set,paddingPopover:Set,paddingLock:link,borderRadiusPopover:Set,borderRadiusLock:link,positionPopover:Set,marginLock:link]"/>
+                <af_checkboxlabel
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot; .guideCheckBoxItem .guideWidgetLabel&quot;\,&quot;properties&quot;:{&quot;display&quot;:&quot;inline&quot;}}}},margin-right:1.5rem]"
+                    default_x0023_default_x0023_ui="[display:inline-block,positionPopover:Set,marginPopover:—\, 1.5rem\, —\, —,marginLock:linkOff]"/>
+                <af_checkboxwidgetandtext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[cssOverride:visibility: none;,width:15px,height:15px,float:none]"
+                    default_x0023_default_x0023_ui="[paddingPopover:Set]"/>
+                <af_tablerow
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:Set]"/>
+                <af_radiobuttonwidget
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[display:none]"/>
+                <af_tabsontopnavgrp2
+                    jcr:primaryType="nt:unstructured"
+                    phone_x0023_default="[color:#17b28d]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,paddingPopover:Set,marginPopover:Set]"/>
+                <af_tabsontopnavgrp2title
+                    jcr:primaryType="nt:unstructured"
+                    phone_x0023_active="[color:#17b28d,border-right-width:0px,border-bottom-width:5px,border-left-width:0px,border-top-width:0px,border-color:#17b28d,border-style:solid,background:#1a3a65]"
+                    phone_x0023_active_x0023_ui="[borderWidthLock:linkOff,borderWidthPopover:0px\, 0px\, 5px\, 0px,backgroundColor:#1a3a65]"
+                    phone_x0023_default="[color:#17b28d,background:#1a3a65]"
+                    phone_x0023_default_x0023_ui="[backgroundColor:#1a3a65]"/>
+                <af_attachmentlistingbutton
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guidebutton.fileattachmentlisting&quot;\,&quot;properties&quot;:{&quot;max-width&quot;:&quot;610px&quot;\,&quot;float&quot;:&quot;none&quot;\,&quot;display&quot;:&quot;inline-block&quot;}}}},margin-right:auto,margin-left:auto,margin-bottom:0px,margin-top:0px,max-width:610px]"
+                    default_x0023_default_x0023_ui="[display:inline-block,marginPopover:0px\, auto\, 0px\, auto,marginLock:linkOff,float:none]"
+                    phone_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guidebutton.fileattachmentlisting&quot;\,&quot;properties&quot;:{}}}}]"
+                    tablet_x0023_default="[]"
+                    tablet_x0023_default_x0023_ui="[]"/>
+                <af_wizardcontentarea
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[padding-top:1rem,padding-right:3.5rem,padding-bottom:4rem,padding-left:16%]"
+                    default_x0023_default_x0023_ui="[marginPopover:Set,marginLock:linkOff,paddingPopover:1rem\, 3.5rem\, 4rem\, 16%,paddingLock:linkOff]"
+                    phone_x0023_default="[padding-top:0.5rem,padding-bottom:0.5rem,padding-left:0.5rem,padding-right:0.5rem]"
+                    phone_x0023_default_x0023_ui="[paddingPopover:0.5rem]"/>
+                <af_tabsonleftcontentarea
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[padding-right:3.5rem,padding-left:3.5rem,padding-bottom:1rem]"
+                    default_x0023_default_x0023_ui="[paddingPopover:—\, 3.5rem\, 1rem\, 3.5rem,paddingLock:linkOff,borderWidthPopover:Set]"
+                    phone_x0023_default="[padding-top:0.5rem,padding-bottom:0.5rem,padding-left:0.5rem,padding-right:0.5rem]"
+                    phone_x0023_default_x0023_ui="[paddingPopover:0.5rem]"/>
+                <af_tabsontopcontentarea
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[padding-top:1rem,padding-right:3rem,padding-bottom:1rem,padding-left:5.3rem]"
+                    default_x0023_default_x0023_ui="[paddingPopover:1rem\, 3rem\, 1rem\, 5.3rem,paddingLock:linkOff]"
+                    phone_x0023_default="[padding-top:0.5rem,padding-bottom:0.5rem,padding-left:0.5rem,padding-right:0.5rem]"
+                    phone_x0023_default_x0023_ui="[paddingPopover:0.5rem]"/>
+                <af_scribblewidgetandtext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_empty="[background:url(../assets/signature.png) left top no-repeat\,#ffffff]"
+                    default_x0023_empty_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;image.1467233309171&quot;\,&quot;imageSrc&quot;:&quot;../assets/signature.png&quot;\,&quot;tiling&quot;:&quot;no-repeat&quot;\,&quot;size&quot;:&quot;&quot;\,&quot;position&quot;:&quot;left top&quot;}]},backgroundColor:#ffffff]"/>
+                <af_numericstepperwidgetandtext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot; .guideFieldWidget.numericInput&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;100%&quot;\,&quot;max-width&quot;:&quot;154px&quot;}}}},max-width:154px]"
+                    default_x0023_default_x0023_ui="[borderRadiusPopover:Set,width:100%]"/>
+                <af_monthinput
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[width:3.625rem]"/>
+                <af_dayinput
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[width:3.625rem]"/>
+                <af_yearinput
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[width:3.625rem]"/>
+                <af_numericboxwidgetandtext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot; .guideFieldWidget.numericInput&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;100%&quot;\,&quot;max-width&quot;:&quot;610px&quot;}}}},max-width:610px]"
+                    default_x0023_default_x0023_ui="[width:100%]"/>
+                <af_table
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[max-width:610px,margin-right:auto,margin-left:auto]"
+                    default_x0023_default_x0023_ui="[marginPopover:—\, auto\, —\, auto,paddingPopover:Set,paddingLock:linkOff,marginLock:linkOff]"/>
+                <af_tableheadercell
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[color:#ffffff,font-size:14px,height:3rem,font-weight:bold,text-align:center]"
+                    default_x0023_default_x0023_ui="[paddingPopover:Set,paddingLock:linkOff]"/>
+                <af_tablecell
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[font-size:15px,text-align:left,padding-left:2%,opacity:0.90,background:#fafafa,box-shadow:0px 0px 1px 0px rgba(0\,0\,0\,0.3)]"
+                    default_x0023_default_x0023_ui="[paddingPopover:—\, —\, —\, 2%,paddingLock:linkOff,shadowContainer:{&quot;itemList&quot;:[{&quot;id&quot;:&quot;shadow.1467602868739&quot;\,&quot;shadowHorizontal&quot;:&quot;0px&quot;\,&quot;shadowVertical&quot;:&quot;0px&quot;\,&quot;shadowBlur&quot;:&quot;1px&quot;\,&quot;shadowSpread&quot;:&quot;0px&quot;\,&quot;shadowColor&quot;:&quot;rgba(0\,0\,0\,0.3)&quot;}]},backgroundColor:#fafafa]"/>
+                <af_tabledescription
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[margin-right:auto,margin-left:auto,color:#ffffff,max-width:610px,margin-bottom:4px,padding-left:0.5%]"
+                    default_x0023_default_x0023_ui="[marginPopover:—\, auto\, 4px\, auto,marginLock:linkOff,paddingPopover:—\, —\, —\, 0.5%,paddingLock:linkOff]"/>
+                <af_tableheaderrow
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[color:#333333]"
+                    default_x0023_default_x0023_ui="[borderWidthPopover:Set,borderWidthLock:link,borderRadiusPopover:Set]"/>
+                <af_switchhandle
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[display:block,margin-top:0px,margin-bottom:0px,margin-left:0px,margin-right:0px,width:22px,height:22px,border-top-left-radius:2px,border-bottom-left-radius:2px,border-bottom-right-radius:2px,border-top-right-radius:2px,padding-top:5px,position:absolute]"
+                    default_x0023_default_x0023_ui="[marginPopover:0px,positionPopover:absolute,borderRadiusPopover:2px,borderWidthPopover:Set,paddingPopover:5px\, —\, —\, —,paddingLock:linkOff]"/>
+                <af_switchonlabel
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[background:#17b28d,border-top-left-radius:4px,border-bottom-left-radius:4px,border-bottom-right-radius:4px,border-top-right-radius:4px,letter-spacing:-0.2px,font-size:15px,font-weight:normal,color:#ffffff,text-transform:capitalize,padding-left:3px]"
+                    default_x0023_default_x0023_ui="[backgroundColor:#17b28d,borderRadiusPopover:4px,paddingPopover:—\, —\, —\, 3px,paddingLock:linkOff]"/>
+                <af_switchofflabel
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[background:#cacaca,border-top-left-radius:4px,border-bottom-left-radius:4px,border-bottom-right-radius:4px,border-top-right-radius:4px,color:#707070,font-weight:normal,font-size:15px,letter-spacing:-0.2px,text-transform:capitalize]"
+                    default_x0023_default_x0023_ui="[backgroundColor:#cacaca,borderRadiusPopover:4px]"/>
+                <af_submitbutton
+                    jcr:primaryType="nt:unstructured"
+                    phone_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guidebutton.submit&quot;\,&quot;properties&quot;:{}}}}]"
+                    tablet_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guidebutton.submit&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;100%&quot;}}\,&quot;button&quot;:{&quot;cssSelector&quot;:&quot;.guidebutton.submit button&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;100%&quot;}}}}]"
+                    tablet_x0023_default_x0023_ui="[width:100%]"/>
+                <af_panelhelpicon
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[position:relative,left:5px,top:0px]"
+                    default_x0023_default_x0023_ui="[positionPopover:relative]"/>
+                <af_fielddescriptionshort
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[font-size:.875rem,color:#fffafa]"/>
+                <af_resetbutton
+                    jcr:primaryType="nt:unstructured"
+                    phone_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guidebutton.reset&quot;\,&quot;properties&quot;:{}}}}]"
+                    tablet_x0023_default="[addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot;.guidebutton.reset&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;100%&quot;}}\,&quot;button&quot;:{&quot;cssSelector&quot;:&quot;.guidebutton.reset button&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;100%&quot;}}}}]"
+                    tablet_x0023_default_x0023_ui="[width:100%]"/>
+                <af_tableoddcolumn jcr:primaryType="nt:unstructured"/>
+                <af_tabsontopdescription
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[color:#FFFFFF,font-size:1.25rem,font-weight:normal,letter-spacing:-0.2px]"/>
+                <af_wizarddescription
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[color:#FFFFFF,font-weight:normal,letter-spacing:-0.2px,font-size:1.25rem]"/>
+                <af_tabsonleftdescription
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[color:#FFFFFF]"/>
+                <af_tncpopupclose jcr:primaryType="nt:unstructured"/>
+                <af_panelhelp
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[font-size:0.875rem]"/>
+                <af_adobeSignText
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[border-top-width:1px,border-bottom-width:1px,border-left-width:1px,border-right-width:1px,border-style:solid,border-color:rgba(0\,0\,0\,0.15),border-top-right-radius:4px,border-bottom-left-radius:4px,border-bottom-right-radius:4px,border-top-left-radius:4px,background:rgba(0\,0\,0\,0.02),padding-top:0.5rem,padding-bottom:0.5rem,padding-left:0.5rem,padding-right:0.5rem,color:#FFFFFF]"
+                    default_x0023_default_x0023_ui="[borderWidthPopover:1px,borderRadiusPopover:4px,backgroundColor:rgba(0\,0\,0\,0.02),paddingPopover:0.5rem]"/>
+                <af_verify
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[position:relative,height:540px,overflow:auto,border-top-width:1px,border-bottom-width:1px,border-left-width:1px,border-right-width:1px,border-style:solid,color:#FFF,max-width:100%,padding-top:0.625rem,padding-bottom:0.625rem,padding-left:0.625rem,padding-right:0.625rem,margin-bottom:0.25rem,margin-top:0.25rem,margin-right:0.75rem,margin-left:0.75rem,border-top-left-radius:4px,border-bottom-left-radius:4px,border-bottom-right-radius:4px,border-top-right-radius:4px,font-size:14px]"
+                    default_x0023_default_x0023_mask="[]"
+                    default_x0023_default_x0023_ui="[positionPopover:relative,borderWidthPopover:1px,paddingPopover:0.625rem,marginLock:linkOff,marginPopover:0.25rem\, 0.75rem\, 0.25rem\, 0.75rem,borderRadiusPopover:4px]"
+                    phone_x0023_default="[margin-right:0px,margin-left:0px]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, 0px\, —\, 0px]"/>
+                <af_summary
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[position:relative,overflow:auto,height:540px,max-width:100%,color:#FFF,border-top-width:1px,border-bottom-width:1px,border-left-width:1px,border-right-width:1px,border-style:solid,border-top-left-radius:4px,border-bottom-left-radius:4px,border-bottom-right-radius:4px,border-top-right-radius:4px,padding-top:0.625rem,padding-bottom:0.625rem,padding-left:0.625rem,padding-right:0.625rem,margin-bottom:0.25rem,margin-top:0.25rem,margin-right:0.75rem,margin-left:0.75rem,font-size:14px]"
+                    default_x0023_default_x0023_ui="[positionPopover:relative,borderWidthPopover:1px,borderRadiusPopover:4px,paddingPopover:0.625rem,marginLock:linkOff,marginPopover:0.25rem\, 0.75rem\, 0.25rem\, 0.75rem]"
+                    phone_x0023_default="[margin-right:0px,margin-left:0px]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, 0px\, —\, 0px]"/>
+                <af_esign
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[max-width:100%,position:relative,overflow:auto,color:#fff,border-top-width:1px,border-bottom-width:1px,border-left-width:1px,border-right-width:1px,border-style:solid,border-top-left-radius:4px,border-bottom-left-radius:4px,border-bottom-right-radius:4px,border-top-right-radius:4px,padding-top:0.625rem,padding-bottom:0.625rem,padding-left:0.625rem,padding-right:0.625rem,margin-left:0.75rem,margin-right:0.75rem,margin-top:0.25rem,margin-bottom:0.25rem,height:540px,font-size:14px]"
+                    default_x0023_default_x0023_ui="[positionPopover:relative,borderWidthPopover:1px,borderRadiusPopover:4px,paddingPopover:0.625rem,marginLock:linkOff,marginPopover:0.25rem\, 0.75rem\, 0.25rem\, 0.75rem]"
+                    phone_x0023_default="[margin-right:0px,margin-left:0px]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, 0px\, —\, 0px]"/>
+                <af_adobeSignBlock
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[margin-bottom:0.25rem,margin-top:0.25rem,margin-right:0.75rem,margin-left:0.75rem]"
+                    default_x0023_default_x0023_ui="[paddingPopover:Set,marginLock:linkOff,marginPopover:0.25rem\, 0.75rem\, 0.25rem\, 0.75rem]"
+                    phone_x0023_default="[margin-right:0px,margin-left:0px]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, 0px\, —\, 0px]"/>
+            </af_guideContainer>
+            <af_guideHeader
+                jcr:primaryType="nt:unstructured"
+                component="fd/af/components/guideheader">
+                <af_header
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[color:#FFFFFF,height:65px,min-height:40px,border-left-width:0px,border-bottom-width:0px,border-right-width:0px,border-top-width:0px,border-style:solid,background:#2D62AC,margin-bottom:1rem]"
+                    default_x0023_default_x0023_ui="[positionPopover:Set,marginLock:linkOff,borderWidthPopover:0px,backgroundColor:#2D62AC,marginPopover:—\, —\, 1rem\, —,paddingLock:link,paddingPopover:Set]"
+                    phone_x0023_default="[height:64px,padding-right:1rem,padding-left:1rem,background:#2D62AC,margin-top:0px,margin-right:0px,margin-bottom:0px,margin-left:0px]"
+                    phone_x0023_default_x0023_ui="[marginLock:link,marginPopover:0px,paddingLock:linkOff,paddingPopover:—\, 1rem\, —\, 1rem,backgroundColor:#2D62AC]"/>
+                <af_headerlogo
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[margin-top:12px,margin-right:0px,margin-bottom:0px,width:auto,height:35px]"
+                    default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:12px\, 0px\, 0px\, —,paddingPopover:Set]"
+                    phone_x0023_default="[height:35px]"
+                    phone_x0023_default_x0023_ui="[paddingLock:link,paddingPopover:Set,marginLock:linkOff,marginPopover:Set]"/>
+                <af_headertext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[height:40px,padding-left:10px,margin-bottom:10px]"
+                    default_x0023_default_x0023_ui="[paddingPopover:—\, —\, —\, 10px,paddingLock:linkOff,marginPopover:—\, —\, 10px\, —,marginLock:linkOff]"
+                    phone_x0023_default="[height:49px,margin-top:0px,margin-right:0px,margin-left:0px,margin-bottom:0px]"
+                    phone_x0023_default_x0023_ui="[paddingPopover:Set,paddingLock:linkOff,marginPopover:0px]"/>
+            </af_guideHeader>
+            <af_guideFooter
+                jcr:primaryType="nt:unstructured"
+                component="fd/af/components/guidefooter">
+                <af_footer
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[width:100%,color:#FFFFFF,text-align:center,padding-top:.5em,padding-bottom:.5em,background:#2D62AC,margin-top:6rem]"
+                    default_x0023_default_x0023_ui="[paddingLock:linkOff,paddingPopover:.5em\, —\, .5em\, —,marginLock:linkOff,backgroundColor:#2D62AC,marginPopover:6rem\, —\, —\, —,positionPopover:Set]"
+                    phone_x0023_default="[margin-top:3.55rem,margin-bottom:50px,display:none]"
+                    phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:3.55rem\, —\, 50px\, —]"
+                    smallScreen_x0023_default_x0023_ui="[marginPopover:Set,marginLock:linkOff]"/>
+                <af_footertext
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_default="[font-size:12px]"/>
+            </af_guideFooter>
+        </components>
+        <assetLibrary jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>
