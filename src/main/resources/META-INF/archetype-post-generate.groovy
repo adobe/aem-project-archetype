@@ -1,4 +1,3 @@
-@Grab(group="org.codehaus.groovy", module="groovy-all", version="2.4.8")
 import static groovy.io.FileType.*
 import groovy.util.XmlSlurper
 import java.nio.file.Path

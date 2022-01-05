@@ -48,7 +48,7 @@
     </developers>
 
     <properties>
-        <maven.archetype.version>3.1.2</maven.archetype.version>
+        <maven.archetype.version>3.2.1</maven.archetype.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
