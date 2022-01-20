@@ -20,14 +20,36 @@ const nodeExternals = require('webpack-node-externals');
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const WebpackShellPlugin = require('webpack-shell-plugin');
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa6f3e34149203532933d2868063f20e8b5f83e5
 var isTestEnvironment = process.env.NODE_ENV == 'test';
 
 const serverConfig = {
     // Tell webpack to start bundling our app at app/index.js
+<<<<<<< HEAD
     entry: './src/server/aem-processor.js',
     target: 'node',
     externals: [nodeExternals()],
+=======
+    entry: ['babel-polyfill', './src/server/aem-processor.js'],
+    target: 'node',
+    externals: nodeExternals({
+        whitelist: [
+            '.bin',
+            'source-map-support/register',
+            // 'babel-polyfill',
+            /\.(eot|woff|woff2|ttf|otf)$/,
+            /\.(svg|png|jpg|jpeg|gif|ico)$/,
+            /\.(mp4|mp3|ogg|swf|webp)$/,
+            /\.(css|scss|sass|sss|less)$/,
+            v =>
+                v.indexOf('babel-plugin-universal-import') === 0 ||
+                v.indexOf('react-universal-component') === 0,
+        ],
+    }),
+>>>>>>> fa6f3e34149203532933d2868063f20e8b5f83e5
     mode: 'development',
     // Output our app to the dist/ directory
     output: {
@@ -42,7 +64,10 @@ const serverConfig = {
 
     resolve: {
         extensions: ['.js', 'jsx'],
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa6f3e34149203532933d2868063f20e8b5f83e5
         // This allows you to set a fallback for where Webpack should look for modules.
         // We placed these paths second because we want `node_modules` to "win"
         // if there are any conflicts. This matches Node resolution mechanism.
@@ -53,8 +78,24 @@ const serverConfig = {
     module: {
         rules: [
             {
+<<<<<<< HEAD
                 test: /\.js$/,
                 use: 'babel-loader'
+=======
+                test: /\.jsx?$/,
+                enforce: 'post',
+                loader: require.resolve('babel-loader'),
+                options: {
+                    babelrc: false,
+                    presets: [
+                        ['@babel/preset-env'],
+                        ['@babel/react']
+                    ],
+                    plugins: [
+                        ['universal-import']
+                    ]
+                }
+>>>>>>> fa6f3e34149203532933d2868063f20e8b5f83e5
             },
             {
                 test: /\.scss$/,
@@ -85,7 +126,16 @@ const serverConfig = {
             "APP_ROOT_PATH": process.env.APP_ROOT_PATH
         }),
         new CleanWebpackPlugin(['dist']),
+<<<<<<< HEAD
         new WebpackShellPlugin({onBuildEnd:['node ./scripts/postWebhook.js']})
+=======
+        new WebpackShellPlugin({onBuildEnd:['node ./scripts/postWebhook.js']}),
+        // Output a single chunk at most to make sure all code is loaded on
+        // the server side.
+        new webpack.optimize.LimitChunkCountPlugin({
+            maxChunks: 1,
+        })
+>>>>>>> fa6f3e34149203532933d2868063f20e8b5f83e5
     ]
 };
 

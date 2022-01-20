@@ -50,10 +50,10 @@ To generate a project, adjust the following command line to your needs:
 * Lookup the list of available properties to see if there's more you want to adjust.
 
 ```
-mvn -B archetype:generate \
+mvn -B org.apache.maven.plugins:maven-archetype-plugin:3.2.1:generate \
  -D archetypeGroupId=com.adobe.aem \
  -D archetypeArtifactId=aem-project-archetype \
- -D archetypeVersion=27 \
+ -D archetypeVersion=35\
  -D appTitle="My Site" \
  -D appId="mysite" \
  -D groupId="com.mysite"
@@ -73,7 +73,7 @@ Name                      | Default        | Description
 `groupId`                 |                | Base Maven group ID (e.g. `"com.mysite"`).
 `package`                 | *`${groupId}`* | Java Source Package (e.g. `"com.mysite"`).
 `version`                 | `1.0-SNAPSHOT` | Project version (e.g. `1.0-SNAPSHOT`).
-`aemVersion`              | `cloud`        | Target AEM version (can be `cloud` for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html); or `6.5.5`, `6.4.8`for [Adobe Managed Services](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) or on-premise).
+`aemVersion`              | `cloud`        | Target AEM version (can be `cloud` for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html); or `6.5.5` for [Adobe Managed Services](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) or on-premise).
 `sdkVersion`              | `latest`       | When `aemVersion=cloud` an [SDK](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/implementing/developing/aem-as-a-cloud-service-sdk.html) version can be specified (e.g. `2020.02.2265.20200217T222518Z-200130`).
 `includeDispatcherConfig` | `y`            | Includes a dispatcher configuration either for cloud or for AMS/on-premise, depending of the value of `aemVersion` (can be `y` or `n`).
 `frontendModule`          | `general`      | Includes a Webpack frontend build module that generates the client libraries (can be `general` or `none` for regular sites; can be `angular` or `react` for a Single Page App that implements the [SPA Editor](https://docs.adobe.com/content/help/en/experience-manager-65/developing/headless/spas/spa-overview.html)).
@@ -84,18 +84,20 @@ Name                      | Default        | Description
 `includeErrorHandler`     | `n`            | Includes a custom 404 response page that will be global to the entire instance (can be `y` or `n`).
 `includeCommerce`         | `n`            | Includes [CIF Core Components](https://github.com/adobe/aem-core-cif-components) dependecies and generates corresponding artifacts.
 `commerceEndpoint`        |                | Required for CIF only. Optional endpoint of the commerce system GraphQL service to be used (e.g. `https://hostname.com/grapql`).
-`includeForms`            | `n`            | Includes [Forms Core Components](https://github.com/adobe/aem-core-forms-components) dependencies and generates corresponding artifacts.
-`sdkFormsVersion`         | `latest`       | When `aemVersion=cloud` and `includeForms=y` an Forms SDK version can be specified (e.g. `2020.12.17.02`).
+`includeFormscommunications`   | `n`       | Includes [Forms Core Components](https://github.com/adobe/aem-core-forms-components) dependencies and generates corresponding artifacts.
+`includeFormsenrollment`  | `n`            | Includes [Forms Core Components](https://github.com/adobe/aem-core-forms-components) dependencies and generates corresponding artifacts.
+`sdkFormsVersion`         | `latest`       | When `aemVersion=cloud` and one of `includeFormsenrollment=y` or `includeFormscommunications=y` an Forms SDK version can be specified (e.g. `2020.12.17.02`).
 `datalayer`               | `y`            | Activate integration with [Adobe Client Data Layer](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/data-layer/overview.html).
 `amp`                     | `n`            | Enable [AMP](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/amp.html) support for genenerated project templates.
 `enableDynamicMedia`      | `n`            | Enabled foundation DynamicMedia components in project policy settings and activates Dynamic Media features in Core Image component's policy.
-`enableAdobeIoRuntime`    | `n`            | Option to enable SSR for the front-end project
+`enableSSR`    | `n`            | Option to enable SSR for the front-end project
+`precompiledScripts`  | `n`     | Option to [precompile](https://experienceleague.adobe.com/docs/experience-manager-core-components/using/developing/archetype/precompiled-bundled-scripts.html) the server-side scripts from `ui.apps` and attach them to the build as a secondary bundle artifact in the `ui.apps` project. `aemVersion` should be set to `cloud`.
 
 ## System Requirements
 
-Archetype | AEM as a Cloud Service | AEM 6.5 | AEM 6.4 | Java SE | Maven
----------|---------|---------|---------|---------|---------
-[27](https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-27) | Continual | 6.5.7.0+ | 6.4.8.4+ | 8, 11 | 3.3.9+
+Archetype | AEM as a Cloud Service | AEM 6.5 | Java SE | Maven
+---------|---------|---------|---------|---------
+[35](https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-35) | Continual | 6.5.7.0+ | 8, 11 | 3.3.9+
 
 Setup your local development environment for [AEM as a Cloud Service SDK](https://docs.adobe.com/content/help/en/experience-manager-learn/cloud-service/local-development-environment-set-up/overview.html) or for [older versions of AEM](https://docs.adobe.com/content/help/en/experience-manager-learn/foundation/development/set-up-a-local-aem-development-environment.html).
 

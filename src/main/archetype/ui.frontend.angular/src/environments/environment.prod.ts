@@ -20,7 +20,7 @@ export const environment = {
   production: true,
   publicUrl:
     '/etc.clientlibs/${appId}/clientlibs/clientlib-angular/resources',
-#if ( $enableAdobeIoRuntime == "y")
+#if ( $enableSSR == "y")
   API_HOST: 'http://localhost:4502',
   APP_ROOT_PATH: ''
 #end

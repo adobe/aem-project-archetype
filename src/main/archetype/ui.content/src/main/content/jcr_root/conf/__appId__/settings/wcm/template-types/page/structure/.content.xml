@@ -10,11 +10,33 @@
             jcr:primaryType="nt:unstructured"
             sling:resourceType="${appId}/components/container"
             layout="responsiveGrid">
+            <experiencefragment-header
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appId}/components/experiencefragment"
+#if ( $singleCountry == "n" )
+                fragmentVariationPath="/content/experience-fragments/${appId}/language-masters/${language}/site/header/master"/>
+#else
+                fragmentVariationPath="/content/experience-fragments/${appId}/${country}/${language}/site/header/master"/>
+#end
+#if ( $includeCommerce == "y" )
+            <container jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appId}/components/container"
+                layout="responsiveGrid">
+                <breadcrumb jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appId}/components/commerce/breadcrumb"
+                    startLevel="3"
+                    structureDepth="2"/>
+                <container jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appId}/components/container"
+                   editable="{Boolean}true" />
+            </container>
+#else
             <container
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="${appId}/components/container"
                 editable="{Boolean}true"
                 layout="responsiveGrid"/>
+#end
         </root>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">

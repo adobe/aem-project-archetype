@@ -13,7 +13,6 @@ async function main(args) {
 
     try {
         const response = await processor.processSPA(refinedArgs);
-        console.log("Response", response);
         return {
             headers: {
                 'Content-Type': 'text/html'

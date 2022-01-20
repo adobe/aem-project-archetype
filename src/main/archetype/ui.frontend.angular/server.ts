@@ -1,4 +1,4 @@
-import { ModelManager, ModelClient } from '@adobe/aem-spa-page-model-manager';
+import { ModelManager } from '@adobe/aem-spa-page-model-manager';
 import 'zone.js/dist/zone-node';
 import 'cross-fetch/polyfill';
 
@@ -42,7 +42,7 @@ export function app() {
     server.get('*.*', express.static(distFolder, {
         maxAge: '1y'
     }));
-
+    
     const rootFolder = '/api/v1/web/guest/${appId}-0.1.0/ssr';
 
     server.post([`${rootFolder}`, '/conf/${appId}/settings/wcm/templates*.html'], (req, res, next) => {
@@ -76,12 +76,13 @@ export function app() {
 
             });
         }).catch((error) => {
-            next(error);
+            console.error(error);
+            //send error message back to response so AEM can log it.
+            const msg = (error.stack) ? error + ' stack: ' + error.stack : error;
+            res.status(500).send(msg);
         });
     });
-
-
-
+    
     return server;
 }
 

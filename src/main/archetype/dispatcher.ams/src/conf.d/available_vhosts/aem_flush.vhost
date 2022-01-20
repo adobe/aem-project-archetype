@@ -14,12 +14,10 @@ PassEnv DISP_ID
 		Header always add X-Vhost "flush"
 	</IfModule>
 	<Directory "${PUBLISH_DOCROOT}">
-		AllowOverride None
-		Require all granted
-	</Directory>
-	<Directory />
 		<IfModule disp_apache2.c>
 			SetHandler dispatcher-handler
 		</IfModule>
+		AllowOverride None
+		Require all granted
 	</Directory>
 </VirtualHost>

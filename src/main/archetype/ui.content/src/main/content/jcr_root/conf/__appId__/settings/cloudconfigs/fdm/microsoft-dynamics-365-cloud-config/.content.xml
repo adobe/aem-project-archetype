@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2018-01-29T07:02:40.895Z"
+        cq:lastModifiedBy="admin"
+        jcr:lastModified="{Date}2018-01-29T07:02:40.882Z"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Microsoft Dynamics 365 Cloud Config"
+        sling:resourceType="fd/fdm/gui/components/admin/fdmcloudservice/rest"
+        access_token_uri="https://login.microsoftonline.com/{tenant}/oauth2/token"
+        authenticationType="OAuth 2.0"
+        dataSourceType="ODATA_REST"
+        location="header"
+        name="microsoft-dynamics-365-cloud-config"
+        oAuthUrl="https://login.microsoftonline.com/{tenant}/oauth2/authorize"
+        refresh_token_uri="https://login.microsoftonline.com/{tenant}/oauth2/token"
+        selectAuthentication="OAuth 2.0"
+        selectHeader="Authorization Bearer"/>
+</jcr:root>

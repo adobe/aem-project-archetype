@@ -30,7 +30,9 @@
             "scripts": []
           },
           "configurations": {
-#if ( $enableAdobeIoRuntime == "y")
+            "aem-develop": {
+              "deployUrl": "/etc.clientlibs/${appId}/clientlibs/clientlib-angular/resources/"
+            },
             "serverless": {
               "fileReplacements": [
                 {
@@ -61,8 +63,8 @@
                 }
               ]
             },
-#end
             "production": {
+              "deployUrl": "/etc.clientlibs/${appId}/clientlibs/clientlib-angular/resources/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -128,11 +130,11 @@
             "scripts": []
           }
         },
-#if ( $enableAdobeIoRuntime == "y")
+#if ( $enableSSR == "y")
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "actions/webapp/server",
+            "outputPath": "dist/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json"
           },

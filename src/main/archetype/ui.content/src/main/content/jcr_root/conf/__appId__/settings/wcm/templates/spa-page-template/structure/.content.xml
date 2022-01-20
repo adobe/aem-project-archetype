@@ -9,12 +9,33 @@
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid">
+            <experiencefragment-header
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appId}/components/experiencefragment"
+                #if ( $singleCountry == "n" )
+                fragmentVariationPath="/content/experience-fragments/${appId}/language-masters/${language}/site/header/master"/>
+                #else
+                fragmentVariationPath="/content/experience-fragments/${appId}/${country}/${language}/site/header/master"/>
+                #end
+
+
             <responsivegrid
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/foundation/components/responsivegrid"
                 editable="{Boolean}true">
                 <cq:responsive jcr:primaryType="nt:unstructured"/>
             </responsivegrid>
+
+            <experiencefragment-footer
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appId}/components/experiencefragment"
+            #if ( $singleCountry == "n" )
+            fragmentVariationPath="/content/experience-fragments/${appId}/language-masters/${language}/site/footer/master"/>
+            #else
+            fragmentVariationPath="/content/experience-fragments/${appId}/${country}/${language}/site/footer/master"/>
+            #end
+
+
         </root>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">

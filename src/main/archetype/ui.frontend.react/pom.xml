@@ -98,7 +98,7 @@
             </plugins>
         </pluginManagement>
     </build>
-#if ( $enableAdobeIoRuntime == "y")
+#if ( $enableSSR == "y")
     <profiles>
         <profile>
             <id>serverSideRender-runtime</id>
@@ -124,7 +124,7 @@
                                     </configuration>
                                 </execution>
                                 <execution>
-                                    <id>npm run build-serverless</id>
+                                    <id>npm run build</id>
                                     <phase>generate-resources</phase>
                                     <goals>
                                         <goal>npm</goal>

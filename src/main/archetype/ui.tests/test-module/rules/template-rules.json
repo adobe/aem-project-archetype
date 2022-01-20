@@ -1,0 +1,58 @@
+{
+  "panel": {
+    "title": "Root",
+    "layout": "tabsOnLeft",
+    "items": [
+      {
+        "panel": {
+          "title": "General",
+          "layout": "tabsOnLeft",
+          "items": [
+            {
+              "panel": {
+                "title": "Basic Information",
+                "afFieldCount": 6
+              }
+            },
+            {
+              "panel": {
+                "title": "Address",
+                "afFieldCount": 6
+              }
+            },
+            {
+              "panel": {
+                "title": "Employment",
+                "afFieldCount": 5
+              }
+            }
+          ]
+        }
+      },
+      {
+        "panel": {
+          "title": "Expenditure",
+          "afFieldCount": 16
+        }
+      },
+      {
+        "panel": {
+          "title": "Documents",
+          "afFieldCount": 2
+        }
+      },
+      {
+        "panel": {
+          "title": "Communication",
+          "afFieldCount": 3
+        }
+      },
+      {
+        "panel": {
+          "title": "Confirmation",
+          "afFieldCount": 6
+        }
+      }
+    ]
+  }
+}

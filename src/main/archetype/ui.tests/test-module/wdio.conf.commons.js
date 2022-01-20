@@ -19,7 +19,7 @@
  */
 const conf = require('./lib/config');
 const commons = require('./lib/commons');
-const HtmlReporter = require('@rpii/wdio-html-reporter').HtmlReporter;
+const HtmlReporter = require('wdio-html-nice-reporter').HtmlReporter;
 const path = require('path');
 const log4js = require('log4js');
 
