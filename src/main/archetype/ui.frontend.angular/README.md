@@ -107,7 +107,7 @@ com.adobe.cq.remote.content.renderer.impl.factory.ConfigurationFactoryImpl~mysit
 }
 ```
 
-For express, set `getRemoteHTMLRendererUrl` to `http://localhost:3233/`.
+For express, set `getRemoteHTMLRendererUrl` to `http://localhost:3233`.
 
 In here you put the correct endpoint. By default for demonstration purposes the endpoint is configured to your localhost.
 For production purposes the URL should point to an actual express instance.
