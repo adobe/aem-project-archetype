@@ -2,7 +2,7 @@ const appModule = require('../webapp/server/main');
 
 const app = appModule.default();
 
-const forward = require('expressjs-openwhisk')(app);
+const forward = require('./expressjs-ow')(app);
 
 function main (args){
 

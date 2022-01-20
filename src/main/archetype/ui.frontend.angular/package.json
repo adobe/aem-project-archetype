@@ -10,7 +10,6 @@
     "start-ssr-express": "node dist/server/main.js",
     "start-ssr-ioruntime": "aio app run --local",
     "deploy-ssr-ioruntime": "aio app deploy",
-    "postinstall": "node fix-formidable/fix.js",
 #end
     "start": "ng serve --open --proxy-config ./proxy.conf.json",
     "build": "ng lint && ng build && clientlib",
@@ -30,7 +29,7 @@
     "node-html-parser": "2.0.2",
     "@adobe/aio-sdk": "^3.0.0",
     "node-fetch": "^2.6.1",
-    "expressjs-openwhisk": "^1.1.1",
+    "supertest": "^6.2.2",
 #end
     
     "@adobe/aem-angular-editable-components": "~1.2.0",
