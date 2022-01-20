@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
   
-#if ( $enableSSR == "y"),
+#if ( $enableSSR == "y")
     "build-serverless": "ng build --configuration serverless && ng run angular-app:server:serverless",
     "build-server": "ng run angular-app:server",
     "start-ssr-express": "node dist/server/main.js",
