@@ -1,4 +1,4 @@
-import { ModelManager } from '@adobe/aem-spa-page-model-manager';
+import { ModelManager, ModelClient } from '@adobe/aem-spa-page-model-manager';
 import 'zone.js/dist/zone-node';
 import 'cross-fetch/polyfill';
 
@@ -13,9 +13,6 @@ import * as path from "path";
 import { parse } from 'node-html-parser';
 
 import 'isomorphic-fetch';
-import { CustomModelClient } from './CustomModelClient';
-
-const clone = require('clone');
 
 const APP_ROOT_PATH = environment.APP_ROOT_PATH;
 
@@ -42,19 +39,15 @@ export function app() {
     server.get('*.*', express.static(distFolder, {
         maxAge: '1y'
     }));
-    
-    const rootFolder = '/api/v1/web/guest/${appId}-0.1.0/ssr';
 
-    server.post([`${rootFolder}`, '/conf/${appId}/settings/wcm/templates*.html'], (req, res, next) => {
+    const rootFolder = '/content/${appId}';
+
+    server.post([`${rootFolder}*.html`, '/conf/${appId}/settings/wcm/templates*.html'], (req, res, next) => {
 
         const pageModelRootPath = req.headers['page-model-root-url'] || APP_ROOT_PATH;
-        const target = req.url.substr(rootFolder.length, req.url.length - rootFolder.length).replace('.html','');
-
         const model = req.body;
-        const adaptedModel = clone(model);
-        adaptedModel[':children'][req.url] = adaptedModel[':children'][target];
 
-        ModelManager.initialize({ path: pageModelRootPath, model: adaptedModel, modelClient: new CustomModelClient('', ModelManager) }).then(() => {
+        ModelManager.initialize({ path: pageModelRootPath, model }).then(() => {
 
             res.render(indexHtml, { req } , (err, html) => {
 
@@ -82,7 +75,8 @@ export function app() {
             res.status(500).send(msg);
         });
     });
-    
+
+
     return server;
 }
 
