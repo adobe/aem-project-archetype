@@ -45,19 +45,33 @@ By default, this project uses [Browserslist](https://github.com/browserslist/bro
 
 #if ( $enableSSR == "y" )
 
-${hash} Frontend SSR Build (Express)
+${hash} Frontend SSR Build (Express, IO-Runtime)
 
 ${hash}${hash} Features
 
-* Server Side rendering of the SPA editor 
+* AdobeIO Runtime (Serverless) rendering of the SPA editor
+* ExpressJS rendering (serverfull) of the SPA eidtor
 * Local + Remote development
+* Uses AIO CLI
+
+${hash}${hash} Installation
+
+1. Install [NodeJS](https://nodejs.org/en/download/) (v10+), globally. This will also install `npm`.
+2. Navigate to `ui.frontend` in your project and run `npm install`. (You must have run the archetype with `-DfrontendModule=react` for this to work)
+3. If running locally the following images must be installed:
+   * docker pull openwhisk/action-nodejs-v10:latest
+   * docker pull adobeapiplatform/adobe-action-nodejs-v10:3.0.21
 
 ${hash}${hash} Usage
 
 The following npm scripts are available:
 
-* `npm run build-server` - Build express code (debuggable with sourcemaps)
-* `npm run start-ssr-express` - Runs the express code (debuggable with sourcemaps)
+* `build-serverless` - Build serverless code for IO Runtime(debuggable with sourcemaps)
+* `build-server`    - Build express code (debuggable with sourcemaps)
+* `start-ssr-express` - Runs the express code (debuggable with sourcemaps)
+* `start-ssr-ioruntime`  - Deploys the serverless code to a local docker container with AIO CLI. Requires docker running. Enables you to debug with visual studio code.
+* `deploy-ssr-ioruntime` - Deploys the serverless code to your IO runtime namespace. Requires the environment variables AIO_RUNTIME_NAMESPACE and AIO_RUNTIME_AUTH to be set.
+
 
 ${hash}${hash}${hash}${hash} Notes
 
@@ -85,13 +99,15 @@ com.adobe.cq.remote.content.renderer.impl.factory.ConfigurationFactoryImpl~mysit
 ```json
 {
     "getContentPathPattern": "/content/mysite/(.*)|/conf/mysite/(.*)/settings/wcm/templates/(.*)",
-    "getRemoteHTMLRendererUrl" : "http://localhost:3233/",
+    "getRemoteHTMLRendererUrl" : "http://localhost:3233/api/v1/web/guest/${appId}-0.1.0/ssr",
     "getRequestTimeout": 10000,
     "getAdditionalRequestHeaders": [
     
     ]
 }
 ```
+
+For express, set `getRemoteHTMLRendererUrl` to `http://localhost:3233/`.
 
 In here you put the correct endpoint. By default for demonstration purposes the endpoint is configured to your localhost.
 For production purposes the URL should point to an actual express instance.
