@@ -267,11 +267,6 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
         assert new File("$appsFolder/components/structure/spa").deleteDir()
         assert new File("$appsFolder/components/xfpage/body.html").delete()
 
-        // Delete EditConfigs
-        if (includeCommerce == "n") {
-            assert new File("$appsFolder/components/text/_cq_editConfig.xml").delete()
-        }
-
         // Delete SPA templates
         assert new File("$confFolder/settings/wcm/templates/spa-app-template").deleteDir()
         assert new File("$confFolder/settings/wcm/templates/spa-page-template").deleteDir()
