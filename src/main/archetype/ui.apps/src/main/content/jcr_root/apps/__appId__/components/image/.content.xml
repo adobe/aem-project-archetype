@@ -5,6 +5,6 @@
 #if ( $amp == "y")
     sling:resourceSuperType="core/wcm/extensions/amp/components/image/v1/image"
 #else
-    sling:resourceSuperType="core/wcm/components/image/v2/image"
+    sling:resourceSuperType="core/wcm/components/image/v3/image"
 #end
     componentGroup="${appTitle} - Content"/>

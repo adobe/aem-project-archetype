@@ -71,7 +71,7 @@
         <aio.runtime.namespace>${env.AIO_RUNTIME_NAMESPACE}</aio.runtime.namespace>
         <aio.runtime.auth>${env.AIO_RUNTIME_AUTH}</aio.runtime.auth>
 #end
-        <core.wcm.components.version>2.17.12</core.wcm.components.version>
+        <core.wcm.components.version>2.18.0</core.wcm.components.version>
 #if ( $includeCommerce == "y" )
         <core.cif.components.version>2.5.0</core.cif.components.version>
         <magento.graphql.version>9.0.0-magento242ee</magento.graphql.version>
