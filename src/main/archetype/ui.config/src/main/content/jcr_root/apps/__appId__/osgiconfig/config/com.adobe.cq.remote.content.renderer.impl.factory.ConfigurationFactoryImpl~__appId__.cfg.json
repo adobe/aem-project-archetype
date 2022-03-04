@@ -8,6 +8,7 @@
 #end
     "getRequestTimeout": 10000,
     "getAdditionalRequestHeaders": [
-    
-    ]
+
+    ],
+    "getCompression": "none"
 }
