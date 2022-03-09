@@ -14,6 +14,7 @@
  |  See the License for the specific language governing permissions and
  |  limitations under the License.
 -->
+#set( $includeClassifierOnUberJar = $aemVersion.matches("6\.5\.[0-5]") )
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -83,7 +84,7 @@
                             <artifactId>core-cif-components-apps</artifactId>
                         </dependency>
 #end
-#if ( $includeForms == "y" and $aemVersion == "cloud" )
+#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud" )
                         <dependency>
                             <groupId>com.adobe.aem</groupId>
                             <artifactId>core-forms-components-apps</artifactId>
@@ -269,6 +270,9 @@ Require-Capability: osgi.extender;filter:="(&(osgi.extender=sling.scripting)(ver
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>uber-jar</artifactId>
+#if ( $includeClassifierOnUberJar)
+            <classifier>apis</classifier>
+#end
         </dependency>
 
         <dependency>
@@ -321,7 +325,7 @@ Require-Capability: osgi.extender;filter:="(&(osgi.extender=sling.scripting)(ver
         </dependency>
 #end
 #end
-#if ( $includeForms == "y" and $aemVersion == "cloud")
+#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud")
         <!-- AEM Forms Dependencies -->
         <dependency>
             <groupId>com.adobe.aem</groupId>

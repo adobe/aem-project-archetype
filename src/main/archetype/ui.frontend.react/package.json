@@ -38,9 +38,7 @@
     "react-app-polyfill": "^1.0.5",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
-    "react-universal-component": "^4.5.0",
-    "react-scripts": "3.4.0"
-
+    "react-universal-component": "^4.5.0"
   },
   "devDependencies": {
 #if ( $enableSSR == "y")
@@ -67,12 +65,13 @@
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
     "typescript": "^3.4.2",
-    "webpack": "^4.20.2",
+    "webpack": "4.44.2",
     "webpack-cli": "^3.0.8",
-    "webpack-dev-server": "^3.1.7",
+    "webpack-dev-server": "3.11.1",
     "webpack-node-externals": "^1.7.2",
     "webpack-shell-plugin": "^0.5.0",
-    "babel-plugin-universal-import": "^4.0.0"
+    "babel-plugin-universal-import": "^4.0.0",
+    "react-scripts": "4.0.3"
   },
   "proxy": "http://localhost:4502",
   "browserslist": [

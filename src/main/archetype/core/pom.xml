@@ -14,6 +14,7 @@
  |  See the License for the specific language governing permissions and
  |  limitations under the License.
 -->
+#set( $includeClassifierOnUberJar = $aemVersion.matches("6\.5\.[0-5]") )
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
@@ -156,6 +157,9 @@ Import-Package: javax.annotation;version=0.0.0,*
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>uber-jar</artifactId>
+#if ( $includeClassifierOnUberJar)
+            <classifier>apis</classifier>
+#end
         </dependency>
         <dependency>
             <groupId>com.adobe.cq</groupId>
@@ -203,7 +207,7 @@ Import-Package: javax.annotation;version=0.0.0,*
 #end
 #end
 
-#if ( $includeForms == "y" and $aemVersion == "cloud" )
+#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud" )
         <!-- AEM Forms Dependencies -->
         <dependency>
             <groupId>com.adobe.aem</groupId>
@@ -238,6 +242,11 @@ Import-Package: javax.annotation;version=0.0.0,*
         <dependency>
             <groupId>io.wcm</groupId>
             <artifactId>io.wcm.testing.aem-mock.junit5</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.testing.caconfig-mock-plugin</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>

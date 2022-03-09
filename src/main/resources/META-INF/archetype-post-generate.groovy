@@ -1,4 +1,3 @@
-@Grab(group="org.codehaus.groovy", module="groovy-all", version="2.4.8")
 import static groovy.io.FileType.*
 import groovy.util.XmlSlurper
 import java.nio.file.Path
@@ -25,6 +24,8 @@ def sdkVersion = request.getProperties().get("sdkVersion")
 def includeDispatcherConfig = request.getProperties().get("includeDispatcherConfig")
 def includeCommerce = request.getProperties().get("includeCommerce")
 def includeForms = request.getProperties().get("includeForms")
+def includeFormsenrollment = request.getProperties().get("includeFormsenrollment")
+def includeFormscommunications = request.getProperties().get("includeFormscommunications")
 def enableSSR = request.getProperties().get("enableSSR");
 def sdkFormsVersion = request.getProperties().get("sdkFormsVersion")
 def precompiledScripts = request.getProperties().get("precompiledScripts")
@@ -82,7 +83,7 @@ if (aemVersion == "cloud") {
 }
 
 buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, language, country)
-cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder,enableSSR)
+cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder,enableSSR, includeCommerce)
 
 if ( includeDispatcherConfig == "n"){
     // remove the unneeded config file
@@ -121,6 +122,7 @@ removeModule(rootPom, 'dispatcher.cloud')
 if (includeCommerce == "n") {
     assert new File(rootDir, "README-CIF.md").delete()
     assert new File("$appsFolder/components/commerce").deleteDir()
+    assert new File("$appsFolder/components/text/_cq_dialog.xml").delete()
     assert new File("$appsFolder/clientlibs/clientlib-cif").deleteDir()
     assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl~default.cfg.json").delete()
     assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl-default.config").delete()
@@ -172,7 +174,7 @@ if (includeCommerce == "n") {
 }
 
 // if forms flag is not set, forms specific components, template-types, templates, themes, fdm, cloudconfigs should be deleted
-if (includeForms == "n") {
+if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunications == "n") {
     assert new File("$appsFolder/components/aemformscontainer").deleteDir()
     assert new File("$confFolder/settings/wcm/template-types/af-page").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/basic-af").deleteDir()
@@ -185,6 +187,7 @@ if (includeForms == "n") {
     assert new File("$uiTestPackage/test-module/specs/aem/forms.js").delete()
     assert new File("$uiTestPackage/test-module/lib/util").deleteDir()
     assert new File("$uiTestPackage/test-module/rules").deleteDir()
+    assert new File("$uiTestPackage/test-module/assets/form").deleteDir()
     assert new File("$appsFolder/clientlibs/clientlibs-forms").deleteDir()
 } else {
     if (aemVersion == "cloud") {
@@ -241,7 +244,7 @@ def buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, 
 /**
  * Renames and deletes frontend related files as necessary
  */
-def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder, enableSSR) {
+def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder, enableSSR, includeCommerce) {
     // Delete unwanted frontend modules
     frontendModules.each { def frontendModule ->
         // Clean up POM file
@@ -263,9 +266,6 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
         // Delete app component
         assert new File("$appsFolder/components/structure/spa").deleteDir()
         assert new File("$appsFolder/components/xfpage/body.html").delete()
-
-        // Delete EditConfigs
-        assert new File("$appsFolder/components/text/_cq_editConfig.xml").delete()
 
         // Delete SPA templates
         assert new File("$confFolder/settings/wcm/templates/spa-app-template").deleteDir()
@@ -306,6 +306,9 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
                 assert new File(rootDir, "ui.frontend/scripts").deleteDir();
             }else if(optionFrontendModule == "angular"){
                 assert new File(rootDir, "ui.frontend/server.ts").delete();
+                assert new File(rootDir, "ui.frontend/serverless.ts").delete();
+                assert new File(rootDir, "ui.frontend/manifest.yml").delete();
+                assert new File(rootDir, "ui.frontend/CustomModelClient.js").delete();
                 assert new File(rootDir, "ui.frontend/tsconfig.server.json").delete();
                 assert new File(rootDir, "ui.frontend/src/main.server.ts").delete();
                 assert new File(rootDir, "ui.frontend/src/app/app.server.module.ts").delete();

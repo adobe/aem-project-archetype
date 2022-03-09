@@ -1,0 +1,20 @@
+ .cmp-navigation__group {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.cmp-navigation__item {
+    list-style: none;
+    padding: 0.5em;
+}
+
+.cmp-navigation__item--level-0 .cmp-navigation__group {
+    display: none;
+}
+
+.cmp-navigation__item--level-0:hover > .cmp-navigation__group {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    position: absolute;
+}

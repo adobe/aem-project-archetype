@@ -3,7 +3,7 @@
     jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="cq:Page">
     <rep:policy/>
-#if ( $includeForms == "y" and $aemVersion == "cloud")
+#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud")
     <fd jcr:primaryType="nt:unstructured">
         <af jcr:primaryType="nt:unstructured">
             <components jcr:primaryType="nt:unstructured">
@@ -279,17 +279,17 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Content"
                     sling:resourceType="wcm/core/components/policy/policy"
-#if ( $includeCommerce == "y" and $enableDynamicMedia == "y" and $includeForms == "y" )
+#if ( $includeCommerce == "y" and $enableDynamicMedia == "y" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") )
                     components="[group:Dynamic Media,group:${appTitle} - Content,group:${appTitle} - Commerce,group:${appTitle} - Forms,/apps/${appId}/components/form/container]">
-#elseif ( $includeCommerce == "y" and $enableDynamicMedia == "n" and $includeForms == "n")
+#elseif ( $includeCommerce == "y" and $enableDynamicMedia == "n" and ($includeForms == "n" and $includeFormsenrollment == "n" and $includeFormscommunications == "n"))
                     components="[group:${appTitle} - Content,group:${appTitle} - Commerce,/apps/${appId}/components/form/container]">
-#elseif ( $includeCommerce == "n" and $enableDynamicMedia == "y" and $includeForms == "n")
+#elseif ( $includeCommerce == "n" and $enableDynamicMedia == "y" and ($includeForms == "n" and $includeFormsenrollment == "n" and $includeFormscommunications == "n"))
                     components="[group:Dynamic Media,group:${appTitle} - Content,/apps/$appId}/components/form/container]">
-#elseif ( $includeCommerce == "y" and $enableDynamicMedia == "n" and $includeForms == "y")
+#elseif ( $includeCommerce == "y" and $enableDynamicMedia == "n" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y"))
                     components="[group:${appTitle} - Content,group:${appTitle} - Commerce,group:${appTitle} - Forms,/apps/${appId}/components/form/container]">
-#elseif ( $includeCommerce == "n" and $enableDynamicMedia == "y" and $includeForms == "y")
+#elseif ( $includeCommerce == "n" and $enableDynamicMedia == "y" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y"))
                     components="[group:Dynamic Media,group:${appTitle} - Content,group:${appTitle} - Forms,/apps/$appId}/components/form/container]">
-#elseif ( $includeCommerce == "n" and $enableDynamicMedia == "n" and $includeForms == "y")
+#elseif ( $includeCommerce == "n" and $enableDynamicMedia == "n" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y"))
                     components="[group:${appTitle} - Content,group:${appTitle} - Forms,/apps/$appId}/components/form/container]">
 #else
                     components="[group:${appTitle} - Content,/apps/${appId}/components/form/container]">
@@ -338,13 +338,13 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="XF Root"
                     sling:resourceType="wcm/core/components/policy/policy"
-#if ( $includeCommerce == "n" and  $includeForms == "n" )
+#if ( $includeCommerce == "n" and  ($includeForms == "n" and $includeFormsenrollment == "n" and $includeFormscommunications == "n") )
                     components="[group:${appTitle} - Content,/apps/${appId}/components/form/container]">
-#elseif ($includeCommerce == "n" and  $includeForms == "y" )
+#elseif ($includeCommerce == "n" and  ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") )
                     components="[group:${appTitle} - Content,group:${appTitle} - Forms,/apps/${appId}/components/form/container]">
-#elseif ($includeCommerce == "y" and  $includeForms == "n" )
+#elseif ($includeCommerce == "y" and  ($includeForms == "n" and $includeFormsenrollment == "n" and $includeFormscommunications == "n") )
                     components="[group:${appTitle} - Content,group:${appTitle} - Commerce,group:${appTitle} - Header,/apps/${appId}/components/form/container]">
-#elseif ($includeCommerce == "y" and  $includeForms == "y" )
+#elseif ($includeCommerce == "y" and  ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") )
                     components="[group:${appTitle} - Content,group:${appTitle} - Commerce,group:${appTitle} - Header,group:${appTitle} - Forms,/apps/${appId}/components/form/container]">
 #end  
                     <jcr:content jcr:primaryType="nt:unstructured"/>
@@ -547,7 +547,7 @@
                         components="[/libs/wcm/foundation/components/responsivegrid,/apps/${appId}/components/text]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </spa-default>
-    #if ( $includeForms == "y" and $aemVersion == "cloud")
+    #if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud")
                     <afpolicy
                             jcr:description="Policy of the Adaptive Form"
                             jcr:primaryType="nt:unstructured"

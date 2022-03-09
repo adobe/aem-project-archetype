@@ -1,11 +1,6 @@
 {
     "getContentPathPattern": "/content/${appId}/(.*)|/conf/${appId}/(.*)/settings/wcm/templates/(.*)",
-#if ( $frontendModule == "react")
     "getRemoteHTMLRendererUrl" : "http://localhost:3233/api/v1/web/guest/${appId}-0.1.0/ssr",
-#end
-#if ( $frontendModule == "angular")
-    "getRemoteHTMLRendererUrl" : "http://localhost:3233",
-#end
     "getRequestTimeout": 10000,
     "getAdditionalRequestHeaders": [
 
