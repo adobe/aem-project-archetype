@@ -30,7 +30,7 @@
     "date-fns": "^2.27.0",
     "eslint": "^7.4.0",
     "eslint-plugin-wdio": "^6.0.12",
-    "log4js": "^6.3.0",
+    "log4js": "^6.4.0",
     "pixelmatch": "^5.2.1",
     "pngjs": "^6.0.0",
     "request": "^2.88.2",
