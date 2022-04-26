@@ -90,7 +90,7 @@
 /0054 { /type "allow" /method "GET" /path "/content/*" /selectors 'sitemap(-index)?' /extension "xml" }
 
 # Allow GraphQL & preflight requests
-# GraphQL also supports "GET" or "POST" requests, if you intend to use "GET" or "POST" add a rule in filters.any
+# GraphQL also supports "GET" requests, if you intend to use "GET" add a rule in filters.any
 /0060 { /type "allow" /method '(OPTIONS)' /url "/content/_cq_graphql/*/endpoint.json" }
 
 # GraphQL Persisted Queries & preflight requests
