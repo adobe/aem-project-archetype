@@ -89,7 +89,9 @@
 # Allow Apache Sling Sitemap selectors: sitemap, sitemap-index, sitemap.any-nested-or-named-sitemap
 /0054 { /type "allow" /method "GET" /path "/content/*" /selectors 'sitemap(-index)?' /extension "xml" }
 
-# GraphQL supports "GET" , "OPTIONS" or "POST" requests, if you intend to use any of them add a rule in filters.any
+# Allow GraphQL & preflight requests
+# GraphQL also supports "GET" or "POST" requests, if you intend to use "GET" or "POST" add a rule in filters.any
+/0060 { /type "allow" /method '(OPTIONS)' /url "/content/_cq_graphql/*/endpoint.json" }
 
 # GraphQL Persisted Queries & preflight requests
 /0061 { /type "allow" /method '(GET|POST|OPTIONS)' /url "/graphql/execute.json*" }
