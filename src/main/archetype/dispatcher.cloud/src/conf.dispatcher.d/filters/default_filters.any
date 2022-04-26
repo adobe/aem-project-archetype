@@ -91,7 +91,7 @@
 
 # Allow GraphQL & preflight requests
 # GraphQL also supports "GET" requests, if you intend to use "GET" add a rule in filters.any
-/0060 { /type "allow" /method '(OPTIONS)' /url "/content/_cq_graphql/*/endpoint.json" }
+/0060 { /type "allow" /method '(POST|OPTIONS)' /url "/content/_cq_graphql/*/endpoint.json" }
 
 # GraphQL Persisted Queries & preflight requests
 /0061 { /type "allow" /method '(GET|POST|OPTIONS)' /url "/graphql/execute.json*" }
