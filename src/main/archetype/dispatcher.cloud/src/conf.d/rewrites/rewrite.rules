@@ -10,6 +10,7 @@ Include conf.d/rewrites/default_rewrite.rules
 # rewrite for root redirect
 RewriteRule ^/?$ /content/${CONTENT_FOLDER_NAME}/${country}/${language}.html [PT,L]
 
+RewriteCond %{REQUEST_URI} !^/adobe
 RewriteCond %{REQUEST_URI} !^/apps
 RewriteCond %{REQUEST_URI} !^/bin
 RewriteCond %{REQUEST_URI} !^/content
