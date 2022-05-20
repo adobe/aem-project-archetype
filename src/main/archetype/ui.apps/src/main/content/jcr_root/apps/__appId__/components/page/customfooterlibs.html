@@ -16,7 +16,7 @@
 <sly data-sly-use.clientlib="core/wcm/components/commons/v1/templates/clientlib.html">
     <sly data-sly-call="${symbol_dollar}{clientlib.js @ categories='${appId}.base', async=true}"/>
 #if ( $includeCommerce == "y" )
-    <sly data-sly-call="${symbol_dollar}{clientlib.js @ categories='${appId}.cif'}" />
+    <sly data-sly-call="${symbol_dollar}{clientlib.js @ categories='${appId}.cif', async=true}" />
 #end
 </sly>
 #if ( $isSpaProject )
