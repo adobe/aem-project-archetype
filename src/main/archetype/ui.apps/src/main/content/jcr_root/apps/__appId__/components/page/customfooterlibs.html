@@ -13,8 +13,8 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
-    <sly data-sly-call="${symbol_dollar}{clientlib.js @ categories='${appId}.base'}"/>
+<sly data-sly-use.clientlib="core/wcm/components/commons/v1/templates/clientlib.html">
+    <sly data-sly-call="${symbol_dollar}{clientlib.js @ categories='${appId}.base', async=true}"/>
 #if ( $includeCommerce == "y" )
     <sly data-sly-call="${symbol_dollar}{clientlib.js @ categories='${appId}.cif'}" />
 #end
