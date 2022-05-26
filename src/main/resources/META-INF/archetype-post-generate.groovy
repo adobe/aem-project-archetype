@@ -29,6 +29,7 @@ def includeFormscommunications = request.getProperties().get("includeFormscommun
 def enableSSR = request.getProperties().get("enableSSR");
 def sdkFormsVersion = request.getProperties().get("sdkFormsVersion")
 def precompiledScripts = request.getProperties().get("precompiledScripts")
+def includeFormsheadless = request.getProperties().get("includeFormsheadless")
 
 def appsFolder = new File("$uiAppsPackage/src/main/content/jcr_root/apps/$appId")
 def configFolder = new File("$uiConfigPackage/src/main/content/jcr_root/apps/$appId/osgiconfig")
@@ -199,6 +200,12 @@ if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunic
         println "Using AEM Forms as a Cloud Service SDK version: " + sdkFormsVersion
         rootPom.text = rootPom.text.replaceAll('SDK_FORMS_VERSION', sdkFormsVersion.toString())
     }
+}
+// For Adaptive Forms 2
+if (includeFormsheadless == "n") {
+    assert new File("$appsFolder/components/adaptiveForm").deleteDir()
+    assert new File("$confFolder/settings/wcm/template-types/core-af-page").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/core-blank-af").deleteDir()
 }
 
 // if config.publish folder ends up empty, remove it, otherwise the filevault-package-maven-plugin will throw

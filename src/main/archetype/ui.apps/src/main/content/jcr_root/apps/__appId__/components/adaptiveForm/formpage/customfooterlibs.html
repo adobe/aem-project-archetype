@@ -13,4 +13,15 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+  <sly data-sly-call="${symbol_dollar}{clientlib.js @ categories='${appId}.base'}"/>
+  <sly data-sly-call="${symbol_dollar}{clientlib.js @ categories='forms.components.react'}" />
+</sly>
+<!--/*
+    SPA projects: In edit mode, include ClientLib for communication with page editor
+*/-->
+<sly
+    data-sly-test="${symbol_dollar}{wcmmode.edit || wcmmode.preview}"
+    data-sly-call="${symbol_dollar}{clientLib.js @ categories='cq.authoring.pagemodel.messaging'}"
+></sly>
 

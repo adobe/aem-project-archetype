@@ -150,6 +150,13 @@
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
         <!--
+            Option to include Adaptive Forms 2.0
+        -->
+        <requiredProperty key="includeFormsheadless">
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
+        <!--
            AEM Forms as a Cloud Service SDK API version.
        -->
         <requiredProperty key="sdkFormsVersion">
