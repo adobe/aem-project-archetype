@@ -5,6 +5,6 @@
       cq:templateType="/conf/${appId}/settings/wcm/template-types/core-af-page"
       jcr:primaryType="cq:PageContent"
       jcr:lastModified="{Date}2021-03-24T18:22:20.809+05:30"
-      jcr:title="AF v2 Template"
+      jcr:title="Blank v2"
       status="enabled"/>
 </jcr:root>

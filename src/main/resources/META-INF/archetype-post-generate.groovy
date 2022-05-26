@@ -204,8 +204,18 @@ if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunic
 // For Adaptive Forms 2
 if (includeFormsheadless == "n") {
     assert new File("$appsFolder/components/adaptiveForm").deleteDir()
-    assert new File("$confFolder/settings/wcm/template-types/core-af-page").deleteDir()
-    assert new File("$confFolder/settings/wcm/templates/core-blank-af").deleteDir()
+    assert new File("$confFolder/settings/wcm/template-types/af-page-v2").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/blank-af-v2").deleteDir()
+} else {
+    if (aemVersion == "cloud") {
+        // if forms is included and aem version is set to cloud, set the forms sdk version
+        if (sdkFormsVersion == "latest") {
+            println "No Forms SDK version specified, trying to fetch latest"
+            sdkFormsVersion = getLatestFormsSDK(request.getArchetypeVersion())
+        }
+        println "Using AEM Forms as a Cloud Service SDK version: " + sdkFormsVersion
+        rootPom.text = rootPom.text.replaceAll('SDK_FORMS_VERSION', sdkFormsVersion.toString())
+    }
 }
 
 // if config.publish folder ends up empty, remove it, otherwise the filevault-package-maven-plugin will throw
