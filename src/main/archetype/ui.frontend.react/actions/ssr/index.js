@@ -1,11 +1,17 @@
 require("regenerator-runtime/runtime");
 const processor = require('../common/app');
+const pako = require('pako');
 
 async function main(args) {
-
+    var data;
+    if (args.__ow_headers['content-type'] === "application/octet-stream") {
+        data = Buffer.from(pako.inflate(Buffer.from(args.__ow_body, 'base64')), "base64").toString()
+    } else {
+        data = args
+    }
 
     const refinedArgs = {
-        data: args,
+        data: data,
         pageRoot: args.__ow_headers['page-model-root-url'],
         pagePath: args.__ow_path,
         wcmmode: args.__ow_headers['wcm-mode']

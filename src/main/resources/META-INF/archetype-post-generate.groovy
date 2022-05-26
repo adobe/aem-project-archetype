@@ -1,4 +1,3 @@
-@Grab(group="org.codehaus.groovy", module="groovy-all", version="2.4.8")
 import static groovy.io.FileType.*
 import groovy.util.XmlSlurper
 import java.nio.file.Path
@@ -188,6 +187,7 @@ if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunic
     assert new File("$uiTestPackage/test-module/specs/aem/forms.js").delete()
     assert new File("$uiTestPackage/test-module/lib/util").deleteDir()
     assert new File("$uiTestPackage/test-module/rules").deleteDir()
+    assert new File("$uiTestPackage/test-module/assets/form").deleteDir()
     assert new File("$appsFolder/clientlibs/clientlibs-forms").deleteDir()
 } else {
     if (aemVersion == "cloud") {
@@ -267,11 +267,6 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
         assert new File("$appsFolder/components/structure/spa").deleteDir()
         assert new File("$appsFolder/components/xfpage/body.html").delete()
 
-        // Delete EditConfigs
-        if (includeCommerce == "n") {
-            assert new File("$appsFolder/components/text/_cq_editConfig.xml").delete()
-        }
-
         // Delete SPA templates
         assert new File("$confFolder/settings/wcm/templates/spa-app-template").deleteDir()
         assert new File("$confFolder/settings/wcm/templates/spa-page-template").deleteDir()
@@ -311,6 +306,9 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
                 assert new File(rootDir, "ui.frontend/scripts").deleteDir();
             }else if(optionFrontendModule == "angular"){
                 assert new File(rootDir, "ui.frontend/server.ts").delete();
+                assert new File(rootDir, "ui.frontend/serverless.ts").delete();
+                assert new File(rootDir, "ui.frontend/manifest.yml").delete();
+                assert new File(rootDir, "ui.frontend/CustomModelClient.js").delete();
                 assert new File(rootDir, "ui.frontend/tsconfig.server.json").delete();
                 assert new File(rootDir, "ui.frontend/src/main.server.ts").delete();
                 assert new File(rootDir, "ui.frontend/src/app/app.server.module.ts").delete();

@@ -20,14 +20,14 @@
 #end
 #if ( $includeCommerce == "y" )
             <container jcr:primaryType="nt:unstructured"
-                sling:resourceType="venia/components/container"
+                sling:resourceType="${appId}/components/container"
                 layout="responsiveGrid">
                 <breadcrumb jcr:primaryType="nt:unstructured"
-                    sling:resourceType="venia/components/commerce/breadcrumb"
+                    sling:resourceType="${appId}/components/commerce/breadcrumb"
                     startLevel="3"
                     structureDepth="2"/>
                 <container jcr:primaryType="nt:unstructured"
-                    sling:resourceType="venia/components/container"
+                    sling:resourceType="${appId}/components/container"
                    editable="{Boolean}true" />
             </container>
 #else

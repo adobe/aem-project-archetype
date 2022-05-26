@@ -24,7 +24,7 @@ var isTestEnvironment = process.env.NODE_ENV == 'test';
 
 const serverConfig = {
     // Tell webpack to start bundling our app at app/index.js
-    entry: ['babel-polyfill', './src/server/aem-processor.js'],
+    entry: ['./src/server/aem-processor.js'],
     target: 'node',
     externals: nodeExternals({
         whitelist: [
