@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-  jcr:primaryType="cq:Template">
+    jcr:primaryType="cq:Template">
     <jcr:content
-      cq:templateType="/conf/${appId}/settings/wcm/template-types/core-af-page"
-      jcr:primaryType="cq:PageContent"
-      jcr:lastModified="{Date}2021-03-24T18:22:20.809+05:30"
-      jcr:title="Blank v2"
-      status="enabled"/>
+        cq:lastModified="{Date}2022-05-27T13:57:01.856+05:30"
+        cq:lastModifiedBy="admin"
+        cq:templateType="/conf/${appId}/settings/wcm/template-types/af-page-v2"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Blank v2"
+        status="enabled"/>
 </jcr:root>
