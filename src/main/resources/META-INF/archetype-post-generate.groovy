@@ -190,36 +190,28 @@ if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunic
     assert new File("$uiTestPackage/test-module/rules").deleteDir()
     assert new File("$uiTestPackage/test-module/assets/form").deleteDir()
     assert new File("$appsFolder/clientlibs/clientlibs-forms").deleteDir()
-} else {
-    if (aemVersion == "cloud") {
-        // if forms is included and aem version is set to cloud, set the forms sdk version
-        if (sdkFormsVersion == "latest") {
-            println "No Forms SDK version specified, trying to fetch latest"
-            sdkFormsVersion = getLatestFormsSDK(request.getArchetypeVersion())
-        }
-        println "Using AEM Forms as a Cloud Service SDK version: " + sdkFormsVersion
-        rootPom.text = rootPom.text.replaceAll('SDK_FORMS_VERSION', sdkFormsVersion.toString())
-    }
 }
+
 // For Adaptive Forms 2
 if (includeFormsheadless == "n") {
     assert new File("$appsFolder/components/adaptiveForm").deleteDir()
     assert new File("$confFolder/settings/wcm/template-types/af-page-v2").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/blank-af-v2").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/basic-af-v2").deleteDir()
     // Remove ui.fronend.forms module entry from root pom
     removeModule(rootPom, 'ui.frontend.forms')
     // Delete ui.frontend.forms directory
     assert new File(rootDir, "ui.frontend.forms").deleteDir()
-} else {
-    if (aemVersion == "cloud") {
-        // if forms is included and aem version is set to cloud, set the forms sdk version
-        if (sdkFormsVersion == "latest") {
-            println "No Forms SDK version specified, trying to fetch latest"
-            sdkFormsVersion = getLatestFormsSDK(request.getArchetypeVersion())
-        }
-        println "Using AEM Forms as a Cloud Service SDK version: " + sdkFormsVersion
-        rootPom.text = rootPom.text.replaceAll('SDK_FORMS_VERSION', sdkFormsVersion.toString())
+}
+
+// if forms is included and aem version is set to cloud, set the forms sdk version
+if ((includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunications == "y" || includeFormsheadless == "y") && aemVersion == "cloud") {
+    if (sdkFormsVersion == "latest") {
+        println "No Forms SDK version specified, trying to fetch latest"
+        sdkFormsVersion = getLatestFormsSDK(request.getArchetypeVersion())
     }
+    println "Using AEM Forms as a Cloud Service SDK version: " + sdkFormsVersion
+    rootPom.text = rootPom.text.replaceAll('SDK_FORMS_VERSION', sdkFormsVersion.toString())
 }
 
 // if config.publish folder ends up empty, remove it, otherwise the filevault-package-maven-plugin will throw

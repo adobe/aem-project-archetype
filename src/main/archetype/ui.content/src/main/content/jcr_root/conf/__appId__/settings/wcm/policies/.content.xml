@@ -539,9 +539,9 @@
                   jcr:primaryType="nt:unstructured"
                   mergeList="{Boolean}true"/>
                 <default
-                  jcr:description="Policy of the Adaptive Form Guide Container"
+                  jcr:description="Policy of the Adaptive Form V2 Container"
                   jcr:primaryType="nt:unstructured"
-                  jcr:title="Simple Adaptive Form Guide Container Policy"
+                  jcr:title="Simple Adaptive Form V2 Container Policy"
                   sling:resourceType="wcm/core/components/policy/policy"
                   components="[group:${appTitle} - Adaptive Forms]">
                   <cq:authoring jcr:primaryType="nt:unstructured">
@@ -599,7 +599,7 @@
                   jcr:primaryType="nt:unstructured"
                   mergeList="{Boolean}true"/>
                 <default
-                  jcr:description="Policy of the Core Adaptive Form page"
+                  jcr:description="Policy of the Adaptive Form V2 page"
                   jcr:primaryType="nt:unstructured"
                   jcr:title="Default Page"
                   sling:resourceType="wcm/core/components/policy/policy">
