@@ -41,6 +41,9 @@
 #if ( $frontendModule != "none" )
         <module>ui.frontend</module>
 #end
+ #if ( $includeFormsheadless == "y" )
+        <module>ui.frontend.forms</module>
+ #end
         <module>ui.apps</module>
         <module>ui.apps.structure</module>
         <module>ui.config</module>
