@@ -395,7 +395,7 @@
                 </fileSet>
             </fileSets>
         </module>
-        <module id="${rootArtifactId}.ui.frontend.forms" dir="ui.frontend.forms" name="ui.frontend.forms">
+        <module id="${rootArtifactId}.ui.frontend.react.forms.af" dir="ui.frontend.react.forms.af" name="ui.frontend.react.forms.af">
             <fileSets>
                 <fileSet filtered="true" encoding="UTF-8">
                     <directory></directory>

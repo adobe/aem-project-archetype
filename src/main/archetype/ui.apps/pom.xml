@@ -221,7 +221,7 @@ Require-Capability: osgi.extender;filter:="(&(osgi.extender=sling.scripting)(ver
 #if ( $includeFormsheadless == "y")
       <dependency>
         <groupId>${groupId}</groupId>
-        <artifactId>${rootArtifactId}.ui.frontend.forms</artifactId>
+        <artifactId>${rootArtifactId}.ui.frontend.react.forms.af</artifactId>
         <version>${project.version}</version>
         <type>zip</type>
       </dependency>

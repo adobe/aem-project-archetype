@@ -42,7 +42,7 @@
         <module>ui.frontend</module>
 #end
  #if ( $includeFormsheadless == "y" )
-        <module>ui.frontend.forms</module>
+        <module>ui.frontend.react.forms.af</module>
  #end
         <module>ui.apps</module>
         <module>ui.apps.structure</module>
@@ -87,7 +87,7 @@
 #end
 
 #if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud" )
-        <core.forms.components.version>1.0.6</core.forms.components.version>
+        <core.forms.components.version>1.0.12</core.forms.components.version>
         <aem.forms.sdk.api>SDK_FORMS_VERSION</aem.forms.sdk.api>
 #end
         <bnd.version>5.1.2</bnd.version>

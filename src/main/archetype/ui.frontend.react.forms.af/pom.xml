@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
- |  Copyright 2020 Adobe Systems Incorporated
+ |  Copyright 2022 Adobe Systems Incorporated
  |
  |  Licensed under the Apache License, Version 2.0 (the "License");
  |  you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@
     <!-- ====================================================================== -->
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
-    <artifactId>${rootArtifactId}.ui.frontend.forms</artifactId>
+    <artifactId>${rootArtifactId}.ui.frontend.react.forms.af</artifactId>
     <packaging>pom</packaging>
     <name>${appTitle} - UI Frontend Forms</name>
 

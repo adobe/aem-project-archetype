@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
-import {AdaptiveForm} from "@aemforms/forms-super-component";
-import {mappings} from "@aemforms/forms-react-components";
+import {AdaptiveForm} from "@adobe/forms-super-component";
+import {mappings} from "@adobe/forms-react-components";
 import useEditorEvents from "./hooks/useEditorEvents";
 import ReactDOM from "react-dom";
 //@ts-ignore
