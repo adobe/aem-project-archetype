@@ -197,6 +197,7 @@ if (includeFormsheadless == "n") {
     assert new File("$appsFolder/components/adaptiveForm").deleteDir()
     assert new File("$confFolder/settings/wcm/template-types/af-page-v2").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/blank-af-v2").deleteDir()
+    assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/sample.json").deleteDir()
     // Remove ui.frontend.react.forms.af module entry from root pom
     removeModule(rootPom, 'ui.frontend.react.forms.af')
     // Delete ui.frontend.react.forms.af directory
