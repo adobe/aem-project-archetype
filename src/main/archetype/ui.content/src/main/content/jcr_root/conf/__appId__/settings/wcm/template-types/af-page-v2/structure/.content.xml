@@ -4,18 +4,13 @@
     <jcr:content
         cq:deviceGroups="[/etc/mobile/groups/responsive]"
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="fd/af/components/page2/aftemplatedpage">
+        sling:resourceType="${appId}/components/page">
         <parsys1
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid"/>
         <guideContainer
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="${appId}/components/adaptiveForm/formcontainer"
-            actionType="fd/fp/components/actions/portalsubmit"
-            editable="{Boolean}true"
-            guideCss="guideContainer"
-            guideNodeClass="guideContainerNode"
-            name="guide1">
+            sling:resourceType="${appId}/components/adaptiveForm/formcontainer">
         </guideContainer>
         <parsys2
             jcr:primaryType="nt:unstructured"

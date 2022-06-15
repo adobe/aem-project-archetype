@@ -8,6 +8,8 @@
     sling:resourceSuperType="core/cif/components/structure/page/v2/page"
 #elseif ( $amp == "y" )
     sling:resourceSuperType="core/wcm/extensions/amp/components/page/v1/page"
+#elseif ( $includeFormsheadless =="y" )
+    sling:resourceSuperType="core/fd/components/page/v1/page"
 #else
     sling:resourceSuperType="core/wcm/components/page/v3/page"
 #end

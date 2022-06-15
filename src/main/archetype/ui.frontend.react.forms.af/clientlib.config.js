@@ -25,7 +25,7 @@ const CLIENTLIB_DIR = path.join(
     'content',
     'jcr_root',
     'apps',
-    'mysite',
+    '${appId}',
     'clientlibs'
 );
 
@@ -43,8 +43,8 @@ module.exports = {
   libs: [
     {
       ...libsBaseConfig,
-      name: 'forms-react-components',
-      categories: ['forms.components.react'],
+      name: 'clientlib-forms-react',
+      categories: ['${appId}.forms.react'],
       assets: {
         // Copy entrypoint scripts and stylesheets into the respective ClientLib
         // directories

@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [`create-react-app`](https://github.com/facebook/create-react-app).
 
-This application is built to consume the AEM model of a site. It will automatically generate the layout using the helper components from the [`@adobe/aem-react-editable-components`](https://www.npmjs.com/package/@adobe/aem-react-editable-components) package.
+This application is built to consume the form model definition of an adaptive form
 
 ## Scripts
 

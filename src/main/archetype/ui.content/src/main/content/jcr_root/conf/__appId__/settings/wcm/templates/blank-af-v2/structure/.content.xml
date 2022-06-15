@@ -5,18 +5,14 @@
         cq:deviceGroups="[/etc/mobile/groups/responsive]"
         cq:template="/conf/${appId}/settings/wcm/templates/blank-af-v2"
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="${appId}/components/adaptiveForm/formpage">
+        sling:resourceType="${appId}/components/page">
         <parsys1
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid"/>
         <guideContainer
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="${appId}/components/adaptiveForm/formcontainer"
-            actionType="fd/fp/components/actions/portalsubmit"
             editable="{Boolean}true"
-            guideCss="guideContainer"
-            guideNodeClass="guideContainerNode"
-            name="guide1"/>
+            sling:resourceType="${appId}/components/adaptiveForm/formcontainer"/>
         <parsys2
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid"/>
