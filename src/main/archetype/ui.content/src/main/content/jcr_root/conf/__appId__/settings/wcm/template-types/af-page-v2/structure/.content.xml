@@ -10,6 +10,7 @@
             sling:resourceType="wcm/foundation/components/responsivegrid"/>
         <guideContainer
             jcr:primaryType="nt:unstructured"
+            editable="{Boolean}true"
             sling:resourceType="${appId}/components/adaptiveForm/formcontainer">
         </guideContainer>
         <parsys2
