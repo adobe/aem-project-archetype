@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [`create-react-app`](https://github.com/facebook/create-react-app).
 
-This application is built to consume the form model definition of an adaptive form
+This application is built to consume the form model definition of an adaptive form.
 
 ## Scripts
 
