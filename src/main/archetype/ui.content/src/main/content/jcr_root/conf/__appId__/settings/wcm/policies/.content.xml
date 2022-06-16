@@ -594,20 +594,6 @@
                     mergeList="{Boolean}true"/>
                 </default>
               </formcontainer>
-              <formpage jcr:primaryType="nt:unstructured">
-                <jcr:content
-                  jcr:primaryType="nt:unstructured"
-                  mergeList="{Boolean}true"/>
-                <default
-                  jcr:description="Policy of the Adaptive Form V2 page"
-                  jcr:primaryType="nt:unstructured"
-                  jcr:title="Default Page"
-                  sling:resourceType="wcm/core/components/policy/policy">
-                  <jcr:content
-                    jcr:primaryType="nt:unstructured"
-                    mergeList="{Boolean}true"/>
-                </default>
-              </formpage>
             </adaptiveForm>
 #end
         </components>

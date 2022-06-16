@@ -14,6 +14,6 @@
     <filter root="/content/dam/${appId}/sample_terms.png" mode="merge"/>
 #end
 #if ( ($includeFormsheadless == "y" ) and $aemVersion == "cloud")
-    <filter root="/content/dam/${appId}/sample.json" mode="merge"/>
+    <filter root="/content/dam/${appId}/af_model_sample.json" mode="merge"/>
 #end
 </workspaceFilter>
