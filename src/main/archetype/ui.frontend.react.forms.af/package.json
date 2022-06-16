@@ -34,9 +34,9 @@
   },
   "dependencies": {
     "@adobe/react-spectrum": "^3.17.0",
-    "@aemforms/forms-core": "^0.13.0",
-    "@aemforms/forms-react-core-components": "^0.13.0",
-    "@aemforms/forms-super-component": "^0.13.0",
+    "@aemforms/af-core": "^0.15.0",
+    "@aemforms/af-react-components": "^0.15.0",
+    "@aemforms/af-react-renderer": "^0.15.0",
     "aem-clientlib-generator": "^1.5.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
