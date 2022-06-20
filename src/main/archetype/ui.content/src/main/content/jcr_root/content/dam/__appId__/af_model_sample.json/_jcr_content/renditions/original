@@ -1,10 +1,6 @@
 {
   "adaptiveform": "0.10.0",
   "data": {},
-  "events": {
-    "submit": "submitForm('submitSuccess', 'submitError')",
-    "custom:submitSuccess": "show_message_box($form.thankyouMessage)"
-  },
   "items": [
     {
       "name": "firstName",
