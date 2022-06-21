@@ -40,6 +40,6 @@ module.exports = {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
-        //sourceMapFilename: `forms-react-components/resources/[name].map[ext]` uncomment for debugging
+        //sourceMapFilename: `clientlib-forms-react/resources/[name].map[ext]` // uncomment for debugging
     }
 };
