@@ -16,7 +16,6 @@ const base64url = (s: any) => {
 export const getId = () => {
     let id =  ""
     if (!process.env.FORMPATH) {
-        debugger;
         const parent = document.querySelector(".cmp-formcontainer")
         id = parent.getAttribute("data-form-id")
     } else {
