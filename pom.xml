@@ -20,7 +20,7 @@
 
     <groupId>com.adobe.aem</groupId>
     <artifactId>aem-project-archetype</artifactId>
-    <version>37-SNAPSHOT</version>
+    <version>38-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
 
     <name>AEM Multi-Module Archetype</name>
