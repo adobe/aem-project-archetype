@@ -4,6 +4,6 @@
     jcr:description="Commerce Teaser"
     jcr:primaryType="cq:Component"
     jcr:title="Commerce Teaser"
-    sling:resourceSuperType="core/cif/components/content/teaser/v2/teaser"
+    sling:resourceSuperType="core/cif/components/content/teaser/v3/teaser"
     imageDelegate="${appId}/components/image"
     componentGroup="${appTitle} - Commerce"/>
