@@ -895,7 +895,13 @@ Bundle-DocURL:
 #if ( $includeExamples == "y" and ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud" ) )
             <dependency>
                 <groupId>com.adobe.aem</groupId>
-                <artifactId>core-forms-components-examples-all</artifactId>
+                <artifactId>core-forms-components-examples-apps</artifactId>
+                <type>zip</type>
+                <version>${core.forms.components.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.aem</groupId>
+                <artifactId>core-forms-components-examples-content</artifactId>
                 <type>zip</type>
                 <version>${core.forms.components.version}</version>
             </dependency>
