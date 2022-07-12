@@ -194,7 +194,7 @@
                             <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
 #end
-#if ( $includeExamples == "y" and ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud" ) )
+#if ( $includeExamples == "y" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") )
                         <embedded>
                             <groupId>com.adobe.aem</groupId>
                             <artifactId>core-forms-components-examples-apps</artifactId>
