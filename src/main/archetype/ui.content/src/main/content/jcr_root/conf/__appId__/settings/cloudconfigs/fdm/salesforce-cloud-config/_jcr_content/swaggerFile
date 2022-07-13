@@ -17,7 +17,7 @@
 	"paths": {
 		"/services/data/v32.0/sobjects/Lead/{id}": {
 			"get": {
-				"summary": "Fetch Lead Information From SDFC",
+				"summary": "Fetch Lead Information From SFDC",
 				"produces": ["application/json"],
 				"consumes": ["application/json"],
 				"operationId": "GetLead",
@@ -43,7 +43,7 @@
 				}
 			},
 			"delete": {
-				"summary": "Delete Lead Information From SDFC",
+				"summary": "Delete Lead Information From SFDC",
 				"produces": ["application/json"],
 				"consumes": ["application/json"],
 				"operationId": "DeleteLead",
@@ -95,7 +95,7 @@
 		},
 		"/services/data/v32.0/sobjects/Contact/{id}": {
 			"get": {
-				"summary": "Fetch Contact Information From SDFC",
+				"summary": "Fetch Contact Information From SFDC",
 				"produces": ["application/json"],
 				"consumes": ["application/json"],
 				"operationId": "GetContact",
@@ -121,7 +121,7 @@
 				}
 			},
 			"delete": {
-				"summary": "Delete Contact Information From SDFC",
+				"summary": "Delete Contact Information From SFDC",
 				"produces": ["application/json"],
 				"consumes": ["application/json"],
 				"operationId": "DeleteContact",
@@ -173,7 +173,7 @@
 		},
         "/services/data/v32.0/sobjects/Account/{id}": {
             "get": {
-                "summary": "Fetch Account Information From SDFC",
+                "summary": "Fetch Account Information From SFDC",
                 "produces": ["application/json"],
                 "consumes": ["application/json"],
                 "operationId": "GetAccount",
@@ -199,7 +199,7 @@
                 }
             },
             "delete": {
-                "summary": "Delete Account Information From SDFC",
+                "summary": "Delete Account Information From SFDC",
                 "produces": ["application/json"],
                 "consumes": ["application/json"],
                 "operationId": "DeleteAccount",
@@ -251,7 +251,7 @@
         },
         "/services/data/v32.0/sobjects/Opportunity/{id}": {
             "get": {
-                "summary": "Fetch Opportunity Information From SDFC",
+                "summary": "Fetch Opportunity Information From SFDC",
                 "produces": ["application/json"],
                 "consumes": ["application/json"],
                 "operationId": "GetOpportunity",
@@ -277,7 +277,7 @@
                 }
             },
             "delete": {
-                "summary": "Delete Opportunity Information From SDFC",
+                "summary": "Delete Opportunity Information From SFDC",
                 "produces": ["application/json"],
                 "consumes": ["application/json"],
                 "operationId": "DeleteOpportunity",

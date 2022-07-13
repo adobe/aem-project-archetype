@@ -23,7 +23,7 @@
                     <get_services_datav320sobjectscontactid1627022469897
                         fdm:source="source1"
                         jcr:primaryType="nt:unstructured"
-                        description="Fetch Contact Information From SDFC"
+                        description="Fetch Contact Information From SFDC"
                         genericOperation="{Boolean}false"
                         href=""
                         id="GET /services/data/v32.0/sobjects/Contact/{id}_1627022469897"
@@ -883,7 +883,7 @@
                     <get_services_datav320sobjectsleadid1627022485605
                         fdm:source="source1"
                         jcr:primaryType="nt:unstructured"
-                        description="Fetch Lead Information From SDFC"
+                        description="Fetch Lead Information From SFDC"
                         genericOperation="{Boolean}false"
                         href=""
                         id="GET /services/data/v32.0/sobjects/Lead/{id}_1627022485605"
@@ -1606,7 +1606,7 @@
                     <get_services_datav320sobjectsaccountid1657518102791
                         fdm:source="source1"
                         jcr:primaryType="nt:unstructured"
-                        description="Fetch Account Information From SDFC"
+                        description="Fetch Account Information From SFDC"
                         genericOperation="{Boolean}false"
                         href=""
                         id="GET /services/data/v32.0/sobjects/Account/{id}_1657518102791"
@@ -2279,7 +2279,7 @@
                     <get_services_datav320sobjectsopportunityid1657518128991
                         fdm:source="source1"
                         jcr:primaryType="nt:unstructured"
-                        description="Fetch Opportunity Information From SDFC"
+                        description="Fetch Opportunity Information From SFDC"
                         genericOperation="{Boolean}false"
                         href=""
                         id="GET /services/data/v32.0/sobjects/Opportunity/{id}_1657518128991"
@@ -2917,7 +2917,7 @@
             <delete_services_datav320sobjectscontactid
                 fdm:source="source1"
                 jcr:primaryType="nt:unstructured"
-                description="Delete Contact Information From SDFC"
+                description="Delete Contact Information From SFDC"
                 genericOperation="{Boolean}false"
                 href=""
                 id="DELETE /services/data/v32.0/sobjects/Contact/{id}"
@@ -2956,7 +2956,7 @@
             <get_services_datav320sobjectscontactid
                 fdm:source="source1"
                 jcr:primaryType="nt:unstructured"
-                description="Fetch Contact Information From SDFC"
+                description="Fetch Contact Information From SFDC"
                 genericOperation="{Boolean}false"
                 href=""
                 id="GET /services/data/v32.0/sobjects/Contact/{id}"
@@ -3062,7 +3062,7 @@
             <delete_services_datav320sobjectsleadid
                 fdm:source="source1"
                 jcr:primaryType="nt:unstructured"
-                description="Delete Lead Information From SDFC"
+                description="Delete Lead Information From SFDC"
                 genericOperation="{Boolean}false"
                 href=""
                 id="DELETE /services/data/v32.0/sobjects/Lead/{id}"
@@ -3101,7 +3101,7 @@
             <get_services_datav320sobjectsleadid
                 fdm:source="source1"
                 jcr:primaryType="nt:unstructured"
-                description="Fetch Lead Information From SDFC"
+                description="Fetch Lead Information From SFDC"
                 genericOperation="{Boolean}false"
                 href=""
                 id="GET /services/data/v32.0/sobjects/Lead/{id}"
@@ -3206,7 +3206,7 @@
             <delete_services_datav320sobjectsaccountid
                 fdm:source="source1"
                 jcr:primaryType="nt:unstructured"
-                description="Delete Account Information From SDFC"
+                description="Delete Account Information From SFDC"
                 genericOperation="{Boolean}false"
                 href=""
                 id="DELETE /services/data/v32.0/sobjects/Account/{id}"
@@ -3245,7 +3245,7 @@
             <get_services_datav320sobjectsaccountid
                 fdm:source="source1"
                 jcr:primaryType="nt:unstructured"
-                description="Fetch Account Information From SDFC"
+                description="Fetch Account Information From SFDC"
                 genericOperation="{Boolean}false"
                 href=""
                 id="GET /services/data/v32.0/sobjects/Account/{id}"
@@ -3349,7 +3349,7 @@
             <delete_services_datav320sobjectsopportunityid
                 fdm:source="source1"
                 jcr:primaryType="nt:unstructured"
-                description="Delete Opportunity Information From SDFC"
+                description="Delete Opportunity Information From SFDC"
                 genericOperation="{Boolean}false"
                 href=""
                 id="DELETE /services/data/v32.0/sobjects/Opportunity/{id}"
@@ -3388,7 +3388,7 @@
             <get_services_datav320sobjectsopportunityid
                 fdm:source="source1"
                 jcr:primaryType="nt:unstructured"
-                description="Fetch Opportunity Information From SDFC"
+                description="Fetch Opportunity Information From SFDC"
                 genericOperation="{Boolean}false"
                 href=""
                 id="GET /services/data/v32.0/sobjects/Opportunity/{id}"
