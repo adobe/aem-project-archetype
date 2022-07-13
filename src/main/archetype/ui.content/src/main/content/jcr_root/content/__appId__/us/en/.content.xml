@@ -15,13 +15,15 @@
 #else
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
-        cq:template="/conf/${appId}/settings/wcm/templates/page-content"
 #if ( $includeCommerce == "y" )
-        cq:allowedTemplates="[/conf/${appId}/settings/wcm/templates/(?!(landing|root)).*]"
+        cq:template="/conf/${appId}/settings/wcm/templates/landing-page"
+        cq:allowedTemplates="[/conf/${appId}/settings/wcm/templates/catalog-page,/conf/${appId}/settings/wcm/templates/page-content]"
         cq:cifCategoryPage="/content/${appId}/us/en/products/category-page"
         cq:cifProductPage="/content/${appId}/us/en/products/product-page"
         cq:cifSearchResultsPage="/content/${appId}/us/en/search"
         navRoot="{Boolean}true"
+#else
+        cq:template="/conf/${appId}/settings/wcm/templates/page-content"
 #end
         sling:resourceType="${appId}/components/page"
     >

@@ -3,7 +3,9 @@
     xmlns:cq="http://www.day.com/jcr/cq/1.0" 
     xmlns:jcr="http://www.jcp.org/jcr/1.0" 
     jcr:primaryType="cq:Page">
-    <jcr:content cq:template="/conf/${appId}/settings/wcm/templates/catalog-page"
+    <jcr:content 
+        cq:allowedTemplates="[/conf/${appId}/settings/wcm/templates/product-page,/conf/${appId}/settings/wcm/templates/category-page]"
+        cq:template="/conf/${appId}/settings/wcm/templates/catalog-page"
         jcr:primaryType="cq:PageContent"
 #if ( $singleCountry == "n" )
         jcr:mixinTypes="[cq:LiveRelationship]"

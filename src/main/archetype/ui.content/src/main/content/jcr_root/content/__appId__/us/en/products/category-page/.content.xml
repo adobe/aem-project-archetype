@@ -5,6 +5,7 @@
     xmlns:nt="http://www.jcp.org/jcr/nt/1.0" 
     jcr:primaryType="cq:Page">
     <jcr:content
+        cq:allowedTemplates="[/conf/${appId}/settings/wcm/templates/category-page]"
         cq:template="/conf/${appId}/settings/wcm/templates/category-page"
         jcr:primaryType="cq:PageContent" 
         jcr:title="Category page"

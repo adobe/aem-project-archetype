@@ -4,7 +4,9 @@
     xmlns:jcr="http://www.jcp.org/jcr/1.0" 
     xmlns:nt="http://www.jcp.org/jcr/nt/1.0" 
     jcr:primaryType="cq:Page">
-    <jcr:content cq:template="/conf/${appId}/settings/wcm/templates/product-page"
+    <jcr:content
+        cq:allowedTemplates="[/conf/${appId}/settings/wcm/templates/product-page]"
+        cq:template="/conf/${appId}/settings/wcm/templates/product-page"
 #if ( $singleCountry == "n" )
         jcr:mixinTypes="[cq:LiveRelationship]"
 #end

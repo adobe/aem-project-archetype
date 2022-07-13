@@ -4,10 +4,10 @@
     xmlns:jcr="http://www.jcp.org/jcr/1.0" 
     jcr:primaryType="cq:Page">
     <jcr:content 
-        cq:allowedTemplates="[/conf/${appId}/settings/wcm/templates/(?!(landing|root)).*]"
-        cq:template="/conf/${appId}/settings/wcm/templates/root-page"
+        cq:allowedTemplates="[/conf/${appId}/settings/wcm/templates/catalog-page,/conf/${appId}/settings/wcm/templates/page-content]"
+        cq:template="/conf/${appId}/settings/wcm/templates/landing-page"
         jcr:primaryType="cq:PageContent" 
-        jcr:title="Site root page" 
+        jcr:title="Site Landing Page" 
         sling:resourceType="${appId}/components/page">
         <root jcr:primaryType="nt:unstructured" 
             sling:resourceType="${appId}/components/container">
