@@ -18,6 +18,9 @@
 #if ( $includeCommerce == "y" )
     <sly data-sly-call="${symbol_dollar}{clientlib.css @ categories='${appId}.cif'}" />
 #end
+#if ( $includeFormsheadless == "y" )
+    <sly data-sly-call="${symbol_dollar}{clientlib.css @ categories='${appId}.forms.react'}" />
+#end
 </sly>
 
 #if ( $frontendModule == "angular" )

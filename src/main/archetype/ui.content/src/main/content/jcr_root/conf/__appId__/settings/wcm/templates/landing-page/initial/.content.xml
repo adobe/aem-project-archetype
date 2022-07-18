@@ -8,7 +8,8 @@
         cq:template="/conf/${appId}/settings/wcm/templates/root-page"
         jcr:primaryType="cq:PageContent" 
         jcr:title="Site root page" 
-        sling:resourceType="${appId}/components/page">
+        sling:resourceType="${appId}/components/page"
+        navRoot="{Boolean}true">
         <root jcr:primaryType="nt:unstructured" 
             sling:resourceType="${appId}/components/container">
             <container jcr:primaryType="nt:unstructured" 

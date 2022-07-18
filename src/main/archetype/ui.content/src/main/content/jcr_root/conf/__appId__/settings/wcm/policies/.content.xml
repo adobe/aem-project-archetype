@@ -532,6 +532,70 @@
                 </teaser>
             </commerce>
 #end
+#if ( $includeFormsheadless == "y" )
+            <adaptiveForm jcr:primaryType="nt:unstructured">
+              <formcontainer jcr:primaryType="nt:unstructured">
+                <jcr:content
+                  jcr:primaryType="nt:unstructured"
+                  mergeList="{Boolean}true"/>
+                <default
+                  jcr:description="Policy of the Adaptive Form V2 Container"
+                  jcr:primaryType="nt:unstructured"
+                  jcr:title="Simple Adaptive Form V2 Container Policy"
+                  sling:resourceType="wcm/core/components/policy/policy"
+                  components="[group:${appTitle} - Adaptive Forms]">
+                  <cq:authoring jcr:primaryType="nt:unstructured">
+                    <assetToComponentMapping jcr:primaryType="nt:unstructured">
+                      <image
+                        jcr:primaryType="nt:unstructured"
+                        assetGroup="media"
+                        assetMimetype="image/*"
+                        droptarget="image"
+                        resourceType="foundation/components/image"
+                        type="Images"/>
+                      <product
+                        jcr:primaryType="nt:unstructured"
+                        assetGroup="product"
+                        droptarget="product-data-reference"
+                        resourceType="commerce/components/product"
+                        type="Products"/>
+                      <document
+                        jcr:primaryType="nt:unstructured"
+                        assetGroup="media"
+                        assetMimetype="[application/vnd.openxmlformats,application/msword,application/vnd.ms-powerpoint,application/mspowerpoint,application/powerpoint,application/x-mspowerpoint,application/x-msexcel,application/x-excel,application/excel,application/vnd.ms-excel,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document]"
+                        droptarget="file"
+                        resourceType="foundation/components/download"
+                        type="Images"/>
+                      <video
+                        jcr:primaryType="nt:unstructured"
+                        assetGroup="media"
+                        assetMimetype="video/*"
+                        droptarget="video"
+                        resourceType="foundation/components/video"
+                        type="Images"/>
+                      <fragment
+                        jcr:primaryType="nt:unstructured"
+                        assetGroup="media"
+                        assetMimetype="text/html"
+                        droptarget="fragment"
+                        resourceType="dam/cfm/components/contentfragment"
+                        type="Content Fragment"/>
+                      <experiencefragment
+                        jcr:primaryType="nt:unstructured"
+                        assetGroup="content"
+                        assetMimetype="text/html"
+                        droptarget="experiencefragment"
+                        resourceType="cq/experience-fragments/editor/components/experiencefragment"
+                        type="experiencefragment"/>
+                    </assetToComponentMapping>
+                  </cq:authoring>
+                  <jcr:content
+                    jcr:primaryType="nt:unstructured"
+                    mergeList="{Boolean}true"/>
+                </default>
+              </formcontainer>
+            </adaptiveForm>
+#end
         </components>
     </${appId}>
 #if ( $isSpaProject )

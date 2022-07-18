@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:fd="http://www.adobe.com/aemfd/fd/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:deviceGroups="[/etc/mobile/groups/responsive]"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="${appId}/components/page"
+        guideComponentType="fd/af/templates">
+        <guideContainer
+            fd:version="2.0"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="${appId}/components/adaptiveForm/formcontainer">
+        </guideContainer>
+    </jcr:content>
+</jcr:root>

@@ -84,7 +84,7 @@
                             <artifactId>core-cif-components-apps</artifactId>
                         </dependency>
 #end
-#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud" )
+#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion != "cloud" )
                         <dependency>
                             <groupId>com.adobe.aem</groupId>
                             <artifactId>core-forms-components-apps</artifactId>
@@ -218,6 +218,15 @@ Require-Capability: osgi.extender;filter:="(&(osgi.extender=sling.scripting)(ver
         </dependency>
 #end
 
+#if ( $includeFormsheadless == "y")
+      <dependency>
+        <groupId>${groupId}</groupId>
+        <artifactId>${rootArtifactId}.ui.frontend.react.forms.af</artifactId>
+        <version>${project.version}</version>
+        <type>zip</type>
+      </dependency>
+#end
+
 #if ( $isSpaProject )
         <!-- SPA Project Core (includes hierarchy page) -->
         <dependency>
@@ -325,21 +334,23 @@ Require-Capability: osgi.extender;filter:="(&(osgi.extender=sling.scripting)(ver
         </dependency>
 #end
 #end
-#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud")
+#if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
         <!-- AEM Forms Dependencies -->
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>aem-forms-sdk-api</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>core-forms-components-apps</artifactId>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>core-forms-components-core</artifactId>
-        </dependency>
+        #if ($aemVersion != "cloud") 
+            <dependency>
+                <groupId>com.adobe.aem</groupId>
+                <artifactId>core-forms-components-apps</artifactId>
+                <type>zip</type>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.aem</groupId>
+                <artifactId>core-forms-components-core</artifactId>
+            </dependency>
+        #end
 #end
         <!-- HTL dependencies needed for the HTL Maven Plugin source code generation -->
         <dependency>

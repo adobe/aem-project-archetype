@@ -181,7 +181,7 @@
                         </embedded>
 #end
 #end
-#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud" )
+#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion != "cloud" )
                         <embedded>
                             <groupId>com.adobe.aem</groupId>
                             <artifactId>core-forms-components-apps</artifactId>
@@ -194,10 +194,16 @@
                             <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
 #end
-#if ( $includeExamples == "y" and ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud" ) )
+#if ( $includeExamples == "y" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") )
                         <embedded>
                             <groupId>com.adobe.aem</groupId>
-                            <artifactId>core-forms-components-examples-all</artifactId>
+                            <artifactId>core-forms-components-examples-apps</artifactId>
+                            <type>zip</type>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.adobe.aem</groupId>
+                            <artifactId>core-forms-components-examples-content</artifactId>
                             <type>zip</type>
                             <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
@@ -397,7 +403,7 @@
             <type>zip</type>
         </dependency>
 #end
-#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud" )
+#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion != "cloud" )
         <!-- AEM Forms Dependencies -->
         <dependency>
             <groupId>com.adobe.aem</groupId>
@@ -422,10 +428,15 @@
             <type>zip</type>
         </dependency>
 #end
-#if ( $includeExamples == "y" and ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud" ) )
+#if ( $includeExamples == "y" and ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud" ) )
         <dependency>
             <groupId>com.adobe.aem</groupId>
-            <artifactId>core-forms-components-examples-all</artifactId>
+            <artifactId>core-forms-components-examples-apps</artifactId>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>core-forms-components-examples-content</artifactId>
             <type>zip</type>
         </dependency>
 #end
