@@ -20,14 +20,26 @@ const nodeExternals = require('webpack-node-externals');
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const WebpackShellPlugin = require('webpack-shell-plugin');
-
 var isTestEnvironment = process.env.NODE_ENV == 'test';
 
 const serverConfig = {
     // Tell webpack to start bundling our app at app/index.js
-    entry: './src/server/aem-processor.js',
+    entry: ['./src/server/aem-processor.js'],
     target: 'node',
-    externals: [nodeExternals()],
+    externals: nodeExternals({
+        whitelist: [
+            '.bin',
+            'source-map-support/register',
+            // 'babel-polyfill',
+            /\.(eot|woff|woff2|ttf|otf)$/,
+            /\.(svg|png|jpg|jpeg|gif|ico)$/,
+            /\.(mp4|mp3|ogg|swf|webp)$/,
+            /\.(css|scss|sass|sss|less)$/,
+            v =>
+                v.indexOf('babel-plugin-universal-import') === 0 ||
+                v.indexOf('react-universal-component') === 0,
+        ],
+    }),
     mode: 'development',
     // Output our app to the dist/ directory
     output: {
@@ -42,7 +54,6 @@ const serverConfig = {
 
     resolve: {
         extensions: ['.js', 'jsx'],
-
         // This allows you to set a fallback for where Webpack should look for modules.
         // We placed these paths second because we want `node_modules` to "win"
         // if there are any conflicts. This matches Node resolution mechanism.
@@ -53,8 +64,19 @@ const serverConfig = {
     module: {
         rules: [
             {
-                test: /\.js$/,
-                use: 'babel-loader'
+                test: /\.jsx?$/,
+                enforce: 'post',
+                loader: require.resolve('babel-loader'),
+                options: {
+                    babelrc: false,
+                    presets: [
+                        ['@babel/preset-env'],
+                        ['@babel/react']
+                    ],
+                    plugins: [
+                        ['universal-import']
+                    ]
+                }
             },
             {
                 test: /\.scss$/,

@@ -13,9 +13,45 @@
     "target": "es2015",
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2018", "dom"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths":{
+      "@angular/*": [
+        "./node_modules/@angular/*"
+      ],
+      "@adobe/aem-core-components-angular-spa": [
+        "./node_modules/@adobe/aem-core-components-angular-spa"
+      ],
+      "@adobe/aem-angular-editable-components": [
+        "./node_modules/@adobe/aem-angular-editable-components"
+      ],
+      "@adobe/aem-angular-editable-components/*": [
+        "./node_modules/@adobe/aem-angular-editable-components/*"
+      ],
+      "@adobe/aem-spa-component-mapping": [
+        "./node_modules/@adobe/aem-spa-component-mapping"
+      ],
+      "@adobe/aem-spa-component-mapping/*": [
+        "./node_modules/@adobe/aem-spa-component-mapping/*"
+      ],
+      "@adobe/aem-spa-page-model-manager": [
+        "./node_modules/@adobe/aem-spa-model-manager"
+      ],
+      "@adobe/aem-spa-page-model-manager/*": [
+        "./node_modules/@adobe/aem-spa-model-manager/*"
+      ],
+      "@adobe/aem-core-components-angular-spa/*": [
+        "./node_modules/@adobe/aem-core-components-angular-spa/*"
+      ],
+      "@adobe/aem-core-components-angular-base": [
+        "./node_modules/@adobe/aem-core-components-angular-base"
+      ],
+      "@adobe/aem-core-components-angular-base/*": [
+        "./node_modules/@adobe/aem-core-components-angular-base/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
+    "enableIvy": true,
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
   }

@@ -3,5 +3,5 @@
     cq:icon="page"
     jcr:primaryType="cq:Component"
     jcr:title="Catalog Landing Page"
-    sling:resourceSuperType="core/cif/components/structure/catalogpage/v1/catalogpage"
+    sling:resourceSuperType="core/cif/components/structure/catalogpage/v3/catalogpage"
     componentGroup=".hidden"/>

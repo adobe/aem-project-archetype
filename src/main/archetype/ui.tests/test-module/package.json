@@ -16,23 +16,29 @@
     "wdio"
   ],
   "devDependencies": {
-    "@rpii/wdio-html-reporter": "6.3.1",
     "@wdio/cli": "^7.1.2",
     "@wdio/junit-reporter": "^7.1.2",
     "@wdio/local-runner": "^7.1.2",
+    "@wdio/logger": "^7.7.0",
     "@wdio/mocha-framework": "^7.1.2",
+    "@wdio/reporter": "^7.9.0",
     "@wdio/selenium-standalone-service": "^7.1.1",
     "@wdio/spec-reporter": "^7.1.1",
     "@wdio/sync": "^7.1.1",
     "chai": "^4.3.4",
     "cross-env": "^7.0.2",
+    "date-fns": "^2.27.0",
     "eslint": "^7.4.0",
     "eslint-plugin-wdio": "^6.0.12",
-    "log4js": "^6.3.0",
+    "log4js": "^6.4.0",
+    "pixelmatch": "^5.2.1",
+    "pngjs": "^6.0.0",
     "request": "^2.88.2",
     "request-promise": "^4.2.6",
     "source-map-support": "^0.5.0",
-    "tough-cookie": "^4.0.0"
+    "tough-cookie": "^4.0.0",
+    "wdio-html-nice-reporter": "^7.9.1",
+    "moment": "^2.29.1"
   },
   "scripts": {
     "lint": "eslint .",

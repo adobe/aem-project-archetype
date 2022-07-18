@@ -3,7 +3,7 @@
     jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="cq:Page">
     <rep:policy/>
-#if ( $includeForms == "y" and $aemVersion == "cloud")
+#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud")
     <fd jcr:primaryType="nt:unstructured">
         <af jcr:primaryType="nt:unstructured">
             <components jcr:primaryType="nt:unstructured">
@@ -279,17 +279,17 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Content"
                     sling:resourceType="wcm/core/components/policy/policy"
-#if ( $includeCommerce == "y" and $enableDynamicMedia == "y" and $includeForms == "y" )
+#if ( $includeCommerce == "y" and $enableDynamicMedia == "y" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") )
                     components="[group:Dynamic Media,group:${appTitle} - Content,group:${appTitle} - Commerce,group:${appTitle} - Forms,/apps/${appId}/components/form/container]">
-#elseif ( $includeCommerce == "y" and $enableDynamicMedia == "n" and $includeForms == "n")
+#elseif ( $includeCommerce == "y" and $enableDynamicMedia == "n" and ($includeForms == "n" and $includeFormsenrollment == "n" and $includeFormscommunications == "n"))
                     components="[group:${appTitle} - Content,group:${appTitle} - Commerce,/apps/${appId}/components/form/container]">
-#elseif ( $includeCommerce == "n" and $enableDynamicMedia == "y" and $includeForms == "n")
+#elseif ( $includeCommerce == "n" and $enableDynamicMedia == "y" and ($includeForms == "n" and $includeFormsenrollment == "n" and $includeFormscommunications == "n"))
                     components="[group:Dynamic Media,group:${appTitle} - Content,/apps/$appId}/components/form/container]">
-#elseif ( $includeCommerce == "y" and $enableDynamicMedia == "n" and $includeForms == "y")
+#elseif ( $includeCommerce == "y" and $enableDynamicMedia == "n" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y"))
                     components="[group:${appTitle} - Content,group:${appTitle} - Commerce,group:${appTitle} - Forms,/apps/${appId}/components/form/container]">
-#elseif ( $includeCommerce == "n" and $enableDynamicMedia == "y" and $includeForms == "y")
+#elseif ( $includeCommerce == "n" and $enableDynamicMedia == "y" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y"))
                     components="[group:Dynamic Media,group:${appTitle} - Content,group:${appTitle} - Forms,/apps/$appId}/components/form/container]">
-#elseif ( $includeCommerce == "n" and $enableDynamicMedia == "n" and $includeForms == "y")
+#elseif ( $includeCommerce == "n" and $enableDynamicMedia == "n" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y"))
                     components="[group:${appTitle} - Content,group:${appTitle} - Forms,/apps/$appId}/components/form/container]">
 #else
                     components="[group:${appTitle} - Content,/apps/${appId}/components/form/container]">
@@ -338,14 +338,14 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="XF Root"
                     sling:resourceType="wcm/core/components/policy/policy"
-#if ( $includeCommerce == "n" and  $includeForms == "n" )
+#if ( $includeCommerce == "n" and  ($includeForms == "n" and $includeFormsenrollment == "n" and $includeFormscommunications == "n") )
                     components="[group:${appTitle} - Content,/apps/${appId}/components/form/container]">
-#elseif ($includeCommerce == "n" and  $includeForms == "y" )
+#elseif ($includeCommerce == "n" and  ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") )
                     components="[group:${appTitle} - Content,group:${appTitle} - Forms,/apps/${appId}/components/form/container]">
-#elseif ($includeCommerce == "y" and  $includeForms == "n" )
-                    components="[group:${appTitle} - Content,group:${appTitle} - Commerce,/apps/${appId}/components/form/container]">
-#elseif ($includeCommerce == "y" and  $includeForms == "y" )
-                    components="[group:${appTitle} - Content,group:${appTitle} - Commerce,group:${appTitle} - Forms,/apps/${appId}/components/form/container]">
+#elseif ($includeCommerce == "y" and  ($includeForms == "n" and $includeFormsenrollment == "n" and $includeFormscommunications == "n") )
+                    components="[group:${appTitle} - Content,group:${appTitle} - Commerce,group:${appTitle} - Header,/apps/${appId}/components/form/container]">
+#elseif ($includeCommerce == "y" and  ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") )
+                    components="[group:${appTitle} - Content,group:${appTitle} - Commerce,group:${appTitle} - Header,group:${appTitle} - Forms,/apps/${appId}/components/form/container]">
 #end  
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
@@ -532,6 +532,70 @@
                 </teaser>
             </commerce>
 #end
+#if ( $includeFormsheadless == "y" )
+            <adaptiveForm jcr:primaryType="nt:unstructured">
+              <formcontainer jcr:primaryType="nt:unstructured">
+                <jcr:content
+                  jcr:primaryType="nt:unstructured"
+                  mergeList="{Boolean}true"/>
+                <default
+                  jcr:description="Policy of the Adaptive Form V2 Container"
+                  jcr:primaryType="nt:unstructured"
+                  jcr:title="Simple Adaptive Form V2 Container Policy"
+                  sling:resourceType="wcm/core/components/policy/policy"
+                  components="[group:${appTitle} - Adaptive Forms]">
+                  <cq:authoring jcr:primaryType="nt:unstructured">
+                    <assetToComponentMapping jcr:primaryType="nt:unstructured">
+                      <image
+                        jcr:primaryType="nt:unstructured"
+                        assetGroup="media"
+                        assetMimetype="image/*"
+                        droptarget="image"
+                        resourceType="foundation/components/image"
+                        type="Images"/>
+                      <product
+                        jcr:primaryType="nt:unstructured"
+                        assetGroup="product"
+                        droptarget="product-data-reference"
+                        resourceType="commerce/components/product"
+                        type="Products"/>
+                      <document
+                        jcr:primaryType="nt:unstructured"
+                        assetGroup="media"
+                        assetMimetype="[application/vnd.openxmlformats,application/msword,application/vnd.ms-powerpoint,application/mspowerpoint,application/powerpoint,application/x-mspowerpoint,application/x-msexcel,application/x-excel,application/excel,application/vnd.ms-excel,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document]"
+                        droptarget="file"
+                        resourceType="foundation/components/download"
+                        type="Images"/>
+                      <video
+                        jcr:primaryType="nt:unstructured"
+                        assetGroup="media"
+                        assetMimetype="video/*"
+                        droptarget="video"
+                        resourceType="foundation/components/video"
+                        type="Images"/>
+                      <fragment
+                        jcr:primaryType="nt:unstructured"
+                        assetGroup="media"
+                        assetMimetype="text/html"
+                        droptarget="fragment"
+                        resourceType="dam/cfm/components/contentfragment"
+                        type="Content Fragment"/>
+                      <experiencefragment
+                        jcr:primaryType="nt:unstructured"
+                        assetGroup="content"
+                        assetMimetype="text/html"
+                        droptarget="experiencefragment"
+                        resourceType="cq/experience-fragments/editor/components/experiencefragment"
+                        type="experiencefragment"/>
+                    </assetToComponentMapping>
+                  </cq:authoring>
+                  <jcr:content
+                    jcr:primaryType="nt:unstructured"
+                    mergeList="{Boolean}true"/>
+                </default>
+              </formcontainer>
+            </adaptiveForm>
+#end
         </components>
     </${appId}>
 #if ( $isSpaProject )
@@ -547,7 +611,7 @@
                         components="[/libs/wcm/foundation/components/responsivegrid,/apps/${appId}/components/text]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </spa-default>
-    #if ( $includeForms == "y" and $aemVersion == "cloud")
+    #if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud")
                     <afpolicy
                             jcr:description="Policy of the Adaptive Form"
                             jcr:primaryType="nt:unstructured"

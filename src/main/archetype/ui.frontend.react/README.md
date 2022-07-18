@@ -62,11 +62,11 @@ To get this feature to work with AEM, the app needs to be able to identify which
 
 #if ( $enableSSR == "y" )
 
-${hash} Server-Side rendering in IO runtime and express
+${hash} Frontend Serverless Build (Adobe IO Runtime)
 
 ${hash}${hash} Features
 
-* AdobeIO Runtime (Serverless) rendering of the SPA editor (Currently react only)
+* AdobeIO Runtime (Serverless) rendering of the SPA editor 
 * Local + Remote development
 * Uses AIO CLI
 
@@ -82,8 +82,11 @@ ${hash}${hash} Usage
 
 The following npm scripts are available for deployment under `ui.frontend.ssr.ioruntime`:
 
-* `npm run run-local` - Deploys the serverless code to a local docker container with AIO CLI. Requires docker running. Enables you to debug with visual studio code.
-* `npm run deploy:runtime` - Deploys the serverless code to your IO runtime namespace. Requires the environment variables AIO_RUNTIME_NAMESPACE and AIO_RUNTIME_AUTH to be set.
+* `build-with-ssr` - Build serverless code for IO Runtime(debuggable with sourcemaps)
+* `build-with-express` - Build express code (debuggable with sourcemaps)
+* `start-ssr-ioruntime` - Deploys the serverless code to a local docker container with AIO CLI. Requires docker running. Enables you to debug with visual studio code.
+* `start-ssr-express` - Runs the express code (debuggable with sourcemaps)
+* `deploy-ssr-ioruntime` - Deploys the serverless code to your IO runtime namespace. Requires the environment variables AIO_RUNTIME_NAMESPACE and AIO_RUNTIME_AUTH to be set.
 
 ${hash}${hash}${hash}${hash} Notes
 

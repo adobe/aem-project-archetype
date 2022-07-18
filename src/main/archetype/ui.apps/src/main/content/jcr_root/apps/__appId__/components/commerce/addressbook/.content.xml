@@ -3,6 +3,6 @@
     xmlns:cq="http://www.day.com/jcr/cq/1.0"
     xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Component"
-    jcr:title="Commerce Address Book"
-    sling:resourceSuperType="core/cif/components/commerce/addressbook/v1/addressbook"
-    componentGroup=".hidden" />
+    jcr:title="Address Book"
+    sling:resourceSuperType="core/cif/components/commerce/addressbook/v2/addressbook"
+    componentGroup="${appTitle} - Commerce"/>

@@ -15,6 +15,7 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 name: Deploy to Cloud Manager
+concurrency: deploy
 env:
   CM_PROJECT_DIR: cm-project
   # Cloud Manager git connection details
@@ -23,9 +24,6 @@ env:
   CM_USER_EMAIL: ${{ secrets.CM_USER_EMAIL }}
   CM_USER_NAME: ${{ secrets.CM_USER_NAME }}
   CM_USER_PWD: ${{ secrets.CM_USER_PWD }}
-  # Cloud Manager deployment testing details
-  CM_TEST_URL: ${{ secrets.CM_TEST_URL }}
-  CM_TEST_RETRIES: 120
 
 # Only run on a push to develop branch or manually
 on:
@@ -34,8 +32,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    outputs:
+      commit: ${{ steps.getCommit.outputs.commit }}
     steps:
       # Checkout this project into a sub folder
       - uses: actions/checkout@v2
@@ -57,6 +57,11 @@ jobs:
           echo "ARCHETYPE_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)" >> $GITHUB_ENV
           echo "ARCHETYPE_COMMIT=$(git rev-parse HEAD)" >> $GITHUB_ENV
           cd ..
+      - name: Set commit in output variable
+        id: getCommit
+        run: |
+          echo "Commit: ${ARCHETYPE_COMMIT}"
+          echo ::set-output name=commit::${ARCHETYPE_COMMIT}
       # Create new project
       - name: Create new project with the archetype
         run: |
@@ -68,7 +73,7 @@ jobs:
            -D appId="sitesdemo" \
            -D groupId="com.sites30demo" \
            -D includeExamples="y" \
-           -D includeForms="y"
+           -D includeFormsenrollment="y"
       # Set global git configuration
       - name: Set git config
         run: |
@@ -79,13 +84,15 @@ jobs:
       - name: Checkout Cloud Manager project
         run:
           git clone -b ${CM_BRANCH} https://${CM_USER_NAMEL}:${CM_USER_PWD}@${CM_REPO} ${CM_PROJECT_DIR}
-      # Move new project to CM dir
+      # Move new project to CM dir and enable opt-in for ui.tests execution
       - name: Move project to CM dir
         run: |
           git -C ${CM_PROJECT_DIR} rm -rf .
           mv sitesdemo/* ${CM_PROJECT_DIR}
           sed -i -e "s/USA/USA, ${ARCHETYPE_COMMIT}/g" ${CM_PROJECT_DIR}/ui.content/src/main/content/jcr_root/content/experience-fragments/sitesdemo/us/en/site/footer/master/.content.xml
           sed -i -e "s/merge/replace/g" ${CM_PROJECT_DIR}/ui.content/src/main/content/META-INF/vault/filter.xml
+          sed -i -e "s#<include>Dockerfile</include>#<include>Dockerfile</include>\n \t\t\t\t<include>testing.properties</include>#" ${CM_PROJECT_DIR}/ui.tests/assembly-ui-test-docker-context.xml
+          echo -n "ui-tests.version=1" > ${CM_PROJECT_DIR}/ui.tests/testing.properties
       # Commit and push changes to CM repo
       - name: Commit Changes
         run: |
@@ -93,17 +100,34 @@ jobs:
           git -C ${CM_PROJECT_DIR} add .
           git -C ${CM_PROJECT_DIR} commit -F ../commit.txt
           git -C ${CM_PROJECT_DIR} push
+
+  check:
+    needs: deploy
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        envName: [DEV, PROD]
+    environment: ${{ matrix.envName }}
+    continue-on-error: ${{ matrix.envName == 'PROD' }}
+    env:
+      # Cloud Manager deployment testing details
+      CM_TEST_URL: ${{ secrets.CM_TEST_URL }}
+      CM_TEST_RETRIES: ${{ secrets.CM_TEST_RETRIES }}
+      ARCHETYPE_COMMIT: ${{ needs.deploy.outputs.commit }}
+    steps:
       # Check project was deployed
       - name: Check project was deployed
         run: |
           counter=0
           max=${CM_TEST_RETRIES}
-          until [[ $(curl --silent ${CM_TEST_URL} | grep ${ARCHETYPE_COMMIT}) ]]; do \
+          echo "Looking for ${ARCHETYPE_COMMIT}: ${counter}"
+          until [[ $(curl --silent ${CM_TEST_URL}?$(date +%s) | grep ${ARCHETYPE_COMMIT}) ]]; do \
             if [ ${counter} -eq ${max} ]; then \
               echo "Could not find ${ARCHETYPE_COMMIT} after ${counter} tries!"; \
               exit 1; \
             fi;
             counter=$(($counter+1)); \
-            echo "$counter"; \
+            echo "Looking for ${ARCHETYPE_COMMIT}: ${counter}"; \
             sleep 60; \
           done
+          echo "Found ${ARCHETYPE_COMMIT} after ${counter} tries!"

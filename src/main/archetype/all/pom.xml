@@ -60,6 +60,15 @@
                             <type>zip</type>
                             <target>/apps/${appId}-packages/application/install</target>
                         </embedded>
+#if ( $precompiledScripts == "y" and $aemVersion == "cloud" )
+                        <embedded>
+                            <groupId>${groupId}</groupId>
+                            <artifactId>${rootArtifactId}.ui.apps</artifactId>
+                            <classifier>precompiled-scripts</classifier>
+                            <type>jar</type>
+                            <target>/apps/${appId}-packages/application/install/21</target>
+                        </embedded>
+#end
                         <embedded>
                             <groupId>${groupId}</groupId>
                             <artifactId>${rootArtifactId}.core</artifactId>
@@ -172,7 +181,7 @@
                         </embedded>
 #end
 #end
-#if ( $includeForms == "y" and $aemVersion == "cloud" )
+#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion != "cloud" )
                         <embedded>
                             <groupId>com.adobe.aem</groupId>
                             <artifactId>core-forms-components-apps</artifactId>
@@ -182,6 +191,20 @@
                         <embedded>
                             <groupId>com.adobe.aem</groupId>
                             <artifactId>core-forms-components-core</artifactId>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
+                        </embedded>
+#end
+#if ( $includeExamples == "y" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") )
+                        <embedded>
+                            <groupId>com.adobe.aem</groupId>
+                            <artifactId>core-forms-components-examples-apps</artifactId>
+                            <type>zip</type>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.adobe.aem</groupId>
+                            <artifactId>core-forms-components-examples-content</artifactId>
+                            <type>zip</type>
                             <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
 #end
@@ -209,6 +232,20 @@
                     </execution>
                 </executions>
             </plugin>
+#if ( $aemVersion == "cloud" )
+            <plugin>
+                <groupId>com.adobe.aem</groupId>
+                <artifactId>aemanalyser-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>aem-analyser</id>
+                        <goals>
+                            <goal>project-analyse</goal>                           
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+#end
         </plugins>
     </build>
 
@@ -273,7 +310,26 @@
                 <build.environment>:production</build.environment>
             </properties>
 #end
+    </profile>
+#if ( $precompiledScripts == "y" and $aemVersion == "cloud" )
+        <profile>
+            <id>precompiledScripts</id>
+            <activation>
+                <property>
+                    <name>skipScriptPrecompilation</name>
+                    <value>!true</value>
+                </property>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>${groupId}</groupId>
+                    <artifactId>${rootArtifactId}.ui.apps</artifactId>
+                    <version>${project.version}</version>
+                    <classifier>precompiled-scripts</classifier>
+                </dependency>
+            </dependencies>
         </profile>
+#end
     </profiles>
 
     <!-- ====================================================================== -->
@@ -347,7 +403,7 @@
             <type>zip</type>
         </dependency>
 #end
-#if ( $includeForms == "y" and $aemVersion == "cloud" )
+#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion != "cloud" )
         <!-- AEM Forms Dependencies -->
         <dependency>
             <groupId>com.adobe.aem</groupId>
@@ -369,6 +425,18 @@
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.examples.ui.content</artifactId>
+            <type>zip</type>
+        </dependency>
+#end
+#if ( $includeExamples == "y" and ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud" ) )
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>core-forms-components-examples-apps</artifactId>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>core-forms-components-examples-content</artifactId>
             <type>zip</type>
         </dependency>
 #end

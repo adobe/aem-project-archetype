@@ -12,6 +12,58 @@
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="${appId}/components/container"
+#if ( $includeCommerce == "y" )
+            layout="responsiveGrid">
+            <logo jcr:primaryType="nt:unstructured"
+                  sling:resourceType="${appId}/components/commerce/logo">
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default jcr:primaryType="nt:unstructured"
+                        offset="0"
+                        width="1"/>
+                </cq:responsive>
+            </logo>
+            <navigation
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appId}/components/commerce/navigation"
+                collectAllPages="true"
+                disableShadowing="false"
+                navigationRoot="/content/${appId}/${country}/${language}"
+                skipNavigationRoot="false"
+                structureDepth="2"
+                structureStart="1">
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default jcr:primaryType="nt:unstructured"
+                        offset="0"
+                        width="8"/>
+                </cq:responsive>
+            </navigation>
+            <searchbar jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appId}/components/commerce/searchbar">
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default jcr:primaryType="nt:unstructured"
+                        offset="0"
+                        width="1"/>
+                </cq:responsive>
+            </searchbar>
+            <miniaccount
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appId}/components/commerce/miniaccount">
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default jcr:primaryType="nt:unstructured"
+                        offset="0"
+                        width="1"/>
+                </cq:responsive>
+            </miniaccount>
+            <minicart
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appId}/components/commerce/minicart">
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default jcr:primaryType="nt:unstructured"
+                        offset="0"
+                        width="1"/>
+                </cq:responsive>
+            </minicart>
+#else
             layout="simple">
             <navigation
                 jcr:primaryType="nt:unstructured"
@@ -29,6 +81,7 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="${appId}/components/search"
                 searchRoot="/content/${appId}/${language}"/>
+#end
         </root>
     </jcr:content>
 </jcr:root>
