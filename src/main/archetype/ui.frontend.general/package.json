@@ -14,7 +14,9 @@
     "prod": "webpack --config ./webpack.prod.js && clientlib --verbose",
     "start": "webpack-dev-server --open --config ./webpack.dev.js",
     "sync": "aemsync -d -p ../ui.apps/src/main/content",
-    "watch": "webpack-dev-server --config ./webpack.dev.js --env writeToDisk & chokidar -c \"clientlib\" ./dist & aemsync -w ../ui.apps/src/main/content"
+    "chokidar": "chokidar -c \"clientlib\" ./dist",
+    "aemsyncro": "aemsync -w ../ui.apps/src/main/content",
+    "watch": "npm-run-all --parallel start chokidar aemsyncro"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
