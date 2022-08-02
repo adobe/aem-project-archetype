@@ -34,7 +34,7 @@ if [[ ! -e "${sdkPath}/bin/docker_run.sh" ]]; then
     exit -1
 fi
 
-sdkVersion=$(cat ${sdkPath}/bin/docker_run.sh | grep version= | cut -f2 -d '=')
+dispatcherVersion=$(cat ${sdkPath}/bin/docker_run.sh | grep version= | cut -f2 -d '=')
 
 if [[ -z "$sdkPath" ]]; then
     echo "Cannot evaluate SDK. Is it a valid path to a dispatcher SDK?"
@@ -42,7 +42,7 @@ if [[ -z "$sdkPath" ]]; then
     exit -1
 fi
 
-echo "Attempting to upgrade to dispatcher SDK version $sdkVersion..."
+echo "Attempting to upgrade to dispatcher SDK version $dispatcherVersion..."
 
 if [[ ! -e "${sdkPath}/bin/update_maven.sh" ]]; then
     echo "The dispatcher SDK version that you have chosen does not yet support updates."

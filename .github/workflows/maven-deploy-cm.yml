@@ -75,6 +75,9 @@ jobs:
            -D includeExamples="y" \
            -D includeFormsenrollment="y"
       # Set global git configuration
+      - name: Test SDK update
+        run: |
+          archetype/src/main/archetype/dispatcher.cloud/test/test_dispatcher_sdk_update.sh sitesdemo archetype/src/main/archetype/dispatcher.cloud/test/dummy_sdk
       - name: Set git config
         run: |
           git config --global credential.helper cache
