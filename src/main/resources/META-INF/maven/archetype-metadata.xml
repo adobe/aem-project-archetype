@@ -272,6 +272,7 @@
                         <include>**/*.any</include>
                         <include>**/*.farm</include>
                         <include>assembly.xml</include>
+                        <include>update_sdk.sh</include>
                     </includes>
                 </fileSet>
                 <fileSet filtered="false" packaged="false" encoding="UTF-8">

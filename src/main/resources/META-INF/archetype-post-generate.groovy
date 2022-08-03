@@ -97,6 +97,8 @@ if ( includeDispatcherConfig == "n"){
     def source;
     if (aemVersion == 'cloud')   {
         source = new File(rootDir.getPath(),'dispatcher.cloud')
+        def updateFile = new File("$source/update_sdk.sh");
+        updateFile.setExecutable(true, false);
     } else {
         source = new File(rootDir.getPath(), 'dispatcher.ams')
     }
