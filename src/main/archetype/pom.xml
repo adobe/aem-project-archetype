@@ -82,7 +82,7 @@
         <graphql.client.version>1.7.10</graphql.client.version>
 #end
 #if ( $aemVersion == "cloud")
-        <aem.cif.sdk.api>2022.01.20.00</aem.cif.sdk.api>
+        <aem.cif.sdk.api>2022.08.02.00</aem.cif.sdk.api>
 #end
 #end
 
