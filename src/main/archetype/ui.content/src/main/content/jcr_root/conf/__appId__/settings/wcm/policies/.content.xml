@@ -73,7 +73,10 @@
 #else
                     allowedRenditionWidths="[320,480,600,800,1024,1200,1600]"
                     disableLazyLoading="false"
-#end
+#end                                        
+#if ( $aemVersion == "cloud" )
+                    enableAssetDelivery="true"
+#end                                                                                
                     allowUpload="false"
                     altValueFromDAM="true"
                     displayPopupTitle="true"
