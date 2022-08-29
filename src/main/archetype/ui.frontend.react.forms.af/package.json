@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\"",
-    "build:dev": "npx webpack --config webpack.dev.js",
-    "build:prod": "npx webpack --config webpack.prod.js && clientlib --verbose",
-    "start": "npx webpack serve --config webpack.dev.js --env mode=development"
+    "build:dev": "webpack --config webpack.dev.js",
+    "build:prod": "webpack --config webpack.prod.js && clientlib --verbose",
+    "start": "webpack serve --config webpack.dev.js --env mode=development"
   },
   "author": "",
   "license": "Apache-2.0",
