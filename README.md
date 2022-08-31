@@ -70,7 +70,7 @@ Name                      | Default        | Description
 `appTitle`                |                | Application title, will be used for website title and components groups (e.g. `"My Site"`).
 `appId`                   |                | Technical name, will be used for component, config and content folder names, as well as client library names (e.g. `"mysite"`).
 `artifactId`              | *`${appId}`*   | Base Maven artifact ID (e.g. `"mysite"`).
-`groupId`                 |                | Base Maven group ID (e.g. `"com.mysite"`).
+`groupId`                 |                | Base Maven group ID (e.g. `"com.mysite"`). This value must be a [valid Java package name.](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7)
 `package`                 | *`${groupId}`* | Java Source Package (e.g. `"com.mysite"`).
 `version`                 | `1.0-SNAPSHOT` | Project version (e.g. `1.0-SNAPSHOT`).
 `aemVersion`              | `cloud`        | Target AEM version (can be `cloud` for [AEM as a Cloud Service](https://docs.adobe.com/content/help/en/experience-manager-cloud-service/landing/home.html); or `6.5.5` for [Adobe Managed Services](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams) or on-premise).
