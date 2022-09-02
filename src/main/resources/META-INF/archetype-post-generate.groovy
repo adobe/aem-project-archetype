@@ -135,6 +135,7 @@ if (includeCommerce == "n") {
     assert new File("$configFolder/config/com.adobe.cq.commerce.core.components.internal.servlets.SpecificPageFilterFactory-default.config").delete()
     assert new File("$configFolder/config.publish/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.cfg.json").delete()
     assert new File("$configFolder/config.publish/com.adobe.cq.commerce.core.components.internal.services.UrlProviderImpl.config").delete()
+    assert new File("$configFolder/config.author/com.adobe.granite.resourcestatus.impl.CompositeStatusType~editor.config.cfg.json").delete()
     assert new File("$appsFolder/components/header").deleteDir()
     assert new File("$confFolder/settings/cloudconfigs/commerce").deleteDir()
     assert new File("$varFolder").deleteDir();
@@ -162,6 +163,7 @@ if (includeCommerce == "n") {
 } else {
     if (aemVersion == "cloud") {
         assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl~default.cfg.json").delete()
+        assert new File("$configFolder/config.author/com.adobe.granite.resourcestatus.impl.CompositeStatusType~editor.config.cfg.json").delete()
         assert new File("$varFolder").deleteDir()
     }
     if (aemVersion.startsWith("6.4")){
