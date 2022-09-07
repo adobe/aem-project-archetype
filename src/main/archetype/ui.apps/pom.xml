@@ -320,19 +320,11 @@ Require-Capability: osgi.extender;filter:="(&(osgi.extender=sling.scripting)(ver
             <groupId>com.adobe.commerce.cif</groupId>
             <artifactId>magento-graphql</artifactId>
         </dependency>
-#if ( $aemVersion != "cloud")
-        <dependency>
-            <groupId>com.adobe.commerce.cif</groupId>
-            <artifactId>graphql-client</artifactId>
-        </dependency>
-#end
-#if ( $aemVersion == "cloud")
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>aem-cif-sdk-api</artifactId>
             <scope>provided</scope>
         </dependency>
-#end
 #end
 #if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
         <!-- AEM Forms Dependencies -->
