@@ -32,7 +32,7 @@
             Maven artifact groupId for all projects
         -->
         <requiredProperty key="groupId">
-            <validationRegex>^[a-zA-Z0-9\.\-_]+$</validationRegex>
+            <validationRegex>^[a-zA-Z0-9\._]+$</validationRegex>
         </requiredProperty>
         <!--
             Maven artifact "root" artifactId, is suffixed for the individual modules
