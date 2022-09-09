@@ -173,13 +173,6 @@
                             <artifactId>magento-graphql</artifactId>
                             <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
-#if ( $aemVersion != "cloud" )
-                        <embedded>
-                            <groupId>com.adobe.commerce.cif</groupId>
-                            <artifactId>graphql-client</artifactId>
-                            <target>/apps/${appId}-vendor-packages/application/install</target>
-                        </embedded>
-#end
 #end
 #if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion != "cloud" )
                         <embedded>

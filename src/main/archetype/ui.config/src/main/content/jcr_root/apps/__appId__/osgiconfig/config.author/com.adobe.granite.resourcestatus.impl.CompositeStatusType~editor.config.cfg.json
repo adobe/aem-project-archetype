@@ -1,0 +1,8 @@
+{
+    "name": "editor",
+    "types": [
+        "catalog-page",
+        "workflow",
+        "launches"
+    ]
+}
