@@ -1,0 +1,39 @@
+#
+# These are the marketing parameters ignored for the dispatcher.
+# 
+# Marketing parameters rarely have impact on what content is loaded
+# If your website is using marketing campaigns that do not influence the content
+# of your website enable the parameters that you expect or add others to enable
+# caching of in the dispatcher.
+
+# Commonly used
+# /1001 { /glob "cid" /type "allow" }
+# /1002 { /glob "partnerId" /type "allow" }
+
+# Urchin Tracking Module base parameters. 
+/1010 { /glob "utm_content" /type "allow" }
+/1011 { /glob "utm_source" /type "allow" }
+/1012 { /glob "utm_medium" /type "allow" }
+/1013 { /glob "utm_campaign" /type "allow" }
+/1014 { /glob "utm_term" /type "allow" }
+
+# /1015 { /glob "utm_audience" /type "allow" }
+# /1016 { /glob "utm_creative" /type "allow" }
+
+# /1017 { /glob "utm_source_platform" /type "allow" } # Google Analytics 4
+# /1018 { /glob "utm_creative_format" /type "allow" } # Google Analytics 4
+# /1019 { /glob "utm_marketing_tactic" /type "allow" } # Google Analytics 4
+
+/1030 { /glob "gclid" /type "allow" } # Google Ads
+/1031 { /glob "gclsrc" /type "allow" } # Google Ads
+
+/1040 { /glob "wbraid" /type "allow" } # Parameter for iOS14+
+/1041 { /glob "gbraid" /type "allow" } # Parameter for iOS14+ 
+
+/1050 { /glob "dcli" /type "allow" } # DoubleClick click identifier
+/1051 { /glob "ga" /type "allow" }
+# /1052 { /glob "_ga" /type "allow" }
+
+/1060 { /glob "fbclid" /type "allow" } # Facebook click identifier
+
+/1070 { /glob "twclid" /type "allow" } # Twitter click identifier

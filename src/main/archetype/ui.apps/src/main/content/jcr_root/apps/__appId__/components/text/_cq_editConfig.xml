@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    cq:inherit="{Boolean}true"
     jcr:primaryType="cq:EditConfig">
     <cq:inplaceEditing
         jcr:primaryType="cq:InplaceEditingConfig"
@@ -93,12 +94,21 @@
                 <format
                     jcr:primaryType="nt:unstructured"
                     features="bold,italic"/>
+#if ( $includeCommerce == "y" )
+                <commercelinks
+                        jcr:primaryType="nt:unstructured"
+                        features="modifylink"/>
+#end
             </rtePlugins>
             <uiSettings jcr:primaryType="nt:unstructured">
                 <cui jcr:primaryType="nt:unstructured">
                     <inline
                         jcr:primaryType="nt:unstructured"
+#if ( $includeCommerce == "y" )
+                        toolbar="[#format,#justify,#lists,links#modifylink,links#unlink,commercelinks#modifylink,#paraformat,fullscreen#start,control#close,control#save]">
+#else
                         toolbar="[#format,#justify,#lists,links#modifylink,links#unlink,#paraformat,fullscreen#start,control#close,control#save]">
+#end
                         <popovers jcr:primaryType="nt:unstructured">
                             <format
                                 jcr:primaryType="nt:unstructured"
@@ -118,6 +128,30 @@
                                 ref="paraformat"/>
                         </popovers>
                     </inline>
+#if ( $includeCommerce == "y" )
+                    <fullscreen
+                        jcr:primaryType="nt:unstructured"
+                        toolbar="[#format,#justify,#lists,links#modifylink,links#unlink,commercelinks#modifylink,#paraformat,fullscreen#start,control#close,control#save]">
+                        <popovers jcr:primaryType="nt:unstructured">
+                            <format
+                                    jcr:primaryType="nt:unstructured"
+                                    items="[format#bold,format#italic,format#underline]"
+                                    ref="format"/>
+                            <justify
+                                    jcr:primaryType="nt:unstructured"
+                                    items="[justify#justifyleft,justify#justifycenter,justify#justifyright,justify#justifyjustify]"
+                                    ref="justify"/>
+                            <lists
+                                    jcr:primaryType="nt:unstructured"
+                                    items="[lists#unordered,lists#ordered,lists#outdent,lists#indent]"
+                                    ref="lists"/>
+                            <paraformat
+                                    jcr:primaryType="nt:unstructured"
+                                    items="paraformat:getFormats:paraformat-pulldown"
+                                    ref="paraformat"/>
+                        </popovers>
+                    </fullscreen>
+#end
                 </cui>
             </uiSettings>
         </inplaceEditingConfig>

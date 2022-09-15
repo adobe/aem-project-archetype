@@ -17,13 +17,19 @@
 /**
  * DO NOT MODIFY
  */
+let PixelMatchPlugin = require('./lib/wdio-pixelmatch-service/launcher').PixelMatchPlugin;
 let wdio_config = require('./wdio.conf.commons.js').config;
 let config = require('./lib/config');
 
 wdio_config.hostname =  config.selenium.hostname;
 wdio_config.port = config.selenium.port;
 wdio_config.path = '/wd/hub';
-
+wdio_config.services = [
+    [PixelMatchPlugin, {
+        viewportSize: { height: 768, width: 1366 },
+        pixelmatchDirectory: './assets'
+    }]
+];
 let capabilities = {
     maxInstances: 1,
     browserName: config.selenium.browser,

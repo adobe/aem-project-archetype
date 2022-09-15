@@ -19,6 +19,6 @@
           cq:icon="panel"
           jcr:primaryType="cq:Component"
           jcr:title="New Paragraph - Carousel"
-          sling:resourceSuperType="wcm/foundation/components/parsys/newpar"/>
+          sling:resourceSuperType="core/wcm/components/container/v1/container/new"/>
         
         

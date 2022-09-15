@@ -3,8 +3,8 @@
     jcr:primaryType="cq:Component"
     jcr:title="Quick Search"
 #if ( $amp == "y")
-    sling:resourceSuperType="core/wcm/extensions/amp/components/search/v1/search"
+    sling:resourceSuperType="core/wcm/extensions/amp/components/search/v2/search"
 #else
-    sling:resourceSuperType="core/wcm/components/search/v1/search"
+    sling:resourceSuperType="core/wcm/components/search/v2/search"
 #end
     componentGroup="${appTitle} - Structure"/>

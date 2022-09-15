@@ -10,6 +10,7 @@ var selectors = {
             authenticationTab : 'coral-tab=Authentication Settings',
             title : '[name="./jcr:title"]',
             authenticationSelector : '[name="./selectAuthentication"]',
+            authenticationSelectorInput : 'input[name="./selectAuthentication"]',
             oAuthUrl : '[name="./oAuthUrl"]',
             refreshTokenUrl : '[name="./refresh_token_uri"]',
             accessTokenUrl : '[name="./access_token_uri"]',

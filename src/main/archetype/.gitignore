@@ -20,6 +20,9 @@ local.properties
 # External tool builders
 .externalToolBuilders/
 
+# Escape dummy_sdk bin folder
+!dispatcher.cloud/test/dummy_sdk/bin
+
 # Locally stored "Eclipse launch configurations"
 *.launch
 
@@ -101,3 +104,5 @@ reports/
 
 # Others
 dispatcher/src/conf.d/variables/default.vars
+ui.tests/test-module/assets/form/themes/**/*diff.png
+ui.tests/test-module/assets/form/themes/**/*current.png

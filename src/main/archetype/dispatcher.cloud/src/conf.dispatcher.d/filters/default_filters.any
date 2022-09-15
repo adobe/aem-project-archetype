@@ -52,7 +52,7 @@
 
 # AEM Forms specific filters
 # to allow AF specific endpoints for prefill, submit and sign
-/0032 { /type "allow" /path "/content/forms/af/*" /method "POST" /selectors '(submit|internalsubmit|agreement|signSubmit|prefilldata|save)' /extension '(jsp|json)' }
+/0032 { /type "allow" /path "/content/forms/af/*" /method "POST" /selectors '(submit|internalsubmit|agreement|signSubmit|prefilldata|save|analyticsconfigparser)' /extension '(jsp|json)' }
 
 # to allow AF specific endpoints for thank you page
 /0033 { /type "allow" /path "/content/forms/af/*"  /method "GET" /selectors '(guideThankYouPage|guideAsyncThankYouPage)'  /extension '(html)'}
@@ -69,6 +69,9 @@
 # to allow invoke service functionality (FDM)
 /0037 { /type "allow" /path "/content/forms/*" /selectors '(af)'  /extension '(dermis)' }
 
+# to allow forms portal draft and submissions component operation servlet
+/0038 { /type "allow" /path "/content/*" /method "GET" /selectors '(fp)' /extension '(operation)' }
+
 # AEM Screens Filters
 # to allow AEM Screens channels selectors
 /0050 { /type "allow" /method "GET" /url "/screens/channels.json" }
@@ -80,6 +83,12 @@
 # to allow site30 theme servlet
 /0052 { /type "allow" /extension "theme" /path "/content/*" }
 
+# Allow manifest.webmanifest files located in the content
+/0053 { /type "allow" /extension "webmanifest" /path "/content/*/manifest" }
+
+# Allow Apache Sling Sitemap selectors: sitemap, sitemap-index, sitemap.any-nested-or-named-sitemap
+/0054 { /type "allow" /method "GET" /path "/content/*" /selectors 'sitemap(-index)?' /extension "xml" }
+
 # Allow GraphQL & preflight requests
 # GraphQL also supports "GET" requests, if you intend to use "GET" add a rule in filters.any
 /0060 { /type "allow" /method '(POST|OPTIONS)' /url "/content/_cq_graphql/*/endpoint.json" }
@@ -87,5 +96,5 @@
 # GraphQL Persisted Queries & preflight requests
 /0061 { /type "allow" /method '(GET|POST|OPTIONS)' /url "/graphql/execute.json*" }
 
-# Allow Forms Doc Generation requests
-/0062 { /type "allow" /method "POST" /url "/adobe/forms/doc/*" }
+# Allow Forms Document Services requests
+/0062 { /type "allow" /method "POST" /url "/adobe/forms/*" }

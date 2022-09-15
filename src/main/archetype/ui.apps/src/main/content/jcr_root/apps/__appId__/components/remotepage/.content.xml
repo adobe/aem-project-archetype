@@ -5,6 +5,6 @@
 #if ( $isSpaProject )
     sling:resourceSuperType="spa-project-core/components/remotepage"
 #else
-    sling:resourceSuperType="core/wcm/components/page/v2/page"
+    sling:resourceSuperType="core/wcm/components/page/v3/page"
 #end
     componentGroup=".hidden"/>

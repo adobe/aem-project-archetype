@@ -20,11 +20,6 @@ PassEnv DISP_ID
 		Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains;"
 	</IfModule>
 	<Directory "${AUTHOR_DOCROOT}">
-		Options Indexes FollowSymLinks
-		AllowOverride None
-		Require all granted
-	</Directory>
-	<Directory />
 		# Update /etc/sysconfig/httpd with setting the AUTHOR_ALLOWLIST_ENABLED from 0 or 1 to enable or disable ip restriction rules
 		<If "${AUTHOR_ALLOWLIST_ENABLED} == 1">
 			Include conf.d/allowlists/*_allowlist.rules
@@ -42,6 +37,7 @@ PassEnv DISP_ID
 		</IfModule>
 		Options FollowSymLinks
 		AllowOverride None
+		Require all granted
 	</Directory>
 	<LocationMatch "/(libs|apps|etc|etc\.clientlibs)">
 		SetOutputFilter DEFLATE

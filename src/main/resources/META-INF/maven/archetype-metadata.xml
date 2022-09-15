@@ -32,7 +32,7 @@
             Maven artifact groupId for all projects
         -->
         <requiredProperty key="groupId">
-            <validationRegex>^[a-zA-Z0-9\.\-_]+$</validationRegex>
+            <validationRegex>^[a-zA-Z0-9\._]+$</validationRegex>
         </requiredProperty>
         <!--
             Maven artifact "root" artifactId, is suffixed for the individual modules
@@ -141,7 +141,21 @@
             <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
-
+        <requiredProperty key="includeFormsenrollment">
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
+        <requiredProperty key="includeFormscommunications">
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
+        <!--
+            Option to include Adaptive Forms 2.0
+        -->
+        <requiredProperty key="includeFormsheadless">
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
         <!--
            AEM Forms as a Cloud Service SDK API version.
        -->
@@ -178,6 +192,14 @@
             Option to enable SSR for the front-end project (currently only supported for react)
          -->
         <requiredProperty key="enableSSR">
+            <defaultValue>n</defaultValue>
+            <validationRegex>^(y|n)$</validationRegex>
+        </requiredProperty>
+
+        <!--
+            Option to precompile the server-side scripts from ui.apps and attach them to the build as a secondary bundle artifact in the ui.apps project. aemVersion should be set to "cloud".
+        -->
+        <requiredProperty key="precompiledScripts">
             <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
@@ -250,6 +272,7 @@
                         <include>**/*.any</include>
                         <include>**/*.farm</include>
                         <include>assembly.xml</include>
+                        <include>update_sdk.sh</include>
                     </includes>
                 </fileSet>
                 <fileSet filtered="false" packaged="false" encoding="UTF-8">
@@ -373,6 +396,43 @@
                 </fileSet>
             </fileSets>
         </module>
+        <module id="${rootArtifactId}.ui.frontend.react.forms.af" dir="ui.frontend.react.forms.af" name="ui.frontend.react.forms.af">
+            <fileSets>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory></directory>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                    <excludes>
+                        <!-- Exclude Node.js installation (frontend-maven-plugin) -->
+                        <exclude>**/node/</exclude>
+                        <!-- Exclude NPM dependencies -->
+                        <exclude>**/node_modules/</exclude>
+                        <exclude>**/package-lock.json</exclude>
+                        <exclude>**/yarn.lock</exclude>
+                        <!-- Do not filter binary files (will become corrupted) -->
+                        <exclude>**/*.gif</exclude>
+                        <exclude>**/*.ico</exclude>
+                        <exclude>**/*.jpeg</exclude>
+                        <exclude>**/*.jpg</exclude>
+                        <exclude>**/*.png</exclude>
+                        <exclude>**/*.svg</exclude>
+                    </excludes>
+                </fileSet>
+                <fileSet filtered="false">
+                    <directory></directory>
+                    <includes>
+                        <!-- Do not filter binary files (will become corrupted) -->
+                        <include>**/*.gif</include>
+                        <include>**/*.ico</include>
+                        <include>**/*.jpeg</include>
+                        <include>**/*.jpg</include>
+                        <include>**/*.png</include>
+                        <include>**/*.svg</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
         <module id="${rootArtifactId}.ui.apps" dir="ui.apps" name="ui.apps">
             <fileSets>
                 <fileSet filtered="true" encoding="UTF-8">
@@ -392,6 +452,12 @@
                         <exclude>**/*.jpeg</exclude>
                         <exclude>**/image</exclude>
                         <exclude>**/original</exclude>
+                        <exclude>**/*.eot</exclude>
+                        <exclude>**/*.svg</exclude>
+                        <exclude>**/*.ttf</exclude>
+                        <exclude>**/*.woff</exclude>
+                        <exclude>**/*.woff2</exclude>
+                        <exclude>**/*.otf</exclude>
                     </excludes>
                 </fileSet>
                 <fileSet filtered="false" packaged="false"
@@ -402,6 +468,12 @@
                         <include>**/*.jpeg</include>
                         <include>**/image</include>
                         <include>**/original</include>
+                        <include>**/*.eot</include>
+                        <include>**/*.svg</include>
+                        <include>**/*.ttf</include>
+                        <include>**/*.woff</include>
+                        <include>**/*.woff2</include>
+                        <include>**/*.otf</include>
                     </includes>
                 </fileSet>
             </fileSets>
@@ -521,7 +593,9 @@
       <includes>
         <include>README.md</include>
         <include>README-CIF.md</include>
+        <include>README-precompiled-scripts.md</include>
         <include>.gitignore</include>
+        <include>.gitattributes</include>
         <include>LICENSE</include>
       </includes>
     </fileSet>
