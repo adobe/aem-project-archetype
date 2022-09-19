@@ -3,6 +3,7 @@ import {AdaptiveForm} from "@aemforms/af-react-renderer";
 import {mappings} from "@aemforms/af-react-components";
 import useEditorEvents from "./hooks/useEditorEvents";
 import ReactDOM from "react-dom";
+import {Action} from "@aemforms/af-core";
 //@ts-ignore
 import {Provider as Spectrum3Provider, defaultTheme} from '@adobe/react-spectrum'
 
@@ -42,13 +43,22 @@ const Form = (props: any) => {
             setForm(JSON.stringify(json.afModelDefinition))
         }
     }
+    const onSubmit= (action: Action) => {
+      const thankyouPage =  action?.payload?.redirectUrl;
+      const thankYouMessage = action?.payload?.thankYouMessage;
+      if(thankyouPage){
+        window.location.replace(thankyouPage);
+      }else if(thankYouMessage){
+        alert(thankYouMessage);
+      }
+    };
     useEffect(() => {
         fetchForm()
     }, [state]);
     if (form != "") {
         const element = document.querySelector(".cmp-formcontainer__content")
         const retVal = (<Spectrum3Provider theme={defaultTheme}>
-            <AdaptiveForm formJson={JSON.parse(form)} mappings={mappings} />
+            <AdaptiveForm formJson={JSON.parse(form)} mappings={mappings} onSubmit={onSubmit}/>
         </Spectrum3Provider>)
         return ReactDOM.createPortal(retVal, element)
     }
