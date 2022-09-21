@@ -176,7 +176,7 @@
                     <artifactId>frontend-maven-plugin</artifactId>
                     <version>${frontend-maven-plugin.version}</version>
                     <configuration>
-                        <nodeVersion>v16.17.0<</nodeVersion>
+                        <nodeVersion>v16.17.0</nodeVersion>
                         <npmVersion>8.15.0</npmVersion>
                     </configuration>
                     <executions>
