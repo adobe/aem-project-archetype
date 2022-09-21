@@ -20,4 +20,4 @@ Archetype Version   | AEM Version
 20, 21, 22          | 6.5, 6.4, 6.3 + SP3
 23                  | 6.5, 6.4, 6.3 + SP3, AEM as a Cloud Service
 24, 25, 26, 27      | 6.5.5, 6.4.8.1, AEM as a Cloud Service
-28, 30, 31, 32, 33, 34, 35, 36, 37  | 6.5.7, AEM as a Cloud Service
+28, 30, 31, 32, 33, 34, 35, 36, 37, 38  | 6.5.7, AEM as a Cloud Service
