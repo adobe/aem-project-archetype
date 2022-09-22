@@ -125,7 +125,7 @@
                                 </configuration>
                             </execution>
                             <execution>
-                                <id>npm install</id>
+                                <id>npm ci</id>
                                 <phase>test</phase>
                                 <goals>
                                     <goal>npm</goal>
