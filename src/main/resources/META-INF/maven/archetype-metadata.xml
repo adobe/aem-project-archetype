@@ -177,7 +177,8 @@
         <!--
             Maven Archetype Version variable
         -->
-        <requiredProperty key="archetypeVersion" />
+        <requiredProperty key="archetypeVersion" >
+         <defaultValue></defaultValue>
         </requiredProperty>
     
         <!--
