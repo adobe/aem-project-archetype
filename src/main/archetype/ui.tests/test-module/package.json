@@ -16,15 +16,15 @@
     "wdio"
   ],
   "devDependencies": {
-    "@wdio/cli": "^7.1.2",
+    "@wdio/cli": "^7.24.0",
     "@wdio/junit-reporter": "^7.1.2",
-    "@wdio/local-runner": "^7.1.2",
+    "@wdio/local-runner": "^7.24.0",
     "@wdio/logger": "^7.7.0",
     "@wdio/mocha-framework": "^7.1.2",
     "@wdio/reporter": "^7.9.0",
     "@wdio/selenium-standalone-service": "^7.1.1",
     "@wdio/spec-reporter": "^7.1.1",
-    "@wdio/sync": "^7.1.1",
+    "@wdio/sync": "^7.24.0",
     "chai": "^4.3.4",
     "cross-env": "^7.0.2",
     "date-fns": "^2.27.0",
