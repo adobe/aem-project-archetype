@@ -74,7 +74,7 @@
         <aio.runtime.namespace>${env.AIO_RUNTIME_NAMESPACE}</aio.runtime.namespace>
         <aio.runtime.auth>${env.AIO_RUNTIME_AUTH}</aio.runtime.auth>
 #end
-        <core.wcm.components.version>2.19.0</core.wcm.components.version>
+        <core.wcm.components.version>2.20.8</core.wcm.components.version>
 #if ( $includeCommerce == "y" )
         <core.cif.components.version>2.11.0</core.cif.components.version>
         <magento.graphql.version>9.1.0-magento242ee</magento.graphql.version>
@@ -82,7 +82,7 @@
 #end
 
 #if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud" )
-        <core.forms.components.version>1.0.14</core.forms.components.version>
+        <core.forms.components.version>1.0.42</core.forms.components.version>
         <aem.forms.sdk.api>SDK_FORMS_VERSION</aem.forms.sdk.api>
 #end
         <bnd.version>5.1.2</bnd.version>
