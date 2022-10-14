@@ -403,6 +403,10 @@
             <artifactId>core-forms-components-apps</artifactId>
             <type>zip</type>
         </dependency>
+        <dependency>
+          <groupId>com.adobe.aem</groupId>
+          <artifactId>core-forms-components-core</artifactId>
+        </dependency>
 #end
 #if ( $includeExamples == "y" )
         <dependency>
