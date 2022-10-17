@@ -7,7 +7,8 @@
         sling:resourceType="${appId}/components/page"
         guideComponentType="fd/af/templates">
         <guideContainer
-            fd:version="2.0"
+            fd:version="2.1"
+            fieldType="form"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="${appId}/components/adaptiveForm/formcontainer">
         </guideContainer>
