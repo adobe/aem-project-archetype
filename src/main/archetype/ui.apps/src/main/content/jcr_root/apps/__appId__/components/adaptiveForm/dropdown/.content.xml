@@ -4,4 +4,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Adaptive Form Drop-down List (v1) component"
     sling:resourceSuperType="core/fd/components/form/dropdown/v1/dropdown"
-    componentGroup="${appTitle} - Adaptive Forms"/>
+    componentGroup="${appTitle} - Adaptive Form"/>

@@ -200,6 +200,7 @@ if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunic
 // For Adaptive Forms 2
 if (includeFormsheadless == "n") {
     assert new File("$appsFolder/components/adaptiveForm").deleteDir()
+    assert new File("$appsFolder/components/formsandcommunicationportal").deleteDir()
     assert new File("$confFolder/settings/wcm/template-types/af-page-v2").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/blank-af-v2").deleteDir()
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/af_model_sample.json").deleteDir()

@@ -546,7 +546,7 @@
                   jcr:primaryType="nt:unstructured"
                   jcr:title="Simple Adaptive Form V2 Container Policy"
                   sling:resourceType="wcm/core/components/policy/policy"
-                  components="[group:${appTitle} - Adaptive Forms]">
+                  components="[group:${appTitle} - Adaptive Form]">
                   <cq:authoring jcr:primaryType="nt:unstructured">
                     <assetToComponentMapping jcr:primaryType="nt:unstructured">
                       <image

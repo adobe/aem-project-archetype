@@ -4,13 +4,13 @@
     fieldType="panel"
     jcr:title="Accordion">
     <item_1 jcr:primaryType="nt:unstructured"
-            jcr:title="item_1"
+            jcr:title="Item 1"
             name="item_1"
             fieldType="panel"
             sling:resourceType="forms-components-examples/components/form/panelcontainer"
             layout="responsiveGrid"/>
     <item_2 jcr:primaryType="nt:unstructured"
-            jcr:title="item_2"
+            jcr:title="Item 2"
             name="item_2"
             fieldType="panel"
             sling:resourceType="forms-components-examples/components/form/panelcontainer"

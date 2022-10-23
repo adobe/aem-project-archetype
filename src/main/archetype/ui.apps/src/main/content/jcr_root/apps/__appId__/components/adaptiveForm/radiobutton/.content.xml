@@ -4,4 +4,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Adaptive Form Radio Button (v1) component"
     sling:resourceSuperType="core/fd/components/form/radiobutton/v1/radiobutton"
-    componentGroup="${appTitle} - Adaptive Forms"/>
+    componentGroup="${appTitle} - Adaptive Form"/>
