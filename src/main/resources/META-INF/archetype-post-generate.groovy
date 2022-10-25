@@ -275,49 +275,22 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
     }
 
     // Rename selected frontend module (e.g. "ui.frontend.angular" -> "ui.frontend")
-    if (optionFrontendModule != "none") {
+    if (optionFrontendModule != "none" && optionFrontendModule != "remote") {
         assert new File(rootDir, "ui.frontend.$optionFrontendModule").renameTo(new File(rootDir, "ui.frontend"))
     }
 
-    // Not generating SPA: Delete SPA-specific files
-    if (optionFrontendModule != "angular" && optionFrontendModule != "react") {
-        // Delete app component
-        assert new File("$appsFolder/components/structure/spa").deleteDir()
-        assert new File("$appsFolder/components/xfpage/body.html").delete()
-
-        // Delete SPA templates
-        assert new File("$confFolder/settings/wcm/templates/spa-app-template").deleteDir()
-        assert new File("$confFolder/settings/wcm/templates/spa-next-remote-page").deleteDir()
-        assert new File("$confFolder/settings/wcm/templates/spa-page-template").deleteDir()
-        assert new File("$confFolder/settings/wcm/templates/spa-remote-page").deleteDir()
-
-        // Delete SPA template types
-        assert new File("$confFolder/settings/wcm/template-types/nextjs-page").deleteDir()
-        assert new File("$confFolder/settings/wcm/template-types/spa-app").deleteDir()
-        assert new File("$confFolder/settings/wcm/template-types/spa-page").deleteDir()
-        assert new File("$confFolder/settings/wcm/template-types/remote-page").deleteDir()
-
-        // Delete SPA content
-        assert new File("$contentFolder/us/en/home").deleteDir()
-
-    }else{
-        assert new File("$appsFolder/components/xfpage/content.html").delete()
-    }
-
-    //cleanup SSR related files / folders when not choosing react (only react is supported for now) or not choosing SSR
-    if(enableSSR == "n" )
-    {
-        assert new File("$appsFolder/components/page/body.html").delete();
-        assert new File("$configFolder/config/com.adobe.cq.remote.content.renderer.impl.factory.ConfigurationFactoryImpl~${appId}.cfg.json").delete()
-    }
-
-    // Generating SPA: Delete non-SPA specific files
+    // Delete SPA-specific files if applicable
     if (optionFrontendModule == "angular" || optionFrontendModule == "react") {
+        // Generating local SPA: delete remote SPA-specific files
+        assert new File("$confFolder/settings/wcm/templates/spa-remote-page").deleteDir()
+        assert new File("$confFolder/settings/wcm/templates/spa-next-remote-page").deleteDir()
         assert new File("$confFolder/settings/wcm/templates/page-content").deleteDir()
+
+        assert new File("$confFolder/settings/wcm/template-types/remote-page").deleteDir()
+        assert new File("$confFolder/settings/wcm/template-types/nextjs-page").deleteDir()
         assert new File("$confFolder/settings/wcm/template-types/page").deleteDir()
 
-        if(enableSSR == "n"){
-
+        if (enableSSR == "n") {
             if(optionFrontendModule == "react"){
                 //cleanup IO runtime related files from react module
                 assert new File(rootDir, "ui.frontend/webpack.config.express.js").delete();
@@ -336,9 +309,53 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
                 assert new File(rootDir, "ui.frontend/src/app/app.server.module.ts").delete();
             }
 
+            assert new File("$appsFolder/components/xfpage/body.html").delete()
+            assert new File("$appsFolder/components/page/body.html").delete();
+            assert new File("$configFolder/config/com.adobe.cq.remote.content.renderer.impl.factory.ConfigurationFactoryImpl~${appId}.cfg.json").delete()
+        } else {
+            assert new File("$appsFolder/components/xfpage/content.html").delete()
         }
-    }
+    } else if (optionFrontendModule == "remote") {
+        // Generating remote SPA: delete local SPA-specific files
+        assert new File("$appsFolder/components/page").deleteDir()
+        assert new File("$appsFolder/components/spa").deleteDir()
+        assert new File("$appsFolder/components/xfpage").deleteDir()
+        assert new File("$appsFolder/clientlibs").deleteDir()
 
+        assert new File("$confFolder/settings/wcm/templates/spa-app-template").deleteDir()
+        assert new File("$confFolder/settings/wcm/templates/spa-page-template").deleteDir()
+        assert new File("$confFolder/settings/wcm/templates/xf-web-variation").deleteDir()
+        assert new File("$confFolder/settings/wcm/templates/page-content").deleteDir()
+
+        assert new File("$confFolder/settings/wcm/template-types/spa-app").deleteDir()
+        assert new File("$confFolder/settings/wcm/template-types/spa-page").deleteDir()
+        assert new File("$confFolder/settings/wcm/template-types/xf").deleteDir()
+        assert new File("$confFolder/settings/wcm/template-types/page").deleteDir()
+    } else {
+        // Not generating SPA: delete all SPA-specific files
+        // Delete app component
+        assert new File("$appsFolder/components/spa").deleteDir()
+        assert new File("$appsFolder/components/xfpage/body.html").delete()
+        assert new File("$appsFolder/components/page/body.html").delete();
+        
+        // Delete app configurations
+        assert new File("$configFolder/config/com.adobe.cq.remote.content.renderer.impl.factory.ConfigurationFactoryImpl~${appId}.cfg.json").delete()
+        
+        // Delete SPA templates
+        assert new File("$confFolder/settings/wcm/templates/spa-app-template").deleteDir()
+        assert new File("$confFolder/settings/wcm/templates/spa-page-template").deleteDir()
+        assert new File("$confFolder/settings/wcm/templates/spa-remote-page").deleteDir()
+        assert new File("$confFolder/settings/wcm/templates/spa-next-remote-page").deleteDir()
+
+        // Delete SPA template types
+        assert new File("$confFolder/settings/wcm/template-types/spa-app").deleteDir()
+        assert new File("$confFolder/settings/wcm/template-types/spa-page").deleteDir()
+        assert new File("$confFolder/settings/wcm/template-types/remote-page").deleteDir()
+        assert new File("$confFolder/settings/wcm/template-types/nextjs-page").deleteDir()
+
+        // Delete SPA content
+        assert new File("$contentFolder/us/en/home").deleteDir()
+    }
 }
 
 /**

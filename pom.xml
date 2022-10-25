@@ -170,7 +170,7 @@
         <profile>
             <id>it-basic</id>
             <properties>
-                <archetype.test.projectsDirectory>${project.build.testOutputDirectory}/projects/basic</archetype.test.projectsDirectory>
+                <archetype.test.projectsDirectory>${project.build.testOutputDirectory}/projects/frontend-remote</archetype.test.projectsDirectory>
             </properties>
         </profile>
 
