@@ -8,5 +8,8 @@
     <spa-app-template />
     <spa-page-template />
 #end
+#if ( $includeFormsheadless )
+    <blank-af-v2/>
+#end
     <rep:policy/>
 </jcr:root>
