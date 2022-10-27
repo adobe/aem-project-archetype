@@ -18,7 +18,7 @@
 #if ( $includeCommerce == "y" )
     <sly data-sly-call="${symbol_dollar}{clientlib.js @ categories='${appId}.cif', async=true}" />
 #end
-#if ( $includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y" )
+#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud")
     <sly data-sly-call="${symbol_dollar}{clientlib.js @ categories='${appId}.forms.react', async=true}"/>
     <sly data-sly-test="${symbol_dollar}{!wcmmode.edit}" data-sly-call="${symbol_dollar}{clientlib.js @ categories='core.forms.components.runtime.all', async=true}"/>
 #end
