@@ -535,7 +535,7 @@
                 </teaser>
             </commerce>
 #end
-#if ( $includeFormsheadless == "y" )
+#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud")
             <adaptiveForm jcr:primaryType="nt:unstructured">
               <formcontainer jcr:primaryType="nt:unstructured">
                 <jcr:content

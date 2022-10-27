@@ -76,7 +76,7 @@
 #end
         <core.wcm.components.version>2.19.0</core.wcm.components.version>
         <core.wcm.components.examples.version>2.19.0</core.wcm.components.examples.version>
- #if ( $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y" )
+ #if ( $includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y" )
         <core.wcm.components.examples.version>2.21.0</core.wcm.components.examples.version>
  #end
 #if ( $includeCommerce == "y" )

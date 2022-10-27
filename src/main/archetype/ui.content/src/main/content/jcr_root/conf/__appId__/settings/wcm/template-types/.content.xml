@@ -5,7 +5,7 @@
     <xf/>
     <rep:policy/>
     <page/>
-    #if ( $includeFormsheadless )
+    #if ( $includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y" )
     <af-page-v2/>
     #end
 </jcr:root>

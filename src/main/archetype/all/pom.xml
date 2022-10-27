@@ -174,7 +174,7 @@
                             <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
 #end
-#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y"))
+#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud")
                         <embedded>
                             <groupId>com.adobe.aem</groupId>
                             <artifactId>core-forms-components-apps</artifactId>
@@ -187,7 +187,7 @@
                             <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
 #end
-#if ( $includeExamples == "y" and ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") ) )
+#if ( $includeExamples == "y" and ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud" ) )
                         <embedded>
                             <groupId>com.adobe.aem</groupId>
                             <artifactId>core-forms-components-examples-apps</artifactId>
