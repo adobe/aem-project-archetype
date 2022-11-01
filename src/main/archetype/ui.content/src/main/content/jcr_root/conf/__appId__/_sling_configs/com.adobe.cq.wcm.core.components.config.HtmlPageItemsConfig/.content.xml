@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:lastModified="{Date}2022-10-18T16:11:28.605+05:30"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="cq:PageContent"
+        prefixPath="/conf/${appId}/settings/wcm/template-types/af-page-v2/initial.theme/_default">
+        <items jcr:primaryType="nt:unstructured">
+            <css
+                jcr:primaryType="nt:unstructured"
+                element="link"
+                location="header">
+                <attributes jcr:primaryType="nt:unstructured">
+                    <as
+                        jcr:primaryType="nt:unstructured"
+                        name="as"
+                        value="style"/>
+                    <href
+                        jcr:primaryType="nt:unstructured"
+                        name="href"
+                        value="/theme.css"/>
+                    <rel
+                        jcr:primaryType="nt:unstructured"
+                        name="rel"
+                        value="preload stylesheet"/>
+                    <type
+                        jcr:primaryType="nt:unstructured"
+                        name="type"
+                        value="text/css"/>
+                </attributes>
+            </css>
+            <javascript
+                jcr:primaryType="nt:unstructured"
+                element="script"
+                location="header">
+                <attributes jcr:primaryType="nt:unstructured">
+                    <src
+                        jcr:primaryType="nt:unstructured"
+                        name="src"
+                        value="/theme.js"/>
+                    <async
+                        jcr:primaryType="nt:unstructured"
+                        name="async"
+                        value="true"/>
+                    <type
+                        jcr:primaryType="nt:unstructured"
+                        name="type"
+                        value="text/javascript"/>
+                </attributes>
+            </javascript>
+        </items>
+    </jcr:content>
+</jcr:root>

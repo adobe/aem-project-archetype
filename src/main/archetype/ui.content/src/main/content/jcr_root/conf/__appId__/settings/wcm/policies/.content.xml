@@ -3,7 +3,7 @@
     jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="cq:Page">
     <rep:policy/>
-#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud")
+#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud")
     <fd jcr:primaryType="nt:unstructured">
         <af jcr:primaryType="nt:unstructured">
             <components jcr:primaryType="nt:unstructured">
@@ -31,6 +31,28 @@
                             <jcr:content jcr:primaryType="nt:unstructured"/>
                         </default>
                 </guideContainer>
+                <responsivegrid jcr:primaryType="nt:unstructured">
+                  <page-header
+                    jcr:lastModified="{Date}2022-07-12T11:41:57.902+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="page-header-policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="/apps/${appId}/components/adaptiveForm/pageheader">
+                    <jcr:content
+                      jcr:primaryType="nt:unstructured"/>
+                  </page-header>
+                  <page-footer
+                    jcr:lastModified="{Date}2022-07-12T11:41:57.902+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="page-footer-policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="/apps/${appId}/components/adaptiveForm/footer">
+                    <jcr:content
+                      jcr:primaryType="nt:unstructured"/>
+                  </page-footer>
+                </responsivegrid>
             </components>
         </af>
     </fd>
