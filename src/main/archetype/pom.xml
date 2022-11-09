@@ -24,7 +24,7 @@
 #set( $symbol_escape = '\' )
 #set( $startbrace = "{" )
 #set( $endbrace = "}" )
-#set( $isSpaProject = $frontendModule == "angular" || $frontendModule == "react" )
+#set( $isSpaProject = $frontendModule == "angular" || $frontendModule == "react" || $frontendModule == "decoupled" )
 #set( $includeClassifierOnUberJar = $aemVersion.matches("6\.5\.[0-5]") )
 
     <modelVersion>4.0.0</modelVersion>
@@ -38,7 +38,7 @@
     <modules>
         <module>all</module>
         <module>core</module>
-#if ( $frontendModule != "none" )
+#if ( $frontendModule != "none" && $frontendModule != "decoupled" )
         <module>ui.frontend</module>
 #end
  #if ( $includeFormsheadless == "y" )
@@ -89,7 +89,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 #if ( $isSpaProject )
-        <spa.project.core.version>1.3.12</spa.project.core.version>
+        <spa.project.core.version>1.3.16</spa.project.core.version>
 #end
 #if ( $frontendModule == "angular" )
         <!--

@@ -275,12 +275,12 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
     }
 
     // Rename selected frontend module (e.g. "ui.frontend.angular" -> "ui.frontend")
-    if (optionFrontendModule != "none") {
+    if (optionFrontendModule != "none" && optionFrontendModule != "decoupled") {
         assert new File(rootDir, "ui.frontend.$optionFrontendModule").renameTo(new File(rootDir, "ui.frontend"))
     }
 
     // Not generating SPA: Delete SPA-specific files
-    if (optionFrontendModule != "angular" && optionFrontendModule != "react") {
+    if (optionFrontendModule != "angular" && optionFrontendModule != "react" && optionFrontendModule != "decoupled") {
         // Delete app component
         assert new File("$appsFolder/components/structure/spa").deleteDir()
         assert new File("$appsFolder/components/xfpage/body.html").delete()
@@ -298,6 +298,7 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
         assert new File("$confFolder/settings/wcm/template-types/remote-page").deleteDir()
 
         // Delete SPA content
+        assert new File("$contentFolder/language-masters/en/home").deleteDir()
         assert new File("$contentFolder/us/en/home").deleteDir()
 
     }else{
@@ -312,13 +313,13 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
     }
 
     // Generating SPA: Delete non-SPA specific files
-    if (optionFrontendModule == "angular" || optionFrontendModule == "react") {
+    if (optionFrontendModule == "angular" || optionFrontendModule == "react" || optionFrontendModule == "decoupled") {
         assert new File("$confFolder/settings/wcm/templates/page-content").deleteDir()
         assert new File("$confFolder/settings/wcm/template-types/page").deleteDir()
 
-        if(enableSSR == "n"){
+        if (enableSSR == "n") {
 
-            if(optionFrontendModule == "react"){
+            if (optionFrontendModule == "react") {
                 //cleanup IO runtime related files from react module
                 assert new File(rootDir, "ui.frontend/webpack.config.express.js").delete();
                 assert new File(rootDir, "ui.frontend/webpack.config.adobeio.js").delete();
@@ -326,7 +327,7 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
                 assert new File(rootDir, "ui.frontend/src/server").deleteDir();
                 assert new File(rootDir, "ui.frontend/actions").deleteDir();
                 assert new File(rootDir, "ui.frontend/scripts").deleteDir();
-            }else if(optionFrontendModule == "angular"){
+            } else if (optionFrontendModule == "angular") {
                 assert new File(rootDir, "ui.frontend/server.ts").delete();
                 assert new File(rootDir, "ui.frontend/serverless.ts").delete();
                 assert new File(rootDir, "ui.frontend/manifest.yml").delete();
@@ -336,6 +337,11 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
                 assert new File(rootDir, "ui.frontend/src/app/app.server.module.ts").delete();
             }
 
+        }
+
+        if (optionFrontendModule == "decoupled") {
+            // remove clientlibs for decoupled frontend
+            assert new File("$appsFolder/clientlibs").deleteDir();
         }
     }
 

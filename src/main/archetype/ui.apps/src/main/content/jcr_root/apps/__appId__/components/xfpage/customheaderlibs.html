@@ -31,8 +31,16 @@
 
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
 
+#if ( $frontentModule != "decoupled" ) 
 <sly data-sly-call="${symbol_dollar}{clientlib.all @ categories=['coralui3']}"/>
 <sly data-sly-call="${symbol_dollar}{clientlib.css @ categories=['${appId}.base']}"/>
+#end
+
+<sly data-sly-list="${page.htmlPageItems}">
+    <script data-sly-test="${symbol_dollar}{item.location.name == 'header'}" 
+            data-sly-element="${symbol_dollar}{item.element.name @ context='unsafe'}"  
+            data-sly-attribute="${symbol_dollar}{item.attributes}"></script>
+</sly>
 
 #else
 
