@@ -104,6 +104,51 @@
                             value="text/javascript"/>
                     </attributes>
                 </main>
+                <favicon
+                    jcr:primaryType="nt:unstructured"
+                    element="link"
+                    location="header">
+                    <attributes jcr:primaryType="nt:unstructured">
+                        <href
+                            jcr:primaryType="nt:unstructured"
+                            name="href"
+                            value="/favicon.ico"/>
+                        <rel
+                            jcr:primaryType="nt:unstructured"
+                            name="rel"
+                            value="icon"/>
+                    </attributes>
+                </favicon>
+                <appleTouchIcon
+                    jcr:primaryType="nt:unstructured"
+                    element="link"
+                    location="header">
+                    <attributes jcr:primaryType="nt:unstructured">
+                        <href
+                            jcr:primaryType="nt:unstructured"
+                            name="href"
+                            value="/logo192.png"/>
+                        <rel
+                            jcr:primaryType="nt:unstructured"
+                            name="rel"
+                            value="apple-touch-icon"/>
+                    </attributes>
+                </appleTouchIcon>
+                <manifest
+                    jcr:primaryType="nt:unstructured"
+                    element="link"
+                    location="header">
+                    <attributes jcr:primaryType="nt:unstructured">
+                        <href
+                            jcr:primaryType="nt:unstructured"
+                            name="href"
+                            value="/manifest.json"/>
+                        <rel
+                            jcr:primaryType="nt:unstructured"
+                            name="rel"
+                            value="manifest"/>
+                    </attributes>
+                </manifest>
             </items>
         </jcr:content>
     </com.adobe.cq.wcm.core.components.config.HtmlPageItemsConfig>
