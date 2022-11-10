@@ -36,7 +36,7 @@
                         <href
                             jcr:primaryType="nt:unstructured"
                             name="href"
-                            value="/static/css/main.chunk.css"/>
+                            value="/static/css/main.css"/>
                         <rel
                             jcr:primaryType="nt:unstructured"
                             name="rel"
@@ -47,44 +47,6 @@
                             value="text/css"/>
                     </attributes>
                 </css>
-                <bundle
-                    jcr:primaryType="nt:unstructured"
-                    element="script"
-                    location="header">
-                    <attributes jcr:primaryType="nt:unstructured">
-                        <src
-                            jcr:primaryType="nt:unstructured"
-                            name="src"
-                            value="/static/js/bundle.js"/>
-                        <defer
-                            jcr:primaryType="nt:unstructured"
-                            name="defer"
-                            value="true"/>
-                        <type
-                            jcr:primaryType="nt:unstructured"
-                            name="type"
-                            value="text/javascript"/>
-                    </attributes>
-                </bundle>
-                <vendor
-                    jcr:primaryType="nt:unstructured"
-                    element="script"
-                    location="header">
-                    <attributes jcr:primaryType="nt:unstructured">
-                        <src
-                            jcr:primaryType="nt:unstructured"
-                            name="src"
-                            value="/static/js/vendors~main.chunk.js"/>
-                        <defer
-                            jcr:primaryType="nt:unstructured"
-                            name="defer"
-                            value="true"/>
-                        <type
-                            jcr:primaryType="nt:unstructured"
-                            name="type"
-                            value="text/javascript"/>
-                    </attributes>
-                </vendor>
                 <main
                     jcr:primaryType="nt:unstructured"
                     element="script"
@@ -93,7 +55,7 @@
                         <src
                             jcr:primaryType="nt:unstructured"
                             name="src"
-                            value="/static/js/main.chunk.js"/>
+                            value="/static/js/main.js"/>
                         <defer
                             jcr:primaryType="nt:unstructured"
                             name="defer"
