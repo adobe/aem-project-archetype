@@ -17,7 +17,7 @@
     <com.adobe.aem.wcm.site.manager.config.SiteConfig
         jcr:primaryType="nt:unstructured"
         siteTemplatePath="/libs/wcm/core/site-templates/aem-site-template-stub-2.0.0"
-        themePackageName="${appId}-app"/>
+        themePackageName="${appId}"/>
     <com.adobe.cq.wcm.core.components.config.HtmlPageItemsConfig
         jcr:primaryType="cq:Page">
         <jcr:content
