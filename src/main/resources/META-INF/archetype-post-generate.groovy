@@ -86,13 +86,15 @@ if (aemVersion == "cloud") {
 buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, language, country)
 cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder,enableSSR, includeCommerce)
 
-if ( includeDispatcherConfig == "n"){
+if (includeDispatcherConfig == "n") {
     // remove the unneeded config file
+    def rrfConfig;
     if (aemVersion.startsWith("6.4")) {
-        assert new File("$configFolder/config.publish/org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl.config").delete()
+        rrfConfig = new File("$configFolder/config.publish/org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl.config")
     } else {
-        assert new File("$configFolder/config.publish/org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl.cfg.json").delete()
+        rrfConfig = new File("$configFolder/config.publish/org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl.cfg.json")
     }
+    assert !rrfConfig.exists() || rrfConfig.delete();
 } else {
     def source;
     if (aemVersion == 'cloud')   {
@@ -316,6 +318,14 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
     if (optionFrontendModule == "angular" || optionFrontendModule == "react" || optionFrontendModule == "decoupled") {
         assert new File("$confFolder/settings/wcm/templates/page-content").deleteDir()
         assert new File("$confFolder/settings/wcm/template-types/page").deleteDir()
+
+        // remove JcrResourceResolverFactoryImpl configuration as Sling Mappings do not work with SPA yet
+        for (def rrfConfig in [
+            new File("$configFolder/config.publish/org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl.cfg.json"),
+            new File("$configFolder/config.publish/org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl.config")
+        ]) {
+            assert !rrfConfig.exists() || rrfConfig.delete()
+        }
 
         if (enableSSR == "n") {
 
