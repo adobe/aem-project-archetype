@@ -38,7 +38,6 @@ import org.slf4j.LoggerFactory;
 import static java.util.concurrent.TimeUnit.MINUTES;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.apache.commons.io.IOUtils.closeQuietly;
 
 import java.io.IOException;
 import java.net.URI;
@@ -80,7 +79,12 @@ public class PublishPageValidationIT {
 
     @AfterClass
     public static void afterClass() {
-        closeQuietly(adminPublish);
+        // As of 2022/10/13, AEM declares 'org.apache.commons.io.IOUtils.closeQuietly' as deprecated,
+        // even though the function has been un-deprecated again in version 2.9.0 of 'commons-io'
+        // (https://issues.apache.org/jira/browse/IO-504); thus a try-catch is used instead.
+        try {
+            adminPublish.close();
+        } catch (IOException ignored) {}
     }
 
 
