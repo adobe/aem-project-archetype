@@ -4,10 +4,11 @@
     <jcr:content
         cq:allowedTemplates="[/conf/${appId}/settings/wcm/templates/(?!xf-).*]"
         cq:conf="/conf/${appId}"
-        cq:redirectTarget="/content/${appId}/${country}/${language}"
 #if ( $isSpaProject )
+        cq:redirectTarget="/content/${appId}/${country}/${language}/home"
         cq:template="/conf/${appId}/settings/wcm/templates/spa-app-template"
 #else
+        cq:redirectTarget="/content/${appId}/${country}/${language}"
         cq:template="/conf/${appId}/settings/wcm/templates/page-content"
 #end
         jcr:primaryType="cq:PageContent"

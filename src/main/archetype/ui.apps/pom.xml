@@ -209,7 +209,7 @@ Require-Capability: osgi.extender;filter:="(&(osgi.extender=sling.scripting)(ver
             <version>${project.version}</version>
         </dependency>
 
-#if ( $frontendModule != "none" )
+#if ( $frontendModule != "none" && $frontendModule != "decoupled" )
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${rootArtifactId}.ui.frontend</artifactId>
