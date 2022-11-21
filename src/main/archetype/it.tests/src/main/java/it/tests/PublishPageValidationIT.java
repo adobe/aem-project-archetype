@@ -115,7 +115,7 @@ public class PublishPageValidationIT {
         for (URI ref : references ) {
             if (isSameOrigin(client.getUrl(), ref)) {
                 LOG.info("verifying linked resource {}", ref.toString());
-                SlingHttpResponse response = client.doGet(ref.getRawPath());
+                SlingHttpResponse response = client.doGet(ref.getPath());
                 int statusCode = response.getStatusLine().getStatusCode();
                 int responseSize = response.getContent().length();
                 assertEquals("Unexpected status returned from [" + ref + "]", 200, statusCode);
