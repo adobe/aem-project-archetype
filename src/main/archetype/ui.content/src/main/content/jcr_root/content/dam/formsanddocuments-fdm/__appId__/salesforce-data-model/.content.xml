@@ -2,15 +2,14 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="dam:Asset">
     <jcr:content
-        author="adobe"
         cq:conf="/conf/${appId}"
         jcr:lastModified="{Date}2022-07-11T11:12:11.289+05:30"
         jcr:primaryType="dam:AssetContent"
         sling:resourceType="fd/fm/fdm/render"
         type="formdatamodel">
         <metadata
+            author="adobe"
             jcr:primaryType="nt:unstructured"
-            author="admin"
             title="Salesforce Data Model"
             uiModel="\{&quot;models&quot;:{&quot;Contact&quot;:{&quot;x&quot;:60,&quot;y&quot;:80},&quot;SFResult&quot;:{&quot;x&quot;:700,&quot;y&quot;:80},&quot;Lead&quot;:{&quot;x&quot;:390,&quot;y&quot;:80},&quot;Account&quot;:{&quot;x&quot;:940,&quot;y&quot;:80},&quot;Opportunity&quot;:{&quot;x&quot;:1270,&quot;y&quot;:80}}}"/>
     </jcr:content>
