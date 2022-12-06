@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:ClientLibraryFolder"
+    allowProxy="{Boolean}true"
+    categories="[${appId}.forms]"
+    embed="[core.forms.components.runtime,core.forms.components.container.v1.runtime,core.forms.components.datePicker.v1.runtime,core.forms.components.textinput.v1.runtime]"/>
