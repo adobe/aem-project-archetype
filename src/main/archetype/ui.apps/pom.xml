@@ -341,6 +341,15 @@ Require-Capability: osgi.extender;filter:="(&(osgi.extender=sling.scripting)(ver
             <groupId>com.adobe.aem</groupId>
             <artifactId>core-forms-components-core</artifactId>
         </dependency>
+        <dependency>
+          <groupId>com.adobe.aem</groupId>
+          <artifactId>core-forms-components-af-apps</artifactId>
+          <type>zip</type>
+        </dependency>
+        <dependency>
+          <groupId>com.adobe.aem</groupId>
+          <artifactId>core-forms-components-af-core</artifactId>
+        </dependency>
 #end
         <!-- HTL dependencies needed for the HTL Maven Plugin source code generation -->
         <dependency>
