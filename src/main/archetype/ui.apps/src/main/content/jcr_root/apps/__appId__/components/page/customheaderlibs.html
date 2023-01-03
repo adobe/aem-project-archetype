@@ -35,10 +35,11 @@
     SPA-specific meta tags
 */-->
 <meta name="theme-color" content="#000000" />
+#if ( $frontendModule != "decoupled" )
 <link rel="icon" href="/etc.clientlibs/${appId}/clientlibs/clientlib-${frontendModule}/resources/favicon.ico" />
 <link rel="apple-touch-icon" href="/etc.clientlibs/${appId}/clientlibs/clientlib-${frontendModule}/resources/logo192.png" />
 <link rel="manifest" href="/etc.clientlibs/${appId}/clientlibs/clientlib-${frontendModule}/resources/manifest.json" />
-
+#end
 <!-- AEM page model -->
 <meta
     property="cq:pagemodel_root_url"

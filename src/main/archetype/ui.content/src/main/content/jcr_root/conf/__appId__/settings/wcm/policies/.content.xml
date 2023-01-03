@@ -445,8 +445,10 @@
                 <policy_spa
                     jcr:primaryType="nt:unstructured"
                     jcr:title="${appTitle} SPA Page Policy"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    clientlibs="[${appId}.${frontendModule}]">
+#if ( $frontendModule != "decoupled" ) 
+                    clientlibs="[${appId}.${frontendModule}]"
+#end
+                    sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_spa>
 #end
@@ -457,7 +459,9 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="${appTitle} App Policy"
                     sling:resourceType="wcm/core/components/policy/policy"
+#if ( $frontendModule != "decoupled" ) 
                     clientlibs="[${appId}.${frontendModule}]"
+#end
                     isRoot="{Boolean}true"
                     structureDepth="3"
                 />
@@ -633,7 +637,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="SPA Content"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/libs/wcm/foundation/components/responsivegrid,/apps/${appId}/components/text]">
+                        components="[group:${appTitle} - Content]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </spa-default>
     #if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud")
