@@ -6,6 +6,7 @@
         cq:template="/conf/${appId}/settings/wcm/templates/blank-af-v2"
         jcr:primaryType="cq:PageContent"
         sling:resourceType="${appId}/components/page"
+        sling:configRef="/conf/${appId}/forms"
         guideComponentType="fd/af/templates">
         <guideContainer
             fd:version="2.1"

@@ -13,14 +13,6 @@
       jcr:primaryType="nt:unstructured"
       clientId="28b07c6be4d544f188dc2f36e33b196b"
       reportSuiteId=""/>
-    #if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud")
-    <com.adobe.aem.wcm.site.manager.config.SiteConfig
-      jcr:primaryType="nt:unstructured"
-      siteTemplatePath="/libs/fd/af/themes/canvas"
-      themeArtifact="Canvas"
-      themePackageName="themePackageName"/>
-    <com.adobe.cq.wcm.core.components.config.HtmlPageItemsConfig/>
-    #end
     #if ( $frontendModule == 'decoupled')
     <com.adobe.aem.wcm.site.manager.config.SiteConfig
       jcr:primaryType="nt:unstructured"

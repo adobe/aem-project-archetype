@@ -201,7 +201,7 @@ if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunic
     assert new File("$appsFolder/components/formsandcommunicationportal").deleteDir()
     assert new File("$confFolder/settings/wcm/template-types/af-page-v2").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/blank-af-v2").deleteDir()
-    assert new File("$confFolder/_sling_configs/com.adobe.cq.wcm.core.components.config.HtmlPageItemsConfig").deleteDir()
+    assert new File("$confFolder/forms").deleteDir()
 }
 
 // For Headless Only
