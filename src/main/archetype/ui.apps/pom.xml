@@ -84,12 +84,6 @@
                             <artifactId>core-cif-components-apps</artifactId>
                         </dependency>
 #end
-#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion != "cloud" )
-                        <dependency>
-                            <groupId>com.adobe.aem</groupId>
-                            <artifactId>core-forms-components-apps</artifactId>
-                        </dependency>
-#end
                     </dependencies>
                 </configuration>
             </plugin>
