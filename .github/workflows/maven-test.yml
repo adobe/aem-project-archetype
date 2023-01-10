@@ -55,4 +55,4 @@ jobs:
 
       # Build & Test
       - name: Build & Test with Maven
-        run: mvn -B integration-test -e
+        run: mvn -B integration-test
