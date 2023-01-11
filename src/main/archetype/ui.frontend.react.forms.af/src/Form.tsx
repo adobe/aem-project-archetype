@@ -28,7 +28,7 @@ export const getId = () => {
 }
 
 const getForm = async (id: string) => {
-    const resp = await fetch(`/adobe/forms/af/v1/${symbol_dollar}{id}`)
+    const resp = await fetch(`/adobe/forms/af/${symbol_dollar}{id}`)
     const json = (await resp.json())
     return json
 }
