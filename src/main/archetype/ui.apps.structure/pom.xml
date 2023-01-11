@@ -49,6 +49,7 @@
 
                         <!-- DAM folder root, will be created via repoinit -->
                         <filter><root>/content/dam/${appId}</root></filter>
+                        <filter><root>/content/dam/${appId}/jcr:content</root></filter>
 
                     </filters>
                 </configuration>
