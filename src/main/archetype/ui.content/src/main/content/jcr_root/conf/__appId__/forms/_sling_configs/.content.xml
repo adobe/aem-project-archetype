@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="nt:unstructured">
+    <rep:policy/>
+    <com.adobe.aem.wcm.site.manager.config.SiteConfig
+        jcr:primaryType="nt:unstructured"
+        siteTemplatePath="/libs/fd/af/themes/canvas"
+        themeArtifact="Canvas"
+        themePackageName="themePackageName"/>
+    <com.adobe.cq.wcm.core.components.config.HtmlPageItemsConfig/>
+</jcr:root>
