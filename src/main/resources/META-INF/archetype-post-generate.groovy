@@ -182,7 +182,7 @@ if (includeCommerce == "n") {
 }
 
 // if forms flag is not set, forms specific components, template-types, templates, themes, fdm, cloudconfigs should be deleted
-if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunications == "n") {
+if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunications == "n" && includeFormsheadless == "n") {
     assert new File("$appsFolder/components/aemformscontainer").deleteDir()
     assert new File("$confFolder/settings/wcm/template-types/af-page").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/basic-af").deleteDir()
@@ -197,13 +197,15 @@ if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunic
     assert new File("$uiTestPackage/test-module/rules").deleteDir()
     assert new File("$uiTestPackage/test-module/assets/form").deleteDir()
     assert new File("$appsFolder/clientlibs/clientlibs-forms").deleteDir()
-}
-
-// For Adaptive Forms 2
-if (includeFormsheadless == "n") {
     assert new File("$appsFolder/components/adaptiveForm").deleteDir()
+    assert new File("$appsFolder/components/formsandcommunicationportal").deleteDir()
     assert new File("$confFolder/settings/wcm/template-types/af-page-v2").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/blank-af-v2").deleteDir()
+    assert new File("$confFolder/forms").deleteDir()
+}
+
+// For Headless Only
+if (includeFormsheadless == "n") {
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/af_model_sample.json").deleteDir()
     // Remove ui.frontend.react.forms.af module entry from root pom
     removeModule(rootPom, 'ui.frontend.react.forms.af')
