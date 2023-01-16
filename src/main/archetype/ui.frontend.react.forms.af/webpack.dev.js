@@ -21,7 +21,7 @@ module.exports =
             compress: true,
             port: 3000,
             proxy: {
-                '/adobe': 'http://localhost:4502',
+                '/': 'http://localhost:4502',
             }
         },
         plugins: [
