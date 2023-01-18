@@ -3,6 +3,6 @@
   cq:icon="publish"
   jcr:primaryType="cq:Component"
   jcr:title="Adaptive Form Reset Button"
-  jcr:description="Add an interactive button for invoking a Submit action."
+  jcr:description="Add an interactive button for invoking a Reset action."
   sling:resourceSuperType="core/fd/components/form/button/v1/button"
   componentGroup="${appTitle} - Adaptive Form"/>
