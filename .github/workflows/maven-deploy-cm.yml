@@ -33,7 +33,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     outputs:
       commit: ${{ steps.getCommit.outputs.commit }}
     steps:
