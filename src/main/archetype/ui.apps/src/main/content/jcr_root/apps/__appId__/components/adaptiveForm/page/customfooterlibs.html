@@ -13,19 +13,15 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
+<sly data-sly-use.clientlib="core/wcm/components/commons/v1/templates/clientlib.html"
+     data-sly-use.formstructparser="com.adobe.cq.forms.core.components.models.form.FormStructureParser"
+     data-sly-test.clientLibRef="${symbol_dollar}{formstructparser.clientLibRefFromFormContainer}">
+    <sly data-sly-test="${symbol_dollar}{clientLibRef}" data-sly-call="${symbol_dollar}{clientlib.js @ categories=clientLibRef, async=true}"/>
+</sly>
 <sly data-sly-use.clientlib="core/wcm/components/commons/v1/templates/clientlib.html">
     <sly data-sly-call="${symbol_dollar}{clientlib.js @ categories='${appId}.base', async=true}"/>
-#if ( $includeCommerce == "y" )
-    <sly data-sly-call="${symbol_dollar}{clientlib.js @ categories='${appId}.cif', async=true}" />
-#end
+    #if ($includeFormsheadless == "y" and $aemVersion == "cloud")
+    <sly data-sly-call="${symbol_dollar}{clientlib.js @ categories='${appId}.forms.react', async=true}"/>
+    #end
+    <sly data-sly-test="${symbol_dollar}{!wcmmode.edit}" data-sly-call="${symbol_dollar}{clientlib.js @ categories='core.forms.components.runtime.all', async=true}"/>
 </sly>
-#if ( $isSpaProject )
-<!--/*
-    SPA projects: In edit mode, include ClientLib for communication with page editor
-*/-->
-<sly
-  data-sly-test="${symbol_dollar}{wcmmode.edit || wcmmode.preview}"
-  data-sly-call="${symbol_dollar}{clientLib.js @ categories='cq.authoring.pagemodel.messaging'}"
-></sly>
-#end
-
