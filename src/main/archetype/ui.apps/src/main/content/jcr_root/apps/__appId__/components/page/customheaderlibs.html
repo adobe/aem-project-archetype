@@ -13,6 +13,13 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
+#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud")
+<sly data-sly-use.clientlib="core/wcm/components/commons/v1/templates/clientlib.html"
+     data-sly-use.formstructparser="com.adobe.cq.forms.core.components.models.form.FormStructureParser"
+     data-sly-test.clientLibRef="${symbol_dollar}{formstructparser.clientLibRefFromFormContainer}">
+    <sly data-sly-test="${symbol_dollar}{clientLibRef}" data-sly-call="${symbol_dollar}{clientlib.css @ categories=clientLibRef}"/>
+</sly>
+#end
 <sly data-sly-use.clientlib="core/wcm/components/commons/v1/templates/clientlib.html">
     <sly data-sly-call="${symbol_dollar}{clientlib.css @ categories='${appId}.base'}"/>
 #if ( $includeCommerce == "y" )
