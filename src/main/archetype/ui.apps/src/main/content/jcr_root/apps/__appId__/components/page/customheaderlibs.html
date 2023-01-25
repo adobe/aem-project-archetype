@@ -18,8 +18,11 @@
 #if ( $includeCommerce == "y" )
     <sly data-sly-call="${symbol_dollar}{clientlib.css @ categories='${appId}.cif'}" />
 #end
-#if ( $includeFormsheadless == "y" )
+#if ($includeFormsheadless == "y" and $aemVersion == "cloud")
     <sly data-sly-call="${symbol_dollar}{clientlib.css @ categories='${appId}.forms.react'}" />
+#end
+#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud")
+    <sly data-sly-test="${symbol_dollar}{!wcmmode.edit}" data-sly-call="${symbol_dollar}{clientlib.css @ categories='core.forms.components.runtime.all'}"/>
 #end
 </sly>
 
@@ -32,10 +35,11 @@
     SPA-specific meta tags
 */-->
 <meta name="theme-color" content="#000000" />
+#if ( $frontendModule != "decoupled" )
 <link rel="icon" href="/etc.clientlibs/${appId}/clientlibs/clientlib-${frontendModule}/resources/favicon.ico" />
 <link rel="apple-touch-icon" href="/etc.clientlibs/${appId}/clientlibs/clientlib-${frontendModule}/resources/logo192.png" />
 <link rel="manifest" href="/etc.clientlibs/${appId}/clientlibs/clientlib-${frontendModule}/resources/manifest.json" />
-
+#end
 <!-- AEM page model -->
 <meta
     property="cq:pagemodel_root_url"

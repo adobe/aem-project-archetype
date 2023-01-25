@@ -22,6 +22,7 @@ module.exports =
             port: 3000,
             proxy: {
                 '/adobe': 'http://localhost:4502',
+                '/content': 'http://localhost:4502'
             }
         },
         plugins: [

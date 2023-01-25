@@ -3,7 +3,7 @@
     jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="cq:Page">
     <rep:policy/>
-#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud")
+#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud")
     <fd jcr:primaryType="nt:unstructured">
         <af jcr:primaryType="nt:unstructured">
             <components jcr:primaryType="nt:unstructured">
@@ -31,6 +31,28 @@
                             <jcr:content jcr:primaryType="nt:unstructured"/>
                         </default>
                 </guideContainer>
+                <responsivegrid jcr:primaryType="nt:unstructured">
+                  <page-header
+                    jcr:lastModified="{Date}2022-07-12T11:41:57.902+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="page-header-policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="/apps/${appId}/components/adaptiveForm/pageheader">
+                    <jcr:content
+                      jcr:primaryType="nt:unstructured"/>
+                  </page-header>
+                  <page-footer
+                    jcr:lastModified="{Date}2022-07-12T11:41:57.902+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="page-footer-policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="/apps/${appId}/components/adaptiveForm/footer">
+                    <jcr:content
+                      jcr:primaryType="nt:unstructured"/>
+                  </page-footer>
+                </responsivegrid>
             </components>
         </af>
     </fd>
@@ -423,8 +445,10 @@
                 <policy_spa
                     jcr:primaryType="nt:unstructured"
                     jcr:title="${appTitle} SPA Page Policy"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    clientlibs="[${appId}.${frontendModule}]">
+#if ( $frontendModule != "decoupled" ) 
+                    clientlibs="[${appId}.${frontendModule}]"
+#end
+                    sling:resourceType="wcm/core/components/policy/policy">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_spa>
 #end
@@ -435,7 +459,9 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="${appTitle} App Policy"
                     sling:resourceType="wcm/core/components/policy/policy"
+#if ( $frontendModule != "decoupled" ) 
                     clientlibs="[${appId}.${frontendModule}]"
+#end
                     isRoot="{Boolean}true"
                     structureDepth="3"
                 />
@@ -535,7 +561,7 @@
                 </teaser>
             </commerce>
 #end
-#if ( $includeFormsheadless == "y" )
+#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud")
             <adaptiveForm jcr:primaryType="nt:unstructured">
               <formcontainer jcr:primaryType="nt:unstructured">
                 <jcr:content
@@ -546,7 +572,7 @@
                   jcr:primaryType="nt:unstructured"
                   jcr:title="Simple Adaptive Form V2 Container Policy"
                   sling:resourceType="wcm/core/components/policy/policy"
-                  components="[group:${appTitle} - Adaptive Forms]">
+                  components="[group:${appTitle} - Adaptive Form]">
                   <cq:authoring jcr:primaryType="nt:unstructured">
                     <assetToComponentMapping jcr:primaryType="nt:unstructured">
                       <image
@@ -611,7 +637,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="SPA Content"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/libs/wcm/foundation/components/responsivegrid,/apps/${appId}/components/text]">
+                        components="[group:${appTitle} - Content]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </spa-default>
     #if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud")
