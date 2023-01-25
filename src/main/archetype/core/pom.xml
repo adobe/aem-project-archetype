@@ -198,18 +198,20 @@ Import-Package: javax.annotation;version=0.0.0,*
         </dependency>
 #end
 
-#if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
+#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud")
         <!-- AEM Forms Dependencies -->
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>aem-forms-sdk-api</artifactId>
         </dependency>
-        #if ($aemVersion != "cloud")
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>core-forms-components-core</artifactId>
         </dependency>
-        #end
+        <dependency>
+          <groupId>com.adobe.aem</groupId>
+          <artifactId>core-forms-components-af-core</artifactId>
+        </dependency>
 #end
         <!-- Testing -->
         <dependency>
