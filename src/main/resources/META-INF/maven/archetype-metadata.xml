@@ -297,7 +297,6 @@
                         <exclude>**/node/</exclude>
                         <!-- Exclude NPM dependencies -->
                         <exclude>**/node_modules/</exclude>
-                        <exclude>**/package-lock.json</exclude>
                         <exclude>**/yarn.lock</exclude>
                         <!-- Do not filter binary files (will become corrupted) -->
                         <exclude>**/*.gif</exclude>
@@ -334,7 +333,6 @@
                         <exclude>**/node/</exclude>
                         <!-- Exclude NPM dependencies -->
                         <exclude>**/node_modules/</exclude>
-                        <exclude>**/package-lock.json</exclude>
                         <exclude>**/yarn.lock</exclude>
                         <!-- Do not filter binary files (will become corrupted) -->
                         <exclude>**/*.gif</exclude>
@@ -371,7 +369,6 @@
                         <exclude>**/node/</exclude>
                         <!-- Exclude NPM dependencies -->
                         <exclude>**/node_modules/</exclude>
-                        <exclude>**/package-lock.json</exclude>
                         <exclude>**/yarn.lock</exclude>
                         <!-- Do not filter binary files (will become corrupted) -->
                         <exclude>**/*.gif</exclude>
@@ -408,7 +405,6 @@
                         <exclude>**/node/</exclude>
                         <!-- Exclude NPM dependencies -->
                         <exclude>**/node_modules/</exclude>
-                        <exclude>**/package-lock.json</exclude>
                         <exclude>**/yarn.lock</exclude>
                         <!-- Do not filter binary files (will become corrupted) -->
                         <exclude>**/*.gif</exclude>
@@ -551,8 +547,6 @@
                         <exclude>**/reports/</exclude>
                         <!-- Exclude NPM dependencies -->
                         <exclude>**/node_modules/</exclude>
-                        <exclude>**/package-lock.json</exclude>
-
                         <exclude>**/*.sh</exclude>
                         <exclude>**/*.png</exclude>
                     </excludes>

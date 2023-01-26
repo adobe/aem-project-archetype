@@ -83,7 +83,7 @@ jobs:
       # Checkout the CM project
       - name: Checkout Cloud Manager project
         run:
-          git clone -b ${CM_BRANCH} https://${CM_USER_NAMEL}:${CM_USER_PWD}@${CM_REPO} ${CM_PROJECT_DIR}
+          git clone -b ${CM_BRANCH} https://${CM_USER_NAME}:${CM_USER_PWD}@${CM_REPO} ${CM_PROJECT_DIR}
       # Move new project to CM dir and enable opt-in for ui.tests execution
       - name: Move project to CM dir
         run: |
