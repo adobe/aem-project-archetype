@@ -5,10 +5,12 @@
         cq:deviceGroups="[/etc/mobile/groups/responsive]"
         cq:template="/conf/${appId}/settings/wcm/templates/blank-af-v2"
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="${appId}/components/page"
+        sling:resourceType="${appId}/components/adaptiveForm/page"
+        sling:configRef="/conf/${appId}/forms"
         guideComponentType="fd/af/templates">
         <guideContainer
-            fd:version="2.0"
+            fd:version="2.1"
+            fieldType="form"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="${appId}/components/adaptiveForm/formcontainer"/>
     </jcr:content>

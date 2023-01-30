@@ -130,6 +130,9 @@
                                 <goals>
                                     <goal>npm</goal>
                                 </goals>
+                                <configuration>
+                                  <arguments>ci</arguments>
+                                </configuration>
                             </execution>
                             <execution>
                                 <id>test chrome</id>
