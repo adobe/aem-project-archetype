@@ -5,7 +5,7 @@
         cq:deviceGroups="[/etc/mobile/groups/responsive]"
         guideComponentType="fd/af/templates"
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="${appId}/components/page">
+        sling:resourceType="${appId}/components/adaptiveForm/page">
         <parsys1
             jcr:primaryType="nt:unstructured"
             editable="{Boolean}true"
