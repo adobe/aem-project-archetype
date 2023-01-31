@@ -20,7 +20,7 @@
 
     <groupId>com.adobe.aem</groupId>
     <artifactId>aem-project-archetype</artifactId>
-    <version>40</version>
+    <version>41-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
 
     <name>AEM Multi-Module Archetype</name>
@@ -31,7 +31,7 @@
         <connection>scm:git:https://github.com/adobe/aem-project-archetype.git</connection>
         <developerConnection>scm:git:https://github.com/adobe/aem-project-archetype.git</developerConnection>
         <url>https://github.com/adobe/aem-project-archetype/tree/master/</url>
-        <tag>aem-project-archetype-40</tag>
+        <tag>HEAD</tag>
     </scm>
     <licenses>
         <license>
