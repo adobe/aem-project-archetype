@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:fd="http://www.adobe.com/aemfd/fd/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="dam:Asset">
+    <jcr:content
+        cq:conf=""
+        jcr:lastModified="{Date}2022-09-01T18:48:10.103-07:00"
+        jcr:primaryType="dam:AssetContent"
+        sling:resourceType="fd/fm/theme/render"
+        theme="1"
+        type="theme">
+        <metadata
+            fd:targetVersion="2.0"
+            fd:version="2.0"
+            jcr:primaryType="nt:unstructured"
+            author="admin"
+            clientlibCategory="fdtheme.${appId}.fsi"
+            clientlibRef="/etc/clientlibs/fd/themes/${appId}"
+            formRef="/libs/fd/af/themes/default"
+            hasCustomThumbnail="{Boolean}false"
+            title="FSI">
+            <breakpoints jcr:primaryType="nt:unstructured">
+                <smallScreen
+                    jcr:primaryType="nt:unstructured"
+                    title="Smaller Screen"
+                    width="479"/>
+                <phone
+                    jcr:primaryType="nt:unstructured"
+                    title="Phone"
+                    width="767"/>
+                <tablet
+                    jcr:primaryType="nt:unstructured"
+                    title="Tablet"
+                    width="991"/>
+            </breakpoints>
+        </metadata>
+    </jcr:content>
+</jcr:root>
