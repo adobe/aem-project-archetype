@@ -18,9 +18,6 @@
 #if ( $includeCommerce == "y" )
     <sly data-sly-call="${symbol_dollar}{clientlib.js @ categories='${appId}.cif', async=true}" />
 #end
-#if ( $includeFormsheadless == "y" )
-    <sly data-sly-call="${symbol_dollar}{clientlib.js @ categories='${appId}.forms.react', async=true}"/>
-#end
 </sly>
 #if ( $isSpaProject )
 <!--/*

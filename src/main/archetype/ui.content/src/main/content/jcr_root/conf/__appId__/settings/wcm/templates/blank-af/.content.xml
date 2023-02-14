@@ -2,6 +2,7 @@
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Template">
     <jcr:content
+        author="adobe"
         cq:templateType="/conf/${appId}/settings/wcm/template-types/af-page"
         jcr:primaryType="cq:PageContent"
         jcr:lastModified="{Date}2021-03-24T18:22:20.809+05:30"

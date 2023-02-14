@@ -2,12 +2,16 @@
 <workspaceFilter version="1.0">
     <filter root="/conf/${appId}" mode="merge"/>
     <filter root="/content/${appId}" mode="merge"/>
+    <filter root="/content/dam/${appId}" mode="merge">
+        <exclude pattern="/content/dam/${appId}(/.*)?"/>
+        <include pattern="/content/dam/${appId}/jcr:content(/.*)?"/>
+    </filter>
     <filter root="/content/dam/${appId}/asset.jpg" mode="merge"/>
     <filter root="/content/experience-fragments/${appId}" mode="merge"/>
 #if ( $includeCommerce == "y" and $aemVersion != "cloud")
     <filter root="/var/commerce/products/${appId}-default" mode="merge"/>
 #end
-#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud")
+#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y" ) and $aemVersion == "cloud")
     <filter root="/content/dam/formsanddocuments-themes/${appId}" mode="merge"/>
     <filter root="/content/dam/formsanddocuments-fdm/${appId}" mode="merge"/>
     <filter root="/content/dam/${appId}/sample_logo.png" mode="merge"/>

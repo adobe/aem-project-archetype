@@ -6,7 +6,7 @@ import ReactDOM from "react-dom";
 import {Action} from "@aemforms/af-core";
 //@ts-ignore
 import {Provider as Spectrum3Provider, defaultTheme} from '@adobe/react-spectrum'
-
+const SUFFIX = "jcr:content/guideContainer.model.json";
 const base64url = (s: any) => {
     var to64url = btoa(s);
     // Replace non-url compatible chars with base64url standard chars and remove leading =
@@ -28,7 +28,8 @@ export const getId = () => {
 }
 
 const getForm = async (id: string) => {
-    const resp = await fetch(`/adobe/forms/af/v1/${symbol_dollar}{id}`)
+    const formPath = process.env.FORMPATH
+    const resp = await fetch(`${formPath}/${SUFFIX}`)
     const json = (await resp.json())
     return json
 }
@@ -40,7 +41,7 @@ const Form = (props: any) => {
         let id = getId();
         if (id) {
             const json:any = await getForm(id);
-            setForm(JSON.stringify(json.afModelDefinition))
+            setForm(JSON.stringify(json))
         }
     }
     const onSubmit= (action: Action) => {
@@ -58,6 +59,7 @@ const Form = (props: any) => {
     if (form != "") {
         const element = document.querySelector(".cmp-formcontainer__content")
         const retVal = (<Spectrum3Provider theme={defaultTheme}>
+            {/* @ts-ignore */}
             <AdaptiveForm formJson={JSON.parse(form)} mappings={mappings} onSubmit={onSubmit}/>
         </Spectrum3Provider>)
         return ReactDOM.createPortal(retVal, element)

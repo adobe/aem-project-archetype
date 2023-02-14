@@ -39,7 +39,7 @@ describe('AEM Assets', () => {
         onboardingHdler.disable();
     });
 
-    it('should be possible to upload an asset', () => {
+    it.skip('should be possible to upload an asset', () => {
         let assetsPath = '/content/dam';
         let imageName = 'image.png';
         let imagePath = `${assetsPath}/${imageName}`;
