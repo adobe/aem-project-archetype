@@ -274,6 +274,22 @@
                         <include>assembly.xml</include>
                         <include>update_sdk.sh</include>
                     </includes>
+                    <!-- Exclude dispatcher config immutable files from filtering -->
+                    <excludes>
+                        <exclude>**/conf.d/available_vhosts/default.vhost</exclude>
+                        <exclude>**/conf.d/dispatcher_vhost.conf</exclude>
+                        <exclude>**/conf.d/enabled_vhosts/vhosts.conf</exclude>
+                        <exclude>**/conf.d/rewrites/default_rewrite.rules</exclude>
+                        <exclude>**/conf.dispatcher.d/available_farms/default.farm</exclude>
+                        <exclude>**/conf.dispatcher.d/cache/default_invalidate.any</exclude>
+                        <exclude>**/conf.dispatcher.d/cache/default_rules.any</exclude>
+                        <exclude>**/conf.dispatcher.d/clientheaders/default_clientheaders.any</exclude>
+                        <exclude>**/conf.dispatcher.d/dispatcher.any</exclude>
+                        <exclude>**/conf.dispatcher.d/enabled_farms/farms.any</exclude>
+                        <exclude>**/conf.dispatcher.d/filters/default_filters.any</exclude>
+                        <exclude>**/conf.dispatcher.d/renders/default_renders.any</exclude>
+                        <exclude>**/conf.dispatcher.d/virtualhosts/default_virtualhosts.any</exclude>
+                    </excludes>
                 </fileSet>
                 <fileSet filtered="false" packaged="false" encoding="UTF-8">
                     <directory></directory>
@@ -281,6 +297,20 @@
                         <include>**/README*</include>
                         <include>immutable.files</include>
                         <include>**/opt-in/**</include>
+                        <!-- Include dispatcher config immutable files as non-filtered ones -->
+                        <include>**/conf.d/available_vhosts/default.vhost</include>
+                        <include>**/conf.d/dispatcher_vhost.conf</include>
+                        <include>**/conf.d/enabled_vhosts/vhosts.conf</include>
+                        <include>**/conf.d/rewrites/default_rewrite.rules</include>
+                        <include>**/conf.dispatcher.d/available_farms/default.farm</include>
+                        <include>**/conf.dispatcher.d/cache/default_invalidate.any</include>
+                        <include>**/conf.dispatcher.d/cache/default_rules.any</include>
+                        <include>**/conf.dispatcher.d/clientheaders/default_clientheaders.any</include>
+                        <include>**/conf.dispatcher.d/dispatcher.any</include>
+                        <include>**/conf.dispatcher.d/enabled_farms/farms.any</include>
+                        <include>**/conf.dispatcher.d/filters/default_filters.any</include>
+                        <include>**/conf.dispatcher.d/renders/default_renders.any</include>
+                        <include>**/conf.dispatcher.d/virtualhosts/default_virtualhosts.any</include>
                     </includes>
                 </fileSet>
             </fileSets>

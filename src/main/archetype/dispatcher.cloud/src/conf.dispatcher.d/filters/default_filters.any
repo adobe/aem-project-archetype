@@ -97,4 +97,4 @@
 /0061 { /type "allow" /method '(GET|POST|OPTIONS)' /url "/graphql/execute.json*" }
 
 # Allow Forms Document Services requests
-/0062 { /type "allow" /method "POST" /url "/adobe/forms/*" }
+/0062 { /type "allow" /method '(GET|POST)' /url "/adobe/forms/*" }

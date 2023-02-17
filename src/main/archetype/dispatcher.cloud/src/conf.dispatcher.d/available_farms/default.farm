@@ -91,11 +91,11 @@
 		# well as general marketing related parameters such as e.g. utm_campaign.
 		# Marketing parameters can normally be ignored on most websites as they are tracked
 		# through different means. 
-		/ignoreUrlParams {
-			/0001 { /glob "*" /type "deny" }
+		# /ignoreUrlParams {
+		# 	/0001 { /glob "*" /type "deny" }
 		# 	/0002 { /glob "q" /type "allow" }
-		#	$include "../cache/marketing_query_parameters.any"
-		}
+		# 	$include "../cache/marketing_query_parameters.any"
+		# }
 
 		# Cache response headers next to a cached file. On the first request to
 		# an uncached resource, all headers matching one of the values found here
