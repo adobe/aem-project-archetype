@@ -81,7 +81,7 @@
         <aem.cif.sdk.api>2022.08.02.00</aem.cif.sdk.api>
 #end
 
-#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud" )
+#if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
         <core.forms.components.version>2.0.4</core.forms.components.version>
         <core.forms.components.af.version>2.0.4</core.forms.components.af.version>
         <aem.forms.sdk.api>SDK_FORMS_VERSION</aem.forms.sdk.api>
@@ -863,7 +863,7 @@ Bundle-DocURL:
                 <scope>provided</scope>
             </dependency>
 #end
-#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud")
+#if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
             <!-- AEM Forms Dependencies -->
             <dependency>
                 <groupId>com.adobe.aem</groupId>

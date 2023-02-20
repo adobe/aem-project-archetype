@@ -216,7 +216,7 @@ if (includeFormsheadless == "n") {
 }
 
 // if forms is included and aem version is set to cloud, set the forms sdk version
-if ((includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunications == "y" || includeFormsheadless == "y") && aemVersion == "cloud") {
+if (includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunications == "y" || includeFormsheadless == "y") {
     if (sdkFormsVersion == "latest") {
         println "No Forms SDK version specified, trying to fetch latest"
         sdkFormsVersion = getLatestFormsSDK(request.getArchetypeVersion())
