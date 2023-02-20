@@ -82,8 +82,14 @@
 #end
 
 #if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
-        <core.forms.components.version>2.0.4</core.forms.components.version>
-        <core.forms.components.af.version>2.0.4</core.forms.components.af.version>
+        if ($aemVersion == "cloud")
+        <core.forms.components.version>2.0.6</core.forms.components.version>
+        <core.forms.components.af.version>2.0.6</core.forms.components.af.version>
+        #end
+        #else
+        <core.forms.components.version>1.1.7-SNAPSHOT</core.forms.components.version>
+        <core.forms.components.af.version>1.1.7-SNAPSHOT</core.forms.components.af.version>
+        #end
         <aem.forms.sdk.api>SDK_FORMS_VERSION</aem.forms.sdk.api>
 #end
         <bnd.version>5.1.2</bnd.version>
