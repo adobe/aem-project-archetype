@@ -82,8 +82,8 @@
 #end
 
 #if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
-        <core.forms.components.version>2.0.4</core.forms.components.version>
-        <core.forms.components.af.version>2.0.4</core.forms.components.af.version>
+        <core.forms.components.version>2.0.7-SNAPSHOT</core.forms.components.version>
+        <core.forms.components.af.version>2.0.7-SNAPSHOT</core.forms.components.af.version>
         <aem.forms.sdk.api>SDK_FORMS_VERSION</aem.forms.sdk.api>
 #end
         <bnd.version>5.1.2</bnd.version>

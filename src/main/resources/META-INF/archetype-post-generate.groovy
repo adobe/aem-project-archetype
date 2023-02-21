@@ -219,6 +219,7 @@ if (includeFormsheadless == "n") {
 if (includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunications == "y" || includeFormsheadless == "y") {
     if (sdkFormsVersion == "latest") {
         println "No Forms SDK version specified, trying to fetch latest"
+        println "No Forms SDK version specified, trying to fetch latest"
         sdkFormsVersion = getLatestFormsSDK(request.getArchetypeVersion())
     }
     println "Using AEM Forms as a Cloud Service SDK version: " + sdkFormsVersion
