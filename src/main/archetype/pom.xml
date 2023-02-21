@@ -233,8 +233,8 @@ Bundle-Category: ${componentGroupName}
 -snapshot: SNAPSHOT
 
 Bundle-DocURL:
--plugin org.apache.sling.caconfig.bndplugin.ConfigurationClassScannerPlugin
--plugin org.apache.sling.bnd.models.ModelsScannerPlugin
+-plugin.caconfig org.apache.sling.caconfig.bndplugin.ConfigurationClassScannerPlugin
+-plugin.models org.apache.sling.bnd.models.ModelsScannerPlugin
                                 ]]></bnd>
                             </configuration>
                         </execution>
