@@ -60,12 +60,6 @@ Include conf.d/variables/custom.vars
 
 		# Rewrite index page internally, pass through (PT)
 		RewriteRule "^(/?)$" "/index.html" [PT]
-	</IfModule>
 
-    # Content Services/Sling Model Exporter: Cache for 5min with background refresh 1h on browser and 12h on CDN to avoid MISS
-    <LocationMatch "^/content/.*\.model\.json$">
-       Header set Cache-Control "max-age=300,stale-while-revalidate=3600" "expr=%{REQUEST_STATUS} < 400"
-       Header set Surrogate-Control "stale-while-revalidate=43200,stale-if-error=43200" "expr=%{REQUEST_STATUS} < 400"
-       Header set Age 0
-    </LocationMatch>
+	</IfModule>
 </VirtualHost>
