@@ -186,19 +186,6 @@
                             <artifactId>core-forms-components-af-core</artifactId>
                             <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
-                      #if ( $aemVersion != "cloud" )
-                      <embedded>
-                        <groupId>com.adobe.aem</groupId>
-                        <artifactId>core-forms-components-apps</artifactId>
-                        <type>zip</type>
-                        <target>/apps/${appId}-vendor-packages/application/install</target>
-                      </embedded>
-                      <embedded>
-                        <groupId>com.adobe.aem</groupId>
-                        <artifactId>core-forms-components-core</artifactId>
-                        <target>/apps/${appId}-vendor-packages/application/install</target>
-                      </embedded>
-                      #end
                       #if ($includeExamples == "y")
                       <embedded>
                         <groupId>com.adobe.aem</groupId>
@@ -411,15 +398,17 @@
 #end
 #if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
         <!-- AEM Forms Dependencies -->
+      #if ($aemVersion == "cloud")
         <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>core-forms-components-apps</artifactId>
-            <type>zip</type>
+          <groupId>com.adobe.aem</groupId>
+          <artifactId>core-forms-components-apps</artifactId>
+          <type>zip</type>
         </dependency>
         <dependency>
           <groupId>com.adobe.aem</groupId>
           <artifactId>core-forms-components-core</artifactId>
         </dependency>
+      #end
         <dependency>
           <groupId>com.adobe.aem</groupId>
           <artifactId>core-forms-components-af-apps</artifactId>
