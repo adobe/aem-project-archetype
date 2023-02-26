@@ -204,12 +204,10 @@ Import-Package: javax.annotation;version=0.0.0,*
             <groupId>com.adobe.aem</groupId>
             <artifactId>aem-forms-sdk-api</artifactId>
         </dependency>
-      #if ($aemVersion == "cloud")
         <dependency>
           <groupId>com.adobe.aem</groupId>
           <artifactId>core-forms-components-core</artifactId>
         </dependency>
-      #end
         <dependency>
           <groupId>com.adobe.aem</groupId>
           <artifactId>core-forms-components-af-core</artifactId>

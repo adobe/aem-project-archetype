@@ -326,7 +326,6 @@ Require-Capability: osgi.extender;filter:="(&(osgi.extender=sling.scripting)(ver
             <groupId>com.adobe.aem</groupId>
             <artifactId>aem-forms-sdk-api</artifactId>
         </dependency>
-      #if ($aemVersion == "cloud")
         <dependency>
           <groupId>com.adobe.aem</groupId>
           <artifactId>core-forms-components-apps</artifactId>
@@ -336,7 +335,6 @@ Require-Capability: osgi.extender;filter:="(&(osgi.extender=sling.scripting)(ver
           <groupId>com.adobe.aem</groupId>
           <artifactId>core-forms-components-core</artifactId>
         </dependency>
-      #end
         <dependency>
           <groupId>com.adobe.aem</groupId>
           <artifactId>core-forms-components-af-apps</artifactId>

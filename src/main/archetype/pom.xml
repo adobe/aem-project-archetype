@@ -875,7 +875,6 @@ Bundle-DocURL:
                 <artifactId>aem-forms-sdk-api</artifactId>
                 <version>${aem.forms.sdk.api}</version>
             </dependency>
-            #if ($aemVersion == "cloud")
             <dependency>
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>core-forms-components-apps</artifactId>
@@ -887,7 +886,6 @@ Bundle-DocURL:
                 <artifactId>core-forms-components-core</artifactId>
                 <version>${core.forms.components.version}</version>
             </dependency>
-            #end
             <dependency>
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>core-forms-components-af-apps</artifactId>
