@@ -322,10 +322,17 @@ Require-Capability: osgi.extender;filter:="(&(osgi.extender=sling.scripting)(ver
 #end
 #if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
         <!-- AEM Forms Dependencies -->
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>aem-forms-sdk-api</artifactId>
-        </dependency>
+      #if ($aemVersion == "cloud")
+      <dependency>
+        <groupId>com.adobe.aem</groupId>
+        <artifactId>aem-forms-sdk-api</artifactId>
+      </dependency>
+      #else
+      <dependency>
+        <groupId>com.adobe.aemfd</groupId>
+        <artifactId>aemfd-client-sdk</artifactId>
+      </dependency>
+      #end
         <dependency>
           <groupId>com.adobe.aem</groupId>
           <artifactId>core-forms-components-apps</artifactId>
