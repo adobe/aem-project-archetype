@@ -320,20 +320,27 @@ Require-Capability: osgi.extender;filter:="(&(osgi.extender=sling.scripting)(ver
             <scope>provided</scope>
         </dependency>
 #end
-#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud")
+#if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
         <!-- AEM Forms Dependencies -->
+      #if ($aemVersion == "cloud")
+      <dependency>
+        <groupId>com.adobe.aem</groupId>
+        <artifactId>aem-forms-sdk-api</artifactId>
+      </dependency>
+      #else
+      <dependency>
+        <groupId>com.adobe.aemfd</groupId>
+        <artifactId>aemfd-client-sdk</artifactId>
+      </dependency>
+      #end
         <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>aem-forms-sdk-api</artifactId>
+          <groupId>com.adobe.aem</groupId>
+          <artifactId>core-forms-components-apps</artifactId>
+          <type>zip</type>
         </dependency>
         <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>core-forms-components-apps</artifactId>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>core-forms-components-core</artifactId>
+          <groupId>com.adobe.aem</groupId>
+          <artifactId>core-forms-components-core</artifactId>
         </dependency>
         <dependency>
           <groupId>com.adobe.aem</groupId>

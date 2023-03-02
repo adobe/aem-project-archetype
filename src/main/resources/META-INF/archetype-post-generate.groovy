@@ -205,6 +205,10 @@ if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunic
     assert new File("$confFolder/settings/wcm/templates/blank-af-v2").deleteDir()
     assert new File("$confFolder/forms").deleteDir()
 }
+if ((includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunications == "y" || includeFormsheadless == "y") && aemVersion != "cloud") {
+    assert new File("$appsFolder/components/formsandcommunicationportal").deleteDir();
+}
+
 
 // For Headless Only
 if (includeFormsheadless == "n") {
@@ -216,10 +220,15 @@ if (includeFormsheadless == "n") {
 }
 
 // if forms is included and aem version is set to cloud, set the forms sdk version
-if ((includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunications == "y" || includeFormsheadless == "y") && aemVersion == "cloud") {
+if (includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunications == "y" || includeFormsheadless == "y") {
     if (sdkFormsVersion == "latest") {
         println "No Forms SDK version specified, trying to fetch latest"
-        sdkFormsVersion = getLatestFormsSDK(request.getArchetypeVersion())
+        if (aemVersion == "cloud") {
+            sdkFormsVersion = getLatestFormsSDK(request.getArchetypeVersion())
+        } else {
+            sdkFormsVersion = getLatestNonCloudFormsSDK(request.getArchetypeVersion());
+        }
+
     }
     println "Using AEM Forms as a Cloud Service SDK version: " + sdkFormsVersion
     rootPom.text = rootPom.text.replaceAll('SDK_FORMS_VERSION', sdkFormsVersion.toString())
@@ -386,6 +395,15 @@ def getLatestSDK(archetypeVersion) {
 
 def getLatestFormsSDK(archetypeVersion) {
     def metadata = new XmlSlurper().parse("https://repo1.maven.org/maven2/com/adobe/aem/aem-forms-sdk-api/maven-metadata.xml")
+    def sdkVersion = metadata.versioning.latest
+    if (sdkVersion == null || sdkVersion == "") {
+        sdkVersion = System.console().readLine("Cannot get latest SDK version, please provide it manually: ")
+    }
+    return sdkVersion
+}
+
+def getLatestNonCloudFormsSDK(archetypeVersion) {
+    def metadata = new XmlSlurper().parse("https://repo1.maven.org/maven2/com/adobe/aemfd/aemfd-client-sdk/maven-metadata.xml")
     def sdkVersion = metadata.versioning.latest
     if (sdkVersion == null || sdkVersion == "") {
         sdkVersion = System.console().readLine("Cannot get latest SDK version, please provide it manually: ")

@@ -81,9 +81,14 @@
         <aem.cif.sdk.api>2022.08.02.00</aem.cif.sdk.api>
 #end
 
-#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud" )
-        <core.forms.components.version>2.0.4</core.forms.components.version>
-        <core.forms.components.af.version>2.0.4</core.forms.components.af.version>
+#if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
+#if ($aemVersion == "cloud")
+        <core.forms.components.version>2.0.6</core.forms.components.version>
+        <core.forms.components.af.version>2.0.6</core.forms.components.af.version>
+#else
+        <core.forms.components.version>1.1.12</core.forms.components.version>
+        <core.forms.components.af.version>1.1.12</core.forms.components.af.version>
+#end
         <aem.forms.sdk.api>SDK_FORMS_VERSION</aem.forms.sdk.api>
 #end
         <bnd.version>5.1.2</bnd.version>
@@ -863,13 +868,21 @@ Bundle-DocURL:
                 <scope>provided</scope>
             </dependency>
 #end
-#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud")
+#if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
             <!-- AEM Forms Dependencies -->
+            #if ($aemVersion == "cloud")
             <dependency>
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>aem-forms-sdk-api</artifactId>
                 <version>${aem.forms.sdk.api}</version>
             </dependency>
+            #else
+            <dependency>
+                <groupId>com.adobe.aemfd</groupId>
+                <artifactId>aemfd-client-sdk</artifactId>
+                <version>${aem.forms.sdk.api}</version>
+            </dependency>
+            #end
             <dependency>
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>core-forms-components-apps</artifactId>
