@@ -38,6 +38,6 @@ RewriteRule .* - [F]
 # Block wp-login
 RewriteRule ^.*wp-login - [F,NC,L]
 
-# Allow caching of persisted queries
+# Allow the dispatcher to be able to cache persisted queries - they need an extension for the cache file
 RewriteCond %{REQUEST_URI} ^/graphql/execute.json
-RewriteRule ^/(.*)$ /$1;.json [PT,L]
+RewriteRule ^/(.*)$ /$1;.json [PT]
