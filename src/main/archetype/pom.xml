@@ -15,17 +15,17 @@
  |  limitations under the License.
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-## Global Apache Velocity variables
-#set( $year = $package.getClass().forName("java.util.Date").newInstance().getYear() + 1900 )
-#set( $hash = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
-#set( $startbrace = "{" )
-#set( $endbrace = "}" )
-#set( $isSpaProject = $frontendModule == "angular" || $frontendModule == "react" )
-#set( $includeClassifierOnUberJar = $aemVersion.matches("6\.5\.[0-5]") )
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    ## Global Apache Velocity variables
+    #set( $year = $package.getClass().forName("java.util.Date").newInstance().getYear() + 1900 )
+    #set( $hash = '#' )
+    #set( $symbol_dollar = '$' )
+    #set( $symbol_escape = '\' )
+    #set( $startbrace = "{" )
+    #set( $endbrace = "}" )
+    #set( $isSpaProject = $frontendModule == "angular" || $frontendModule == "react" || $frontendModule == "decoupled" )
+    #set( $includeClassifierOnUberJar = $aemVersion.matches("6\.5\.[0-5]") )
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>${groupId}</groupId>
@@ -38,20 +38,20 @@
     <modules>
         <module>all</module>
         <module>core</module>
-#if ( $frontendModule != "none" )
+        #if ( $frontendModule != "none" && $frontendModule != "decoupled" )
         <module>ui.frontend</module>
-#end
- #if ( $includeFormsheadless == "y" )
+        #end
+        #if ( $includeFormsheadless == "y" )
         <module>ui.frontend.react.forms.af</module>
- #end
+        #end
         <module>ui.apps</module>
         <module>ui.apps.structure</module>
         <module>ui.config</module>
         <module>ui.content</module>
         <module>it.tests</module>
-#if ( $includeDispatcherConfig != "n" )
+        #if ( $includeDispatcherConfig != "n" )
         <module>dispatcher</module>
-#end
+        #end
         <module>dispatcher.ams</module>
         <module>dispatcher.cloud</module>
         <module>ui.frontend.general</module>
@@ -70,44 +70,45 @@
         <vault.user>admin</vault.user>
         <vault.password>admin</vault.password>
         <frontend-maven-plugin.version>1.12.0</frontend-maven-plugin.version>
-#if ($enableSSR == "y")
+        #if ($enableSSR == "y")
         <aio.runtime.namespace>${env.AIO_RUNTIME_NAMESPACE}</aio.runtime.namespace>
         <aio.runtime.auth>${env.AIO_RUNTIME_AUTH}</aio.runtime.auth>
-#end
-        <core.wcm.components.version>2.19.0</core.wcm.components.version>
-#if ( $includeCommerce == "y" )
-        <core.cif.components.version>2.9.0</core.cif.components.version>
-        <magento.graphql.version>9.0.0-magento242ee</magento.graphql.version>
-#if ( $aemVersion != "cloud")
-        <graphql.client.version>1.7.10</graphql.client.version>
-#end
-#if ( $aemVersion == "cloud")
-        <aem.cif.sdk.api>2022.01.20.00</aem.cif.sdk.api>
-#end
-#end
+        #end
+        <core.wcm.components.version>2.21.2</core.wcm.components.version>
+        #if ( $includeCommerce == "y" )
+        <core.cif.components.version>2.12.0</core.cif.components.version>
+        <magento.graphql.version>9.1.0-magento242ee</magento.graphql.version>
+        <aem.cif.sdk.api>2022.08.02.00</aem.cif.sdk.api>
+        #end
 
-#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud" )
-        <core.forms.components.version>1.0.14</core.forms.components.version>
+        #if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
+        #if ($aemVersion == "cloud")
+        <core.forms.components.version>2.0.6</core.forms.components.version>
+        <core.forms.components.af.version>2.0.6</core.forms.components.af.version>
+        #else
+        <core.forms.components.version>1.1.12</core.forms.components.version>
+        <core.forms.components.af.version>1.1.12</core.forms.components.af.version>
+        #end
         <aem.forms.sdk.api>SDK_FORMS_VERSION</aem.forms.sdk.api>
-#end
+        #end
         <bnd.version>5.1.2</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-#if ( $isSpaProject )
-        <spa.project.core.version>1.3.12</spa.project.core.version>
-#end
-#if ( $frontendModule == "angular" )
+        #if ( $isSpaProject )
+        <spa.project.core.version>1.3.16</spa.project.core.version>
+        #end
+        #if ( $frontendModule == "angular" )
         <!--
           Environment for the NPM build. Possible values:
           - "" in development (=> `npm run build`)
           - ":production" in production (=> `npm run build:production`)
         -->
         <build.environment />
-#end
-#if ( $aemVersion == "cloud")
+        #end
+        #if ( $aemVersion == "cloud")
         <aem.sdk.api>SDK_VERSION</aem.sdk.api>
         <aemanalyser.version>1.4.10</aemanalyser.version>
-#end
+        #end
         <componentGroupName>$appTitle</componentGroupName>
     </properties>
 
@@ -181,8 +182,8 @@
                     <artifactId>frontend-maven-plugin</artifactId>
                     <version>${frontend-maven-plugin.version}</version>
                     <configuration>
-                        <nodeVersion>v12.22.7</nodeVersion>
-                        <npmVersion>6.14.0</npmVersion>
+                        <nodeVersion>v16.17.0</nodeVersion>
+                        <npmVersion>8.15.0</npmVersion>
                     </configuration>
                     <executions>
                         <execution>
@@ -192,10 +193,13 @@
                             </goals>
                         </execution>
                         <execution>
-                            <id>npm install</id>
+                            <id>npm ci</id>
                             <goals>
                                 <goal>npm</goal>
                             </goals>
+                            <configuration>
+                                <arguments>ci</arguments>
+                            </configuration>
                         </execution>
                     </executions>
                 </plugin>
@@ -455,7 +459,7 @@ Bundle-DocURL:
     </build>
 
     <profiles>
-#if ( $aemVersion != "cloud" )
+        #if ( $aemVersion != "cloud" )
         <!-- ====================================================== -->
         <!-- A D O B E P U B L I C P R O F I L E -->
         <!-- ====================================================== -->
@@ -503,7 +507,7 @@ Bundle-DocURL:
             </pluginRepositories>
         </profile>
 
-#end
+        #end
         <!-- Development profile: install only the bundle -->
         <profile>
             <id>autoInstallBundle</id>
@@ -617,12 +621,12 @@ Bundle-DocURL:
                     </plugins>
                 </pluginManagement>
             </build>
-#if ( $frontendModule == "angular" )
+            #if ( $frontendModule == "angular" )
             <properties>
                 <!-- Use `build:production` instead of `build` NPM script -->
                 <build.environment>:production</build.environment>
             </properties>
-#end
+            #end
         </profile>
     </profiles>
 
@@ -632,7 +636,7 @@ Bundle-DocURL:
     <!-- ====================================================================== -->
     <dependencyManagement>
         <dependencies>
-#if ( $aemVersion != "cloud" )
+            #if ( $aemVersion != "cloud" )
             <!-- OSGi Dependencies -->
             <dependency>
                 <groupId>org.osgi</groupId>
@@ -724,9 +728,9 @@ Bundle-DocURL:
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>uber-jar</artifactId>
                 <version>$aemVersion</version>
-#if ( $includeClassifierOnUberJar)
+                #if ( $includeClassifierOnUberJar)
                 <classifier>apis</classifier>
-#end
+                #end
                 <scope>provided</scope>
             </dependency>
             <!-- Apache Sling Dependencies -->
@@ -787,7 +791,7 @@ Bundle-DocURL:
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
             </dependency>
-#if ( $amp == "y" || $includeExamples == "y" )
+            #if ( $amp == "y" || $includeExamples == "y" )
             <dependency>
                 <groupId>com.adobe.cq</groupId>
                 <artifactId>core.wcm.components.extensions.amp</artifactId>
@@ -799,8 +803,8 @@ Bundle-DocURL:
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
             </dependency>
-#end
-#else
+            #end
+            #else
             <dependency>
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>aem-sdk-api</artifactId>
@@ -812,8 +816,8 @@ Bundle-DocURL:
                 <artifactId>core.wcm.components.core</artifactId>
                 <version>${core.wcm.components.version}</version>
             </dependency>
-#end
-#if ( $includeExamples == "y" )
+            #end
+            #if ( $includeExamples == "y" )
             <dependency>
                 <groupId>com.adobe.cq</groupId>
                 <artifactId>core.wcm.components.examples.ui.apps</artifactId>
@@ -832,8 +836,8 @@ Bundle-DocURL:
                 <version>${core.wcm.components.version}</version>
                 <type>zip</type>
             </dependency>
-#end
-#if ( $includeCommerce == "y" )
+            #end
+            #if ( $includeCommerce == "y" )
             <!-- Adobe CIF Dependencies -->
             <dependency>
                 <groupId>com.adobe.commerce.cif</groupId>
@@ -857,29 +861,28 @@ Bundle-DocURL:
                 <artifactId>magento-graphql</artifactId>
                 <version>${magento.graphql.version}</version>
             </dependency>
-#if ( $aemVersion != "cloud")
-            <dependency>
-                <groupId>com.adobe.commerce.cif</groupId>
-                <artifactId>graphql-client</artifactId>
-                <version>${graphql.client.version}</version>
-            </dependency>
-#end
-#if ( $aemVersion == "cloud")
             <dependency>
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>aem-cif-sdk-api</artifactId>
                 <version>${aem.cif.sdk.api}</version>
                 <scope>provided</scope>
             </dependency>
-#end
-#end
-#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud")
+            #end
+            #if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
             <!-- AEM Forms Dependencies -->
+            #if ($aemVersion == "cloud")
             <dependency>
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>aem-forms-sdk-api</artifactId>
                 <version>${aem.forms.sdk.api}</version>
             </dependency>
+            #else
+            <dependency>
+                <groupId>com.adobe.aemfd</groupId>
+                <artifactId>aemfd-client-sdk</artifactId>
+                <version>${aem.forms.sdk.api}</version>
+            </dependency>
+            #end
             <dependency>
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>core-forms-components-apps</artifactId>
@@ -891,17 +894,35 @@ Bundle-DocURL:
                 <artifactId>core-forms-components-core</artifactId>
                 <version>${core.forms.components.version}</version>
             </dependency>
-#end
-#if ( $includeExamples == "y" and ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion == "cloud" ) )
             <dependency>
                 <groupId>com.adobe.aem</groupId>
-                <artifactId>core-forms-components-examples-all</artifactId>
+                <artifactId>core-forms-components-af-apps</artifactId>
+                <type>zip</type>
+                <version>${core.forms.components.af.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.aem</groupId>
+                <artifactId>core-forms-components-af-core</artifactId>
+                <version>${core.forms.components.af.version}</version>
+            </dependency>
+
+            #if ($includeExamples == "y")
+            <dependency>
+                <groupId>com.adobe.aem</groupId>
+                <artifactId>core-forms-components-examples-apps</artifactId>
                 <type>zip</type>
                 <version>${core.forms.components.version}</version>
             </dependency>
-#end
+            <dependency>
+                <groupId>com.adobe.aem</groupId>
+                <artifactId>core-forms-components-examples-content</artifactId>
+                <type>zip</type>
+                <version>${core.forms.components.version}</version>
+            </dependency>
+            #end
+            #end
 
-#if ( $isSpaProject )
+            #if ( $isSpaProject )
             <!-- SPA Project Core (includes hierarchy page model) -->
             <dependency>
                 <groupId>com.adobe.aem</groupId>
@@ -914,7 +935,7 @@ Bundle-DocURL:
                 <artifactId>spa.project.core.core</artifactId>
                 <version>${spa.project.core.version}</version>
             </dependency>
-#end
+            #end
 
             <!-- Testing -->
             <dependency>
@@ -945,19 +966,43 @@ Bundle-DocURL:
             <dependency>
                 <groupId>io.wcm</groupId>
                 <artifactId>io.wcm.testing.aem-mock.junit5</artifactId>
-                <version>4.1.8</version>
+                <version>5.1.2</version>
                 <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.sling</groupId>
+                        <artifactId>org.apache.sling.scripting.api</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.apache.sling</groupId>
                 <artifactId>org.apache.sling.testing.caconfig-mock-plugin</artifactId>
-                <version>1.3.6</version>
+                <version>1.4.0</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-collections</groupId>
+                        <artifactId>commons-collections</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>3.2.2</version>
+                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>com.adobe.cq</groupId>
                 <artifactId>core.wcm.components.testing.aem-mock-plugin</artifactId>
                 <version>${core.wcm.components.version}</version>
                 <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.sling</groupId>
+                        <artifactId>org.apache.sling.scripting.api</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>uk.org.lidalia</groupId>

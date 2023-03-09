@@ -1,658 +1,687 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
-    jcr:mixinTypes="[rep:AccessControllable]"
-    jcr:primaryType="cq:Page">
-    <rep:policy/>
-#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud")
-    <fd jcr:primaryType="nt:unstructured">
-        <af jcr:primaryType="nt:unstructured">
-            <components jcr:primaryType="nt:unstructured">
-                <afpage2 jcr:primaryType="nt:unstructured">
-                    <aftemplatedpage jcr:primaryType="nt:unstructured">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
-                            <default
-                                jcr:description="Policy of the Adaptive Form page"
-                                jcr:primaryType="nt:unstructured"
-                                jcr:title="Default Page"
-                                sling:resourceType="wcm/core/components/policy/policy"
-                                clientlibs="[wcm.foundation.components.page.responsive]">
-                                <jcr:content jcr:primaryType="nt:unstructured"/>
-                            </default>
-                    </aftemplatedpage>
-                </afpage2>
-                <guideContainer jcr:primaryType="nt:unstructured">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                        <default
-                            jcr:description="Policy of the Adaptive Form Guide Container"
-                            jcr:primaryType="nt:unstructured"
-                            jcr:title="Simple Adaptive Form Guide Container Policy"
-                            sling:resourceType="wcm/core/components/policy/policy"
-                            components="[group:Adaptive Form]">
-                            <jcr:content jcr:primaryType="nt:unstructured"/>
-                        </default>
-                </guideContainer>
-            </components>
-        </af>
-    </fd>
-#end
-    <${appId} jcr:primaryType="nt:unstructured">
-        <components jcr:primaryType="nt:unstructured">
-            <form jcr:primaryType="nt:unstructured">
-                <container jcr:primaryType="nt:unstructured">
-                    <form-container
-                        jcr:description="Allows the form components to be dropped into this core form container."
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Content Form"
-                        sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/apps/${appId}/components/form/button,/apps/${appId}/components/form/hidden,/apps/${appId}/components/form/options,/apps/${appId}/components/form/text]">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
-                    </form-container>
-                </container>
-            </form>
-            <languagenavigation jcr:primaryType="nt:unstructured">
-                <policy_xfm
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="${appTitle} Language Navigation - Experience Fragment"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    navigationRoot="/content/${appId}"
-                    structureDepth="1">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                </policy_xfm>
-            </languagenavigation>
-            <image jcr:primaryType="nt:unstructured">
-                <policy_651483963895698
-                    jcr:description="- Enable lazy loading for faster page loading.&#xd;&#xa;- Define allowed image widths for automatic loading of the image in the most optimal resolution, given the size at which each image is displayed on the page, and the visitor's pixel density.&#xd;&#xa;- Disallow direct asset upload, to force authors to first upload the images to Assets."
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Content Image"
-                    sling:resourceType="wcm/core/components/policy/policy"
-#if ( $enableDynamicMedia == "y")
-                    enableDmFeatures="true"
-#end
-#if ( $amp == "y")
-                    disableLazyLoading="true"
-#else
-                    allowedRenditionWidths="[320,480,600,800,1024,1200,1600]"
-                    disableLazyLoading="false"
-#end
-                    allowUpload="false"
-                    altValueFromDAM="true"
-                    displayPopupTitle="true"
-                    isDecorative="false"
-                    jpegQuality="{Long}85"
-                    titleValueFromDAM="true"
-                    uuidDisabled="true">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                    <plugins jcr:primaryType="nt:unstructured">
-                        <crop
-                            jcr:primaryType="nt:unstructured"
-                            features="*">
-                            <aspectRatios jcr:primaryType="nt:unstructured">
-                                <item0
-                                    jcr:primaryType="nt:unstructured"
-                                    name="Wide Landscape"
-                                    ratio="0.6180"/>
-                                <item1
-                                    jcr:primaryType="nt:unstructured"
-                                    name="Landscape"
-                                    ratio="0.8284"/>
-                                <item2
-                                    jcr:primaryType="nt:unstructured"
-                                    name="Square"
-                                    ratio="1"/>
-                                <item3
-                                    jcr:primaryType="nt:unstructured"
-                                    name="Portrait"
-                                    ratio="1.6180"/>
-                            </aspectRatios>
-                        </crop>
-                        <rotate
-                            jcr:primaryType="nt:unstructured"
-                            features="right"/>
-                        <flip
-                            jcr:primaryType="nt:unstructured"
-                            features="-"/>
-                    </plugins>
-                </policy_651483963895698>
-            </image>
-            <text jcr:primaryType="nt:unstructured">
-                <policy_641562756958017
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Content Text"
-                    sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                    <rtePlugins jcr:primaryType="nt:unstructured">
-                        <paraformat
-                            jcr:primaryType="nt:unstructured"
-                            features="*">
-                            <formats
-                                jcr:primaryType="nt:unstructured"
-                                override="true">
-                                <item0
-                                    jcr:primaryType="nt:unstructured"
-                                    description="Paragraph"
-                                    tag="p"/>
-                                <item1
-                                    jcr:primaryType="nt:unstructured"
-                                    description="Quote"
-                                    tag="blockquote"/>
-                                <item2
-                                    jcr:primaryType="nt:unstructured"
-                                    description="Preformatted"
-                                    tag="pre"/>
-                            </formats>
-                        </paraformat>
-                        <misctools
-                            jcr:primaryType="nt:unstructured"
-                            features="-">
-                            <specialCharsConfig jcr:primaryType="nt:unstructured">
-                                <chars
-                                    jcr:primaryType="nt:unstructured"
-                                    override="true">
-                                    <item0
-                                        jcr:primaryType="nt:unstructured"
-                                        entity="&amp;copy;"
-                                        name="copyright"/>
-                                    <item1
-                                        jcr:primaryType="nt:unstructured"
-                                        entity="&amp;euro;"
-                                        name="euro"/>
-                                    <item2
-                                        jcr:primaryType="nt:unstructured"
-                                        entity="&amp;reg;"
-                                        name="registered"/>
-                                    <item3
-                                        jcr:primaryType="nt:unstructured"
-                                        entity="&amp;trade;"
-                                        name="trademark"/>
-                                </chars>
-                            </specialCharsConfig>
-                        </misctools>
-                        <edit
-                            jcr:primaryType="nt:unstructured"
-                            features="-"/>
-                        <findreplace
-                            jcr:primaryType="nt:unstructured"
-                            features="-"/>
-                        <undo
-                            jcr:primaryType="nt:unstructured"
-                            features="-"/>
-                        <spellcheck
-                            jcr:primaryType="nt:unstructured"
-                            features="-"/>
-                        <image
-                            jcr:primaryType="nt:unstructured"
-                            features="-"/>
-                        <table
-                            jcr:primaryType="nt:unstructured"
-                            features="-"/>
-                        <lists
-                            jcr:primaryType="nt:unstructured"
-                            features="*"/>
-                        <justify
-                            jcr:primaryType="nt:unstructured"
-                            features="-"/>
-                        <format
-                            jcr:primaryType="nt:unstructured"
-                            features="bold,italic"/>
-                        <links
-                            jcr:primaryType="nt:unstructured"
-                            features="modifylink,unlink"/>
-                        <subsuperscript
-                            jcr:primaryType="nt:unstructured"
-                            features="-"/>
-                    </rtePlugins>
-                </policy_641562756958017>
-            </text>
-            <title jcr:primaryType="nt:unstructured">
-                <policy_641475696923109
-                    jcr:description="Allows only H1 and disallows links for the main page title."
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Page Title"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    allowedTypes="h1"
-                    linkDisabled="true"
-                    type="h1">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                </policy_641475696923109>
-                <policy_641528232375303
-                    jcr:description="Allows all sizes, but not H1, which is reserved for the main page title."
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Content Title"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    allowedTypes="[h2,h3,h4,h5,h6]"
-                    linkDisabled="false"
-                    type="h2">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                </policy_641528232375303>
-            </title>
-            <experiencefragment jcr:primaryType="nt:unstructured">
-                <policy_header
-                    cq:styleDefaultElement="header"
-                    jcr:description="Sets a &lt;header> element on the page header experience fragment."
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Page Header"
-                    sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                </policy_header>
-                <policy_footer
-                    cq:styleDefaultElement="footer"
-                    jcr:description="Sets a &lt;footer> element on the page footer experience fragment."
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Page Footer"
-                    sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                </policy_footer>
-            </experiencefragment>
-            <container jcr:primaryType="nt:unstructured">
-                <policy_1574694950110
-                    jcr:description="Allows the template components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Page Root"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:${appTitle} - Content,/apps/${appId}/components/form/container,group:${appTitle} - Structure]">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                    <cq:authoring jcr:primaryType="nt:unstructured">
-                        <assetToComponentMapping jcr:primaryType="nt:unstructured">
-                            <mapping_1575024218483
-                                jcr:primaryType="nt:unstructured"
-                                assetGroup="media"
-                                assetMimetype="image/*"
-                                droptarget="image"
-                                resourceType="${appId}/components/image"/>
-                            <mapping_1575030843388
-                                jcr:primaryType="nt:unstructured"
-                                assetGroup="content"
-                                assetMimetype="text/html"
-                                droptarget="experiencefragment"
-                                resourceType="${appId}/components/experiencefragment"/>
-                            <mapping_1575030853128
-                                jcr:primaryType="nt:unstructured"
-                                assetGroup="media"
-                                assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
-                                droptarget="contentfragment"
-                                resourceType="${appId}/components/contentfragment"/>
-                        </assetToComponentMapping>
-                    </cq:authoring>
-                </policy_1574694950110>
-                <policy_1574695586800
-                    jcr:description="Allows the page components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Page Content"
-                    sling:resourceType="wcm/core/components/policy/policy"
-#if ( $includeCommerce == "y" and $enableDynamicMedia == "y" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") )
-                    components="[group:Dynamic Media,group:${appTitle} - Content,group:${appTitle} - Commerce,group:${appTitle} - Forms,/apps/${appId}/components/form/container]">
-#elseif ( $includeCommerce == "y" and $enableDynamicMedia == "n" and ($includeForms == "n" and $includeFormsenrollment == "n" and $includeFormscommunications == "n"))
-                    components="[group:${appTitle} - Content,group:${appTitle} - Commerce,/apps/${appId}/components/form/container]">
-#elseif ( $includeCommerce == "n" and $enableDynamicMedia == "y" and ($includeForms == "n" and $includeFormsenrollment == "n" and $includeFormscommunications == "n"))
-                    components="[group:Dynamic Media,group:${appTitle} - Content,/apps/$appId}/components/form/container]">
-#elseif ( $includeCommerce == "y" and $enableDynamicMedia == "n" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y"))
-                    components="[group:${appTitle} - Content,group:${appTitle} - Commerce,group:${appTitle} - Forms,/apps/${appId}/components/form/container]">
-#elseif ( $includeCommerce == "n" and $enableDynamicMedia == "y" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y"))
-                    components="[group:Dynamic Media,group:${appTitle} - Content,group:${appTitle} - Forms,/apps/$appId}/components/form/container]">
-#elseif ( $includeCommerce == "n" and $enableDynamicMedia == "n" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y"))
-                    components="[group:${appTitle} - Content,group:${appTitle} - Forms,/apps/$appId}/components/form/container]">
-#else
-                    components="[group:${appTitle} - Content,/apps/${appId}/components/form/container]">
-#end  
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                    <cq:authoring jcr:primaryType="nt:unstructured">
-                        <assetToComponentMapping jcr:primaryType="nt:unstructured">
-                            <mapping_1575030255082
-                                jcr:primaryType="nt:unstructured"
-                                assetGroup="media"
-                                assetMimetype="image/*"
-                                droptarget="image"
-                                resourceType="${appId}/components/image"/>
-                            <mapping_1575030260142
-                                jcr:primaryType="nt:unstructured"
-                                assetGroup="content"
-                                assetMimetype="text/html"
-                                droptarget="experiencefragment"
-                                resourceType="${appId}/components/experiencefragment"/>
-                            <mapping_1575030269139
-                                jcr:primaryType="nt:unstructured"
-                                assetGroup="media"
-                                assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
-                                droptarget="contentfragment"
-                                resourceType="${appId}/components/contentfragment"/>
-#if ( $includeCommerce == "y" )
-                            <mapping_1575030255082
-                                jcr:primaryType="nt:unstructured"
-                                assetGroup="product"
-                                droptarget="product-data-reference"
-                                resourceType="${appId}/components/commerce/productteaser"/>
-#end
-                        </assetToComponentMapping>
-                    </cq:authoring>
-                </policy_1574695586800>
-                <policy_649128221558427
-                    cq:styleDefaultElement="main"
-                    jcr:description="Sets a &lt;main> element on the page content area."
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Page Main"
-                    sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                </policy_649128221558427>
-                <policy_1575040440977
-                    jcr:description="Allows the template components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="XF Root"
-                    sling:resourceType="wcm/core/components/policy/policy"
-#if ( $includeCommerce == "n" and  ($includeForms == "n" and $includeFormsenrollment == "n" and $includeFormscommunications == "n") )
-                    components="[group:${appTitle} - Content,/apps/${appId}/components/form/container]">
-#elseif ($includeCommerce == "n" and  ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") )
-                    components="[group:${appTitle} - Content,group:${appTitle} - Forms,/apps/${appId}/components/form/container]">
-#elseif ($includeCommerce == "y" and  ($includeForms == "n" and $includeFormsenrollment == "n" and $includeFormscommunications == "n") )
-                    components="[group:${appTitle} - Content,group:${appTitle} - Commerce,group:${appTitle} - Header,/apps/${appId}/components/form/container]">
-#elseif ($includeCommerce == "y" and  ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") )
-                    components="[group:${appTitle} - Content,group:${appTitle} - Commerce,group:${appTitle} - Header,group:${appTitle} - Forms,/apps/${appId}/components/form/container]">
-#end  
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                    <cq:authoring jcr:primaryType="nt:unstructured">
-                        <assetToComponentMapping jcr:primaryType="nt:unstructured">
-                            <mapping_1575024218483
-                                jcr:primaryType="nt:unstructured"
-                                assetGroup="media"
-                                assetMimetype="image/*"
-                                droptarget="image"
-                                resourceType="${appId}/components/image"/>
-                            <mapping_1575030843388
-                                jcr:primaryType="nt:unstructured"
-                                assetGroup="content"
-                                assetMimetype="text/html"
-                                droptarget="experiencefragment"
-                                resourceType="${appId}/components/experiencefragment"/>
-                            <mapping_1575030853128
-                                jcr:primaryType="nt:unstructured"
-                                assetGroup="media"
-                                assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
-                                droptarget="contentfragment"
-                                resourceType="${appId}/components/contentfragment"/>
-#if ( $includeCommerce == "y" )
-                            <mapping_1590416532200
-                                jcr:primaryType="nt:unstructured" 
-                                assetGroup="product" 
-                                droptarget="product-data-reference" 
-                                resourceType="${appId}/components/commerce/productteaser" />
-#end
-                        </assetToComponentMapping>
-                    </cq:authoring>
-                </policy_1575040440977>
-            </container>
-            <teaser jcr:primaryType="nt:unstructured">
-                <policy_1575031387650
-                    jcr:description="Sets the title size to H3."
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Content Teaser"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    titleType="h3">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                </policy_1575031387650>
-            </teaser>
-            <download jcr:primaryType="nt:unstructured">
-                <policy_1575032193319
-                    jcr:description="Sets the title size to H3."
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Content Download"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    allowUpload="false"
-                    displayFilename="true"
-                    displayFormat="true"
-                    displaySize="true"
-                    titleType="h3">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                </policy_1575032193319>
-            </download>
-            <page jcr:primaryType="nt:unstructured">
-                <policy
-#if ( $amp == "y" )
-                    ampMode="pairedAmp"
-#end
-                    jcr:description="Includes the required client libraries."
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Generic Page"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    clientlibs="[${appId}.dependencies,${appId}.site]"
-                    clientlibsJsHead="${appId}.dependencies">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                </policy>
-#if ( $isSpaProject )
-                <policy_spa
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="${appTitle} SPA Page Policy"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    clientlibs="[${appId}.${frontendModule}]">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                </policy_spa>
-#end
-            </page>
-#if ( $isSpaProject )
-            <spa jcr:primaryType="nt:unstructured">
-                <default
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="${appTitle} App Policy"
-                    sling:resourceType="wcm/core/components/policy/policy"
-                    clientlibs="[${appId}.${frontendModule}]"
-                    isRoot="{Boolean}true"
-                    structureDepth="3"
-                />
-            </spa>
-#end
-#if ( $includeCommerce == "y" )
-            <commerce jcr:primaryType="nt:unstructured">
-                <productlist jcr:primaryType="nt:unstructured">
-                    <default
-                        cq:styleDefaultClasses="category__style_grid"
-                        jcr:lastModified="{Date}2019-04-01T15:42:05.554+02:00"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="AEM CIF Core Components Product List"
-                        sling:resourceType="wcm/core/components/policy/policy"
-                        showTitle="true"
-                        showImage="true">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
-                        <cq:styleGroups jcr:primaryType="nt:unstructured">
-                            <item0
-                                cq:styleGroupLabel="Layout"
-                                jcr:primaryType="nt:unstructured">
-                                <cq:styles jcr:primaryType="nt:unstructured">
-                                    <item0
-                                        jcr:primaryType="nt:unstructured"
-                                        cq:styleClasses="category__style_grid"
-                                        cq:styleId="1570700958199"
-                                        cq:styleLabel="Grid" />
-                                    <item1
-                                        jcr:primaryType="nt:unstructured"
-                                        cq:styleClasses="category__style_list"
-                                        cq:styleId="1570700958900"
-                                        cq:styleLabel="List" />
-                                </cq:styles>
-                            </item0>
-                        </cq:styleGroups>
-                    </default>
-                </productlist>
-                <productcarousel jcr:primaryType="nt:unstructured">
-                    <default
-                        jcr:lastModified="{Date}2020-09-28T15:37:21.146+02:00"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="AEM CIF Core Components Product Carousel"
-                        sling:resourceType="wcm/core/components/policy/policy"
-                        allowedTypes="[h2,h3,h4,h5,h6]"
-                        type="h2">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
-                    </default>
-                </productcarousel>
-                <relatedproducts jcr:primaryType="nt:unstructured">
-                    <default
-                        jcr:lastModified="{Date}2020-09-28T15:37:21.146+02:00"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="AEM CIF Core Components Related Products"
-                        sling:resourceType="wcm/core/components/policy/policy"
-                        allowedTypes="[h2,h3,h4,h5,h6]"
-                        type="h2">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
-                    </default>
-                </relatedproducts>
-                <featuredcategorylist jcr:primaryType="nt:unstructured">
-                    <default
-                        jcr:lastModified="{Date}2020-09-28T15:37:21.146+02:00"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="AEM CIF Core Components Featured Category List"
-                        sling:resourceType="wcm/core/components/policy/policy"
-                        allowedTypes="[h2,h3,h4,h5,h6]"
-                        type="h2">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
-                    </default>
-                </featuredcategorylist>
-                <categorycarousel jcr:primaryType="nt:unstructured">
-                    <default
-                        jcr:lastModified="{Date}2020-10-15T10:12:01.134+02:00"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="AEM CIF Core Components Category Carousel"
-                        sling:resourceType="wcm/core/components/policy/policy"
-                        allowedTypes="[h2,h3,h4,h5,h6]"
-                        type="h2">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
-                    </default>
-                </categorycarousel>
-                <teaser jcr:primaryType="nt:unstructured">
-                    <default
-                        jcr:lastModified="{Date}2020-10-28T17:35:15.554+01:00"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="AEM CIF Core Components Commerce Teaser"
-                        sling:resourceType="wcm/core/components/policy/policy"
-                        titleType="h3">
-                        <jcr:content jcr:primaryType="nt:unstructured" />
-                    </default>
-                </teaser>
-            </commerce>
-#end
-#if ( $includeFormsheadless == "y" )
-            <adaptiveForm jcr:primaryType="nt:unstructured">
-              <formcontainer jcr:primaryType="nt:unstructured">
-                <jcr:content
-                  jcr:primaryType="nt:unstructured"
-                  mergeList="{Boolean}true"/>
-                <default
-                  jcr:description="Policy of the Adaptive Form V2 Container"
-                  jcr:primaryType="nt:unstructured"
-                  jcr:title="Simple Adaptive Form V2 Container Policy"
-                  sling:resourceType="wcm/core/components/policy/policy"
-                  components="[group:${appTitle} - Adaptive Forms]">
-                  <cq:authoring jcr:primaryType="nt:unstructured">
-                    <assetToComponentMapping jcr:primaryType="nt:unstructured">
-                      <image
-                        jcr:primaryType="nt:unstructured"
-                        assetGroup="media"
-                        assetMimetype="image/*"
-                        droptarget="image"
-                        resourceType="foundation/components/image"
-                        type="Images"/>
-                      <product
-                        jcr:primaryType="nt:unstructured"
-                        assetGroup="product"
-                        droptarget="product-data-reference"
-                        resourceType="commerce/components/product"
-                        type="Products"/>
-                      <document
-                        jcr:primaryType="nt:unstructured"
-                        assetGroup="media"
-                        assetMimetype="[application/vnd.openxmlformats,application/msword,application/vnd.ms-powerpoint,application/mspowerpoint,application/powerpoint,application/x-mspowerpoint,application/x-msexcel,application/x-excel,application/excel,application/vnd.ms-excel,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document]"
-                        droptarget="file"
-                        resourceType="foundation/components/download"
-                        type="Images"/>
-                      <video
-                        jcr:primaryType="nt:unstructured"
-                        assetGroup="media"
-                        assetMimetype="video/*"
-                        droptarget="video"
-                        resourceType="foundation/components/video"
-                        type="Images"/>
-                      <fragment
-                        jcr:primaryType="nt:unstructured"
-                        assetGroup="media"
-                        assetMimetype="text/html"
-                        droptarget="fragment"
-                        resourceType="dam/cfm/components/contentfragment"
-                        type="Content Fragment"/>
-                      <experiencefragment
-                        jcr:primaryType="nt:unstructured"
-                        assetGroup="content"
-                        assetMimetype="text/html"
-                        droptarget="experiencefragment"
-                        resourceType="cq/experience-fragments/editor/components/experiencefragment"
-                        type="experiencefragment"/>
-                    </assetToComponentMapping>
-                  </cq:authoring>
-                  <jcr:content
-                    jcr:primaryType="nt:unstructured"
-                    mergeList="{Boolean}true"/>
-                </default>
-              </formcontainer>
-            </adaptiveForm>
-#end
-        </components>
-    </${appId}>
-#if ( $isSpaProject )
-    <wcm jcr:primaryType="nt:unstructured">
-        <foundation jcr:primaryType="nt:unstructured">
-            <components jcr:primaryType="nt:unstructured">
-                <responsivegrid jcr:primaryType="nt:unstructured">
-                    <spa-default
-                        jcr:description="Includes only SPA-Enabled components."
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="SPA Content"
-                        sling:resourceType="wcm/core/components/policy/policy"
-                        components="[/libs/wcm/foundation/components/responsivegrid,/apps/${appId}/components/text]">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
-                    </spa-default>
-    #if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud")
-                    <afpolicy
-                            jcr:description="Policy of the Adaptive Form"
-                            jcr:primaryType="nt:unstructured"
-                            jcr:title="Simple Adaptive Form Policy"
-                            sling:resourceType="wcm/core/components/policy/policy"
-                            components="[group:${appTitle} - Content,group:${appTitle} - Structure,/libs/fd/af/components/guideheader,/libs/fd/af/components/guidefooter,/libs/fd/af/components/guideimage,/libs/fd/af/components/guidetextdraw,/libs/fd/af/components/afFormTitle]">
-                        <cq:authoring jcr:primaryType="nt:unstructured">
-                            <assetToComponentMapping jcr:primaryType="nt:unstructured">
-                                <mapping_1
-                                        jcr:primaryType="nt:unstructured"
-                                        assetGroup="media"
-                                        assetMimetype="image/*"
-                                        droptarget="image"
-                                        resourceType="${appId}/components/image"/>
-                                <mapping_2
-                                        jcr:primaryType="nt:unstructured"
-                                        assetGroup="content"
-                                        assetMimetype="text/html"
-                                        droptarget="experiencefragment"
-                                        resourceType="${appId}/components/experiencefragment"/>
-                                <mapping_3
-                                        jcr:primaryType="nt:unstructured"
-                                        assetGroup="media"
-                                        assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
-                                        droptarget="contentfragment"
-                                        resourceType="${appId}/components/contentfragment"/>
-                            </assetToComponentMapping>
-                        </cq:authoring>
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
-                    </afpolicy>
-                    <policy_1518118565779
-                            jcr:primaryType="nt:unstructured"
-                            jcr:title="Reference Header Footer Policy"
-                            sling:resourceType="wcm/core/components/policy/policy"
-                            components="[/libs/fd/af/components/guidefooter,/libs/fd/af/components/guideheader,/libs/fd/af/components/guideimage,/libs/fd/af/components/guidetextdraw,/libs/fd/af/components/afFormTitle]">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
-                    </policy_1518118565779>
+  jcr:mixinTypes="[rep:AccessControllable]"
+  jcr:primaryType="cq:Page">
+  <rep:policy/>
+  #if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
+  <fd jcr:primaryType="nt:unstructured">
+    <af jcr:primaryType="nt:unstructured">
+      <components jcr:primaryType="nt:unstructured">
+        <afpage2 jcr:primaryType="nt:unstructured">
+          <aftemplatedpage jcr:primaryType="nt:unstructured">
+            <jcr:content jcr:primaryType="nt:unstructured"/>
+            <default
+              jcr:description="Policy of the Adaptive Form page"
+              jcr:primaryType="nt:unstructured"
+              jcr:title="Default Page"
+              sling:resourceType="wcm/core/components/policy/policy"
+              clientlibs="[wcm.foundation.components.page.responsive]">
+              <jcr:content jcr:primaryType="nt:unstructured"/>
+            </default>
+          </aftemplatedpage>
+        </afpage2>
+        <guideContainer jcr:primaryType="nt:unstructured">
+          <jcr:content jcr:primaryType="nt:unstructured"/>
+          <default
+            jcr:description="Policy of the Adaptive Form Guide Container"
+            jcr:primaryType="nt:unstructured"
+            jcr:title="Simple Adaptive Form Guide Container Policy"
+            sling:resourceType="wcm/core/components/policy/policy"
+            components="[group:Adaptive Form]">
+            <jcr:content jcr:primaryType="nt:unstructured"/>
+          </default>
+        </guideContainer>
+        <responsivegrid jcr:primaryType="nt:unstructured">
+          <page-header
+            jcr:lastModified="{Date}2022-07-12T11:41:57.902+05:30"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            jcr:title="page-header-policy"
+            sling:resourceType="wcm/core/components/policy/policy"
+            components="/apps/${appId}/components/adaptiveForm/pageheader">
+            <jcr:content
+              jcr:primaryType="nt:unstructured"/>
+          </page-header>
+          <page-footer
+            jcr:lastModified="{Date}2022-07-12T11:41:57.902+05:30"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            jcr:title="page-footer-policy"
+            sling:resourceType="wcm/core/components/policy/policy"
+            components="/apps/${appId}/components/adaptiveForm/footer">
+            <jcr:content
+              jcr:primaryType="nt:unstructured"/>
+          </page-footer>
+        </responsivegrid>
+      </components>
+    </af>
+  </fd>
+  #end
+  <${appId} jcr:primaryType="nt:unstructured">
+  <components jcr:primaryType="nt:unstructured">
+    <form jcr:primaryType="nt:unstructured">
+      <container jcr:primaryType="nt:unstructured">
+        <form-container
+          jcr:description="Allows the form components to be dropped into this core form container."
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Content Form"
+          sling:resourceType="wcm/core/components/policy/policy"
+          components="[/apps/${appId}/components/form/button,/apps/${appId}/components/form/hidden,/apps/${appId}/components/form/options,/apps/${appId}/components/form/text]">
+          <jcr:content jcr:primaryType="nt:unstructured"/>
+        </form-container>
+      </container>
+    </form>
+    <languagenavigation jcr:primaryType="nt:unstructured">
+      <policy_xfm
+        jcr:primaryType="nt:unstructured"
+        jcr:title="${appTitle} Language Navigation - Experience Fragment"
+        sling:resourceType="wcm/core/components/policy/policy"
+        navigationRoot="/content/${appId}"
+        structureDepth="1">
+        <jcr:content jcr:primaryType="nt:unstructured"/>
+      </policy_xfm>
+    </languagenavigation>
+    <image jcr:primaryType="nt:unstructured">
+      <policy_651483963895698
+        jcr:description="- Enable lazy loading for faster page loading.&#xd;&#xa;- Define allowed image widths for automatic loading of the image in the most optimal resolution, given the size at which each image is displayed on the page, and the visitor's pixel density.&#xd;&#xa;- Disallow direct asset upload, to force authors to first upload the images to Assets."
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Content Image"
+        sling:resourceType="wcm/core/components/policy/policy"
+      #if ( $enableDynamicMedia == "y")
+      enableDmFeatures="true"
+      #end
+      #if ( $amp == "y")
+      disableLazyLoading="true"
+      #else
+      allowedRenditionWidths="[320,480,600,800,1024,1200,1600]"
+      disableLazyLoading="false"
+      #end
+      #if ( $aemVersion == "cloud" )
+      enableAssetDelivery="true"
+      #end
+      allowUpload="false"
+      altValueFromDAM="true"
+      displayPopupTitle="true"
+      isDecorative="false"
+      jpegQuality="{Long}85"
+      titleValueFromDAM="true"
+      uuidDisabled="true">
+      <jcr:content jcr:primaryType="nt:unstructured"/>
+      <plugins jcr:primaryType="nt:unstructured">
+        <crop
+          jcr:primaryType="nt:unstructured"
+          features="*">
+          <aspectRatios jcr:primaryType="nt:unstructured">
+            <item0
+              jcr:primaryType="nt:unstructured"
+              name="Wide Landscape"
+              ratio="0.6180"/>
+            <item1
+              jcr:primaryType="nt:unstructured"
+              name="Landscape"
+              ratio="0.8284"/>
+            <item2
+              jcr:primaryType="nt:unstructured"
+              name="Square"
+              ratio="1"/>
+            <item3
+              jcr:primaryType="nt:unstructured"
+              name="Portrait"
+              ratio="1.6180"/>
+          </aspectRatios>
+        </crop>
+        <rotate
+          jcr:primaryType="nt:unstructured"
+          features="right"/>
+        <flip
+          jcr:primaryType="nt:unstructured"
+          features="-"/>
+      </plugins>
+    </policy_651483963895698>
+  </image>
+  <text jcr:primaryType="nt:unstructured">
+    <policy_641562756958017
+      jcr:primaryType="nt:unstructured"
+      jcr:title="Content Text"
+      sling:resourceType="wcm/core/components/policy/policy">
+      <jcr:content jcr:primaryType="nt:unstructured"/>
+      <rtePlugins jcr:primaryType="nt:unstructured">
+        <paraformat
+          jcr:primaryType="nt:unstructured"
+          features="*">
+          <formats
+            jcr:primaryType="nt:unstructured"
+            override="true">
+            <item0
+              jcr:primaryType="nt:unstructured"
+              description="Paragraph"
+              tag="p"/>
+            <item1
+              jcr:primaryType="nt:unstructured"
+              description="Quote"
+              tag="blockquote"/>
+            <item2
+              jcr:primaryType="nt:unstructured"
+              description="Preformatted"
+              tag="pre"/>
+          </formats>
+        </paraformat>
+        <misctools
+          jcr:primaryType="nt:unstructured"
+          features="-">
+          <specialCharsConfig jcr:primaryType="nt:unstructured">
+            <chars
+              jcr:primaryType="nt:unstructured"
+              override="true">
+              <item0
+                jcr:primaryType="nt:unstructured"
+                entity="&amp;copy;"
+                name="copyright"/>
+              <item1
+                jcr:primaryType="nt:unstructured"
+                entity="&amp;euro;"
+                name="euro"/>
+              <item2
+                jcr:primaryType="nt:unstructured"
+                entity="&amp;reg;"
+                name="registered"/>
+              <item3
+                jcr:primaryType="nt:unstructured"
+                entity="&amp;trade;"
+                name="trademark"/>
+            </chars>
+          </specialCharsConfig>
+        </misctools>
+        <edit
+          jcr:primaryType="nt:unstructured"
+          features="-"/>
+        <findreplace
+          jcr:primaryType="nt:unstructured"
+          features="-"/>
+        <undo
+          jcr:primaryType="nt:unstructured"
+          features="-"/>
+        <spellcheck
+          jcr:primaryType="nt:unstructured"
+          features="-"/>
+        <image
+          jcr:primaryType="nt:unstructured"
+          features="-"/>
+        <table
+          jcr:primaryType="nt:unstructured"
+          features="-"/>
+        <lists
+          jcr:primaryType="nt:unstructured"
+          features="*"/>
+        <justify
+          jcr:primaryType="nt:unstructured"
+          features="-"/>
+        <format
+          jcr:primaryType="nt:unstructured"
+          features="bold,italic"/>
+        <links
+          jcr:primaryType="nt:unstructured"
+          features="modifylink,unlink"/>
+        <subsuperscript
+          jcr:primaryType="nt:unstructured"
+          features="-"/>
+      </rtePlugins>
+    </policy_641562756958017>
+  </text>
+  <title jcr:primaryType="nt:unstructured">
+    <policy_641475696923109
+      jcr:description="Allows only H1 and disallows links for the main page title."
+      jcr:primaryType="nt:unstructured"
+      jcr:title="Page Title"
+      sling:resourceType="wcm/core/components/policy/policy"
+      allowedTypes="h1"
+      linkDisabled="true"
+      type="h1">
+      <jcr:content jcr:primaryType="nt:unstructured"/>
+    </policy_641475696923109>
+    <policy_641528232375303
+      jcr:description="Allows all sizes, but not H1, which is reserved for the main page title."
+      jcr:primaryType="nt:unstructured"
+      jcr:title="Content Title"
+      sling:resourceType="wcm/core/components/policy/policy"
+      allowedTypes="[h2,h3,h4,h5,h6]"
+      linkDisabled="false"
+      type="h2">
+      <jcr:content jcr:primaryType="nt:unstructured"/>
+    </policy_641528232375303>
+  </title>
+  <experiencefragment jcr:primaryType="nt:unstructured">
+    <policy_header
+      cq:styleDefaultElement="header"
+      jcr:description="Sets a &lt;header> element on the page header experience fragment."
+      jcr:primaryType="nt:unstructured"
+      jcr:title="Page Header"
+      sling:resourceType="wcm/core/components/policy/policy">
+      <jcr:content jcr:primaryType="nt:unstructured"/>
+    </policy_header>
+    <policy_footer
+      cq:styleDefaultElement="footer"
+      jcr:description="Sets a &lt;footer> element on the page footer experience fragment."
+      jcr:primaryType="nt:unstructured"
+      jcr:title="Page Footer"
+      sling:resourceType="wcm/core/components/policy/policy">
+      <jcr:content jcr:primaryType="nt:unstructured"/>
+    </policy_footer>
+  </experiencefragment>
+  <container jcr:primaryType="nt:unstructured">
+    <policy_1574694950110
+      jcr:description="Allows the template components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
+      jcr:primaryType="nt:unstructured"
+      jcr:title="Page Root"
+      sling:resourceType="wcm/core/components/policy/policy"
+      components="[group:${appTitle} - Content,/apps/${appId}/components/form/container,group:${appTitle} - Structure]">
+      <jcr:content jcr:primaryType="nt:unstructured"/>
+      <cq:authoring jcr:primaryType="nt:unstructured">
+        <assetToComponentMapping jcr:primaryType="nt:unstructured">
+          <mapping_1575024218483
+            jcr:primaryType="nt:unstructured"
+            assetGroup="media"
+            assetMimetype="image/*"
+            droptarget="image"
+            resourceType="${appId}/components/image"/>
+          <mapping_1575030843388
+            jcr:primaryType="nt:unstructured"
+            assetGroup="content"
+            assetMimetype="text/html"
+            droptarget="experiencefragment"
+            resourceType="${appId}/components/experiencefragment"/>
+          <mapping_1575030853128
+            jcr:primaryType="nt:unstructured"
+            assetGroup="media"
+            assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
+            droptarget="contentfragment"
+            resourceType="${appId}/components/contentfragment"/>
+        </assetToComponentMapping>
+      </cq:authoring>
+    </policy_1574694950110>
+    <policy_1574695586800
+      jcr:description="Allows the page components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
+      jcr:primaryType="nt:unstructured"
+      jcr:title="Page Content"
+      sling:resourceType="wcm/core/components/policy/policy"
+    #if ( $includeCommerce == "y" and $enableDynamicMedia == "y" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") )
+    components="[group:Dynamic Media,group:${appTitle} - Content,group:${appTitle} - Commerce,group:${appTitle} - Forms,/apps/${appId}/components/form/container]">
+    #elseif ( $includeCommerce == "y" and $enableDynamicMedia == "n" and ($includeForms == "n" and $includeFormsenrollment == "n" and $includeFormscommunications == "n"))
+    components="[group:${appTitle} - Content,group:${appTitle} - Commerce,/apps/${appId}/components/form/container]">
+    #elseif ( $includeCommerce == "n" and $enableDynamicMedia == "y" and ($includeForms == "n" and $includeFormsenrollment == "n" and $includeFormscommunications == "n"))
+    components="[group:Dynamic Media,group:${appTitle} - Content,/apps/$appId}/components/form/container]">
+    #elseif ( $includeCommerce == "y" and $enableDynamicMedia == "n" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y"))
+    components="[group:${appTitle} - Content,group:${appTitle} - Commerce,group:${appTitle} - Forms,/apps/${appId}/components/form/container]">
+    #elseif ( $includeCommerce == "n" and $enableDynamicMedia == "y" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y"))
+    components="[group:Dynamic Media,group:${appTitle} - Content,group:${appTitle} - Forms,/apps/$appId}/components/form/container]">
+    #elseif ( $includeCommerce == "n" and $enableDynamicMedia == "n" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y"))
+    components="[group:${appTitle} - Content,group:${appTitle} - Forms,/apps/$appId}/components/form/container]">
+    #else
+    components="[group:${appTitle} - Content,/apps/${appId}/components/form/container]">
     #end
-                </responsivegrid>
-            </components>
-        </foundation>
-    </wcm>
+    <jcr:content jcr:primaryType="nt:unstructured"/>
+    <cq:authoring jcr:primaryType="nt:unstructured">
+      <assetToComponentMapping jcr:primaryType="nt:unstructured">
+        <mapping_1575030255082
+          jcr:primaryType="nt:unstructured"
+          assetGroup="media"
+          assetMimetype="image/*"
+          droptarget="image"
+          resourceType="${appId}/components/image"/>
+        <mapping_1575030260142
+          jcr:primaryType="nt:unstructured"
+          assetGroup="content"
+          assetMimetype="text/html"
+          droptarget="experiencefragment"
+          resourceType="${appId}/components/experiencefragment"/>
+        <mapping_1575030269139
+          jcr:primaryType="nt:unstructured"
+          assetGroup="media"
+          assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
+          droptarget="contentfragment"
+          resourceType="${appId}/components/contentfragment"/>
+        #if ( $includeCommerce == "y" )
+        <mapping_1575030255082
+          jcr:primaryType="nt:unstructured"
+          assetGroup="product"
+          droptarget="product-data-reference"
+          resourceType="${appId}/components/commerce/productteaser"/>
+        #end
+      </assetToComponentMapping>
+    </cq:authoring>
+  </policy_1574695586800>
+  <policy_649128221558427
+    cq:styleDefaultElement="main"
+    jcr:description="Sets a &lt;main> element on the page content area."
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Page Main"
+    sling:resourceType="wcm/core/components/policy/policy">
+    <jcr:content jcr:primaryType="nt:unstructured"/>
+  </policy_649128221558427>
+  <policy_1575040440977
+    jcr:description="Allows the template components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
+    jcr:primaryType="nt:unstructured"
+    jcr:title="XF Root"
+    sling:resourceType="wcm/core/components/policy/policy"
+  #if ( $includeCommerce == "n" and  ($includeForms == "n" and $includeFormsenrollment == "n" and $includeFormscommunications == "n") )
+  components="[group:${appTitle} - Content,/apps/${appId}/components/form/container]">
+  #elseif ($includeCommerce == "n" and  ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") )
+  components="[group:${appTitle} - Content,group:${appTitle} - Forms,/apps/${appId}/components/form/container]">
+  #elseif ($includeCommerce == "y" and  ($includeForms == "n" and $includeFormsenrollment == "n" and $includeFormscommunications == "n") )
+  components="[group:${appTitle} - Content,group:${appTitle} - Commerce,group:${appTitle} - Header,/apps/${appId}/components/form/container]">
+  #elseif ($includeCommerce == "y" and  ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") )
+  components="[group:${appTitle} - Content,group:${appTitle} - Commerce,group:${appTitle} - Header,group:${appTitle} - Forms,/apps/${appId}/components/form/container]">
+  #end
+  <jcr:content jcr:primaryType="nt:unstructured"/>
+  <cq:authoring jcr:primaryType="nt:unstructured">
+    <assetToComponentMapping jcr:primaryType="nt:unstructured">
+      <mapping_1575024218483
+        jcr:primaryType="nt:unstructured"
+        assetGroup="media"
+        assetMimetype="image/*"
+        droptarget="image"
+        resourceType="${appId}/components/image"/>
+      <mapping_1575030843388
+        jcr:primaryType="nt:unstructured"
+        assetGroup="content"
+        assetMimetype="text/html"
+        droptarget="experiencefragment"
+        resourceType="${appId}/components/experiencefragment"/>
+      <mapping_1575030853128
+        jcr:primaryType="nt:unstructured"
+        assetGroup="media"
+        assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
+        droptarget="contentfragment"
+        resourceType="${appId}/components/contentfragment"/>
+      #if ( $includeCommerce == "y" )
+      <mapping_1590416532200
+        jcr:primaryType="nt:unstructured"
+        assetGroup="product"
+        droptarget="product-data-reference"
+        resourceType="${appId}/components/commerce/productteaser" />
+      #end
+    </assetToComponentMapping>
+  </cq:authoring>
+</policy_1575040440977>
+  </container>
+<teaser jcr:primaryType="nt:unstructured">
+<policy_1575031387650
+  jcr:description="Sets the title size to H3."
+  jcr:primaryType="nt:unstructured"
+  jcr:title="Content Teaser"
+  sling:resourceType="wcm/core/components/policy/policy"
+  titleType="h3">
+  <jcr:content jcr:primaryType="nt:unstructured"/>
+</policy_1575031387650>
+</teaser>
+<download jcr:primaryType="nt:unstructured">
+<policy_1575032193319
+  jcr:description="Sets the title size to H3."
+  jcr:primaryType="nt:unstructured"
+  jcr:title="Content Download"
+  sling:resourceType="wcm/core/components/policy/policy"
+  allowUpload="false"
+  displayFilename="true"
+  displayFormat="true"
+  displaySize="true"
+  titleType="h3">
+  <jcr:content jcr:primaryType="nt:unstructured"/>
+</policy_1575032193319>
+</download>
+<page jcr:primaryType="nt:unstructured">
+<policy
+#if ( $amp == "y" )
+ampMode="pairedAmp"
 #end
-</jcr:root>
+jcr:description="Includes the required client libraries."
+jcr:primaryType="nt:unstructured"
+jcr:title="Generic Page"
+sling:resourceType="wcm/core/components/policy/policy"
+clientlibs="[${appId}.dependencies,${appId}.site]"
+clientlibsJsHead="${appId}.dependencies">
+<jcr:content jcr:primaryType="nt:unstructured"/>
+</policy>
+  #if ( $isSpaProject )
+<policy_spa
+jcr:primaryType="nt:unstructured"
+jcr:title="${appTitle} SPA Page Policy"
+  #if ( $frontendModule != "decoupled" )
+  clientlibs="[${appId}.${frontendModule}]"
+  #end
+  sling:resourceType="wcm/core/components/policy/policy">
+<jcr:content jcr:primaryType="nt:unstructured"/>
+  </policy_spa>
+  #end
+  </page>
+  #if ( $isSpaProject )
+<spa jcr:primaryType="nt:unstructured">
+<default
+  jcr:primaryType="nt:unstructured"
+  jcr:title="${appTitle} App Policy"
+  sling:resourceType="wcm/core/components/policy/policy"
+#if ( $frontendModule != "decoupled" )
+clientlibs="[${appId}.${frontendModule}]"
+#end
+isRoot="{Boolean}true"
+structureDepth="3"
+/>
+</spa>
+  #end
+  #if ( $includeCommerce == "y" )
+<commerce jcr:primaryType="nt:unstructured">
+<productlist jcr:primaryType="nt:unstructured">
+  <default
+    cq:styleDefaultClasses="category__style_grid"
+    jcr:lastModified="{Date}2019-04-01T15:42:05.554+02:00"
+    jcr:lastModifiedBy="admin"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="AEM CIF Core Components Product List"
+    sling:resourceType="wcm/core/components/policy/policy"
+    showTitle="true"
+    showImage="true">
+    <jcr:content jcr:primaryType="nt:unstructured"/>
+    <cq:styleGroups jcr:primaryType="nt:unstructured">
+      <item0
+        cq:styleGroupLabel="Layout"
+        jcr:primaryType="nt:unstructured">
+        <cq:styles jcr:primaryType="nt:unstructured">
+          <item0
+            jcr:primaryType="nt:unstructured"
+            cq:styleClasses="category__style_grid"
+            cq:styleId="1570700958199"
+            cq:styleLabel="Grid" />
+          <item1
+            jcr:primaryType="nt:unstructured"
+            cq:styleClasses="category__style_list"
+            cq:styleId="1570700958900"
+            cq:styleLabel="List" />
+        </cq:styles>
+      </item0>
+    </cq:styleGroups>
+  </default>
+</productlist>
+<productcarousel jcr:primaryType="nt:unstructured">
+  <default
+    jcr:lastModified="{Date}2020-09-28T15:37:21.146+02:00"
+    jcr:lastModifiedBy="admin"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="AEM CIF Core Components Product Carousel"
+    sling:resourceType="wcm/core/components/policy/policy"
+    allowedTypes="[h2,h3,h4,h5,h6]"
+    type="h2">
+    <jcr:content jcr:primaryType="nt:unstructured"/>
+  </default>
+</productcarousel>
+<relatedproducts jcr:primaryType="nt:unstructured">
+  <default
+    jcr:lastModified="{Date}2020-09-28T15:37:21.146+02:00"
+    jcr:lastModifiedBy="admin"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="AEM CIF Core Components Related Products"
+    sling:resourceType="wcm/core/components/policy/policy"
+    allowedTypes="[h2,h3,h4,h5,h6]"
+    type="h2">
+    <jcr:content jcr:primaryType="nt:unstructured"/>
+  </default>
+</relatedproducts>
+<featuredcategorylist jcr:primaryType="nt:unstructured">
+  <default
+    jcr:lastModified="{Date}2020-09-28T15:37:21.146+02:00"
+    jcr:lastModifiedBy="admin"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="AEM CIF Core Components Featured Category List"
+    sling:resourceType="wcm/core/components/policy/policy"
+    allowedTypes="[h2,h3,h4,h5,h6]"
+    type="h2">
+    <jcr:content jcr:primaryType="nt:unstructured"/>
+  </default>
+</featuredcategorylist>
+<categorycarousel jcr:primaryType="nt:unstructured">
+  <default
+    jcr:lastModified="{Date}2020-10-15T10:12:01.134+02:00"
+    jcr:lastModifiedBy="admin"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="AEM CIF Core Components Category Carousel"
+    sling:resourceType="wcm/core/components/policy/policy"
+    allowedTypes="[h2,h3,h4,h5,h6]"
+    type="h2">
+    <jcr:content jcr:primaryType="nt:unstructured"/>
+  </default>
+</categorycarousel>
+<teaser jcr:primaryType="nt:unstructured">
+  <default
+    jcr:lastModified="{Date}2020-10-28T17:35:15.554+01:00"
+    jcr:lastModifiedBy="admin"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="AEM CIF Core Components Commerce Teaser"
+    sling:resourceType="wcm/core/components/policy/policy"
+    titleType="h3">
+    <jcr:content jcr:primaryType="nt:unstructured" />
+  </default>
+</teaser>
+</commerce>
+  #end
+  #if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
+<adaptiveForm jcr:primaryType="nt:unstructured">
+<formcontainer jcr:primaryType="nt:unstructured">
+  <jcr:content
+    jcr:primaryType="nt:unstructured"
+    mergeList="{Boolean}true"/>
+  <default
+    jcr:description="Policy of the Adaptive Form V2 Container"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Simple Adaptive Form V2 Container Policy"
+    sling:resourceType="wcm/core/components/policy/policy"
+    components="[group:${appTitle} - Adaptive Form]">
+    <cq:authoring jcr:primaryType="nt:unstructured">
+      <assetToComponentMapping jcr:primaryType="nt:unstructured">
+        <image
+          jcr:primaryType="nt:unstructured"
+          assetGroup="media"
+          assetMimetype="image/*"
+          droptarget="image"
+          resourceType="foundation/components/image"
+          type="Images"/>
+        <product
+          jcr:primaryType="nt:unstructured"
+          assetGroup="product"
+          droptarget="product-data-reference"
+          resourceType="commerce/components/product"
+          type="Products"/>
+        <document
+          jcr:primaryType="nt:unstructured"
+          assetGroup="media"
+          assetMimetype="[application/vnd.openxmlformats,application/msword,application/vnd.ms-powerpoint,application/mspowerpoint,application/powerpoint,application/x-mspowerpoint,application/x-msexcel,application/x-excel,application/excel,application/vnd.ms-excel,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document]"
+          droptarget="file"
+          resourceType="foundation/components/download"
+          type="Images"/>
+        <video
+          jcr:primaryType="nt:unstructured"
+          assetGroup="media"
+          assetMimetype="video/*"
+          droptarget="video"
+          resourceType="foundation/components/video"
+          type="Images"/>
+        <fragment
+          jcr:primaryType="nt:unstructured"
+          assetGroup="media"
+          assetMimetype="text/html"
+          droptarget="fragment"
+          resourceType="dam/cfm/components/contentfragment"
+          type="Content Fragment"/>
+        <experiencefragment
+          jcr:primaryType="nt:unstructured"
+          assetGroup="content"
+          assetMimetype="text/html"
+          droptarget="experiencefragment"
+          resourceType="cq/experience-fragments/editor/components/experiencefragment"
+          type="experiencefragment"/>
+      </assetToComponentMapping>
+    </cq:authoring>
+    <jcr:content
+      jcr:primaryType="nt:unstructured"
+      mergeList="{Boolean}true"/>
+  </default>
+</formcontainer>
+</adaptiveForm>
+  #end
+  </components>
+  </${appId}>
+  #if ( $isSpaProject )
+<wcm jcr:primaryType="nt:unstructured">
+<foundation jcr:primaryType="nt:unstructured">
+  <components jcr:primaryType="nt:unstructured">
+    <responsivegrid jcr:primaryType="nt:unstructured">
+      <spa-default
+        jcr:description="Includes only SPA-Enabled components."
+        jcr:primaryType="nt:unstructured"
+        jcr:title="SPA Content"
+        sling:resourceType="wcm/core/components/policy/policy"
+        components="[group:${appTitle} - Content]">
+        <jcr:content jcr:primaryType="nt:unstructured"/>
+      </spa-default>
+      #if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud")
+      <afpolicy
+        jcr:description="Policy of the Adaptive Form"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Simple Adaptive Form Policy"
+        sling:resourceType="wcm/core/components/policy/policy"
+        components="[group:${appTitle} - Content,group:${appTitle} - Structure,/libs/fd/af/components/guideheader,/libs/fd/af/components/guidefooter,/libs/fd/af/components/guideimage,/libs/fd/af/components/guidetextdraw,/libs/fd/af/components/afFormTitle]">
+        <cq:authoring jcr:primaryType="nt:unstructured">
+          <assetToComponentMapping jcr:primaryType="nt:unstructured">
+            <mapping_1
+              jcr:primaryType="nt:unstructured"
+              assetGroup="media"
+              assetMimetype="image/*"
+              droptarget="image"
+              resourceType="${appId}/components/image"/>
+            <mapping_2
+              jcr:primaryType="nt:unstructured"
+              assetGroup="content"
+              assetMimetype="text/html"
+              droptarget="experiencefragment"
+              resourceType="${appId}/components/experiencefragment"/>
+            <mapping_3
+              jcr:primaryType="nt:unstructured"
+              assetGroup="media"
+              assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
+              droptarget="contentfragment"
+              resourceType="${appId}/components/contentfragment"/>
+          </assetToComponentMapping>
+        </cq:authoring>
+        <jcr:content jcr:primaryType="nt:unstructured"/>
+      </afpolicy>
+      <policy_1518118565779
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Reference Header Footer Policy"
+        sling:resourceType="wcm/core/components/policy/policy"
+        components="[/libs/fd/af/components/guidefooter,/libs/fd/af/components/guideheader,/libs/fd/af/components/guideimage,/libs/fd/af/components/guidetextdraw,/libs/fd/af/components/afFormTitle]">
+        <jcr:content jcr:primaryType="nt:unstructured"/>
+      </policy_1518118565779>
+      #end
+    </responsivegrid>
+  </components>
+</foundation>
+</wcm>
+  #end
+  </jcr:root>

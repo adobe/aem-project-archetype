@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-    jcr:description="Adaptive Form Container component"
-    jcr:primaryType="cq:Component"
-    jcr:title="Adaptive Form Container component"
-    sling:resourceSuperType="core/fd/components/form/container/v1/container"
-    componentGroup="${appTitle} - Adaptive Forms"/>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:fd="http://www.adobe.com/aemfd/fd/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+  jcr:description="Adaptive Form Container component"
+  jcr:primaryType="cq:Component"
+  jcr:title="Adaptive Form Container"
+  fd:version="2.1"
+  sling:resourceSuperType="core/fd/components/form/container/v2/container"
+  componentGroup=".${appTitle} - Adaptive Form"/>

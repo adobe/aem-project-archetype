@@ -15,8 +15,8 @@
  |  limitations under the License.
 -->
 <archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 http://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd" name="aem-archetype"
-    xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
     <requiredProperties>
         <!--
@@ -32,7 +32,7 @@
             Maven artifact groupId for all projects
         -->
         <requiredProperty key="groupId">
-            <validationRegex>^[a-zA-Z0-9\.\-_]+$</validationRegex>
+            <validationRegex>^[a-zA-Z0-9\._]+$</validationRegex>
         </requiredProperty>
         <!--
             Maven artifact "root" artifactId, is suffixed for the individual modules
@@ -187,7 +187,7 @@
             <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
-    
+
         <!--
             Option to enable SSR for the front-end project (currently only supported for react)
          -->
@@ -210,7 +210,7 @@
         <module id="${rootArtifactId}.all" dir="all" name="all">
             <fileSets>
                 <fileSet filtered="true" packaged="false"
-                         encoding="UTF-8">
+                  encoding="UTF-8">
                     <directory>src/main/content</directory>
                     <includes>
                         <include>**/*.xml</include>
@@ -221,14 +221,14 @@
         <module id="${rootArtifactId}.core" dir="core" name="core">
             <fileSets>
                 <fileSet filtered="true" packaged="true"
-                    encoding="UTF-8">
+                  encoding="UTF-8">
                     <directory>src/main/java</directory>
                     <includes>
                         <include>**/*.java</include>
                     </includes>
                 </fileSet>
                 <fileSet filtered="true" packaged="true"
-                    encoding="UTF-8">
+                  encoding="UTF-8">
                     <directory>src/test/java</directory>
                     <includes>
                         <include>**/*.java</include>
@@ -272,7 +272,24 @@
                         <include>**/*.any</include>
                         <include>**/*.farm</include>
                         <include>assembly.xml</include>
+                        <include>update_sdk.sh</include>
                     </includes>
+                    <!-- Exclude dispatcher config immutable files from filtering -->
+                    <excludes>
+                        <exclude>**/conf.d/available_vhosts/default.vhost</exclude>
+                        <exclude>**/conf.d/dispatcher_vhost.conf</exclude>
+                        <exclude>**/conf.d/enabled_vhosts/vhosts.conf</exclude>
+                        <exclude>**/conf.d/rewrites/default_rewrite.rules</exclude>
+                        <exclude>**/conf.dispatcher.d/available_farms/default.farm</exclude>
+                        <exclude>**/conf.dispatcher.d/cache/default_invalidate.any</exclude>
+                        <exclude>**/conf.dispatcher.d/cache/default_rules.any</exclude>
+                        <exclude>**/conf.dispatcher.d/clientheaders/default_clientheaders.any</exclude>
+                        <exclude>**/conf.dispatcher.d/dispatcher.any</exclude>
+                        <exclude>**/conf.dispatcher.d/enabled_farms/farms.any</exclude>
+                        <exclude>**/conf.dispatcher.d/filters/default_filters.any</exclude>
+                        <exclude>**/conf.dispatcher.d/renders/default_renders.any</exclude>
+                        <exclude>**/conf.dispatcher.d/virtualhosts/default_virtualhosts.any</exclude>
+                    </excludes>
                 </fileSet>
                 <fileSet filtered="false" packaged="false" encoding="UTF-8">
                     <directory></directory>
@@ -280,6 +297,20 @@
                         <include>**/README*</include>
                         <include>immutable.files</include>
                         <include>**/opt-in/**</include>
+                        <!-- Include dispatcher config immutable files as non-filtered ones -->
+                        <include>**/conf.d/available_vhosts/default.vhost</include>
+                        <include>**/conf.d/dispatcher_vhost.conf</include>
+                        <include>**/conf.d/enabled_vhosts/vhosts.conf</include>
+                        <include>**/conf.d/rewrites/default_rewrite.rules</include>
+                        <include>**/conf.dispatcher.d/available_farms/default.farm</include>
+                        <include>**/conf.dispatcher.d/cache/default_invalidate.any</include>
+                        <include>**/conf.dispatcher.d/cache/default_rules.any</include>
+                        <include>**/conf.dispatcher.d/clientheaders/default_clientheaders.any</include>
+                        <include>**/conf.dispatcher.d/dispatcher.any</include>
+                        <include>**/conf.dispatcher.d/enabled_farms/farms.any</include>
+                        <include>**/conf.dispatcher.d/filters/default_filters.any</include>
+                        <include>**/conf.dispatcher.d/renders/default_renders.any</include>
+                        <include>**/conf.dispatcher.d/virtualhosts/default_virtualhosts.any</include>
                     </includes>
                 </fileSet>
             </fileSets>
@@ -296,7 +327,6 @@
                         <exclude>**/node/</exclude>
                         <!-- Exclude NPM dependencies -->
                         <exclude>**/node_modules/</exclude>
-                        <exclude>**/package-lock.json</exclude>
                         <exclude>**/yarn.lock</exclude>
                         <!-- Do not filter binary files (will become corrupted) -->
                         <exclude>**/*.gif</exclude>
@@ -333,7 +363,6 @@
                         <exclude>**/node/</exclude>
                         <!-- Exclude NPM dependencies -->
                         <exclude>**/node_modules/</exclude>
-                        <exclude>**/package-lock.json</exclude>
                         <exclude>**/yarn.lock</exclude>
                         <!-- Do not filter binary files (will become corrupted) -->
                         <exclude>**/*.gif</exclude>
@@ -370,7 +399,6 @@
                         <exclude>**/node/</exclude>
                         <!-- Exclude NPM dependencies -->
                         <exclude>**/node_modules/</exclude>
-                        <exclude>**/package-lock.json</exclude>
                         <exclude>**/yarn.lock</exclude>
                         <!-- Do not filter binary files (will become corrupted) -->
                         <exclude>**/*.gif</exclude>
@@ -407,7 +435,6 @@
                         <exclude>**/node/</exclude>
                         <!-- Exclude NPM dependencies -->
                         <exclude>**/node_modules/</exclude>
-                        <exclude>**/package-lock.json</exclude>
                         <exclude>**/yarn.lock</exclude>
                         <!-- Do not filter binary files (will become corrupted) -->
                         <exclude>**/*.gif</exclude>
@@ -435,13 +462,13 @@
         <module id="${rootArtifactId}.ui.apps" dir="ui.apps" name="ui.apps">
             <fileSets>
                 <fileSet filtered="true" encoding="UTF-8">
-                <directory></directory>
-                <includes>
-                    <include>.gitignore</include>
-                </includes>
+                    <directory></directory>
+                    <includes>
+                        <include>.gitignore</include>
+                    </includes>
                 </fileSet>
                 <fileSet filtered="true" packaged="false"
-                    encoding="UTF-8">
+                  encoding="UTF-8">
                     <directory>src/main/content</directory>
                     <includes>
                         <include>**/*</include>
@@ -460,7 +487,7 @@
                     </excludes>
                 </fileSet>
                 <fileSet filtered="false" packaged="false"
-                    encoding="UTF-8">
+                  encoding="UTF-8">
                     <directory>src/main/content</directory>
                     <includes>
                         <include>**/*.png</include>
@@ -480,7 +507,7 @@
         <module id="${rootArtifactId}.ui.config" dir="ui.config" name="ui.config">
             <fileSets>
                 <fileSet filtered="true" packaged="false"
-                    encoding="UTF-8">
+                  encoding="UTF-8">
                     <directory>src/main/content</directory>
                     <includes>
                         <include>**/*.cfg.json</include>
@@ -493,7 +520,7 @@
         <module id="${rootArtifactId}.ui.content" dir="ui.content" name="ui.content">
             <fileSets>
                 <fileSet filtered="true" packaged="false"
-                    encoding="UTF-8">
+                  encoding="UTF-8">
                     <directory>src/main/content</directory>
                     <includes>
                         <include>**/*</include>
@@ -506,7 +533,7 @@
                     </excludes>
                 </fileSet>
                 <fileSet filtered="false" packaged="false"
-                    encoding="UTF-8">
+                  encoding="UTF-8">
                     <directory>src/main/content</directory>
                     <includes>
                         <include>**/*.png</include>
@@ -523,14 +550,14 @@
         <module id="${rootArtifactId}.it.tests" dir="it.tests" name="it.tests">
             <fileSets>
                 <fileSet filtered="true" packaged="true"
-                    encoding="UTF-8">
+                  encoding="UTF-8">
                     <directory>src/main/java</directory>
                     <includes>
                         <include>**/*.java</include>
                     </includes>
                 </fileSet>
                 <fileSet filtered="true" packaged="true"
-                    encoding="UTF-8">
+                  encoding="UTF-8">
                     <directory>src/test/java</directory>
                     <includes>
                         <include>**/*.java</include>
@@ -550,8 +577,6 @@
                         <exclude>**/reports/</exclude>
                         <!-- Exclude NPM dependencies -->
                         <exclude>**/node_modules/</exclude>
-                        <exclude>**/package-lock.json</exclude>
-
                         <exclude>**/*.sh</exclude>
                         <exclude>**/*.png</exclude>
                     </excludes>
@@ -565,7 +590,7 @@
                     </includes>
                 </fileSet>
                 <fileSet filtered="false" packaged="false"
-                    encoding="UTF-8">
+                  encoding="UTF-8">
                     <directory>test-module</directory>
                     <includes>
                         <include>**/*</include>
@@ -576,7 +601,7 @@
         <module id="${rootArtifactId}.ui.apps.structure" dir="ui.apps.structure" name="ui.apps.structure">
             <fileSets>
                 <fileSet filtered="true" packaged="false"
-                         encoding="UTF-8">
+                  encoding="UTF-8">
                     <directory>src/main/content</directory>
                     <includes>
                         <include>**/*.*</include>
@@ -586,23 +611,23 @@
         </module>
     </modules>
 
-  <fileSets>
-    <fileSet encoding="UTF-8">
-      <directory></directory>
-      <includes>
-        <include>README.md</include>
-        <include>README-CIF.md</include>
-        <include>README-precompiled-scripts.md</include>
-        <include>.gitignore</include>
-        <include>.gitattributes</include>
-        <include>LICENSE</include>
-      </includes>
-    </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory></directory>
-      <includes>
-        <include>archetype.properties</include>
-      </includes>
-    </fileSet>
-  </fileSets>
+    <fileSets>
+        <fileSet encoding="UTF-8">
+            <directory></directory>
+            <includes>
+                <include>README.md</include>
+                <include>README-CIF.md</include>
+                <include>README-precompiled-scripts.md</include>
+                <include>.gitignore</include>
+                <include>.gitattributes</include>
+                <include>LICENSE</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory></directory>
+            <includes>
+                <include>archetype.properties</include>
+            </includes>
+        </fileSet>
+    </fileSets>
 </archetype-descriptor>

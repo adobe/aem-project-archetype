@@ -83,7 +83,7 @@ jobs:
       # Checkout the CM project
       - name: Checkout Cloud Manager project
         run:
-          git clone -b ${CM_BRANCH} https://${CM_USER_NAMEL}:${CM_USER_PWD}@${CM_REPO} ${CM_PROJECT_DIR}
+          git clone -b ${CM_BRANCH} https://${CM_USER_NAME}:${CM_USER_PWD}@${CM_REPO} ${CM_PROJECT_DIR}
       # Move new project to CM dir and enable opt-in for ui.tests execution
       - name: Move project to CM dir
         run: |
@@ -121,7 +121,7 @@ jobs:
           counter=0
           max=${CM_TEST_RETRIES}
           echo "Looking for ${ARCHETYPE_COMMIT}: ${counter}"
-          until [[ $(curl --silent ${CM_TEST_URL} | grep ${ARCHETYPE_COMMIT}) ]]; do \
+          until [[ $(curl --silent ${CM_TEST_URL}?$(date +%s) | grep ${ARCHETYPE_COMMIT}) ]]; do \
             if [ ${counter} -eq ${max} ]; then \
               echo "Could not find ${ARCHETYPE_COMMIT} after ${counter} tries!"; \
               exit 1; \

@@ -1,16 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
-          jcr:primaryType="nt:unstructured">
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+  jcr:primaryType="nt:unstructured">
     <com.adobe.cq.wcm.core.components.internal.DataLayerConfig
-        jcr:primaryType="nt:unstructured"
-#if ( $datalayer == 'y')
-        enabled="{Boolean}true"
-#else
-        enabled="{Boolean}false"
-#end
+      jcr:primaryType="nt:unstructured"
+    #if ( $datalayer == 'y')
+    enabled="{Boolean}true"
+    #else
+    enabled="{Boolean}false"
+    #end
     />
     <com.adobe.cq.wcm.core.components.internal.services.pdfviewer.PdfViewerCaConfig
-        jcr:primaryType="nt:unstructured"
-        clientId="28b07c6be4d544f188dc2f36e33b196b"
-        reportSuiteId=""/>
+      jcr:primaryType="nt:unstructured"
+      clientId="28b07c6be4d544f188dc2f36e33b196b"
+      reportSuiteId=""/>
+    #if ( $frontendModule == 'decoupled')
+    <com.adobe.aem.wcm.site.manager.config.SiteConfig
+      jcr:primaryType="nt:unstructured"
+      siteTemplatePath="/libs/wcm/core/site-templates/aem-site-template-stub-2.0.0"
+      themePackageName="${appId}"/>
+    <com.adobe.cq.wcm.core.components.config.HtmlPageItemsConfig
+      jcr:primaryType="cq:Page">
+        <jcr:content
+          jcr:primaryType="cq:PageContent"
+          prefixPath="http://localhost:3000">
+            <items jcr:primaryType="nt:unstructured">
+                <css
+                  jcr:primaryType="nt:unstructured"
+                  element="link"
+                  location="header">
+                    <attributes jcr:primaryType="nt:unstructured">
+                        <as
+                          jcr:primaryType="nt:unstructured"
+                          name="as"
+                          value="style"/>
+                        <href
+                          jcr:primaryType="nt:unstructured"
+                          name="href"
+                          value="/static/css/main.css"/>
+                        <rel
+                          jcr:primaryType="nt:unstructured"
+                          name="rel"
+                          value="preload stylesheet"/>
+                        <type
+                          jcr:primaryType="nt:unstructured"
+                          name="type"
+                          value="text/css"/>
+                    </attributes>
+                </css>
+                <main
+                  jcr:primaryType="nt:unstructured"
+                  element="script"
+                  location="header">
+                    <attributes jcr:primaryType="nt:unstructured">
+                        <src
+                          jcr:primaryType="nt:unstructured"
+                          name="src"
+                          value="/static/js/main.js"/>
+                        <defer
+                          jcr:primaryType="nt:unstructured"
+                          name="defer"
+                          value="true"/>
+                        <type
+                          jcr:primaryType="nt:unstructured"
+                          name="type"
+                          value="text/javascript"/>
+                    </attributes>
+                </main>
+                <favicon
+                  jcr:primaryType="nt:unstructured"
+                  element="link"
+                  location="header">
+                    <attributes jcr:primaryType="nt:unstructured">
+                        <href
+                          jcr:primaryType="nt:unstructured"
+                          name="href"
+                          value="/favicon.ico"/>
+                        <rel
+                          jcr:primaryType="nt:unstructured"
+                          name="rel"
+                          value="icon"/>
+                    </attributes>
+                </favicon>
+                <appleTouchIcon
+                  jcr:primaryType="nt:unstructured"
+                  element="link"
+                  location="header">
+                    <attributes jcr:primaryType="nt:unstructured">
+                        <href
+                          jcr:primaryType="nt:unstructured"
+                          name="href"
+                          value="/logo192.png"/>
+                        <rel
+                          jcr:primaryType="nt:unstructured"
+                          name="rel"
+                          value="apple-touch-icon"/>
+                    </attributes>
+                </appleTouchIcon>
+                <manifest
+                  jcr:primaryType="nt:unstructured"
+                  element="link"
+                  location="header">
+                    <attributes jcr:primaryType="nt:unstructured">
+                        <href
+                          jcr:primaryType="nt:unstructured"
+                          name="href"
+                          value="/manifest.json"/>
+                        <rel
+                          jcr:primaryType="nt:unstructured"
+                          name="rel"
+                          value="manifest"/>
+                    </attributes>
+                </manifest>
+            </items>
+        </jcr:content>
+    </com.adobe.cq.wcm.core.components.config.HtmlPageItemsConfig>
+    #end
 </jcr:root>

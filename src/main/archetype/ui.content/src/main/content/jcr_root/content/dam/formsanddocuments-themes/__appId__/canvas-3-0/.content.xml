@@ -8,6 +8,7 @@
         theme="1"
         type="theme">
         <metadata
+            author="adobe"
             fd:targetVersion="2.0"
             fd:version="2.0"
             jcr:primaryType="nt:unstructured"

@@ -19,7 +19,7 @@ ${hash}${hash} Features
 ${hash}${hash} Installation
 
 1. Install [NodeJS](https://nodejs.org/en/download/) (v10+), globally. This will also install `npm`.
-2. Navigate to `ui.frontend` in your project and run `npm install`. (You must have run the archetype with `-DfrontendModule=general` to populate the ui.frontend folder)
+2. Navigate to `ui.frontend` in your project and run `npm ci`. (You must have run the archetype with `-DfrontendModule=general` to populate the ui.frontend folder)
 
 ${hash}${hash} Usage
 

@@ -29,5 +29,10 @@
 
 #end
 
-
+<sly data-sly-use.page="com.adobe.cq.wcm.core.components.models.Page"
+     data-sly-list="${symbol_dollar}{page.htmlPageItems}">
+    <script data-sly-test="${symbol_dollar}{item.location.name == 'footer'}"
+            data-sly-element="${symbol_dollar}{item.element.name @ context='unsafe'}"
+            data-sly-attribute="${symbol_dollar}{item.attributes}"></script>
+</sly>
 
