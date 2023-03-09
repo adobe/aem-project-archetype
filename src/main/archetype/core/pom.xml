@@ -187,36 +187,38 @@ Import-Package: javax.annotation;version=0.0.0,*
             <groupId>com.adobe.commerce.cif</groupId>
             <artifactId>core-cif-components-core</artifactId>
         </dependency>
-        
         <dependency>
             <groupId>com.adobe.commerce.cif</groupId>
             <artifactId>magento-graphql</artifactId>
         </dependency>
-#if ( $aemVersion != "cloud")
-        <dependency>
-            <groupId>com.adobe.commerce.cif</groupId>
-            <artifactId>graphql-client</artifactId>
-        </dependency>
-#end
-#if ( $aemVersion == "cloud")
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>aem-cif-sdk-api</artifactId>
             <scope>provided</scope>
         </dependency>
 #end
-#end
 
 #if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
         <!-- AEM Forms Dependencies -->
+      #if ($aemVersion == "cloud")
+       <dependency>
+         <groupId>com.adobe.aem</groupId>
+         <artifactId>aem-forms-sdk-api</artifactId>
+       </dependency>
+      #else
+       <dependency>
+         <groupId>com.adobe.aemfd</groupId>
+         <artifactId>aemfd-client-sdk</artifactId>
+       </dependency>
+      #end
         <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>aem-forms-sdk-api</artifactId>
+          <groupId>com.adobe.aem</groupId>
+          <artifactId>core-forms-components-core</artifactId>
         </dependency>
         #if ($aemVersion != "cloud")
         <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>core-forms-components-core</artifactId>
+          <groupId>com.adobe.aem</groupId>
+          <artifactId>core-forms-components-af-core</artifactId>
         </dependency>
         #end
 #end

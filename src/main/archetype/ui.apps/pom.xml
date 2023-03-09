@@ -14,148 +14,142 @@
  |  See the License for the specific language governing permissions and
  |  limitations under the License.
 -->
-#set( $includeClassifierOnUberJar = $aemVersion.matches("6\.5\.[0-5]") )
+  #set( $includeClassifierOnUberJar = $aemVersion.matches("6\.5\.[0-5]") )
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-    <!-- ====================================================================== -->
-    <!-- P A R E N T  P R O J E C T  D E S C R I P T I O N                      -->
-    <!-- ====================================================================== -->
-    <parent>
-        <groupId>${groupId}</groupId>
-        <artifactId>${rootArtifactId}</artifactId>
-        <version>${version}</version>
-        <relativePath>../pom.xml</relativePath>
-    </parent>
+  <!-- ====================================================================== -->
+  <!-- P A R E N T  P R O J E C T  D E S C R I P T I O N                      -->
+  <!-- ====================================================================== -->
+  <parent>
+    <groupId>${groupId}</groupId>
+    <artifactId>${rootArtifactId}</artifactId>
+    <version>${version}</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
 
-    <!-- ====================================================================== -->
-    <!-- P R O J E C T  D E S C R I P T I O N                                   -->
-    <!-- ====================================================================== -->
-    <artifactId>${artifactId}</artifactId>
-    <packaging>content-package</packaging>
-    <name>${appTitle} - UI apps</name>
-    <description>UI apps package for ${appTitle}</description>
+  <!-- ====================================================================== -->
+  <!-- P R O J E C T  D E S C R I P T I O N                                   -->
+  <!-- ====================================================================== -->
+  <artifactId>${artifactId}</artifactId>
+  <packaging>content-package</packaging>
+  <name>${appTitle} - UI apps</name>
+  <description>UI apps package for ${appTitle}</description>
 
-    <!-- ====================================================================== -->
-    <!-- B U I L D   D E F I N I T I O N                                        -->
-    <!-- ====================================================================== -->
-    <build>
-        <sourceDirectory>src/main/content/jcr_root</sourceDirectory>
+  <!-- ====================================================================== -->
+  <!-- B U I L D   D E F I N I T I O N                                        -->
+  <!-- ====================================================================== -->
+  <build>
+    <sourceDirectory>src/main/content/jcr_root</sourceDirectory>
+    <plugins>
+      <!-- ====================================================================== -->
+      <!-- V A U L T   P A C K A G E   P L U G I N S                              -->
+      <!-- ====================================================================== -->
+      <plugin>
+        <groupId>org.apache.jackrabbit</groupId>
+        <artifactId>filevault-package-maven-plugin</artifactId>
+        <configuration>
+          <properties>
+            <cloudManagerTarget>none</cloudManagerTarget>
+          </properties>
+          <group>${groupId}</group>
+          <name>${artifactId}</name>
+          <packageType>application</packageType>
+          <repositoryStructurePackages>
+            <repositoryStructurePackage>
+              <groupId>${groupId}</groupId>
+              <artifactId>${rootArtifactId}.ui.apps.structure</artifactId>
+            </repositoryStructurePackage>
+          </repositoryStructurePackages>
+          <dependencies>
+            #if ( $aemVersion != "cloud" )
+            <dependency>
+              <groupId>com.adobe.cq</groupId>
+              <artifactId>core.wcm.components.content</artifactId>
+            </dependency>
+            <dependency>
+              <groupId>com.adobe.cq</groupId>
+              <artifactId>core.wcm.components.config</artifactId>
+            </dependency>
+            #if( $amp == "y")
+            <dependency>
+              <groupId>com.adobe.cq</groupId>
+              <artifactId>core.wcm.components.extensions.amp.content</artifactId>
+            </dependency>
+            #end
+            #end
+            #if ( $includeCommerce == "y" )
+            <dependency>
+              <groupId>com.adobe.commerce.cif</groupId>
+              <artifactId>core-cif-components-apps</artifactId>
+            </dependency>
+            #end
+          </dependencies>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.day.jcr.vault</groupId>
+        <artifactId>content-package-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <verbose>true</verbose>
+          <failOnError>true</failOnError>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.sling</groupId>
+        <artifactId>htl-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>validate-htl-scripts</id>
+            <goals>
+              <goal>validate</goal>
+            </goals>
+            <phase>generate-sources</phase>
+            <configuration>
+              <generateJavaClasses>true</generateJavaClasses>
+              #if ( $precompiledScripts == "n")
+              <generatedJavaClassesPrefix>org.apache.sling.scripting.sightly</generatedJavaClassesPrefix>
+              #end
+              <sourceDirectory>${project.build.sourceDirectory}</sourceDirectory>
+              <allowedExpressionOptions>
+                <allowedExpressionOption>cssClassName</allowedExpressionOption>
+                <allowedExpressionOption>decoration</allowedExpressionOption>
+                <allowedExpressionOption>decorationTagName</allowedExpressionOption>
+                <allowedExpressionOption>wcmmode</allowedExpressionOption>
+              </allowedExpressionOptions>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  #if ( $precompiledScripts == "y" and $aemVersion == "cloud" )
+  <profiles>
+    <profile>
+      <id>precompiledScripts</id>
+      <activation>
+        <property>
+          <name>skipScriptPrecompilation</name>
+          <value>!true</value>
+        </property>
+      </activation>
+      <build>
         <plugins>
-            <!-- ====================================================================== -->
-            <!-- V A U L T   P A C K A G E   P L U G I N S                              -->
-            <!-- ====================================================================== -->
-            <plugin>
-                <groupId>org.apache.jackrabbit</groupId>
-                <artifactId>filevault-package-maven-plugin</artifactId>
+          <plugin>
+            <groupId>biz.aQute.bnd</groupId>
+            <artifactId>bnd-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>bnd-process</id>
+                <goals>
+                  <goal>bnd-process</goal>
+                </goals>
                 <configuration>
-                    <properties>
-                        <cloudManagerTarget>none</cloudManagerTarget>
-                    </properties>
-                    <group>${groupId}</group>
-                    <name>${artifactId}</name>
-                    <packageType>application</packageType>
-                    <repositoryStructurePackages>
-                        <repositoryStructurePackage>
-                            <groupId>${groupId}</groupId>
-                            <artifactId>${rootArtifactId}.ui.apps.structure</artifactId>
-                        </repositoryStructurePackage>
-                    </repositoryStructurePackages>
-                    <dependencies>
-#if ( $aemVersion != "cloud" )
-                        <dependency>
-                            <groupId>com.adobe.cq</groupId>
-                            <artifactId>core.wcm.components.content</artifactId>
-                        </dependency>
-                        <dependency>
-                            <groupId>com.adobe.cq</groupId>
-                            <artifactId>core.wcm.components.config</artifactId>
-                        </dependency>
-#if( $amp == "y")
-                        <dependency>
-                            <groupId>com.adobe.cq</groupId>
-                            <artifactId>core.wcm.components.extensions.amp.content</artifactId>
-                        </dependency>
-#end
-#end
-#if ( $includeCommerce == "y" )
-                        <dependency>
-                            <groupId>com.adobe.commerce.cif</groupId>
-                            <artifactId>core-cif-components-apps</artifactId>
-                        </dependency>
-#end
-#if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and $aemVersion != "cloud" )
-                        <dependency>
-                            <groupId>com.adobe.aem</groupId>
-                            <artifactId>core-forms-components-apps</artifactId>
-                        </dependency>
-#end
-                    </dependencies>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>com.day.jcr.vault</groupId>
-                <artifactId>content-package-maven-plugin</artifactId>
-                <extensions>true</extensions>
-                <configuration>
-                    <verbose>true</verbose>
-                    <failOnError>true</failOnError>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.sling</groupId>
-                <artifactId>htl-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>validate-htl-scripts</id>
-                        <goals>
-                            <goal>validate</goal>
-                        </goals>
-                        <phase>generate-sources</phase>
-                        <configuration>
-                            <generateJavaClasses>true</generateJavaClasses>
-#if ( $precompiledScripts == "n")
-                            <generatedJavaClassesPrefix>org.apache.sling.scripting.sightly</generatedJavaClassesPrefix>
-#end
-                            <sourceDirectory>${project.build.sourceDirectory}</sourceDirectory>
-                            <allowedExpressionOptions>
-                                <allowedExpressionOption>cssClassName</allowedExpressionOption>
-                                <allowedExpressionOption>decoration</allowedExpressionOption>
-                                <allowedExpressionOption>decorationTagName</allowedExpressionOption>
-                                <allowedExpressionOption>wcmmode</allowedExpressionOption>
-                            </allowedExpressionOptions>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-
-#if ( $precompiledScripts == "y" and $aemVersion == "cloud" )
-    <profiles>
-        <profile>
-            <id>precompiledScripts</id>
-            <activation>
-                <property>
-                    <name>skipScriptPrecompilation</name>
-                    <value>!true</value>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>biz.aQute.bnd</groupId>
-                        <artifactId>bnd-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>bnd-process</id>
-                                <goals>
-                                    <goal>bnd-process</goal>
-                                </goals>
-                                <configuration>
-                                    <packagingTypes>content-package</packagingTypes>
-                                    <bnd><![CDATA[
+                  <packagingTypes>content-package</packagingTypes>
+                  <bnd><![CDATA[
 Bundle-Name: ${project.name} - precompiled scripts
 Bundle-SymbolicName: ${project.groupId}.${project.artifactId}.precompiled-scripts
 -plugin:  org.apache.sling.scriptingbundle.plugin.bnd.BundledScriptsScannerPlugin; \
@@ -163,201 +157,207 @@ Bundle-SymbolicName: ${project.groupId}.${project.artifactId}.precompiled-script
           includes="**/.content.xml,**/*.html"
 Require-Capability: osgi.extender;filter:="(&(osgi.extender=sling.scripting)(version>=1.0.0)(!(version>=2.0.0)))"
                             ]]>
-                                    </bnd>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-jar-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                                <configuration>
-                                    <classifier>precompiled-scripts</classifier>
-                                    <archive>
-                                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
-                                    </archive>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.sling</groupId>
-                        <artifactId>sling-maven-plugin</artifactId>
-                        <configuration>
-                            <bundleFileName>${project.build.directory}/${project.build.finalName}-precompiled-scripts.jar</bundleFileName>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-#end
-
-    <!-- ====================================================================== -->
-    <!-- D E P E N D E N C I E S                                                -->
-    <!-- ====================================================================== -->
-    <dependencies>
-        <dependency>
-            <groupId>${groupId}</groupId>
-            <artifactId>${rootArtifactId}.core</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-#if ( $frontendModule != "none" )
-        <dependency>
-            <groupId>${groupId}</groupId>
-            <artifactId>${rootArtifactId}.ui.frontend</artifactId>
-            <version>${project.version}</version>
-            <type>zip</type>
-        </dependency>
-#end
-
-#if ( $includeFormsheadless == "y")
-      <dependency>
-        <groupId>${groupId}</groupId>
-        <artifactId>${rootArtifactId}.ui.frontend.react.forms.af</artifactId>
-        <version>${project.version}</version>
-        <type>zip</type>
-      </dependency>
-#end
-
-#if ( $isSpaProject )
-        <!-- SPA Project Core (includes hierarchy page) -->
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>spa.project.core.ui.apps</artifactId>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>spa.project.core.core</artifactId>
-        </dependency>
-#end
-        <dependency>
-            <groupId>${groupId}</groupId>
-            <artifactId>${rootArtifactId}.ui.apps.structure</artifactId>
-            <version>${project.version}</version>
-            <type>zip</type>
-        </dependency>
-
-#if ( $aemVersion != "cloud" )
-        <dependency>
-            <groupId>com.adobe.cq</groupId>
-            <artifactId>core.wcm.components.core</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.adobe.cq</groupId>
-            <artifactId>core.wcm.components.content</artifactId>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.cq</groupId>
-            <artifactId>core.wcm.components.config</artifactId>
-            <type>zip</type>
-        </dependency>
-
-#if ( $amp == "y" )
-        <dependency>
-            <groupId>com.adobe.cq</groupId>
-            <artifactId>core.wcm.components.extensions.amp</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.adobe.cq</groupId>
-            <artifactId>core.wcm.components.extensions.amp.content</artifactId>
-            <type>zip</type>
-        </dependency>
-#end
-
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>uber-jar</artifactId>
-#if ( $includeClassifierOnUberJar)
-            <classifier>apis</classifier>
-#end
-        </dependency>
-
-        <dependency>
-            <groupId>javax.jcr</groupId>
-            <artifactId>jcr</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.day.cq.wcm</groupId>
-            <artifactId>cq-wcm-taglib</artifactId>
-        </dependency>
-#else
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>aem-sdk-api</artifactId>
-        </dependency>
-#end
-
-#if ( $includeCommerce == "y" )
-        <!-- Adobe CIF Dependencies -->
-        <dependency>
-            <groupId>com.adobe.commerce.cif</groupId>
-            <artifactId>core-cif-components-apps</artifactId>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.commerce.cif</groupId>
-            <artifactId>core-cif-components-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.commerce.cif</groupId>
-            <artifactId>magento-graphql</artifactId>
-        </dependency>
-#if ( $aemVersion != "cloud")
-        <dependency>
-            <groupId>com.adobe.commerce.cif</groupId>
-            <artifactId>graphql-client</artifactId>
-        </dependency>
-#end
-#if ( $aemVersion == "cloud")
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>aem-cif-sdk-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-#end
-#end
-#if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
-        <!-- AEM Forms Dependencies -->
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>aem-forms-sdk-api</artifactId>
-        </dependency>
-        #if ($aemVersion != "cloud") 
-            <dependency>
-                <groupId>com.adobe.aem</groupId>
-                <artifactId>core-forms-components-apps</artifactId>
-                <type>zip</type>
-            </dependency>
-            <dependency>
-                <groupId>com.adobe.aem</groupId>
-                <artifactId>core-forms-components-core</artifactId>
-            </dependency>
-        #end
-#end
-        <!-- HTL dependencies needed for the HTL Maven Plugin source code generation -->
-        <dependency>
+                  </bnd>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <executions>
+              <execution>
+                <phase>package</phase>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+                <configuration>
+                  <classifier>precompiled-scripts</classifier>
+                  <archive>
+                    <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                  </archive>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
             <groupId>org.apache.sling</groupId>
-            <artifactId>org.apache.sling.scripting.sightly.runtime</artifactId>
-            <version>1.2.4-1.4.0</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
+            <artifactId>sling-maven-plugin</artifactId>
+            <configuration>
+              <bundleFileName>${project.build.directory}/${project.build.finalName}-precompiled-scripts.jar</bundleFileName>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+  #end
+
+  <!-- ====================================================================== -->
+  <!-- D E P E N D E N C I E S                                                -->
+  <!-- ====================================================================== -->
+  <dependencies>
+    <dependency>
+      <groupId>${groupId}</groupId>
+      <artifactId>${rootArtifactId}.core</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    #if ( $frontendModule != "none" && $frontendModule != "decoupled" )
+    <dependency>
+      <groupId>${groupId}</groupId>
+      <artifactId>${rootArtifactId}.ui.frontend</artifactId>
+      <version>${project.version}</version>
+      <type>zip</type>
+    </dependency>
+    #end
+
+    #if ( $includeFormsheadless == "y")
+    <dependency>
+      <groupId>${groupId}</groupId>
+      <artifactId>${rootArtifactId}.ui.frontend.react.forms.af</artifactId>
+      <version>${project.version}</version>
+      <type>zip</type>
+    </dependency>
+    #end
+
+    #if ( $isSpaProject )
+    <!-- SPA Project Core (includes hierarchy page) -->
+    <dependency>
+      <groupId>com.adobe.aem</groupId>
+      <artifactId>spa.project.core.ui.apps</artifactId>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>com.adobe.aem</groupId>
+      <artifactId>spa.project.core.core</artifactId>
+    </dependency>
+    #end
+    <dependency>
+      <groupId>${groupId}</groupId>
+      <artifactId>${rootArtifactId}.ui.apps.structure</artifactId>
+      <version>${project.version}</version>
+      <type>zip</type>
+    </dependency>
+
+    #if ( $aemVersion != "cloud" )
+    <dependency>
+      <groupId>com.adobe.cq</groupId>
+      <artifactId>core.wcm.components.core</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.adobe.cq</groupId>
+      <artifactId>core.wcm.components.content</artifactId>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>com.adobe.cq</groupId>
+      <artifactId>core.wcm.components.config</artifactId>
+      <type>zip</type>
+    </dependency>
+
+    #if ( $amp == "y" )
+    <dependency>
+      <groupId>com.adobe.cq</groupId>
+      <artifactId>core.wcm.components.extensions.amp</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.adobe.cq</groupId>
+      <artifactId>core.wcm.components.extensions.amp.content</artifactId>
+      <type>zip</type>
+    </dependency>
+    #end
+
+    <dependency>
+      <groupId>com.adobe.aem</groupId>
+      <artifactId>uber-jar</artifactId>
+      #if ( $includeClassifierOnUberJar)
+      <classifier>apis</classifier>
+      #end
+    </dependency>
+
+    <dependency>
+      <groupId>javax.jcr</groupId>
+      <artifactId>jcr</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.day.cq.wcm</groupId>
+      <artifactId>cq-wcm-taglib</artifactId>
+    </dependency>
+    #else
+    <dependency>
+      <groupId>com.adobe.aem</groupId>
+      <artifactId>aem-sdk-api</artifactId>
+    </dependency>
+    #end
+
+    #if ( $includeCommerce == "y" )
+    <!-- Adobe CIF Dependencies -->
+    <dependency>
+      <groupId>com.adobe.commerce.cif</groupId>
+      <artifactId>core-cif-components-apps</artifactId>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>com.adobe.commerce.cif</groupId>
+      <artifactId>core-cif-components-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.adobe.commerce.cif</groupId>
+      <artifactId>magento-graphql</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.adobe.aem</groupId>
+      <artifactId>aem-cif-sdk-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    #end
+    #if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
+    <!-- AEM Forms Dependencies -->
+    #if ($aemVersion == "cloud")
+    <dependency>
+      <groupId>com.adobe.aem</groupId>
+      <artifactId>aem-forms-sdk-api</artifactId>
+    </dependency>
+    #else
+    <dependency>
+      <groupId>com.adobe.aemfd</groupId>
+      <artifactId>aemfd-client-sdk</artifactId>
+    </dependency>
+    #end
+    <dependency>
+      <groupId>com.adobe.aem</groupId>
+      <artifactId>core-forms-components-apps</artifactId>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>com.adobe.aem</groupId>
+      <artifactId>core-forms-components-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.adobe.aem</groupId>
+      <artifactId>core-forms-components-af-apps</artifactId>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>com.adobe.aem</groupId>
+      <artifactId>core-forms-components-af-core</artifactId>
+    </dependency>
+    #end
+    <!-- HTL dependencies needed for the HTL Maven Plugin source code generation -->
+    <dependency>
+      <groupId>org.apache.sling</groupId>
+      <artifactId>org.apache.sling.scripting.sightly.runtime</artifactId>
+      <version>1.2.4-1.4.0</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
 </project>

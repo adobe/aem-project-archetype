@@ -38,9 +38,3 @@
 	/glob "/screens/channels.json"
 	/type "deny"
 }
-
-# GraphQL cache rules for persistent queries
-/0020 {
-    /glob "/graphql/execute.json/*"
-    /type "deny"
-}
