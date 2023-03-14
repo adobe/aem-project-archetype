@@ -120,8 +120,11 @@ async function AEMSitesSetPageTitle(parentPath, name, title) {
 
     // Navigate to page parent path
     await browser.url(path.posix.join(AEM_SITES_PATH, parentPath));
-    // const checkboxSelector = `[data-foundation-collection-item-id="${path.posix.join(parentPath, name)}"] td:first-child img`;
+#if ( $aemVersion != "cloud" )
+    const checkboxSelector = `[data-foundation-collection-item-id="${path.posix.join(parentPath, name)}"] td:first-child img`;
+#else
     const checkboxSelector = `[data-foundation-collection-item-id="${path.posix.join(parentPath, name)}"] [type="checkbox"]`;
+#end	
     // Select sample page in the list
     await $(checkboxSelector).waitForClickable({ timeout: 3000 });
 
