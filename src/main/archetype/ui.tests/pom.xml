@@ -35,7 +35,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	<node.version>v18.14.2</node.version>
+        <node.version>v18.14.2</node.version>
         <npm.version>9.5.0</npm.version>
 
         <HEADLESS_BROWSER>false</HEADLESS_BROWSER>
