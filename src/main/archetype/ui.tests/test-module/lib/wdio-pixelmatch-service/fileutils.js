@@ -14,8 +14,9 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-const fs = require('fs');
-const PNG = require('pngjs').PNG;
+import fs from 'fs';
+
+import { PNG } from 'pngjs';
 /**
  *
  * @param {Array<string>} directories
@@ -49,7 +50,8 @@ async function readPng(filePath) {
 function writePng(path, png) {
     fs.writeFileSync(path, PNG.sync.write(png));
 }
-module.exports = {
+
+export  {
     makeDirectories,
     checkFileExists,
     readPng,

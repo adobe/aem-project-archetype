@@ -13,68 +13,68 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-const path = require('path');
-const config = require('../../lib/config');
-const commons = require('../../lib/commons');
-const { expect } = require('chai');
+
+import commons from '../../lib/commons.js';
+import { aem } from '../../lib/config.js';
+import path from 'path';
+import chai from 'chai';
+const expect = chai.expect;
+
 
 const AEM_SAMPLE_PAGE_PARENT = '/content/${appId}/${country}';
 const AEM_SAMPLE_PAGE_ID = '${language}';
 
-describe('AEM Sites Console', () => {
+
+describe('AEM Sites Console',  () => {
 
     // AEM Login
-    beforeEach(() => {
+    beforeEach(async () => {
         // Logout/Login dance
-        browser.AEMForceLogout();
-        browser.url(config.aem.author.base_url);
-        browser.AEMLogin(config.aem.author.username, config.aem.author.password);
-
+        await browser.AEMForceLogout();
+        await browser.url(aem.author.base_url);
+        await browser.AEMLogin(aem.author.username, aem.author.password);
         // Setup browser state
-        browser.AEMSitesSetView(commons.AEMSitesViewTypes.LIST);
+        await browser.AEMSitesSetView(commons.AEMSitesViewTypes.LIST);
     });
 
-    let onboardingHdler;
+    let onboardingHandler = new commons.OnboardingDialogHandler(browser);
 
-    before(function() {
-        // Enable helper to handle onboarding dialog popup
-        onboardingHdler = new commons.OnboardingDialogHandler(browser);
-        onboardingHdler.enable();
+    before(' Enable helper to handle onboarding dialog popup',   function() {
+        onboardingHandler.enable();
     });
 
-    after(function() {
-        // Disable helper to handle onboarding dialog popup
-        onboardingHdler.disable();
+    after( 'Disable helper to handle onboarding dialog popup', function() {
+        onboardingHandler.disable();
     });
 
 
     describe('Page Properties form', () => {
         let originalTitle = 'original-page-title';
 
-        it('should let user modify the title of a page', () => {
+        it('should let user modify the title of a page', async () => {
             let modifiedTitle = `modified-title-${Date.now()}`;
 
             // Change page title
-            originalTitle = browser.AEMSitesSetPageTitle(AEM_SAMPLE_PAGE_PARENT, AEM_SAMPLE_PAGE_ID, modifiedTitle);
+            originalTitle = await browser.AEMSitesSetPageTitle(AEM_SAMPLE_PAGE_PARENT, AEM_SAMPLE_PAGE_ID, modifiedTitle);
 
             // Navigate to modified page
-            browser.url(`${path.posix.join(AEM_SAMPLE_PAGE_PARENT, AEM_SAMPLE_PAGE_ID)}.html`);
+            await browser.url(`${path.posix.join(AEM_SAMPLE_PAGE_PARENT, AEM_SAMPLE_PAGE_ID)}.html`);
+
+            let currentTitle = await browser.getTitle();
 
             // Assert title is the modified one
-            expect(browser.getTitle()).to.equal(modifiedTitle);
+            expect(currentTitle).to.equal(modifiedTitle);
         });
 
-        after('Reset page title', () => {
-            // Reset page title
-            browser.AEMSitesSetPageTitle(AEM_SAMPLE_PAGE_PARENT, AEM_SAMPLE_PAGE_ID, originalTitle);
+        after('Reset page title', async () => {
+            await browser.AEMSitesSetPageTitle(AEM_SAMPLE_PAGE_PARENT, AEM_SAMPLE_PAGE_ID, originalTitle);
 
             // Navigate to page
-            browser.url(`${path.posix.join(AEM_SAMPLE_PAGE_PARENT, AEM_SAMPLE_PAGE_ID)}.html`);
+            await browser.url(`${path.posix.join(AEM_SAMPLE_PAGE_PARENT, AEM_SAMPLE_PAGE_ID)}.html`);
 
             // Assert title is the original one
-            expect(browser.getTitle()).to.equal(originalTitle);
+            let currentTitle = await browser.getTitle();
+            expect(currentTitle).to.equal(originalTitle);
         });
-
     });
-
 });

@@ -14,7 +14,8 @@
  *  limitations under the License.
  */
 
-const path = require('path');
+import path from 'path';
+
 const SCREENSHOTTYPES = {
     BASE: 'base',
     CURR: 'current',
@@ -31,4 +32,4 @@ class PathUtils {
         return path.join(baseDir, `${screenshotName} ${viewportSize.width}x${viewportSize.height}-${type}.png`);
     }
 }
-module.exports = { PathUtils, SCREENSHOTTYPES };
+export  { PathUtils, SCREENSHOTTYPES };

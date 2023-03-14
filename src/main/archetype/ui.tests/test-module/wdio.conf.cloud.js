@@ -14,16 +14,22 @@
  *  limitations under the License.
  */
 
-/**
- * DO NOT MODIFY
- */
-let PixelMatchPlugin = require('./lib/wdio-pixelmatch-service/launcher').PixelMatchPlugin;
-let wdio_config = require('./wdio.conf.commons.js').config;
-let config = require('./lib/config');
+import {PixelMatchPlugin} from './lib/wdio-pixelmatch-service/launcher.js';
 
-wdio_config.hostname =  config.selenium.hostname;
-wdio_config.port = config.selenium.port;
+import { config as wdio_config } from './wdio.conf.commons.js';
+import { CHROME } from './lib/config.js';
+import { FIREFOX } from './lib/config.js';
+import { selenium } from './lib/config.js';
+
+
+wdio_config.hostname = selenium.hostname;
+wdio_config.port = selenium.port;
 wdio_config.path = '/wd/hub';
+wdio_config.protocol = 'http';
+
+
+
+wdio_config.maxInstances = 1;
 wdio_config.services = [
     [PixelMatchPlugin, {
         viewportSize: { height: 768, width: 1366 },
@@ -32,17 +38,17 @@ wdio_config.services = [
 ];
 let capabilities = {
     maxInstances: 1,
-    browserName: config.selenium.browser,
+    browserName: selenium.browser,
 };
 
 // Set common startup arguments to improve stability in Docker
-switch(config.selenium.browser) {
-case config.CHROME:
+switch(selenium.browser) {
+case CHROME:
     capabilities['goog:chromeOptions'] = {
         args: ['headless', 'disable-gpu', 'no-sandbox', 'disable-dev-shm-usage']
     };
     break;
-case config.FIREFOX:
+case FIREFOX:
     capabilities['moz:firefoxOptions'] = {
         args: ['-headless']
     };
@@ -50,5 +56,4 @@ case config.FIREFOX:
 }
 
 wdio_config.capabilities = [capabilities];
-
-exports.config = wdio_config;
+export const config = wdio_config;

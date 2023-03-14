@@ -17,18 +17,25 @@
 /*
  * WDIO Testrunner Configuration - See https://webdriver.io/docs/configurationfile.html
  */
-const conf = require('./lib/config');
-const commons = require('./lib/commons');
-const HtmlReporter = require('wdio-html-nice-reporter').HtmlReporter;
-const path = require('path');
-const log4js = require('log4js');
+import {aem, reports_path} from './lib/config.js';
+// eslint-disable-next-line no-unused-vars
+import {ReportAggregator, HtmlReporter}    from 'wdio-html-nice-reporter';
+// eslint-disable-next-line no-unused-vars
+import video from 'wdio-video-reporter';
+import commons from './lib/commons.js';
+import path from 'path';
+import log4js from 'log4js';
+import { commands } from './lib/wdio.commands.js';
 
-exports.config = {
+// eslint-disable-next-line no-unused-vars
+let reportAggregator = ReportAggregator;
+
+export const config = {
     runner: 'local',
 
     // Tests
     specs: [
-        './specs/**/*.js',
+        './specs/**/forms.js',
     ],
 
     logLevel: 'debug',
@@ -39,36 +46,43 @@ exports.config = {
     specFileRetries: 1,
     specFileRetriesDeferred: false,
 
-    baseUrl: conf.aem.author.base_url,
+    baseUrl: aem.author.base_url,
 
     sync: true,
 
     waitforTimeout: 60000,
-    connectionRetryTimeout: 120000,
+    connectionRetryTimeout: 180000,
     connectionRetryCount: 3,
 
     framework: 'mocha',
 
     // Location of the WDIO/Selenium logs
-    outputDir: conf.reports_path,
+    outputDir: reports_path,
 
     // Reporters
     reporters: [
         'spec',
         ['junit', {
-            outputDir: path.join(conf.reports_path, 'junit'),
+            outputDir: path.join(reports_path, 'junit'),
             outputFileFormat: function(options) {
                 return `results-${options.cid}.${options.capabilities.browserName}.xml`;
             }
         }],
-        [HtmlReporter, {
+        ['html-nice', {
             debug: true,
-            outputDir: path.join(path.relative(process.cwd(), conf.reports_path), 'html/'),
+            outputDir: path.join(reports_path, 'html-reports'),
             filename: 'report.html',
             reportTitle: 'UI Testing Basic Tests',
+            linkScreenshots: true,
             showInBrowser: false,
             useOnAfterCommandForScreenshot: true,
             LOG: log4js.getLogger('default')
+        }],
+        ['video', {
+            saveAllVideos: true,       // If true, also saves videos for successful test cases
+            videoSlowdownMultiplier: 3, // Higher to get slower videos, lower for faster videos [Value 1-100]
+            videoRenderTimeout: 5,      // Max seconds to wait for a video to finish rendering\
+            outputDir: path.join(reports_path, '/screenshots'),
         }],
     ],
 
@@ -77,11 +91,12 @@ exports.config = {
         ui: 'bdd',
         timeout: 120000
     },
-
     // Gets executed before test execution begins
     before: function() {
         // Init custom WDIO commands (ex. AEMLogin)
-        require('./lib/wdio.commands');
+        Object.keys(commands).forEach(key => {
+            browser.addCommand(key, commands[key]);
+        });
     },
 
     // WDIO Hook executed after each test
@@ -91,14 +106,29 @@ exports.config = {
     },
 
     // Gets executed after each WDIO command
-    beforeCommand: function (commandName) {
+    beforeCommand: async function (commandName) {
         // For WDIO commands which can lead into page navigation
         if (['url', 'refresh', 'click', 'call'].includes(commandName)) {
             // Handle AEM Survey dialog
-            if($('#omg_surveyContainer').isExisting()) {
+            if(await $('#omg_surveyContainer').isExisting()) {
                 console.log('Detected presence of the AEM Survey Dialog! Refreshing the page to get rid of it.');
-                browser.refresh();
+                await browser.refresh();
             }
         }
-    }
+    },
+    onPrepare: function (config, capabilities) {
+        reportAggregator = new ReportAggregator({
+            outputDir: './reports/html-reports/',
+            filename: 'master-report.html',
+            reportTitle: 'Master Report',
+            browserName: capabilities.browserName,
+            collapseTests: true
+        });
+        reportAggregator.clean();
+    },
+    // eslint-disable-next-line no-unused-vars
+    onComplete: async function (exitCode, config, capabilities, results) {
+        await reportAggregator.createReport();
+    },
+
 };

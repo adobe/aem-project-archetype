@@ -13,12 +13,9 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-const path = require('path');
-const url = require('url');
+import path from 'path';
 
-// Common constants
-const CHROME = 'chrome';
-const FIREFOX = 'firefox';
+import url from 'url';
 
 // Headless Mode
 let headless = process.env.HEADLESS_BROWSER === 'true' ? true : false;
@@ -28,11 +25,8 @@ let headless = process.env.HEADLESS_BROWSER === 'true' ? true : false;
 let selenium_base_url = process.env.SELENIUM_BASE_URL || 'http://localhost:4444';
 // Browser
 let browser = process.env.SELENIUM_BROWSER || 'chrome';
-// Results Reports
-let reports_path = process.env.REPORTS_PATH || './reports/';
-// Handle resources for upload testing
-let shared_folder = process.env.SHARED_FOLDER || null;
-let upload_url = process.env.UPLOAD_URL || null;
+
+
 // AEM Author
 let aem_author_basel_url = process.env.AEM_AUTHOR_URL || 'http://localhost:4502';
 let aem_author_username  = process.env.AEM_AUTHOR_USERNAME || 'admin';
@@ -42,30 +36,33 @@ let aem_publish_basel_url = process.env.AEM_PUBLISH_URL || 'http://localhost:450
 let aem_publish_username  = process.env.AEM_PUBLISH_USERNAME || 'admin';
 let aem_publish_password  = process.env.AEM_PUBLISH_PASSWORD || 'admin';
 
-module.exports = {
-    selenium: {
-        base_url: selenium_base_url,
-        hostname: url.parse(selenium_base_url).hostname,
-        port: parseInt(url.parse(selenium_base_url).port),
-        browser: browser,
-        headless: headless
-    },
-    aem: {
-        author: {
-            base_url: aem_author_basel_url,
-            username: aem_author_username,
-            password: aem_author_password,
-        },
-        publish: {
-            base_url: aem_publish_basel_url,
-            username: aem_publish_username,
-            password: aem_publish_password,
-        }
-    },
-    reports_path: reports_path,
-    shared_folder: shared_folder,
-    upload_url: upload_url,
-    screenshots_path: path.join(reports_path, 'html/screenshots/'),
-    CHROME: CHROME,
-    FIREFOX: FIREFOX
+
+export const selenium =  {
+    base_url: selenium_base_url,
+    hostname: url.parse(selenium_base_url).hostname,
+    port: parseInt(url.parse(selenium_base_url).port),
+    browser: browser,
+    headless: headless
 };
+
+export const aem = {
+    author: {
+        base_url: aem_author_basel_url,
+        username: aem_author_username,
+        password: aem_author_password,
+    },
+    publish: {
+        base_url: aem_publish_basel_url,
+        username: aem_publish_username,
+        password: aem_publish_password,
+    }
+};
+// Results Reports
+export const reports_path = process.env.REPORTS_PATH || './reports/';
+// Handle resources for upload testing
+export const shared_folder = process.env.SHARED_FOLDER || null;
+export const upload_url = process.env.UPLOAD_URL || null;
+export const screenshots_path = path.join(reports_path, 'html/screenshots/');
+export const CHROME = 'chrome';
+export const FIREFOX = 'firefox';
+
