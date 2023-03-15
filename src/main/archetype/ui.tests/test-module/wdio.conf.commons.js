@@ -79,10 +79,10 @@ export const config = {
             LOG: log4js.getLogger('default')
         }],
         ['video', {
-            saveAllVideos: true,       // If true, also saves videos for successful test cases
-            videoSlowdownMultiplier: 3, // Higher to get slower videos, lower for faster videos [Value 1-100]
-            videoRenderTimeout: 5,      // Max seconds to wait for a video to finish rendering\
-            outputDir: path.join(reports_path, '/screenshots'),
+            saveAllVideos: true,
+            videoSlowdownMultiplier: 3,
+            videoRenderTimeout: 5,
+            outputDir: path.join(reports_path, '/videos'),
         }],
     ],
 

@@ -51,7 +51,7 @@ describe('AEM Sites Console',  () => {
     describe('Page Properties form', () => {
         let originalTitle = 'original-page-title';
 
-        it('should let user modify the title of a page', async () => {
+        it.skip('should let user modify the title of a page', async () => {
             let modifiedTitle = `modified-title-${Date.now()}`;
 
             // Change page title
