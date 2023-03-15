@@ -35,7 +35,7 @@ export const config = {
 
     // Tests
     specs: [
-        './specs/**/forms.js',
+        './specs/**/*.js',
     ],
 
     logLevel: 'debug',

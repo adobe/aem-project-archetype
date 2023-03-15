@@ -15,7 +15,7 @@
  */
 import { aem } from '../../lib/config.js';
 import { expect } from 'chai';
-import url from 'node:url';
+import url from 'url';
 
 
 describe('AEM Login Page', () => {
