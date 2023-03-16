@@ -49,12 +49,15 @@
     "pretest-local-firefox": "npm run lint",
     "test-local-firefox": "cross-env SELENIUM_BROWSER=firefox wdio run wdio.conf.local.js",
     "pretest-cloud": "npm run lint",
-    "test-cloud": "wdio run wdio.conf.cloud.js",
-    "clean": "rm -rf node_modules reports"
+    "test-cloud": "wdio run wdio.conf.cloud.js; npm run cond-report",
+    "clean": "rm -rf node_modules reports",
+    "copy-report": "copyfiles -u 1 \"./reports/**/*\" ${REPORTS_PATH}",
+    "cond-report": "node lib/testreportpath.js &&  npm run copy-report || echo \"Skipping report copy\","
   },
   "dependencies": {
     "axios": "^1.3.4",
     "axios-cookiejar-support": "^4.0.6",
+    "copyfiles": "^2.4.1",
     "form-data": "^4.0.0",
     "wdio-video-reporter": "^3.5.0"
   }

@@ -22,20 +22,20 @@ describe('AEM Basic', () => {
     console.log(aem.author.base_url);
 
 
-    beforeEach(() => {
-        browser.AEMForceLogout();
-        browser.url(aem.author.base_url);
-        browser.AEMLogin(aem.author.username, aem.author.password);
+    beforeEach(async () => {
+        await browser.AEMForceLogout();
+        await browser.url(aem.author.base_url);
+        await browser.AEMLogin(aem.author.username, aem.author.password);
     });
 
-    it('should be possible to display Solutions panel', () => {
-        browser.url(aem.author.base_url);
+    it('should be possible to display Solutions panel', async () => {
+        await browser.url(aem.author.base_url);
 
-        $('[data-foundation-toggleable-control-src$="solutionswitcher.html"]').click();
+        await $('[data-foundation-toggleable-control-src$="solutionswitcher.html"]').click();
 #if ( $aemVersion != "cloud" )
-        $('coral-shell-solutionswitcher').waitForDisplayed();
+        await $('coral-shell-solutionswitcher').waitForDisplayed();
 #else
-        $('coral-shell-menu[aria-label$="solutions"]').waitForDisplayed();
+        await $('coral-shell-menu[aria-label$="solutions"]').waitForDisplayed();
 #end
     });
 

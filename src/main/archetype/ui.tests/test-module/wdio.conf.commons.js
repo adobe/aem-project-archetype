@@ -63,14 +63,14 @@ export const config = {
     reporters: [
         'spec',
         ['junit', {
-            outputDir: path.join(reports_path, 'junit'),
+            outputDir: path.join('./reports', 'junit'),
             outputFileFormat: function(options) {
                 return `results-${options.cid}.${options.capabilities.browserName}.xml`;
             }
         }],
         ['html-nice', {
             debug: true,
-            outputDir: path.join(reports_path, 'html-reports'),
+            outputDir: path.join('./reports', 'html-reports'),
             filename: 'report.html',
             reportTitle: 'UI Testing Basic Tests',
             linkScreenshots: true,
@@ -79,10 +79,10 @@ export const config = {
             LOG: log4js.getLogger('default')
         }],
         ['video', {
-            saveAllVideos: true,
+            saveAllVideos: false,
             videoSlowdownMultiplier: 3,
             videoRenderTimeout: 5,
-            outputDir: path.join(reports_path, '/videos'),
+            outputDir: path.join('./reports', '/videos'),
         }],
     ],
 
@@ -118,11 +118,12 @@ export const config = {
     },
     onPrepare: function (config, capabilities) {
         reportAggregator = new ReportAggregator({
-            outputDir: './reports/html-reports/',
+            outputDir: path.join('./reports', 'html-reports'),
             filename: 'master-report.html',
             reportTitle: 'Master Report',
             browserName: capabilities.browserName,
-            collapseTests: true
+            collapseTests: true,
+            LOG: log4js.getLogger('default')
         });
         reportAggregator.clean();
     },
