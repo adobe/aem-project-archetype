@@ -22,7 +22,6 @@ import {aem, reports_path} from './lib/config.js';
 import {ReportAggregator, HtmlReporter}    from 'wdio-html-nice-reporter';
 // eslint-disable-next-line no-unused-vars
 import video from 'wdio-video-reporter';
-import commons from './lib/commons.js';
 import path from 'path';
 import log4js from 'log4js';
 import { commands } from './lib/wdio.commands.js';
@@ -69,19 +68,19 @@ export const config = {
             }
         }],
         ['html-nice', {
-            debug: true,
+            debug: false,
             outputDir: path.join('./reports', 'html-reports'),
             filename: 'report.html',
             reportTitle: 'UI Testing Basic Tests',
             linkScreenshots: true,
             showInBrowser: false,
-            useOnAfterCommandForScreenshot: true,
+            useOnAfterCommandForScreenshot: false,
             LOG: log4js.getLogger('default')
         }],
         ['video', {
             saveAllVideos: false,
-            videoSlowdownMultiplier: 3,
-            videoRenderTimeout: 5,
+            videoSlowdownMultiplier: 5,
+            videoRenderTimeout: 2,
             outputDir: path.join('./reports', '/videos'),
         }],
     ],
@@ -100,10 +99,7 @@ export const config = {
     },
 
     // WDIO Hook executed after each test
-    afterTest: function() {
-        // Take a screenshot that will be attached in the HTML report
-        commons.takeScreenshot(browser);
-    },
+    afterTest: function() {},
 
     // Gets executed after each WDIO command
     beforeCommand: async function (commandName) {
@@ -131,5 +127,4 @@ export const config = {
     onComplete: async function (exitCode, config, capabilities, results) {
         await reportAggregator.createReport();
     },
-
 };
