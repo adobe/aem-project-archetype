@@ -1,5 +1,5 @@
 /*
- *  Copyright 2020 Adobe Systems Incorporated
+ *  Copyright 2023 Adobe Systems Incorporated
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -13,7 +13,11 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-
+import copyup from 'copyfiles';
+// move reports to the reports path if set,currently the wdio-nice-html reporter does not work with
+// absolute paths outside the project
 if ('REPORTS_PATH' in process.env){
-    process.exit(0);
+    const config = {};
+    config.up = 1;
+    copyup(['./reports/**/*', process.env.REPORTS_PATH], config,  function (err) { console.log(err); });
 }
