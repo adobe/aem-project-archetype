@@ -42,7 +42,7 @@ async function AEMLogin(username,password){
         }
     }
 
-    await  $('#username').setValue(username);
+    await $('#username').setValue(username);
     await $('#password').setValue(password);
 
     await $('form [type="submit"]').click();
