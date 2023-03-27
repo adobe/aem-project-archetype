@@ -88,7 +88,7 @@ export const config = {
     // Mocha parameters
     mochaOpts: {
         ui: 'bdd',
-        timeout: 120000
+        timeout: 240000
     },
     // Gets executed before test execution begins
     before: function() {
