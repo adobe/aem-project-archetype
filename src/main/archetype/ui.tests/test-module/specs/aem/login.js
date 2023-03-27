@@ -13,40 +13,39 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-const config = require('../../lib/config');
-const expect = require('chai').expect;
-const url = require('url');
+import { aem } from '../../lib/config.js';
+import { expect } from 'chai';
+import url from 'url';
+
 
 describe('AEM Login Page', () => {
 
     // Force AEM Logout
-    beforeEach(() => {
-        browser.AEMForceLogout();
+    beforeEach(async () => {
+        await browser.AEMForceLogout();
     });
 
-    it('should redirect to login page by default', () => {
-        browser.url(config.aem.author.base_url);
-
-        let redirectedURL = url.parse(browser.getUrl());
-
+    it('should redirect to login page by default', async () => {
+        await browser.url(aem.author.base_url);
+        let redirectedURL = url.parse( await browser.getUrl());
         expect(redirectedURL.pathname.endsWith('login.html')).to.be.true;
     });
 
-    it('should contain the login form', () => {
-        browser.url(config.aem.author.base_url);
+    it('should contain the login form', async () => {
+        browser.url(aem.author.base_url);
 
-        $('#username').waitForExist();
-        $('#password').waitForExist();
-        $('form [type="submit"]').waitForExist();
+        await $('#username').waitForExist();
+        await $('#password').waitForExist();
+        await $('form [type="submit"]').waitForExist();
     });
 
-    it('should login with correct credentials', () => {
-        browser.url(config.aem.author.base_url);
+    it('should login with correct credentials', async () => {
+        await browser.url(aem.author.base_url);
 
-        browser.AEMLogin(config.aem.author.username, config.aem.author.password);
+        await browser.AEMLogin(aem.author.username, aem.author.password);
 
-        $('coral-shell').waitForExist();
-        $('coral-shell-header').waitForExist();
+        await $('coral-shell').waitForExist({ timeout: 6000 });
+        await $('coral-shell-header').waitForExist({ timeout: 6000 });
     });
 
 });

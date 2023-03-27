@@ -13,138 +13,146 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-const fs = require('fs');
-const path = require('path');
-const request = require('request-promise');
-const url = require('url');
-const config = require('./config');
-const commons = require('./commons');
-const errors = require('request-promise/errors');
+import fs from 'fs';
 
+import path from 'path';
+import url from 'url';
+import { aem, upload_url, shared_folder } from './config.js';
+import commons from './commons.js';
+import axios from 'axios';
+import { wrapper } from 'axios-cookiejar-support';
+import FormData  from 'form-data';
 const AEM_SITES_PATH = '/sites.html';
 
-browser.addCommand('AEMLogin', function(username, password) {
+
+
+
+async function AEMLogin(username,password){
     // Check presence of local sign-in Accordion
-    if ($('[class*="Accordion"] form').isExisting()) {
+    if (await $('[class*="Accordion"] form').isExisting({timeout: 5000})) {
         try {
-            $('#username').setValue(username);
+            await $('#username').setValue(username);
         }
-        // Form field not interactable, not visible
+        // Form field not interactive, not visible
         // Need to open the Accordion
         catch (e) {
-            $('[class*="Accordion"] button').click();
-            browser.pause(500);
+            await $('[class*="Accordion"] button').click();
+            // eslint-disable-next-line wdio/no-pause
+            await browser.pause(500);
         }
     }
 
-    $('#username').setValue(username);
-    $('#password').setValue(password);
+    await $('#username').setValue(username);
+    await $('#password').setValue(password);
 
-    $('form [type="submit"]').click();
+    await $('form [type="submit"]').click();
+    await $('coral-shell-content').waitForExist({timeout: 5000});
+}
 
-    $('coral-shell-content').waitForExist(5000);
-});
+async function AEMForceLogout(){
+    await browser.url('/');
 
-browser.addCommand('AEMForceLogout', function() {
-    browser.url('/');
-
-    if (browser.getTitle() != 'AEM Sign In') {
-        browser.url('/system/sling/logout.html');
+    if (await browser.getTitle() != 'AEM Sign In') {
+        await browser.url('/system/sling/logout.html');
     }
 
-    $('form[name="login"]').waitForExist();
-});
+    await $('form[name="login"]').waitForExist({timeout: 3000});
+}
 
 // Returns file handle to use for file upload component,
 // depending on test context (local, Docker or Cloud)
-browser.addCommand('getFileHandleForUpload', function(filePath) {
+function getFileHandleForUpload (filePath) {
     return browser.call(() => {
         return fileHandle(filePath);
     });
-});
+}
 
-browser.addCommand('AEMPathExists', function(baseUrl, path) {
-    let options = commons.getAuthenticatedRequestOptions(browser);
-    Object.assign(options, {
-        method: 'GET',
-        uri: url.resolve(baseUrl, path)
-    });
 
-    return request(options)
+async function  AEMPathExists(baseUrl, path) {
+    let jar = await commons.getAuthenticatedRequestOptions(browser);
+
+
+    const client = wrapper(axios.create({ jar }));
+
+
+    return client.get(url.resolve(baseUrl, path))
         .then(function() {
             return true;
         })
-        .catch(errors.StatusCodeError, function(reason) {
-            if (reason.statusCode == 404) {
+        .catch(function(error) {
+            if (error.response && error.response.status !== 404) {
                 return false;
             }
         });
-});
+}
 
-browser.addCommand('AEMDeleteAsset', function(assetPath) {
-    let options = commons.getAuthenticatedRequestOptions(browser);
-    Object.assign(options, {
-        formData: {
-            cmd: 'deletePage',
-            path: assetPath,
-            force: 'true',
-            '_charset_': 'utf-8'
-        }
-    });
+async function AEMDeleteAsset(assetPath) {
+    let jar = await commons.getAuthenticatedRequestOptions(browser);
 
-    return request.post(url.resolve(config.aem.author.base_url, '/bin/wcmcommand'), options);
-});
+    const client = wrapper(axios.create({ jar }));
+    const form = new FormData();
+    form.append('cmd', 'deletePage');
+    form.append('path', assetPath);
+    form.append('force','true'),
+    form.append('_charset_','utf-8');
 
-browser.addCommand('AEMSitesSetView', function(type) {
+    client.post(url.resolve(aem.author.base_url, '/bin/wcmcommand'), form);
+
+}
+
+async function AEMSitesSetView(type) {
     if (!Object.values(commons.AEMSitesViewTypes).includes(type)) {
         throw new Error(`View type ${type} is not supported`);
     }
 
-    browser.url(AEM_SITES_PATH);
+    await browser.url(AEM_SITES_PATH);
 
-    browser.setCookies({
+    await browser.setCookies({
         name: 'cq-sites-pages-pages',
         value: type
     });
 
-    browser.refresh();
-});
-
-browser.addCommand('AEMSitesSetPageTitle', function(parentPath, name, title) {
+    await browser.refresh();
+}
+//
+async function AEMSitesSetPageTitle(parentPath, name, title) {
     let originalTitle = '';
 
     // Navigate to page parent path
-    browser.url(path.posix.join(AEM_SITES_PATH, parentPath));
+    await browser.url(path.posix.join(AEM_SITES_PATH, parentPath));
 #if ( $aemVersion != "cloud" )
     const checkboxSelector = `[data-foundation-collection-item-id="${path.posix.join(parentPath, name)}"] td:first-child img`;
 #else
     const checkboxSelector = `[data-foundation-collection-item-id="${path.posix.join(parentPath, name)}"] [type="checkbox"]`;
-#end
-
+#end	
     // Select sample page in the list
-    $(checkboxSelector).waitForClickable();
-    browser.pause(1000); // Avoid action bar not appearing after clicking checkbox
-    $(checkboxSelector).click();
+    await $(checkboxSelector).waitForClickable({ timeout: 3000 });
+
+
+
+    // eslint-disable-next-line wdio/no-pause
+    await browser.pause(1000); // Avoid action bar not appearing after clicking checkbox
+    await $(checkboxSelector).click();
     // Access page properties form
-    $('[data-foundation-collection-action*="properties"]').click();
+    await $('[data-foundation-collection-action*="properties"]').click();
     // Store original title
-    originalTitle = $('[name="./jcr:title"]').getValue();
+    originalTitle = await $('[name="./jcr:title"]').getValue();
     // Modify title
-    $('[name="./jcr:title"]').setValue(title);
+    await $('[name="./jcr:title"]').setValue(title);
     // Submit
-    $('[type="submit"]').click();
+    await $('[type="submit"]').click();
     // Wait until we get redirected to the Sites console
-    $(checkboxSelector).waitForExist();
+    await $(checkboxSelector).waitForExist();
 
     return originalTitle;
-});
+}
 
 async function fileHandle(filePath) {
-    if (config.upload_url) {
-        return fileHandleByUploadUrl(config.upload_url, filePath);
+    if (upload_url) {
+        return fileHandleByUploadUrl(upload_url, filePath);
     }
-    if (config.shared_folder) {
-        return fileHandleBySharedFolder(config.shared_folder, filePath);
+    if (shared_folder) {
+        return fileHandleBySharedFolder(shared_folder, filePath);
     }
     return filePath;
 }
@@ -156,14 +164,19 @@ function fileHandleBySharedFolder(sharedFolderPath, filePath) {
 }
 
 function fileHandleByUploadUrl(uploadUrl, filePath) {
-    return request.post(uploadUrl, {
-        formData: {
-            data: {
-                value: fs.createReadStream(filePath),
-                options: {
-                    filename: path.basename(filePath)
-                }
-            },
-        },
-    });
+    const formData = new FormData();
+    formData.append(path.basename(filePath), fs.createReadStream(filePath));
+    return axios.post(uploadUrl, formData, {
+        headers: formData.getHeaders()
+    }).then( response =>  response.data);
 }
+
+export const commands = {
+    'AEMLogin': AEMLogin,
+    'AEMForceLogout': AEMForceLogout,
+    'AEMSitesSetView': AEMSitesSetView,
+    'AEMSitesSetPageTitle': AEMSitesSetPageTitle,
+    'getFileHandleForUpload': getFileHandleForUpload,
+    'AEMPathExists': AEMPathExists,
+    'AEMDeleteAsset': AEMDeleteAsset
+};

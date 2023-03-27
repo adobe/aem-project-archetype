@@ -14,13 +14,14 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-const PNG = require('pngjs').PNG;
-const pixelmatch = require('pixelmatch');
-const logger = require('@wdio/logger').default;
+import { PNG } from 'pngjs';
+
+import pixelmatch from 'pixelmatch';
+import logger from '@wdio/logger';
 const log = logger('PixelMatchPlugin');
-const { checkFileExists, makeDirectories, readPng, writePng } = require('./fileutils');
-const comparisonStrategy = require('./comparisonstrategy');
-const { PathUtils, SCREENSHOTTYPES } = require('./pathutils');
+import { checkFileExists, makeDirectories, readPng, writePng } from './fileutils.js';
+import {comparisonStrategy} from './comparisonstrategy.js';
+import { PathUtils, SCREENSHOTTYPES } from './pathutils.js';
 /**
  * A WDIO visual regression service based on pixelmatch plugin
  */
@@ -95,6 +96,5 @@ class PixelMatchPlugin {
         // TODO: something before each Cucumber scenario run
     }
 }
-module.exports = {
-    PixelMatchPlugin
-};
+
+export  { PixelMatchPlugin };

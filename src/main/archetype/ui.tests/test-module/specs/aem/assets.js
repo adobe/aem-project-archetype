@@ -13,70 +13,79 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-const path = require('path');
-const config = require('../../lib/config');
-const commons = require('../../lib/commons');
+
+
+import commons from '../../lib/commons.js';
+import { aem } from '../../lib/config.js';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 
 describe('AEM Assets', () => {
 
     // AEM Login
-    beforeEach(() => {
-        browser.AEMForceLogout();
-        browser.url(config.aem.author.base_url);
-        browser.AEMLogin(config.aem.author.username, config.aem.author.password);
+    beforeEach(async () => {
+        await browser.AEMForceLogout();
+        await browser.url(aem.author.base_url);
+        await browser.AEMLogin(aem.author.username, aem.author.password);
     });
 
-    let onboardingHdler;
+    let onboardingHandler;
 
     before(function() {
         // Enable helper to handle onboarding dialog popup
-        onboardingHdler = new commons.OnboardingDialogHandler(browser);
-        onboardingHdler.enable();
+        onboardingHandler = new commons.OnboardingDialogHandler(browser);
+        onboardingHandler.enable();
     });
 
     after(function() {
         // Disable helper to handle onboarding dialog popup
-        onboardingHdler.disable();
+        onboardingHandler.disable();
     });
 
-    it.skip('should be possible to upload an asset', () => {
+    it.skip('should be possible to upload an asset', async () => {
         let assetsPath = '/content/dam';
         let imageName = 'image.png';
         let imagePath = `${assetsPath}/${imageName}`;
 
         // Go to the Assets page.
-        browser.url(`${config.aem.author.base_url}/assets.html${assetsPath}`);
+        await browser.url(`${aem.author.base_url}/assets.html${assetsPath}`);
 
         // Compute the handle for the asset.
-        let handle = browser.getFileHandleForUpload(path.join(__dirname, '..', '..', 'assets', imageName));
+        let handle = await browser.getFileHandleForUpload(path.join(__dirname, '..', '..', 'assets', imageName));
 
         // Required when AEM language is not "English"
-        browser.refresh();
+        await browser.refresh();
 
         // Add the handle to the web page element.
-        $('dam-chunkfileupload > input').addValue(handle);
+        await $('dam-chunkfileupload > input').addValue(handle);
 
         // Wait two seconds for the upload dialog to be interactive.
-        browser.pause(2000);
+        // eslint-disable-next-line wdio/no-pause
+        await browser.pause(2000);
 
         // Press the upload button.
-        $('coral-dialog.is-open coral-dialog-footer [variant="primary"]').click();
+        await $('coral-dialog.is-open coral-dialog-footer [variant="primary"]').click();
 
         // Wait until Asset exists
-        browser.waitUntil(function() {
-            return browser.AEMPathExists(browser.options.baseUrl, imagePath);
+        await browser.waitUntil(async function() {
+            return await browser.AEMPathExists(browser.options.baseUrl, imagePath);
         },
         {timeoutMsg: `asset ${imagePath} should exist`}
         );
 
         // Delete Asset
-        browser.AEMDeleteAsset(imagePath);
+        await browser.AEMDeleteAsset(imagePath);
 
         // Wait until Asset does not exist anymore
-        browser.waitUntil(function() {
-            return true !== browser.AEMPathExists(config.aem.author.base_url, imagePath);
+        await browser.waitUntil(function() {
+            return true !== browser.AEMPathExists(aem.author.base_url, imagePath);
         },
-        {timeoutMsg: `asset ${imagePath} should not exist`}
+        {timeout: 3000, timeoutMsg: `asset ${imagePath} should not exist`}
         );
     });
 

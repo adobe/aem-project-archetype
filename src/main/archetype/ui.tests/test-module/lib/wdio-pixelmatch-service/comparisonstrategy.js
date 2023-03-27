@@ -13,7 +13,8 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-const logger = require('@wdio/logger').default;
+import logger from '@wdio/logger';
+
 const log = logger('PixelMatchPlugin');
 /**
  * Reference https://github.com/mjhea0/cypress-visual-regression/blob/e2f3ce269d7267392593db814acba070876db19f/src/plugin.js#L104
@@ -33,4 +34,4 @@ function comparisonStrategy(mismatchedPixels, width, height, config = {}) {
     const errorPercentage = (mismatchedPixels / (width * height)) ** 0.5;
     return errorPercentage <= errorThreshold;
 }
-module.exports = comparisonStrategy;
+export {comparisonStrategy};
