@@ -13,26 +13,29 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-const config = require('../../lib/config');
+import { aem } from '../../lib/config.js';
 
 describe('AEM Basic', () => {
 
     // AEM Login
-    beforeEach(() => {
-        browser.AEMForceLogout();
-        browser.url(config.aem.author.base_url);
-        browser.AEMLogin(config.aem.author.username, config.aem.author.password);
+
+    console.log(aem.author.base_url);
+
+
+    beforeEach(async () => {
+        await browser.AEMForceLogout();
+        await browser.url(aem.author.base_url);
+        await browser.AEMLogin(aem.author.username, aem.author.password);
     });
 
-    it('should be possible to display Solutions panel', () => {
-        browser.url(config.aem.author.base_url);
+    it('should be possible to display Solutions panel', async () => {
+        await browser.url(aem.author.base_url);
 
-        $('[data-foundation-toggleable-control-src$="solutionswitcher.html"]').click();
-
+        await $('[data-foundation-toggleable-control-src$="solutionswitcher.html"]').click();
 #if ( $aemVersion != "cloud" )
-        $('coral-shell-solutionswitcher').waitForDisplayed();
+        await $('coral-shell-solutionswitcher').waitForDisplayed();
 #else
-        $('coral-shell-menu[aria-label$="solutions"]').waitForDisplayed();
+        await $('coral-shell-menu[aria-label$="solutions"]').waitForDisplayed();
 #end
     });
 

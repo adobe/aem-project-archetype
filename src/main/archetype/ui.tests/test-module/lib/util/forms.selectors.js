@@ -1,4 +1,5 @@
-var selectors = {
+
+export const selectors = {
     editor : {
         fdmEditor : {
             title : '#fdm-editor-header-title',
@@ -26,4 +27,3 @@ var selectors = {
     }
 };
 
-module.exports = selectors;

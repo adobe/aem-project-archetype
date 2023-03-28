@@ -13,37 +13,33 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-const conf   = require('./config');
-const moment = require('moment');
-const path   = require('path');
-const request = require('request-promise');
-const tough = require('tough-cookie');
+import {screenshots_path} from './config.js';
+
+import moment from 'moment';
+import path from 'path';
+import { CookieJar, Cookie }  from 'tough-cookie';
 
 const AEMSitesViewTypes = Object.freeze({'CARD': 'card', 'COLUMN': 'column', 'LIST': 'list'});
 
 function takeScreenshot(browser, prefix) {
     prefix = prefix == null ? '' : prefix + '-';
     const timestamp = moment().format('YYYYMMDD-HHmmss.SSS');
-    const filepath = path.join(conf.screenshots_path, prefix + timestamp + '.png');
+    const filepath = path.join(screenshots_path, prefix + timestamp + '.png');
     browser.saveScreenshot(filepath);
     process.emit('test:screenshot', filepath);
     return this;
 }
 
-function getAuthenticatedRequestOptions(browser) {
-    let loginCookies = _getLoginCookies(browser);
-    let jar = request.jar();
-    let currentUrl = new URL(browser.getUrl());
-
+async function getAuthenticatedRequestOptions(browser) {
+    let loginCookies = await _getLoginCookies(browser);
+    let currentUrl = new URL(await browser.getUrl());
+    const jar = new CookieJar();
     loginCookies.forEach(cookie => jar.setCookie(cookie.toString(), currentUrl.origin));
-
-    return {
-        jar: jar
-    };
+    return jar;
 }
 
-function _getLoginCookies(browser) {
-    let cookies = browser.getCookies();
+async function _getLoginCookies(browser) {
+    let cookies = await browser.getCookies();
 
     // Get login and affinity cookies only
     let loginCookies = cookies.filter(e => ['login-token', 'affinity'].includes(e.name));
@@ -55,7 +51,7 @@ function _getLoginCookies(browser) {
 
     return loginCookies.map(
         c =>
-            new tough.Cookie({
+            new Cookie({
                 key: c.name,
                 value: c.value,
                 httpOnly: c.httpOnly,
@@ -65,6 +61,7 @@ function _getLoginCookies(browser) {
     );
 }
 
+
 class OnboardingDialogHandler {
     constructor(browser) {
         this.browser = browser;
@@ -72,24 +69,26 @@ class OnboardingDialogHandler {
     }
 
     enable() {
-        this.beforeCmdBkp = this.browser.config.beforeCommand || [];
+        this.beforeCmdBkp = this.browser.options.beforeCommand || [];
 
-        this.browser.config.beforeCommand.push(function() {
-            if($('coral-overlay[class*="onboarding"]').isDisplayedInViewport()) {
+
+        this.browser.options.beforeCommand.push( async function() {
+            let isDisplayed =  await $('coral-overlay[class*="onboarding"]').isDisplayedInViewport();
+            if( isDisplayed) {
                 console.log('User Onboarding Dialog is present, closing it.');
-                // console.log(arguments);
-                browser.keys('Escape');
-                $('coral-overlay[class*="onboarding"]').waitForDisplayed({reverse: true});
+                await browser.keys('Escape');
+                await $('coral-overlay[class*="onboarding"]').waitForDisplayed({reverse: true});
             }
+
         });
     }
 
     disable() {
-        this.browser.config.beforeCommand = this.beforeCmdBkp;
+        this.browser.options.beforeCommand = this.beforeCmdBkp;
     }
 }
 
-module.exports = {
+export default {
     AEMSitesViewTypes: AEMSitesViewTypes,
     getAuthenticatedRequestOptions: getAuthenticatedRequestOptions,
     takeScreenshot: takeScreenshot,

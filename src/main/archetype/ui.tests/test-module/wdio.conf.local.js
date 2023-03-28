@@ -17,14 +17,18 @@
 /**
  * DO NOT MODIFY
  */
-let PixelMatchPlugin = require('./lib/wdio-pixelmatch-service/launcher').PixelMatchPlugin;
-let wdio_config = require('./wdio.conf.commons.js').config;
-let config = require('./lib/config');
+import {PixelMatchPlugin} from './lib/wdio-pixelmatch-service/launcher.js';
+
+import { config as wdio_config } from './wdio.conf.commons.js';
+import { CHROME } from './lib/config.js';
+import { FIREFOX } from './lib/config.js';
+import { selenium } from './lib/config.js';
+import { reports_path } from './lib/config.js';
 
 wdio_config.hostname = 'localhost';
 wdio_config.services = [
     ['selenium-standalone', {
-        logPath: config.reports_path}
+        logPath: reports_path}
     ],
     [PixelMatchPlugin, {
         viewportSize: { height: 768, width: 1366 },
@@ -35,8 +39,8 @@ wdio_config.services = [
 // Define capabilities based on configuration
 let capabilities = {};
 
-switch(config.selenium.browser) {
-case config.CHROME:
+switch(selenium.browser) {
+case CHROME:
     capabilities = {
         maxInstances: 1,
         browserName: 'chrome',
@@ -48,11 +52,11 @@ case config.CHROME:
             }
         }
     };
-    if (config.selenium.headless === true) {
+    if (selenium.headless === true) {
         capabilities['goog:chromeOptions'].args = ['headless'];
     }
     break;
-case config.FIREFOX:
+case FIREFOX:
     capabilities = {
         maxInstances: 1,
         browserName: 'firefox',
@@ -63,7 +67,7 @@ case config.FIREFOX:
             }
         }
     };
-    if (config.selenium.headless === true) {
+    if (selenium.headless === true) {
         capabilities['moz:firefoxOptions'].args = ['-headless'];
     }
     break;
@@ -72,5 +76,4 @@ default:
 }
 
 wdio_config.capabilities = [capabilities];
-
-exports.config = wdio_config;
+export const config = wdio_config;
