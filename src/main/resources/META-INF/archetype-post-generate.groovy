@@ -212,7 +212,6 @@ if ((includeForms == "y" || includeFormsenrollment == "y" || includeFormscommuni
 // If Forms SPA Project, delete unsupported components
 if ((includeFormsenrollment == "y" || includeFormscommunications == "y") && frontendModule == "react") {
     assert new File("$appsFolder/components/adaptiveForm/accordion").deleteDir();
-    assert new File("$appsFolder/components/adaptiveForm/actions").deleteDir();
     assert new File("$appsFolder/components/adaptiveForm/datepicker").deleteDir();
     assert new File("$appsFolder/components/adaptiveForm/emailinput").deleteDir();
     assert new File("$appsFolder/components/adaptiveForm/fileinput").deleteDir();

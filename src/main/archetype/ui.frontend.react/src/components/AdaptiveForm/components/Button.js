@@ -43,4 +43,4 @@ const ButtonEditConfig = {
     return !props;
   },
 };
-export default MapTo('${appId}/components/adaptiveForm/button')(withRuleEngine(AdaptiveFormButton), ButtonEditConfig);
+export default MapTo(['${appId}/components/adaptiveForm/button', '${appId}/components/adaptiveForm/actions/submit', '${appId}/components/adaptiveForm/actions/reset'])(withRuleEngine(AdaptiveFormButton), ButtonEditConfig);
