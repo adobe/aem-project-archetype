@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 // Customer's component
 const RadioGroupComponent = (props) => {
   const {
-    label, id, required, enumNames, enum: enums,
+    label, required, enumNames, enum: enums,
     visible, value, onChange, description, valid, name
   } = props;
   const errorMessage = props.errorMessage || DEFAULT_ERROR_MESSAGE;

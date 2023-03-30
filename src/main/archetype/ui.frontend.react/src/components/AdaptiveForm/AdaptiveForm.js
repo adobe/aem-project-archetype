@@ -51,7 +51,7 @@ const AdaptiveFormContainer = (formJson) => {
       const defaultSubmissionError = 'Error during form submission'; // todo localize this
       window.alert(defaultSubmissionError);
     }, 'submitError');
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formJson]);
 
   if (!state) {
