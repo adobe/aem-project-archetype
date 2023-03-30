@@ -26,6 +26,7 @@
 #set( $endbrace = "}" )
 #set( $isSpaProject = $frontendModule == "angular" || $frontendModule == "react" || $frontendModule == "decoupled" )
 #set( $includeClassifierOnUberJar = $aemVersion.matches("6\.5\.[0-5]") )
+#set( $isFormsSpa = ($includeFormsenrollment == "y" || $includeFormscommunications == "y") && ($frontendModule == "react") )
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>${groupId}</groupId>
@@ -83,8 +84,8 @@
 
 #if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
 #if ($aemVersion == "cloud")
-        <core.forms.components.version>2.0.6</core.forms.components.version>
-        <core.forms.components.af.version>2.0.6</core.forms.components.af.version>
+        <core.forms.components.version>2.0.10</core.forms.components.version>
+        <core.forms.components.af.version>2.0.10</core.forms.components.af.version>
 #else
         <core.forms.components.version>1.1.12</core.forms.components.version>
         <core.forms.components.af.version>1.1.12</core.forms.components.af.version>

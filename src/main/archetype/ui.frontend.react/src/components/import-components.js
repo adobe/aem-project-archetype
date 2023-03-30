@@ -19,6 +19,16 @@ import './Page/Page';
 import './Container/Container';
 import './ExperienceFragment/ExperienceFragment';
 
+#if ($isFormsSpa)
+import './AdaptiveForm/AdaptiveForm';
+import './AdaptiveForm/components/Button';
+import './AdaptiveForm/components/DropDown';
+import './AdaptiveForm/components/Panel';
+import './AdaptiveForm/components/TextField';
+import './AdaptiveForm/components/RadioButton';
+import './AdaptiveForm/components/CheckboxGroup';
+#end
+
 import {MapTo} from '@adobe/aem-react-editable-components';
 
 import {

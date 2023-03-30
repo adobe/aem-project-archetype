@@ -209,6 +209,23 @@ if ((includeForms == "y" || includeFormsenrollment == "y" || includeFormscommuni
     assert new File("$appsFolder/components/formsandcommunicationportal").deleteDir();
 }
 
+// If Forms SPA Project, delete unsupported components
+if ((includeFormsenrollment == "y" || includeFormscommunications == "y") && frontendModule == "react") {
+    assert new File("$appsFolder/components/adaptiveForm/accordion").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/datepicker").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/emailinput").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/fileinput").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/footer").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/image").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/numberinput").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/page").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/pageheader").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/tabsontop").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/telephoneinput").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/text").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/title").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/wizard").deleteDir();
+}
 
 // For Headless Only
 if (includeFormsheadless == "n") {

@@ -5,4 +5,8 @@
     jcr:title="Adaptive Form Container"
     fd:version="2.1"
     sling:resourceSuperType="core/fd/components/form/container/v2/container"
-    componentGroup=".${appTitle} - Adaptive Form"/>
+  #if($isFormsSpa)
+    componentGroup="${appTitle} - Adaptive Form"/>
+  #else
+  componentGroup=".${appTitle} - Adaptive Form"/>
+  #end
