@@ -41,9 +41,9 @@
             <version>4.13.1</version>
         </dependency>
         <dependency>
-            <groupId>net.sourceforge.htmlunit</groupId>
+            <groupId>org.htmlunit</groupId>
             <artifactId>htmlunit</artifactId>
-            <version>2.45.0</version>
+            <version>3.1.0</version>
         </dependency>
 #if ($aemVersion == "cloud")
         <dependency>
