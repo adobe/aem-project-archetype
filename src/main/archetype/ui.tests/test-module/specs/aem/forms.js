@@ -295,4 +295,34 @@ describe('AEM Forms OOTB Content Tests', () => {
         });
     });
 
+    describe('DataLayer testing', () => {
+        const templatePath = '/conf/myformtemplate/settings/wcm/templates/blank-af-v2';
+        it('Verify dataLayer for v2 template ' + templatePath, async function () {
+            await browser.url(`${aem.author.base_url}/${templatePath}/initial.html?wcmmode=disabled`);
+            let isDataLayerVerificationSuccessful = true;
+            const updateSuccessStatus = (status) => {
+                isDataLayerVerificationSuccessful = status && isDataLayerVerificationSuccessful;
+                if(!isDataLayerVerificationSuccessful){
+                    return false;
+                }
+            };
+            await browser.waitUntil(async function () {
+                const dataLayer = await browser.execute(function () {
+                    return window.adobeDataLayer; // eslint-disable-line
+                });
+                return dataLayer !== undefined;
+            },
+            {
+                timeout: 20000, //20secs
+                timeoutMsg: 'Instance slow! datalayer could not be loaded!'
+            });
+            let dataLayerState = await browser.execute('return window.adobeDataLayer.getState()');
+            updateSuccessStatus(dataLayerState);
+            const dataLayerKeys = Object.keys(dataLayerState);
+            updateSuccessStatus(dataLayerKeys.length > 0 );
+            updateSuccessStatus(dataLayerKeys.includes('page') );
+            return isDataLayerVerificationSuccessful;
+        });
+    });
+
 });
