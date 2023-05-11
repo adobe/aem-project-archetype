@@ -156,7 +156,7 @@
                     default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, —\, 0.8125rem\, —,paddingPopover:0px]"
                     phone_x0023_default="[margin-left:1rem,margin-bottom:0.5rem]"
                     phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:0.5rem]"
-                    tablet_x0023_default="[margin-bottom:0px,display:none]"
+                    tablet_x0023_default="[margin-bottom:0px]"
                     tablet_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:0px]"/>
                 <af_helpicon
                     jcr:primaryType="nt:unstructured"
