@@ -21,7 +21,7 @@
     <image
         jcr:primaryType="nt:unstructured"
         jcr:title="Logo"
-        sling:resourceType="wcm/foundation/components/image"
+        sling:resourceType="${appId}/components/image"
         name="logoImage"/>
     <text
         jcr:primaryType="nt:unstructured"
