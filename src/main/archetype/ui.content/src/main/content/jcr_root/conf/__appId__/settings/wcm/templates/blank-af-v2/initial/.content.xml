@@ -6,7 +6,9 @@
         cq:template="/conf/${appId}/settings/wcm/templates/blank-af-v2"
         jcr:primaryType="cq:PageContent"
         sling:resourceType="${appId}/components/adaptiveForm/page"
+#if ( $aemVersion == "cloud")
         sling:configRef="/conf/${appId}/forms"
+#end
         guideComponentType="fd/af/templates">
         <guideContainer
             fd:version="2.1"
