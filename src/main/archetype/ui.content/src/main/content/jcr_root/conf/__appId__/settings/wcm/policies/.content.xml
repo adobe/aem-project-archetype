@@ -14,6 +14,7 @@
                                 jcr:description="Policy of the Adaptive Form page"
                                 jcr:primaryType="nt:unstructured"
                                 jcr:title="Default Page"
+                                jcr:lastModified="{Date}2023-05-22T15:34:31.056+05:30"
                                 sling:resourceType="wcm/core/components/policy/policy"
                                 clientlibs="[wcm.foundation.components.page.responsive]">
                                 <jcr:content jcr:primaryType="nt:unstructured"/>
@@ -25,6 +26,7 @@
                         <default
                             jcr:description="Policy of the Adaptive Form Guide Container"
                             jcr:primaryType="nt:unstructured"
+                            jcr:lastModified="{Date}2023-05-22T15:34:31.056+05:30"
                             jcr:title="Simple Adaptive Form Guide Container Policy"
                             sling:resourceType="wcm/core/components/policy/policy"
                             components="[group:Adaptive Form]">
@@ -571,6 +573,7 @@
                   jcr:description="Policy of the Adaptive Form V2 Container"
                   jcr:primaryType="nt:unstructured"
                   jcr:title="Simple Adaptive Form V2 Container Policy"
+                  jcr:lastModified="{Date}2023-05-22T15:34:31.056+05:30"
                   sling:resourceType="wcm/core/components/policy/policy"
                   components="[group:${appTitle} - Adaptive Form]">
                   <cq:authoring jcr:primaryType="nt:unstructured">
@@ -645,6 +648,7 @@
                             jcr:description="Policy of the Adaptive Form"
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Simple Adaptive Form Policy"
+                            jcr:lastModified="{Date}2022-10-18T16:11:28.605+05:30"
                             sling:resourceType="wcm/core/components/policy/policy"
                             components="[group:${appTitle} - Content,group:${appTitle} - Structure,/libs/fd/af/components/guideheader,/libs/fd/af/components/guidefooter,/libs/fd/af/components/guideimage,/libs/fd/af/components/guidetextdraw,/libs/fd/af/components/afFormTitle]">
                         <cq:authoring jcr:primaryType="nt:unstructured">
