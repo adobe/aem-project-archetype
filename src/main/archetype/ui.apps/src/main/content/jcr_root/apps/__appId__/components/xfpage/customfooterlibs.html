@@ -36,3 +36,11 @@
             data-sly-attribute="${symbol_dollar}{item.attributes}"></script>
 </sly>
 
+#if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
+<sly data-sly-use.clientlib="core/wcm/components/commons/v1/templates/clientlib.html"
+     data-sly-use.formstructparser="com.adobe.cq.forms.core.components.models.form.FormStructureParser"
+     data-sly-test.hasForm="${symbol_dollar}{formstructparser.containsFormContainer}">
+    <sly data-sly-test="${symbol_dollar}{hasForm}" data-sly-call="${symbol_dollar}{clientlib.js @ categories='core.forms.components.runtime.all', async=true}"/>
+</sly>
+#end
+
