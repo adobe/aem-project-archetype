@@ -2,6 +2,6 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:description="Adaptive Form Header (v1) component"
     jcr:primaryType="cq:Component"
-    jcr:title="Adaptive Form Header"
+    jcr:title="Header"
     sling:resourceSuperType="core/fd/components/form/pageheader/v1/pageheader"
     componentGroup="${appTitle} - Adaptive Form"/>

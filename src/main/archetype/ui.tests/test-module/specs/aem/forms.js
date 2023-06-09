@@ -295,8 +295,10 @@ describe('AEM Forms OOTB Content Tests', () => {
         });
     });
 
+#if ( $datalayer == "y" )
     describe('DataLayer testing', () => {
-        const templatePath = '/conf/myformtemplate/settings/wcm/templates/blank-af-v2';
+
+        const templatePath = '/conf/${appId}/settings/wcm/templates/blank-af-v2';
         it('Verify dataLayer for v2 template ' + templatePath, async function () {
             await browser.url(`${aem.author.base_url}/${templatePath}/initial.html?wcmmode=disabled`);
             let isDataLayerVerificationSuccessful = true;
@@ -324,5 +326,5 @@ describe('AEM Forms OOTB Content Tests', () => {
             return isDataLayerVerificationSuccessful;
         });
     });
-
+#end
 });
