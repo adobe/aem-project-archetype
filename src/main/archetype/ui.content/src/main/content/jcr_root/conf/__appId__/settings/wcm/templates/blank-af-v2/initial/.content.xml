@@ -14,6 +14,9 @@
             fd:version="2.1"
             fieldType="form"
             jcr:primaryType="nt:unstructured"
+#if ( $aemVersion != "cloud")
+            themeClientLibRef="adaptiveform.theme.canvas3"
+#end            
             sling:resourceType="${appId}/components/adaptiveForm/formcontainer"/>
     </jcr:content>
 </jcr:root>
