@@ -2,6 +2,6 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:description="Link Component for Forms and Communications Portal"
     jcr:primaryType="cq:Component"
-    jcr:title="Link Component"
+    jcr:title="Link"
     sling:resourceSuperType="core/fd/components/formsportal/link/v2/link"
     componentGroup="${appTitle} - Forms and Communications Portal"/>
