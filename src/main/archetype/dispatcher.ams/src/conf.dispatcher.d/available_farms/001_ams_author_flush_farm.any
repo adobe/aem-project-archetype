@@ -1,0 +1,42 @@
+/authorflushfarm {  
+	/clientheaders {
+		$include "/etc/httpd/conf.dispatcher.d/clientheaders/ams_author_clientheaders.any"
+		$include "/etc/httpd/conf.dispatcher.d/clientheaders/ams_common_clientheaders.any"
+	}
+	/virtualhosts {
+		"authordispflush"
+		"authorflush"
+	}
+	/renders {
+		$include "/etc/httpd/conf.dispatcher.d/renders/ams_author_renders.any"
+	}
+	/filter {
+		$include "/etc/httpd/conf.dispatcher.d/filters/ams_author_filters.any"
+	}
+	/cache {
+		/docroot "${AUTHOR_DOCROOT}"
+		/statfileslevel "${DEFAULT_STAT_LEVEL}"
+		/rules {
+			$include "/etc/httpd/conf.dispatcher.d/cache/ams_author_cache.any"
+		}
+		/invalidate {
+			/0000 {
+				/glob "*"
+				/type "allow"
+			}
+		}
+		/allowedClients {
+			## By default block all IP from allowing to initiate the invalidation commands
+			/0000 {
+				/glob "*.*.*.*"
+				/type "deny"
+			}
+			## Allow certain IP's like publishers to invalidate cache
+			$include "/etc/httpd/conf.dispatcher.d/cache/ams_author_invalidate_allowed.any"
+		}
+		### Added for DOT Compliance https://www.adobe.com/go/aem_cmcq_disp-3---graceperiod_en
+		/gracePeriod "2"
+		### Added for DOT Compliance https://www.adobe.com/go/aem_cmcq_disp-5---servestaleo_en
+		/serveStaleOnError "1"
+	}
+}

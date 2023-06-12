@@ -1,64 +1,68 @@
-# Collect any enviromental variables that are set in /etc/sysconfig/httpd
-# Collect the dispatchers number
+## Collect any enviromental variables that are set in /etc/sysconfig/httpd
+## Collect the dispatchers number
 PassEnv DISP_ID
 
 <VirtualHost *:80>
-	# allowing slashes in the URL to be encoded and still honored
+	## allowing slashes in the URL to be encoded and still honored
 	AllowEncodedSlashes On
 	ServerName	publish
-	# Put names of which domains are used for your published site/content here
-	ServerAlias	${PUBLISH_DEFAULT_HOSTNAME}
-	# Use a doc root that matches what's in the /etc/httpd/conf/publish-farm.any
+	## Put names of which domains are used for your published site/content here
+	ServerAlias	${PUBLISH_DEFAULT_HOSTNAME} 
 	DocumentRoot	${PUBLISH_DOCROOT}
-	# Add header breadcrumbs for help in troubleshooting
+	## Add header breadcrumbs for help in troubleshooting
 	<IfModule mod_headers.c>
 		Header always add X-Dispatcher ${DISP_ID}
 		Header always add X-Vhost "publish"
 		Header merge X-Frame-Options SAMEORIGIN "expr=%{resp:X-Frame-Options}!='SAMEORIGIN'"
 		Header merge X-Content-Type-Options nosniff "expr=%{resp:X-Content-Type-Options}!='nosniff'"
-		# Force SSL for author
-		# Add HSTS for avoiding man in the middle during browser redirect to SSL
-		Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains;"
+		#### Make sure proxies don't deliver the wrong content
+		Header append Vary User-Agent env=!dont-vary
+	    ## Force SSL for author
+	    ## Add HSTS for avoiding man in the middle during browser redirect to SSL
+	    Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains;"
 	</IfModule>
-	<Directory "${PUBLISH_DOCROOT}">
-		# Update /etc/sysconfig/httpd with setting the PUBLISH_ALLOWLIST_ENABLED from 0 or 1 to enable or disable ip restriction rules
-		<If "${PUBLISH_ALLOWLIST_ENABLED} == 1">
-			Include conf.d/allowlists/*_allowlist.rules
+	<Directory />
+		## Update /etc/sysconfig/httpd with setting the PUBLISH_WHITELIST_ENABLED from 0 or 1 to enable or disable ip restriction rules
+		<If "${PUBLISH_WHITELIST_ENABLED} == 1">
+			Include /etc/httpd/conf.d/whitelists/*_whitelist.rules
 		</If>
 		<IfModule disp_apache2.c>
-			# Some items cache with the wrong mime type
-			# Use this option to use the name to auto-detect mime types when cached improperly
+			## Some items cache with the wrong mime type
+			## Use this option to use the name to auto-detect mime types when cached improperly
 			ModMimeUsePathInfo On
-			# Use this option to avoid cache poisioning
-			# Sling will return /content/image.jpg as well as /content/image.jpg/ but apache can't search /content/image.jpg/ as a file
-			# Apache will treat that like a directory.  This assures the last slash is never stored in cache
+			## Use this option to avoid cache poisioning
+			## Sling will return /content/image.jpg as well as /content/image.jpg/ but apache can't search /content/image.jpg/ as a file
+			## Apache will treat that like a directory.  This assures the last slash is never stored in cache
 			DirectorySlash Off
-			# Enable the dispatcher file handler for apache to fetch files from AEM
+			## Enable the dispatcher file handler for apache to fetch files from AEM
 			SetHandler dispatcher-handler
 		</IfModule>
 		Options FollowSymLinks
 		AllowOverride None
-		Require all granted
-		# Insert filter
+		#### Insert filter
 		SetOutputFilter DEFLATE
-		# Don't compress images
+		#### Don't compress images
 		SetEnvIfNoCase Request_URI \
 		\.(?:gif|jpe?g|png)$ no-gzip dont-vary
 	</Directory>
+	<Directory "${PUBLISH_DOCROOT}">
+		AllowOverride None
+		Require all granted
+	</Directory>
 	<IfModule disp_apache2.c>
-		# Enabled to allow rewrites to take affect and not be ignored by the dispatcher module
+		## Enabled to allow rewrites to take affect and not be ignored by the dispatcher module
 		DispatcherUseProcessedURL	1
-		# Default setting to allow all errors to come from the aem instance
+		## Default setting to allow all errors to come from the aem instance
 		DispatcherPassError		0
 	</IfModule>
 	<IfModule mod_rewrite.c>
 		ReWriteEngine	on
 		LogLevel warn rewrite:info
-		# Global rewrite include
-		Include conf.d/rewrites/base_rewrite.rules
-		# Update /etc/sysconfig/httpd with setting the PUBLISH_FORCE_SSL from 0 or 1 to enable or disable enforcing SSL
+		##Global rewrite include
+		Include /etc/httpd/conf.d/rewrites/base_rewrite.rules
+		## Update /etc/sysconfig/httpd with setting the PUBLISH_FORCE_SSL from 0 or 1 to enable or disable enforcing SSL
 		<If "${PUBLISH_FORCE_SSL} == 1">
-			Include conf.d/rewrites/xforwarded_forcessl_rewrite.rules
+			Include /etc/httpd/conf.d/rewrites/xforwarded_forcessl_rewrite.rules
 		</If>
 	</IfModule>
 </VirtualHost>
