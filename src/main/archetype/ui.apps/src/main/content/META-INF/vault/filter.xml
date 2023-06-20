@@ -3,6 +3,7 @@
     <filter root="/apps/${appId}/clientlibs"/>
     <filter root="/apps/${appId}/components"/>
     <filter root="/apps/${appId}/i18n"/>
+    <filter root="/apps/fd/af/themes"/>
 #if ( $includeErrorHandler == "y" )
     <filter root="/apps/sling" />
 #end

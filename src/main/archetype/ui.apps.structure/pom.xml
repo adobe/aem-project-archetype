@@ -36,8 +36,10 @@
                         <!-- /apps root -->
                         <filter><root>/apps</root></filter>
                         <filter><root>/apps/${appId}</root></filter>
-
                         <!-- Common overlay roots -->
+                        <filter><root>/apps/fd</root></filter>
+                        <filter><root>/apps/fd/af</root></filter>
+                        <filter><root>/apps/fd/af/themes</root></filter>
                         <filter><root>/apps/sling</root></filter>
                         <filter><root>/apps/cq</root></filter>
                         <filter><root>/apps/dam</root></filter>

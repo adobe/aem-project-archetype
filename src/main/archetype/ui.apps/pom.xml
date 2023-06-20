@@ -55,6 +55,7 @@
                     <group>${groupId}</group>
                     <name>${artifactId}</name>
                     <packageType>application</packageType>
+                    <skipSubPackageValidation>true</skipSubPackageValidation>
                     <repositoryStructurePackages>
                         <repositoryStructurePackage>
                             <groupId>${groupId}</groupId>
