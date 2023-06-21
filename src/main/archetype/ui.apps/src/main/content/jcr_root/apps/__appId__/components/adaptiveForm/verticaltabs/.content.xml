@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-    jcr:description="Adaptive Form Tabs on Top (v1) component"
+    jcr:description="Adaptive Form Vertical Tabs component"
     jcr:primaryType="cq:Component"
-    jcr:title="Adaptive Form Tabs on Top"
-    sling:resourceSuperType="core/fd/components/form/tabsontop/v1/tabsontop"
+    jcr:title="Vertical Tabs"
+    sling:resourceSuperType="core/fd/components/form/verticaltabs/v1/verticaltabs"
     componentGroup="${appTitle} - Adaptive Form"/>

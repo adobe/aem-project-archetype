@@ -207,6 +207,8 @@ if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunic
 }
 if ((includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunications == "y" || includeFormsheadless == "y") && aemVersion != "cloud") {
     assert new File("$appsFolder/components/formsandcommunicationportal").deleteDir();
+    //For 6.5 remove sling context aware configuration for theme association with core component af template
+    assert new File("$confFolder/forms").deleteDir()
 }
 
 
