@@ -41,6 +41,10 @@ local.properties
 # TeXlipse plugin
 .texlipse
 
+### VS Code ###
+
+# basic config
+.vscode
 
 ### Java ###
 *.class
