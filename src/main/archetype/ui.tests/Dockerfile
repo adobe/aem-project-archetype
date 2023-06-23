@@ -15,7 +15,7 @@
 #
 # DO NOT MODIFY
 #
-FROM node:18-slim
+FROM node:18.15.0-slim
 
 ENV APP_PATH /usr/src/app
 ENV SELENIUM_STARTUP_TIMEOUT 60
