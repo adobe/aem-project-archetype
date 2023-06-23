@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:fd="http://www.adobe.com/aemfd/fd/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:deviceGroups="[/etc/mobile/groups/responsive]"
+        cq:lastModified="{Date}2023-05-18T06:52:04.241Z"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/${appId}/settings/wcm/templates/benefits-enrollment"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Benefits Enrollment Form template"
+        sling:resourceType="${appId}/components/adaptiveForm/page"
+#if ( $aemVersion == "cloud")
+        sling:configRef="/conf/${appId}/forms"
+#end        
+        guideComponentType="fd/af/templates">
+        <guideContainer
+            fd:version="2.1"
+            jcr:primaryType="nt:unstructured"
+#if ( $aemVersion != "cloud")
+            themeClientLibRef="adaptiveform.theme.canvas3"
+#end        
+            sling:resourceType="${appId}/components/adaptiveForm/formcontainer"
+            fieldType="form">
+            <panelcontainer
+                jcr:lastModified="{Date}2023-04-18T06:36:58.709Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Panel"
+                sling:resourceType="${appId}/components/adaptiveForm/panelcontainer"
+                enabled="{Boolean}true"
+                fieldType="panel"
+                hideTitle="true"
+                layout="responsiveGrid"
+                name="BasicDetailsPanel"
+                readOnly="{Boolean}false"
+                textIsRich="[true,true]"
+                visible="{Boolean}true"
+                wrapData="{Boolean}false">
+                <textinput_copy
+                    jcr:lastModified="{Date}2023-05-12T06:41:02.828Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="First name"
+                    sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                    autocomplete="off"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    mandatoryMessage="Please enter your first name."
+                    name="FirstName"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true,true]"
+                    validatePictureClauseMessage="[,]"
+                    visible="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="0"
+                            width="6"/>
+                    </cq:responsive>
+                </textinput_copy>
+                <textinput_944912067_
+                    jcr:lastModified="{Date}2023-05-12T06:41:09.111Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Last name"
+                    sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                    autocomplete="off"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    mandatoryMessage="Please enter your last name."
+                    name="LastName"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true,true]"
+                    validatePictureClauseMessage="[,]"
+                    visible="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="0"
+                            width="6"/>
+                    </cq:responsive>
+                </textinput_944912067_>
+                <telephoneinput_copy
+                    jcr:lastModified="{Date}2023-05-12T07:27:51.316Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Phone number"
+                    sling:resourceType="${appId}/components/adaptiveForm/telephoneinput"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    mandatoryMessage="Please enter a valid US phone number, including the area code. Example: (123) 456-7890"
+                    name="PhoneNumber"
+                    pattern="^[0-9]{10}$"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true]"
+                    validateExpMessage="Please enter a valid US phone number, including the area code. Example: (123) 456-7890"
+                    validatePatternMessage="Please enter a valid US phone number, including the area code. Example: (123) 456-7890"
+                    visible="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="0"
+                            width="12"/>
+                    </cq:responsive>
+                </telephoneinput_copy>
+                <emailinput_copy
+                    jcr:lastModified="{Date}2023-05-09T15:47:12.885Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Email"
+                    sling:resourceType="${appId}/components/adaptiveForm/emailinput"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    mandatoryMessage="Please enter your email id."
+                    name="Email"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true]"
+                    visible="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="0"
+                            width="12"/>
+                    </cq:responsive>
+                </emailinput_copy>
+                <textinput_479439788_
+                    jcr:lastModified="{Date}2023-05-18T06:30:31.292Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Mailing address"
+                    sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                    autocomplete="off"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    mandatoryMessage="Please provide your communication address."
+                    multiLine="true"
+                    name="Address"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true,true]"
+                    validatePictureClauseMessage="[,]"
+                    visible="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="0"
+                            width="12"/>
+                    </cq:responsive>
+                </textinput_479439788_>
+                <datepicker
+                    jcr:lastModified="{Date}2023-05-12T06:41:25.781Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Date of birth"
+                    sling:resourceType="${appId}/components/adaptiveForm/datepicker"
+                    enabled="{Boolean}true"
+                    fieldType="date-input"
+                    mandatoryMessage="Please enter your date of birth."
+                    name="DOB"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true]"
+                    visible="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            behavior="newline"
+                            offset="0"
+                            width="12"/>
+                    </cq:responsive>
+                    <fd:rules
+                        fd:calc="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;CLEAR_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;VALUE_FIELD&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.BasicDetailsPanel.DOB&quot;\,&quot;type&quot;:&quot;DATE&quot;\,&quot;name&quot;:&quot;DOB&quot;}}\,{&quot;nodeName&quot;:&quot;When&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;CONDITIONORALWAYS&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPARISON_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.BasicDetailsPanel.DOB&quot;\,&quot;displayName&quot;:&quot;Date of Birth*&quot;\,&quot;type&quot;:&quot;DATE&quot;\,&quot;displayPath&quot;:&quot;FORM/Panel/Date of Birth*/&quot;\,&quot;name&quot;:&quot;DOB&quot;\,&quot;parent&quot;:&quot;$form.BasicDetailsPanel&quot;}}}\,{&quot;nodeName&quot;:&quot;OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;IS_AFTER&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;FUNCTION_CALL&quot;\,&quot;functionName&quot;:{&quot;id&quot;:&quot;today&quot;\,&quot;displayName&quot;:&quot;Get Current Date&quot;\,&quot;type&quot;:&quot;DATE&quot;\,&quot;isDuplicate&quot;:false\,&quot;displayPath&quot;:&quot;&quot;\,&quot;args&quot;:[]\,&quot;impl&quot;:&quot;$0()&quot;}\,&quot;params&quot;:[]}}]}}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:&quot;if(new Date($field)>new Date(today())\,null()\,$field)&quot;\,&quot;eventName&quot;:&quot;Calculate&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                        jcr:primaryType="nt:unstructured"
+                        validationStatus="valid"
+                        value="if(new Date($field)>new Date(today()),null(),$field)"/>
+                    <fd:events jcr:primaryType="nt:unstructured"/>
+                </datepicker>
+                <textinput_1733225564
+                    jcr:lastModified="{Date}2023-05-18T06:30:53.133Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="National identification number"
+                    sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                    autocomplete="off"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    mandatoryMessage="Please enter your Social Security number."
+                    name="NIN"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true,true]"
+                    visible="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="0"
+                            width="12"/>
+                    </cq:responsive>
+                </textinput_1733225564>
+                <checkboxgroup
+                    jcr:lastModified="{Date}2023-05-12T12:15:22.772Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Select the service benefits you would like to enroll in"
+                    sling:resourceType="${appId}/components/adaptiveForm/checkboxgroup"
+                    enabled="{Boolean}true"
+                    enum="[0,1,2,3]"
+                    enumNames="[Education,Healthcare,Child Care,Other]"
+                    fieldType="checkbox-group"
+                    mandatoryMessage="Please select one or more service benefits."
+                    name="BenefitSelectionCheckBox"
+                    orientation="horizontal"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true]"
+                    type="string[]"
+                    visible="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            behavior="newline"/>
+                    </cq:responsive>
+                    <fd:rules
+                        fd:valueCommit="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_SCRIPTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EVENT_CONDITION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.BasicDetailsPanel.BenefitSelectionCheckBox&quot;\,&quot;type&quot;:&quot;AFCOMPONENT|FIELD|CHECK BOX|STRING[]&quot;\,&quot;name&quot;:&quot;BenefitSelectionCheckBox&quot;}}\,{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON_OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;HAS_SELECTED&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;PRIMITIVE_EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;0&quot;}}]}\,&quot;nested&quot;:false}\,{&quot;nodeName&quot;:&quot;Then&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;BLOCK_STATEMENTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;BLOCK_STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_STATEMENT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.EducationPanel&quot;\,&quot;displayName&quot;:&quot;Educational Benefits&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;displayPath&quot;:&quot;FORM/Educational Benefits/&quot;\,&quot;name&quot;:&quot;EducationPanel&quot;\,&quot;parent&quot;:&quot;$form&quot;}}]}}]}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:[&quot;if(contains($field\, '0')\, dispatchEvent($form.EducationPanel\, 'custom:setProperty'\, {visible : true()})\, {})&quot;]\,&quot;eventName&quot;:&quot;Value Commit&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;},{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_SCRIPTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EVENT_CONDITION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.BasicDetailsPanel.BenefitSelectionCheckBox&quot;\,&quot;type&quot;:&quot;AFCOMPONENT|FIELD|CHECK BOX|STRING[]&quot;\,&quot;name&quot;:&quot;BenefitSelectionCheckBox&quot;}}\,{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON_OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;HAS_SELECTED&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;PRIMITIVE_EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;1&quot;}}]}\,&quot;nested&quot;:false}\,{&quot;nodeName&quot;:&quot;Then&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;BLOCK_STATEMENTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;BLOCK_STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_STATEMENT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.HealthCarePanel&quot;\,&quot;displayName&quot;:&quot;Healthcare&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;displayPath&quot;:&quot;FORM/Healthcare/&quot;\,&quot;name&quot;:&quot;HealthCarePanel&quot;\,&quot;parent&quot;:&quot;$form&quot;}}]}}]}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:[&quot;if(contains($field\, '1')\, dispatchEvent($form.HealthCarePanel\, 'custom:setProperty'\, {visible : true()})\, {})&quot;]\,&quot;eventName&quot;:&quot;Value Commit&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;},{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_SCRIPTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EVENT_CONDITION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.BasicDetailsPanel.BenefitSelectionCheckBox&quot;\,&quot;type&quot;:&quot;AFCOMPONENT|FIELD|CHECK BOX|STRING[]&quot;\,&quot;name&quot;:&quot;BenefitSelectionCheckBox&quot;}}\,{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON_OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;HAS_SELECTED&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;PRIMITIVE_EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;2&quot;}}]}\,&quot;nested&quot;:false}\,{&quot;nodeName&quot;:&quot;Then&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;BLOCK_STATEMENTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;BLOCK_STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_STATEMENT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.ChildCarePanel&quot;\,&quot;displayName&quot;:&quot;Child Care&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;displayPath&quot;:&quot;FORM/Child Care/&quot;\,&quot;name&quot;:&quot;ChildCarePanel&quot;\,&quot;parent&quot;:&quot;$form&quot;}}]}}]}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:[&quot;if(contains($field\, '2')\, dispatchEvent($form.ChildCarePanel\, 'custom:setProperty'\, {visible : true()})\, {})&quot;]\,&quot;eventName&quot;:&quot;Value Commit&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;},{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_SCRIPTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EVENT_CONDITION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.BasicDetailsPanel.BenefitSelectionCheckBox&quot;\,&quot;type&quot;:&quot;STRING[]&quot;\,&quot;name&quot;:&quot;BenefitSelectionCheckBox&quot;}}\,{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON_OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;HAS_SELECTED&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;PRIMITIVE_EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;3&quot;}}]}\,&quot;nested&quot;:false}\,{&quot;nodeName&quot;:&quot;Then&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;BLOCK_STATEMENTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;BLOCK_STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_STATEMENT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.SignaturePanel.OtherBenefitInfo&quot;\,&quot;displayName&quot;:&quot;Specify benefits program details&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;displayPath&quot;:&quot;FORM/Signature Panel/Specify benefits program details/&quot;\,&quot;name&quot;:&quot;OtherBenefitInfo&quot;\,&quot;parent&quot;:&quot;$form.SignaturePanel&quot;}}]}}]}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:[&quot;if(contains($field\, '3')\, dispatchEvent($form.SignaturePanel.OtherBenefitInfo\, 'custom:setProperty'\, {visible : true()})\, {})&quot;]\,&quot;eventName&quot;:&quot;Value Commit&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                        jcr:primaryType="nt:unstructured"
+                        validationStatus="valid"/>
+                    <fd:events
+                        jcr:primaryType="nt:unstructured"
+                        change="[if(contains($field\, '0')\, dispatchEvent($form.EducationPanel\, 'custom:setProperty'\, {visible : true()})\, {}),if(contains($field\, '1')\, dispatchEvent($form.HealthCarePanel\, 'custom:setProperty'\, {visible : true()})\, {}),if(contains($field\, '2')\, dispatchEvent($form.ChildCarePanel\, 'custom:setProperty'\, {visible : true()})\, {}),if(contains($field\, '3')\, dispatchEvent($form.SignaturePanel.OtherBenefitInfo\, 'custom:setProperty'\, {visible : true()})\, {})]"/>
+                </checkboxgroup>
+            </panelcontainer>
+            <panelcontainer_1181419075
+                jcr:lastModified="{Date}2023-05-17T11:31:18.657Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Panel_Benefit Program Details"
+                sling:resourceType="${appId}/components/adaptiveForm/panelcontainer"
+                enabled="{Boolean}true"
+                fieldType="panel"
+                hideTitle="true"
+                name="PanelBenefitPrgrmDet"
+                readOnly="{Boolean}false"
+                textIsRich="[true,true]"
+                visible="{Boolean}true"
+                wrapData="{Boolean}false">
+                <textinput_678834311
+                    jcr:lastModified="{Date}2023-05-12T06:59:13.719Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Provide benefit program details"
+                    sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                    autocomplete="off"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    mandatoryMessage="Please specify benefits program details."
+                    multiLine="true"
+                    name="OtherBenefitInfo"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true,true]"
+                    tooltipVisible="true"
+                    validatePictureClauseMessage="[,]"
+                    visible="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="0"
+                            width="12"/>
+                    </cq:responsive>
+                    <fd:rules
+                        fd:visible="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.SignaturePanel.OtherBenefitInfo&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;name&quot;:&quot;OtherBenefitInfo&quot;}}\,{&quot;nodeName&quot;:&quot;When&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;CONDITIONORALWAYS&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPARISON_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.BasicDetailsPanel.BenefitSelectionCheckBox&quot;\,&quot;displayName&quot;:&quot;Please select the service benefit/s you would like to enroll in:&quot;\,&quot;type&quot;:&quot;STRING[]&quot;\,&quot;displayPath&quot;:&quot;FORM/Panel/Please select the service benefit/s you would like to enroll in:/&quot;\,&quot;name&quot;:&quot;BenefitSelectionCheckBox&quot;\,&quot;parent&quot;:&quot;$form.BasicDetailsPanel&quot;}}}\,{&quot;nodeName&quot;:&quot;OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;HAS_SELECTED&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;3&quot;}}]}}\,{&quot;nodeName&quot;:&quot;Else&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;DONOTHING_OR_HIDE&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;Hide&quot;\,&quot;value&quot;:null}}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:&quot;contains($form.BasicDetailsPanel.BenefitSelectionCheckBox\, '3')&quot;\,&quot;eventName&quot;:&quot;Visibility&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                        jcr:primaryType="nt:unstructured"
+                        validationStatus="valid"
+                        visible="contains($form.BasicDetailsPanel.BenefitSelectionCheckBox, '3')"/>
+                    <fd:events jcr:primaryType="nt:unstructured"/>
+                </textinput_678834311>
+            </panelcontainer_1181419075>
+            <panelcontainer_142543569
+                jcr:lastModified="{Date}2023-05-12T07:09:06.381Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Educational benefits"
+                sling:resourceType="${appId}/components/adaptiveForm/panelcontainer"
+                enabled="{Boolean}true"
+                fieldType="panel"
+                layout="responsiveGrid"
+                name="EducationPanel"
+                readOnly="{Boolean}false"
+                textIsRich="[true,true]"
+                visible="{Boolean}false"
+                wrapData="{Boolean}false">
+                <checkboxgroup
+                    jcr:lastModified="{Date}2023-05-12T12:11:57.825Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Select educational benefits program you want to enroll for"
+                    sling:resourceType="${appId}/components/adaptiveForm/checkboxgroup"
+                    enabled="{Boolean}true"
+                    enum="[FedStdAid,EmpTuiAssist,SchPro,OtherEdnBen]"
+                    enumNames="[Federal Student Aid,Employer Tuition Assistance,Scholarship Program,Other]"
+                    fieldType="checkbox-group"
+                    name="SelectEducationBenefits"
+                    orientation="horizontal"
+                    readOnly="{Boolean}false"
+                    textIsRich="[true,true]"
+                    type="string[]"
+                    visible="{Boolean}true"/>
+                <textinput
+                    jcr:lastModified="{Date}2023-05-12T12:10:30.375Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Provide details of other educational benefits programs"
+                    sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                    autocomplete="off"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    mandatoryMessage="Please specify the educational benefits program."
+                    multiLine="true"
+                    name="SpecifyEdnBeneProg"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true,true]"
+                    validatePictureClauseMessage="[,]"
+                    visible="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="0"
+                            width="12"/>
+                    </cq:responsive>
+                    <fd:rules
+                        fd:visible="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.EducationPanel.SpecifyEdnBeneProg&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;name&quot;:&quot;SpecifyEdnBeneProg&quot;}}\,{&quot;nodeName&quot;:&quot;When&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;CONDITIONORALWAYS&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPARISON_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.EducationPanel.SelectEducationBenefits&quot;\,&quot;displayName&quot;:&quot;Please select educational benefit/s program you want to enroll for&quot;\,&quot;type&quot;:&quot;STRING[]&quot;\,&quot;displayPath&quot;:&quot;FORM/Educational Benefits/Please select educational benefit/s program you want to enroll for/&quot;\,&quot;name&quot;:&quot;SelectEducationBenefits&quot;\,&quot;parent&quot;:&quot;$form.EducationPanel&quot;}}}\,{&quot;nodeName&quot;:&quot;OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;HAS_SELECTED&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;OtherEdnBen&quot;}}]}}\,{&quot;nodeName&quot;:&quot;Else&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;DONOTHING_OR_HIDE&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;Hide&quot;\,&quot;value&quot;:null}}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:&quot;contains(SelectEducationBenefits\, 'OtherEdnBen')&quot;\,&quot;eventName&quot;:&quot;Visibility&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                        jcr:primaryType="nt:unstructured"
+                        validationStatus="valid"
+                        visible="contains(SelectEducationBenefits, 'OtherEdnBen')"/>
+                    <fd:events jcr:primaryType="nt:unstructured"/>
+                </textinput>
+                <dropdown_copy
+                    jcr:lastModified="{Date}2023-05-14T12:15:36.534Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Select your highest qualification"
+                    sling:resourceType="${appId}/components/adaptiveForm/dropdown"
+                    enabled="{Boolean}true"
+                    enum="[0,1,2,3,4,5]"
+                    enumNames="[High School Diploma,Associate's Degree,Bachelor's Degree,Master's Degree,Professional Certification,Other Qualification]"
+                    fieldType="drop-down"
+                    mandatoryMessage="Please select your highest qualification."
+                    name="HighestQualfication_copy_1"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true]"
+                    tooltipVisible="true"
+                    type="string"
+                    typeIndex="0"
+                    visible="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            behavior="newline"
+                            offset="0"
+                            width="12"/>
+                    </cq:responsive>
+                </dropdown_copy>
+                <textinput_1670643166
+                    jcr:lastModified="{Date}2023-05-12T12:11:24.093Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Provide other educational qualification details"
+                    sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                    autocomplete="off"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    mandatoryMessage="Please specify your educational qualification."
+                    multiLine="true"
+                    name="OtherQualifn"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true,true]"
+                    validatePictureClauseMessage="[,]"
+                    visible="{Boolean}true">
+                    <fd:rules
+                        fd:visible="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.EducationPanel.OtherQualifn&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;name&quot;:&quot;OtherQualifn&quot;}}\,{&quot;nodeName&quot;:&quot;When&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;CONDITIONORALWAYS&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPARISON_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.EducationPanel.HighestQualfication_copy_1&quot;\,&quot;displayName&quot;:&quot;Please select your highest qualification*&quot;\,&quot;type&quot;:&quot;STRING&quot;\,&quot;displayPath&quot;:&quot;FORM/Educational Benefits/Please select your highest qualification*/&quot;\,&quot;name&quot;:&quot;HighestQualfication_copy_1&quot;\,&quot;parent&quot;:&quot;$form.EducationPanel&quot;}}}\,{&quot;nodeName&quot;:&quot;OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EQUALS_TO&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;OtherQulfn&quot;}}]}}\,{&quot;nodeName&quot;:&quot;Else&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;DONOTHING_OR_HIDE&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;Hide&quot;\,&quot;value&quot;:null}}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:&quot;HighestQualfication_copy_1 == 'OtherQulfn'&quot;\,&quot;eventName&quot;:&quot;Visibility&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                        jcr:primaryType="nt:unstructured"
+                        validationStatus="valid"
+                        visible="HighestQualfication_copy_1 == 'OtherQulfn'"/>
+                    <fd:events jcr:primaryType="nt:unstructured"/>
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            behavior="newline"
+                            offset="0"
+                            width="12"/>
+                    </cq:responsive>
+                </textinput_1670643166>
+                <fd:rules
+                    fd:visible="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.EducationPanel&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;name&quot;:&quot;EducationPanel&quot;}}\,{&quot;nodeName&quot;:&quot;When&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;CONDITIONORALWAYS&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPARISON_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.BasicDetailsPanel.BenefitSelectionCheckBox&quot;\,&quot;displayName&quot;:&quot;Please select the benefit(s) you would like to enroll in:&quot;\,&quot;type&quot;:&quot;STRING[]&quot;\,&quot;displayPath&quot;:&quot;FORM/Panel/Please select the benefit(s) you would like to enroll in:/&quot;\,&quot;name&quot;:&quot;BenefitSelectionCheckBox&quot;\,&quot;parent&quot;:&quot;$form.BasicDetailsPanel&quot;}}}\,{&quot;nodeName&quot;:&quot;OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;HAS_SELECTED&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;0&quot;}}]}}\,{&quot;nodeName&quot;:&quot;Else&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;DONOTHING_OR_HIDE&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;Hide&quot;\,&quot;value&quot;:null}}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:&quot;contains($form.BasicDetailsPanel.BenefitSelectionCheckBox\, '0')&quot;\,&quot;eventName&quot;:&quot;Visibility&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                    jcr:primaryType="nt:unstructured"
+                    validationStatus="valid"
+                    visible="contains($form.BasicDetailsPanel.BenefitSelectionCheckBox, '0')"/>
+                <fd:events jcr:primaryType="nt:unstructured"/>
+            </panelcontainer_142543569>
+            <panelcontainer_1188539696
+                jcr:lastModified="{Date}2023-05-12T07:08:54.749Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Healthcare"
+                sling:resourceType="${appId}/components/adaptiveForm/panelcontainer"
+                enabled="{Boolean}true"
+                fieldType="panel"
+                layout="responsiveGrid"
+                name="HealthCarePanel"
+                readOnly="{Boolean}false"
+                textIsRich="[true,true]"
+                visible="{Boolean}false"
+                wrapData="{Boolean}false">
+                <checkboxgroup_212597
+                    jcr:lastModified="{Date}2023-05-12T12:11:47.642Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Select medical benefits program you want to enroll for"
+                    sling:resourceType="${appId}/components/adaptiveForm/checkboxgroup"
+                    enabled="{Boolean}true"
+                    enum="[Medicare,Medicaid,OtherHealth]"
+                    enumNames="[Medicare,Medicaid,Other]"
+                    fieldType="checkbox-group"
+                    name="healthCareCheckBox"
+                    orientation="horizontal"
+                    readOnly="{Boolean}false"
+                    textIsRich="[true,true]"
+                    tooltip="&lt;p>It refers to the healthcare benefits scheme you want to enroll in for the benefits.&lt;/p>&#xd;&#xa;"
+                    tooltipVisible="true"
+                    type="string[]"
+                    visible="{Boolean}true">
+                    <fd:rules jcr:primaryType="nt:unstructured"/>
+                    <fd:events jcr:primaryType="nt:unstructured"/>
+                </checkboxgroup_212597>
+                <textinput_810374934
+                    jcr:lastModified="{Date}2023-05-12T12:09:13.574Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Provide details of other health benefit programs"
+                    sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                    autocomplete="off"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    mandatoryMessage="Please specify the health benefits program."
+                    multiLine="true"
+                    name="OtherHealthCare"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true,true]"
+                    validatePictureClauseMessage="[,]"
+                    visible="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="0"
+                            width="12"/>
+                    </cq:responsive>
+                    <fd:rules
+                        fd:visible="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.HealthCarePanel.OtherHealthCare&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;name&quot;:&quot;OtherHealthCare&quot;}}\,{&quot;nodeName&quot;:&quot;When&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;CONDITIONORALWAYS&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPARISON_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.HealthCarePanel.healthCareCheckBox&quot;\,&quot;displayName&quot;:&quot;Please select medical benefits program/s you want to enroll for&quot;\,&quot;type&quot;:&quot;STRING[]&quot;\,&quot;displayPath&quot;:&quot;FORM/Healthcare/Please select medical benefits program/s you want to enroll for/&quot;\,&quot;name&quot;:&quot;healthCareCheckBox&quot;\,&quot;parent&quot;:&quot;$form.HealthCarePanel&quot;}}}\,{&quot;nodeName&quot;:&quot;OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;HAS_SELECTED&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;OtherHealth&quot;}}]}}\,{&quot;nodeName&quot;:&quot;Else&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;DONOTHING_OR_HIDE&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;Hide&quot;\,&quot;value&quot;:null}}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:&quot;contains(healthCareCheckBox\, 'OtherHealth')&quot;\,&quot;eventName&quot;:&quot;Visibility&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                        jcr:primaryType="nt:unstructured"
+                        validationStatus="valid"
+                        visible="contains(healthCareCheckBox, 'OtherHealth')"/>
+                    <fd:events jcr:primaryType="nt:unstructured"/>
+                </textinput_810374934>
+                <textinput
+                    jcr:lastModified="{Date}2023-04-23T14:44:45.173Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Medical ID/Health Plan ID"
+                    sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                    autocomplete="off"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    name="MedicalId"
+                    readOnly="{Boolean}false"
+                    textIsRich="[true,true,true]"
+                    tooltip="&lt;p>Please specify your&amp;nbsp;Medical ID/Health Plan ID.&lt;/p>&#xd;&#xa;"
+                    validatePictureClauseMessage="[,]"
+                    visible="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            behavior="newline"
+                            offset="0"
+                            width="12"/>
+                    </cq:responsive>
+                </textinput>
+                <fd:rules
+                    fd:visible="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.HealthCarePanel&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;name&quot;:&quot;HealthCarePanel&quot;}}\,{&quot;nodeName&quot;:&quot;When&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;CONDITIONORALWAYS&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPARISON_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.BasicDetailsPanel.BenefitSelectionCheckBox&quot;\,&quot;displayName&quot;:&quot;Please select the benefit(s) you would like to enroll in:&quot;\,&quot;type&quot;:&quot;STRING[]&quot;\,&quot;displayPath&quot;:&quot;FORM/Panel/Please select the benefit(s) you would like to enroll in:/&quot;\,&quot;name&quot;:&quot;BenefitSelectionCheckBox&quot;\,&quot;parent&quot;:&quot;$form.BasicDetailsPanel&quot;}}}\,{&quot;nodeName&quot;:&quot;OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;HAS_SELECTED&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;1&quot;}}]}}\,{&quot;nodeName&quot;:&quot;Else&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;DONOTHING_OR_HIDE&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;Hide&quot;\,&quot;value&quot;:null}}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:&quot;contains($form.BasicDetailsPanel.BenefitSelectionCheckBox\, '1')&quot;\,&quot;eventName&quot;:&quot;Visibility&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                    jcr:primaryType="nt:unstructured"
+                    validationStatus="valid"
+                    visible="contains($form.BasicDetailsPanel.BenefitSelectionCheckBox, '1')"/>
+                <fd:events jcr:primaryType="nt:unstructured"/>
+            </panelcontainer_1188539696>
+            <panelcontainer_2112864135
+                jcr:lastModified="{Date}2023-05-12T07:09:15.005Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Child care"
+                sling:resourceType="${appId}/components/adaptiveForm/panelcontainer"
+                enabled="{Boolean}true"
+                fieldType="panel"
+                layout="responsiveGrid"
+                name="ChildCarePanel"
+                readOnly="{Boolean}false"
+                textIsRich="[true,true]"
+                visible="{Boolean}false"
+                wrapData="{Boolean}false">
+                <textinput_2094453566
+                    jcr:lastModified="{Date}2023-05-12T07:09:50.140Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Full name"
+                    sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                    autocomplete="off"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    mandatoryMessage="Please provide your child's name."
+                    name="ChildFullName"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true,true]"
+                    validatePictureClauseMessage="[,]"
+                    visible="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="0"
+                            width="12"/>
+                    </cq:responsive>
+                </textinput_2094453566>
+                <datepicker_110586369
+                    jcr:lastModified="{Date}2023-05-12T07:10:00.354Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Child's date of birth"
+                    sling:resourceType="${appId}/components/adaptiveForm/datepicker"
+                    enabled="{Boolean}true"
+                    fieldType="date-input"
+                    mandatoryMessage="Please provide your child's date of birth."
+                    name="ChildDateofBirth"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true]"
+                    visible="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            behavior="newline"
+                            offset="0"
+                            width="12"/>
+                    </cq:responsive>
+                </datepicker_110586369>
+                <textinput_1075868138
+                    jcr:lastModified="{Date}2023-05-17T10:08:53.769Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Child's National Identification Number"
+                    sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                    autocomplete="off"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    mandatoryMessage="Please provide your child's social security number."
+                    name="ChildNIN"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true,true]"
+                    validatePictureClauseMessage="[,]"
+                    visible="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="0"
+                            width="12"/>
+                    </cq:responsive>
+                </textinput_1075868138>
+                <textinput
+                    jcr:lastModified="{Date}2023-05-14T12:18:28.040Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Provide child care benefit program details"
+                    sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                    autocomplete="off"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    multiLine="true"
+                    name="ChildCareSupport"
+                    readOnly="{Boolean}false"
+                    textIsRich="[true,true,true]"
+                    validatePictureClauseMessage="[,]"
+                    visible="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            behavior="newline"
+                            offset="0"
+                            width="12"/>
+                    </cq:responsive>
+                </textinput>
+                <fd:rules
+                    fd:visible="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.ChildCarePanel&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;name&quot;:&quot;ChildCarePanel&quot;}}\,{&quot;nodeName&quot;:&quot;When&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;CONDITIONORALWAYS&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPARISON_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.BasicDetailsPanel.BenefitSelectionCheckBox&quot;\,&quot;displayName&quot;:&quot;Please select the benefit(s) you would like to enroll in:&quot;\,&quot;type&quot;:&quot;STRING[]&quot;\,&quot;displayPath&quot;:&quot;FORM/Panel/Please select the benefit(s) you would like to enroll in:/&quot;\,&quot;name&quot;:&quot;BenefitSelectionCheckBox&quot;\,&quot;parent&quot;:&quot;$form.BasicDetailsPanel&quot;}}}\,{&quot;nodeName&quot;:&quot;OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;HAS_SELECTED&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;2&quot;}}]}}\,{&quot;nodeName&quot;:&quot;Else&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;DONOTHING_OR_HIDE&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;Hide&quot;\,&quot;value&quot;:null}}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:&quot;contains($form.BasicDetailsPanel.BenefitSelectionCheckBox\, '2')&quot;\,&quot;eventName&quot;:&quot;Visibility&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                    jcr:primaryType="nt:unstructured"
+                    validationStatus="valid"
+                    visible="contains($form.BasicDetailsPanel.BenefitSelectionCheckBox, '2')"/>
+                <fd:events jcr:primaryType="nt:unstructured"/>
+            </panelcontainer_2112864135>
+            <panelcontainer_349931358
+                jcr:lastModified="{Date}2023-04-18T06:52:10.723Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Signature Panel"
+                sling:resourceType="${appId}/components/adaptiveForm/panelcontainer"
+                enabled="{Boolean}true"
+                fieldType="panel"
+                hideTitle="true"
+                layout="responsiveGrid"
+                name="SignaturePanel"
+                readOnly="{Boolean}false"
+                textIsRich="[true,true]"
+                visible="{Boolean}true"
+                wrapData="{Boolean}false">
+                <checkboxgroup
+                    jcr:lastModified="{Date}2023-04-23T15:08:06.500Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Terms and Conditions"
+                    sling:resourceType="${appId}/components/adaptiveForm/checkboxgroup"
+                    enabled="{Boolean}true"
+                    enum="0"
+                    enumNames="I hereby declare that the information provided here is true to the best of my knowledge."
+                    fieldType="checkbox-group"
+                    mandatoryMessage="Please agree to the terms and conditions before submitting the form."
+                    name="TermsAndConditions"
+                    orientation="vertical"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true]"
+                    type="number[]"
+                    visible="{Boolean}true"/>
+                <button
+                    jcr:lastModified="{Date}2023-04-18T09:52:04.667Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Submit"
+                    sling:resourceType="${appId}/components/adaptiveForm/button"
+                    dorExclusion="true"
+                    enabled="{Boolean}true"
+                    fieldType="button"
+                    name="button1681811516193"
+                    readOnly="{Boolean}false"
+                    textIsRich="[true,true]"
+                    visible="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            behavior="newline"
+                            offset="6"
+                            width="2"/>
+                    </cq:responsive>
+                    <fd:rules
+                        fd:click="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_SCRIPTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EVENT_CONDITION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.SignaturePanel.button1681811516193&quot;\,&quot;type&quot;:&quot;BUTTON&quot;\,&quot;name&quot;:&quot;button1681811516193&quot;}}\,{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON_OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;is clicked&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;PRIMITIVE_EXPRESSION&quot;\,&quot;choice&quot;:null}]}\,&quot;nested&quot;:false}\,{&quot;nodeName&quot;:&quot;Then&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;BLOCK_STATEMENTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;BLOCK_STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SUBMIT_FORM&quot;\,&quot;items&quot;:[]}}]}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:[&quot;submitForm('custom:submitSuccess'\, 'custom:submitError')&quot;]\,&quot;eventName&quot;:&quot;Click&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                        jcr:primaryType="nt:unstructured"
+                        validationStatus="valid"/>
+                    <fd:events
+                        jcr:primaryType="nt:unstructured"
+                        click="[submitForm('custom:submitSuccess'\, 'custom:submitError')]"/>
+                </button>
+            </panelcontainer_349931358>
+        </guideContainer>
+        <parsys1
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <pageheader
+                jcr:lastModified="{Date}2023-04-17T18:42:39.005Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Header"
+                sling:resourceType="${appId}/components/adaptiveForm/pageheader"
+                fieldType="page-header">
+                <image
+                    jcr:lastModified="{Date}2023-06-25T16:50:36.867+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Log"
+                    sling:resourceType="${appId}/components/image"
+                    alt="WKND Logo"
+                    altValueFromDAM="false"
+                    disableLazyLoading="false"
+                    displayPopupTitle="true"
+                    fileName="wknd-logo.png"
+                    fileReference="/content/dam/${appId}/wknd_logo.png"
+                    height="0"
+                    imageFromPageImage="false"
+                    isDecorative="false"
+                    linkTarget="_self"
+                    name="logoImage"
+                    titleValueFromDAM="false"
+                    width="0">
+                </image>
+                <text
+                    jcr:lastModified="{Date}2023-04-24T17:45:54.421Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wcm/foundation/components/text"
+                    text="&lt;p>Benefits Enrollment Form&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"
+                    value="Company Name Here"/>
+            </pageheader>
+        </parsys1>
+        <parsys2
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <footer
+                jcr:lastModified="{Date}2023-04-17T18:42:42.150Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Footer"
+                sling:resourceType="${appId}/components/adaptiveForm/footer">
+                <text
+                    jcr:lastModified="{Date}2023-05-12T06:33:15.938Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Footer"
+                    sling:resourceType="core/wcm/components/text/v2/text"
+                    css="footerText"
+                    text="&lt;p>© YYYY WKND | All rights reserved.&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"/>
+            </footer>
+        </parsys2>
+        <cq:featuredimage
+            jcr:lastModified="{Date}2023-04-17T18:49:21.732Z"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"/>
+    </jcr:content>
+</jcr:root>
