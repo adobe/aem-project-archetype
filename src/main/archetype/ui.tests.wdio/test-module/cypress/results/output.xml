@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="9.6560" tests="2" failures="0">
+  <testsuite name="Root Suite" timestamp="2023-04-14T09:58:17" tests="0" file="cypress/e2e/spec.cy.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="true is true" timestamp="2023-04-14T09:58:17" tests="1" time="0.0280" failures="0">
+    <testcase name="true is true Does not do much!" time="0.0280" classname="Does not do much!">
+    </testcase>
+  </testsuite>
+  <testsuite name="login to AEM" timestamp="2023-04-14T09:58:17" tests="1" time="9.6280" failures="0">
+    <testcase name="login to AEM Login to AEM" time="9.6280" classname="Login to AEM">
+    </testcase>
+  </testsuite>
+</testsuites>

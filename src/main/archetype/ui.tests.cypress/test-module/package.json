@@ -1,0 +1,18 @@
+{
+  "name": "cypress-eaas",
+  "version": "1.0.0",
+  "description": "test cypress on eaas",
+  "main": "index.js",
+  "devDependencies": {
+    "cypress": "^12.12.0",
+    "cypress-multi-reporters": "^1.6.3",
+    "mocha-junit-reporter": "^2.2.0"
+  },
+  "scripts": {
+    "test": "cypress run",
+    "test-chrome": "cypress run --browser chrome",
+    "test-firefox": "cypress run --browser firefox"
+  },
+  "author": "",
+  "license": "ISC"
+}

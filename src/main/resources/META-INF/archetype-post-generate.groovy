@@ -8,6 +8,9 @@ def uiAppsPackage = new File(rootDir, "ui.apps")
 def uiContentPackage = new File(rootDir, "ui.content")
 def uiConfigPackage = new File(rootDir, "ui.config")
 def uiTestPackage = new File(rootDir, "ui.tests")
+def uiTestWDIOPackage = new File(rootDir, "ui.tests.wdio")
+def uiTestCypressPackage = new File(rootDir, "ui.tests.cypress")
+
 def coreBundle = new File(rootDir, "core")
 def rootPom = new File(rootDir, "pom.xml")
 def frontendModules = ["general", "angular", "react"]
@@ -36,6 +39,8 @@ def configFolder = new File("$uiConfigPackage/src/main/content/jcr_root/apps/$ap
 def confFolder = new File("$uiContentPackage/src/main/content/jcr_root/conf/$appId")
 def contentFolder = new File("$uiContentPackage/src/main/content/jcr_root/content/$appId")
 def varFolder = new File("$uiContentPackage/src/main/content/jcr_root/var")
+
+def uiTestingFramework = request.getProperties().get("uiTestingFramework")
 
 
 if (aemVersion.startsWith("6.4")){
@@ -244,6 +249,15 @@ if(new File("$configFolder/config.publish").list().length == 0) {
 
 if (precompiledScripts == "n") {
     assert new File(rootDir, "README-precompiled-scripts.md").delete()
+}
+
+if (uiTestingFramework == "cypress") {
+    assert new File(rootDir, "$uiTestWDIOPackage").deleteDir()
+    // rename cypress package to ui.tests
+    assert new File(rootDir, "$uiTestCypressPackage").renameTo(new File(rootDir, "$uiTestPackage"))
+} else {
+    assert new File(rootDir, "$uiTestCypressPackage").deleteDir()
+    assert new File(rootDir, "$uiTestWDIOPackage").renameTo(new File(rootDir, "$uiTestPackage"))
 }
 
 /**
