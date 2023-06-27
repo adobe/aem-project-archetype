@@ -189,7 +189,7 @@ if (includeCommerce == "n") {
 }
 
 // if forms flag is not set, forms specific components, template-types, templates, themes, fdm, cloudconfigs should be deleted
-if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunications == "n" && includeFormsheadless == "n") {
+if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunications == "n" && includeFormsheadless == "n" && uiTestingFramework == "wdio") {
     assert new File("$appsFolder/components/aemformscontainer").deleteDir()
     assert new File("$confFolder/settings/wcm/template-types/af-page").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/basic-af").deleteDir()
@@ -199,10 +199,10 @@ if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunic
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/formsanddocuments-themes").deleteDir()
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/sample_logo.png").deleteDir()
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/sample_terms.png").deleteDir()
-    assert new File("$uiTestPackage/test-module/specs/aem/forms.js").delete()
-    assert new File("$uiTestPackage/test-module/lib/util").deleteDir()
-    assert new File("$uiTestPackage/test-module/rules").deleteDir()
-    assert new File("$uiTestPackage/test-module/assets/form").deleteDir()
+    assert new File("$selectedTestingFramework/test-module/specs/aem/forms.js").delete()
+    assert new File("$uiTestWDIOPackage/test-module/lib/util").deleteDir()
+    assert new File("$uiTestWDIOPackage/test-module/rules").deleteDir()
+    assert new File("$uiTestWDIOPackage/test-module/assets/form").deleteDir()
     assert new File("$appsFolder/clientlibs/clientlibs-forms").deleteDir()
     assert new File("$appsFolder/components/adaptiveForm").deleteDir()
     assert new File("$appsFolder/components/formsandcommunicationportal").deleteDir()
@@ -251,14 +251,21 @@ if (precompiledScripts == "n") {
     assert new File(rootDir, "README-precompiled-scripts.md").delete()
 }
 
+// ui tests framework are declared in different modules, so we need to remove the one that is not selected
+// and rename the chosen one to ui.tests
 if (uiTestingFramework == "cypress") {
-    assert new File(rootDir, "$uiTestWDIOPackage").deleteDir()
+    assert new File("$uiTestWDIOPackage").deleteDir()
     // rename cypress package to ui.tests
-    assert new File(rootDir, "$uiTestCypressPackage").renameTo(new File(rootDir, "$uiTestPackage"))
+    assert new File("$uiTestCypressPackage").renameTo(new File("$uiTestPackage"))
+    // Clean up POM file
+
 } else {
-    assert new File(rootDir, "$uiTestCypressPackage").deleteDir()
-    assert new File(rootDir, "$uiTestWDIOPackage").renameTo(new File(rootDir, "$uiTestPackage"))
+    assert new File("$uiTestCypressPackage").deleteDir()
+    assert new File( "$uiTestWDIOPackage").renameTo(new File( "$uiTestPackage"))
 }
+removeModule(rootPom, 'ui.tests.cypress')
+removeModule(rootPom, 'ui.tests.wdio')
+
 
 /**
  * Creates content skeleton based upon singleCountry, language and country input from user

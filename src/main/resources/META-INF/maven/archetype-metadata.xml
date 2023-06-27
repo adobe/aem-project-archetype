@@ -599,7 +599,7 @@
                 </fileSet>
                 <fileSet filtered="false" packaged="false"
                     encoding="UTF-8">
-                    <directory>test-module</directory>
+                    <directory></directory>
                     <includes>
                         <include>**/*</include>
                     </includes>
@@ -615,7 +615,7 @@
                     </includes>
                     <excludes>
                         <!-- Exclude Test Reports -->
-                        <exclude>**/reports/</exclude>
+                        <exclude>**/results/</exclude>
                         <!-- Exclude NPM dependencies -->
                         <exclude>**/node_modules/</exclude>
                         <exclude>**/*.sh</exclude>
