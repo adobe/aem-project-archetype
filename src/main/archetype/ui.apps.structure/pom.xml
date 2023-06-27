@@ -40,6 +40,7 @@
                         <filter><root>/apps/fd</root></filter>
                         <filter><root>/apps/fd/af</root></filter>
                         <filter><root>/apps/fd/af/themes</root></filter>
+                        <filter><root>/apps/fd/af/theme-clientlibs</root></filter>
                         <filter><root>/apps/sling</root></filter>
                         <filter><root>/apps/cq</root></filter>
                         <filter><root>/apps/dam</root></filter>

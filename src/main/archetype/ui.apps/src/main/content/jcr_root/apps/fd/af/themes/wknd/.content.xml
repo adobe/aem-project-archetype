@@ -5,7 +5,7 @@
         <metadata
             jcr:primaryType="nt:unstructured"
             author="adobe"
-            description="WKND Theme"
-            title="WKND"/>
+            description="Reference WKND Theme"
+            title="Reference WKND"/>
     </jcr:content>
 </jcr:root>

@@ -5,7 +5,7 @@
         <metadata
             jcr:primaryType="nt:unstructured"
             author="adobe"
-            description="Easel Theme"
-            title="Easel"/>
+            description="Reference Easel Theme"
+            title="Reference Easel"/>
     </jcr:content>
 </jcr:root>
