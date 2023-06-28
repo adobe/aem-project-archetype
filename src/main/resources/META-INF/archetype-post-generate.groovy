@@ -196,6 +196,7 @@ if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunic
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/sample_terms.png").deleteDir()
     //If forms is not included delete /apps/fd folder
     assert new File("$uiAppsPackage/src/main/content/jcr_root/apps/fd").deleteDir()
+    assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/wknd_logo.png").deleteDir()
     assert new File("$uiTestPackage/test-module/specs/aem/forms.js").delete()
     assert new File("$uiTestPackage/test-module/lib/util").deleteDir()
     assert new File("$uiTestPackage/test-module/rules").deleteDir()
