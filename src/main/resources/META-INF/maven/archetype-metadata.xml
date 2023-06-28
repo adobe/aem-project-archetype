@@ -234,6 +234,12 @@
                         <include>**/*.java</include>
                     </includes>
                 </fileSet>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>src/test/resources</directory>
+                    <includes>
+                        <include>**/*.properties</include>
+                    </includes>
+                </fileSet>
             </fileSets>
         </module>
         <module id="${rootArtifactId}.dispatcher.ams" dir="dispatcher.ams" name="dispatcher.ams">
