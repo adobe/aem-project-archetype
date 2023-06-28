@@ -37,10 +37,12 @@
                         <filter><root>/apps</root></filter>
                         <filter><root>/apps/${appId}</root></filter>
                         <!-- Common overlay roots -->
+                        #if ( $includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y" || $includeFormsheadless == "y")
                         <filter><root>/apps/fd</root></filter>
                         <filter><root>/apps/fd/af</root></filter>
                         <filter><root>/apps/fd/af/themes</root></filter>
                         <filter><root>/apps/fd/af/theme-clientlibs</root></filter>
+                        #end
                         <filter><root>/apps/sling</root></filter>
                         <filter><root>/apps/cq</root></filter>
                         <filter><root>/apps/dam</root></filter>
