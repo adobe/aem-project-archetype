@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:primaryType="cq:Template">
+    <jcr:content
+        author="adobe"
+        cq:lastModified="{Date}2023-05-18T06:55:29.793Z"
+        cq:lastModifiedBy="admin"
+        cq:templateType="/conf/${appId}/settings/wcm/template-types/af-page-v2"
+        jcr:description="Complete our enrollment form to apply for various benefits. "
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Benefits Enrollment"
+        status="enabled"/>
+</jcr:root>

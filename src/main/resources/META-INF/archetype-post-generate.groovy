@@ -199,10 +199,13 @@ if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunic
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/formsanddocuments-themes").deleteDir()
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/sample_logo.png").deleteDir()
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/sample_terms.png").deleteDir()
-    assert new File("$selectedTestingFramework/test-module/specs/aem/forms.js").delete()
+    assert new File("$uiTestWDIOPackage/test-module/specs/aem/forms.js").delete()
     assert new File("$uiTestWDIOPackage/test-module/lib/util").deleteDir()
     assert new File("$uiTestWDIOPackage/test-module/rules").deleteDir()
     assert new File("$uiTestWDIOPackage/test-module/assets/form").deleteDir()
+    //If forms is not included delete /apps/fd folder
+    assert new File("$uiAppsPackage/src/main/content/jcr_root/apps/fd").deleteDir()
+    assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/wknd_logo.png").deleteDir()
     assert new File("$appsFolder/clientlibs/clientlibs-forms").deleteDir()
     assert new File("$appsFolder/components/adaptiveForm").deleteDir()
     assert new File("$appsFolder/components/formsandcommunicationportal").deleteDir()
@@ -214,6 +217,8 @@ if ((includeForms == "y" || includeFormsenrollment == "y" || includeFormscommuni
     assert new File("$appsFolder/components/formsandcommunicationportal").deleteDir();
     //For 6.5 remove sling context aware configuration for theme association with core component af template
     assert new File("$confFolder/forms").deleteDir()
+    //For 6.5 delete forms core component theme zips
+    assert new File("$uiAppsPackage/src/main/content/jcr_root/apps/fd/af/themes").deleteDir()
 }
 
 
@@ -239,6 +244,10 @@ if (includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunic
     }
     println "Using AEM Forms as a Cloud Service SDK version: " + sdkFormsVersion
     rootPom.text = rootPom.text.replaceAll('SDK_FORMS_VERSION', sdkFormsVersion.toString())
+    //For AEM cloud delete forms core component theme client libraries.
+    if(aemVersion == "cloud"){
+        assert new File("$uiAppsPackage/src/main/content/jcr_root/apps/fd/af/theme-clientlibs").deleteDir()
+    }
 }
 
 // if config.publish folder ends up empty, remove it, otherwise the filevault-package-maven-plugin will throw

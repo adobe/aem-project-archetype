@@ -492,6 +492,7 @@
                         <exclude>**/*.woff</exclude>
                         <exclude>**/*.woff2</exclude>
                         <exclude>**/*.otf</exclude>
+                        <exclude>**/*.zip</exclude>
                     </excludes>
                 </fileSet>
                 <fileSet filtered="false" packaged="false"
@@ -508,6 +509,7 @@
                         <include>**/*.woff</include>
                         <include>**/*.woff2</include>
                         <include>**/*.otf</include>
+                        <include>**/*.zip</include>
                     </includes>
                 </fileSet>
             </fileSets>
