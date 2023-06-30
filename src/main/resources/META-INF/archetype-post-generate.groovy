@@ -189,7 +189,7 @@ if (includeCommerce == "n") {
 }
 
 // if forms flag is not set, forms specific components, template-types, templates, themes, fdm, cloudconfigs should be deleted
-if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunications == "n" && includeFormsheadless == "n" && uiTestingFramework == "wdio") {
+if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunications == "n" && includeFormsheadless == "n") {
     assert new File("$appsFolder/components/aemformscontainer").deleteDir()
     assert new File("$confFolder/settings/wcm/template-types/af-page").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/basic-af").deleteDir()
@@ -199,10 +199,13 @@ if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunic
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/formsanddocuments-themes").deleteDir()
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/sample_logo.png").deleteDir()
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/sample_terms.png").deleteDir()
-    assert new File("$uiTestWDIOPackage/test-module/specs/aem/forms.js").delete()
-    assert new File("$uiTestWDIOPackage/test-module/lib/util").deleteDir()
-    assert new File("$uiTestWDIOPackage/test-module/rules").deleteDir()
-    assert new File("$uiTestWDIOPackage/test-module/assets/form").deleteDir()
+    // delete e2e files if Selenium was selected as the framework but forms flag is unset
+    if (uiTestingFramework == "wdio") {
+        assert new File("$uiTestWDIOPackage/test-module/specs/aem/forms.js").delete()
+        assert new File("$uiTestWDIOPackage/test-module/lib/util").deleteDir()
+        assert new File("$uiTestWDIOPackage/test-module/rules").deleteDir()
+        assert new File("$uiTestWDIOPackage/test-module/assets/form").deleteDir()
+    }
     //If forms is not included delete /apps/fd folder
     assert new File("$uiAppsPackage/src/main/content/jcr_root/apps/fd").deleteDir()
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/wknd_logo.png").deleteDir()
