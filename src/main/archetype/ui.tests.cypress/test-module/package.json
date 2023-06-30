@@ -5,6 +5,7 @@
   "main": "index.js",
   "devDependencies": {
     "cypress": "^12.12.0",
+    "cypress-fail-on-console-error": "^4.0.3",
     "cypress-multi-reporters": "^1.6.3",
     "mocha-junit-reporter": "^2.2.0"
   },
