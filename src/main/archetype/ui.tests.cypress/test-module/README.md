@@ -8,7 +8,7 @@ Some examples of basic tasks like logging in-out of AEM instances, taking screen
 
 ## Usage
 
-### local testing
+### Local testing
 
 - Install Cypress
   ```shell

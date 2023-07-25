@@ -1,16 +1,13 @@
-# Cypress sample module
+UI Testing module (Cypress) for your AEM application
+===
 
-Sample structure  for [Cypress](https://www.cypress.io) UI test module which conforms to
-AEM  Cloud Manager quality gate UI test conventions.
+Sample structure for [Cypress](https://www.cypress.io) UI test module which conforms to
+AEM Cloud Manager quality gate UI test conventions.
 
 ## Cloud Manager UI test module conventions
 
 AEM provides an integrated suite of Cloud Manager quality gates to ensure smooth updates to custom applications,
 UI tests are executed as part of a specific quality gate for each Cloud Manager pipeline with a dedicated Custom UI Testing step.
-
-Within the project structure there is a [specific location](https://github.com/adobe/aem-project-archetype/tree/develop/src/main/archetype/ui.tests)
-where the code Custom UI Tests are expected. The code in this folder is used as a Docker build context to produce a docker image
-which will be executed during the Custom UI Testing step in the pipeline.
 
 The Cloud Manager UI test module convention defines the expected structure of the test module as well as the environment
 variables which will be passed at runtime. This is explained in detail in the [Building UI Tests](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/implementing/using-cloud-manager/test-results/functional-testing/ui-testing.html?lang=en#building-ui-tests)
@@ -18,9 +15,12 @@ section of the documentation.
 
 ## Structure
 
+- `/test-module` The test project (add your tests there)
+
+**Do not modify following files**
 - `Dockerfile` commands to assemble the image
 - `pom.xml` defines project dependencies and build configuration which will be used by Cloud Manager to build the test module image
-- `/test-module` The test project (add your tests there)
+- `assembly-ui-test-docker-context.xml` Packages test project for AEMaaCS
 
 ### Dockerfile
 
@@ -34,7 +34,7 @@ to run cypress tests.
 The setup described in [the documentation](https://docs.cypress.io/guides/continuous-integration/introduction#In-Docker) 
 is implemented in `run.sh` as is used as entrypoint to the container.
 
-## Execute test module
+## Run Tests
 
 ### Locally (standalone)
 
@@ -66,17 +66,3 @@ The following environment variables (AEM UI test convention) can be passed
    ```
    mvn verify -Pui-tests-docker-execution -DAEM_AUTHOR_URL=https://author.my-deployment.com -DAEM_AUTHOR_USERNAME=<PASS> -DAEM_AUTHOR_PASSWORD=<PASS>
    ```
-
-## Integrate into your Cloud Manager repository
-
-Follow these steps to use the Cypress tests:
-
-1. Remove all content in the `ui.tests` folder from your Cloud Manager repository.
-
-1. Copy all files located in this folder into the `ui.tests` folder.
-
-1. (Optionally) adjust the file `pom.xml` and set parent as well as artifact information to the desired naming.
-
-1. Commit and push the changes.
-
-During the next pipeline execution, Cloud Manager will use the Cypress tests.

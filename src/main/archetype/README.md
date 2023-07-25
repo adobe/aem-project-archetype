@@ -12,7 +12,8 @@ The main parts of the template are:
 * ui.content: contains sample content using the components from the ui.apps
 * ui.config: contains runmode specific OSGi configs for the project
 * ui.frontend: an optional dedicated front-end build mechanism (Angular, React or general Webpack project)
-* ui.tests: Selenium based UI tests
+* ui.tests.cypress: Cypress based UI tests
+* ui.tests.wdio: Selenium based UI tests
 * all: a single content package that embeds all of the compiled modules (bundles and content packages) including any vendor dependencies
 * analyse: this module runs analysis on the project which provides additional validation for deploying into AEMaaCS
 
