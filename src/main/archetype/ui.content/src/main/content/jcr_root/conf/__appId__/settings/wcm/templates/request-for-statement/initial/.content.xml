@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:fd="http://www.adobe.com/aemfd/fd/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:deviceGroups="[/etc/mobile/groups/responsive]"
+        cq:lastModified="{Date}2023-07-03T10:40:14.970Z"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/${appId}/settings/wcm/templates/request-for-statement"
+        jcr:primaryType="cq:PageContent"
+        sling:configRef="/conf/${appId}/forms"
+        sling:resourceType="${appId}/components/adaptiveForm/page"
+        guideComponentType="fd/af/templates">
+        <guideContainer
+            fd:version="2.1"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="${appId}/components/adaptiveForm/formcontainer"
+            fieldType="form">
+            <text
+                jcr:lastModified="{Date}2023-06-29T08:33:49.527Z"
+                jcr:lastModifiedBy="macman@adobe.com"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Text"
+                sling:resourceType="${appId}/components/adaptiveForm/text"
+                fieldType="plain-text"
+                name="text1685023441259"
+                textIsRich="true"
+                value="&lt;p>Please fill out the following form to request a statement for your account. The statement will provide you with a detailed record of your financial transactions.&lt;/p>&#xd;&#xa;"/>
+            <textinput
+                jcr:lastModified="{Date}2023-06-06T10:46:31.810Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="First name"
+                sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                autocomplete="off"
+                enabled="{Boolean}true"
+                fieldType="text-input"
+                hideTitle="false"
+                mandatoryMessage="Please enter your first name."
+                name="FirstName"
+                readOnly="{Boolean}false"
+                required="true"
+                textIsRich="[true,true]"
+                validatePictureClauseMessage="[,]"
+                visible="{Boolean}true">
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:primaryType="nt:unstructured"
+                        offset="0"
+                        width="12"/>
+                </cq:responsive>
+            </textinput>
+            <textinput_copy_copy
+                jcr:lastModified="{Date}2023-06-06T10:46:38.628Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Last name"
+                sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                autocomplete="off"
+                enabled="{Boolean}true"
+                fieldType="text-input"
+                hideTitle="false"
+                mandatoryMessage="Please enter your last name."
+                name="LastName"
+                readOnly="{Boolean}false"
+                required="true"
+                textIsRich="[true,true]"
+                validatePictureClauseMessage="[,]"
+                visible="{Boolean}true">
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:primaryType="nt:unstructured"
+                        offset="0"
+                        width="12"/>
+                </cq:responsive>
+            </textinput_copy_copy>
+            <emailinput_copy
+                jcr:lastModified="{Date}2023-06-06T10:46:45.643Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Email address"
+                sling:resourceType="${appId}/components/adaptiveForm/emailinput"
+                enabled="{Boolean}true"
+                fieldType="email"
+                hideTitle="false"
+                mandatoryMessage="Please enter your email address."
+                name="EmailAddress"
+                readOnly="{Boolean}false"
+                required="true"
+                textIsRich="[true,true]"
+                visible="{Boolean}true">
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:primaryType="nt:unstructured"
+                        behavior="none"
+                        offset="0"
+                        width="12"/>
+                </cq:responsive>
+            </emailinput_copy>
+            <numberinput
+                jcr:lastModified="{Date}2023-06-06T10:47:02.083Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Account number"
+                sling:resourceType="${appId}/components/adaptiveForm/numberinput"
+                enabled="{Boolean}true"
+                fieldType="number-input"
+                hideTitle="false"
+                mandatoryMessage="Please enter your account number."
+                name="AccNo"
+                readOnly="{Boolean}false"
+                required="true"
+                textIsRich="[true,true]"
+                type="number"
+                visible="{Boolean}true"/>
+            <dropdown_1010204327
+                jcr:lastModified="{Date}2023-06-06T10:47:09.829Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Account type"
+                sling:resourceType="${appId}/components/adaptiveForm/dropdown"
+                enabled="{Boolean}true"
+                enum="[0,1,2,3]"
+                enumNames="[Saving account,Checking account,Money market account,Certificate of Deposit (CD)]"
+                fieldType="drop-down"
+                hideTitle="false"
+                mandatoryMessage="Please select an account type."
+                name="AccountType"
+                readOnly="{Boolean}false"
+                required="true"
+                textIsRich="[true,true]"
+                type="string"
+                typeIndex="0"
+                visible="{Boolean}true"/>
+            <datepicker_copy
+                jcr:lastModified="{Date}2023-06-15T10:25:19.154Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Transaction date from"
+                sling:resourceType="${appId}/components/adaptiveForm/datepicker"
+                enabled="{Boolean}true"
+                fieldType="date-input"
+                hideTitle="false"
+                mandatoryMessage="Please fill start date of the statement period."
+                name="StrtDateStmt"
+                readOnly="{Boolean}false"
+                required="true"
+                textIsRich="[true,true]"
+                unboundFormElement="{Boolean}false"
+                visible="{Boolean}true"/>
+            <datepicker
+                jcr:lastModified="{Date}2023-06-29T10:26:35.030Z"
+                jcr:lastModifiedBy="macman@adobe.com"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Transaction date to"
+                sling:resourceType="${appId}/components/adaptiveForm/datepicker"
+                enabled="{Boolean}true"
+                fieldType="date-input"
+                hideTitle="false"
+                mandatoryMessage="Please fill end date of the statement period."
+                name="EndDateStmt"
+                readOnly="{Boolean}false"
+                required="true"
+                textIsRich="[true,true]"
+                unboundFormElement="{Boolean}false"
+                visible="{Boolean}true"/>
+            <submit
+                jcr:lastModified="{Date}2023-05-25T09:45:29.274Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Submit"
+                sling:resourceType="${appId}/components/adaptiveForm/actions/submit"
+                buttonType="submit"
+                dorExclusion="true"
+                fieldType="button"
+                name="submit1685007929600">
+                <fd:rules
+                    fd:click="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_SCRIPTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EVENT_CONDITION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.button1667450213112&quot;\,&quot;type&quot;:&quot;BUTTON&quot;\,&quot;name&quot;:&quot;button1667450213112&quot;}}\,{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON_OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;is clicked&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;PRIMITIVE_EXPRESSION&quot;\,&quot;choice&quot;:null}]}\,&quot;nested&quot;:false}\,{&quot;nodeName&quot;:&quot;Then&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;BLOCK_STATEMENTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;BLOCK_STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SUBMIT_FORM&quot;\,&quot;items&quot;:[]}}]}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:[&quot;submitForm('custom:submitSuccess'\, 'custom:submitError')&quot;]\,&quot;eventName&quot;:&quot;Click&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                    jcr:primaryType="nt:unstructured"/>
+                <fd:events
+                    jcr:primaryType="nt:unstructured"
+                    click="[submitForm('custom:submitSuccess'\, 'custom:submitError')]"/>
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:primaryType="nt:unstructured"
+                        offset="5"
+                        width="1"/>
+                </cq:responsive>
+            </submit>
+        </guideContainer>
+        <parsys1
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <pageheader
+                jcr:lastModified="{Date}2023-05-25T06:28:44.438Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Header"
+                sling:resourceType="${appId}/components/adaptiveForm/pageheader"
+                fieldType="page-header">
+                <image
+                    jcr:lastModified="{Date}2023-05-25T06:28:44.438Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Log"
+                    sling:resourceType="${appId}/components/image"
+                    alt="WKND Logo"
+                    altValueFromDAM="false"
+                    disableLazyLoading="false"
+                    displayPopupTitle="true"
+                    fileName="wknd-logo.png"
+                    fileReference="/content/dam/${appId}/wknd_logo.png"
+                    height="0"
+                    imageFromPageImage="false"
+                    isDecorative="false"
+                    linkTarget="_self"
+                    name="logoImage"
+                    titleValueFromDAM="false"
+                    width="0">
+                </image>
+                <text
+                    jcr:lastModified="{Date}2023-05-25T06:28:44.438Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wcm/foundation/components/text"
+                    text="&lt;p>Contact Us&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"
+                    value="Company Name Here"/>
+            </pageheader>
+        </parsys1>
+        <parsys2
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <footer
+                jcr:lastModified="{Date}2023-05-25T06:28:44.438Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Footer"
+                sling:resourceType="${appId}/components/adaptiveForm/footer">
+                <text
+                    jcr:lastModified="{Date}2023-05-25T06:28:44.438Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Footer"
+                    sling:resourceType="core/wcm/components/text/v2/text"
+                    css="footerText"
+                    text="&lt;p>© YYYY WKND | All rights reserved.&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"/>
+            </footer>
+        </parsys2>
+    </jcr:content>
+</jcr:root>

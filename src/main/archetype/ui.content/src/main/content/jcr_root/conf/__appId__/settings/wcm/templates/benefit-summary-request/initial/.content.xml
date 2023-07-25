@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:fd="http://www.adobe.com/aemfd/fd/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:deviceGroups="[/etc/mobile/groups/responsive]"
+        cq:lastModified="{Date}2023-07-03T10:40:00.760Z"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/${appId}/settings/wcm/templates/benefit-summary-request"
+        jcr:primaryType="cq:PageContent"
+        sling:configRef="/conf/${appId}/forms"
+        sling:resourceType="${appId}/components/adaptiveForm/page"
+        guideComponentType="fd/af/templates">
+        <guideContainer
+            fd:version="2.1"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="${appId}/components/adaptiveForm/formcontainer"
+            fieldType="form">
+            <text_2145122489
+                jcr:lastModified="{Date}2023-06-15T10:15:15.538Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Text"
+                sling:resourceType="${appId}/components/adaptiveForm/text"
+                fieldType="plain-text"
+                name="text_21451224891684997830821"
+                textIsRich="true"
+                value="&lt;p>Please complete the following form to request a benefit summary. These details will help us provide you with an overview of your eligible benefits.&lt;/p>&#xd;&#xa;"/>
+            <textinput
+                jcr:lastModified="{Date}2023-06-06T09:35:32.962Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="First name"
+                sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                autocomplete="off"
+                enabled="{Boolean}true"
+                fieldType="text-input"
+                hideTitle="false"
+                mandatoryMessage="Please enter your first name."
+                name="FirstName"
+                readOnly="{Boolean}false"
+                required="true"
+                textIsRich="[true,true]"
+                validatePictureClauseMessage="[,]"
+                visible="{Boolean}true"/>
+            <textinput_copy
+                jcr:lastModified="{Date}2023-06-06T09:35:40.737Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Last name"
+                sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                autocomplete="off"
+                enabled="{Boolean}true"
+                fieldType="text-input"
+                hideTitle="false"
+                mandatoryMessage="Please enter your last name."
+                name="LastName"
+                readOnly="{Boolean}false"
+                required="true"
+                textIsRich="[true,true]"
+                validatePictureClauseMessage="[,]"
+                visible="{Boolean}true"/>
+            <textinput_1608491741
+                jcr:lastModified="{Date}2023-06-29T08:57:46.561Z"
+                jcr:lastModifiedBy="macman@adobe.com"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Employee ID"
+                sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                autocomplete="off"
+                enabled="{Boolean}true"
+                fieldType="text-input"
+                hideTitle="false"
+                mandatoryMessage="Please specify Employee ID Number."
+                name="EmpNo"
+                readOnly="{Boolean}false"
+                required="true"
+                textIsRich="[true,true]"
+                unboundFormElement="{Boolean}false"
+                visible="{Boolean}true"/>
+            <dropdown_1303328788
+                jcr:lastModified="{Date}2023-06-15T10:21:26.557Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="What is your employment status?"
+                sling:resourceType="${appId}/components/adaptiveForm/dropdown"
+                enabled="{Boolean}true"
+                enum="[0,1,2,3]"
+                enumNames="[Full-Time,Part-Time,Contractor,Intern]"
+                fieldType="drop-down"
+                hideTitle="false"
+                mandatoryMessage="Please choose your employment category."
+                name="EmpStatusType"
+                readOnly="{Boolean}false"
+                required="true"
+                textIsRich="[true,true]"
+                type="string"
+                typeIndex="0"
+                unboundFormElement="{Boolean}false"
+                visible="{Boolean}true"/>
+            <emailinput
+                jcr:lastModified="{Date}2023-06-06T09:35:49.968Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Email address"
+                sling:resourceType="${appId}/components/adaptiveForm/emailinput"
+                enabled="{Boolean}true"
+                fieldType="email"
+                hideTitle="false"
+                mandatoryMessage="Please enter your email address."
+                name="EmailAddress"
+                readOnly="{Boolean}false"
+                required="true"
+                textIsRich="[true,true]"
+                visible="{Boolean}true"/>
+            <telephoneinput
+                jcr:lastModified="{Date}2023-06-06T09:35:58.862Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Phone number"
+                sling:resourceType="${appId}/components/adaptiveForm/telephoneinput"
+                enabled="{Boolean}true"
+                fieldType="text-input"
+                hideTitle="false"
+                mandatoryMessage="Please enter your contact number."
+                name="PhoneNumber"
+                readOnly="{Boolean}false"
+                required="true"
+                textIsRich="[true,true]"
+                visible="{Boolean}true"/>
+            <dropdown
+                jcr:lastModified="{Date}2023-06-15T10:24:38.640Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Choose a benefit type"
+                sling:resourceType="${appId}/components/adaptiveForm/dropdown"
+                enabled="{Boolean}true"
+                enum="[0,1,2,3,4,5]"
+                enumNames="[Health Insurance,Dental Insurance,Education Benefits,Retirement Benefits,Life Insurance,Other]"
+                fieldType="drop-down"
+                hideTitle="false"
+                mandatoryMessage="Please choose the type of benefit information."
+                name="BenefitInfo"
+                readOnly="{Boolean}false"
+                required="true"
+                textIsRich="[true,true]"
+                type="string"
+                typeIndex="0"
+                unboundFormElement="{Boolean}false"
+                visible="{Boolean}true">
+                <fd:rules
+                    fd:valueCommit="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_SCRIPTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EVENT_CONDITION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.BenefitInfo&quot;\,&quot;type&quot;:&quot;STRING&quot;\,&quot;name&quot;:&quot;BenefitInfo&quot;}}\,{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON_OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EQUALS_TO&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;PRIMITIVE_EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;5&quot;}}]}\,&quot;nested&quot;:false}\,{&quot;nodeName&quot;:&quot;Then&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;BLOCK_STATEMENTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;BLOCK_STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_STATEMENT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.OtherBenefitInfo&quot;\,&quot;displayName&quot;:&quot;Specify benefits details&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;displayPath&quot;:&quot;FORM/Specify benefits details/&quot;\,&quot;name&quot;:&quot;OtherBenefitInfo&quot;\,&quot;parent&quot;:&quot;$form&quot;}}]}}]}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:[&quot;if($field == '5'\, dispatchEvent(OtherBenefitInfo\, 'custom:setProperty'\, {visible : true()})\, {})&quot;]\,&quot;eventName&quot;:&quot;Value Commit&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                    jcr:primaryType="nt:unstructured"
+                    validationStatus="valid"/>
+                <fd:events
+                    jcr:primaryType="nt:unstructured"
+                    change="[if($field == '5'\, dispatchEvent(OtherBenefitInfo\, 'custom:setProperty'\, {visible : true()})\, {})]"/>
+            </dropdown>
+            <textinput_1147505022
+                jcr:lastModified="{Date}2023-06-15T10:17:52.822Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Specify the benefit name"
+                sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                autocomplete="off"
+                enabled="{Boolean}true"
+                fieldType="text-input"
+                hideTitle="false"
+                mandatoryMessage="Please provide any other benefit details.&#xd;&#xa;"
+                name="OtherBenefitInfo"
+                readOnly="{Boolean}false"
+                required="true"
+                textIsRich="[true,true]"
+                unboundFormElement="{Boolean}false"
+                visible="{Boolean}true">
+                <fd:rules
+                    fd:visible="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.OtherBenefitInfo&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;name&quot;:&quot;OtherBenefitInfo&quot;}}\,{&quot;nodeName&quot;:&quot;When&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;CONDITIONORALWAYS&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPARISON_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.BenefitInfo&quot;\,&quot;displayName&quot;:&quot;What benefit information do you need?&quot;\,&quot;type&quot;:&quot;STRING&quot;\,&quot;displayPath&quot;:&quot;FORM/What benefit information do you need?/&quot;\,&quot;name&quot;:&quot;BenefitInfo&quot;\,&quot;parent&quot;:&quot;$form&quot;}}}\,{&quot;nodeName&quot;:&quot;OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EQUALS_TO&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;5&quot;}}]}}\,{&quot;nodeName&quot;:&quot;Else&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;DONOTHING_OR_HIDE&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;Hide&quot;\,&quot;value&quot;:null}}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:&quot;BenefitInfo == '5'&quot;\,&quot;eventName&quot;:&quot;Visibility&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                    jcr:primaryType="nt:unstructured"
+                    validationStatus="valid"
+                    visible="BenefitInfo == '5'"/>
+                <fd:events jcr:primaryType="nt:unstructured"/>
+            </textinput_1147505022>
+            <submit
+                jcr:lastModified="{Date}2023-05-25T06:28:44.438Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Submit"
+                sling:resourceType="${appId}/components/adaptiveForm/actions/submit"
+                buttonType="submit"
+                dorExclusion="true"
+                fieldType="button"
+                name="submit1684996124786">
+                <fd:rules
+                    fd:click="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_SCRIPTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EVENT_CONDITION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.button1667450213112&quot;\,&quot;type&quot;:&quot;BUTTON&quot;\,&quot;name&quot;:&quot;button1667450213112&quot;}}\,{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON_OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;is clicked&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;PRIMITIVE_EXPRESSION&quot;\,&quot;choice&quot;:null}]}\,&quot;nested&quot;:false}\,{&quot;nodeName&quot;:&quot;Then&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;BLOCK_STATEMENTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;BLOCK_STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SUBMIT_FORM&quot;\,&quot;items&quot;:[]}}]}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:[&quot;submitForm('custom:submitSuccess'\, 'custom:submitError')&quot;]\,&quot;eventName&quot;:&quot;Click&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                    jcr:primaryType="nt:unstructured"/>
+                <fd:events
+                    jcr:primaryType="nt:unstructured"
+                    click="[submitForm('custom:submitSuccess'\, 'custom:submitError')]"/>
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:primaryType="nt:unstructured"
+                        offset="5"
+                        width="1"/>
+                </cq:responsive>
+            </submit>
+        </guideContainer>
+        <parsys1
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <pageheader
+                jcr:lastModified="{Date}2023-05-25T06:28:44.438Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Header"
+                sling:resourceType="${appId}/components/adaptiveForm/pageheader"
+                fieldType="page-header">
+                <image
+                    jcr:lastModified="{Date}2023-05-25T06:28:44.438Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Log"
+                    sling:resourceType="${appId}/components/image"
+                    alt="WKND Logo"
+                    altValueFromDAM="false"
+                    disableLazyLoading="false"
+                    displayPopupTitle="true"
+                    fileName="wknd-logo.png"
+                    fileReference="/content/dam/${appId}/wknd_logo.png"
+                    height="0"
+                    imageFromPageImage="false"
+                    isDecorative="false"
+                    linkTarget="_self"
+                    name="logoImage"
+                    titleValueFromDAM="false"
+                    width="0">
+                </image>
+                <text
+                    jcr:lastModified="{Date}2023-05-25T06:28:44.438Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wcm/foundation/components/text"
+                    text="&lt;p>Contact Us&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"
+                    value="Company Name Here"/>
+            </pageheader>
+        </parsys1>
+        <parsys2
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <footer
+                jcr:lastModified="{Date}2023-05-25T06:28:44.438Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Footer"
+                sling:resourceType="${appId}/components/adaptiveForm/footer">
+                <text
+                    jcr:lastModified="{Date}2023-05-25T06:28:44.438Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Footer"
+                    sling:resourceType="core/wcm/components/text/v2/text"
+                    css="footerText"
+                    text="&lt;p>© YYYY WKND | All rights reserved.&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"/>
+            </footer>
+        </parsys2>
+    </jcr:content>
+</jcr:root>

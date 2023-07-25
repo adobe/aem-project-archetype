@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:primaryType="cq:Template">
+    <jcr:content
+        cq:isDelivered="{Boolean}true"
+        cq:lastModified="{Date}2023-07-03T10:41:32.790Z"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2023-05-27T04:40:20.107Z"
+        cq:lastReplicated_publish="{Date}2023-05-27T04:40:20.107Z"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicatedBy_publish="admin"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:templateType="/conf/${appId}/settings/wcm/template-types/af-page-v2"
+        jcr:description="The Safety Inspection Form is for maintaining a safe work environment. By conducting regular inspections using this form, potential hazards can be identified. It covers various aspects such as emergency exits, fire safety, electrical safety, hazardous materials, personal protective equipment, workstation ergonomics, etc. for the safety and well-being of employees, visitors, and customers and creates a secure environment for all."
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Safety Inspection"
+        status="enabled"/>
+</jcr:root>

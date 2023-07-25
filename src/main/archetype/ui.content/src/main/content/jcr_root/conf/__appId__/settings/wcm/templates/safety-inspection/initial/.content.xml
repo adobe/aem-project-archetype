@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:fd="http://www.adobe.com/aemfd/fd/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:deviceGroups="[/etc/mobile/groups/responsive]"
+        cq:lastModified="{Date}2023-07-03T10:41:32.790Z"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/${appId}/settings/wcm/templates/safety-inspection"
+        jcr:primaryType="cq:PageContent"
+        sling:configRef="/conf/${appId}/forms"
+        sling:resourceType="${appId}/components/adaptiveForm/page"
+        guideComponentType="fd/af/templates">
+        <guideContainer
+            fd:version="2.1"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="${appId}/components/adaptiveForm/formcontainer"
+            fieldType="form">
+            <text
+                jcr:lastModified="{Date}2023-06-15T06:47:34.555Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Text"
+                sling:resourceType="${appId}/components/adaptiveForm/text"
+                fieldType="plain-text"
+                name="text1686656120730"
+                textIsRich="true"
+                value="&lt;p>Please complete the form to help identify risks and ensure a secure workplace environment for all.&lt;/p>&#xd;&#xa;"/>
+            <tabsontop
+                jcr:lastModified="{Date}2023-05-27T04:35:15.116Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Tabs on Top"
+                sling:resourceType="${appId}/components/adaptiveForm/tabsontop"
+                enabled="{Boolean}true"
+                fieldType="panel"
+                hideTitle="true"
+                name="tabsontop1685155533790"
+                readOnly="{Boolean}false"
+                textIsRich="[true,true]"
+                visible="{Boolean}true"
+                wrapData="{Boolean}false">
+                <panelcontainer_copy__1756014865
+                    cq:panelTitle="Emergency preparedness"
+                    jcr:lastModified="{Date}2023-05-27T02:51:16.969Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Emergency Preparedness"
+                    sling:resourceType="${appId}/components/adaptiveForm/panelcontainer"
+                    enabled="{Boolean}true"
+                    fieldType="panel"
+                    hideTitle="true"
+                    layout="responsiveGrid"
+                    name="EmerPrep"
+                    readOnly="{Boolean}false"
+                    textIsRich="[true,true]"
+                    visible="{Boolean}true"
+                    wrapData="{Boolean}false">
+                    <radiobutton_copy
+                        jcr:lastModified="{Date}2023-05-28T08:49:03.714Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="1. Are emergency exits clearly marked and unobstructed?"
+                        sling:resourceType="${appId}/components/adaptiveForm/radiobutton"
+                        enabled="{Boolean}true"
+                        enum="[0,1]"
+                        enumNames="[Yes,No]"
+                        fieldType="radio-group"
+                        hideTitle="false"
+                        mandatoryMessage="Provide select one of the options."
+                        name="EmerPrepq1"
+                        orientation="horizontal"
+                        readOnly="{Boolean}false"
+                        required="true"
+                        textIsRich="[true,true]"
+                        type="string"
+                        visible="{Boolean}true"/>
+                    <radiobutton_copy_1213065379
+                        jcr:lastModified="{Date}2023-05-28T08:49:17.750Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="2. Are emergency evacuation plans posted and visible?"
+                        sling:resourceType="${appId}/components/adaptiveForm/radiobutton"
+                        enabled="{Boolean}true"
+                        enum="[0,1]"
+                        enumNames="[Yes,No]"
+                        fieldType="radio-group"
+                        hideTitle="false"
+                        mandatoryMessage="Provide select one of the options."
+                        name="EmerPrepq2"
+                        orientation="horizontal"
+                        readOnly="{Boolean}false"
+                        required="true"
+                        textIsRich="[true,true]"
+                        type="string"
+                        visible="{Boolean}true"/>
+                    <radiobutton
+                        jcr:lastModified="{Date}2023-05-28T08:49:33.065Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="3. Are fire extinguishers easily accessible and within their expiration dates?"
+                        sling:resourceType="${appId}/components/adaptiveForm/radiobutton"
+                        enabled="{Boolean}true"
+                        enum="[0,1]"
+                        enumNames="[Yes,No]"
+                        fieldType="radio-group"
+                        hideTitle="false"
+                        mandatoryMessage="Provide select one of the options in emergency preparedness."
+                        name="EmerPrepq3"
+                        orientation="horizontal"
+                        readOnly="{Boolean}false"
+                        required="true"
+                        textIsRich="[true,true]"
+                        type="string"
+                        visible="{Boolean}true"/>
+                    <radiobutton_925383028
+                        jcr:lastModified="{Date}2023-06-12T10:13:29.077Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="4. Additional inputs (if any)"
+                        sling:resourceType="${appId}/components/adaptiveForm/radiobutton"
+                        enabled="{Boolean}true"
+                        enum="[0,1]"
+                        enumNames="[Yes,No]"
+                        fieldType="radio-group"
+                        hideTitle="false"
+                        mandatoryMessage="Please select one of the options."
+                        name="AddInputEP"
+                        orientation="horizontal"
+                        readOnly="{Boolean}false"
+                        required="true"
+                        textIsRich="[true,true]"
+                        type="string"
+                        unboundFormElement="{Boolean}false"
+                        visible="{Boolean}true">
+                        <fd:rules
+                            fd:valueCommit="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_SCRIPTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EVENT_CONDITION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.EmerPrep.AddInputEP&quot;\,&quot;type&quot;:&quot;STRING&quot;\,&quot;name&quot;:&quot;AddInputEP&quot;}}\,{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON_OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;CONTAINS&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;PRIMITIVE_EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;0&quot;}}]}\,&quot;nested&quot;:false}\,{&quot;nodeName&quot;:&quot;Then&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;BLOCK_STATEMENTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;BLOCK_STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_STATEMENT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.EmerPrep.EmerPrep&quot;\,&quot;displayName&quot;:&quot;Provide details about emergency preparedness&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;displayPath&quot;:&quot;FORM/Tabs on Top/Emergency Preparedness/Provide details about emergency preparedness/&quot;\,&quot;name&quot;:&quot;EmerPrep&quot;\,&quot;parent&quot;:&quot;$form.tabsontop1685155533790.EmerPrep&quot;}}]}}]}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:[&quot;if(contains($field\, '0')\, dispatchEvent(EmerPrep\, 'custom:setProperty'\, {visible : true()})\, {})&quot;]\,&quot;eventName&quot;:&quot;Value Commit&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                            jcr:primaryType="nt:unstructured"
+                            validationStatus="valid"/>
+                        <fd:events
+                            jcr:primaryType="nt:unstructured"
+                            change="[if(contains($field\, '0')\, dispatchEvent(EmerPrep\, 'custom:setProperty'\, {visible : true()})\, {})]"/>
+                    </radiobutton_925383028>
+                    <textinput_921078093
+                        jcr:lastModified="{Date}2023-06-07T10:51:38.907Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Provide details"
+                        sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                        autocomplete="off"
+                        enabled="{Boolean}true"
+                        fieldType="text-input"
+                        hideTitle="false"
+                        mandatoryMessage="Please specify details of the emergency preparedness."
+                        multiLine="true"
+                        name="EmerPrep"
+                        readOnly="{Boolean}false"
+                        required="true"
+                        textIsRich="[true,true]"
+                        unboundFormElement="{Boolean}false"
+                        visible="{Boolean}true">
+                        <fd:rules
+                            fd:visible="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.EmerPrep.EmerPrep&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;name&quot;:&quot;EmerPrep&quot;}}\,{&quot;nodeName&quot;:&quot;When&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;CONDITIONORALWAYS&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPARISON_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.EmerPrep.AddInputEP&quot;\,&quot;displayName&quot;:&quot;Additional inputs (if any)&quot;\,&quot;type&quot;:&quot;STRING&quot;\,&quot;isDuplicate&quot;:true\,&quot;displayPath&quot;:&quot;FORM/Tabs on Top/Emergency Preparedness/Additional inputs (if any)/&quot;\,&quot;name&quot;:&quot;AddInputEP&quot;\,&quot;parent&quot;:&quot;$form.tabsontop1685155533790.EmerPrep&quot;}}}\,{&quot;nodeName&quot;:&quot;OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EQUALS_TO&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;0&quot;}}]}}\,{&quot;nodeName&quot;:&quot;Else&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;DONOTHING_OR_HIDE&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;Hide&quot;\,&quot;value&quot;:null}}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:&quot;AddInputEP == '0'&quot;\,&quot;eventName&quot;:&quot;Visibility&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                            jcr:primaryType="nt:unstructured"
+                            validationStatus="valid"
+                            visible="AddInputEP == '0'"/>
+                        <fd:events jcr:primaryType="nt:unstructured"/>
+                    </textinput_921078093>
+                </panelcontainer_copy__1756014865>
+                <panelcontainer_copy__2035876606
+                    cq:panelTitle="Machinery"
+                    jcr:lastModified="{Date}2023-05-27T02:51:23.822Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Machinery and Equipment"
+                    sling:resourceType="${appId}/components/adaptiveForm/panelcontainer"
+                    enabled="{Boolean}true"
+                    fieldType="panel"
+                    hideTitle="true"
+                    layout="responsiveGrid"
+                    name="MachEquip"
+                    readOnly="{Boolean}false"
+                    textIsRich="[true,true]"
+                    visible="{Boolean}true"
+                    wrapData="{Boolean}false">
+                    <radiobutton_copy_cop
+                        jcr:lastModified="{Date}2023-05-28T08:50:31.397Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="1. Are machines and equipment properly maintained and in safe working condition? "
+                        sling:resourceType="${appId}/components/adaptiveForm/radiobutton"
+                        enabled="{Boolean}true"
+                        enum="[0,1]"
+                        enumNames="[Yes,No]"
+                        fieldType="radio-group"
+                        hideTitle="false"
+                        mandatoryMessage="Please select one of the options."
+                        name="MachEquipQ1"
+                        orientation="horizontal"
+                        readOnly="{Boolean}false"
+                        required="true"
+                        textIsRich="[true,true]"
+                        type="string"
+                        visible="{Boolean}true"/>
+                    <radiobutton_copy
+                        jcr:lastModified="{Date}2023-06-14T09:52:56.223Z"
+                        jcr:lastModifiedBy="macman@adobe.com"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="2. Are machine guardrails in place and functioning correctly?"
+                        sling:resourceType="${appId}/components/adaptiveForm/radiobutton"
+                        enabled="{Boolean}true"
+                        enum="[0,1]"
+                        enumNames="[Yes,No]"
+                        fieldType="radio-group"
+                        hideTitle="false"
+                        mandatoryMessage="Please select one of the options."
+                        name="MachEquipQ2"
+                        orientation="horizontal"
+                        readOnly="{Boolean}false"
+                        required="true"
+                        textIsRich="[true,true]"
+                        type="string"
+                        visible="{Boolean}true"/>
+                    <radiobutton
+                        jcr:lastModified="{Date}2023-06-07T10:47:10.596Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="3. Additional inputs (if any)"
+                        sling:resourceType="${appId}/components/adaptiveForm/radiobutton"
+                        enabled="{Boolean}true"
+                        enum="[0,1]"
+                        enumNames="[Yes,No]"
+                        fieldType="radio-group"
+                        hideTitle="false"
+                        mandatoryMessage="Please select one of the options."
+                        name="AddInputMach"
+                        orientation="horizontal"
+                        readOnly="{Boolean}false"
+                        required="true"
+                        textIsRich="[true,true]"
+                        type="string"
+                        unboundFormElement="{Boolean}false"
+                        visible="{Boolean}true">
+                        <fd:rules
+                            fd:valueCommit="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_SCRIPTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EVENT_CONDITION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.MachEquip.AddInputMach&quot;\,&quot;type&quot;:&quot;STRING&quot;\,&quot;name&quot;:&quot;AddInputMach&quot;}}\,{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON_OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;CONTAINS&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;PRIMITIVE_EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;0&quot;}}]}\,&quot;nested&quot;:false}\,{&quot;nodeName&quot;:&quot;Then&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;BLOCK_STATEMENTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;BLOCK_STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_STATEMENT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.MachEquip.MachEquipDet&quot;\,&quot;displayName&quot;:&quot;Provide details about machinery and equipment&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;displayPath&quot;:&quot;FORM/Tabs on Top/Machinery and Equipment/Provide details about machinery and equipment/&quot;\,&quot;name&quot;:&quot;MachEquipDet&quot;\,&quot;parent&quot;:&quot;$form.tabsontop1685155533790.MachEquip&quot;}}]}}]}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:[&quot;if(contains($field\, '0')\, dispatchEvent(MachEquipDet\, 'custom:setProperty'\, {visible : true()})\, {})&quot;]\,&quot;eventName&quot;:&quot;Value Commit&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                            jcr:primaryType="nt:unstructured"
+                            validationStatus="valid"/>
+                        <fd:events
+                            jcr:primaryType="nt:unstructured"
+                            change="[if(contains($field\, '0')\, dispatchEvent(MachEquipDet\, 'custom:setProperty'\, {visible : true()})\, {})]"/>
+                    </radiobutton>
+                    <textinput_921078093
+                        jcr:lastModified="{Date}2023-06-07T10:51:54.768Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Provide details"
+                        sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                        autocomplete="off"
+                        enabled="{Boolean}true"
+                        fieldType="text-input"
+                        hideTitle="false"
+                        mandatoryMessage="Please specify details about machinery and equipment."
+                        multiLine="true"
+                        name="MachEquipDet"
+                        readOnly="{Boolean}false"
+                        required="true"
+                        textIsRich="[true,true]"
+                        unboundFormElement="{Boolean}false"
+                        visible="{Boolean}true">
+                        <fd:rules
+                            fd:visible="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.MachEquip.MachEquipDet&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;name&quot;:&quot;MachEquipDet&quot;}}\,{&quot;nodeName&quot;:&quot;When&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;CONDITIONORALWAYS&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPARISON_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.MachEquip.AddInputMach&quot;\,&quot;displayName&quot;:&quot;3. Additional inputs (if any)&quot;\,&quot;type&quot;:&quot;STRING&quot;\,&quot;displayPath&quot;:&quot;FORM/Tabs on Top/Machinery and Equipment/3. Additional inputs (if any)/&quot;\,&quot;name&quot;:&quot;AddInputMach&quot;\,&quot;parent&quot;:&quot;$form.tabsontop1685155533790.MachEquip&quot;}}}\,{&quot;nodeName&quot;:&quot;OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;CONTAINS&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;0&quot;}}]}}\,{&quot;nodeName&quot;:&quot;Else&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;DONOTHING_OR_HIDE&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;Hide&quot;\,&quot;value&quot;:null}}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:&quot;contains(AddInputMach\, '0')&quot;\,&quot;eventName&quot;:&quot;Visibility&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                            jcr:primaryType="nt:unstructured"
+                            validationStatus="valid"
+                            visible="contains(AddInputMach, '0')"/>
+                        <fd:events jcr:primaryType="nt:unstructured"/>
+                    </textinput_921078093>
+                </panelcontainer_copy__2035876606>
+                <panelcontainer_copy
+                    cq:panelTitle="Hazard identification"
+                    jcr:lastModified="{Date}2023-05-27T02:51:00.501Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Hazard Identification"
+                    sling:resourceType="${appId}/components/adaptiveForm/panelcontainer"
+                    enabled="{Boolean}true"
+                    fieldType="panel"
+                    hideTitle="true"
+                    layout="responsiveGrid"
+                    name="HazardIdentificationPanel"
+                    readOnly="{Boolean}false"
+                    textIsRich="[true,true]"
+                    visible="{Boolean}true"
+                    wrapData="{Boolean}false">
+                    <radiobutton
+                        jcr:lastModified="{Date}2023-05-28T08:52:32.571Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="1. Are there any potential hazards present?"
+                        sling:resourceType="${appId}/components/adaptiveForm/radiobutton"
+                        enabled="{Boolean}true"
+                        enum="[0,1]"
+                        enumNames="[Yes,No]"
+                        fieldType="radio-group"
+                        hideTitle="false"
+                        mandatoryMessage="Please select one of the options."
+                        name="PotHazPres"
+                        orientation="horizontal"
+                        readOnly="{Boolean}false"
+                        required="true"
+                        textIsRich="[true,true]"
+                        type="string"
+                        visible="{Boolean}true">
+                        <fd:rules
+                            fd:valueCommit="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_SCRIPTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EVENT_CONDITION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.HazardIdentificationPanel.PotHazPres&quot;\,&quot;type&quot;:&quot;STRING&quot;\,&quot;name&quot;:&quot;PotHazPres&quot;}}\,{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON_OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;CONTAINS&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;PRIMITIVE_EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;0&quot;}}]}\,&quot;nested&quot;:false}\,{&quot;nodeName&quot;:&quot;Then&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;BLOCK_STATEMENTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;BLOCK_STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_STATEMENT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.HazardIdentificationPanel.HazQ2&quot;\,&quot;displayName&quot;:&quot;2. Are all potential hazards adequately identified and documented within the inspected area?&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;displayPath&quot;:&quot;FORM/Tabs on Top/Hazard Identification/2. Are all potential hazards adequately identified and documented within the inspected area?/&quot;\,&quot;name&quot;:&quot;HazQ2&quot;\,&quot;parent&quot;:&quot;$form.tabsontop1685155533790.HazardIdentificationPanel&quot;}}]}}]}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:[&quot;if(contains($field\, '0')\, dispatchEvent(HazQ2\, 'custom:setProperty'\, {visible : true()})\, {})&quot;]\,&quot;eventName&quot;:&quot;Value Commit&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                            jcr:primaryType="nt:unstructured"
+                            validationStatus="valid"/>
+                        <fd:events
+                            jcr:primaryType="nt:unstructured"
+                            change="[if(contains($field\, '0')\, dispatchEvent(HazQ2\, 'custom:setProperty'\, {visible : true()})\, {})]"/>
+                    </radiobutton>
+                    <radiobutton_116699772
+                        jcr:lastModified="{Date}2023-05-28T08:52:57.246Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="2. Are all potential hazards adequately identified and documented within the inspected area?"
+                        sling:resourceType="${appId}/components/adaptiveForm/radiobutton"
+                        enabled="{Boolean}true"
+                        enum="[0,1]"
+                        enumNames="[Yes,No]"
+                        fieldType="radio-group"
+                        hideTitle="false"
+                        mandatoryMessage="Please select one of the options."
+                        name="HazQ2"
+                        orientation="horizontal"
+                        readOnly="{Boolean}false"
+                        required="true"
+                        textIsRich="[true,true]"
+                        type="string"
+                        visible="{Boolean}true">
+                        <fd:rules
+                            fd:valueCommit="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_SCRIPTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EVENT_CONDITION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.HazardIdentificationPanel.HazQ2&quot;\,&quot;type&quot;:&quot;STRING&quot;\,&quot;name&quot;:&quot;HazQ2&quot;}}\,{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON_OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;CONTAINS&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;PRIMITIVE_EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;1&quot;}}]}\,&quot;nested&quot;:false}\,{&quot;nodeName&quot;:&quot;Then&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;BLOCK_STATEMENTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;BLOCK_STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_STATEMENT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.HazardIdentificationPanel.NonDocHaz&quot;\,&quot;displayName&quot;:&quot;Name the hazards which are not documented&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;displayPath&quot;:&quot;FORM/Tabs on Top/Hazard Identification/Name the hazards which are not documented/&quot;\,&quot;name&quot;:&quot;NonDocHaz&quot;\,&quot;parent&quot;:&quot;$form.tabsontop1685155533790.HazardIdentificationPanel&quot;}}]}}]}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:[&quot;if(contains($field\, '1')\, dispatchEvent(NonDocHaz\, 'custom:setProperty'\, {visible : true()})\, {})&quot;]\,&quot;eventName&quot;:&quot;Value Commit&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                            fd:visible="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.HazardIdentificationPanel.HazQ2&quot;\,&quot;type&quot;:&quot;AFCOMPONENT|FIELD|RADIO BUTTON|STRING&quot;\,&quot;name&quot;:&quot;HazQ2&quot;}}\,{&quot;nodeName&quot;:&quot;When&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;CONDITIONORALWAYS&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPARISON_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.HazardIdentificationPanel.PotHazPres&quot;\,&quot;displayName&quot;:&quot;1. Are there any potential hazards present?&quot;\,&quot;type&quot;:&quot;STRING&quot;\,&quot;displayPath&quot;:&quot;FORM/Tabs on Top/Hazard Identification/1. Are there any potential hazards present?/&quot;\,&quot;name&quot;:&quot;PotHazPres&quot;\,&quot;parent&quot;:&quot;$form.tabsontop1685155533790.HazardIdentificationPanel&quot;}}}\,{&quot;nodeName&quot;:&quot;OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;CONTAINS&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;0&quot;}}]}}\,{&quot;nodeName&quot;:&quot;Else&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;DONOTHING_OR_HIDE&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;Hide&quot;\,&quot;value&quot;:null}}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:&quot;contains(PotHazPres\, '0')&quot;\,&quot;eventName&quot;:&quot;Visibility&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                            jcr:primaryType="nt:unstructured"
+                            validationStatus="valid"
+                            visible="contains(PotHazPres, '0')"/>
+                        <fd:events
+                            jcr:primaryType="nt:unstructured"
+                            change="[if(contains($field\, '1')\, dispatchEvent(NonDocHaz\, 'custom:setProperty'\, {visible : true()})\, {})]"/>
+                    </radiobutton_116699772>
+                    <textinput
+                        jcr:lastModified="{Date}2023-06-15T10:33:00.479Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Name the hazards which are not documented"
+                        sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                        autocomplete="off"
+                        enabled="{Boolean}true"
+                        fieldType="text-input"
+                        hideTitle="false"
+                        mandatoryMessage="Please name the hazards which are not documented."
+                        multiLine="true"
+                        name="NonDocHaz"
+                        readOnly="{Boolean}false"
+                        required="true"
+                        textIsRich="[true,true]"
+                        unboundFormElement="{Boolean}false"
+                        visible="{Boolean}true">
+                        <fd:rules
+                            fd:visible="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.HazardIdentificationPanel.NonDocHaz&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;name&quot;:&quot;NonDocHaz&quot;}}\,{&quot;nodeName&quot;:&quot;When&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;CONDITIONORALWAYS&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPARISON_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.HazardIdentificationPanel.HazQ2&quot;\,&quot;displayName&quot;:&quot;2. Are all potential hazards adequately identified and documented within the inspected area?&quot;\,&quot;type&quot;:&quot;STRING&quot;\,&quot;displayPath&quot;:&quot;FORM/Tabs on Top/Hazard Identification/2. Are all potential hazards adequately identified and documented within the inspected area?/&quot;\,&quot;name&quot;:&quot;HazQ2&quot;\,&quot;parent&quot;:&quot;$form.tabsontop1685155533790.HazardIdentificationPanel&quot;}}}\,{&quot;nodeName&quot;:&quot;OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;CONTAINS&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;1&quot;}}]}}\,{&quot;nodeName&quot;:&quot;Else&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;DONOTHING_OR_HIDE&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;Hide&quot;\,&quot;value&quot;:null}}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:&quot;contains(HazQ2\, '1')&quot;\,&quot;eventName&quot;:&quot;Visibility&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                            jcr:primaryType="nt:unstructured"
+                            validationStatus="valid"
+                            visible="contains(HazQ2, '1')"/>
+                        <fd:events jcr:primaryType="nt:unstructured"/>
+                    </textinput>
+                    <radiobutton_92538302
+                        jcr:lastModified="{Date}2023-06-15T06:54:29.830Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Additional inputs (if any)"
+                        sling:resourceType="${appId}/components/adaptiveForm/radiobutton"
+                        enabled="{Boolean}true"
+                        enum="[0,1]"
+                        enumNames="[Yes,No]"
+                        fieldType="radio-group"
+                        hideTitle="false"
+                        mandatoryMessage="Please select one of the options."
+                        name="AddInputHI"
+                        orientation="horizontal"
+                        readOnly="{Boolean}false"
+                        required="true"
+                        textIsRich="[true,true]"
+                        type="string"
+                        unboundFormElement="{Boolean}false"
+                        visible="{Boolean}true">
+                        <fd:rules
+                            fd:valueCommit="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_SCRIPTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EVENT_CONDITION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.HazardIdentificationPanel.AddInputHI&quot;\,&quot;type&quot;:&quot;STRING&quot;\,&quot;name&quot;:&quot;AddInputHI&quot;}}\,{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON_OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;CONTAINS&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;PRIMITIVE_EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;0&quot;}}]}\,&quot;nested&quot;:false}\,{&quot;nodeName&quot;:&quot;Then&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;BLOCK_STATEMENTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;BLOCK_STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_STATEMENT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.HazardIdentificationPanel.HazDet&quot;\,&quot;displayName&quot;:&quot;Provide details of hazards&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;displayPath&quot;:&quot;FORM/Tabs on Top/Hazard Identification/Provide details of hazards/&quot;\,&quot;name&quot;:&quot;HazDet&quot;\,&quot;parent&quot;:&quot;$form.tabsontop1685155533790.HazardIdentificationPanel&quot;}}]}}]}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:[&quot;if(contains($field\, '0')\, dispatchEvent(HazDet\, 'custom:setProperty'\, {visible : true()})\, {})&quot;]\,&quot;eventName&quot;:&quot;Value Commit&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                            jcr:primaryType="nt:unstructured"
+                            validationStatus="valid"/>
+                        <fd:events
+                            jcr:primaryType="nt:unstructured"
+                            change="[if(contains($field\, '0')\, dispatchEvent(HazDet\, 'custom:setProperty'\, {visible : true()})\, {})]"/>
+                    </radiobutton_92538302>
+                    <textinput_921078093
+                        jcr:lastModified="{Date}2023-06-07T10:52:11.916Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Provide details"
+                        sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                        autocomplete="off"
+                        enabled="{Boolean}true"
+                        fieldType="text-input"
+                        hideTitle="false"
+                        mandatoryMessage="Please enter the details of the potential hazards."
+                        multiLine="true"
+                        name="HazDet"
+                        readOnly="{Boolean}false"
+                        required="true"
+                        textIsRich="[true,true]"
+                        unboundFormElement="{Boolean}false"
+                        visible="{Boolean}true">
+                        <fd:rules
+                            fd:visible="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.HazardIdentificationPanel.HazDet&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;name&quot;:&quot;HazDet&quot;}}\,{&quot;nodeName&quot;:&quot;When&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;CONDITIONORALWAYS&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPARISON_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.HazardIdentificationPanel.AddInputHI&quot;\,&quot;displayName&quot;:&quot;Additional inputs (if any)&quot;\,&quot;type&quot;:&quot;STRING&quot;\,&quot;isDuplicate&quot;:true\,&quot;displayPath&quot;:&quot;FORM/Tabs on Top/Hazard Identification/Additional inputs (if any)/&quot;\,&quot;name&quot;:&quot;AddInputHI&quot;\,&quot;parent&quot;:&quot;$form.tabsontop1685155533790.HazardIdentificationPanel&quot;}}}\,{&quot;nodeName&quot;:&quot;OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;CONTAINS&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;0&quot;}}]}}\,{&quot;nodeName&quot;:&quot;Else&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;DONOTHING_OR_HIDE&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;Hide&quot;\,&quot;value&quot;:null}}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:&quot;contains(AddInputHI\, '0')&quot;\,&quot;eventName&quot;:&quot;Visibility&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                            jcr:primaryType="nt:unstructured"
+                            validationStatus="valid"
+                            visible="contains(AddInputHI, '0')"/>
+                        <fd:events jcr:primaryType="nt:unstructured"/>
+                    </textinput_921078093>
+                </panelcontainer_copy>
+                <panelcontainer_copy_
+                    cq:panelTitle="Safety equipment"
+                    jcr:lastModified="{Date}2023-05-27T02:51:09.146Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Safety Equipment"
+                    sling:resourceType="${appId}/components/adaptiveForm/panelcontainer"
+                    enabled="{Boolean}true"
+                    fieldType="panel"
+                    hideTitle="true"
+                    layout="responsiveGrid"
+                    name="SafetyEquipment"
+                    readOnly="{Boolean}false"
+                    textIsRich="[true,true]"
+                    visible="{Boolean}true"
+                    wrapData="{Boolean}false">
+                    <radiobutton
+                        jcr:lastModified="{Date}2023-06-07T05:44:55.887Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="1. Are safety and personal protective equipment (PPE) available and in good condition?"
+                        sling:resourceType="${appId}/components/adaptiveForm/radiobutton"
+                        enabled="{Boolean}true"
+                        enum="[0,1]"
+                        enumNames="[Yes,No]"
+                        fieldType="radio-group"
+                        hideTitle="false"
+                        mandatoryMessage="Please select one of the options."
+                        name="SafEquipQ1"
+                        orientation="horizontal"
+                        readOnly="{Boolean}false"
+                        required="true"
+                        textIsRich="[true,true]"
+                        type="string"
+                        visible="{Boolean}true"/>
+                    <radiobutton_686712284
+                        jcr:lastModified="{Date}2023-06-07T06:17:23.575Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="2. Are all the personnel who need to use safety equipment properly trained on how to use and maintain it?"
+                        sling:resourceType="${appId}/components/adaptiveForm/radiobutton"
+                        enabled="{Boolean}true"
+                        enum="[0,1]"
+                        enumNames="[Yes,No]"
+                        fieldType="radio-group"
+                        hideTitle="false"
+                        mandatoryMessage="Please select one of the options."
+                        name="SafEquipQ2"
+                        orientation="horizontal"
+                        readOnly="{Boolean}false"
+                        required="true"
+                        textIsRich="[true,true]"
+                        type="string"
+                        visible="{Boolean}true"/>
+                    <radiobutton_92538302
+                        jcr:lastModified="{Date}2023-06-12T10:12:39.303Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="3. Additional inputs (if any)"
+                        sling:resourceType="${appId}/components/adaptiveForm/radiobutton"
+                        enabled="{Boolean}true"
+                        enum="[0,1]"
+                        enumNames="[Yes,No]"
+                        fieldType="radio-group"
+                        hideTitle="false"
+                        mandatoryMessage="Please select one of the options."
+                        name="AddInputSE"
+                        orientation="horizontal"
+                        readOnly="{Boolean}false"
+                        required="true"
+                        textIsRich="[true,true]"
+                        type="string"
+                        unboundFormElement="{Boolean}false"
+                        visible="{Boolean}true">
+                        <fd:rules
+                            fd:valueCommit="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_SCRIPTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EVENT_CONDITION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.SafetyEquipment.AddInputSE&quot;\,&quot;type&quot;:&quot;STRING&quot;\,&quot;name&quot;:&quot;AddInputSE&quot;}}\,{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON_OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;CONTAINS&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;PRIMITIVE_EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;0&quot;}}]}\,&quot;nested&quot;:false}\,{&quot;nodeName&quot;:&quot;Then&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;BLOCK_STATEMENTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;BLOCK_STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_STATEMENT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.SafetyEquipment.SafEquipDet&quot;\,&quot;displayName&quot;:&quot;Provide details of the safety equipment available&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;displayPath&quot;:&quot;FORM/Tabs on Top/Safety Equipment/Provide details of the safety equipment available/&quot;\,&quot;name&quot;:&quot;SafEquipDet&quot;\,&quot;parent&quot;:&quot;$form.tabsontop1685155533790.SafetyEquipment&quot;}}]}}]}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:[&quot;if(contains($field\, '0')\, dispatchEvent(SafEquipDet\, 'custom:setProperty'\, {visible : true()})\, {})&quot;]\,&quot;eventName&quot;:&quot;Value Commit&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                            jcr:primaryType="nt:unstructured"
+                            validationStatus="valid"/>
+                        <fd:events
+                            jcr:primaryType="nt:unstructured"
+                            change="[if(contains($field\, '0')\, dispatchEvent(SafEquipDet\, 'custom:setProperty'\, {visible : true()})\, {})]"/>
+                    </radiobutton_92538302>
+                    <textinput_921078093
+                        jcr:lastModified="{Date}2023-06-07T10:52:29.331Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Provide details"
+                        sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                        autocomplete="off"
+                        enabled="{Boolean}true"
+                        fieldType="text-input"
+                        hideTitle="false"
+                        mandatoryMessage="Please specify details of the safety equipment available."
+                        multiLine="true"
+                        name="SafEquipDet"
+                        readOnly="{Boolean}false"
+                        required="true"
+                        textIsRich="[true,true]"
+                        unboundFormElement="{Boolean}false"
+                        visible="{Boolean}true">
+                        <fd:rules
+                            fd:visible="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.SafetyEquipment.SafEquipDet&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;name&quot;:&quot;SafEquipDet&quot;}}\,{&quot;nodeName&quot;:&quot;When&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;CONDITIONORALWAYS&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPARISON_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.SafetyEquipment.AddInputSE&quot;\,&quot;displayName&quot;:&quot;Additional inputs (if any)&quot;\,&quot;type&quot;:&quot;STRING&quot;\,&quot;isDuplicate&quot;:true\,&quot;displayPath&quot;:&quot;FORM/Tabs on Top/Safety Equipment/Additional inputs (if any)/&quot;\,&quot;name&quot;:&quot;AddInputSE&quot;\,&quot;parent&quot;:&quot;$form.tabsontop1685155533790.SafetyEquipment&quot;}}}\,{&quot;nodeName&quot;:&quot;OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;CONTAINS&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;0&quot;}}]}}\,{&quot;nodeName&quot;:&quot;Else&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;DONOTHING_OR_HIDE&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;Hide&quot;\,&quot;value&quot;:null}}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:&quot;contains(AddInputSE\, '0')&quot;\,&quot;eventName&quot;:&quot;Visibility&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                            jcr:primaryType="nt:unstructured"
+                            validationStatus="valid"
+                            visible="contains(AddInputSE, '0')"/>
+                        <fd:events jcr:primaryType="nt:unstructured"/>
+                    </textinput_921078093>
+                </panelcontainer_copy_>
+                <panelcontainer_77285
+                    cq:panelTitle="Inspection details"
+                    jcr:lastModified="{Date}2023-05-27T02:50:46.713Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Inspection Details"
+                    sling:resourceType="${appId}/components/adaptiveForm/panelcontainer"
+                    enabled="{Boolean}true"
+                    fieldType="panel"
+                    hideTitle="true"
+                    layout="responsiveGrid"
+                    name="InspDet"
+                    readOnly="{Boolean}false"
+                    textIsRich="[true,true]"
+                    visible="{Boolean}true"
+                    wrapData="{Boolean}false">
+                    <textinput_921078093
+                        jcr:lastModified="{Date}2023-06-13T11:37:18.301Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Site incharge name"
+                        sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                        autocomplete="off"
+                        description="&lt;p>Name the person in charge of the site.&lt;/p>&#xd;&#xa;"
+                        enabled="{Boolean}true"
+                        fieldType="text-input"
+                        hideTitle="false"
+                        mandatoryMessage="Please provide the name of the person in charge of inspection."
+                        name="PersonNameInCharge"
+                        readOnly="{Boolean}false"
+                        required="true"
+                        textIsRich="[true,true]"
+                        tooltipVisible="true"
+                        unboundFormElement="{Boolean}false"
+                        visible="{Boolean}true"/>
+                    <dropdown
+                        jcr:lastModified="{Date}2023-06-13T11:38:13.621Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Department being inspected"
+                        sling:resourceType="${appId}/components/adaptiveForm/dropdown"
+                        enabled="{Boolean}true"
+                        enum="[0,1,2,3]"
+                        enumNames="[Production,Research and development,Logistics,Engineering]"
+                        fieldType="drop-down"
+                        hideTitle="false"
+                        mandatoryMessage="Please select the department being inspected."
+                        name="InspectDepartment"
+                        readOnly="{Boolean}false"
+                        required="true"
+                        textIsRich="[true,true]"
+                        type="string"
+                        typeIndex="0"
+                        unboundFormElement="{Boolean}false"
+                        visible="{Boolean}true"/>
+                    <datepicker_721633552
+                        jcr:lastModified="{Date}2023-05-28T08:54:12.514Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Date of last inspection"
+                        sling:resourceType="${appId}/components/adaptiveForm/datepicker"
+                        enabled="{Boolean}true"
+                        fieldType="date-input"
+                        hideTitle="false"
+                        mandatoryMessage="Please enter the date of the last inspection."
+                        name="LastInspDt"
+                        readOnly="{Boolean}false"
+                        required="true"
+                        textIsRich="[true,true]"
+                        visible="{Boolean}true"/>
+                    <datepicker
+                        jcr:lastModified="{Date}2023-06-13T11:37:48.920Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Date of current inspection"
+                        sling:resourceType="${appId}/components/adaptiveForm/datepicker"
+                        enabled="{Boolean}true"
+                        fieldType="date-input"
+                        hideTitle="false"
+                        mandatoryMessage="Please enter the date of current inspection."
+                        name="DateOfInspection"
+                        readOnly="{Boolean}false"
+                        required="true"
+                        textIsRich="[true,true]"
+                        unboundFormElement="{Boolean}false"
+                        validationExpression="new Date(LastInspDt)&lt;new Date($field)"
+                        visible="{Boolean}true">
+                        <fd:rules
+                            fd:validate="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;VALIDATE_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.InspDet.DateOfInspection&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;name&quot;:&quot;DateOfInspection&quot;}}\,{&quot;nodeName&quot;:&quot;Using&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;Expression&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;CONDITION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPARISON_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.InspDet.LastInspDt&quot;\,&quot;displayName&quot;:&quot;Date of last inspection&quot;\,&quot;type&quot;:&quot;DATE&quot;\,&quot;displayPath&quot;:&quot;FORM/Tabs on Top/Inspection Details/Date of last inspection/&quot;\,&quot;name&quot;:&quot;LastInspDt&quot;\,&quot;parent&quot;:&quot;$form.tabsontop1685155533790.InspDet&quot;}}}\,{&quot;nodeName&quot;:&quot;OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;IS_BEFORE&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.tabsontop1685155533790.InspDet.DateOfInspection&quot;\,&quot;displayName&quot;:&quot;Date of current inspection&quot;\,&quot;type&quot;:&quot;DATE&quot;\,&quot;displayPath&quot;:&quot;FORM/Tabs on Top/Inspection Details/Date of current inspection/&quot;\,&quot;name&quot;:&quot;DateOfInspection&quot;\,&quot;parent&quot;:&quot;$form.tabsontop1685155533790.InspDet&quot;}}}]}\,&quot;nested&quot;:false}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:&quot;new Date(LastInspDt)&lt;new Date($field)&quot;\,&quot;eventName&quot;:&quot;Validate&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                            jcr:primaryType="nt:unstructured"
+                            validationStatus="valid"/>
+                        <fd:events jcr:primaryType="nt:unstructured"/>
+                    </datepicker>
+                    <textinput
+                        jcr:lastModified="{Date}2023-05-28T08:54:27.066Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Name of inspector"
+                        sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                        autocomplete="off"
+                        enabled="{Boolean}true"
+                        fieldType="text-input"
+                        hideTitle="false"
+                        mandatoryMessage="Please enter the name of the inspector."
+                        name="InspectorName"
+                        readOnly="{Boolean}false"
+                        required="true"
+                        textIsRich="[true,true]"
+                        validatePictureClauseMessage="[,]"
+                        visible="{Boolean}true"/>
+                    <telephoneinput
+                        jcr:lastModified="{Date}2023-06-15T10:38:53.733Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Phone number of inspector"
+                        sling:resourceType="${appId}/components/adaptiveForm/telephoneinput"
+                        enabled="{Boolean}true"
+                        fieldType="text-input"
+                        hideTitle="false"
+                        mandatoryMessage="Please enter the phone number."
+                        name="PhNoPerInChrg"
+                        readOnly="{Boolean}false"
+                        required="true"
+                        textIsRich="[true,true]"
+                        unboundFormElement="{Boolean}false"
+                        visible="{Boolean}true"/>
+                    <textinput_469479701
+                        jcr:lastModified="{Date}2023-05-27T06:56:43.525Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Additional comments or recommendations"
+                        sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                        autocomplete="off"
+                        description="&lt;p>You can describe the safety check in detail, along with any recommendations you might want to take into consideration.&lt;/p>&#xd;&#xa;"
+                        enabled="{Boolean}true"
+                        fieldType="text-input"
+                        hideTitle="false"
+                        multiLine="true"
+                        name="AddComm"
+                        readOnly="{Boolean}false"
+                        textIsRich="[true,true]"
+                        tooltipVisible="true"
+                        validatePictureClauseMessage="[,]"
+                        visible="{Boolean}true"/>
+                </panelcontainer_77285>
+            </tabsontop>
+            <submit
+                jcr:lastModified="{Date}2023-06-29T08:25:34.438Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Submit"
+                sling:resourceType="${appId}/components/adaptiveForm/actions/submit"
+                buttonType="submit"
+                dorExclusion="true"
+                fieldType="button"
+                name="submit1688027134845">
+                <fd:rules
+                    fd:click="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_SCRIPTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EVENT_CONDITION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.button1667450213112&quot;\,&quot;type&quot;:&quot;BUTTON&quot;\,&quot;name&quot;:&quot;button1667450213112&quot;}}\,{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON_OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;is clicked&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;PRIMITIVE_EXPRESSION&quot;\,&quot;choice&quot;:null}]}\,&quot;nested&quot;:false}\,{&quot;nodeName&quot;:&quot;Then&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;BLOCK_STATEMENTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;BLOCK_STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SUBMIT_FORM&quot;\,&quot;items&quot;:[]}}]}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:[&quot;submitForm('custom:submitSuccess'\, 'custom:submitError')&quot;]\,&quot;eventName&quot;:&quot;Click&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                    jcr:primaryType="nt:unstructured"/>
+                <fd:events
+                    jcr:primaryType="nt:unstructured"
+                    click="[submitForm('custom:submitSuccess'\, 'custom:submitError')]"/>
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:primaryType="nt:unstructured"
+                        offset="5"
+                        width="1"/>
+                </cq:responsive>
+            </submit>
+        </guideContainer>
+        <parsys1
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <pageheader
+                jcr:lastModified="{Date}2023-05-25T06:28:44.438Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Header"
+                sling:resourceType="${appId}/components/adaptiveForm/pageheader"
+                fieldType="page-header">
+                <image
+                    jcr:lastModified="{Date}2023-05-25T06:28:44.438Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Log"
+                    sling:resourceType="${appId}/components/image"
+                    alt="WKND Logo"
+                    altValueFromDAM="false"
+                    disableLazyLoading="false"
+                    displayPopupTitle="true"
+                    fileName="wknd-logo.png"
+                    fileReference="/content/dam/${appId}/wknd_logo.png"
+                    height="0"
+                    imageFromPageImage="false"
+                    isDecorative="false"
+                    linkTarget="_self"
+                    name="logoImage"
+                    titleValueFromDAM="false"
+                    width="0">
+                </image>
+                <text
+                    jcr:lastModified="{Date}2023-05-25T06:28:44.438Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wcm/foundation/components/text"
+                    text="&lt;p>Contact Us&lt;/p>&#xd;&#xa;&lt;p>&amp;nbsp;&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"
+                    value="Company Name Here"/>
+            </pageheader>
+        </parsys1>
+        <parsys2
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <footer
+                jcr:lastModified="{Date}2023-05-25T06:28:44.438Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Footer"
+                sling:resourceType="${appId}/components/adaptiveForm/footer">
+                <text
+                    jcr:lastModified="{Date}2023-05-25T06:28:44.438Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Footer"
+                    sling:resourceType="core/wcm/components/text/v2/text"
+                    css="footerText"
+                    text="&lt;p>© YYYY WKND | All rights reserved.&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"/>
+            </footer>
+        </parsys2>
+    </jcr:content>
+</jcr:root>
