@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:isDelivered="{Boolean}true"
-        cq:lastReplicated="{Date}2023-05-25T15:46:21.326Z"
-        cq:lastReplicated_publish="{Date}2023-05-25T15:46:21.326Z"
-        cq:lastReplicatedBy="admin"
-        cq:lastReplicatedBy_publish="admin"
-        cq:lastReplicationAction="Activate"
-        cq:lastReplicationAction_publish="Activate"
-        cq:policy="${appId}/components/page/policy"
-        jcr:isCheckedOut="{Boolean}true"
-        jcr:mixinTypes="[cq:ReplicationStatus,mix:versionable]"
+        cq:lastModified="{Date}2023-05-25T15:46:21.326Z"
+        cq:lastModifiedBy="admin"
+        cq:policy="${appId}/components/page/default"
         jcr:primaryType="nt:unstructured"
-        jcr:uuid="d09e595d-0c41-414a-bd60-270d51f1360a"
         sling:resourceType="wcm/core/components/policies/mappings">
         <parsys1
-            cq:policy="fd/af/components/responsivegrid/page-header"
+            cq:policy="wcm/foundation/components/responsivegrid/cc-af-header-policy"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/core/components/policies/mapping"/>
         <guideContainer
@@ -24,7 +16,7 @@
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/core/components/policies/mapping"/>
         <parsys2
-            cq:policy="fd/af/components/responsivegrid/page-footer"
+            cq:policy="wcm/foundation/components/responsivegrid/cc-af-footer-policy"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/core/components/policies/mapping"/>
     </jcr:content>
