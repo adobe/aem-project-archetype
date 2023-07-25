@@ -96,17 +96,9 @@ can be found here https://github.com/adobe/aemanalyser-maven-plugin
 
 ### UI tests
 
-They will test the UI layer of your AEM application using Selenium technology. 
+They will test the UI layer of your AEM application using either Cypress or Selenium technology.
 
-To run them locally:
-
-    mvn clean verify -Pui-tests-local-execution
-
-This default command requires:
-* an AEM author instance available at http://localhost:4502 (with the whole project built and deployed on it, see `How to build` section above)
-* Chrome browser installed at default location
-
-Check README file in `ui.tests` module for more details.
+Check README file in `ui.tests.cypress` or `ui.tests.wdio` module for more details.
 
 ## ClientLibs
 
