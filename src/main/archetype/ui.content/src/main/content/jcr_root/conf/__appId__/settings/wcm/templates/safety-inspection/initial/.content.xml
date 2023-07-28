@@ -30,7 +30,7 @@
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Tabs on Top"
-                sling:resourceType="${appId}/components/adaptiveForm/tabsontop"
+                sling:resourceType="${appId}/components/adaptiveForm/horizontaltabs"
                 enabled="{Boolean}true"
                 fieldType="panel"
                 hideTitle="true"
