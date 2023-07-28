@@ -30,7 +30,7 @@
                 visible="{Boolean}true"/>
             <datepicker
                 jcr:lastModified="{Date}2023-06-14T10:08:23.762Z"
-                jcr:lastModifiedBy="macman@adobe.com"
+                jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Request date"
                 sling:resourceType="${appId}/components/adaptiveForm/datepicker"
@@ -45,7 +45,7 @@
                 visible="{Boolean}true"/>
             <textinput
                 jcr:lastModified="{Date}2023-06-14T10:08:37.908Z"
-                jcr:lastModifiedBy="macman@adobe.com"
+                jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Requestor name"
                 sling:resourceType="${appId}/components/adaptiveForm/textinput"

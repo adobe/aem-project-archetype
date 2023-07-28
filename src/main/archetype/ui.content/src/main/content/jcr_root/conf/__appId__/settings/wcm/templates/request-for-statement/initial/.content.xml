@@ -17,7 +17,7 @@
             fieldType="form">
             <text
                 jcr:lastModified="{Date}2023-06-29T08:33:49.527Z"
-                jcr:lastModifiedBy="macman@adobe.com"
+                jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Text"
                 sling:resourceType="${appId}/components/adaptiveForm/text"
@@ -149,7 +149,7 @@
                 visible="{Boolean}true"/>
             <datepicker
                 jcr:lastModified="{Date}2023-06-29T10:26:35.030Z"
-                jcr:lastModifiedBy="macman@adobe.com"
+                jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Transaction date to"
                 sling:resourceType="${appId}/components/adaptiveForm/datepicker"

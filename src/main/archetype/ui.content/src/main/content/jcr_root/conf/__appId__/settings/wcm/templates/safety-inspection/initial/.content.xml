@@ -203,7 +203,7 @@
                         visible="{Boolean}true"/>
                     <radiobutton_copy
                         jcr:lastModified="{Date}2023-06-14T09:52:56.223Z"
-                        jcr:lastModifiedBy="macman@adobe.com"
+                        jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="2. Are machine guardrails in place and functioning correctly?"
                         sling:resourceType="${appId}/components/adaptiveForm/radiobutton"
