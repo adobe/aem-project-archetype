@@ -5,10 +5,13 @@
         cq:policy="fd/af/components/page2/aftemplatedpage/default"
         jcr:primaryType="nt:unstructured"
         sling:resourceType="wcm/core/components/policies/mappings" >
-        <parsys1
-                cq:policy="wcm/foundation/components/responsivegrid/afpolicy"
+        <container1
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="wcm/core/components/policies/mapping"/>
+                jcr:title="Header"
+                sling:resourceType="wcm/core/components/policies/mapping"
+                cq:policy="wcm/foundation/components/responsivegrid/afpolicy"
+                layout="responsiveGrid"
+                editable="{Boolean}true" />
         <guideContainer
                 cq:policy="fd/af/components/guideContainer/default"
                 jcr:primaryType="nt:unstructured"
@@ -27,9 +30,11 @@
                 </items>
             </rootPanel>
         </guideContainer2>
-        <parsys2
-                cq:policy="wcm/foundation/components/responsivegrid/afpolicy"
+        <container2
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="wcm/core/components/policies/mapping"/>
+                jcr:title="Footer"
+                sling:resourceType="wcm/core/components/policies/mapping"
+                cq:policy="wcm/foundation/components/responsivegrid/afpolicy"
+                layout="responsiveGrid"/>
     </jcr:content>
 </jcr:root>

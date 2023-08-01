@@ -8,9 +8,12 @@
             jcr:lastModified="{Date}2021-03-24T18:22:20.809+05:30"
             sling:resourceType="fd/af/components/page2/aftemplatedpage"
             guideComponentType="fd/af/templates">
-        <parsys1
+        <container1
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="wcm/foundation/components/responsivegrid">
+                jcr:title="Header"
+                sling:resourceType="wcm/foundation/components/responsivegrid"
+                layout="responsiveGrid"
+                editable="{Boolean}true">
             <guideheader
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="fd/af/components/guideheader">
@@ -42,7 +45,7 @@
                     css="guideformtitle container"
                     guideNodeClass="guideTextDraw"
                     name="formTitle"/>
-        </parsys1>
+        </container1>
         <guideContainer
                 fd:version="1.1"
                 jcr:primaryType="nt:unstructured"
@@ -737,9 +740,12 @@
                         sling:resourceType="fd/af/layouts/toolbar/mobileFixedToolbarLayout"/>
             </toolbar>
         </guideContainer>
-        <parsys2
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="wcm/foundation/components/responsivegrid">
+        <container2
+            jcr:primaryType="nt:unstructured"
+            jcr:title="Footer"
+            sling:resourceType="wcm/foundation/components/responsivegrid"
+            layout="responsiveGrid"
+            editable="{Boolean}true" >
             <guidefooter
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="fd/af/components/guidefooter">
@@ -751,6 +757,6 @@
                         guideNodeClass="guideTextDraw"
                         name="footerText"/>
             </guidefooter>
-        </parsys2>
+        </container2>
     </jcr:content>
 </jcr:root>

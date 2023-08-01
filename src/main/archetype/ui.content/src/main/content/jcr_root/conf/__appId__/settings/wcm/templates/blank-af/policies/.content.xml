@@ -6,10 +6,13 @@
         jcr:primaryType="nt:unstructured"
         jcr:lastModified="{Date}2021-03-24T18:22:20.809+05:30"
         sling:resourceType="wcm/core/components/policies/mappings">
-        <parsys1
-            cq:policy="wcm/foundation/components/responsivegrid/afpolicy"
-            jcr:primaryType="nt:unstructured"
-            sling:resourceType="wcm/core/components/policies/mapping"/>
+        <container1
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Header"
+                sling:resourceType="wcm/core/components/policies/mapping"
+                cq:policy="wcm/foundation/components/responsivegrid/afpolicy"
+                layout="responsiveGrid"
+                editable="{Boolean}true" />
         <guideContainer
             cq:policy="fd/af/components/guideContainer/default"
             jcr:primaryType="nt:unstructured"
@@ -26,9 +29,11 @@
                 <items jcr:primaryType="nt:unstructured"/>
             </rootPanel>
         </guideContainer2>
-        <parsys2
-            cq:policy="wcm/foundation/components/responsivegrid/afpolicy"
-            jcr:primaryType="nt:unstructured"
-            sling:resourceType="wcm/core/components/policies/mapping"/>
+        <container2
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Footer"
+                sling:resourceType="wcm/core/components/policies/mapping"
+                cq:policy="wcm/foundation/components/responsivegrid/afpolicy"
+                layout="responsiveGrid"/>
     </jcr:content>
 </jcr:root>
