@@ -30,7 +30,6 @@
             <directory>${basedir}</directory>
             <includes>
                 <include>Dockerfile</include>
-                <include>testing.properties</include> <!-- opt-in test module in Cloud Manager -->
             </includes>
         </fileSet>
         <fileSet>
