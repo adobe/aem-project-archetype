@@ -1,4 +1,4 @@
-# Core Module of the AEM Project Archetype {#core-module}
+# Core Module of the AEM Project Archetype
 
 The core maven module (`<src-directory>/<project>/core`) includes all the Java code needed for the implementation. The module will package all of the Java code and deploy to the AEM instance as an OSGi Bundle.
 
@@ -12,7 +12,7 @@ mvn -PautoInstallBundle clean install
 
 Once successfully executed, you should be able to see the Bundles Console at `http://<host>:<port>/system/console/bundles`.
 
-## Unit Tests {#unit-tests}
+## Unit Tests
 
 The unit test in the core module showcases classic unit testing of the code contained in the bundle. To test, execute:
 
