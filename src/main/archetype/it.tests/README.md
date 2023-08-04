@@ -4,7 +4,7 @@ There are three levels of testing contained in the project:
 
 * [Unit Tests](../core/README.md#unit-tests)
 * Integration Tests
-* [UI Tests](../ui.test/README.md)
+* [UI Tests](../ui.tests/README.md)
 
 This article describes the integration tests available as part of the it.tests module.
 
