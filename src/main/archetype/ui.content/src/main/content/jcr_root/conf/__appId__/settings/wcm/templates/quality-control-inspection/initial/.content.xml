@@ -433,8 +433,8 @@
                         <cq:responsive jcr:primaryType="nt:unstructured">
                             <default
                                 jcr:primaryType="nt:unstructured"
-                                offset="5"
-                                width="1"/>
+                                offset="6"
+                                width="6"/>
                         </cq:responsive>
                     </submit>
                 </panelcontainer>
