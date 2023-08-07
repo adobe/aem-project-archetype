@@ -11,8 +11,9 @@ Maven template that creates a minimal, best-practices-based Adobe Experience Man
 
 ## Documentation
 
-* **[Archetype Documentation](https://www.adobe.com/go/aem_archetype):** Overview of the archetype architecture and its different modules.
-* Following tutorials are based off this archetype:
+* **[Archetype Documentation](https://www.adobe.com/go/aem_archetype):** The product documentation provides an overview of the archetype and its general features.
+* **[GitHub Documentation](src/main/archetype/README.md):** The README.md documentation in this repo provides detailed technical usage detail of the archetype and all of its modules.
+* **Tutorials:** The following tutorials are based off this archetype:
   - **[WKND Site](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/overview.html):** Learn how to start a fresh new website.
   - **WKND SPA** Learn how to build a [React](https://docs.adobe.com/content/help/en/experience-manager-learn/spa-react-tutorial/overview.html) or [Angular](https://docs.adobe.com/content/help/en/experience-manager-learn/spa-angular-tutorial/overview.html) webapp that is fully authorable in AEM.
 
@@ -29,7 +30,7 @@ Maven template that creates a minimal, best-practices-based Adobe Experience Man
 * **Header and Footer:** Assemble and localize them without code, using the [localization features of the components](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/get-started/localization.html).
 * **Style System:** Avoid building custom components by allowing authors to [apply different styles](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/style-system.html) to them.
 * **Front-End Build:** Front-end devs can [mock AEM pages](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/archetype/uifrontend.html#webpack-dev-server) and [build client libraries](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/archetype/uifrontend.html) with Webpack, TypeScript, and SASS. 
-* **Decoupled Front-End:** When chosing the frontend module to be decoupled, the project is preconfigured to use the [AEMaaCS Frontend Pipeline](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/sites/administering/site-creation/enable-front-end-pipeline.html). See [the AEM React SPA](https://github.com/adobe/aem-react-spa) template for more details how to get started with a decoupled frontend module using React.
+* **Decoupled Front-End:** When choosing the frontend module to be decoupled, the project is preconfigured to use the [AEMaaCS Frontend Pipeline](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/sites/administering/site-creation/enable-front-end-pipeline.html). See [the AEM React SPA](https://github.com/adobe/aem-react-spa) template for more details how to get started with a decoupled frontend module using React.
 * **WebApp-Ready:** For sites using [React](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/archetype/uifrontend-react.html) or [Angular](https://docs.adobe.com/content/help/en/experience-manager-core-components/using/developing/archetype/uifrontend-angular.html), use the [SPA SDK](https://docs.adobe.com/content/help/en/experience-manager-64/developing/headless/spas/spa-architecture.html) to retain [in-context authoring of the app](https://docs.adobe.com/content/help/en/experience-manager-learn/sites/spa-editor/spa-editor-framework-feature-video-use.html).
 * **Commerce Enabled:** For projects that want to use Commerce Integration Framework ([CIF](https://github.com/adobe/aem-core-cif-components)) to integrate with commerce solutions like Magento.
 * **Forms Enabled:** For projects that want to use ([Forms](https://github.com/adobe/aem-core-forms-components)).

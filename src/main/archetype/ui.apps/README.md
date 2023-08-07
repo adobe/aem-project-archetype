@@ -1,4 +1,4 @@
-# ui.apps Module of the AEM Project Archetype
+# ui.apps module
 
 The ui.apps maven module (`<src-directory>/<project>/ui.apps`) includes all of the rendering code needed for the site beneath `/apps`. This includes CSS/JS that will be stored in an AEM format called [clientlibs.](../ui.frontend.general/README.md#clientlibs) This also includes HTL scripts for rendering dynamic HTML. You can think of the ui.apps module as a map to the structure in the JCR but in a format that can be stored on a file system and committed to source control.
 
@@ -14,7 +14,7 @@ In addition to the Jackrabbit FileVault Package Plugin is a definition of the Co
 
 Notice that core.wcm.components.all and core.wcm.components.examples packages are included as a sub-package. This will deploy the Core Components package along with the WKND code each time.
 
-The core.wcm.components.all and core.wcm.components.examples are included as dependencies in the dependency list. However as a best practice, versions for dependencies are omitted here and managed in the [parent pom file](/help/developing/archetype/using.md#core-components).
+The core.wcm.components.all and core.wcm.components.examples are included as dependencies in the dependency list. However as a best practice, versions for dependencies are omitted here and managed in the [parent pom file.](https://experienceleague.adobe.com/docs/experience-manager-core-components/using/developing/archetype/using.html)
 
 ## filter.xml
 
