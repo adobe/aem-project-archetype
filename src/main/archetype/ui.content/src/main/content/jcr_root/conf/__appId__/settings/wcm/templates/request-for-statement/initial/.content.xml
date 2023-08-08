@@ -163,6 +163,12 @@
                 textIsRich="[true,true]"
                 unboundFormElement="{Boolean}false"
                 visible="{Boolean}true"/>
+                <fd:rules
+                    fd:calc="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;CLEAR_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;VALUE_FIELD&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.EndDateStmt&quot;\,&quot;type&quot;:&quot;DATE&quot;\,&quot;name&quot;:&quot;EndDateStmt&quot;}}\,{&quot;nodeName&quot;:&quot;When&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;CONDITIONORALWAYS&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPARISON_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.EndDateStmt&quot;\,&quot;displayName&quot;:&quot;Transaction date to&quot;\,&quot;type&quot;:&quot;DATE&quot;\,&quot;displayPath&quot;:&quot;FORM/Transaction date to/&quot;\,&quot;name&quot;:&quot;EndDateStmt&quot;\,&quot;parent&quot;:&quot;$form&quot;}}}\,{&quot;nodeName&quot;:&quot;OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;IS_BEFORE&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.StrtDateStmt&quot;\,&quot;displayName&quot;:&quot;Transaction date from&quot;\,&quot;type&quot;:&quot;DATE&quot;\,&quot;displayPath&quot;:&quot;FORM/Transaction date from/&quot;\,&quot;name&quot;:&quot;StrtDateStmt&quot;\,&quot;parent&quot;:&quot;$form&quot;}}}]}}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:&quot;if(new Date($field)&lt;new Date(StrtDateStmt)\,null()\,$field)&quot;\,&quot;eventName&quot;:&quot;Calculate&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                    jcr:primaryType="nt:unstructured"
+                    validationStatus="valid"
+                    value="if(new Date($field)&lt;new Date(StrtDateStmt),null(),$field)"/>
+                <fd:events jcr:primaryType="nt:unstructured"/>
             <submit
                 jcr:lastModified="{Date}2023-05-25T09:45:29.274Z"
                 jcr:lastModifiedBy="admin"
