@@ -7,12 +7,17 @@
         cq:lastModifiedBy="admin"
         cq:template="/conf/${appId}/settings/wcm/templates/purchase-request"
         jcr:primaryType="cq:PageContent"
+#if ( $aemVersion == "cloud")
         sling:configRef="/conf/${appId}/forms"
+#end
         sling:resourceType="${appId}/components/adaptiveForm/page"
         guideComponentType="fd/af/templates">
         <guideContainer
             fd:version="2.1"
             jcr:primaryType="nt:unstructured"
+#if ( $aemVersion != "cloud")
+            themeClientLibRef="adaptiveform.theme.canvas3"
+#end             
             sling:resourceType="${appId}/components/adaptiveForm/formcontainer"
             fieldType="form">
             <text
