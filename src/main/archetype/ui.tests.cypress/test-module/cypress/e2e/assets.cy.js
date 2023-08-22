@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-describe('AEM Assets', () => {
+describe('AEM Assets', f => {
 
     beforeEach(() => {
         // End any existing user session
@@ -24,7 +24,7 @@ describe('AEM Assets', () => {
         cy.AEMLogin(Cypress.env('AEM_AUTHOR_USERNAME'), Cypress.env('AEM_AUTHOR_PASSWORD'))
     })
 
-    it('should be possible to upload an asset', () => {
+    it('should be possible to upload an asset', f => {
         const assetsPath = '/content/dam';
         const imageName = 'image.png';
         const imagePath = `${assetsPath}/${imageName}`;
@@ -40,7 +40,10 @@ describe('AEM Assets', () => {
         cy.get('coral-dialog.is-open coral-dialog-footer [variant="primary"]').click();
 
         // Wait until Asset exists
-        cy.waitUntil(() => cy.AEMPathExists(Cypress.env('AEM_AUTHOR_URL'), imagePath), {errorMsg: `asset ${imagePath} should exist`})
+        cy.waitUntil(() => cy.AEMPathExists(Cypress.env('AEM_AUTHOR_URL'), imagePath), {errorMsg: `asset ${imagePath} should exist`}, {
+            timeout: 10000,
+            interval: 500
+        });
 
         // Wait before deletion as immediate deletion may fail
         cy.wait(1000)
@@ -49,6 +52,9 @@ describe('AEM Assets', () => {
         cy.AEMDeleteAsset(imagePath);
 
         // Wait until Asset does not exist anymore
-        cy.waitUntil(() => cy.AEMPathExists(Cypress.env('AEM_AUTHOR_URL'), imagePath).then(result => !result), {errorMsg: `asset ${imagePath} should not exist`})
+        cy.waitUntil(() => cy.AEMPathExists(Cypress.env('AEM_AUTHOR_URL'), imagePath).then(result => !result), {errorMsg: `asset ${imagePath} should not exist`}, {
+            timeout: 10000,
+            interval: 500
+        });
     });
 })
