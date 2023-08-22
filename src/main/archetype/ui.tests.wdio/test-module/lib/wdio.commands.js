@@ -93,7 +93,7 @@ async function AEMDeleteAsset(assetPath) {
     const form = new FormData();
     form.append('cmd', 'deletePage');
     form.append('path', assetPath);
-    form.append('force','true'),
+    form.append('force','true');
     form.append('_charset_','utf-8');
 
     client.post(url.resolve(aem.author.base_url, '/bin/wcmcommand'), form);
