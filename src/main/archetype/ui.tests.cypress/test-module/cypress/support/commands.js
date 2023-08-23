@@ -50,7 +50,7 @@ Cypress.Commands.add('AEMPathExists', function (baseUrl, path) {
         failOnStatusCode: false,
     })
         .then(response => {
-            return (response.status == 200)
+            return (response.status === 200)
         });
 })
 
