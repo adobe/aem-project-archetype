@@ -16,6 +16,7 @@
     <filter root="/content/dam/formsanddocuments-fdm/${appId}" mode="merge"/>
     <filter root="/content/dam/${appId}/sample_logo.png" mode="merge"/>
     <filter root="/content/dam/${appId}/sample_terms.png" mode="merge"/>
+    <filter root="/content/dam/${appId}/wknd_logo.png" mode="merge"/>
 #end
 #if ($includeFormsheadless == "y" )
     <filter root="/content/dam/${appId}/af_model_sample.json" mode="merge"/>

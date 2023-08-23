@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="sling:Folder">
+    <jcr:content jcr:primaryType="nt:unstructured">
+        <metadata
+            jcr:primaryType="nt:unstructured"
+            author="adobe"
+            description="Reference WKND Theme"
+            title="Reference WKND"/>
+    </jcr:content>
+</jcr:root>
