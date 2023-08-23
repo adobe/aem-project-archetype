@@ -26,28 +26,37 @@ describe('AEM Assets', () => {
 
     it('should be possible to upload an asset', () => {
         const assetsPath = '/content/dam';
-        const imageName = 'image.png';
-        const imagePath = `${assetsPath}/${imageName}`;
+        const localImageName = 'image.png';
+        const localPath = `assets/${localImageName}`;
+        const uuid = () => Cypress._.random(0, 1e6)
+        const id = uuid()
+        const remoteImageName = `image-${id}.png`;
+        const imagePath = `${assetsPath}/${remoteImageName}`;
 
         // Go to the Assets page.
         cy.visit(`${Cypress.env('AEM_AUTHOR_URL')}/assets.html${assetsPath}`);
 
+        // Wait for any lazy loaded dialogs to appear
+        cy.wait(3000)
+
         // Add the file handle to the upload form
-        const localPath = `assets/${imageName}`;
         cy.get('dam-chunkfileupload.dam-ChunkFileUpload > input').first().selectFile(localPath, {force: true})
 
+        // rename image
+        cy.get('input#dam-asset-upload-rename-input').clear().type(remoteImageName, {force: true});
+
         // Press the upload button.
-        cy.get('coral-dialog.is-open coral-dialog-footer [variant="primary"]').click();
+        cy.get('coral-dialog.is-open coral-dialog-footer [variant="primary"]').click({force: true});
 
         // Wait until Asset exists
         cy.waitUntil(() => cy.AEMPathExists(Cypress.env('AEM_AUTHOR_URL'), imagePath), {
             errorMsg: `asset ${imagePath} should exist`,
-            timeout: 10000,
-            interval: 500
+            timeout: 15000,
+            interval: 1000
         });
 
         // Wait before deletion as immediate deletion may fail
-        cy.wait(1000)
+        cy.wait(3000)
 
         // Delete Asset
         cy.AEMDeleteAsset(imagePath);
@@ -55,8 +64,8 @@ describe('AEM Assets', () => {
         // Wait until Asset does not exist anymore
         cy.waitUntil(() => cy.AEMPathExists(Cypress.env('AEM_AUTHOR_URL'), imagePath).then(result => !result), {
             errorMsg: `asset ${imagePath} should not exist`,
-            timeout: 10000,
-            interval: 500
+            timeout: 15000,
+            interval: 1000
         });
     });
 })
