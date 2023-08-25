@@ -274,7 +274,7 @@
                         <default
                             jcr:primaryType="nt:unstructured"
                             offset="6"
-                            width="1"/>
+                            width="6"/>
                     </cq:responsive>
                 </submit>
             </panelcontainer>
