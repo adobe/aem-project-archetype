@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:fd="http://www.adobe.com/aemfd/fd/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:deviceGroups="[/etc/mobile/groups/responsive]"
+        cq:lastModified="{Date}2023-05-18T06:52:04.235Z"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/${appId}/settings/wcm/templates/consent-form"
+        jcr:description="Simply fill out our convenient consent form and let our team take care of your stay and travel.  | WKND Travels"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="${appId}/components/adaptiveForm/page"
+#if ( $aemVersion == "cloud")
+        sling:configRef="/conf/${appId}/forms"
+#end        
+        guideComponentType="fd/af/templates">
+        <guideContainer
+            fd:version="2.1"
+            jcr:primaryType="nt:unstructured"
+#if ( $aemVersion != "cloud")
+            themeClientLibRef="adaptiveform.theme.canvas3"
+#end        
+            sling:resourceType="${appId}/components/adaptiveForm/formcontainer"
+            fieldType="form">
+            <panelcontainer_2122655199
+                jcr:lastModified="{Date}2023-05-18T06:19:50.297Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Events"
+                sling:resourceType="${appId}/components/adaptiveForm/panelcontainer"
+                enabled="{Boolean}true"
+                fieldType="panel"
+                hideTitle="true"
+                name="panelcontainer_21226551991684390497234"
+                readOnly="{Boolean}false"
+                textIsRich="[true,true]"
+                visible="{Boolean}true"
+                wrapData="{Boolean}false">
+                <dropdown
+                    jcr:lastModified="{Date}2023-05-18T06:20:31.633Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Select an event"
+                    sling:resourceType="${appId}/components/adaptiveForm/dropdown"
+                    enabled="{Boolean}true"
+                    enum="[0,1,2,3,4,5,6]"
+                    enumNames="[Surfing,Rock Climbing,Cycling,Skiing,Tracking,Paragliding,Rafting]"
+                    fieldType="drop-down"
+                    name="selectEvent"
+                    readOnly="{Boolean}false"
+                    textIsRich="[true,true]"
+                    type="string"
+                    typeIndex="0"
+                    visible="{Boolean}true"/>
+            </panelcontainer_2122655199>
+            <panelcontainer
+                jcr:lastModified="{Date}2023-05-12T08:14:36.996Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Participant details"
+                sling:resourceType="${appId}/components/adaptiveForm/panelcontainer"
+                enabled="{Boolean}true"
+                fieldType="panel"
+                layout="responsiveGrid"
+                name="ParticipantDetails"
+                readOnly="{Boolean}false"
+                textIsRich="[true,true]"
+                visible="{Boolean}true"
+                wrapData="{Boolean}false">
+                <textinput
+                    jcr:lastModified="{Date}2023-05-12T07:25:27.526Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Name"
+                    sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                    autocomplete="off"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    mandatoryMessage="Please enter your name."
+                    name="Name"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true,true]"
+                    validatePictureClauseMessage="[,]"
+                    visible="{Boolean}true"/>
+                <telephoneinput
+                    jcr:lastModified="{Date}2023-05-12T11:33:37.507Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Phone number"
+                    sling:resourceType="${appId}/components/adaptiveForm/telephoneinput"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    mandatoryMessage="Please enter a valid US phone number, including the area code. Example: (123) 456-7890"
+                    name="PhoneNumber"
+                    pattern="^[0-9]{10}$"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true]"
+                    validateExpMessage="Please enter a valid US phone number, including the area code. Example: (123) 456-7890"
+                    validatePatternMessage="Please enter a valid US phone number, including the area code. Example: (123) 456-7890"
+                    visible="{Boolean}true"/>
+                <emailinput
+                    jcr:lastModified="{Date}2023-05-12T11:20:35.578Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Email"
+                    sling:resourceType="${appId}/components/adaptiveForm/emailinput"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    mandatoryMessage="Please enter your email id."
+                    name="Email"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true]"
+                    visible="{Boolean}true"/>
+                <textinput_589303093
+                    jcr:lastModified="{Date}2023-05-12T07:31:43.547Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Address"
+                    sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                    allowRichText="true"
+                    autocomplete="off"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    mandatoryMessage="Please provide your address details."
+                    multiLine="true"
+                    name="ParticipantAddress"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true,true]"
+                    validatePictureClauseMessage="[,]"
+                    visible="{Boolean}true"/>
+                <textinput_1440014826
+                    jcr:lastModified="{Date}2023-05-12T07:43:25.438Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="City"
+                    sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                    autocomplete="off"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    mandatoryMessage="Please enter your city name."
+                    name="City"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true,true]"
+                    validatePictureClauseMessage="[,]"
+                    visible="{Boolean}true"/>
+                <dropdown_copy
+                    jcr:lastModified="{Date}2023-05-12T07:45:11.031Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="State"
+                    sling:resourceType="${appId}/components/adaptiveForm/dropdown"
+                    enabled="{Boolean}true"
+                    enum="[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,43,44,45,46,47,48,49]"
+                    enumNames="[Alabama,Alaska,Arizona,Arkansas,California,Colorado,Connecticut,Delaware,Florida,Georgia,Hawaii,Idaho,Illinois,Indiana,Iowa,Kansas,Kentucky,Louisiana,Maine,Maryland,Massachusetts,Michigan,Minnesota,Mississippi,Missouri,Montana,Nebraska,Nevada,New Hampshire,New Jersey,New Mexico, New York,North Carolina,North Dakota,Ohio,Oklahoma,Oregon,Pennsylvania,Rhode Island,South Carolina,South Dakota,Tennessee,Utah,Vermont,Virginia,Washington,West Virginia,Wisconsin,Wyoming]"
+                    fieldType="drop-down"
+                    mandatoryMessage="Please select your state name."
+                    name="State"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true]"
+                    type="string"
+                    typeIndex="0"
+                    visible="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            behavior="newline"
+                            offset="0"
+                            width="12"/>
+                    </cq:responsive>
+                </dropdown_copy>
+                <numberinput
+                    jcr:lastModified="{Date}2023-05-12T07:45:59.834Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Zip Code"
+                    sling:resourceType="${appId}/components/adaptiveForm/numberinput"
+                    enabled="{Boolean}true"
+                    fieldType="number-input"
+                    name="ZipCode"
+                    readOnly="{Boolean}false"
+                    textIsRich="[true,true]"
+                    type="integer"
+                    visible="{Boolean}true"/>
+            </panelcontainer>
+            <panelcontainer_295155161
+                jcr:lastModified="{Date}2023-05-12T08:15:23.877Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Emergency contact"
+                sling:resourceType="${appId}/components/adaptiveForm/panelcontainer"
+                enabled="{Boolean}true"
+                fieldType="panel"
+                layout="responsiveGrid"
+                name="EmergencyContact"
+                readOnly="{Boolean}false"
+                textIsRich="[true,true]"
+                visible="{Boolean}true"
+                wrapData="{Boolean}false">
+                <textinput
+                    jcr:lastModified="{Date}2023-05-12T07:50:32.047Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Contact name"
+                    sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                    autocomplete="off"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    mandatoryMessage="Please enter the contact person's name."
+                    name="ContactName"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true,true]"
+                    validatePictureClauseMessage="[,]"
+                    visible="{Boolean}true"/>
+                <telephoneinput
+                    jcr:lastModified="{Date}2023-05-12T11:35:54.731Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Phone number"
+                    sling:resourceType="${appId}/components/adaptiveForm/telephoneinput"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    mandatoryMessage="Please enter a valid US phone number, including the area code. Example: (123) 456-7890"
+                    name="EmerPhnNumber"
+                    pattern="^[0-9]{10}$"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true]"
+                    validateExpMessage="Please enter a valid US phone number, including the area code. Example: (123) 456-7890"
+                    validatePatternMessage="Please enter a valid US phone number, including the area code. Example: (123) 456-7890"
+                    visible="{Boolean}true"/>
+                <dropdown_1795045996_
+                    jcr:lastModified="{Date}2023-05-12T11:23:07.926Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Relationship with the participant"
+                    sling:resourceType="${appId}/components/adaptiveForm/dropdown"
+                    enabled="{Boolean}true"
+                    enum="[0,1,2,3,4]"
+                    enumNames="[Father,Mother,Sibling,Spouse,Other]"
+                    fieldType="drop-down"
+                    mandatoryMessage="Please specify the relation with the participant."
+                    name="RelationshipWithParticipant"
+                    placeholder="Please select"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true]"
+                    type="string"
+                    typeIndex="0"
+                    visible="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            behavior="newline"
+                            offset="0"
+                            width="12"/>
+                    </cq:responsive>
+                    <fd:rules
+                        fd:valueCommit="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_SCRIPTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EVENT_CONDITION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.EmergencyContact.RelationshipWithParticipant&quot;\,&quot;type&quot;:&quot;STRING&quot;\,&quot;name&quot;:&quot;RelationshipWithParticipant&quot;}}\,{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON_OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EQUALS_TO&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;PRIMITIVE_EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;4&quot;}}]}\,&quot;nested&quot;:false}\,{&quot;nodeName&quot;:&quot;Then&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;BLOCK_STATEMENTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;BLOCK_STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_STATEMENT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.EmergencyContact.Relationship_Other&quot;\,&quot;displayName&quot;:&quot;Specify relation*&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;displayPath&quot;:&quot;FORM/Emergency contact/Specify relation*/&quot;\,&quot;name&quot;:&quot;Relationship_Other&quot;\,&quot;parent&quot;:&quot;$form.EmergencyContact&quot;}}]}}]}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:[&quot;if($field == '4'\, dispatchEvent(Relationship_Other\, 'custom:setProperty'\, {visible : true()})\, {})&quot;]\,&quot;eventName&quot;:&quot;Value Commit&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                        jcr:primaryType="nt:unstructured"
+                        validationStatus="valid"/>
+                    <fd:events
+                        jcr:primaryType="nt:unstructured"
+                        change="[if($field == '4'\, dispatchEvent(Relationship_Other\, 'custom:setProperty'\, {visible : true()})\, {})]"/>
+                </dropdown_1795045996_>
+                <textinput_1490317204
+                    jcr:lastModified="{Date}2023-05-12T07:52:32.102Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Specify relation"
+                    sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                    autocomplete="off"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    mandatoryMessage="Please specify the relationship."
+                    name="Relationship_Other"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true,true]"
+                    validatePictureClauseMessage="[,]"
+                    visible="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            behavior="newline"
+                            offset="0"
+                            width="12"/>
+                    </cq:responsive>
+                    <fd:rules
+                        fd:visible="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.EmergencyContact.Relationship_Other&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;name&quot;:&quot;Relationship_Other&quot;}}\,{&quot;nodeName&quot;:&quot;When&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;CONDITIONORALWAYS&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPARISON_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.EmergencyContact.RelationshipWithParticipant&quot;\,&quot;displayName&quot;:&quot;Relationship with the participant*&quot;\,&quot;type&quot;:&quot;STRING&quot;\,&quot;displayPath&quot;:&quot;FORM/Emergency contact/Relationship with the participant*/&quot;\,&quot;name&quot;:&quot;RelationshipWithParticipant&quot;\,&quot;parent&quot;:&quot;$form.EmergencyContact&quot;}}}\,{&quot;nodeName&quot;:&quot;OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EQUALS_TO&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;4&quot;}}]}}\,{&quot;nodeName&quot;:&quot;Else&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;DONOTHING_OR_HIDE&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;Hide&quot;\,&quot;value&quot;:null}}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:&quot;RelationshipWithParticipant == '4'&quot;\,&quot;eventName&quot;:&quot;Visibility&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                        jcr:primaryType="nt:unstructured"
+                        validationStatus="valid"
+                        visible="RelationshipWithParticipant == '4'"/>
+                    <fd:events jcr:primaryType="nt:unstructured"/>
+                </textinput_1490317204>
+                <textinput_126263805
+                    jcr:lastModified="{Date}2023-05-12T08:13:51.371Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Contact address"
+                    sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                    allowRichText="true"
+                    autocomplete="off"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    multiLine="true"
+                    name="ContactAddress"
+                    readOnly="{Boolean}false"
+                    textIsRich="[true,true,true]"
+                    validatePictureClauseMessage="[,]"
+                    visible="{Boolean}true"/>
+                <checkboxgroup
+                    jcr:lastModified="{Date}2023-05-18T06:21:41.904Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Terms and Conditions"
+                    sling:resourceType="${appId}/components/adaptiveForm/checkboxgroup"
+                    enabled="{Boolean}true"
+                    enum="0"
+                    enumNames="I voluntarily agree to the terms and conditions and indemnify WKND Travels of any associated risks."
+                    fieldType="checkbox-group"
+                    mandatoryMessage="Please agree to the terms and conditions for submitting the form."
+                    name="TermsAndConditions"
+                    orientation="vertical"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true]"
+                    type="number[]"
+                    visible="{Boolean}true"/>
+                <submit
+                    jcr:lastModified="{Date}2023-05-12T08:18:44.841Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Submit"
+                    sling:resourceType="${appId}/components/adaptiveForm/actions/submit"
+                    buttonType="submit"
+                    dorExclusion="true"
+                    fieldType="button"
+                    name="submit1683879524898">
+                    <fd:rules
+                        fd:click="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_SCRIPTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EVENT_CONDITION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.button1667450213112&quot;\,&quot;type&quot;:&quot;BUTTON&quot;\,&quot;name&quot;:&quot;button1667450213112&quot;}}\,{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON_OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;is clicked&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;PRIMITIVE_EXPRESSION&quot;\,&quot;choice&quot;:null}]}\,&quot;nested&quot;:false}\,{&quot;nodeName&quot;:&quot;Then&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;BLOCK_STATEMENTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;BLOCK_STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SUBMIT_FORM&quot;\,&quot;items&quot;:[]}}]}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:[&quot;submitForm('custom:submitSuccess'\, 'custom:submitError')&quot;]\,&quot;eventName&quot;:&quot;Click&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                        jcr:primaryType="nt:unstructured"/>
+                    <fd:events
+                        jcr:primaryType="nt:unstructured"
+                        click="[submitForm('custom:submitSuccess'\, 'custom:submitError')]"/>
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="6"
+                            width="6"/>
+                    </cq:responsive>
+                </submit>
+            </panelcontainer_295155161>
+        </guideContainer>
+        <parsys1
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <pageheader
+                jcr:lastModified="{Date}2023-05-12T07:13:53.119Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Header"
+                sling:resourceType="${appId}/components/adaptiveForm/pageheader"
+                fieldType="page-header">
+                <image
+                    jcr:lastModified="{Date}2023-06-25T16:50:36.867+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Log"
+                    sling:resourceType="${appId}/components/image"
+                    alt="WKND Logo"
+                    altValueFromDAM="false"
+                    disableLazyLoading="false"
+                    displayPopupTitle="true"
+                    fileName="wknd-logo.png"
+                    fileReference="/content/dam/${appId}/wknd_logo.png"
+                    height="0"
+                    imageFromPageImage="false"
+                    isDecorative="false"
+                    linkTarget="_self"
+                    name="logoImage"
+                    titleValueFromDAM="false"
+                    width="0">
+                </image>
+                <text
+                    jcr:lastModified="{Date}2023-05-12T07:14:19.173Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wcm/foundation/components/text"
+                    text="&lt;p>Consent Form&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"
+                    value="Company Name Here"/>
+            </pageheader>
+        </parsys1>
+        <parsys2
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <footer
+                jcr:lastModified="{Date}2023-05-12T07:13:55.399Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Footer"
+                sling:resourceType="${appId}/components/adaptiveForm/footer">
+                <text
+                    jcr:lastModified="{Date}2023-05-12T07:14:43.773Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Footer"
+                    sling:resourceType="core/wcm/components/text/v2/text"
+                    css="footerText"
+                    text="&lt;p>© YYYY WKND | All rights reserved.&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"/>
+            </footer>
+        </parsys2>
+        <cq:featuredimage
+            jcr:lastModified="{Date}2023-05-18T06:41:17.172Z"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"/>
+    </jcr:content>
+</jcr:root>

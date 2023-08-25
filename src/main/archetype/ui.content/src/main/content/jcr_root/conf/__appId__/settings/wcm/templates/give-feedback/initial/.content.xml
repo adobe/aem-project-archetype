@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:fd="http://www.adobe.com/aemfd/fd/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:deviceGroups="[/etc/mobile/groups/responsive]"
+        cq:lastModified="{Date}2023-05-18T06:54:01.578Z"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/${appId}/settings/wcm/templates/give-feedback"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="${appId}/components/adaptiveForm/page"
+#if ( $aemVersion == "cloud")
+        sling:configRef="/conf/${appId}/forms"
+#end        
+        guideComponentType="fd/af/templates">
+        <guideContainer
+            fd:version="2.1"
+            jcr:primaryType="nt:unstructured"
+#if ( $aemVersion != "cloud")
+            themeClientLibRef="adaptiveform.theme.canvas3"
+#end        
+            sling:resourceType="${appId}/components/adaptiveForm/formcontainer"
+            fieldType="form">
+            <panelcontainer
+                jcr:lastModified="{Date}2023-04-17T10:56:39.457Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Panel"
+                sling:resourceType="${appId}/components/adaptiveForm/panelcontainer"
+                enabled="{Boolean}true"
+                fieldType="panel"
+                hideTitle="true"
+                layout="responsiveGrid"
+                name="panelcontainer1681728936538"
+                readOnly="{Boolean}false"
+                textIsRich="[true,true]"
+                visible="{Boolean}true"
+                wrapData="{Boolean}false">
+                <textinput
+                    jcr:lastModified="{Date}2023-04-19T07:16:00.655Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Name"
+                    sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                    autocomplete="off"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    mandatoryMessage="Please enter your name."
+                    name="Name"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true,true]"
+                    validatePictureClauseMessage="[,]"
+                    visible="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="0"
+                            width="12"/>
+                    </cq:responsive>
+                </textinput>
+                <telephoneinput
+                    jcr:lastModified="{Date}2023-05-11T18:30:55.720Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Phone number"
+                    sling:resourceType="${appId}/components/adaptiveForm/telephoneinput"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    mandatoryMessage="Please enter a valid US phone number, including area code. Example: (123) 456-7890"
+                    name="PhoneNumber"
+                    pattern="^[0-9]{10}$"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true]"
+                    validateExpMessage="Please enter a valid US phone number, including area code. Example: (123) 456-7890"
+                    validatePatternMessage="Please enter a valid US phone number, including area code. Example: (123) 456-7890"
+                    visible="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            behavior="newline"
+                            offset="0"
+                            width="12"/>
+                    </cq:responsive>
+                </telephoneinput>
+                <emailinput
+                    jcr:lastModified="{Date}2023-04-29T18:32:14.829Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Email"
+                    sling:resourceType="${appId}/components/adaptiveForm/emailinput"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    mandatoryMessage="Please enter your email id."
+                    name="Email"
+                    pattern="^(.+)@(.+)$"
+                    readOnly="{Boolean}false"
+                    required="true"
+                    textIsRich="[true,true]"
+                    validatePatternMessage="Please enter a valid email id."
+                    visible="{Boolean}true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            behavior="newline"
+                            offset="0"
+                            width="12"/>
+                    </cq:responsive>
+                </emailinput>
+                <radiobutton
+                    jcr:lastModified="{Date}2023-05-17T18:27:08.143Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Please rate your experience for:"
+                    sling:resourceType="${appId}/components/adaptiveForm/radiobutton"
+                    enabled="{Boolean}true"
+                    enum="[ProdSeln,SerSeln]"
+                    enumNames="[Product,Service]"
+                    fieldType="radio-group"
+                    name="RateExpFor"
+                    orientation="horizontal"
+                    readOnly="{Boolean}false"
+                    textIsRich="[true,true]"
+                    type="string"
+                    visible="{Boolean}true">
+                    <fd:rules
+                        fd:valueCommit="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_SCRIPTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EVENT_CONDITION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.panelcontainer1681728936538.RateExpFor&quot;\,&quot;type&quot;:&quot;AFCOMPONENT|FIELD|RADIO BUTTON|STRING&quot;\,&quot;name&quot;:&quot;RateExpFor&quot;}}\,{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON_OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EQUALS_TO&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;PRIMITIVE_EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;ProdSeln&quot;}}]}\,&quot;nested&quot;:false}\,{&quot;nodeName&quot;:&quot;Then&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;BLOCK_STATEMENTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;BLOCK_STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_STATEMENT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.panelcontainer1681728936538.ProductCategory&quot;\,&quot;displayName&quot;:&quot;Product Categories&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;displayPath&quot;:&quot;FORM/Panel/Product Categories/&quot;\,&quot;name&quot;:&quot;ProductCategory&quot;\,&quot;parent&quot;:&quot;$form.panelcontainer1681728936538&quot;}}]}}]}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:[&quot;if($field == 'ProdSeln'\, dispatchEvent(ProductCategory\, 'custom:setProperty'\, {visible : true()})\, {})&quot;]\,&quot;eventName&quot;:&quot;Value Commit&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;},{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_SCRIPTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EVENT_CONDITION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.panelcontainer1681728936538.RateExpFor&quot;\,&quot;type&quot;:&quot;STRING&quot;\,&quot;name&quot;:&quot;RateExpFor&quot;}}\,{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON_OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EQUALS_TO&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;PRIMITIVE_EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;SerSeln&quot;}}]}\,&quot;nested&quot;:false}\,{&quot;nodeName&quot;:&quot;Then&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;BLOCK_STATEMENTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;BLOCK_STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_STATEMENT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.panelcontainer1681728936538.ServiceCategory&quot;\,&quot;displayName&quot;:&quot;Service Categories&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;displayPath&quot;:&quot;FORM/Panel/Service Categories/&quot;\,&quot;name&quot;:&quot;ServiceCategory&quot;\,&quot;parent&quot;:&quot;$form.panelcontainer1681728936538&quot;}}]}}]}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:[&quot;if($field == 'SerSeln'\, dispatchEvent(ServiceCategory\, 'custom:setProperty'\, {visible : true()})\, {})&quot;]\,&quot;eventName&quot;:&quot;Value Commit&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                        jcr:primaryType="nt:unstructured"
+                        validationStatus="valid"/>
+                    <fd:events
+                        jcr:primaryType="nt:unstructured"
+                        change="[if($field == 'ProdSeln'\, dispatchEvent(ProductCategory\, 'custom:setProperty'\, {visible : true()})\, {}),if($field == 'SerSeln'\, dispatchEvent(ServiceCategory\, 'custom:setProperty'\, {visible : true()})\, {})]"/>
+                </radiobutton>
+                <dropdown_306987600
+                    jcr:lastModified="{Date}2023-05-17T18:27:19.493Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Product Categories"
+                    sling:resourceType="${appId}/components/adaptiveForm/dropdown"
+                    enabled="{Boolean}true"
+                    enum="[0,1,2,3,4]"
+                    enumNames="[Package tours,Group tours,Adventure tours,Customized tours,Cultural and heritage tours]"
+                    fieldType="drop-down"
+                    name="ProductCategory"
+                    readOnly="{Boolean}false"
+                    textIsRich="[true,true]"
+                    type="string"
+                    typeIndex="0"
+                    visible="{Boolean}true">
+                    <fd:rules
+                        fd:visible="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.panelcontainer1681728936538.ProductCategory&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;name&quot;:&quot;ProductCategory&quot;}}\,{&quot;nodeName&quot;:&quot;When&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;CONDITIONORALWAYS&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPARISON_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.panelcontainer1681728936538.RateExpFor&quot;\,&quot;displayName&quot;:&quot;Please rate your experience for:&quot;\,&quot;type&quot;:&quot;STRING&quot;\,&quot;displayPath&quot;:&quot;FORM/Panel/Please rate your experience for:/&quot;\,&quot;name&quot;:&quot;RateExpFor&quot;\,&quot;parent&quot;:&quot;$form.panelcontainer1681728936538&quot;}}}\,{&quot;nodeName&quot;:&quot;OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EQUALS_TO&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;ProdSeln&quot;}}]}}\,{&quot;nodeName&quot;:&quot;Else&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;DONOTHING_OR_HIDE&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;Hide&quot;\,&quot;value&quot;:null}}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:&quot;RateExpFor == 'ProdSeln'&quot;\,&quot;eventName&quot;:&quot;Visibility&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                        jcr:primaryType="nt:unstructured"
+                        validationStatus="valid"
+                        visible="RateExpFor == 'ProdSeln'"/>
+                    <fd:events jcr:primaryType="nt:unstructured"/>
+                </dropdown_306987600>
+                <dropdown
+                    jcr:lastModified="{Date}2023-05-17T18:27:27.623Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Service Categories"
+                    sling:resourceType="${appId}/components/adaptiveForm/dropdown"
+                    enabled="{Boolean}true"
+                    enum="[0,1,2,3]"
+                    enumNames="[Transportation services,Travel insurance,Destination management services,Travel consulting and assistance]"
+                    fieldType="drop-down"
+                    name="ServiceCategory"
+                    readOnly="{Boolean}false"
+                    textIsRich="[true,true]"
+                    type="string"
+                    typeIndex="0"
+                    visible="{Boolean}true">
+                    <fd:rules
+                        fd:visible="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.panelcontainer1681728936538.ServiceCategory&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;name&quot;:&quot;ServiceCategory&quot;}}\,{&quot;nodeName&quot;:&quot;When&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;CONDITIONORALWAYS&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPARISON_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.panelcontainer1681728936538.RateExpFor&quot;\,&quot;displayName&quot;:&quot;Please rate your experience for:&quot;\,&quot;type&quot;:&quot;STRING&quot;\,&quot;displayPath&quot;:&quot;FORM/Panel/Please rate your experience for:/&quot;\,&quot;name&quot;:&quot;RateExpFor&quot;\,&quot;parent&quot;:&quot;$form.panelcontainer1681728936538&quot;}}}\,{&quot;nodeName&quot;:&quot;OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EQUALS_TO&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;STRING_LITERAL&quot;\,&quot;value&quot;:&quot;SerSeln&quot;}}]}}\,{&quot;nodeName&quot;:&quot;Else&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;DONOTHING_OR_HIDE&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;Hide&quot;\,&quot;value&quot;:null}}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:&quot;RateExpFor == 'SerSeln'&quot;\,&quot;eventName&quot;:&quot;Visibility&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                        jcr:primaryType="nt:unstructured"
+                        validationStatus="valid"
+                        visible="RateExpFor == 'SerSeln'"/>
+                    <fd:events jcr:primaryType="nt:unstructured"/>
+                </dropdown>
+                <text
+                    jcr:lastModified="{Date}2023-05-17T10:18:39.561Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Text"
+                    sling:resourceType="${appId}/components/adaptiveForm/text"
+                    fieldType="plain-text"
+                    name="text1681723591495"
+                    readOnly="{Boolean}false"
+                    textIsRich="true"
+                    value="&lt;p>Please rate your experience, using a scale of 1 to 5, where 5 is excellent and 2 is below average:&lt;/p>&#xd;&#xa;"
+                    visible="{Boolean}true"/>
+                <radiobutton_copy_cop
+                    jcr:lastModified="{Date}2023-05-14T12:13:11.578Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="1. How pleased are you with the product's overall quality?"
+                    sling:resourceType="${appId}/components/adaptiveForm/radiobutton"
+                    enabled="{Boolean}true"
+                    enum="[0,1,2,3,4]"
+                    enumNames="[1,2,3,4,5]"
+                    fieldType="radio-group"
+                    name="que1"
+                    orientation="horizontal"
+                    readOnly="{Boolean}false"
+                    textIsRich="[true,true]"
+                    type="number"
+                    visible="{Boolean}true"/>
+                <radiobutton_copy_cop_642568725
+                    jcr:lastModified="{Date}2023-05-14T12:13:34.246Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="2. Did the product meet your expectations?"
+                    sling:resourceType="${appId}/components/adaptiveForm/radiobutton"
+                    enabled="{Boolean}true"
+                    enum="[0,1,2,3,4]"
+                    enumNames="[1,2,3,4,5]"
+                    fieldType="radio-group"
+                    name="que2"
+                    orientation="horizontal"
+                    readOnly="{Boolean}false"
+                    textIsRich="[true,true]"
+                    type="string"
+                    visible="{Boolean}true"/>
+                <radiobutton_copy
+                    jcr:lastModified="{Date}2023-05-14T12:13:42.391Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="3. How likely are you to recommend this product to others?"
+                    sling:resourceType="${appId}/components/adaptiveForm/radiobutton"
+                    enabled="{Boolean}true"
+                    enum="[0,1,2,3,4]"
+                    enumNames="[1,2,3,4,5]"
+                    fieldType="radio-group"
+                    name="que3"
+                    orientation="horizontal"
+                    readOnly="{Boolean}false"
+                    textIsRich="[true,true]"
+                    type="string"
+                    visible="{Boolean}true"/>
+                <textinput_1175128216
+                    jcr:lastModified="{Date}2023-05-17T10:19:45.375Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Additional feedback and suggestions"
+                    sling:resourceType="${appId}/components/adaptiveForm/textinput"
+                    allowRichText="true"
+                    autocomplete="off"
+                    description="&lt;p>We appreciate your feedback and strive to improve our services based on your input. Please feel free to share any additional feedback or suggestions you have that can help us better meet your needs and expectations. Your insights are valuable to us, and we thank you for taking the time to share them.&lt;/p>&#xd;&#xa;"
+                    enabled="{Boolean}true"
+                    fieldType="text-input"
+                    multiLine="true"
+                    name="YourInsightfulRremarks"
+                    readOnly="{Boolean}false"
+                    textIsRich="[true,true,true]"
+                    validatePictureClauseMessage="[,]"
+                    visible="{Boolean}true"/>
+                <submit
+                    jcr:lastModified="{Date}2023-04-18T10:41:15.565Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Submit"
+                    sling:resourceType="${appId}/components/adaptiveForm/actions/submit"
+                    buttonType="submit"
+                    dorExclusion="true"
+                    fieldType="button"
+                    name="submit1681814475634">
+                    <fd:rules
+                        fd:click="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_SCRIPTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EVENT_CONDITION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.button1667450213112&quot;\,&quot;type&quot;:&quot;BUTTON&quot;\,&quot;name&quot;:&quot;button1667450213112&quot;}}\,{&quot;nodeName&quot;:&quot;EVENT_AND_COMPARISON_OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;is clicked&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;PRIMITIVE_EXPRESSION&quot;\,&quot;choice&quot;:null}]}\,&quot;nested&quot;:false}\,{&quot;nodeName&quot;:&quot;Then&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;BLOCK_STATEMENTS&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;BLOCK_STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SUBMIT_FORM&quot;\,&quot;items&quot;:[]}}]}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:[&quot;submitForm('custom:submitSuccess'\, 'custom:submitError')&quot;]\,&quot;eventName&quot;:&quot;Click&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
+                        jcr:primaryType="nt:unstructured"/>
+                    <fd:events
+                        jcr:primaryType="nt:unstructured"
+                        click="[submitForm('custom:submitSuccess'\, 'custom:submitError')]"/>
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="6"
+                            width="6"/>
+                    </cq:responsive>
+                </submit>
+            </panelcontainer>
+        </guideContainer>
+        <parsys1
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <pageheader
+                jcr:lastModified="{Date}2023-04-17T09:09:11.693Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Header"
+                sling:resourceType="${appId}/components/adaptiveForm/pageheader"
+                fieldType="page-header">
+                <image
+                    jcr:lastModified="{Date}2023-06-25T16:50:36.867+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Log"
+                    sling:resourceType="${appId}/components/image"
+                    alt="WKND Logo"
+                    altValueFromDAM="false"
+                    disableLazyLoading="false"
+                    displayPopupTitle="true"
+                    fileName="wknd-logo.png"
+                    fileReference="/content/dam/${appId}/wknd_logo.png"
+                    height="0"
+                    imageFromPageImage="false"
+                    isDecorative="false"
+                    linkTarget="_self"
+                    name="logoImage"
+                    titleValueFromDAM="false"
+                    width="0">
+                </image>
+                <text
+                    jcr:lastModified="{Date}2023-05-08T08:24:23.532Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wcm/foundation/components/text"
+                    text="&lt;p>Give Feedback&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"
+                    value="Company Name Here"/>
+            </pageheader>
+        </parsys1>
+        <parsys2
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <footer
+                jcr:lastModified="{Date}2023-04-23T11:57:47.614Z"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Footer"
+                sling:resourceType="${appId}/components/adaptiveForm/footer">
+                <text
+                    jcr:lastModified="{Date}2023-05-12T06:33:29.539Z"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Footer"
+                    sling:resourceType="core/wcm/components/text/v2/text"
+                    css="footerText"
+                    text="&lt;p>© YYYY WKND | All rights reserved.&lt;/p>&#xd;&#xa;"
+                    textIsRich="true"/>
+            </footer>
+        </parsys2>
+    </jcr:content>
+</jcr:root>

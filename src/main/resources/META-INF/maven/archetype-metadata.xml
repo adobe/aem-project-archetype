@@ -204,6 +204,14 @@
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>
 
+        <!--
+            Option to select which UI testing framework to use for ui.tests module.
+        -->
+        <requiredProperty key="uiTestingFramework">
+            <defaultValue>cypress</defaultValue>
+            <validationRegex>^(wdio|cypress)$</validationRegex>
+        </requiredProperty>
+
     </requiredProperties>
 
     <modules>
@@ -484,6 +492,7 @@
                         <exclude>**/*.woff</exclude>
                         <exclude>**/*.woff2</exclude>
                         <exclude>**/*.otf</exclude>
+                        <exclude>**/*.zip</exclude>
                     </excludes>
                 </fileSet>
                 <fileSet filtered="false" packaged="false"
@@ -500,6 +509,7 @@
                         <include>**/*.woff</include>
                         <include>**/*.woff2</include>
                         <include>**/*.otf</include>
+                        <include>**/*.zip</include>
                     </includes>
                 </fileSet>
             </fileSets>
@@ -565,7 +575,7 @@
                 </fileSet>
             </fileSets>
         </module>
-        <module id="${rootArtifactId}.ui.tests" dir="ui.tests" name="ui.tests">
+        <module id="${rootArtifactId}.ui.tests.wdio" dir="ui.tests.wdio" name="ui.tests.wdio">
             <fileSets>
                 <fileSet filtered="true">
                     <directory></directory>
@@ -591,6 +601,39 @@
                 </fileSet>
                 <fileSet filtered="false" packaged="false"
                     encoding="UTF-8">
+                    <directory></directory>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
+        <module id="${rootArtifactId}.ui.tests.cypress" dir="ui.tests.cypress" name="ui.tests.cypress">
+            <fileSets>
+                <fileSet filtered="true">
+                    <directory></directory>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                    <excludes>
+                        <!-- Exclude Test Reports -->
+                        <exclude>**/results/</exclude>
+                        <!-- Exclude NPM dependencies -->
+                        <exclude>**/node_modules/</exclude>
+                        <exclude>**/*.sh</exclude>
+                        <exclude>**/*.png</exclude>
+                    </excludes>
+                </fileSet>
+                <fileSet filtered="false">
+                    <directory></directory>
+                    <includes>
+                        <!-- Do not filter binary files (will become corrupted) -->
+                        <include>**/*.sh</include>
+                        <include>**/*.png</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="false" packaged="false"
+                         encoding="UTF-8">
                     <directory>test-module</directory>
                     <includes>
                         <include>**/*</include>
