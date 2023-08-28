@@ -23,5 +23,6 @@ echo 'checking Xvfb'
 ps aux | grep Xvfb
 # disable color output when running Cypress
 export NO_COLOR=1
+#export ELECTRON_EXTRA_LAUNCH_ARGS=--remote-debugging-port=9222
 # execute tests
 npm test

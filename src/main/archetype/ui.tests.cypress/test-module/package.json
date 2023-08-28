@@ -4,16 +4,20 @@
   "description": "test cypress on eaas",
   "main": "index.js",
   "devDependencies": {
-    "cypress": "^12.12.0",
+    "@neuralegion/cypress-har-generator": "^5.16.4",
+    "cypress": "12.17.0",
     "cypress-fail-on-console-error": "^4.0.3",
     "cypress-multi-reporters": "^1.6.3",
     "mocha-junit-reporter": "^2.2.0"
   },
   "scripts": {
-    "test": "cypress run",
+    "test": "cypress run --browser electron",
     "test-chrome": "cypress run --browser chrome",
     "test-firefox": "cypress run --browser firefox"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cypress-terminal-report": "^5.3.3"
+  }
 }
