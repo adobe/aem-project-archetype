@@ -10,10 +10,8 @@
             guideComponentType="fd/af/templates">
         <container1
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Header"
-                sling:resourceType="wcm/foundation/components/responsivegrid"
-                layout="responsiveGrid"
-                editable="{Boolean}true">
+                sling:resourceType="core/wcm/components/container/v1/container"
+                layout="responsiveGrid">
             <guideheader
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="fd/af/components/guideheader">
@@ -742,10 +740,8 @@
         </guideContainer>
         <container2
             jcr:primaryType="nt:unstructured"
-            jcr:title="Footer"
-            sling:resourceType="wcm/foundation/components/responsivegrid"
-            layout="responsiveGrid"
-            editable="{Boolean}true" >
+            sling:resourceType="core/wcm/components/container/v1/container"
+            layout="responsiveGrid" >
             <guidefooter
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="fd/af/components/guidefooter">

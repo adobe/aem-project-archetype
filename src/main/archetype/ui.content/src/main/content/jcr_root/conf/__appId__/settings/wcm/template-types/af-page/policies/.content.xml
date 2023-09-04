@@ -7,11 +7,9 @@
         sling:resourceType="wcm/core/components/policies/mappings" >
         <container1
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Header"
                 sling:resourceType="wcm/core/components/policies/mapping"
                 cq:policy="wcm/foundation/components/responsivegrid/afpolicy"
-                layout="responsiveGrid"
-                editable="{Boolean}true" />
+                layout="responsiveGrid" />
         <guideContainer
                 cq:policy="fd/af/components/guideContainer/default"
                 jcr:primaryType="nt:unstructured"

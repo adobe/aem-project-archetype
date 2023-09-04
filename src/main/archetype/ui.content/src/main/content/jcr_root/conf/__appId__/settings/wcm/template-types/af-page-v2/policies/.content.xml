@@ -7,7 +7,6 @@
         sling:resourceType="wcm/core/components/policies/mappings">
         <container1
             jcr:primaryType="nt:unstructured"
-            jcr:title="Header"
             sling:resourceType="wcm/core/components/policies/mapping"
             cq:policy="fd/af/components/responsivegrid/page-header"
             layout="responsiveGrid"/>
@@ -18,7 +17,6 @@
         </guideContainer>
         <container2
             jcr:primaryType="nt:unstructured"
-            jcr:title="Footer"
             sling:resourceType="wcm/core/components/policies/mapping"
             cq:policy="fd/af/components/responsivegrid/page-footer"
             layout="responsiveGrid"/>

@@ -9,10 +9,8 @@
         jcr:primaryType="cq:PageContent">
         <container1
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Header"
-                sling:resourceType="wcm/foundation/components/responsivegrid"
-                layout="responsiveGrid"
-                editable="{Boolean}true" />
+                sling:resourceType="core/wcm/components/container/v1/container"
+                layout="responsiveGrid" />
         <guideContainer
             jcr:primaryType="nt:unstructured"
             sling:resourceType="fd/af/components/guideContainer"
@@ -49,10 +47,8 @@
         </guideContainer>
         <container2
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Footer"
-                sling:resourceType="wcm/foundation/components/responsivegrid"
-                layout="responsiveGrid"
-                editable="{Boolean}true" />
+                sling:resourceType="core/wcm/components/container/v1/container"
+                layout="responsiveGrid" />
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">
                 <smallScreen
