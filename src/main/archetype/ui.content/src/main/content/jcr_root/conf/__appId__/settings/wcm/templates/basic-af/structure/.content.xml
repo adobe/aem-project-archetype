@@ -8,11 +8,10 @@
         jcr:lastModified="{Date}2021-03-24T18:22:20.809+05:30"
         sling:resourceType="fd/af/components/page2/aftemplatedpage"
         guideComponentType="fd/af/templates">
-        <container1
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="core/wcm/components/container/v1/container"
-                layout="responsiveGrid"
-                editable="{Boolean}true" />
+        <parsys1
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid"
+            editable="{Boolean}true"/>
         <guideContainer
             jcr:primaryType="nt:unstructured"
             sling:resourceType="fd/af/components/guideContainer"
@@ -46,11 +45,10 @@
                     editable="{Boolean}true"/>
             </rootPanel>
         </guideContainer>
-        <container2
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="core/wcm/components/container/v1/container"
-                layout="responsiveGrid"
-                editable="{Boolean}true" />
+        <parsys2
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid"
+            editable="{Boolean}true"/>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">
                 <smallScreen
