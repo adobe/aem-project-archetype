@@ -8,4 +8,7 @@
     #if ( $includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y" )
     <af-page-v2/>
     #end
+    #if ( $aemVersion == "cloud" and ( $includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") )
+    <afv2-fragment-page/>
+    #end
 </jcr:root>
