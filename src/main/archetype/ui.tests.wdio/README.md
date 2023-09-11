@@ -1,5 +1,5 @@
 
-UI Testing module for your AEM application
+UI Testing module (Selenium) for your AEM application
 ===
 
 
