@@ -3,15 +3,9 @@
     jcr:primaryType="cq:Template">
     <jcr:content
         author="adobe"
-        cq:isDelivered="{Boolean}true"
+        jcr:createdBy="adobe"
         cq:lastModified="{Date}2023-07-03T10:41:48.601Z"
-        cq:lastModifiedBy="admin"
-        cq:lastReplicated="{Date}2023-05-30T08:17:31.625Z"
-        cq:lastReplicated_publish="{Date}2023-05-30T08:17:31.625Z"
-        cq:lastReplicatedBy="admin"
-        cq:lastReplicatedBy_publish="admin"
-        cq:lastReplicationAction="Activate"
-        cq:lastReplicationAction_publish="Activate"
+        cq:lastModifiedBy="adobe"
         cq:templateType="/conf/${appId}/settings/wcm/template-types/af-page-v2"
         jcr:description="A Purchase Request Form to initiate the procurement process and allow employees to formally request the purchase of goods or services necessary for their work. The form captures essential details such as item description, quantity, preferred supplier (if applicable), budget allocation, justification for purchase, delivery information, and required approvals. The purpose of the form is to streamline and document the purchasing process, ensuring proper authorization and tracking of requested purchases."
         jcr:primaryType="cq:PageContent"

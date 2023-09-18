@@ -3,8 +3,9 @@
     jcr:primaryType="cq:Template">
     <jcr:content
         author="adobe"
+        jcr:createdBy="adobe"
         cq:lastModified="{Date}2023-05-18T06:56:04.251Z"
-        cq:lastModifiedBy="admin"
+        cq:lastModifiedBy="adobe"
         cq:templateType="/conf/${appId}/settings/wcm/template-types/af-page-v2"
         jcr:description="A give feedback form template to help users input their service or product experience."
         jcr:primaryType="cq:PageContent"

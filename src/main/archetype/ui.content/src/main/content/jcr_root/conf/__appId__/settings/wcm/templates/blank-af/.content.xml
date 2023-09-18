@@ -3,9 +3,11 @@
     jcr:primaryType="cq:Template">
     <jcr:content
         author="adobe"
+        jcr:createdBy="adobe"
         cq:templateType="/conf/${appId}/settings/wcm/template-types/af-page"
         jcr:primaryType="cq:PageContent"
         jcr:lastModified="{Date}2021-03-24T18:22:20.809+05:30"
+        cq:lastModifiedBy="adobe"
         jcr:title="Blank"
         status="enabled"/>
 </jcr:root>

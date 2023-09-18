@@ -3,15 +3,9 @@
     jcr:primaryType="cq:Template">
     <jcr:content
         author="adobe"
-        cq:isDelivered="{Boolean}true"
+        jcr:createdBy="adobe"
         cq:lastModified="{Date}2023-07-03T10:41:17.673Z"
-        cq:lastModifiedBy="admin"
-        cq:lastReplicated="{Date}2023-05-31T09:42:40.501Z"
-        cq:lastReplicated_publish="{Date}2023-05-31T09:42:40.501Z"
-        cq:lastReplicatedBy="admin"
-        cq:lastReplicatedBy_publish="admin"
-        cq:lastReplicationAction="Activate"
-        cq:lastReplicationAction_publish="Activate"
+        cq:lastModifiedBy="adobe"
         cq:templateType="/conf/${appId}/settings/wcm/template-types/af-page-v2"
         jcr:description="A quality control inspection form to assess and document the visual appearance, dimensions, functionality, documentation, testing results, and overall quality of a product or item. It helps identify defects, non-conformances, and corrective actions necessary to ensure adherence to quality standards."
         jcr:primaryType="cq:PageContent"
