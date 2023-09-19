@@ -4,4 +4,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Vertical Tabs"
     sling:resourceSuperType="core/fd/components/form/verticaltabs/v1/verticaltabs"
-    componentGroup="${appTitle} - Adaptive Form"/>
+    componentGroup=".${appTitle} - Adaptive Form"/>
