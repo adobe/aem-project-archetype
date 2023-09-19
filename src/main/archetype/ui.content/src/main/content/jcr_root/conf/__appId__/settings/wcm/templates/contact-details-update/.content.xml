@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:primaryType="cq:Template">
+    <jcr:content
+        author="adobe"
+        cq:isDelivered="{Boolean}true"
+        cq:lastModified="{Date}2023-07-03T10:40:32.282Z"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2023-06-13T09:26:45.829Z"
+        cq:lastReplicated_publish="{Date}2023-06-13T09:26:45.829Z"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicatedBy_publish="admin"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:templateType="/conf/${appId}/settings/wcm/template-types/af-page-v2"
+        jcr:description="The Contact Details Update Form for address and contact details update is designed to assist you in updating your personal information related to your subscription or benefits to ensure seamless communication and uninterrupted access to the services or benefits you receive."
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Contact Details Update"
+        status="enabled"/>
+</jcr:root>
