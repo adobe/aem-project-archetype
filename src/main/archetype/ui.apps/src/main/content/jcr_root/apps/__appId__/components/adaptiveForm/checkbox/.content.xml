@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-    jcr:description="Adaptive Form Check Box Group (v1) component"
+    jcr:description="Adaptive Form Check Box (v1) component"
     jcr:primaryType="cq:Component"
-    jcr:title="Check Box Group"
-    sling:resourceSuperType="core/fd/components/form/checkboxgroup/v1/checkboxgroup"
+    jcr:title="Check Box"
+    sling:resourceSuperType="core/fd/components/form/checkbox/v1/checkbox"
     componentGroup="${appTitle} - Adaptive Form"/>
