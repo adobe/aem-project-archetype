@@ -2,16 +2,9 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
     jcr:primaryType="cq:Template">
     <jcr:content
-        author="adobe"
-        cq:isDelivered="{Boolean}true"
+        author="adobe"        
         cq:lastModified="{Date}2023-07-03T10:40:00.760Z"
-        cq:lastModifiedBy="admin"
-        cq:lastReplicated="{Date}2023-05-25T15:46:21.326Z"
-        cq:lastReplicated_publish="{Date}2023-05-25T15:46:21.326Z"
-        cq:lastReplicatedBy="admin"
-        cq:lastReplicatedBy_publish="admin"
-        cq:lastReplicationAction="Activate"
-        cq:lastReplicationAction_publish="Activate"
+        cq:lastModifiedBy="adobe"
         cq:templateType="/conf/${appId}/settings/wcm/template-types/af-page-v2"
         jcr:description="The Employee Benefits Summary form is used to gather essential details about an individual's benefits. It helps in evaluating coverage quickly and accurately, providing a comprehensive overview for efficient assistance and support."
         jcr:primaryType="cq:PageContent"

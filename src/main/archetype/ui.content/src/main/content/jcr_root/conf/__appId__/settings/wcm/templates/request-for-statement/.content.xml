@@ -2,16 +2,9 @@
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
     jcr:primaryType="cq:Template">
     <jcr:content
-        author="adobe"
-        cq:isDelivered="{Boolean}true"
+        author="adobe"        
         cq:lastModified="{Date}2023-07-03T10:40:14.970Z"
-        cq:lastModifiedBy="admin"
-        cq:lastReplicated="{Date}2023-05-25T15:46:21.326Z"
-        cq:lastReplicated_publish="{Date}2023-05-25T15:46:21.326Z"
-        cq:lastReplicatedBy="admin"
-        cq:lastReplicatedBy_publish="admin"
-        cq:lastReplicationAction="Activate"
-        cq:lastReplicationAction_publish="Activate"
+        cq:lastModifiedBy="adobe"
         cq:templateType="/conf/${appId}/settings/wcm/template-types/af-page-v2"
         jcr:description="A request for an account statement form to request a statement of transactions. This statement provides a detailed record of financial transactions, activities, or other relevant information about an individual. By completing this form, you can initiate the process of obtaining an accurate and up-to-date statement for your records."
         jcr:primaryType="cq:PageContent"

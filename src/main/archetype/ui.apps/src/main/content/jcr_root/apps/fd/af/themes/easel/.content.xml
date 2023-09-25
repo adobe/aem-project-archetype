@@ -4,7 +4,7 @@
     <jcr:content jcr:primaryType="nt:unstructured">
         <metadata
             jcr:primaryType="nt:unstructured"
-            author="adobe"
+            author="adobe"            
             description="Reference Easel Theme"
             title="Reference Easel"/>
     </jcr:content>
