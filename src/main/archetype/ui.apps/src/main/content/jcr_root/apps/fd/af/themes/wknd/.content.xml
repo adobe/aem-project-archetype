@@ -4,8 +4,7 @@
     <jcr:content jcr:primaryType="nt:unstructured">
         <metadata
             jcr:primaryType="nt:unstructured"
-            author="adobe"
-            jcr:createdBy="adobe"
+            author="adobe"            
             description="Reference WKND Theme"
             title="Reference WKND"/>
     </jcr:content>
