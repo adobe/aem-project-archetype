@@ -98,3 +98,6 @@
 
 # Allow Forms Document Services requests
 /0062 { /type "allow" /method '(GET|POST)' /url "/adobe/forms/*" }
+
+# Allow PUT for Forms DocAssurance Services Decryption API
+/0063 { /type "allow" /method "PUT" /url "/adobe/forms/document/assure/encrypt" }
