@@ -5,8 +5,7 @@
         <metadata
             jcr:primaryType="nt:unstructured"
             author="adobe"
-            jcr:createdBy="adobe"
-            description="Reference FSI Theme"
-            title="Reference FSI"/>
+            description="Reference Healthcare Theme"
+            title="${appId} Reference Healthcare"/>
     </jcr:content>
 </jcr:root>
