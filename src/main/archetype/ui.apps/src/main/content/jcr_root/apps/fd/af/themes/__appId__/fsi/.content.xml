@@ -6,6 +6,6 @@
             jcr:primaryType="nt:unstructured"
             author="adobe"
             description="Reference FSI Theme"
-            title="${appId} Reference FSI"/>
+            title="${appId} - fsi"/>
     </jcr:content>
 </jcr:root>
