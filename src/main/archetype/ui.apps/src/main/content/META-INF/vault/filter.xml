@@ -5,11 +5,11 @@
     <filter root="/apps/${appId}/i18n"/>
 #if ( $includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y" || $includeFormsheadless == "y")
 #if ($aemVersion == "cloud")
-    <filter root="/apps/fd/af/themes"/>
+    <filter root="/apps/fd/af/themes" mode="merge"/>
 <!-- 
 //For 6.5 core component theme-clientlibs not included. This should be reverted after aem forms 6.5.19.0 is released
 <#else
-    <filter root="/apps/fd/af/theme-clientlibs"/>
+    <filter root="/apps/fd/af/theme-clientlibs" mode="merge"/>
 #end>
 -->
 #end
