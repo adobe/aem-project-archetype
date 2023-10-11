@@ -8,10 +8,11 @@
     <filter root="/apps/fd/af/themes" mode="merge"/>
 <!-- 
 //For 6.5 core component theme-clientlibs not included. This should be reverted after aem forms 6.5.19.0 is released
-<#else
+#else
     <filter root="/apps/fd/af/theme-clientlibs" mode="merge"/>
-#end>
 -->
+#end
+
 #end
 #if ( $includeErrorHandler == "y" )
     <filter root="/apps/sling" />
