@@ -234,8 +234,6 @@ if ((includeForms == "y" || includeFormsenrollment == "y" || includeFormscommuni
     assert new File("$confFolder/forms").deleteDir()
     //For 6.5 delete forms core component theme zips
     assert new File("$uiAppsPackage/src/main/content/jcr_root/apps/fd/af/themes").deleteDir()
-    //For 6.5 delete forms core component theme-clientlibs. This should be reverted after aem forms 6.5.19.0 is released
-    assert new File("$uiAppsPackage/src/main/content/jcr_root/apps/fd/af/theme-clientlibs").deleteDir()
 }
 
 
@@ -261,10 +259,7 @@ if (includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunic
     }
     println "Using AEM Forms as a Cloud Service SDK version: " + sdkFormsVersion
     rootPom.text = rootPom.text.replaceAll('SDK_FORMS_VERSION', sdkFormsVersion.toString())
-    //For AEM cloud delete forms core component theme client libraries.
-    if(aemVersion == "cloud"){
-        assert new File("$uiAppsPackage/src/main/content/jcr_root/apps/fd/af/theme-clientlibs").deleteDir()
-    }
+    
 }
 
 // if config.publish folder ends up empty, remove it, otherwise the filevault-package-maven-plugin will throw
