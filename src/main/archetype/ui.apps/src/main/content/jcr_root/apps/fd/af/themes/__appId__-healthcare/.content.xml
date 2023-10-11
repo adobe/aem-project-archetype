@@ -6,6 +6,6 @@
             jcr:primaryType="nt:unstructured"
             author="adobe"
             description="Reference Healthcare Theme"
-            title="${appId} - healthcare"/>
+            title="${appId}-healthcare"/>
     </jcr:content>
 </jcr:root>

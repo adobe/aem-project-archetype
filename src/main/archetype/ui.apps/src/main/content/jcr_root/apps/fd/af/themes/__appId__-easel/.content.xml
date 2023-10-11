@@ -6,6 +6,6 @@
             jcr:primaryType="nt:unstructured"
             author="adobe"            
             description="Reference Easel Theme"
-            title="${appId} - easel"/>
+            title="${appId}-easel"/>
     </jcr:content>
 </jcr:root>

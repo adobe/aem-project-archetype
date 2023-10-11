@@ -6,6 +6,6 @@
             jcr:primaryType="nt:unstructured"
             author="adobe"            
             description="Reference WKND Theme"
-            title="${appId} - wknd"/>
+            title="${appId}-wknd"/>
     </jcr:content>
 </jcr:root>
