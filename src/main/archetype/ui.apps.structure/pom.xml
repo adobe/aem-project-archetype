@@ -42,8 +42,6 @@
                         <filter><root>/apps/fd/af</root></filter>
                         #if ($aemVersion == "cloud")
                         <filter><root>/apps/fd/af/themes</root></filter>
-                        #else
-                        <filter><root>/apps/fd/af/theme-clientlibs</root></filter>
                         #end
                         #end
                         <filter><root>/apps/sling</root></filter>
