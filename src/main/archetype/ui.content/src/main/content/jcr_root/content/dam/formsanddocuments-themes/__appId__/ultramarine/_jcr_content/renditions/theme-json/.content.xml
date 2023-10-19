@@ -63,7 +63,7 @@
                     default_x0023_hover="[color:#212121]"/>
                 <af_checkboxwidgetandtext
                     jcr:primaryType="nt:unstructured"
-                    default_x0023_default="[float:none,width:0.75rem,display:none]"/>
+                    default_x0023_default="[float:none,width:0.75rem,opacity:0]"/>
                 <af_numericstepperdecrementbutton
                     jcr:primaryType="nt:unstructured"
                     default_x0023_default="[width:3rem,height:3rem,top:0px,background:url(../assets/Minus.svg) center center / 0.75rem 0.75rem no-repeat\,#FFFFFF,display:inline-block,float:left,cssOverride:cursor: pointer;]"
@@ -98,7 +98,7 @@
                     default_x0023_hover="[color:#212121]"/>
                 <af_radiobuttonwidget
                     jcr:primaryType="nt:unstructured"
-                    default_x0023_default="[float:none,display:none]"/>
+                    default_x0023_default="[float:none,opacity:0]"/>
                 <af_textareawidgetandtext
                     jcr:primaryType="nt:unstructured"
                     default_x0023_default="[height:80px]"/>
@@ -662,6 +662,7 @@
                     default_x0023_checked_x0023_ui="[backgroundColor:#0071bc,borderWidthPopover:4px]"
                     default_x0023_default="[display:block,margin-top:20px,padding-left:15px,width:100%,padding-top:2px,background:rgba(0\,113\,188\,0.1),border-style:solid,border-color:rgba(255\,255\,255\,0),border-bottom-width:4px]"
                     default_x0023_default_x0023_ui="[paddingPopover:2px\, —\, —\, 15px,marginLock:linkOff,marginPopover:20px\, —\, —\, —,paddingLock:linkOff,backgroundColor:rgba(0\,113\,188\,0.1),borderWidthLock:linkOff,borderWidthPopover:—\, —\, 4px\, —]"
+                    default_x0023_focus="[cssOverride:border-bottom: 4px solid #0071bc;]"
                     default_x0023_hover="[cssOverride:border-bottom: 4px solid #0071bc;&#xa;]"/>
                 <af_radiobuttonitem
                     jcr:primaryType="nt:unstructured"
@@ -671,6 +672,7 @@
                     default_x0023_default_x0023_ui="[paddingLock:linkOff,marginLock:linkOff,marginPopover:20px,backgroundColor:rgba(0\,113\,188\,0.1),borderWidthLock:linkOff,borderWidthPopover:—\, —\, 4px\, —,paddingPopover:3px\, 15px\, —\, 15px]"
                     default_x0023_disabled="[background:#f8f8f8]"
                     default_x0023_disabled_x0023_ui="[backgroundColor:#f8f8f8]"
+                    default_x0023_focus="[cssOverride:border-bottom: 4px solid #0071bc;]"
                     default_x0023_hover="[cssOverride:border-bottom: 4px solid #0071bc;]"/>
                 <af_passwordboxwidgetandtext
                     jcr:primaryType="nt:unstructured"
