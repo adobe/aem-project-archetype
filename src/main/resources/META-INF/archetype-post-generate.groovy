@@ -77,6 +77,13 @@ if (amp == "n"){
     assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/" + appId + "/components/tabs/clientlibs").deleteDir()
 }
 
+if (aemVersion != "cloud") {
+    assert new File("$uiAppsPackage/src/main/content/jcr_root/apps/settings").deleteDir()
+    assert new File("$configFolder/config/com.adobe.cq.projects.purge.Scheduler~default.cfg.json").delete()
+    assert new File("$configFolder/config/com.adobe.granite.workflow.purge.Scheduler~default.cfg.json").delete()
+    assert new File("$configFolder/config/com.adobe.granite.taskmanagement.impl.purge.TaskPurgeMaintenanceTask.cfg.json").delete()
+}
+
 if (includeErrorHandler == "n") {
     assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/sling").deleteDir()
 }
