@@ -30,6 +30,6 @@
     #if ($includeFormsheadless == "y" and $aemVersion == "cloud")
     <sly data-sly-call="${symbol_dollar}{clientlib.css @ categories='${appId}.forms.react'}" />
     #end
-    <sly data-sly-test="${symbol_dollar}{!wcmmode.edit}" data-sly-call="${symbol_dollar}{clientlib.css @ categories='core.forms.components.runtime.all'}"/>
+    <sly data-sly-call="${symbol_dollar}{clientlib.css @ categories='core.forms.components.runtime.all'}"/>
 </sly>
 
