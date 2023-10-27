@@ -215,6 +215,17 @@ if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunic
     assert new File("$confFolder/settings/wcm/template-types/af-page-v2").deleteDir()
     assert new File("$confFolder/settings/wcm/template-types/afv2-fragment-page").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/blank-af-v2").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/consent-form").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/contact-us-form").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/safety-inspection").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/log-service-request").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/request-for-statement").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/quality-control-inspection").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/purchase-request").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/benefits-enrollment").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/benefit-summary-request").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/give-feedback").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/contact-details-update").deleteDir()
     assert new File("$confFolder/forms").deleteDir()
 }
 if ((includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunications == "y" || includeFormsheadless == "y") && aemVersion != "cloud") {
@@ -248,10 +259,7 @@ if (includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunic
     }
     println "Using AEM Forms as a Cloud Service SDK version: " + sdkFormsVersion
     rootPom.text = rootPom.text.replaceAll('SDK_FORMS_VERSION', sdkFormsVersion.toString())
-    //For AEM cloud delete forms core component theme client libraries.
-    if(aemVersion == "cloud"){
-        assert new File("$uiAppsPackage/src/main/content/jcr_root/apps/fd/af/theme-clientlibs").deleteDir()
-    }
+    
 }
 
 // if config.publish folder ends up empty, remove it, otherwise the filevault-package-maven-plugin will throw
