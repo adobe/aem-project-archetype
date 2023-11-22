@@ -230,7 +230,7 @@
                         validationStatus="valid"/>
                     <fd:events
                         jcr:primaryType="nt:unstructured"
-                        change="[if(contains($event.payload.changes[].propertyName\, 'value')\,[if(contains($field\, '0')\, dispatchEvent($form.EducationPanel\, 'custom:setProperty'\, {visible : true()})\, {})]\,{}),if(contains($event.payload.changes[].propertyName\, 'value')\,[if(contains($field\, '1')\, dispatchEvent($form.HealthCarePanel\, 'custom:setProperty'\, {visible : true()})\, {})]\,{}),if(contains($event.payload.changes[].propertyName\, 'value')\,[if(contains($field\, '2')\, dispatchEvent($form.ChildCarePanel\, 'custom:setProperty'\, {visible : true()})\, {})]\,{}),if(contains($event.payload.changes[].propertyName\, 'value')\,[if(contains($field\, '3')\, dispatchEvent($form.PanelBenefitPrgrmDet\, 'custom:setProperty'\, {visible : true()})\, {})]\,{})]"/>
+                        change="[if(contains($field\, '0')\, dispatchEvent($form.EducationPanel\, 'custom:setProperty'\, {visible : true()})\, {}),if(contains($field\, '1')\, dispatchEvent($form.HealthCarePanel\, 'custom:setProperty'\, {visible : true()})\, {}),if(contains($field\, '2')\, dispatchEvent($form.ChildCarePanel\, 'custom:setProperty'\, {visible : true()})\, {}),if(contains($field\, '3')\, dispatchEvent($form.PanelBenefitPrgrmDet\, 'custom:setProperty'\, {visible : true()})\, {})]"/>
                 </checkboxgroup>
             </panelcontainer>
             <panelcontainer_1181419075
