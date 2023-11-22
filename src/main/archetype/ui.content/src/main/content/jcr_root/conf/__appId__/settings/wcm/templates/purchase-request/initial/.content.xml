@@ -371,8 +371,8 @@
                 <cq:responsive jcr:primaryType="nt:unstructured">
                     <default
                         jcr:primaryType="nt:unstructured"
-                        offset="6"
-                        width="6"/>
+                        offset="0"
+                        width="12"/>
                 </cq:responsive>
             </submit>
         </guideContainer>
