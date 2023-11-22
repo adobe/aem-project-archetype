@@ -24,10 +24,10 @@
                 jcr:lastModified="{Date}2023-06-15T10:15:15.538Z"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Text"
+                jcr:title="Form Introduction"
                 sling:resourceType="${appId}/components/adaptiveForm/text"
                 fieldType="plain-text"
-                name="text_21451224891684997830821"
+                name="FormIntro"
                 textIsRich="true"
                 value="&lt;p>Please complete the following form to request a benefit summary. These details will help us provide you with an overview of your eligible benefits.&lt;/p>&#xd;&#xa;"/>
             <textinput

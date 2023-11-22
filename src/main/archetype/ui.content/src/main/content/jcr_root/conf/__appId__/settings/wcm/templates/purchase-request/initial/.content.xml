@@ -24,7 +24,7 @@
                 jcr:lastModified="{Date}2023-07-03T08:28:09.474Z"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Text"
+                jcr:title="Form Introduction"
                 sling:resourceType="${appId}/components/adaptiveForm/text"
                 fieldType="plain-text"
                 name="FormIntro"

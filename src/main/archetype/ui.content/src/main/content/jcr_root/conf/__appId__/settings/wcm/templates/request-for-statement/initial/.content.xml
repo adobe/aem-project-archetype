@@ -24,10 +24,10 @@
                 jcr:lastModified="{Date}2023-06-29T08:33:49.527Z"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Text"
+                jcr:title="Form Introduction"
                 sling:resourceType="${appId}/components/adaptiveForm/text"
                 fieldType="plain-text"
-                name="text1685023441259"
+                name="FormIntro"
                 textIsRich="true"
                 value="&lt;p>Please fill out the following form to request a statement for your account. The statement will provide you with a detailed record of your financial transactions.&lt;/p>&#xd;&#xa;"/>
             <textinput

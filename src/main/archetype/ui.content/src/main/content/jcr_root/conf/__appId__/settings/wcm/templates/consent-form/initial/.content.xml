@@ -30,7 +30,7 @@
                 enabled="{Boolean}true"
                 fieldType="panel"
                 hideTitle="true"
-                name="panelcontainer_21226551991684390497234"
+                name="events"
                 readOnly="{Boolean}false"
                 textIsRich="[true,true]"
                 visible="{Boolean}true"

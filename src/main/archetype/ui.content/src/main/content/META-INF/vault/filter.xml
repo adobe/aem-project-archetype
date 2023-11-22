@@ -21,4 +21,5 @@
 #if ($includeFormsheadless == "y" )
     <filter root="/content/dam/${appId}/af_model_sample.json" mode="merge"/>
 #end
+ <filter root="/conf/${appId}/settings/wcm/templates"/>
 </workspaceFilter>
