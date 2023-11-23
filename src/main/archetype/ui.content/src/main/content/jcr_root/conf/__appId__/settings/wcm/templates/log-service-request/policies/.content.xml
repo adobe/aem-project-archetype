@@ -16,7 +16,7 @@
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/core/components/policies/mapping"/>
         <container2
-            cq:policy="${appId}/components/container/cc-af-header-policy"
+            cq:policy="${appId}/components/container/cc-af-footer-policy"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/core/components/policies/mapping"/>
     </jcr:content>
