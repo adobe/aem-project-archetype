@@ -135,9 +135,10 @@
                 </submit>
             </panelcontainer>
         </guideContainer>
-        <parsys1
+        <container1
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="wcm/foundation/components/responsivegrid">
+            sling:resourceType="${appId}/components/container"
+            layout="responsiveGrid">
             <pageheader
                 jcr:lastModified="{Date}2023-05-02T05:48:46.661Z"
                 jcr:lastModifiedBy="admin"
@@ -174,10 +175,11 @@
                     textIsRich="true"
                     value="Company Name Here"/>
             </pageheader>
-        </parsys1>
-        <parsys2
+        </container1>
+        <container2
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="wcm/foundation/components/responsivegrid">
+            sling:resourceType="${appId}/components/container"
+            layout="responsiveGrid">
             <footer
                 jcr:lastModified="{Date}2023-04-29T18:26:22.801Z"
                 jcr:lastModifiedBy="admin"
@@ -194,6 +196,6 @@
                     text="&lt;p>© YYYY WKND | All rights reserved.&lt;/p>&#xd;&#xa;"
                     textIsRich="true"/>
             </footer>
-        </parsys2>
+        </container2>
     </jcr:content>
 </jcr:root>
