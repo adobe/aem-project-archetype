@@ -743,7 +743,7 @@
                     jcr:lastModified="{Date}2023-05-25T06:28:44.438Z"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="wcm/foundation/components/text"
+                    sling:resourceType="${appId}/components/text"
                     text="&lt;p>Safety Inspection Form&lt;/p>&#xd;&#xa;"
                     textIsRich="true"
                     value="Company Name Here"/>
@@ -764,7 +764,7 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Footer"
-                    sling:resourceType="core/wcm/components/text/v2/text"
+                    sling:resourceType="${appId}/components/text"
                     css="footerText"
                     text="&lt;p>© YYYY WKND | All rights reserved.&lt;/p>&#xd;&#xa;"
                     textIsRich="true"/>
