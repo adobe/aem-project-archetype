@@ -51,6 +51,7 @@
                 <configuration>
                     <properties>
                         <cloudManagerTarget>none</cloudManagerTarget>
+                        <acHandling>merge_preserve</acHandling>
                     </properties>
                     <group>${groupId}</group>
                     <name>${artifactId}</name>
