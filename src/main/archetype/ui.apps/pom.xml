@@ -51,14 +51,14 @@
                 <configuration>
                     <properties>
                         <cloudManagerTarget>none</cloudManagerTarget>
-                        <accessControlHandling>merge_preserve</accessControlHandling>
                     </properties>
                     <group>${groupId}</group>
                     <name>${artifactId}</name>
                     <packageType>application</packageType>
-                    #if (($includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y" || $includeFormsheadless == "y") && $aemVersion == "cloud")
+#if (($includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y" || $includeFormsheadless == "y") && $aemVersion == "cloud")
                     <skipSubPackageValidation>true</skipSubPackageValidation>
-                    #end
+                    <accessControlHandling>merge</accessControlHandling>
+#end
                     <repositoryStructurePackages>
                         <repositoryStructurePackage>
                             <groupId>${groupId}</groupId>
