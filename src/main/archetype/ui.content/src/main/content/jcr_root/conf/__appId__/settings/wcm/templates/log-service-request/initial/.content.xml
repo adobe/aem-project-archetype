@@ -183,7 +183,8 @@
                         readOnly="{Boolean}false"
                         required="true"
                         textIsRich="[true,true]"
-                        validatePatternMessage="Please enter a valid contact number."
+                        validateExpMessage="Please enter a valid US phone number, including the area code. Example: (123) 456-7890"
+                        validatePatternMessage="Please enter a valid US phone number, including the area code. Example: (123) 456-7890"
                         visible="{Boolean}true"/>
                     <emailinput
                         jcr:lastModified="{Date}2023-04-24T18:43:42.913Z"
@@ -192,7 +193,7 @@
                         jcr:title="Email"
                         sling:resourceType="${appId}/components/adaptiveForm/emailinput"
                         enabled="{Boolean}true"
-                        fieldType="text-input"
+                        fieldType="email"
                         mandatoryMessage="Please enter your email id."
                         name="email"
                         pattern="^(.+)@(.+)$"

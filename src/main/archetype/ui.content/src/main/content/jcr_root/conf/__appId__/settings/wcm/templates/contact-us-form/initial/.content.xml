@@ -65,7 +65,7 @@
                     jcr:title="Email"
                     sling:resourceType="${appId}/components/adaptiveForm/emailinput"
                     enabled="{Boolean}true"
-                    fieldType="text-input"
+                    fieldType="email"
                     mandatoryMessage="Please enter your email id."
                     name="EmailID"
                     readOnly="{Boolean}false"

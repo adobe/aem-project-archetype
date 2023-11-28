@@ -127,9 +127,12 @@
                 hideTitle="false"
                 mandatoryMessage="Please enter your contact number."
                 name="PhoneNumber"
+                pattern="^[0-9]{10}$"
                 readOnly="{Boolean}false"
                 required="true"
                 textIsRich="[true,true]"
+                validateExpMessage="Please enter a valid US phone number, including the area code. Example: (123) 456-7890"
+                validatePatternMessage="Please enter a valid US phone number, including the area code. Example: (123) 456-7890"
                 visible="{Boolean}true"/>
             <dropdown
                 jcr:lastModified="{Date}2023-06-15T10:24:38.640Z"

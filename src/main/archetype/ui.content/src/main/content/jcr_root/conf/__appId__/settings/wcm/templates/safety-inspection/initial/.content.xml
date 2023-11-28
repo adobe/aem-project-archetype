@@ -659,10 +659,13 @@
                         hideTitle="false"
                         mandatoryMessage="Please enter the phone number."
                         name="PhNoPerInChrg"
+                        pattern="^[0-9]{10}$"
                         readOnly="{Boolean}false"
                         required="true"
                         textIsRich="[true,true]"
                         unboundFormElement="{Boolean}false"
+                        validateExpMessage="Please enter a valid US phone number, including the area code. Example: (123) 456-7890"
+                        validatePatternMessage="Please enter a valid US phone number, including the area code. Example: (123) 456-7890"
                         visible="{Boolean}true"/>
                     <textinput_469479701
                         jcr:lastModified="{Date}2023-05-27T06:56:43.525Z"
