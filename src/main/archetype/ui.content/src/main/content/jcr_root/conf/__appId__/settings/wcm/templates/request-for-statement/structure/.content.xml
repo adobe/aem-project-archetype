@@ -17,9 +17,10 @@
         jcr:uuid="20d46a3a-89f0-4750-bf57-b8025f7f3e78"
         sling:resourceType="${appId}/components/adaptiveForm/page"
         guideComponentType="fd/af/templates">
-        <parsys1
+        <container1
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="wcm/foundation/components/responsivegrid"
+            sling:resourceType="${appId}/components/container"
+            layout="responsiveGrid"
             editable="{Boolean}true"/>
         <guideContainer
             fd:version="2.1"
@@ -27,9 +28,10 @@
             sling:resourceType="${appId}/components/adaptiveForm/formcontainer"
             editable="{Boolean}true"
             fieldType="form"/>
-        <parsys2
+        <container2
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="wcm/foundation/components/responsivegrid"
+            sling:resourceType="${appId}/components/container"
+            layout="responsiveGrid"
             editable="{Boolean}true"/>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">

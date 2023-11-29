@@ -19,12 +19,17 @@
             themeClientLibRef="adaptiveform.theme.canvas3"
 #end 
             sling:resourceType="${appId}/components/adaptiveForm/formcontainer"
-            fieldType="form">
+            actionType="fd/af/components/guidesubmittype/restendpoint"
+            fieldType="form"
+            schemaType="none"
+            textIsRich="true"
+            thankYouMessage="Thank you for submitting the form."
+            thankYouOption="page">
             <text
                 jcr:lastModified="{Date}2023-07-03T07:03:59.700Z"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Text"
+                jcr:title="Form Introduction"
                 sling:resourceType="${appId}/components/adaptiveForm/text"
                 fieldType="plain-text"
                 name="FormIntro"
@@ -128,7 +133,7 @@
                     jcr:lastModified="{Date}2023-07-03T07:05:02.269Z"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="Text"
+                    jcr:title="New Address"
                     sling:resourceType="${appId}/components/adaptiveForm/text"
                     fieldType="plain-text"
                     name="ProvideNewAdd"
@@ -240,9 +245,12 @@
                 hideTitle="false"
                 mandatoryMessage="Please enter your new phone number."
                 name="NewPhoneNo"
+                pattern="^[0-9]{10}$"
                 readOnly="{Boolean}false"
                 required="true"
                 textIsRich="[true,true]"
+                validateExpMessage="Please enter a valid US phone number, including the area code. Example: (123) 456-7890"
+                validatePatternMessage="Please enter a valid US phone number, including the area code. Example: (123) 456-7890"
                 visible="{Boolean}true">
                 <fd:rules
                     fd:visible="[{&quot;nodeName&quot;:&quot;ROOT&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;STATEMENT&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;SHOW_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;AFCOMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.NewPhoneNo&quot;\,&quot;type&quot;:&quot;AFCOMPONENT&quot;\,&quot;name&quot;:&quot;NewPhoneNo&quot;}}\,{&quot;nodeName&quot;:&quot;When&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;CONDITIONORALWAYS&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPARISON_EXPRESSION&quot;\,&quot;items&quot;:[{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;COMPONENT&quot;\,&quot;value&quot;:{&quot;id&quot;:&quot;$form.ContactUpdate&quot;\,&quot;displayName&quot;:&quot;What contact details would you like to update?&quot;\,&quot;type&quot;:&quot;NUMBER[]&quot;\,&quot;displayPath&quot;:&quot;FORM/What contact details would you like to update?/&quot;\,&quot;name&quot;:&quot;ContactUpdate&quot;\,&quot;parent&quot;:&quot;$form&quot;}}}\,{&quot;nodeName&quot;:&quot;OPERATOR&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;HAS_SELECTED&quot;\,&quot;value&quot;:null}}\,{&quot;nodeName&quot;:&quot;EXPRESSION&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;NUMERIC_LITERAL&quot;\,&quot;value&quot;:&quot;1&quot;}}]}}\,{&quot;nodeName&quot;:&quot;Else&quot;\,&quot;value&quot;:null}\,{&quot;nodeName&quot;:&quot;DONOTHING_OR_HIDE&quot;\,&quot;choice&quot;:{&quot;nodeName&quot;:&quot;Hide&quot;\,&quot;value&quot;:null}}]}}]\,&quot;isValid&quot;:true\,&quot;enabled&quot;:true\,&quot;version&quot;:1\,&quot;script&quot;:&quot;contains(ContactUpdate\, 1)&quot;\,&quot;eventName&quot;:&quot;Visibility&quot;\,&quot;ruleType&quot;:&quot;&quot;\,&quot;description&quot;:&quot;&quot;}]"
@@ -292,14 +300,15 @@
                 <cq:responsive jcr:primaryType="nt:unstructured">
                     <default
                         jcr:primaryType="nt:unstructured"
-                        offset="6"
-                        width="6"/>
+                        offset="0"
+                        width="12"/>
                 </cq:responsive>
             </submit>
         </guideContainer>
-        <parsys1
+        <container1
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="wcm/foundation/components/responsivegrid">
+            sling:resourceType="${appId}/components/container"
+            layout="responsiveGrid">
             <pageheader
                 jcr:lastModified="{Date}2023-05-25T06:28:44.438Z"
                 jcr:lastModifiedBy="admin"
@@ -331,15 +340,16 @@
                     jcr:lastModified="{Date}2023-05-25T06:28:44.438Z"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="wcm/foundation/components/text"
+                    sling:resourceType="${appId}/components/text"
                     text="&lt;p>Contact Details Update&lt;/p>&#xd;&#xa;"
                     textIsRich="true"
                     value="Company Name Here"/>
             </pageheader>
-        </parsys1>
-        <parsys2
+        </container1>
+        <container2
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="wcm/foundation/components/responsivegrid">
+            sling:resourceType="${appId}/components/container"
+            layout="responsiveGrid">
             <footer
                 jcr:lastModified="{Date}2023-05-25T06:28:44.438Z"
                 jcr:lastModifiedBy="admin"
@@ -351,11 +361,11 @@
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Footer"
-                    sling:resourceType="core/wcm/components/text/v2/text"
+                    sling:resourceType="${appId}/components/text"
                     css="footerText"
                     text="&lt;p>© YYYY WKND | All rights reserved.&lt;/p>&#xd;&#xa;"
                     textIsRich="true"/>
             </footer>
-        </parsys2>
+        </container2>
     </jcr:content>
 </jcr:root>

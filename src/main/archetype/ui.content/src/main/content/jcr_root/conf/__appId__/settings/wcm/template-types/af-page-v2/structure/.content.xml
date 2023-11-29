@@ -9,7 +9,7 @@
         sling:resourceType="${appId}/components/adaptiveForm/page">
         <container1
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="core/wcm/components/container/v1/container"
+            sling:resourceType="${appId}/components/container"
             layout="responsiveGrid"
             editable="{Boolean}true" />
         <guideContainer
@@ -21,7 +21,7 @@
         </guideContainer>
         <container2
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="core/wcm/components/container/v1/container"
+            sling:resourceType="${appId}/components/container"
             layout="responsiveGrid"
             editable="{Boolean}true" />
         <cq:responsive jcr:primaryType="nt:unstructured">

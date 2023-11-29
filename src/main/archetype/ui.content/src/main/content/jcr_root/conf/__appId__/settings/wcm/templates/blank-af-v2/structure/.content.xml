@@ -9,7 +9,7 @@
         guideComponentType="fd/af/templates">
         <container1
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="core/wcm/components/container/v1/container"
+                sling:resourceType="${appId}/components/container"
                 layout="responsiveGrid"
                 editable="{Boolean}true" />
         <guideContainer
@@ -20,7 +20,7 @@
             sling:resourceType="${appId}/components/adaptiveForm/formcontainer"/>
         <container2
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="core/wcm/components/container/v1/container"
+                sling:resourceType="${appId}/components/container"
                 layout="responsiveGrid"
                 editable="{Boolean}true" />
         <cq:responsive jcr:primaryType="nt:unstructured">
