@@ -19,7 +19,12 @@
             themeClientLibRef="adaptiveform.theme.canvas3"
 #end        
             sling:resourceType="${appId}/components/adaptiveForm/formcontainer"
-            fieldType="form">
+            actionType="fd/af/components/guidesubmittype/restendpoint"
+            fieldType="form"
+            schemaType="none"
+            textIsRich="true"
+            thankYouMessage="Thank you for submitting the form."
+            thankYouOption="page">
             <panelcontainer
                 jcr:lastModified="{Date}2023-04-29T18:39:33.801Z"
                 jcr:lastModifiedBy="admin"

@@ -12,7 +12,12 @@
         guideComponentType="fd/af/templates">
         <guideContainer
             fd:version="2.1"
+            actionType="fd/af/components/guidesubmittype/restendpoint"
             fieldType="form"
+            schemaType="none"
+            textIsRich="true"
+            thankYouMessage="Thank you for submitting the form."
+            thankYouOption="page"
             jcr:primaryType="nt:unstructured"
 #if ( $aemVersion != "cloud")
             themeClientLibRef="adaptiveform.theme.canvas3"
