@@ -65,6 +65,13 @@
                         </repositoryStructurePackage>
                     </repositoryStructurePackages>
                     <dependencies>
+                      #if (($includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y" || $includeFormsheadless == "y"))
+                      <dependency>
+                        <groupId>com.adobe.aem</groupId>
+                        <artifactId>core-forms-components-af-apps</artifactId>
+                        <version>${core.forms.components.af.version}</version>
+                      </dependency>
+                      #end
 #if ( $aemVersion != "cloud" )
                         <dependency>
                             <groupId>com.adobe.cq</groupId>

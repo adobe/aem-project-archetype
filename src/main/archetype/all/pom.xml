@@ -54,6 +54,46 @@
                     <!-- skip sub package validation for now as some vendor packages like CIF apps will not pass -->
                     <skipSubPackageValidation>true</skipSubPackageValidation>
                     <embeddeds>
+                      #if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
+                      <embedded>
+                        <groupId>com.adobe.aem</groupId>
+                        <artifactId>core-forms-components-af-apps</artifactId>
+                        <type>zip</type>
+                        <target>/apps/${appId}-vendor-packages/application/install</target>
+                      </embedded>
+                      <embedded>
+                        <groupId>com.adobe.aem</groupId>
+                        <artifactId>core-forms-components-af-core</artifactId>
+                        <target>/apps/${appId}-vendor-packages/application/install</target>
+                      </embedded>
+                      #if ( $aemVersion != "cloud" )
+                      <embedded>
+                        <groupId>com.adobe.aem</groupId>
+                        <artifactId>core-forms-components-apps</artifactId>
+                        <type>zip</type>
+                        <target>/apps/${appId}-vendor-packages/application/install</target>
+                      </embedded>
+                      <embedded>
+                        <groupId>com.adobe.aem</groupId>
+                        <artifactId>core-forms-components-core</artifactId>
+                        <target>/apps/${appId}-vendor-packages/application/install</target>
+                      </embedded>
+                      #end
+                      #if ($includeExamples == "y")
+                      <embedded>
+                        <groupId>com.adobe.aem</groupId>
+                        <artifactId>core-forms-components-examples-apps</artifactId>
+                        <type>zip</type>
+                        <target>/apps/${appId}-vendor-packages/application/install</target>
+                      </embedded>
+                      <embedded>
+                        <groupId>com.adobe.aem</groupId>
+                        <artifactId>core-forms-components-examples-content</artifactId>
+                        <type>zip</type>
+                        <target>/apps/${appId}-vendor-packages/application/install</target>
+                      </embedded>
+                      #end
+                      #end
                         <embedded>
                             <groupId>${groupId}</groupId>
                             <artifactId>${rootArtifactId}.ui.apps</artifactId>
@@ -173,46 +213,6 @@
                             <artifactId>magento-graphql</artifactId>
                             <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
-#end
-#if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
-                        <embedded>
-                            <groupId>com.adobe.aem</groupId>
-                            <artifactId>core-forms-components-af-apps</artifactId>
-                            <type>zip</type>
-                            <target>/apps/${appId}-vendor-packages/application/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>com.adobe.aem</groupId>
-                            <artifactId>core-forms-components-af-core</artifactId>
-                            <target>/apps/${appId}-vendor-packages/application/install</target>
-                        </embedded>
-                      #if ( $aemVersion != "cloud" )
-                      <embedded>
-                        <groupId>com.adobe.aem</groupId>
-                        <artifactId>core-forms-components-apps</artifactId>
-                        <type>zip</type>
-                        <target>/apps/${appId}-vendor-packages/application/install</target>
-                      </embedded>
-                      <embedded>
-                        <groupId>com.adobe.aem</groupId>
-                        <artifactId>core-forms-components-core</artifactId>
-                        <target>/apps/${appId}-vendor-packages/application/install</target>
-                      </embedded>
-                      #end
-                      #if ($includeExamples == "y")
-                      <embedded>
-                        <groupId>com.adobe.aem</groupId>
-                        <artifactId>core-forms-components-examples-apps</artifactId>
-                        <type>zip</type>
-                        <target>/apps/${appId}-vendor-packages/application/install</target>
-                      </embedded>
-                      <embedded>
-                        <groupId>com.adobe.aem</groupId>
-                        <artifactId>core-forms-components-examples-content</artifactId>
-                        <type>zip</type>
-                        <target>/apps/${appId}-vendor-packages/application/install</target>
-                      </embedded>
-                      #end
 #end
                     </embeddeds>
                 </configuration>
