@@ -61,7 +61,7 @@ jobs:
         id: getCommit
         run: |
           echo "Commit: ${ARCHETYPE_COMMIT}"
-          echo ::set-output name=commit::${ARCHETYPE_COMMIT}
+          echo "commit=${ARCHETYPE_COMMIT}" >> $GITHUB_OUTPUT
       # Create new project
       - name: Create new project with the archetype
         run: |
