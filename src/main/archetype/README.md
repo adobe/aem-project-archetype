@@ -12,7 +12,8 @@ The main parts of the template are:
 * [ui.content:](ui.content/README.md) contains sample content using the components from the ui.apps
 * ui.config: contains runmode specific OSGi configs for the project
 * [ui.frontend:](ui.frontend.general/README.md) an optional dedicated front-end build mechanism (Angular, React or general Webpack project)
-* [ui.tests:](ui.tests/README.md) Selenium based UI tests
+* [ui.tests.cypress:](ui.tests.cypress/README.md) Cypress based UI tests
+* [ui.tests.wdio:](ui.tests.wdio/README.md) Selenium based UI tests
 * all: a single content package that embeds all of the compiled modules (bundles and content packages) including any vendor dependencies
 * analyse: this module runs analysis on the project which provides additional validation for deploying into AEMaaCS
 
@@ -99,17 +100,9 @@ can be found here https://github.com/adobe/aemanalyser-maven-plugin
 
 ### UI tests
 
-They will test the UI layer of your AEM application using Selenium technology. 
+They will test the UI layer of your AEM application using either Cypress or Selenium technology.
 
-To run them locally:
-
-    mvn clean verify -Pui-tests-local-execution
-
-This default command requires:
-* an AEM author instance available at http://localhost:4502 (with the whole project built and deployed on it, see `How to build` section above)
-* Chrome browser installed at default location
-
-Check README file in `ui.tests` module for more details.
+Check README file in `ui.tests.cypress` or `ui.tests.wdio` module for more details.
 
 ## ClientLibs
 

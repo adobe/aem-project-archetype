@@ -55,7 +55,7 @@ To generate a project, adjust the following command line to your needs:
 mvn -B org.apache.maven.plugins:maven-archetype-plugin:3.2.1:generate \
  -D archetypeGroupId=com.adobe.aem \
  -D archetypeArtifactId=aem-project-archetype \
- -D archetypeVersion=43\
+ -D archetypeVersion=47\
  -D appTitle="My Site" \
  -D appId="mysite" \
  -D groupId="com.mysite"
@@ -92,14 +92,15 @@ Name                      | Default        | Description
 `datalayer`               | `y`            | Activate integration with [Adobe Client Data Layer.](https://experienceleague.adobe.com/docs/experience-manager-core-components/using/developing/data-layer/overview.html)
 `amp`                     | `n`            | Enable [AMP](https://experienceleague.adobe.com/docs/experience-manager-core-components/using/developing/amp.html) support for generated project templates.
 `enableDynamicMedia`      | `n`            | Enabled foundation DynamicMedia components in project policy settings and activates Dynamic Media features in Core Image component's policy.
-`enableSSR`    | `n`            | Option to enable SSR for the front-end project
-`precompiledScripts`  | `n`     | Option to [precompile](https://experienceleague.adobe.com/docs/experience-manager-core-components/using/developing/archetype/precompiled-bundled-scripts.html) the server-side scripts from `ui.apps` and attach them to the build as a secondary bundle artifact in the `ui.apps` project. `aemVersion` should be set to `cloud`.
-`includeFormsheadless`   | `n`       | Includes [Forms Core Components](https://github.com/adobe/aem-core-forms-components) dependencies, ui.frontend.react.forms.af and headless artifacts.
+`enableSSR`               | `n`            | Option to enable SSR for the front-end project
+`precompiledScripts`      | `n`     | Option to [precompile](https://experienceleague.adobe.com/docs/experience-manager-core-components/using/developing/archetype/precompiled-bundled-scripts.html) the server-side scripts from `ui.apps` and attach them to the build as a secondary bundle artifact in the `ui.apps` project. `aemVersion` should be set to `cloud`.
+`includeFormsheadless`    | `n`       | Includes [Forms Core Components](https://github.com/adobe/aem-core-forms-components) dependencies, ui.frontend.react.forms.af and headless artifacts.
+`uiTestingFramework`      | `cypress`      | Testing framework used for generating UI tests (can be `cypress` or `wdio`).
 ## System Requirements
 
 Archetype | AEM as a Cloud Service | AEM 6.5 | Java SE | Maven
 ---------|---------|---------|---------|---------
-[43](https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-43) | Continual | 6.5.7.0+ | 8, 11 | 3.3.9+
+[47](https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-47) | Continual | 6.5.7.0+ | 8, 11 | 3.3.9+
 
 Setup your local development environment for [AEM as a Cloud Service SDK](https://experienceleague.adobe.com/docs/experience-manager-learn/cloud-service/local-development-environment-set-up/overview.html) or for [older versions of AEM.](https://experienceleague.adobe.com/docs/experience-manager-learn/foundation/development/set-up-a-local-aem-development-environment.html)
 

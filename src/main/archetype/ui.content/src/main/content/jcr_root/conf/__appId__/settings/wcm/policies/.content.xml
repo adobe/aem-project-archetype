@@ -405,6 +405,28 @@
                         </assetToComponentMapping>
                     </cq:authoring>
                 </policy_1575040440977>
+#if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y")
+                <cc-af-header-policy
+                    jcr:lastModified="{Date}2023-06-07T15:48:33.506+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Core Component Adaptive Form Header Policy"
+                    jcr:description="Includes only Core Component Adaptive Form header component."
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="/apps/${appId}/components/adaptiveForm/pageheader">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </cc-af-header-policy>
+                <cc-af-footer-policy
+                    jcr:lastModified="{Date}2022-07-12T11:41:57.902+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Core Component Adaptive Form Footer Policy"
+                    jcr:description="Includes only Core Component Adaptive Form footer component."
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="/apps/${appId}/components/adaptiveForm/footer">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </cc-af-footer-policy>
+    #end                
             </container>
             <teaser jcr:primaryType="nt:unstructured">
                 <policy_1575031387650
@@ -684,28 +706,7 @@
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </policy_1518118565779>
     #end
-    #if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y")
-                    <cc-af-header-policy
-                        jcr:lastModified="{Date}2023-06-07T15:48:33.506+05:30"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Core Component Adaptive Form Header Policy"
-                        jcr:description="Includes only Core Component Adaptive Form header component."
-                        sling:resourceType="wcm/core/components/policy/policy"
-                        components="/apps/${appId}/components/adaptiveForm/pageheader">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
-                    </cc-af-header-policy>
-                    <cc-af-footer-policy
-                        jcr:lastModified="{Date}2022-07-12T11:41:57.902+05:30"
-                        jcr:lastModifiedBy="admin"
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Core Component Adaptive Form Footer Policy"
-                        jcr:description="Includes only Core Component Adaptive Form footer component."
-                        sling:resourceType="wcm/core/components/policy/policy"
-                        components="/apps/${appId}/components/adaptiveForm/footer">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
-                    </cc-af-footer-policy>
-    #end
+    
                 </responsivegrid>
             </components>
         </foundation>

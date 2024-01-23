@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:fd="http://www.adobe.com/aemfd/fd/1.0"
+  jcr:primaryType="nt:unstructured"
+  jcr:title="Terms And Conditions"
+  fieldType="panel"
+  fd:tnc="{Boolean}true"
+  wrapData="{Boolean}true">
+  <text
+    name="consenttext"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="\0"
+    sling:resourceType="${appId}/components/adaptiveForm/text"
+    fieldType="plain-text"
+    hideTitle="true"
+    value="Text related to the terms and conditions come here"/>
+  <approvalcheckbox
+    name="approvalcheckbox"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="I agree to the terms &amp; conditions"
+    sling:resourceType="${appId}/components/adaptiveForm/checkbox"
+    enabled="false"
+    checkedValue="true"
+    fieldType="checkbox">
+  </approvalcheckbox>
+  <link
+    jcr:primaryType="nt:unstructured"
+    jcr:title="\0"
+    sling:resourceType="core/fd/components/form/toggleablelink/v1/toggleablelink"
+    orientation="vertical"
+    type="string[]"
+    enum="https://your-link-here"
+    enumNames="[Terms and Conditions Link]"
+    fieldType="checkbox-group"
+    title="I agree to the terms &amp; conditions">
+    <fd:rules
+      jcr:primaryType="nt:unstructured"
+      validationStatus="valid"/>
+    <fd:events
+      jcr:primaryType="nt:unstructured"
+      change="[if(length($field.$value) == length($field.$enum)\, dispatchEvent($parent.approvalcheckbox\, 'custom:setProperty'\, {enabled : true()})\, {})]"/>
+  </link>
+</jcr:root>

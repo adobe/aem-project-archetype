@@ -8,6 +8,9 @@ def uiAppsPackage = new File(rootDir, "ui.apps")
 def uiContentPackage = new File(rootDir, "ui.content")
 def uiConfigPackage = new File(rootDir, "ui.config")
 def uiTestPackage = new File(rootDir, "ui.tests")
+def uiTestWDIOPackage = new File(rootDir, "ui.tests.wdio")
+def uiTestCypressPackage = new File(rootDir, "ui.tests.cypress")
+
 def coreBundle = new File(rootDir, "core")
 def rootPom = new File(rootDir, "pom.xml")
 def frontendModules = ["general", "angular", "react"]
@@ -36,6 +39,8 @@ def configFolder = new File("$uiConfigPackage/src/main/content/jcr_root/apps/$ap
 def confFolder = new File("$uiContentPackage/src/main/content/jcr_root/conf/$appId")
 def contentFolder = new File("$uiContentPackage/src/main/content/jcr_root/content/$appId")
 def varFolder = new File("$uiContentPackage/src/main/content/jcr_root/var")
+
+def uiTestingFramework = request.getProperties().get("uiTestingFramework")
 
 
 if (aemVersion.startsWith("6.4")){
@@ -194,18 +199,33 @@ if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunic
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/formsanddocuments-themes").deleteDir()
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/sample_logo.png").deleteDir()
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/sample_terms.png").deleteDir()
+    // delete e2e files if Selenium was selected as the framework but forms flag is unset
+    if (uiTestingFramework == "wdio") {
+        assert new File("$uiTestWDIOPackage/test-module/specs/aem/forms.js").delete()
+        assert new File("$uiTestWDIOPackage/test-module/lib/util").deleteDir()
+        assert new File("$uiTestWDIOPackage/test-module/rules").deleteDir()
+        assert new File("$uiTestWDIOPackage/test-module/assets/form").deleteDir()
+    }
     //If forms is not included delete /apps/fd folder
     assert new File("$uiAppsPackage/src/main/content/jcr_root/apps/fd").deleteDir()
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/wknd_logo.png").deleteDir()
-    assert new File("$uiTestPackage/test-module/specs/aem/forms.js").delete()
-    assert new File("$uiTestPackage/test-module/lib/util").deleteDir()
-    assert new File("$uiTestPackage/test-module/rules").deleteDir()
-    assert new File("$uiTestPackage/test-module/assets/form").deleteDir()
     assert new File("$appsFolder/clientlibs/clientlibs-forms").deleteDir()
     assert new File("$appsFolder/components/adaptiveForm").deleteDir()
     assert new File("$appsFolder/components/formsandcommunicationportal").deleteDir()
     assert new File("$confFolder/settings/wcm/template-types/af-page-v2").deleteDir()
+    assert new File("$confFolder/settings/wcm/template-types/afv2-fragment-page").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/blank-af-v2").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/consent-form").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/contact-us-form").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/safety-inspection").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/log-service-request").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/request-for-statement").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/quality-control-inspection").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/purchase-request").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/benefits-enrollment").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/benefit-summary-request").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/give-feedback").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/contact-details-update").deleteDir()
     assert new File("$confFolder/forms").deleteDir()
 }
 if ((includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunications == "y" || includeFormsheadless == "y") && aemVersion != "cloud") {
@@ -239,10 +259,7 @@ if (includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunic
     }
     println "Using AEM Forms as a Cloud Service SDK version: " + sdkFormsVersion
     rootPom.text = rootPom.text.replaceAll('SDK_FORMS_VERSION', sdkFormsVersion.toString())
-    //For AEM cloud delete forms core component theme client libraries.
-    if(aemVersion == "cloud"){
-        assert new File("$uiAppsPackage/src/main/content/jcr_root/apps/fd/af/theme-clientlibs").deleteDir()
-    }
+    
 }
 
 // if config.publish folder ends up empty, remove it, otherwise the filevault-package-maven-plugin will throw
@@ -254,6 +271,22 @@ if(new File("$configFolder/config.publish").list().length == 0) {
 if (precompiledScripts == "n") {
     assert new File(rootDir, "README-precompiled-scripts.md").delete()
 }
+
+// ui tests framework are declared in different modules, so we need to remove the one that is not selected
+// and rename the chosen one to ui.tests
+if (uiTestingFramework == "cypress") {
+    assert new File("$uiTestWDIOPackage").deleteDir()
+    // rename cypress package to ui.tests
+    assert new File("$uiTestCypressPackage").renameTo(new File("$uiTestPackage"))
+    // Clean up POM file
+
+} else {
+    assert new File("$uiTestCypressPackage").deleteDir()
+    assert new File( "$uiTestWDIOPackage").renameTo(new File( "$uiTestPackage"))
+}
+removeModule(rootPom, 'ui.tests.cypress')
+removeModule(rootPom, 'ui.tests.wdio')
+
 
 /**
  * Creates content skeleton based upon singleCountry, language and country input from user

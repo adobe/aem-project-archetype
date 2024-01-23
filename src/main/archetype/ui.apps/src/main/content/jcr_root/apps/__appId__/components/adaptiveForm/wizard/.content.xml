@@ -3,5 +3,5 @@
     jcr:description="Adaptive Form Wizard (v1) component"
     jcr:primaryType="cq:Component"
     jcr:title="Wizard"
-    sling:resourceSuperType="core/fd/components/form/wizard/v1/wizard"
+    sling:resourceSuperType="core/fd/components/form/wizard/v2/wizard"
     componentGroup="${appTitle} - Adaptive Form"/>

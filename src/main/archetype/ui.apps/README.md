@@ -4,6 +4,17 @@ The ui.apps maven module (`<src-directory>/<project>/ui.apps`) includes all of t
 
 The Apache Jackrabbit FileVault Package plugin is used to compile the contents of the ui.apps module into an AEM package that can be deployed to AEM. The global configurations for the plugin are defined in the parent pom.xml.
 
+## Common elements
+Common elements of the ui.apps package include, but are not limited to:
+
+* Component definitions and HTL scripts
+* JavaScript and CSS (via Client Libraries)
+* Overlays of /libs
+* Fallback context-aware configurations
+* ACLs (permissions)
+
+For a more information about this package please have a look to the [official documentation](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/implementing/developing/aem-project-content-package-structure.html?lang=en#code-packages-%2F-osgi-bundles).
+
 ## ui.apps/pom.xml
 
 Notice that core.wcm.components.all and core.wcm.components.examples packages are included as a sub-package. This will deploy the Core Components package along with the WKND code each time.
@@ -16,7 +27,14 @@ The core.wcm.components.all and core.wcm.components.examples are included as dep
 
 In addition to the Jackrabbit FileVault Package Plugin is a definition of the Content Package Plugin which is used to then push the package into AEM. Note that variables for `aem.host`, `aem.port`, `vault.user`, and `vault.password` are used that correspond to the global properties defined in the same parent POM.
 
+## AEM Forms Core Component Themes
 
+The `ui.apps` package includes AEM Forms Core Component themes, packaged under the path `/apps/fd/af/themes`. Below, you'll find a list of these themes and their public sources.
+
+1. Easel - https://github.com/adobe/aem-forms-theme-easel
+2. WKND - https://github.com/adobe/aem-forms-theme-wknd
+3. FSI - https://github.com/adobe/aem-forms-theme-fsi
+4. Healthcare - https://github.com/adobe/aem-forms-theme-healthcare
 
 ## filter.xml
 
