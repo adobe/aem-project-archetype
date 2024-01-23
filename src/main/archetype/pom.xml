@@ -76,7 +76,7 @@
 #end
         <core.wcm.components.version>2.23.4</core.wcm.components.version>
 #if ( $includeCommerce == "y" )
-        <core.cif.components.version>2.12.4</core.cif.components.version>
+        <core.cif.components.version>2.12.6</core.cif.components.version>
         <magento.graphql.version>9.1.0-magento242ee</magento.graphql.version>
         <aem.cif.sdk.api>2022.08.02.00</aem.cif.sdk.api>
 #end
