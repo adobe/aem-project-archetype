@@ -13,5 +13,5 @@ This article describes the integration tests available as part of the it.tests m
 The server-side integration tests allow unit-like tests to be run in the AEM-environment, i.e. on the AEM server. To test, execute:
 
 ```
-mvn clean verify -PintegrationTests
+mvn clean verify -Plocal
 ```
