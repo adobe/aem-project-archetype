@@ -75,7 +75,7 @@ export const config = {
             showInBrowser: false,
             useOnAfterCommandForScreenshot: false,
             LOG: log4js.getLogger('default')
-        }]
+        }],
     ],
 
     // Mocha parameters
