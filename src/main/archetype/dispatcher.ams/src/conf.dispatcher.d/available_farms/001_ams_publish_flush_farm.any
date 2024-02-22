@@ -1,0 +1,47 @@
+/publishflushfarm {  
+	/clientheaders {
+		$include "/etc/httpd/conf.dispatcher.d/clientheaders/ams_publish_clientheaders.any"
+		$include "/etc/httpd/conf.dispatcher.d/clientheaders/ams_common_clientheaders.any"
+	}
+	/virtualhosts {
+		"dispflush"
+		"flush"
+	}
+	/renders {
+		$include "/etc/httpd/conf.dispatcher.d/renders/ams_publish_renders.any"
+	}
+	/filter {
+		$include "/etc/httpd/conf.dispatcher.d/filters/ams_publish_filters.any"
+	}
+	/cache {
+		/docroot "${PUBLISH_DOCROOT}"
+		/statfileslevel "${DEFAULT_STAT_LEVEL}"
+		/rules {
+			$include "/etc/httpd/conf.dispatcher.d/cache/ams_publish_cache.any"
+		}
+		/invalidate {
+			/0000 {
+				/glob "*"
+				/type "allow"
+			}
+		}
+		/allowedClients {
+			## By default block all IP from allowing to initiate the invalidation commands
+			/0000 {
+				/glob "*.*.*.*"
+				/type "deny"
+			}
+			## Allow certain IP's like publishers to invalidate cache
+			$include "/etc/httpd/conf.dispatcher.d/cache/ams_publish_invalidate_allowed.any"
+		}
+		### Added for DOT Compliance https://www.adobe.com/go/aem_cmcq_disp-1---ignoreurlpa_en
+		/ignoreUrlParams {
+			/0001 { /glob "*" /type "allow" }
+			/0002 { /glob "search" /type "deny" }
+		}
+		### Added for DOT Compliance https://www.adobe.com/go/aem_cmcq_disp-3---graceperiod_en
+		/gracePeriod "2"
+		### Added for DOT Compliance https://www.adobe.com/go/aem_cmcq_disp-5---servestaleo_en
+		/serveStaleOnError "1"
+	}
+}

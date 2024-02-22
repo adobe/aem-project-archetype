@@ -1,29 +1,23 @@
 ## Collect any enviromental variables that are set in /etc/sysconfig/httpd
-## Collect the dispatchers number
-PassEnv DISP_ID
-
 <VirtualHost *:80>
-	## allowing slashes in the URL to be encoded and still honored
-	AllowEncodedSlashes On
-	ServerName	${appId}-publish
-	## Put names of which domains are used for your published site/content here
-	ServerAlias	${PUBLISH_DEFAULT_HOSTNAME} 
-	DocumentRoot	${PUBLISH_DOCROOT}
+	ServerName	livecycle
+	## Put names of which domains are used for your livecycle site/content here
+	ServerAlias	${LIVECYCLE_DEFAULT_HOSTNAME}
+	## Use a doc root that matches what's in the /etc/httpd/conf.dispatcher.d/lc-farm.any
+	DocumentRoot	${LIVECYCLE_DOCROOT}
 	## Add header breadcrumbs for help in troubleshooting
 	<IfModule mod_headers.c>
-		Header always add X-Dispatcher ${DISP_ID}
-		Header always add X-Vhost "${appId}-publish"
-		Header merge X-Frame-Options SAMEORIGIN "expr=%{resp:X-Frame-Options}!='SAMEORIGIN'"
-		Header merge X-Content-Type-Options nosniff "expr=%{resp:X-Content-Type-Options}!='nosniff'"
+			Header always add X-Dispatcher ${DISP_ID}
+			Header always add X-Vhost "livecycle"
+			Header merge X-Frame-Options SAMEORIGIN "expr=%{resp:X-Frame-Options}!='SAMEORIGIN'"
+			Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains;"
+			Header merge X-Content-Type-Options nosniff "expr=%{resp:X-Content-Type-Options}!='nosniff'"
 		#### Make sure proxies don't deliver the wrong content
 		Header append Vary User-Agent env=!dont-vary
-	    ## Force SSL for author
-	    ## Add HSTS for avoiding man in the middle during browser redirect to SSL
-	    Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains;"
 	</IfModule>
 	<Directory />
-		## Update /etc/sysconfig/httpd with setting the PUBLISH_WHITELIST_ENABLED from 0 or 1 to enable or disable ip restriction rules
-		<If "${PUBLISH_WHITELIST_ENABLED} == 1">
+		## Update /etc/sysconfig/httpd with setting the LIVECYCLE_WHITELIST_ENABLED from 0 or 1 to enable or disable ip restriction rules
+		<If "${LIVECYCLE_WHITELIST_ENABLED} == 1">
 			Include /etc/httpd/conf.d/whitelists/*_whitelist.rules
 		</If>
 		<IfModule disp_apache2.c>
@@ -45,7 +39,7 @@ PassEnv DISP_ID
 		SetEnvIfNoCase Request_URI \
 		\.(?:gif|jpe?g|png)$ no-gzip dont-vary
 	</Directory>
-	<Directory "${PUBLISH_DOCROOT}">
+	<Directory "${LIVECYCLE_DOCROOT}">
 		AllowOverride None
 		Require all granted
 	</Directory>
@@ -60,9 +54,8 @@ PassEnv DISP_ID
 		LogLevel warn rewrite:info
 		##Global rewrite include
 		Include /etc/httpd/conf.d/rewrites/base_rewrite.rules
-		IncludeOptional /etc/httpd/conf.d/rewrites/${appId}_rewrite.rules
-		## Update /etc/sysconfig/httpd with setting the PUBLISH_FORCE_SSL from 0 or 1 to enable or disable enforcing SSL
-		<If "${PUBLISH_FORCE_SSL} == 1">
+		## Update /etc/sysconfig/httpd with setting the LIVECYCLE_FORCE_SSL from 0 or 1 to enable or disable enforcing SSL
+		<If "${LIVECYCLE_FORCE_SSL} == 1">
 			Include /etc/httpd/conf.d/rewrites/xforwarded_forcessl_rewrite.rules
 		</If>
 	</IfModule>

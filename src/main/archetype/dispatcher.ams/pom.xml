@@ -42,7 +42,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
                 <executions>
-                    <!-- enforce that immutable files are not touched: https://helpx.adobe.com/experience-manager/kb/ams-dispatcher-manual/immutable-files.html -->
+                    <!-- enforce that immutable files are not touched: https://experienceleague.adobe.com/docs/experience-manager-learn/ams/dispatcher/immutable-files.html -->
                     <execution>
                         <id>enforce-checksum-of-immutable-files</id>
                         <goals>
