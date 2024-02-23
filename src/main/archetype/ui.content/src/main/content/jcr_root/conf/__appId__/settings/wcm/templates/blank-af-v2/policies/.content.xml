@@ -14,6 +14,34 @@
             cq:policy="${appId}/components/adaptiveForm/formcontainer/default"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/core/components/policies/mapping">
+            <${appId} jcr:primaryType="nt:unstructured">
+                <components jcr:primaryType="nt:unstructured">
+                    <adaptiveForm jcr:primaryType="nt:unstructured">
+                        <numberinput
+                          cq:policy="${appId}/components/adaptiveForm/numberinput/default"
+                          jcr:primaryType="nt:unstructured"
+                          sling:resourceType="wcm/core/components/policies/mapping"/>
+                        <datepicker
+                          cq:policy="${appId}/components/adaptiveForm/datepicker/default"
+                          jcr:primaryType="nt:unstructured"
+                          sling:resourceType="wcm/core/components/policies/mapping"/>
+                        <telephoneinput
+                          cq:policy="${appId}/components/adaptiveForm/telephoneinput/default"
+                          jcr:primaryType="nt:unstructured"
+                          sling:resourceType="wcm/core/components/policies/mapping"/>
+                        <panelcontainer
+                          cq:policy="${appId}/components/adaptiveForm/panelcontainer/default"
+                          jcr:primaryType="nt:unstructured"
+                          sling:resourceType="wcm/core/components/policies/mapping">
+                        </panelcontainer>
+                        <switch
+                          cq:policy="${appId}/components/adaptiveForm/switch/default"
+                          jcr:primaryType="nt:unstructured"
+                          sling:resourceType="wcm/core/components/policies/mapping">
+                        </switch>
+                    </adaptiveForm>
+                </components>
+            </${appId}>
         </guideContainer>
         <container2
                 jcr:primaryType="nt:unstructured"
