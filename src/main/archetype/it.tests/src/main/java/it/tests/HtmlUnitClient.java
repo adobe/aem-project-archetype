@@ -149,11 +149,13 @@ public class HtmlUnitClient extends CQClient {
                 String[] widths = width.split(",");
                 for (String w: widths) {
                     String ref = src.replace("{.width}", "."+w);
+                    String ref = src.replace("{width}", w); // accounting for templated asset-delivery src urls
                     result.add(baseUri.resolve(ref));
                 }
             } else if (src != null && width == null) {
                 // happens with SVG and GIFs
                 String ref = src.replace("{.width}", "");
+                String ref = src.replace("&width={width}", ""); // accounting for templated asset-delivery src urls
                 result.add(baseUri.resolve(ref));
             }
         }
