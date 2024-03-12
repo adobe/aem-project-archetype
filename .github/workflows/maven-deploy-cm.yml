@@ -87,6 +87,7 @@ jobs:
       # Move new project to CM dir and enable opt-in for ui.tests execution
       - name: Move project to CM dir
         run: |
+          shopt -s dotglob
           git -C ${CM_PROJECT_DIR} rm -rf .
           mv sitesdemo/* ${CM_PROJECT_DIR}
           sed -i -e "s/USA/USA, ${ARCHETYPE_COMMIT}/g" ${CM_PROJECT_DIR}/ui.content/src/main/content/jcr_root/content/experience-fragments/sitesdemo/us/en/site/footer/master/.content.xml
