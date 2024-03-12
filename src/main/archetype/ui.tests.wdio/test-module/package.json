@@ -32,7 +32,7 @@
     "chai": "^4.3.7",
     "cross-env": "^7.0.3",
     "date-fns": "^2.29.3",
-    "eslint": "^8.35.0",
+    "eslint": "^8.56.0",
     "eslint-plugin-wdio": "^8.0.14",
     "log4js": "^6.9.0",
     "moment": "^2.29.4",
