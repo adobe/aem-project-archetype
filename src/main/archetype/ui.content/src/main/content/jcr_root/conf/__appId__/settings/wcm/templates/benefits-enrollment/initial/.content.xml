@@ -282,7 +282,6 @@
                     jcr:primaryType="nt:unstructured"
                     validationStatus="valid"
                     visible="contains($form.BasicDetailsPanel.BenefitSelectionCheckBox, '3')"/>
-                <fd:events/>
             </panelcontainer_1181419075>
             <panelcontainer_142543569
                 jcr:lastModified="{Date}2023-05-12T07:09:06.381Z"
