@@ -76,7 +76,7 @@
 #end
         <core.wcm.components.version>2.23.4</core.wcm.components.version>
 #if ( $includeCommerce == "y" )
-        <core.cif.components.version>2.12.4</core.cif.components.version>
+        <core.cif.components.version>2.12.6</core.cif.components.version>
         <magento.graphql.version>9.1.0-magento242ee</magento.graphql.version>
         <aem.cif.sdk.api>2022.08.02.00</aem.cif.sdk.api>
 #end
@@ -148,10 +148,17 @@
                                 <requireMavenVersion>
                                     <version>[3.3.9,)</version>
                                 </requireMavenVersion>
+#if ( $aemVersion == "cloud")
+                                <requireJavaVersion>
+                                    <message>Maven must be executed with a Java 11 JRE or higher.</message>
+                                    <version>11</version>
+                                </requireJavaVersion>
+#else
                                 <requireJavaVersion>
                                     <message>Maven must be executed with a Java 8 JRE or higher.</message>
                                     <version>1.8.0</version>
                                 </requireJavaVersion>
+#end
                             </rules>
                         </configuration>
                     </execution>
@@ -162,8 +169,12 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
+#if ( $aemVersion == "cloud")
+                    <release>11</release>
+#else
                     <source>1.8</source>
                     <target>1.8</target>
+#end
                 </configuration>
             </plugin>
         </plugins>

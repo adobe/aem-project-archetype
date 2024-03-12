@@ -175,6 +175,16 @@
         </profile>
 
         <profile>
+            <id>it-java8</id>
+            <activation>
+                <jdk>[1.8,11)</jdk>
+            </activation>
+            <properties>
+                <archetype.test.projectsDirectory>${project.build.testOutputDirectory}/projects-1_8</archetype.test.projectsDirectory>
+            </properties>
+        </profile>
+
+        <profile>
             <!-- This is the release profile. -->
             <id>release</id>
             <activation>
