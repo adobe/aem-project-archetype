@@ -88,6 +88,9 @@ if (aemVersion == "cloud") {
     }
     println "Using AEM as a Cloud Service SDK version: " + sdkVersion
     rootPom.text = rootPom.text.replaceAll('SDK_VERSION', sdkVersion.toString())
+    def cloudManagerDir = new File(rootDir, ".cloudmanager");
+    assert cloudManagerDir.mkdir();
+    new File(cloudManagerDir, "java-version").write("11");
 }
 
 buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, language, country)
@@ -259,7 +262,7 @@ if (includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunic
     }
     println "Using AEM Forms as a Cloud Service SDK version: " + sdkFormsVersion
     rootPom.text = rootPom.text.replaceAll('SDK_FORMS_VERSION', sdkFormsVersion.toString())
-    
+
 }
 
 // if config.publish folder ends up empty, remove it, otherwise the filevault-package-maven-plugin will throw
