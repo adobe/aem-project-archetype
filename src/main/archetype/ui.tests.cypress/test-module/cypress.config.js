@@ -15,7 +15,6 @@
  */
 
 const { defineConfig } = require("cypress");
-
 const reportsPath = process.env.REPORTS_PATH || 'cypress/results'
 const authorURL = process.env.AEM_AUTHOR_URL || 'http://localhost:4502'
 const authorName = process.env.AEM_AUTHOR_USERNAME || 'admin'
@@ -36,7 +35,9 @@ let config = {
   },
   e2e: {
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      require('cypress-terminal-report/src/installLogsPrinter')(on, {
+        printLogsToConsole: "always",
+      });
     },
     baseUrl: authorURL,
     reporter: 'cypress-multi-reporters',

@@ -12,10 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM cypress/included:12.12.0
+FROM cypress/included:12.17.0
 
 ENV APP_PATH /usr/src/app
-## Install dependencies
 RUN apt -qqy update \
     # Generic dependencies
     && apt -qqy --no-install-recommends install \

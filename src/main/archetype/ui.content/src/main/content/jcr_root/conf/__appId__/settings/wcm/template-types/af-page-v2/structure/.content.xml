@@ -7,10 +7,11 @@
         guideComponentType="fd/af/templates"
         jcr:primaryType="cq:PageContent"
         sling:resourceType="${appId}/components/adaptiveForm/page">
-        <parsys1
+        <container1
             jcr:primaryType="nt:unstructured"
-            editable="{Boolean}true"
-            sling:resourceType="wcm/foundation/components/responsivegrid"/>
+            sling:resourceType="${appId}/components/container"
+            layout="responsiveGrid"
+            editable="{Boolean}true" />
         <guideContainer
             fd:version="2.1"
             fieldType="form"
@@ -18,10 +19,11 @@
             editable="{Boolean}true"
             sling:resourceType="${appId}/components/adaptiveForm/formcontainer">
         </guideContainer>
-        <parsys2
+        <container2
             jcr:primaryType="nt:unstructured"
-            editable="{Boolean}true"
-            sling:resourceType="wcm/foundation/components/responsivegrid"/>
+            sling:resourceType="${appId}/components/container"
+            layout="responsiveGrid"
+            editable="{Boolean}true" />
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">
                 <smallScreen
