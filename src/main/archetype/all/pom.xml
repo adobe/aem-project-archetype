@@ -150,7 +150,7 @@
                             <target>/apps/${appId}-vendor-packages/content/install</target>
                         </embedded>
 #end
-#if ( $includeCommerce == "y" )
+#if ( $includeCif == "y" )
                         <embedded>
                             <groupId>com.adobe.commerce.cif</groupId>
                             <artifactId>core-cif-components-apps</artifactId>
@@ -396,7 +396,7 @@
         </dependency>
 #end
 #end
-#if ( $includeCommerce == "y" )
+#if ( $includeCif == "y" )
         <!-- Adobe CIF Dependencies -->
         <dependency>
             <groupId>com.adobe.commerce.cif</groupId>

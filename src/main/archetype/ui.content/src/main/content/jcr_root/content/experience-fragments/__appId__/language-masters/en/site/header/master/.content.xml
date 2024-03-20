@@ -12,7 +12,7 @@
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="${appId}/components/container"
-#if ( $includeCommerce == "y" )
+#if ( $includeCif == "y" )
             layout="responsiveGrid">
             <logo jcr:primaryType="nt:unstructured"
                   sling:resourceType="${appId}/components/commerce/logo">

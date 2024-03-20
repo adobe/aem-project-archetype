@@ -94,7 +94,7 @@
                 <format
                     jcr:primaryType="nt:unstructured"
                     features="bold,italic"/>
-#if ( $includeCommerce == "y" )
+#if ( $includeCif == "y" )
                 <commercelinks
                         jcr:primaryType="nt:unstructured"
                         features="modifylink"/>
@@ -104,7 +104,7 @@
                 <cui jcr:primaryType="nt:unstructured">
                     <inline
                         jcr:primaryType="nt:unstructured"
-#if ( $includeCommerce == "y" )
+#if ( $includeCif == "y" )
                         toolbar="[#format,#justify,#lists,links#modifylink,links#unlink,commercelinks#modifylink,#paraformat,fullscreen#start,control#close,control#save]">
 #else
                         toolbar="[#format,#justify,#lists,links#modifylink,links#unlink,#paraformat,fullscreen#start,control#close,control#save]">
@@ -128,7 +128,7 @@
                                 ref="paraformat"/>
                         </popovers>
                     </inline>
-#if ( $includeCommerce == "y" )
+#if ( $includeCif == "y" )
                     <fullscreen
                         jcr:primaryType="nt:unstructured"
                         toolbar="[#format,#justify,#lists,links#modifylink,links#unlink,commercelinks#modifylink,#paraformat,fullscreen#start,control#close,control#save]">
