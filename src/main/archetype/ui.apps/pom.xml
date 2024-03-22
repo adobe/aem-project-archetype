@@ -82,7 +82,7 @@
                         </dependency>
 #end
 #end
-#if ( $includeCommerce == "y" )
+#if ( $includeCif == "y" )
                         <dependency>
                             <groupId>com.adobe.commerce.cif</groupId>
                             <artifactId>core-cif-components-apps</artifactId>
@@ -303,7 +303,7 @@ Require-Capability: osgi.extender;filter:="(&(osgi.extender=sling.scripting)(ver
         </dependency>
 #end
 
-#if ( $includeCommerce == "y" )
+#if ( $includeCif == "y" )
         <!-- Adobe CIF Dependencies -->
         <dependency>
             <groupId>com.adobe.commerce.cif</groupId>

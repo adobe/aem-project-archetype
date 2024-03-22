@@ -17,7 +17,7 @@
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
         cq:template="/conf/${appId}/settings/wcm/templates/page-content"
-#if ( $includeCommerce == "y" )
+#if ( $includeCif == "y" )
         cq:allowedTemplates="[/conf/${appId}/settings/wcm/templates/(?!(landing|root)).*]"
         cq:cifCategoryPage="/content/${appId}/us/en/products/category-page"
         cq:cifProductPage="/content/${appId}/us/en/products/product-page"
@@ -92,7 +92,7 @@
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="${appId}/components/helloworld"
                         text="lalala :)"/>
-#if ( $includeCommerce == "y" )
+#if ( $includeCif == "y" )
                     <productcarousel
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="${appId}/components/commerce/productcarousel"/>

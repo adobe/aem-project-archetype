@@ -22,7 +22,7 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="${appId}/components/container"
                 layout="responsiveGrid">
-#if ( $includeCommerce == "y" )
+#if ( $includeCif == "y" )
                 <breadcrumb
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="${appId}/components/commerce/breadcrumb"

@@ -35,7 +35,7 @@ header.experiencefragment {
         grid-template-columns: 4fr 1fr 1fr;
     }
 
-#if ( $includeCommerce != "y" )
+#if ( $includeCif != "y" )
     //== Navigation
 
     .cmp-navigation__group {

@@ -8,7 +8,7 @@
     </filter>
     <filter root="/content/dam/${appId}/asset.jpg" mode="merge"/>
     <filter root="/content/experience-fragments/${appId}" mode="merge"/>
-#if ( $includeCommerce == "y" and $aemVersion != "cloud")
+#if ( $includeCif == "y" and $aemVersion != "cloud")
     <filter root="/var/commerce/products/${appId}-default" mode="merge"/>
 #end
 #if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
