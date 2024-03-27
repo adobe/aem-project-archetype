@@ -6,6 +6,8 @@
 #if ( $includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y" || $includeFormsheadless == "y")
 #if ($aemVersion == "cloud")
     <filter root="/apps/fd/af/themes" mode="merge"/>
+#else
+    <filter root="/apps/fd/af/theme-clientlibs" mode="merge"/>
 #end
 
 #end
