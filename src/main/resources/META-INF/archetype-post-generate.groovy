@@ -262,7 +262,10 @@ if (includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunic
     }
     println "Using AEM Forms as a Cloud Service SDK version: " + sdkFormsVersion
     rootPom.text = rootPom.text.replaceAll('SDK_FORMS_VERSION', sdkFormsVersion.toString())
-
+    //For AEM cloud delete forms core component theme client libraries.
+    if(aemVersion == "cloud"){
+        assert new File("$uiAppsPackage/src/main/content/jcr_root/apps/fd/af/theme-clientlibs").deleteDir()
+    }
 }
 
 // if config.publish folder ends up empty, remove it, otherwise the filevault-package-maven-plugin will throw
