@@ -4,7 +4,7 @@
     jcr:title="${appTitle} Page"
 #if ( $isSpaProject )
     sling:resourceSuperType="spa-project-core/components/page"
-#elseif ( $includeCommerce == "y" )
+#elseif ( $includeCif == "y" )
     sling:resourceSuperType="core/cif/components/structure/page/v3/page"
 #elseif ( $amp == "y" )
     sling:resourceSuperType="core/wcm/extensions/amp/components/page/v1/page"
