@@ -121,7 +121,7 @@
         <!--
             Option to include CIF Core Components & corresponding configuration.
         -->
-        <requiredProperty key="includeCommerce">
+        <requiredProperty key="includeCif">
             <defaultValue>n</defaultValue>
             <validationRegex>^(y|n)$</validationRegex>
         </requiredProperty>

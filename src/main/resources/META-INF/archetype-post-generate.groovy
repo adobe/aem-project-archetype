@@ -25,7 +25,7 @@ def frontendModule = request.getProperties().get("frontendModule")
 def aemVersion = request.getProperties().get("aemVersion")
 def sdkVersion = request.getProperties().get("sdkVersion")
 def includeDispatcherConfig = request.getProperties().get("includeDispatcherConfig")
-def includeCommerce = request.getProperties().get("includeCommerce")
+def includeCif = request.getProperties().get("includeCif")
 def includeForms = request.getProperties().get("includeForms")
 def includeFormsenrollment = request.getProperties().get("includeFormsenrollment")
 def includeFormscommunications = request.getProperties().get("includeFormscommunications")
@@ -88,10 +88,13 @@ if (aemVersion == "cloud") {
     }
     println "Using AEM as a Cloud Service SDK version: " + sdkVersion
     rootPom.text = rootPom.text.replaceAll('SDK_VERSION', sdkVersion.toString())
+    def cloudManagerDir = new File(rootDir, ".cloudmanager");
+    assert cloudManagerDir.mkdir();
+    new File(cloudManagerDir, "java-version").write("11");
 }
 
 buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, language, country)
-cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder,enableSSR, includeCommerce)
+cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder,enableSSR, includeCif)
 
 if (includeDispatcherConfig == "n") {
     // remove the unneeded config file
@@ -131,7 +134,7 @@ removeModule(rootPom, 'dispatcher.ams')
 assert new File(rootDir, 'dispatcher.cloud').deleteDir()
 removeModule(rootPom, 'dispatcher.cloud')
 
-if (includeCommerce == "n") {
+if (includeCif == "n") {
     assert new File(rootDir, "README-CIF.md").delete()
     assert new File("$appsFolder/components/commerce").deleteDir()
     assert new File("$appsFolder/components/text/_cq_dialog.xml").delete()
@@ -259,7 +262,10 @@ if (includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunic
     }
     println "Using AEM Forms as a Cloud Service SDK version: " + sdkFormsVersion
     rootPom.text = rootPom.text.replaceAll('SDK_FORMS_VERSION', sdkFormsVersion.toString())
-    
+    //For AEM cloud delete forms core component theme client libraries.
+    if(aemVersion == "cloud"){
+        assert new File("$uiAppsPackage/src/main/content/jcr_root/apps/fd/af/theme-clientlibs").deleteDir()
+    }
 }
 
 // if config.publish folder ends up empty, remove it, otherwise the filevault-package-maven-plugin will throw
@@ -321,7 +327,7 @@ def buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, 
 /**
  * Renames and deletes frontend related files as necessary
  */
-def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder, enableSSR, includeCommerce) {
+def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder, enableSSR, includeCif) {
     // Delete unwanted frontend modules
     frontendModules.each { def frontendModule ->
         // Clean up POM file
