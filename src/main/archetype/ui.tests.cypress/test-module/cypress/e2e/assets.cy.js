@@ -38,6 +38,7 @@ describe('AEM Assets', () => {
         cy.visit(`${Cypress.env('AEM_AUTHOR_URL')}/assets.html${assetsPath}`);
 
         // Wait for any lazy loaded dialogs to appear
+        /* eslint-disable cypress/no-unnecessary-waiting */
         cy.wait(3000)
 
 
@@ -47,7 +48,8 @@ describe('AEM Assets', () => {
         cy.get('dam-chunkfileupload.dam-ChunkFileUpload > input').first().selectFile(localPath, {force: true})
 
         // rename image
-        cy.get('input#dam-asset-upload-rename-input').clear().type(remoteImageName, {force: true});
+        cy.get('input#dam-asset-upload-rename-input').clear()
+        cy.type(remoteImageName, {force: true});
 
         // Press the upload button.
         cy.get('coral-dialog.is-open coral-dialog-footer [variant="primary"]').click({force: true});
@@ -63,6 +65,7 @@ describe('AEM Assets', () => {
         });
 
         // Wait before deletion as immediate deletion may fail
+        /* eslint-disable cypress/no-unnecessary-waiting */
         cy.wait(3000)
 
         // Delete Asset
