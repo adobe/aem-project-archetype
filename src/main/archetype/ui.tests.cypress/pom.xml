@@ -26,7 +26,8 @@
     <version>0.0.1-SNAPSHOT</version>
     <artifactId>com.adobe.cq.cloud.testing.ui.cypress.tests</artifactId>
     <name>com.adobe.cq.cloud.testing.ui.cypress - UI Tests</name>
-    <description></description>
+    <packaging>pom</packaging>
+    <description>Cypress UI tests</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

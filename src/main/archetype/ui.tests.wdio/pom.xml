@@ -31,6 +31,7 @@
 
     <artifactId>${artifactId}</artifactId>
     <name>${appTitle} - UI Tests</name>
+    <packaging>pom</packaging>
     <description>UI Tests for ${appTitle}</description>
 
     <properties>
@@ -102,7 +103,7 @@
     </build>
 
     <profiles>
-        <!-- Profile to run UI tests locally locally -->
+        <!-- Profile to run UI tests locally -->
         <profile>
             <id>ui-tests-local-execution</id>
             <build>
