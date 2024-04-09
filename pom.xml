@@ -164,8 +164,8 @@
 
     <profiles>
         <!--
-            Profile for only executing the basic integration tests (without frondend modules, because they increase the build time
-            significantly)
+            Profile for only executing the basic integration tests (without frontend modules,
+            because they increase the build time significantly)
         -->
         <profile>
             <id>it-basic</id>
