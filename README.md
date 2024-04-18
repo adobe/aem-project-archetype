@@ -55,7 +55,7 @@ To generate a project, adjust the following command line to your needs:
 mvn -B org.apache.maven.plugins:maven-archetype-plugin:3.2.1:generate \
  -D archetypeGroupId=com.adobe.aem \
  -D archetypeArtifactId=aem-project-archetype \
- -D archetypeVersion=47\
+ -D archetypeVersion=48\
  -D appTitle="My Site" \
  -D appId="mysite" \
  -D groupId="com.mysite"
@@ -84,7 +84,7 @@ Name                      | Default        | Description
 `singleCountry`           | `y`            | Includes a language-master content structure (can be `y`, or `n`).
 `includeExamples`         | `n`            | Includes a [Component Library](https://www.aemcomponents.dev/) example site (can be `y`, or `n`).
 `includeErrorHandler`     | `n`            | Includes a custom 404 response page that will be global to the entire instance (can be `y` or `n`).
-`includeCommerce`         | `n`            | Includes [CIF Core Components](https://github.com/adobe/aem-core-cif-components) dependencies and generates corresponding artifacts.
+`includeCif`              | `n`            | Includes [CIF Core Components](https://github.com/adobe/aem-core-cif-components) dependencies and generates corresponding artifacts.
 `commerceEndpoint`        |                | Required for CIF only. Optional endpoint of the commerce system GraphQL service to be used (e.g. `https://hostname.com/grapql`).
 `includeFormscommunications`   | `n`       | Includes [Forms Core Components](https://github.com/adobe/aem-core-forms-components) dependencies and generates corresponding artifacts.
 `includeFormsenrollment`  | `n`            | Includes [Forms Core Components](https://github.com/adobe/aem-core-forms-components) dependencies and generates corresponding artifacts.
@@ -100,7 +100,7 @@ Name                      | Default        | Description
 
 Archetype | AEM as a Cloud Service | AEM 6.5 | Java SE | Maven
 ---------|---------|---------|---------|---------
-[47](https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-47) | Continual | 6.5.7.0+ | 8, 11 | 3.3.9+
+[48](https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-48) | Continual | 6.5.7.0+ | 8, 11 | 3.3.9+
 
 Setup your local development environment for [AEM as a Cloud Service SDK](https://experienceleague.adobe.com/docs/experience-manager-learn/cloud-service/local-development-environment-set-up/overview.html) or for [older versions of AEM.](https://experienceleague.adobe.com/docs/experience-manager-learn/foundation/development/set-up-a-local-aem-development-environment.html)
 

@@ -64,8 +64,8 @@ Cypress.Commands.add('AEMDeleteAsset', function (assetPath) {
         const form = new FormData();
         form.append('cmd', 'deletePage');
         form.append('path', assetPath);
-        form.append('force', 'true'),
-            form.append('_charset_', 'utf-8');
+        form.append('force', 'true');
+        form.append('_charset_', 'utf-8');
 
         const body = {
             cmd: 'deletePage',

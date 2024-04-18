@@ -26,7 +26,8 @@
     <version>0.0.1-SNAPSHOT</version>
     <artifactId>com.adobe.cq.cloud.testing.ui.cypress.tests</artifactId>
     <name>com.adobe.cq.cloud.testing.ui.cypress - UI Tests</name>
-    <description></description>
+    <packaging>pom</packaging>
+    <description>Cypress UI tests</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -93,6 +94,49 @@
     </build>
 
     <profiles>
+        <profile>
+            <id>ui-tests-check</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.github.eirslett</groupId>
+                        <artifactId>frontend-maven-plugin</artifactId>
+                        <version>${frontend-maven-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>install node and npm</id>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>install-node-and-npm</goal>
+                                </goals>
+                                <configuration>
+                                    <nodeVersion>v18.14.2</nodeVersion>
+                                    <npmVersion>9.5.0</npmVersion>
+                                    <installDirectory>test-module</installDirectory>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>lint</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>npm</goal>
+                                </goals>
+                                <configuration>
+                                    <arguments>run lint</arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <workingDirectory>test-module</workingDirectory>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
         <profile>
             <id>ui-tests-docker-build</id>
             <activation>

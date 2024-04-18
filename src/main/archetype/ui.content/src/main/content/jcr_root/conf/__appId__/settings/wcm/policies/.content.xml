@@ -306,17 +306,17 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Content"
                     sling:resourceType="wcm/core/components/policy/policy"
-#if ( $includeCommerce == "y" and $enableDynamicMedia == "y" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") )
+#if ( $includeCif == "y" and $enableDynamicMedia == "y" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") )
                     components="[group:Dynamic Media,group:${appTitle} - Content,group:${appTitle} - Commerce,group:${appTitle} - Forms,/apps/${appId}/components/form/container]">
-#elseif ( $includeCommerce == "y" and $enableDynamicMedia == "n" and ($includeForms == "n" and $includeFormsenrollment == "n" and $includeFormscommunications == "n"))
+#elseif ( $includeCif == "y" and $enableDynamicMedia == "n" and ($includeForms == "n" and $includeFormsenrollment == "n" and $includeFormscommunications == "n"))
                     components="[group:${appTitle} - Content,group:${appTitle} - Commerce,/apps/${appId}/components/form/container]">
-#elseif ( $includeCommerce == "n" and $enableDynamicMedia == "y" and ($includeForms == "n" and $includeFormsenrollment == "n" and $includeFormscommunications == "n"))
+#elseif ( $includeCif == "n" and $enableDynamicMedia == "y" and ($includeForms == "n" and $includeFormsenrollment == "n" and $includeFormscommunications == "n"))
                     components="[group:Dynamic Media,group:${appTitle} - Content,/apps/$appId}/components/form/container]">
-#elseif ( $includeCommerce == "y" and $enableDynamicMedia == "n" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y"))
+#elseif ( $includeCif == "y" and $enableDynamicMedia == "n" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y"))
                     components="[group:${appTitle} - Content,group:${appTitle} - Commerce,group:${appTitle} - Forms,/apps/${appId}/components/form/container]">
-#elseif ( $includeCommerce == "n" and $enableDynamicMedia == "y" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y"))
+#elseif ( $includeCif == "n" and $enableDynamicMedia == "y" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y"))
                     components="[group:Dynamic Media,group:${appTitle} - Content,group:${appTitle} - Forms,/apps/$appId}/components/form/container]">
-#elseif ( $includeCommerce == "n" and $enableDynamicMedia == "n" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y"))
+#elseif ( $includeCif == "n" and $enableDynamicMedia == "n" and ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y"))
                     components="[group:${appTitle} - Content,group:${appTitle} - Forms,/apps/$appId}/components/form/container]">
 #else
                     components="[group:${appTitle} - Content,/apps/${appId}/components/form/container]">
@@ -342,7 +342,7 @@
                                 assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
                                 droptarget="contentfragment"
                                 resourceType="${appId}/components/contentfragment"/>
-#if ( $includeCommerce == "y" )
+#if ( $includeCif == "y" )
                             <mapping_1575030255082
                                 jcr:primaryType="nt:unstructured"
                                 assetGroup="product"
@@ -365,13 +365,13 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="XF Root"
                     sling:resourceType="wcm/core/components/policy/policy"
-#if ( $includeCommerce == "n" and  ($includeForms == "n" and $includeFormsenrollment == "n" and $includeFormscommunications == "n") )
+#if ( $includeCif == "n" and  ($includeForms == "n" and $includeFormsenrollment == "n" and $includeFormscommunications == "n") )
                     components="[group:${appTitle} - Content,/apps/${appId}/components/form/container]">
-#elseif ($includeCommerce == "n" and  ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") )
+#elseif ($includeCif == "n" and  ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") )
                     components="[group:${appTitle} - Content,group:${appTitle} - Forms,/apps/${appId}/components/form/container]">
-#elseif ($includeCommerce == "y" and  ($includeForms == "n" and $includeFormsenrollment == "n" and $includeFormscommunications == "n") )
+#elseif ($includeCif == "y" and  ($includeForms == "n" and $includeFormsenrollment == "n" and $includeFormscommunications == "n") )
                     components="[group:${appTitle} - Content,group:${appTitle} - Commerce,group:${appTitle} - Header,/apps/${appId}/components/form/container]">
-#elseif ($includeCommerce == "y" and  ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") )
+#elseif ($includeCif == "y" and  ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") )
                     components="[group:${appTitle} - Content,group:${appTitle} - Commerce,group:${appTitle} - Header,group:${appTitle} - Forms,/apps/${appId}/components/form/container]">
 #end  
                     <jcr:content jcr:primaryType="nt:unstructured"/>
@@ -395,7 +395,7 @@
                                 assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
                                 droptarget="contentfragment"
                                 resourceType="${appId}/components/contentfragment"/>
-#if ( $includeCommerce == "y" )
+#if ( $includeCif == "y" )
                             <mapping_1590416532200
                                 jcr:primaryType="nt:unstructured" 
                                 assetGroup="product" 
@@ -491,7 +491,7 @@
                 />
             </spa>
 #end
-#if ( $includeCommerce == "y" )
+#if ( $includeCif == "y" )
             <commerce jcr:primaryType="nt:unstructured">
                 <productlist jcr:primaryType="nt:unstructured">
                     <default
@@ -648,6 +648,95 @@
                     mergeList="{Boolean}true"/>
                 </default>
               </formcontainer>
+              <numberinput jcr:primaryType="nt:unstructured">
+                <default
+                  jcr:lastModified="{Date}2022-07-12T11:41:57.902+05:30"
+                  jcr:lastModifiedBy="admin"
+                  jcr:primaryType="nt:unstructured"
+                  jcr:title="${appId}-numberinput-policy"
+                  sling:resourceType="wcm/core/components/policy/policy"
+                  allowedFormat1="No Pattern=${hash}${hash}${hash}${hash}${hash}${hash}${hash}${hash}${hash}${hash}${hash}${hash}${hash}${hash}${hash}${hash}${hash}${hash}${hash}${hash}${hash}.${hash}${hash}${hash}${hash}${hash}${hash}${hash}${hash}${hash}${hash}${hash}${hash}${hash}${hash}${hash}"
+                  allowedFormat2="${symbol_dollar}1,234.21=¤${hash},${hash}${hash}0.00"
+                  allowedFormat3="${symbol_dollar}1234.21=()¤${hash}${hash}${hash}${hash}0.00"
+                  allowedFormat4="1,234.210=${hash},${hash}${hash}${hash},${hash}${hash}0.000"
+                  allowedFormat5="123,421%=${hash},${hash}${hash}${hash},${hash}${hash}0%"
+                  allowedFormat6="23421%=${hash}${hash}${hash}${hash}0%">
+                  <jcr:content
+                    jcr:primaryType="nt:unstructured"/>
+                </default>
+              </numberinput>
+              <datepicker jcr:primaryType="nt:unstructured">
+                <default
+                  jcr:lastModified="{Date}2022-07-12T11:41:57.902+05:30"
+                  jcr:lastModifiedBy="admin"
+                  jcr:primaryType="nt:unstructured"
+                  jcr:title="${appId}-datepicker-policy"
+                  sling:resourceType="wcm/core/components/policy/policy"
+                  allowedFormat1="01 April, 2007=d MMMM, y"
+                  allowedFormat2="April 01, 2007=MMMM d, y"
+                  allowedFormat3="Sunday, 01 April, 2007=EEEE, d MMMM, y"
+                  allowedFormat4="Sunday, April 01, 2007=EEEE, MMMM d, y"
+                  allowedFormat5="1/4/2007=d/M/y"
+                  allowedFormat6="4/1/2007=M/d/y">
+                  <jcr:content
+                    jcr:primaryType="nt:unstructured"/>
+                </default>
+              </datepicker>
+              <telephoneinput jcr:primaryType="nt:unstructured">
+                <default
+                  jcr:lastModified="{Date}2022-07-12T11:41:57.902+05:30"
+                  jcr:primaryType="nt:unstructured"
+                  jcr:title="${appId}-telephoneinput-policy"
+                  sling:resourceType="wcm/core/components/policy/policy"
+                  allowedFormat1="International=^[+][0-9]{0,14}$"
+                  allowedFormat2="US Phone Number=^[+]1[0-9]{0,10}$"
+                  allowedFormat3="UK Phone Number=^[+]44[0-9]{0,10}$">
+                  <jcr:content
+                    jcr:primaryType="nt:unstructured"/>
+                </default>
+              </telephoneinput>
+              <panelcontainer jcr:primaryType="nt:unstructured">
+                <default
+                  jcr:lastModified="{Date}2023-03-07T11:41:57.902+05:30"
+                  jcr:lastModifiedBy="admin"
+                  jcr:primaryType="nt:unstructured"
+                  jcr:title="${appId}-panelcontainer-policy"
+                  sling:resourceType="wcm/core/components/policy/policy"
+                  layout="responsiveGrid"
+                  layoutDisabled="true">
+                  <jcr:content
+                    jcr:primaryType="nt:unstructured"/>
+                </default>
+              </panelcontainer>
+              <switch jcr:primaryType="nt:unstructured">
+                <default
+                  jcr:lastModified="{Date}2023-10-05T12:36:42.398+05:30"
+                  jcr:lastModifiedBy="admin"
+                  jcr:primaryType="nt:unstructured"
+                  jcr:title="${appId}-switch-label-visibility-policy"
+                  cq:styleDefaultClasses="cmp-adaptiveform-switch__hide-labels"
+                  sling:resourceType="wcm/core/components/policy/policy">
+                  <jcr:content jcr:primaryType="nt:unstructured"/>
+                  <cq:styleGroups jcr:primaryType="nt:unstructured">
+                    <item0
+                      cq:styleGroupLabel="Hide labels"
+                      jcr:primaryType="nt:unstructured">
+                      <cq:styles jcr:primaryType="nt:unstructured">
+                        <item0
+                          cq:styleClasses="cmp-adaptiveform-switch__hide-labels"
+                          cq:styleId="1696489484081"
+                          cq:styleLabel="Hide Labels"
+                          jcr:primaryType="nt:unstructured"/>
+                        <item1
+                          cq:styleClasses="cmp-adaptiveform-switch__unhide-labels"
+                          cq:styleId="1696489594671"
+                          cq:styleLabel="Show Labels"
+                          jcr:primaryType="nt:unstructured"/>
+                      </cq:styles>
+                    </item0>
+                  </cq:styleGroups>
+                </default>
+              </switch>
             </adaptiveForm>
 #end
         </components>

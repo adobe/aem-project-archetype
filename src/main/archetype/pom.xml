@@ -148,10 +148,17 @@
                                 <requireMavenVersion>
                                     <version>[3.3.9,)</version>
                                 </requireMavenVersion>
+#if ( $aemVersion == "cloud")
+                                <requireJavaVersion>
+                                    <message>Maven must be executed with a Java 11 JRE or higher.</message>
+                                    <version>11</version>
+                                </requireJavaVersion>
+#else
                                 <requireJavaVersion>
                                     <message>Maven must be executed with a Java 8 JRE or higher.</message>
                                     <version>1.8.0</version>
                                 </requireJavaVersion>
+#end
                             </rules>
                         </configuration>
                     </execution>
@@ -162,8 +169,12 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
+#if ( $aemVersion == "cloud")
+                    <release>11</release>
+#else
                     <source>1.8</source>
                     <target>1.8</target>
+#end
                 </configuration>
             </plugin>
         </plugins>
@@ -330,7 +341,7 @@ Bundle-DocURL:
                     <groupId>org.apache.jackrabbit</groupId>
                     <artifactId>filevault-package-maven-plugin</artifactId>
                     <extensions>true</extensions>
-                    <version>1.1.6</version>
+                    <version>1.3.6</version>
                     <configuration>
                         <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
                         <validatorsSettings>
@@ -361,7 +372,7 @@ Bundle-DocURL:
                 <plugin>
                     <groupId>com.day.jcr.vault</groupId>
                     <artifactId>content-package-maven-plugin</artifactId>
-                    <version>1.0.2</version>
+                    <version>1.0.6</version>
                     <configuration>
                         <targetURL>http://${aem.host}:${aem.port}/crx/packmgr/service.jsp</targetURL>
                         <failOnError>true</failOnError>
@@ -837,7 +848,7 @@ Bundle-DocURL:
                 <type>zip</type>
             </dependency>
 #end
-#if ( $includeCommerce == "y" )
+#if ( $includeCif == "y" )
             <!-- Adobe CIF Dependencies -->
             <dependency>
                 <groupId>com.adobe.commerce.cif</groupId>
