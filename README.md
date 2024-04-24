@@ -43,7 +43,7 @@ Maven template that creates a minimal, best-practices-based Adobe Experience Man
 To generate a project, adjust the following command line to your needs:
 
 * Set `aemVersion=cloud` for [AEM as a Cloud Service](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/home.html);  
- Set `aemVersion=6.5.7` for [Adobe Managed Services](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams), or on-premise.
+ Set `aemVersion=6.5.8` for [Adobe Managed Services](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams), or on-premise.
  The Core Components dependency is only added for non cloud aem versions as the Core Components are provided OOTB for AEM as a Cloud
  Service.
 * Adjust `appTitle="My Site"` to define the website title and components groups.
