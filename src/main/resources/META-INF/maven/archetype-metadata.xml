@@ -484,6 +484,7 @@
                     <excludes>
                         <exclude>**/*.png</exclude>
                         <exclude>**/*.jpeg</exclude>
+                        <exclude>**/*.jpg</exclude>
                         <exclude>**/image</exclude>
                         <exclude>**/original</exclude>
                         <exclude>**/*.eot</exclude>
