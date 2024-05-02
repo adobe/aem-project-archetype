@@ -1,0 +1,43 @@
+/catchallfarm {
+	/clientheaders {
+		$include "/etc/httpd/conf.dispatcher.d/clientheaders/ams_publish_clientheaders.any"
+		$include "/etc/httpd/conf.dispatcher.d/clientheaders/ams_common_clientheaders.any"
+	}
+	## Greedy match for all un-matched hostnames
+	/virtualhosts {
+		"*"
+	}
+	## Intentionally redirecting renderer traffic to catch all
+	/renders {
+		/0 {
+			/hostname "127.0.0.1"
+			/port "80"
+			/timeout "10000"
+		}
+	}
+	/cache {
+		## Added to pass DOT compliance https://www.adobe.com/go/aem_cmcq_disp-5---servestaleo_en
+		/serveStaleOnError "1"
+		## Added to pass DOT compliance https://www.adobe.com/go/aem_cmcq_disp-3---graceperiod_en
+		/gracePeriod "2"
+		## Added to pass DOT compliance https://www.adobe.com/go/aem_cmcq_disp-2---statfilesle_en
+		/statfileslevel "2"
+		## Added to pass DOT compliance https://www.adobe.com/go/aem_cmcq_disp-1---ignoreurlpa_en
+		/ignoreUrlParams {
+			/0001 { /glob "*" /type "allow" }
+		}
+	}
+	/filter {
+		### Added to pass DOT compliance https://www.adobe.com/go/aem_cmcq_disp-4---default-fil_en
+		/0001 { /type "deny"  /url "*" }
+		/0100 { /type "deny" /selectors '(feed|rss|pages|languages|blueprint|infinity|tidy|sysview|docview|query|[0-9-]+|jcr:content)' /extension '(json|xml|html|feed)' }
+		/0101 { /type "deny" /method "GET" /query "debug=*" }
+		/0102 { /type "deny" /method "GET" /query "wcmmode=*" }
+		/0103 { /type "deny" /path "/content/ams/healthcheck/*" }
+		/0104 { /type "deny" /url "/content/regent.html" }
+		### Added to pass DOT compliance https://www.adobe.com/go/aem_cmcq_disp-7---selector-al_en
+		/block-all-selectors { /type "deny" /url "/content*" /selectors "*" }
+		### Added to pass DOT compliance https://www.adobe.com/go/aem_cmcq_disp-6---suffix-allo_en
+		/blocked-all-suffixes { /type "deny" /url "/content*" /suffix "*" }
+	}
+}
