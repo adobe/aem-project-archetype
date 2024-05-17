@@ -22,7 +22,7 @@
 			# Some items cache with the wrong mime type
 			# Use this option to use the name to auto-detect mime types when cached improperly
 			ModMimeUsePathInfo On
-			# Use this option to avoid cache poisioning
+			# Use this option to avoid cache poisoning
 			# Sling will return /content/image.jpg as well as /content/image.jpg/ but apache can't search /content/image.jpg/ as a file
 			# Apache will treat that like a directory.  This assures the last slash is never stored in cache
 			DirectorySlash Off
