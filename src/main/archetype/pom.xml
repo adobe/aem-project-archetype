@@ -74,7 +74,7 @@
         <aio.runtime.namespace>${env.AIO_RUNTIME_NAMESPACE}</aio.runtime.namespace>
         <aio.runtime.auth>${env.AIO_RUNTIME_AUTH}</aio.runtime.auth>
 #end
-        <core.wcm.components.version>2.23.4</core.wcm.components.version>
+        <core.wcm.components.version>2.24.6</core.wcm.components.version>
 #if ( $includeCif == "y" )
         <core.cif.components.version>2.12.6</core.cif.components.version>
         <magento.graphql.version>9.1.0-magento242ee</magento.graphql.version>
@@ -83,11 +83,11 @@
 
 #if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
 #if ($aemVersion == "cloud")
-        <core.forms.components.version>2.0.74</core.forms.components.version>
-        <core.forms.components.af.version>2.0.74</core.forms.components.af.version>
+        <core.forms.components.version>3.0.20</core.forms.components.version>
+        <core.forms.components.af.version>3.0.20</core.forms.components.af.version>
 #else
-        <core.forms.components.version>1.1.32</core.forms.components.version>
-        <core.forms.components.af.version>1.1.32</core.forms.components.af.version>
+        <core.forms.components.version>1.1.40</core.forms.components.version>
+        <core.forms.components.af.version>1.1.40</core.forms.components.af.version>
 #end
         <aem.forms.sdk.api>SDK_FORMS_VERSION</aem.forms.sdk.api>
 #end
@@ -341,7 +341,7 @@ Bundle-DocURL:
                     <groupId>org.apache.jackrabbit</groupId>
                     <artifactId>filevault-package-maven-plugin</artifactId>
                     <extensions>true</extensions>
-                    <version>1.1.6</version>
+                    <version>1.3.6</version>
                     <configuration>
                         <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
                         <validatorsSettings>
@@ -372,7 +372,7 @@ Bundle-DocURL:
                 <plugin>
                     <groupId>com.day.jcr.vault</groupId>
                     <artifactId>content-package-maven-plugin</artifactId>
-                    <version>1.0.2</version>
+                    <version>1.0.6</version>
                     <configuration>
                         <targetURL>http://${aem.host}:${aem.port}/crx/packmgr/service.jsp</targetURL>
                         <failOnError>true</failOnError>

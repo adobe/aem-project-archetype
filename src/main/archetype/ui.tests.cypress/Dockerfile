@@ -19,6 +19,7 @@ RUN apt -qqy update \
     # Generic dependencies
     && apt -qqy --no-install-recommends install \
     python \
+    curl \
     build-essential
 # <<< End EAAS Convention \
 

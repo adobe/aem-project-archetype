@@ -20,7 +20,7 @@
 
     <groupId>com.adobe.aem</groupId>
     <artifactId>aem-project-archetype</artifactId>
-    <version>49-SNAPSHOT</version>
+    <version>50-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
 
     <name>AEM Multi-Module Archetype</name>
@@ -164,8 +164,8 @@
 
     <profiles>
         <!--
-            Profile for only executing the basic integration tests (without frondend modules, because they increase the build time
-            significantly)
+            Profile for only executing the basic integration tests (without frontend modules,
+            because they increase the build time significantly)
         -->
         <profile>
             <id>it-basic</id>

@@ -484,6 +484,7 @@
                     <excludes>
                         <exclude>**/*.png</exclude>
                         <exclude>**/*.jpeg</exclude>
+                        <exclude>**/*.jpg</exclude>
                         <exclude>**/image</exclude>
                         <exclude>**/original</exclude>
                         <exclude>**/*.eot</exclude>
@@ -501,6 +502,7 @@
                     <includes>
                         <include>**/*.png</include>
                         <include>**/*.jpeg</include>
+                        <include>**/*.jpg</include>
                         <include>**/image</include>
                         <include>**/original</include>
                         <include>**/*.eot</include>
