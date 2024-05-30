@@ -18,11 +18,18 @@
      data-sly-test.clientLibRef="${symbol_dollar}{formstructparser.clientLibRefFromFormContainer}">
     <sly data-sly-test="${symbol_dollar}{clientLibRef}" data-sly-call="${symbol_dollar}{clientlib.css @ categories=clientLibRef}"/>
 </sly>
+#if (($includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y") && $aemVersion != "cloud")
+<sly data-sly-use.clientlib="core/wcm/components/commons/v1/templates/clientlib.html"
+     data-sly-use.formstructparser="com.adobe.cq.forms.core.components.models.form.FormStructureParser"
+     data-sly-test.themeClientLibRef="${symbol_dollar}{formstructparser.themeClientLibRefFromFormContainer}">
+    <sly data-sly-test="${symbol_dollar}{themeClientLibRef}" data-sly-call="${symbol_dollar}{clientlib.css @ categories=themeClientLibRef}"/>
+</sly>
+#end
 <sly data-sly-use.clientlib="core/wcm/components/commons/v1/templates/clientlib.html">
     <sly data-sly-call="${symbol_dollar}{clientlib.css @ categories='${appId}.base'}"/>
     #if ($includeFormsheadless == "y" and $aemVersion == "cloud")
     <sly data-sly-call="${symbol_dollar}{clientlib.css @ categories='${appId}.forms.react'}" />
     #end
-    <sly data-sly-test="${symbol_dollar}{!wcmmode.edit}" data-sly-call="${symbol_dollar}{clientlib.css @ categories='core.forms.components.runtime.all'}"/>
+    <sly data-sly-call="${symbol_dollar}{clientlib.css @ categories='core.forms.components.runtime.all'}"/>
 </sly>
 

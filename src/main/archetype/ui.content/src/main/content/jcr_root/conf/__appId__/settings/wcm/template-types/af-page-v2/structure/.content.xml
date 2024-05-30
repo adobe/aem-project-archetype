@@ -2,14 +2,16 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:fd="http://www.adobe.com/aemfd/fd/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
+        jcr:lastModified="{Date}2023-05-22T15:34:31.056+05:30"
         cq:deviceGroups="[/etc/mobile/groups/responsive]"
         guideComponentType="fd/af/templates"
         jcr:primaryType="cq:PageContent"
         sling:resourceType="${appId}/components/adaptiveForm/page">
-        <parsys1
+        <container1
             jcr:primaryType="nt:unstructured"
-            editable="{Boolean}true"
-            sling:resourceType="wcm/foundation/components/responsivegrid"/>
+            sling:resourceType="${appId}/components/container"
+            layout="responsiveGrid"
+            editable="{Boolean}true" />
         <guideContainer
             fd:version="2.1"
             fieldType="form"
@@ -17,24 +19,21 @@
             editable="{Boolean}true"
             sling:resourceType="${appId}/components/adaptiveForm/formcontainer">
         </guideContainer>
-        <parsys2
+        <container2
             jcr:primaryType="nt:unstructured"
-            editable="{Boolean}true"
-            sling:resourceType="wcm/foundation/components/responsivegrid"/>
+            sling:resourceType="${appId}/components/container"
+            layout="responsiveGrid"
+            editable="{Boolean}true" />
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">
-                <smallScreen
-                    jcr:primaryType="nt:unstructured"
-                    title="Smaller Screen"
-                    width="{Decimal}479"/>
                 <phone
-                    jcr:primaryType="nt:unstructured"
-                    title="Phone"
-                    width="{Decimal}767"/>
+                        jcr:primaryType="nt:unstructured"
+                        title="Smaller Screen"
+                        width="{Long}768"/>
                 <tablet
-                    jcr:primaryType="nt:unstructured"
-                    title="Tablet"
-                    width="{Decimal}991"/>
+                        jcr:primaryType="nt:unstructured"
+                        title="Tablet"
+                        width="{Long}1200"/>
             </breakpoints>
         </cq:responsive>
     </jcr:content>

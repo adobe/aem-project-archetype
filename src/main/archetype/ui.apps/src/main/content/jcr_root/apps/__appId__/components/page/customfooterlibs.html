@@ -15,7 +15,7 @@
 */-->
 <sly data-sly-use.clientlib="core/wcm/components/commons/v1/templates/clientlib.html">
     <sly data-sly-call="${symbol_dollar}{clientlib.js @ categories='${appId}.base', async=true}"/>
-#if ( $includeCommerce == "y" )
+#if ( $includeCif == "y" )
     <sly data-sly-call="${symbol_dollar}{clientlib.js @ categories='${appId}.cif', async=true}" />
 #end
 </sly>
@@ -29,3 +29,19 @@
 ></sly>
 #end
 
+#if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
+<sly data-sly-use.clientlib="core/wcm/components/commons/v1/templates/clientlib.html"
+     data-sly-use.formstructparser="com.adobe.cq.forms.core.components.models.form.FormStructureParser"
+     data-sly-test.hasForm="${symbol_dollar}{formstructparser.containsFormContainer}">
+    <sly data-sly-test="${symbol_dollar}{hasForm}" data-sly-call="${symbol_dollar}{clientlib.js @ categories='core.forms.components.runtime.all', async=true}"/>
+</sly>
+#if ( $datalayer == "y")
+<!--/*
+    Below clientlibs are included from https://github.com/adobe/aem-core-forms-components/blob/master/ui.af.apps/src/main/content/jcr_root/apps/core/fd/components/page/v1/page/customfooterlibs.html#L24
+    These clientlibs are only included if Forms is enabled, and datalayer is activated by expicitely setting datalayer='y'.
+*/-->
+<sly data-sly-use.page="com.adobe.cq.wcm.core.components.models.Page">
+    <sly data-sly-test="${symbol_dollar}{page.data && page.dataLayerClientlibIncluded}" data-sly-call="${symbol_dollar}{ clientlib.js @ categories='core.forms.components.commons.v1.datalayer', async=true}"></sly>
+</sly>
+#end
+#end

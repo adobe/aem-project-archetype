@@ -8,6 +8,9 @@ def uiAppsPackage = new File(rootDir, "ui.apps")
 def uiContentPackage = new File(rootDir, "ui.content")
 def uiConfigPackage = new File(rootDir, "ui.config")
 def uiTestPackage = new File(rootDir, "ui.tests")
+def uiTestWDIOPackage = new File(rootDir, "ui.tests.wdio")
+def uiTestCypressPackage = new File(rootDir, "ui.tests.cypress")
+
 def coreBundle = new File(rootDir, "core")
 def rootPom = new File(rootDir, "pom.xml")
 def frontendModules = ["general", "angular", "react"]
@@ -22,7 +25,7 @@ def frontendModule = request.getProperties().get("frontendModule")
 def aemVersion = request.getProperties().get("aemVersion")
 def sdkVersion = request.getProperties().get("sdkVersion")
 def includeDispatcherConfig = request.getProperties().get("includeDispatcherConfig")
-def includeCommerce = request.getProperties().get("includeCommerce")
+def includeCif = request.getProperties().get("includeCif")
 def includeForms = request.getProperties().get("includeForms")
 def includeFormsenrollment = request.getProperties().get("includeFormsenrollment")
 def includeFormscommunications = request.getProperties().get("includeFormscommunications")
@@ -36,6 +39,8 @@ def configFolder = new File("$uiConfigPackage/src/main/content/jcr_root/apps/$ap
 def confFolder = new File("$uiContentPackage/src/main/content/jcr_root/conf/$appId")
 def contentFolder = new File("$uiContentPackage/src/main/content/jcr_root/content/$appId")
 def varFolder = new File("$uiContentPackage/src/main/content/jcr_root/var")
+
+def uiTestingFramework = request.getProperties().get("uiTestingFramework")
 
 
 if (aemVersion.startsWith("6.4")){
@@ -83,10 +88,13 @@ if (aemVersion == "cloud") {
     }
     println "Using AEM as a Cloud Service SDK version: " + sdkVersion
     rootPom.text = rootPom.text.replaceAll('SDK_VERSION', sdkVersion.toString())
+    def cloudManagerDir = new File(rootDir, ".cloudmanager");
+    assert cloudManagerDir.mkdir();
+    new File(cloudManagerDir, "java-version").write("11");
 }
 
 buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, language, country)
-cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder,enableSSR, includeCommerce)
+cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder,enableSSR, includeCif)
 
 if (includeDispatcherConfig == "n") {
     // remove the unneeded config file
@@ -126,7 +134,7 @@ removeModule(rootPom, 'dispatcher.ams')
 assert new File(rootDir, 'dispatcher.cloud').deleteDir()
 removeModule(rootPom, 'dispatcher.cloud')
 
-if (includeCommerce == "n") {
+if (includeCif == "n") {
     assert new File(rootDir, "README-CIF.md").delete()
     assert new File("$appsFolder/components/commerce").deleteDir()
     assert new File("$appsFolder/components/text/_cq_dialog.xml").delete()
@@ -194,17 +202,43 @@ if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunic
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/formsanddocuments-themes").deleteDir()
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/sample_logo.png").deleteDir()
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/sample_terms.png").deleteDir()
-    assert new File("$uiTestPackage/test-module/specs/aem/forms.js").delete()
-    assert new File("$uiTestPackage/test-module/lib/util").deleteDir()
-    assert new File("$uiTestPackage/test-module/rules").deleteDir()
-    assert new File("$uiTestPackage/test-module/assets/form").deleteDir()
+    // delete e2e files if Selenium was selected as the framework but forms flag is unset
+    if (uiTestingFramework == "wdio") {
+        assert new File("$uiTestWDIOPackage/test-module/specs/aem/forms.js").delete()
+        assert new File("$uiTestWDIOPackage/test-module/lib/util").deleteDir()
+        assert new File("$uiTestWDIOPackage/test-module/rules").deleteDir()
+        assert new File("$uiTestWDIOPackage/test-module/assets/form").deleteDir()
+    }
+    //If forms is not included delete /apps/fd folder
+    assert new File("$uiAppsPackage/src/main/content/jcr_root/apps/fd").deleteDir()
+    assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/wknd_logo.png").deleteDir()
     assert new File("$appsFolder/clientlibs/clientlibs-forms").deleteDir()
     assert new File("$appsFolder/components/adaptiveForm").deleteDir()
     assert new File("$appsFolder/components/formsandcommunicationportal").deleteDir()
     assert new File("$confFolder/settings/wcm/template-types/af-page-v2").deleteDir()
+    assert new File("$confFolder/settings/wcm/template-types/afv2-fragment-page").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/blank-af-v2").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/consent-form").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/contact-us-form").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/safety-inspection").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/log-service-request").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/request-for-statement").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/quality-control-inspection").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/purchase-request").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/benefits-enrollment").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/benefit-summary-request").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/give-feedback").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/contact-details-update").deleteDir()
     assert new File("$confFolder/forms").deleteDir()
 }
+if ((includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunications == "y" || includeFormsheadless == "y") && aemVersion != "cloud") {
+    assert new File("$appsFolder/components/formsandcommunicationportal").deleteDir();
+    //For 6.5 remove sling context aware configuration for theme association with core component af template
+    assert new File("$confFolder/forms").deleteDir()
+    //For 6.5 delete forms core component theme zips
+    assert new File("$uiAppsPackage/src/main/content/jcr_root/apps/fd/af/themes").deleteDir()
+}
+
 
 // For Headless Only
 if (includeFormsheadless == "n") {
@@ -216,13 +250,22 @@ if (includeFormsheadless == "n") {
 }
 
 // if forms is included and aem version is set to cloud, set the forms sdk version
-if ((includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunications == "y" || includeFormsheadless == "y") && aemVersion == "cloud") {
+if (includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunications == "y" || includeFormsheadless == "y") {
     if (sdkFormsVersion == "latest") {
         println "No Forms SDK version specified, trying to fetch latest"
-        sdkFormsVersion = getLatestFormsSDK(request.getArchetypeVersion())
+        if (aemVersion == "cloud") {
+            sdkFormsVersion = getLatestFormsSDK(request.getArchetypeVersion())
+        } else {
+            sdkFormsVersion = getLatestNonCloudFormsSDK(request.getArchetypeVersion());
+        }
+
     }
     println "Using AEM Forms as a Cloud Service SDK version: " + sdkFormsVersion
     rootPom.text = rootPom.text.replaceAll('SDK_FORMS_VERSION', sdkFormsVersion.toString())
+    //For AEM cloud delete forms core component theme client libraries.
+    if(aemVersion == "cloud"){
+        assert new File("$uiAppsPackage/src/main/content/jcr_root/apps/fd/af/theme-clientlibs").deleteDir()
+    }
 }
 
 // if config.publish folder ends up empty, remove it, otherwise the filevault-package-maven-plugin will throw
@@ -234,6 +277,22 @@ if(new File("$configFolder/config.publish").list().length == 0) {
 if (precompiledScripts == "n") {
     assert new File(rootDir, "README-precompiled-scripts.md").delete()
 }
+
+// ui tests framework are declared in different modules, so we need to remove the one that is not selected
+// and rename the chosen one to ui.tests
+if (uiTestingFramework == "cypress") {
+    assert new File("$uiTestWDIOPackage").deleteDir()
+    // rename cypress package to ui.tests
+    assert new File("$uiTestCypressPackage").renameTo(new File("$uiTestPackage"))
+    // Clean up POM file
+
+} else {
+    assert new File("$uiTestCypressPackage").deleteDir()
+    assert new File( "$uiTestWDIOPackage").renameTo(new File( "$uiTestPackage"))
+}
+removeModule(rootPom, 'ui.tests.cypress')
+removeModule(rootPom, 'ui.tests.wdio')
+
 
 /**
  * Creates content skeleton based upon singleCountry, language and country input from user
@@ -268,7 +327,7 @@ def buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, 
 /**
  * Renames and deletes frontend related files as necessary
  */
-def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder, enableSSR, includeCommerce) {
+def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder, enableSSR, includeCif) {
     // Delete unwanted frontend modules
     frontendModules.each { def frontendModule ->
         // Clean up POM file
@@ -386,6 +445,15 @@ def getLatestSDK(archetypeVersion) {
 
 def getLatestFormsSDK(archetypeVersion) {
     def metadata = new XmlSlurper().parse("https://repo1.maven.org/maven2/com/adobe/aem/aem-forms-sdk-api/maven-metadata.xml")
+    def sdkVersion = metadata.versioning.latest
+    if (sdkVersion == null || sdkVersion == "") {
+        sdkVersion = System.console().readLine("Cannot get latest SDK version, please provide it manually: ")
+    }
+    return sdkVersion
+}
+
+def getLatestNonCloudFormsSDK(archetypeVersion) {
+    def metadata = new XmlSlurper().parse("https://repo1.maven.org/maven2/com/adobe/aemfd/aemfd-client-sdk/maven-metadata.xml")
     def sdkVersion = metadata.versioning.latest
     if (sdkVersion == null || sdkVersion == "") {
         sdkVersion = System.console().readLine("Cannot get latest SDK version, please provide it manually: ")

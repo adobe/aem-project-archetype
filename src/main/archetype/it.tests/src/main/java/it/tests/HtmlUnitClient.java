@@ -16,14 +16,14 @@
 package ${package}.it.tests;
 
 import com.adobe.cq.testing.client.CQClient;
-import com.gargoylesoftware.htmlunit.DefaultCssErrorHandler;
-import com.gargoylesoftware.htmlunit.WebClient;
-import com.gargoylesoftware.htmlunit.WebClientOptions;
-import com.gargoylesoftware.htmlunit.html.DomNode;
-import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.sling.testing.clients.ClientException;
 import org.apache.sling.testing.clients.SlingClientConfig;
+import org.htmlunit.DefaultCssErrorHandler;
+import org.htmlunit.WebClient;
+import org.htmlunit.WebClientOptions;
+import org.htmlunit.html.DomNode;
+import org.htmlunit.html.HtmlPage;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Node;
 

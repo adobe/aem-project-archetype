@@ -6,13 +6,14 @@ This is a project template for AEM-based applications. It is intended as a best-
 
 The main parts of the template are:
 
-* core: Java bundle containing all core functionality like OSGi services, listeners or schedulers, as well as component-related Java code such as servlets or request filters.
-* it.tests: Java based integration tests
-* ui.apps: contains the /apps (and /etc) parts of the project, ie JS&CSS clientlibs, components, and templates
-* ui.content: contains sample content using the components from the ui.apps
+* [core:](core/README.md) Java bundle containing all core functionality like OSGi services, listeners or schedulers, as well as component-related Java code such as servlets or request filters.
+* [it.tests:](it.tests/README.md) Java based integration tests
+* [ui.apps:](ui.apps/README.md) contains the /apps (and /etc) parts of the project, ie JS&CSS clientlibs, components, and templates
+* [ui.content:](ui.content/README.md) contains sample content using the components from the ui.apps
 * ui.config: contains runmode specific OSGi configs for the project
-* ui.frontend: an optional dedicated front-end build mechanism (Angular, React or general Webpack project)
-* ui.tests: Selenium based UI tests
+* [ui.frontend:](ui.frontend.general/README.md) an optional dedicated front-end build mechanism (Angular, React or general Webpack project)
+* [ui.tests.cypress:](ui.tests.cypress/README.md) Cypress based UI tests
+* [ui.tests.wdio:](ui.tests.wdio/README.md) Selenium based UI tests
 * all: a single content package that embeds all of the compiled modules (bundles and content packages) including any vendor dependencies
 * analyse: this module runs analysis on the project which provides additional validation for deploying into AEMaaCS
 
@@ -41,6 +42,10 @@ Or to deploy only the bundle to the author, run
 Or to deploy only a single content package, run in the sub-module directory (i.e `ui.apps`)
 
     mvn clean install -PautoInstallPackage
+
+## Documentation
+
+The build process also generates documentation in the form of README.md files in each module directory for easy reference. Depending on the options you select at build time, the content may be customized to your project.
 
 ## Testing
 
@@ -95,17 +100,9 @@ can be found here https://github.com/adobe/aemanalyser-maven-plugin
 
 ### UI tests
 
-They will test the UI layer of your AEM application using Selenium technology. 
+They will test the UI layer of your AEM application using either Cypress or Selenium technology.
 
-To run them locally:
-
-    mvn clean verify -Pui-tests-local-execution
-
-This default command requires:
-* an AEM author instance available at http://localhost:4502 (with the whole project built and deployed on it, see `How to build` section above)
-* Chrome browser installed at default location
-
-Check README file in `ui.tests` module for more details.
+Check README file in `ui.tests.cypress` or `ui.tests.wdio` module for more details.
 
 ## ClientLibs
 

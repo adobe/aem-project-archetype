@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:fd="http://www.adobe.com/aemfd/fd/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:deviceGroups="[/etc/mobile/groups/responsive]"
+        cq:isDelivered="{Boolean}true"
+        cq:lastReplicated="{Date}2023-05-25T15:46:21.326Z"
+        cq:lastReplicated_publish="{Date}2023-05-25T15:46:21.326Z"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicatedBy_publish="admin"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:template="/conf/${appId}/settings/wcm/templates/benefit-summary-request"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:uuid="aa07e3c9-a52a-44bc-9c9c-27591f605aad"
+        sling:resourceType="${appId}/components/adaptiveForm/page"
+        guideComponentType="fd/af/templates">
+        <container1
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="${appId}/components/container"
+            layout="responsiveGrid"
+            editable="{Boolean}true"/>
+        <guideContainer
+            fd:version="2.1"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="${appId}/components/adaptiveForm/formcontainer"
+            editable="{Boolean}true"
+            fieldType="form"/>
+        <container2
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="${appId}/components/container"
+            layout="responsiveGrid"
+            editable="{Boolean}true"/>
+        <cq:responsive jcr:primaryType="nt:unstructured">
+            <breakpoints jcr:primaryType="nt:unstructured">
+                <phone
+                        jcr:primaryType="nt:unstructured"
+                        title="Smaller Screen"
+                        width="{Long}768"/>
+                <tablet
+                        jcr:primaryType="nt:unstructured"
+                        title="Tablet"
+                        width="{Long}1200"/>
+            </breakpoints>
+        </cq:responsive>
+    </jcr:content>
+</jcr:root>
