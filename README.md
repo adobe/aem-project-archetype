@@ -115,7 +115,7 @@ Setup your local development environment for [AEM as a Cloud Service SDK](https:
 
 ### Security Vulnerabilities
 
-The aem-project-archetype is not considered part of the core AEM product, in that if Adobe updates the archetype to address security vulnerabilities it will not automatically propagate to all the projects created using it. The archetype is rather a template you can use to start a project, essentially copying ans pasting code and running some post-processing scripts.
+The aem-project-archetype is not considered part of the core AEM product, in that if Adobe updates the archetype to address security vulnerabilities it will not automatically propagate to all the projects created using it. The archetype is rather a template you can use to start a project, essentially copying and pasting code and running some post-processing scripts.
 
 Users of the archetype are responsible for updating the build-time dependencies of their projects created with the archetype to address any security vulnerabilities, including any maven dependencies, maven plugin dependencies, and npm package dependencies. Furthermore, it is important to understand that dependencies (and in particular, maven dependencies) usually describe the minimal API version the code supports at runtime. The dependency versions effectively used at runtime may be newer and not vulnerable. Please always verify any reported vulnerable (transitive) dependencies against the list of bundles deployed at runtime in AEM as a Cloud Services or the currently used Service Pack on AMS or on-prem.
 
