@@ -119,7 +119,7 @@ The aem-project-archetype is not a product, such as if we update the archetype t
 
 Users of the archetype are responsible to update the build-time dependencies of their so created projects themself to address any security vulnerabilities, including any maven dependencies, maven plugin dependencies and npm package dependencies. Furthermore and in particular for maven dependencies it is important to understand that they usually describe the minimal API version the code supports at runtime. The dependency versions effectively used at runtime may be newer and not vulnerable. Please always verify any reported vulnerable (transitive) dependencies against the list of bundles deployed at runtime in AEM as a Cloud Services or the currently used Service Pack on AMS or on-prem.
 
-Please continue to report security vulnerabilities to us. However, we use some 3rd party dependencies, which we only have partial control over. For those it is important to report the vulnerabilies directly to the owner or to the contributors of these dependencies. We will update the archetype once the transitive dependencies have been updated, but that may take a considerable amount of time.
+Please continue to report security vulnerabilities to us. However, we use some 3rd party dependencies, which we only have partial control over. For those it is important to report the vulnerabilities directly to the owner or to the contributors of these dependencies. We will update the archetype once the transitive dependencies have been updated, but that may take a considerable amount of time.
 
 In order to update update transitive dependencies, please exclude the vulnerable transitive dependency and declare a more recent version within the project. For example:
 
