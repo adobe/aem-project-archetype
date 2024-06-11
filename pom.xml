@@ -157,6 +157,40 @@
                     <configuration>
                         <useDefaultExcludes>false</useDefaultExcludes>
                     </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.apache.maven.shared</groupId>
+                            <artifactId>maven-script-interpreter</artifactId>
+                            <version>1.2</version>
+                            <exclusions>
+                                <exclusion>
+                                    <groupId>org.apache.maven.shared</groupId>
+                                    <artifactId>maven-shared-utils</artifactId>
+                                </exclusion>
+                                <exclusion>
+                                    <groupId>org.codehaus.groovy</groupId>
+                                    <artifactId>groovy</artifactId>
+                                </exclusion>
+                            </exclusions>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.apache.maven.archetype</groupId>
+                            <artifactId>archetype-common</artifactId>
+                            <version>${maven.archetype.version}</version>
+                            <exclusions>
+                                <exclusion>
+                                    <groupId>org.codehaus.groovy</groupId>
+                                    <artifactId>groovy-all</artifactId>
+                                </exclusion>
+                            </exclusions>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.codehaus.groovy</groupId>
+                            <artifactId>groovy-all</artifactId>
+                            <version>3.0.7</version>
+                            <type>pom</type> <!-- required JUST since Groovy 2.5.0 -->
+                        </dependency>
+                    </dependencies>
                 </plugin>
             </plugins>
         </pluginManagement>
