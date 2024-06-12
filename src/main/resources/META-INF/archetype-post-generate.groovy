@@ -259,6 +259,8 @@ if ((includeFormsenrollment == "y" || includeFormscommunications == "y") && fron
     assert new File("$appsFolder/components/adaptiveForm/checkbox").deleteDir();
     assert new File("$appsFolder/components/adaptiveForm/termsandconditions").deleteDir();
     assert new File("$appsFolder/components/adaptiveForm/verticaltabs").deleteDir();
+} else {
+        assert new File(rootDir, "ui.frontend.react/config-overrides.js").delete();
 }
 
 
