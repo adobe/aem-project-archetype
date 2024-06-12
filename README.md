@@ -121,7 +121,7 @@ Users of the archetype are responsible for updating the build-time dependencies 
 
 Please continue to report security vulnerabilities to Adobe following the official security policies and procedures [docurmented here.](https://github.com/adobe/aem-project-archetype/security) Please understand that Adobe uses some third-party dependencies, which it only has partial control over. For such dependencies it is important to report the vulnerabilities directly to the owner or to the contributors of these dependencies. Adobe will update the archetype once the transitive dependencies have been updated, but that may take more time.
 
-In order to update update transitive dependencies, please exclude the vulnerable transitive dependency and declare a more recent version within the project. For example:
+In order to update transitive dependencies, please exclude the vulnerable transitive dependency and declare a more recent version within the project. For example:
 
 ```
 <dependency>
