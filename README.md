@@ -112,3 +112,32 @@ Setup your local development environment for [AEM as a Cloud Service SDK](https:
 [ARCHETYPE-308](https://issues.apache.org/jira/browse/ARCHETYPE-308) for details).
 
 * You can't use this archetype in Eclipse when starting a new project with `File -> New -> Maven Project` since the post generation script [`archetype-post-generate.groovy`](https://github.com/adobe/aem-project-archetype/blob/master/src/main/resources/META-INF/archetype-post-generate.groovy) will not be executed due to an [Eclipse issue](https://bugs.eclipse.org/bugs/show_bug.cgi?id=514993). Workaround is to use the above command line and then in Eclipse use `File -> Import -> Existing Maven Project`.
+
+### Security Vulnerabilities
+
+The aem-project-archetype is not considered part of the core AEM product, in that if Adobe updates the archetype to address security vulnerabilities it will not automatically propagate to all the projects created using it. The archetype is rather a template you can use to start a project, essentially copying and pasting code and running some post-processing scripts.
+
+Users of the archetype are responsible for updating the build-time dependencies of their projects created with the archetype to address any security vulnerabilities, including any maven dependencies, maven plugin dependencies, and npm package dependencies. Furthermore, it is important to understand that dependencies (and in particular, maven dependencies) usually describe the minimal API version the code supports at runtime. The dependency versions effectively used at runtime may be newer and not vulnerable. Please always verify any reported vulnerable (transitive) dependencies against the list of bundles deployed at runtime in AEM as a Cloud Services or the currently used Service Pack on AMS or on-prem.
+
+Please continue to report security vulnerabilities to Adobe following the official security policies and procedures [docurmented here.](https://github.com/adobe/aem-project-archetype/security) Please understand that Adobe uses some third-party dependencies, which it only has partial control over. For such dependencies it is important to report the vulnerabilities directly to the owner or to the contributors of these dependencies. Adobe will update the archetype once the transitive dependencies have been updated, but that may take more time.
+
+In order to update transitive dependencies, please exclude the vulnerable transitive dependency and declare a more recent version within the project. For example:
+
+```
+<dependency>
+  <groupId>io.wcm</groupId>
+  <artifactId>io.wcm.testing.aem-mock.junit5</artifactId>
+  <scope>test</scope>
+  <exclusions>
+    <exclusion>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+    </exclusion>
+  </exclusions>
+</dependency>
+<dependency>
+  <groupId>commons-io</groupId>
+  <artifactId>commons-io</artifactId>
+  <version>2.7</version>
+</dependency>
+```
