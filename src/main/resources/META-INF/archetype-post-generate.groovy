@@ -5,6 +5,7 @@ import java.util.regex.Pattern
 
 def rootDir = new File(request.getOutputDirectory() + "/" + request.getArtifactId())
 def uiAppsPackage = new File(rootDir, "ui.apps")
+def uiFrontendReactPackage = new File(rootDir, "ui.frontend.react")
 def uiContentPackage = new File(rootDir, "ui.content")
 def uiConfigPackage = new File(rootDir, "ui.config")
 def uiTestPackage = new File(rootDir, "ui.tests")
@@ -260,7 +261,7 @@ if ((includeFormsenrollment == "y" || includeFormscommunications == "y") && fron
     assert new File("$appsFolder/components/adaptiveForm/termsandconditions").deleteDir();
     assert new File("$appsFolder/components/adaptiveForm/verticaltabs").deleteDir();
 } else {
-        assert new File(rootDir, "ui.frontend.react/config-overrides.js").delete();
+        assert new File("$uiFrontendReactPackage/config-overrides.js").delete();
 }
 
 
