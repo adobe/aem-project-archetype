@@ -261,7 +261,10 @@ if ((includeFormsenrollment == "y" || includeFormscommunications == "y") && fron
     assert new File("$appsFolder/components/adaptiveForm/termsandconditions").deleteDir();
     assert new File("$appsFolder/components/adaptiveForm/verticaltabs").deleteDir();
 } else {
-        assert new File("$uiFrontendReactPackage/config-overrides.js").delete();
+    File file = new File("$uiFrontendReactPackage/config-overrides.js")
+    if (file.exists()) {
+        assert file.delete()
+    }
 }
 
 
