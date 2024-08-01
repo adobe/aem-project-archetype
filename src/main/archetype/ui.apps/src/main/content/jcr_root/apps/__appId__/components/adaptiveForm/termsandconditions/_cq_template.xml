@@ -18,6 +18,7 @@
     jcr:primaryType="nt:unstructured"
     jcr:title="I agree to the terms &amp; conditions"
     sling:resourceType="${appId}/components/adaptiveForm/checkbox"
+    required="true"
     enabled="false"
     checkedValue="true"
     fieldType="checkbox">
