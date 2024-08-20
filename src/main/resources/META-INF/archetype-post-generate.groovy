@@ -198,6 +198,7 @@ if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunic
     assert new File("$confFolder/settings/wcm/templates/basic-af").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/blank-af").deleteDir()
     assert new File("$confFolder/settings/cloudconfigs/fdm").deleteDir()
+    assert new File("$confFolder/_rep_policy.xml").delete()
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/formsanddocuments-fdm").deleteDir()
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/formsanddocuments-themes").deleteDir()
     assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/sample_logo.png").deleteDir()
