@@ -4,18 +4,18 @@
   "description": "test cypress on eaas",
   "main": "index.js",
   "devDependencies": {
-    "cypress": "12.17.0",
-    "cypress-fail-on-console-error": "^4.0.3",
-    "cypress-multi-reporters": "^1.6.3",
-    "cypress-terminal-report": "^5.3.3",
+    "cypress": "^13.14.1",
+    "cypress-fail-on-console-error": "^5.1.1",
+    "cypress-multi-reporters": "^1.6.4",
+    "cypress-terminal-report": "^6.1.2",
     "eslint": "^8.57.0",
     "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-chai-friendly": "^0.7.4",
-    "eslint-plugin-cypress": "^2.15.1",
+    "eslint-plugin-chai-friendly": "^1.0.1",
+    "eslint-plugin-cypress": "^3.5.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-promise": "^6.1.1",
-    "mocha-junit-reporter": "^2.2.0"
+    "mocha-junit-reporter": "^2.2.1"
   },
   "scripts": {
     "lint": "eslint .",
