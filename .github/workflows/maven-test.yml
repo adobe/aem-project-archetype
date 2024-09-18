@@ -29,7 +29,7 @@ jobs:
     strategy:
       matrix:
         os: [ ubuntu-20.04, macos-latest, windows-latest ]
-        java: [8, 11]
+        java: [11]
 
     steps:
       - name: Configure git with longpath enabled (for windows)
