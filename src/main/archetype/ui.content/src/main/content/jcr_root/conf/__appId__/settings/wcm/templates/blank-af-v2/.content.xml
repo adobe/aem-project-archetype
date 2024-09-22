@@ -8,5 +8,6 @@
         cq:templateType="/conf/${appId}/settings/wcm/template-types/af-page-v2"
         jcr:primaryType="cq:PageContent"
         jcr:title="Blank With Core Components"
+        jcr:description="This template provides a blank starting point for building adaptive forms using Core Components."
         status="enabled"/>
 </jcr:root>
