@@ -4,5 +4,5 @@
   jcr:primaryType="cq:Component"
   jcr:title="Submit Button"
   jcr:description="Add an interactive button for invoking a Submit action."
-  sling:resourceSuperType="core/fd/components/form/button/v1/button"
+  sling:resourceSuperType="core/fd/components/form/actions/submit/v2/submit"
   componentGroup="${appTitle} - Adaptive Form"/>
