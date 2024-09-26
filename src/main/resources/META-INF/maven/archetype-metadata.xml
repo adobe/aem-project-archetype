@@ -503,6 +503,7 @@
                         <include>**/*.png</include>
                         <include>**/*.jpeg</include>
                         <include>**/*.jpg</include>
+                        <include>**/*.gif</include>
                         <include>**/image</include>
                         <include>**/original</include>
                         <include>**/*.eot</include>
