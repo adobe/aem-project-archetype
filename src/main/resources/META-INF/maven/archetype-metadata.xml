@@ -543,6 +543,7 @@
                         <exclude>**/*.png</exclude>
                         <exclude>**/*.jpeg</exclude>
                         <exclude>**/image</exclude>
+                        <exclude>**/*.jpg</exclude>
                         <exclude>**/*.svg</exclude>
                         <exclude>**/original</exclude>
                     </excludes>
@@ -555,6 +556,7 @@
                         <include>**/image</include>
                         <include>**/file</include>
                         <include>**/*.png</include>
+                        <include>**/*.jpg</include>
                         <include>**/*.svg</include>
                         <include>**/*.jpeg</include>
                         <include>**/image</include>
