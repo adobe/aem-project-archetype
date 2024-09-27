@@ -544,6 +544,7 @@
                         <exclude>**/*.jpeg</exclude>
                         <exclude>**/image</exclude>
                         <exclude>**/*.jpg</exclude>
+                        <exclude>**/file</exclude>
                         <exclude>**/*.svg</exclude>
                         <exclude>**/original</exclude>
                     </excludes>
