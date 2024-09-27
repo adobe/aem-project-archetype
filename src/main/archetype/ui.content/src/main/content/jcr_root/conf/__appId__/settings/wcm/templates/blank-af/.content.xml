@@ -4,7 +4,7 @@
     <jcr:content
         author="adobe"        
         cq:templateType="/conf/${appId}/settings/wcm/template-types/af-page"
-        jcr:description="This template offers a blank canvas for creating adaptive forms using Foundation Components."
+        jcr:description="The Blank Template allows users to create an adaptive form structure, content, and rules from scratch. It offers complete flexibility, as no components are pre-incorporated, enabling users to build forms entirely according to their requirements."
         jcr:primaryType="cq:PageContent"
         jcr:lastModified="{Date}2021-03-24T18:22:20.809+05:30"
         cq:lastModifiedBy="adobe"
