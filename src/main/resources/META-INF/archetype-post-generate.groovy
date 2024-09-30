@@ -5,6 +5,7 @@ import java.util.regex.Pattern
 
 def rootDir = new File(request.getOutputDirectory() + "/" + request.getArtifactId())
 def uiAppsPackage = new File(rootDir, "ui.apps")
+def uiFrontendReactPackage = new File(rootDir, "ui.frontend.react")
 def uiContentPackage = new File(rootDir, "ui.content")
 def uiConfigPackage = new File(rootDir, "ui.config")
 def uiTestPackage = new File(rootDir, "ui.tests")
@@ -238,6 +239,33 @@ if ((includeForms == "y" || includeFormsenrollment == "y" || includeFormscommuni
     assert new File("$confFolder/forms").deleteDir()
     //For 6.5 delete forms core component theme zips
     assert new File("$uiAppsPackage/src/main/content/jcr_root/apps/fd/af/themes").deleteDir()
+}
+
+// If Forms SPA Project, delete unsupported components
+if ((includeFormsenrollment == "y" || includeFormscommunications == "y") && frontendModule == "react") {
+    assert new File("$appsFolder/components/adaptiveForm/accordion").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/fileinput").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/footer").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/image").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/page").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/pageheader").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/horizontaltabs").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/telephoneinput").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/text").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/title").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/wizard").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/fragment").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/tabsontop").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/recaptcha").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/switch").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/checkbox").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/termsandconditions").deleteDir();
+    assert new File("$appsFolder/components/adaptiveForm/verticaltabs").deleteDir();
+} else {
+    File file = new File("$uiFrontendReactPackage/config-overrides.js")
+    if (file.exists()) {
+        assert file.delete()
+    }
 }
 
 
