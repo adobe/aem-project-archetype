@@ -485,6 +485,7 @@
                         <exclude>**/*.png</exclude>
                         <exclude>**/*.jpeg</exclude>
                         <exclude>**/*.jpg</exclude>
+                        <exclude>**/*.gif</exclude>
                         <exclude>**/image</exclude>
                         <exclude>**/original</exclude>
                         <exclude>**/*.eot</exclude>
@@ -503,6 +504,7 @@
                         <include>**/*.png</include>
                         <include>**/*.jpeg</include>
                         <include>**/*.jpg</include>
+                        <include>**/*.gif</include>
                         <include>**/image</include>
                         <include>**/original</include>
                         <include>**/*.eot</include>
@@ -541,6 +543,9 @@
                         <exclude>**/*.png</exclude>
                         <exclude>**/*.jpeg</exclude>
                         <exclude>**/image</exclude>
+                        <exclude>**/folderThumbnail</exclude>
+                        <exclude>**/*.jpg</exclude>
+                        <exclude>**/*.svg</exclude>
                         <exclude>**/original</exclude>
                     </excludes>
                 </fileSet>
@@ -551,7 +556,10 @@
                         <include>**/*.png</include>
                         <include>**/image</include>
                         <include>**/file</include>
+                        <include>**/folderThumbnail</include>
                         <include>**/*.png</include>
+                        <include>**/*.jpg</include>
+                        <include>**/*.svg</include>
                         <include>**/*.jpeg</include>
                         <include>**/image</include>
                         <include>**/original</include>

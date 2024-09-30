@@ -4,6 +4,7 @@
     <jcr:content
         author="adobe"        
         cq:templateType="/conf/${appId}/settings/wcm/template-types/af-page"
+        jcr:description="Basic Template provides key components to help users create or modify forms. Users can customize existing components or add new ones to meet their specific needs, offering flexibility for a variety of form creation scenarios."
         jcr:primaryType="cq:PageContent"
         jcr:lastModified="{Date}2021-03-24T18:22:20.809+05:30"
         jcr:title="Basic"
