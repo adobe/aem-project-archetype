@@ -66,7 +66,7 @@
                     default_x0023_hover="[beforePseudoElement:content: &quot;_&quot;;&#xa;font-size: 30px;&#xa;color: #E8F6F7;&#xa;vertical-align: middle;&#xa;margin-right: 0.5rem;,color:#007d88]"/>
                 <af_checkboxwidgetandtext
                     jcr:primaryType="nt:unstructured"
-                    default_x0023_default="[float:none,width:0.75rem,display:none]"/>
+                    default_x0023_default="[float:none,width:0.75rem,opacity:0]"/>
                 <af_numericstepperwidgetandtext
                     jcr:primaryType="nt:unstructured"
                     default_x0023_default="[width:40%,min-width:200px,border-top-width:1px,border-left-width:1px,border-bottom-width:1px,border-right-width:1px,border-style:solid,border-color:#cdcecf,background:rgba(255\,255\,255\,0.5),border-bottom-right-radius:0.25rem,border-bottom-left-radius:0.25rem,border-top-left-radius:0.25rem,border-top-right-radius:0.25rem]"
@@ -110,7 +110,7 @@
                     default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]}]"/>
                 <af_radiobuttonwidget
                     jcr:primaryType="nt:unstructured"
-                    default_x0023_default="[float:none,border-bottom-right-radius:15px,border-bottom-left-radius:15px,border-top-right-radius:15px,border-top-left-radius:15px,width:0.75rem,display:none]"
+                    default_x0023_default="[float:none,border-bottom-right-radius:15px,border-bottom-left-radius:15px,border-top-right-radius:15px,border-top-left-radius:15px,width:0.75rem,opacity:0]"
                     default_x0023_default_x0023_ui="[borderRadiusPopover:15px]"/>
                 <af_textareawidgetandtext
                     jcr:primaryType="nt:unstructured"
@@ -673,6 +673,12 @@
                     default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:0.25rem\, 0.75rem\, 0.25rem\, 0.75rem]"
                     phone_x0023_default="[margin-right:0px,margin-left:0px]"
                     phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, 0px\, —\, 0px]"/>
+                <af_checkboxitem
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_focus="[cssOverride:outline: 1px solid #007d88;]"/>
+                <af_radiobuttonitem
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_focus="[cssOverride:outline: 1px solid #007d88;]"/>
             </af_guideContainer>
             <af_guideFooter
                 jcr:primaryType="nt:unstructured"

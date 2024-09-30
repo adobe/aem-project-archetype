@@ -388,7 +388,8 @@
                     default_x0023_checked="[background:#0079C1,cssOverride:background-size: cover;]"
                     default_x0023_checked_x0023_ui="[backgroundColor:#0079C1]"
                     default_x0023_default="[font-size:14px,padding-left:5px,padding-bottom:10px,padding-right:5px,padding-top:10px,margin-top:5px,margin-bottom:5px,margin-right:5px,margin-left:5px,cssOverride:cursor:pointer;&#xa;,color:#FFFFFF,background:#132b4d]"
-                    default_x0023_default_x0023_ui="[paddingPopover:10px\, 5px\, 10px\, 5px,marginPopover:5px\, 5px\, 5px\, 5px,paddingLock:linkOff,marginLock:linkOff,backgroundColor:#132b4d]"/>
+                    default_x0023_default_x0023_ui="[paddingPopover:10px\, 5px\, 10px\, 5px,marginPopover:5px\, 5px\, 5px\, 5px,paddingLock:linkOff,marginLock:linkOff,backgroundColor:#132b4d]"
+                    default_x0023_focus="[cssOverride:outline: 2px solid #0079C1;]"/>
                 <af_radiobuttonitemlabel
                     jcr:primaryType="nt:unstructured"
                     default_x0023_default="[font-size:14px,margin-bottom:5px,addonCss:{&quot;selectors&quot;:{&quot;parent&quot;:{&quot;cssSelector&quot;:&quot; .guideRadioButtonItem .guideWidgetLabel&quot;\,&quot;properties&quot;:{&quot;width&quot;:&quot;98%&quot;\,&quot;display&quot;:&quot;inline&quot;}}}},padding-top:10px,padding-bottom:10px,padding-right:10px,height:auto,padding-left:0px]"
@@ -431,7 +432,7 @@
                     default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:Set]"/>
                 <af_radiobuttonwidget
                     jcr:primaryType="nt:unstructured"
-                    default_x0023_default="[display:none]"/>
+                    default_x0023_default="[opacity:0]"/>
                 <af_tabsontopnavgrp2
                     jcr:primaryType="nt:unstructured"
                     phone_x0023_default="[color:#17b28d]"
