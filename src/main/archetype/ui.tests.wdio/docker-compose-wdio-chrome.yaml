@@ -37,7 +37,7 @@ services:
       - 'shared:/usr/src/app/assets'
     image: '${groupId}-${artifactId}/ui.tests:latest'
   selenium-chrome:
-    image: 'selenium/standalone-chrome-debug:latest'
+    image: 'selenium/standalone-chromium:latest'
     ports:
       - 4444:4444
     volumes:

@@ -37,7 +37,7 @@ services:
       - 'shared:/usr/src/app/assets'
     image: '${groupId}-${artifactId}/ui.tests:latest'
   selenium-firefox:
-    image: 'selenium/standalone-firefox-debug'
+    image: 'selenium/standalone-firefox:latest'
     ports:
       - 4444:4444
     volumes:
