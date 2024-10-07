@@ -45,6 +45,7 @@ To generate a project, adjust the following command line to your needs:
 * Set `aemVersion=cloud` for [AEM as a Cloud Service](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/home.html);  
  Set `aemVersion=6.5.8` for [Adobe Managed Services](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams), or on-premise.
  The Core Components dependency is only added for non cloud aem versions as the Core Components are provided OOTB for AEM as a Cloud
+ Service. Forms Core Components dependency is only added for non cloud aem versions as the Forms Core Components are provided OOTB for AEM as a Cloud
  Service.
 * Adjust `appTitle="My Site"` to define the website title and components groups.
 * Adjust `appId="mysite"` to define the Maven artifactId, the component, config and content folder names, as well as client library names.
