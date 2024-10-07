@@ -1,5 +1,5 @@
 # AEM Project Archetype
-
+## BUILD FIX
 ![Test](https://github.com/adobe/aem-project-archetype/workflows/Test/badge.svg)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.adobe.aem/aem-project-archetype/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.adobe.aem/aem-project-archetype)
 
