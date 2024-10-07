@@ -17,4 +17,7 @@
 #if ( $singleCountry  == "n" )
     <filter root="/apps/msm/${appId}_blueprint" mode="merge"/>
 #end
+#if ($aemVersion == "cloud")
+    <filter root="/apps/settings" mode="merge" />
+#end
 </workspaceFilter>
