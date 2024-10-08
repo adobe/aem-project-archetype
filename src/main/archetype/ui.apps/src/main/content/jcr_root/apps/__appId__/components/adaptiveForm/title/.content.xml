@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-    jcr:description="Adaptive Form Title (v1) component"
+    jcr:description="Adaptive Form Title (v2) component"
     jcr:primaryType="cq:Component"
     jcr:title="Form Title"
-    sling:resourceSuperType="core/fd/components/form/title/v1/title"
+    sling:resourceSuperType="core/fd/components/form/title/v2/title"
     componentGroup="${appTitle} - Adaptive Form"/>

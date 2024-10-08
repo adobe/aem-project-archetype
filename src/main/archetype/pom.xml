@@ -83,11 +83,11 @@
 
 #if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
 #if ($aemVersion == "cloud")
-        <core.forms.components.version>3.0.50</core.forms.components.version>
-        <core.forms.components.af.version>3.0.50</core.forms.components.af.version>
+        <core.forms.components.version>3.0.66</core.forms.components.version>
+        <core.forms.components.af.version>3.0.66</core.forms.components.af.version>
 #else
-        <core.forms.components.version>1.1.40</core.forms.components.version>
-        <core.forms.components.af.version>1.1.40</core.forms.components.af.version>
+        <core.forms.components.version>1.1.52</core.forms.components.version>
+        <core.forms.components.af.version>1.1.52</core.forms.components.af.version>
 #end
         <aem.forms.sdk.api>SDK_FORMS_VERSION</aem.forms.sdk.api>
 #end
