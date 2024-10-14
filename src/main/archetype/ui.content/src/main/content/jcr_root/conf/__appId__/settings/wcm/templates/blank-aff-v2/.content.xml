@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Template">
+    <jcr:content
+        author="adobe"        
+        cq:lastModified="{Date}2022-05-27T13:57:01.856+05:30"
+        cq:lastModifiedBy="adobe"
+        cq:templateType="/conf/${appId}/settings/wcm/template-types/afv2-fragment-page"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Blank Fragment With Core Components"
+        jcr:description="Blank Fragment Template based on Adaptive Forms Core Components allows users to create an adaptive form structure, content, and rules from scratch. It offers complete flexibility, as no components are pre-incorporated, enabling users to build forms entirely according to their requirements."
+        status="enabled"/>
+</jcr:root>
