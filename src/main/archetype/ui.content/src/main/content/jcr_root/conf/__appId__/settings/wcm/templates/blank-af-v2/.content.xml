@@ -7,7 +7,7 @@
         cq:lastModifiedBy="adobe"
         cq:templateType="/conf/${appId}/settings/wcm/template-types/af-page-v2"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Blank"
+        jcr:title="Blank Form"
         jcr:description="Blank Template based on Adaptive Forms Core Components allows users to create an adaptive form structure, content, and rules from scratch. It offers complete flexibility, as no components are pre-incorporated, enabling users to build forms entirely according to their requirements."
         status="enabled"/>
 </jcr:root>
