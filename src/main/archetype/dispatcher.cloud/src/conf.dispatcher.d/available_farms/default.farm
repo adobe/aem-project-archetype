@@ -9,6 +9,9 @@
 #
 
 /publishfarm {
+	# Dispatcher Debugging Flag
+	# Include X-Cache-Info response header if X-Dispatcher-Info is in request header
+	# /info "1"
 	# client headers which should be passed through to the render instances
 	# (feature supported since dispatcher build 2.6.3.5222)
 	/clientheaders {
@@ -34,6 +37,7 @@
 	#	/url    "/libs/granite/dispatcher/content/vanityUrls.html"
 	#	/file   "/tmp/vanity_urls"
 	#	/delay  300
+	#	/loadOnStartup 1
 	# }
 	# allow propagation of replication posts (should seldomly be used)
 	/propagateSyndPost "0"
@@ -86,9 +90,17 @@
 		}
 		# The ignoreUrlParams section contains query string parameter names that
 		# should be ignored when determining whether some request's output can be
-		# cached or delivered from cache.
+		# cached or delivered from cache. Please only enable one of the examples below.
+		# The recommended setting is to ignore all parameters and selectively allow them. e.g.
+		# /ignoreUrlParams {
+		# 	/0001 { /glob "*" /type "allow" }
+		# 	/0002 { /glob "page" /type "deny" }
+		# 	/0003 { /glob "product" /type "deny" }
+		# }
+		#
 		# In this example configuration, the "q" parameter will be ignored as 
 		# well as general marketing related parameters such as e.g. utm_campaign.
+		# If any other parameters are specified the request gets forwarded to the publisher.
 		# Marketing parameters can normally be ignored on most websites as they are tracked
 		# through different means. 
 		# /ignoreUrlParams {
