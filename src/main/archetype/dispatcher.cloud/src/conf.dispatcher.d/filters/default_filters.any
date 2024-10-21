@@ -29,7 +29,7 @@
 
 # Enable basic features
 /0013 { /type "allow" /method "GET" /url '/libs/granite/csrf/token.json' /extension 'json' } # AEM provides a framework aimed at preventing Cross-Site Request Forgery attacks
-/0014 { /type "allow" /method "POST" /url "/content/*.form.html" }  # allow POSTs to form selectors under content
+/0014 { /type "allow" /method "POST" /url "((/content/*.form.html)|(/content/xfaforms/profiles/default.submit.html))" }  # allow POSTs to form selectors under content
 
 /0015 { /type "allow" /method "GET" /path "/libs/cq/personalization" }  # enable personalization
 /0016 { /type "allow" /method "POST" /path "/content/*.commerce.cart.json" }  # allow POSTs to update the shopping cart
