@@ -142,3 +142,16 @@ In order to update transitive dependencies, please exclude the vulnerable transi
   <version>2.7</version>
 </dependency>
 ```
+
+## Updating Existing Projects to the Lastest Archetype Release
+
+The AEM Project Archetype is a tool to create a minimal, best-practices-based AEM project as a starting point for your website. As a starting point, it is not usually required to update an existing project to the latest release of the archteype. However, **keeping project dependencies up-to-date remains a responsiblity of each individual project.**
+
+Efforts to update to the latest release of the archetype can be signifficant depending on the age and complexity of the project. If you have determined that the benfits of an update outweigh the effort, Adobe recommends the following steps.
+
+1. Compare the release of the archetype initially used for your project with the current release on in GitHub. For example `https://github.com/adobe/aem-project-archetype/compare/aem-project-archetype-46...aem-project-archetype-50`
+2, Update the changed dependencies.
+3. Update the plugin dependencies
+4. Progressively apply the remaining changes as needed.
+
+Adobe strongly recommends sufficient test coverate (including unit tests, integration tests, and end-to-end tests) to ensure that an update does not introduce unexpected behavior.
