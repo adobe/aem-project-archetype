@@ -154,4 +154,4 @@ Efforts to update to the latest release of the archetype can be signifficant dep
 3. Update the plugin dependencies
 4. Progressively apply the remaining changes as needed.
 
-Adobe strongly recommends sufficient test coverate (including unit tests, integration tests, and end-to-end tests) to ensure that an update does not introduce unexpected behavior.
+Adobe strongly recommends sufficient test coverage (including unit tests, integration tests, and end-to-end tests) to ensure that an update does not introduce unexpected behavior.
