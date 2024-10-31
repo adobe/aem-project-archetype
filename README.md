@@ -147,7 +147,7 @@ In order to update transitive dependencies, please exclude the vulnerable transi
 
 The AEM Project Archetype is a tool to create a minimal, best-practices-based AEM project as a starting point for your website. As a starting point, it is not usually required to update an existing project to the latest release of the archteype. However, **keeping project dependencies up-to-date remains a responsiblity of each individual project.**
 
-Efforts to update to the latest release of the archetype can be signifficant depending on the age and complexity of the project. If you have determined that the benfits of an update outweigh the effort, Adobe recommends the following steps.
+Efforts to update to the latest release of the archetype can be significant depending on the age and complexity of the project. If you have determined that the benfits of an update outweigh the effort, Adobe recommends the following steps.
 
 1. Compare the release of the archetype initially used for your project with the current release on in GitHub. For example `https://github.com/adobe/aem-project-archetype/compare/aem-project-archetype-46...aem-project-archetype-50`
 2, Update the changed dependencies.
@@ -160,4 +160,4 @@ Adobe strongly recommends sufficient test coverage (including unit tests, integr
 
 Your local immutable files can be updated by running the `bin/update_maven.sh src/dispatcher` script on your Dispatcher folder, where `src/dispatcher` is your Dispatcher configuration directory. This script also updates any `pom.xml` file in the parent directory so that the maven immutability checks also get updated.
 
-For further details, please see the doucment [Validating and Debugging using Dispatcher Tools](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/content-delivery/validation-debug#third-phase) in the AEM as a Cloud Service documentation.
+For further details, please see the document [Validating and Debugging using Dispatcher Tools](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/content-delivery/validation-debug#third-phase) in the AEM as a Cloud Service documentation.
