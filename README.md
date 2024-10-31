@@ -155,3 +155,9 @@ Efforts to update to the latest release of the archetype can be signifficant dep
 4. Progressively apply the remaining changes as needed.
 
 Adobe strongly recommends sufficient test coverage (including unit tests, integration tests, and end-to-end tests) to ensure that an update does not introduce unexpected behavior.
+
+## Updating Immutable Dispatcher Files
+
+Your local immutable files can be updated by running the `bin/update_maven.sh src/dispatcher` script on your Dispatcher folder, where `src/dispatcher` is your Dispatcher configuration directory. This script also updates any `pom.xml` file in the parent directory so that the maven immutability checks also get updated.
+
+For further details, please see the doucment [Validating and Debugging using Dispatcher Tools](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/content-delivery/validation-debug#third-phase) in the AEM as a Cloud Service documentation.
