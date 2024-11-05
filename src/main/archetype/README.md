@@ -12,8 +12,7 @@ The main parts of the template are:
 * [ui.content:](ui.content/README.md) contains sample content using the components from the ui.apps
 * ui.config: contains runmode specific OSGi configs for the project
 * [ui.frontend:](ui.frontend.general/README.md) an optional dedicated front-end build mechanism (Angular, React or general Webpack project)
-* [ui.tests.cypress:](ui.tests.cypress/README.md) Cypress based UI tests
-* [ui.tests.wdio:](ui.tests.wdio/README.md) Selenium based UI tests
+* [ui.tests:](ui.tests/README.md) Cypress based UI tests (for other frameworks check [aem-test-samples](https://github.com/adobe/aem-test-samples) repository
 * all: a single content package that embeds all of the compiled modules (bundles and content packages) including any vendor dependencies
 * analyse: this module runs analysis on the project which provides additional validation for deploying into AEMaaCS
 
@@ -73,14 +72,14 @@ AEM. If you want to point the integration tests to different AEM author and
 publish instances, you can use the following system properties via Maven's `-D`
 flag.
 
-| Property | Description | Default value |
-| --- | --- | --- |
-| `it.author.url` | URL of the author instance | `http://localhost:4502` |
-| `it.author.user` | Admin user for the author instance | `admin` |
-| `it.author.password` | Password of the admin user for the author instance | `admin` |
-| `it.publish.url` | URL of the publish instance | `http://localhost:4503` |
-| `it.publish.user` | Admin user for the publish instance | `admin` |
-| `it.publish.password` | Password of the admin user for the publish instance | `admin` |
+| Property              | Description                                         | Default value           |
+|-----------------------|-----------------------------------------------------|-------------------------|
+| `it.author.url`       | URL of the author instance                          | `http://localhost:4502` |
+| `it.author.user`      | Admin user for the author instance                  | `admin`                 |
+| `it.author.password`  | Password of the admin user for the author instance  | `admin`                 |
+| `it.publish.url`      | URL of the publish instance                         | `http://localhost:4503` |
+| `it.publish.user`     | Admin user for the publish instance                 | `admin`                 |
+| `it.publish.password` | Password of the admin user for the publish instance | `admin`                 |
 
 The integration tests in this archetype use the [AEM Testing
 Clients](https://github.com/adobe/aem-testing-clients) and showcase some
@@ -100,9 +99,11 @@ can be found here https://github.com/adobe/aemanalyser-maven-plugin
 
 ### UI tests
 
-They will test the UI layer of your AEM application using either Cypress or Selenium technology.
+They will test the UI layer of your AEM application using Cypress framework.
 
-Check README file in `ui.tests.cypress` or `ui.tests.wdio` module for more details.
+Check README file in `ui.tests` module for more details.
+
+Examples of UI tests in different frameworks can be found here: https://github.com/adobe/aem-test-samples
 
 ## ClientLibs
 

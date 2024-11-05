@@ -1,8 +1,0 @@
-**/.DS_Store
-**/node
-**/node_modules
-**/reports
-*/*.md
-*/*.txt
-*/*.log
-*/wdio.conf.local*

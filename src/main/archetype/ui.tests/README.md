@@ -48,15 +48,15 @@ the AEM instance defined via environment variables. The test results will be sto
 
 The following environment variables (AEM UI test convention) can be passed
 
-| envvar | default |
-| --- | --- |
-| AEM_AUTHOR_URL | http://localhost:4502 |
-| AEM_AUTHOR_USERNAME | `admin` |
-| AEM_AUTHOR_PASSWORD | `admin` |
-| AEM_PUBLISH_URL | http://localhost:4503 |
-| AEM_PUBLISH_USERNAME | `admin` |
-| AEM_PUBLISH_PASSWORD | `admin` |
-| REPORTS_PATH | `cypress/results` |
+| envvar               | default               |
+|----------------------|-----------------------|
+| AEM_AUTHOR_URL       | http://localhost:4502 |
+| AEM_AUTHOR_USERNAME  | `admin`               |
+| AEM_AUTHOR_PASSWORD  | `admin`               |
+| AEM_PUBLISH_URL      | http://localhost:4503 |
+| AEM_PUBLISH_USERNAME | `admin`               |
+| AEM_PUBLISH_PASSWORD | `admin`               |
+| REPORTS_PATH         | `cypress/results`     |
 
 1. Build the Docker UI test image with below command
    ```
