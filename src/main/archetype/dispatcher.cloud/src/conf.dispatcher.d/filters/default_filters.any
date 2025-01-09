@@ -101,3 +101,6 @@
 
 # Allow PUT for Forms DocAssurance Services Decryption API
 /0063 { /type "allow" /method "PUT" /url "/adobe/forms/document/assure/encrypt" }
+
+# Allow POST for Cache Invalidation endpoint
+/0064 { /type "allow" /method "POST" /url "/dispatcher/invalidate.cache" }
