@@ -633,6 +633,7 @@
         <include>.gitignore</include>
         <include>.gitattributes</include>
         <include>LICENSE</include>
+        <include>.cloudmanager/java-version</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" encoding="UTF-8">
