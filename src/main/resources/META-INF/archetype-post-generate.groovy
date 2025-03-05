@@ -85,7 +85,7 @@ if (aemVersion == "cloud") {
     rootPom.text = rootPom.text.replaceAll('SDK_VERSION', sdkVersion.toString())
     def cloudManagerDir = new File(rootDir, ".cloudmanager");
     assert cloudManagerDir.mkdir();
-    new File(cloudManagerDir, "java-version").write("11");
+    new File(cloudManagerDir, "java-version").write("21");
 }
 
 buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, language, country)
