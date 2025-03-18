@@ -1,5 +1,5 @@
 import static groovy.io.FileType.*
-import groovy.util.XmlSlurper
+import groovy.xml.XmlSlurper
 import java.nio.file.Path
 import java.util.regex.Pattern
 

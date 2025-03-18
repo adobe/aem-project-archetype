@@ -53,7 +53,7 @@ To generate a project, adjust the following command line to your needs:
 * Lookup the list of available properties to see if there's more you want to adjust.
 
 ```
-mvn -B org.apache.maven.plugins:maven-archetype-plugin:3.2.1:generate \
+mvn -B org.apache.maven.plugins:maven-archetype-plugin:3.3.1:generate \
  -D archetypeGroupId=com.adobe.aem \
  -D archetypeArtifactId=aem-project-archetype \
  -D archetypeVersion=52\
@@ -62,7 +62,7 @@ mvn -B org.apache.maven.plugins:maven-archetype-plugin:3.2.1:generate \
  -D groupId="com.mysite"
 ```
 
-**Note**: Make sure you use at least 3.1.0+ of maven-archetype-plugin ([#400](https://github.com/adobe/aem-project-archetype/issues/400))
+**Note**: Make sure you use at least 3.3.1+ of maven-archetype-plugin ([#400](https://github.com/adobe/aem-project-archetype/issues/400))
 
 **Note**: To run above command with older versions, you have to use the old `archetypeGroupId`: `-D archetypeGroupId=com.adobe.granite.archetype`
 
