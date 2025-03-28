@@ -44,7 +44,7 @@
                         </goals>
                         <configuration>
                             <bnd><![CDATA[
-Import-Package: javax.annotation;version=0.0.0,*
+Import-Package: javax.annotation;version=0.0.0,com.adobe.cq.forms.core.components.models.form;version="[5.0.0,6.0.0)",*
                                 ]]></bnd>
                         </configuration>
                     </execution>
@@ -211,6 +211,7 @@ Import-Package: javax.annotation;version=0.0.0,*
          <artifactId>aemfd-client-sdk</artifactId>
        </dependency>
       #end
+        #if ($aemVersion != "cloud")
         <dependency>
           <groupId>com.adobe.aem</groupId>
           <artifactId>core-forms-components-core</artifactId>
@@ -219,6 +220,7 @@ Import-Package: javax.annotation;version=0.0.0,*
           <groupId>com.adobe.aem</groupId>
           <artifactId>core-forms-components-af-core</artifactId>
         </dependency>
+        #end
 #end
         <!-- Testing -->
         <dependency>
