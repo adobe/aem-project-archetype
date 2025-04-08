@@ -21,7 +21,7 @@ on: workflow_dispatch
 
 jobs:
   release:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       # Check out Git repository
       - uses: actions/checkout@v2
