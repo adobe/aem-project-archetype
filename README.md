@@ -56,7 +56,7 @@ To generate a project, adjust the following command line to your needs:
 mvn -B org.apache.maven.plugins:maven-archetype-plugin:3.3.1:generate \
  -D archetypeGroupId=com.adobe.aem \
  -D archetypeArtifactId=aem-project-archetype \
- -D archetypeVersion=52\
+ -D archetypeVersion=53\
  -D appTitle="My Site" \
  -D appId="mysite" \
  -D groupId="com.mysite"
