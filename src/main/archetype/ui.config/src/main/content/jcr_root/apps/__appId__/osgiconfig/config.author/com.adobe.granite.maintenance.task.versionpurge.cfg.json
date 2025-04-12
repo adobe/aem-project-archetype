@@ -1,0 +1,7 @@
+{
+  "task.enabled": true,
+  "task.name": "Version Purge",
+  "versionpurge.paths": ["/content"],
+  "versionpurge.maxAgeInDays": 30,
+  "scheduler.expression": "0 0 3 ? * SUN *"
+}
