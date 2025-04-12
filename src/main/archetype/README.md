@@ -117,6 +117,30 @@ A ClientLib will consist of the following files and directories:
 - `js.txt` (tells AEM the order and names of files in `js/` so they can be merged
 - `resources/`: Source maps, non-entrypoint code chunks (resulting from code splitting), static assets (e.g. icons), etc.
 
+
+## Maintenance Window Configuration
+
+The generated project includes a default Maintenance Window configuration to support scheduled operations using AEM’s Granite Maintenance Framework.
+
+### Location
+
+The file is located at: ```ui.content/src/main/content/jcr_root/conf/${projectName}/settings/granite/operations/maintenance/default.maintenancewindow.json```
+
+### Default Schedule
+
+- **Day:** Sunday
+- **Time:** 3:00 AM to 4:00 AM UTC
+- **Applies to:** Both Author and Publish instances via context-aware configuration
+
+This window enables the automated scheduling of maintenance tasks like version purging or workflow purging.
+
+### Customization
+
+You can modify this file to change the schedule or define additional windows. For more information on how AEM handles maintenance tasks, see Adobe’s documentation:
+
+👉 [AEM Maintenance Tasks and Windows](https://experienceleague.adobe.com/docs/experience-manager-65/administering/operations/maintenance-tasks.html)
+
+
 ## Maven settings
 
 The project comes with the auto-public repository configured. To setup the repository in your Maven settings, refer to:
