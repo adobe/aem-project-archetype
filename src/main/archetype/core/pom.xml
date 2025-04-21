@@ -43,9 +43,11 @@
                             <goal>bnd-process</goal>
                         </goals>
                         <configuration>
-                            <bnd><![CDATA[
+                            <bnd>#if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")<![CDATA[
 Import-Package: javax.annotation;version=0.0.0,com.adobe.cq.forms.core.components.models.form;version="[5.0.0,6.0.0)",*
-                                ]]></bnd>
+                                ]]>#else<![CDATA[
+Import-Package: javax.annotation;version=0.0.0,*
+                                ]]>#end</bnd>
                         </configuration>
                     </execution>
                 </executions>
