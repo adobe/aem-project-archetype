@@ -44,7 +44,13 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['ChromeHeadless'], // To be able to run tests in Docker
+    browsers: ['ChromeHeadlessNoSandbox'], // To be able to run tests in Docker
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox']
+      }
+    },
     // to avoid DISCONNECTED messages
     browserDisconnectTimeout : 10000, // default 2000
     browserDisconnectTolerance : 1, // default 0
