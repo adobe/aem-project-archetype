@@ -898,7 +898,11 @@ Bundle-DocURL:
                 <artifactId>core-forms-components-af-core</artifactId>
                 <version>${core.forms.components.af.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.adobe.aem</groupId>
+                <artifactId>core-forms-print-components-print-dor-api</artifactId>
+                <version>${core.forms.components.print.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>core-forms-print-components-print-api</artifactId>

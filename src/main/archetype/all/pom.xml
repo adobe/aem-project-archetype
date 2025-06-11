@@ -188,6 +188,11 @@
                         </embedded>
                         <embedded>
                             <groupId>com.adobe.aem</groupId>
+                            <artifactId>core-forms-print-components-print-dor-api</artifactId>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.adobe.aem</groupId>
                             <artifactId>core-forms-print-components-print-api</artifactId>
                             <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
@@ -438,6 +443,10 @@
         <dependency>
           <groupId>com.adobe.aem</groupId>
           <artifactId>core-forms-components-af-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>core-forms-print-components-print-dor-api</artifactId>
         </dependency>
         <dependency>
             <groupId>com.adobe.aem</groupId>
