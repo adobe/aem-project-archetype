@@ -83,8 +83,9 @@
 
 #if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
 #if ($aemVersion == "cloud")
-        <core.forms.components.version>3.0.76</core.forms.components.version>
-        <core.forms.components.af.version>3.0.76</core.forms.components.af.version>
+        <core.forms.components.version>3.0.107-printF004</core.forms.components.version>
+        <core.forms.components.af.version>3.0.107-printF004</core.forms.components.af.version>
+        <core.forms.components.print.version>1.0.12</core.forms.components.print.version>
 #else
         <core.forms.components.version>1.1.60</core.forms.components.version>
         <core.forms.components.af.version>1.1.60</core.forms.components.af.version>
@@ -896,6 +897,21 @@ Bundle-DocURL:
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>core-forms-components-af-core</artifactId>
                 <version>${core.forms.components.af.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.aem</groupId>
+                <artifactId>core-forms-print-components-print-dor-api</artifactId>
+                <version>${core.forms.components.print.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.aem</groupId>
+                <artifactId>core-forms-print-components-print-api</artifactId>
+                <version>${core.forms.components.print.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.aem</groupId>
+                <artifactId>core-forms-print-components-print-core</artifactId>
+                <version>${core.forms.components.print.version}</version>
             </dependency>
 
             #if ($includeExamples == "y")
