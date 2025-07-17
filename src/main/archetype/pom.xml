@@ -86,6 +86,9 @@
         <core.forms.components.version>1.1.66</core.forms.components.version>
         <core.forms.components.af.version>1.1.66</core.forms.components.af.version>
 #end
+        #if ($aemVersion == "cloud")
+        <core.forms.components.print.version>1.0.14</core.forms.components.print.version>
+        #end
         <aem.forms.sdk.api>SDK_FORMS_VERSION</aem.forms.sdk.api>
 #end
         <bnd.version>6.4.0</bnd.version>
@@ -894,6 +897,13 @@ Bundle-DocURL:
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>core-forms-components-af-core</artifactId>
                 <version>${core.forms.components.af.version}</version>
+            </dependency>
+            #end
+            #if ($aemVersion == "cloud")
+            <dependency>
+                <groupId>com.adobe.aem</groupId>
+                <artifactId>core-forms-print-components-print-core</artifactId>
+                <version>${core.forms.components.print.version}</version>
             </dependency>
             #end
 

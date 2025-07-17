@@ -174,7 +174,8 @@
                             <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
 #end
-#if (($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and ($aemVersion != "cloud"))
+#if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
+                        #if ($aemVersion != "cloud")
                         <embedded>
                             <groupId>com.adobe.aem</groupId>
                             <artifactId>core-forms-components-af-apps</artifactId>
@@ -186,31 +187,39 @@
                             <artifactId>core-forms-components-af-core</artifactId>
                             <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
-                      <embedded>
-                        <groupId>com.adobe.aem</groupId>
-                        <artifactId>core-forms-components-apps</artifactId>
-                        <type>zip</type>
-                        <target>/apps/${appId}-vendor-packages/application/install</target>
-                      </embedded>
-                      <embedded>
-                        <groupId>com.adobe.aem</groupId>
-                        <artifactId>core-forms-components-core</artifactId>
-                        <target>/apps/${appId}-vendor-packages/application/install</target>
-                      </embedded>
-                      #if ($includeExamples == "y")
-                      <embedded>
-                        <groupId>com.adobe.aem</groupId>
-                        <artifactId>core-forms-components-examples-apps</artifactId>
-                        <type>zip</type>
-                        <target>/apps/${appId}-vendor-packages/application/install</target>
-                      </embedded>
-                      <embedded>
-                        <groupId>com.adobe.aem</groupId>
-                        <artifactId>core-forms-components-examples-content</artifactId>
-                        <type>zip</type>
-                        <target>/apps/${appId}-vendor-packages/application/install</target>
-                      </embedded>
-                      #end
+                        <embedded>
+                            <groupId>com.adobe.aem</groupId>
+                            <artifactId>core-forms-components-apps</artifactId>
+                            <type>zip</type>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.adobe.aem</groupId>
+                            <artifactId>core-forms-components-core</artifactId>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
+                        </embedded>
+                        #if ($includeExamples == "y")
+                        <embedded>
+                            <groupId>com.adobe.aem</groupId>
+                            <artifactId>core-forms-components-examples-apps</artifactId>
+                            <type>zip</type>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.adobe.aem</groupId>
+                            <artifactId>core-forms-components-examples-content</artifactId>
+                            <type>zip</type>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
+                        </embedded>
+                        #end
+                        #end
+                        #if ($aemVersion == "cloud")
+                        <embedded>
+                            <groupId>com.adobe.aem</groupId>
+                            <artifactId>core-forms-print-components-print-core</artifactId>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
+                        </embedded>
+                        #end
 #end
                     </embeddeds>
                 </configuration>
@@ -407,8 +416,9 @@
             <type>zip</type>
         </dependency>
 #end
-#if (($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and ($aemVersion != "cloud"))
+#if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
         <!-- AEM Forms Dependencies -->
+        #if ($aemVersion != "cloud")
         <dependency>
           <groupId>com.adobe.aem</groupId>
           <artifactId>core-forms-components-apps</artifactId>
@@ -427,18 +437,25 @@
           <groupId>com.adobe.aem</groupId>
           <artifactId>core-forms-components-af-core</artifactId>
         </dependency>
-      #if ($includeExamples == "y")
-      <dependency>
-        <groupId>com.adobe.aem</groupId>
-        <artifactId>core-forms-components-examples-apps</artifactId>
-        <type>zip</type>
-      </dependency>
-      <dependency>
-        <groupId>com.adobe.aem</groupId>
-        <artifactId>core-forms-components-examples-content</artifactId>
-        <type>zip</type>
-      </dependency>
-      #end
+          #if ($includeExamples == "y")
+          <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>core-forms-components-examples-apps</artifactId>
+            <type>zip</type>
+          </dependency>
+          <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>core-forms-components-examples-content</artifactId>
+            <type>zip</type>
+          </dependency>
+          #end
+        #end
+        #if ($aemVersion == "cloud")
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>core-forms-print-components-print-core</artifactId>
+        </dependency>
+        #end
 #end
 #if ( $includeExamples == "y" )
         <dependency>
