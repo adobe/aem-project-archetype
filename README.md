@@ -46,7 +46,7 @@ To generate a project, adjust the following command line to your needs:
 * Set `aemVersion=cloud` for [AEM as a Cloud Service](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/home.html);  
  Set `aemVersion=6.5.8` for [Adobe Managed Services](https://github.com/adobe/aem-project-archetype/tree/master/src/main/archetype/dispatcher.ams), or on-premise.
  The Core Components dependency is only added for non cloud aem versions as the Core Components are provided OOTB for AEM as a Cloud
- Service.
+ Service. Forms Core Components dependency is only added for non cloud aem versions as the Forms Core Components are provided OOTB for AEM as a Cloud
 * Adjust `appTitle="My Site"` to define the website title and components groups.
 * Adjust `appId="mysite"` to define the Maven artifactId, the component, config and content folder names, as well as client library names.
 * Adjust `groupId="com.mysite"` to define the Maven groupId and the Java Source Package.
@@ -56,7 +56,7 @@ To generate a project, adjust the following command line to your needs:
 mvn -B org.apache.maven.plugins:maven-archetype-plugin:3.3.1:generate \
  -D archetypeGroupId=com.adobe.aem \
  -D archetypeArtifactId=aem-project-archetype \
- -D archetypeVersion=52\
+ -D archetypeVersion=54\
  -D appTitle="My Site" \
  -D appId="mysite" \
  -D groupId="com.mysite"
@@ -101,7 +101,7 @@ mvn -B org.apache.maven.plugins:maven-archetype-plugin:3.3.1:generate \
 
 | Archetype                                                                                  | AEM as a Cloud Service | AEM 6.5   | Java SE | Maven  |
 |--------------------------------------------------------------------------------------------|------------------------|-----------|---------|--------|
-| [52](https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-52) | Continual              | 6.5.17.0+ | 11      | 3.3.9+ |
+| [54](https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-54) | Continual              | 6.5.17.0+ | 11      | 3.3.9+ |
 
 Setup your local development environment for [AEM as a Cloud Service SDK](https://experienceleague.adobe.com/docs/experience-manager-learn/cloud-service/local-development-environment-set-up/overview.html) or for [older versions of AEM.](https://experienceleague.adobe.com/docs/experience-manager-learn/foundation/development/set-up-a-local-aem-development-environment.html)
 
