@@ -121,4 +121,4 @@ A ClientLib will consist of the following files and directories:
 
 The project comes with the auto-public repository configured. To setup the repository in your Maven settings, refer to:
 
-    http://helpx.adobe.com/experience-manager/kb/SetUpTheAdobeMavenRepository.html
+    https://experienceleague.adobe.com/en/docs/experience-cloud-kcs/kbarticles/ka-17454
