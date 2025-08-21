@@ -101,3 +101,12 @@
 
 # Allow PUT for Forms DocAssurance Services Decryption API
 /0063 { /type "allow" /method "PUT" /url "/adobe/forms/document/assure/encrypt" }
+
+# Allow Get for Forms IC Document Services List IC API
+/0064 { /type "allow" /method '(GET|OPTIONS)' /url "/adobe/communications" }
+
+# Allow POST for Forms IC Document Services Pdf Rendition API
+/0065 { /type "allow" /method '(POST|OPTIONS)' /url "/adobe/communications/*/pdf" }
+
+# Allow POST for Forms IC Document Services Print Rendition API
+/0066 { /type "allow" /method '(POST|OPTIONS)' /url "/adobe/communications/*/print" }
