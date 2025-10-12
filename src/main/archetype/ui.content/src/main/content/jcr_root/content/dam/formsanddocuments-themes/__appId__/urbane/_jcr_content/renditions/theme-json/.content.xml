@@ -62,7 +62,7 @@
                     default_x0023_error_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]}]"/>
                 <af_checkboxwidgetandtext
                     jcr:primaryType="nt:unstructured"
-                    default_x0023_default="[float:none,width:0.75rem,display:none]"/>
+                    default_x0023_default="[float:none,width:0.75rem,opacity:0]"/>
                 <af_numericstepperdecrementbutton
                     jcr:primaryType="nt:unstructured"
                     default_x0023_default="[background:url(../assets/Minus.svg) center center / 0.75rem 0.75rem no-repeat\,#FFFFFF,display:inline-block,width:2.5rem,height:2.5rem]"
@@ -97,7 +97,7 @@
                     default_x0023_hover_x0023_ui="[backgroundContainer:{&quot;itemList&quot;:[]}]"/>
                 <af_radiobuttonwidget
                     jcr:primaryType="nt:unstructured"
-                    default_x0023_default="[float:none,width:0.75rem,display:none]"/>
+                    default_x0023_default="[float:none,width:0.75rem,opacity:0]"/>
                 <af_textareawidgetandtext
                     jcr:primaryType="nt:unstructured"
                     default_x0023_default="[height:80px]"/>
@@ -622,6 +622,7 @@
                     default_x0023_default_x0023_ui="[backgroundColor:#fff]"/>
                 <af_checkboxitem
                     jcr:primaryType="nt:unstructured"
+                    default_x0023_focus="[cssOverride:outline: 1px solid #3787e0;]"
                     phone_x0023_default="[display:block,margin-bottom:10px]"
                     phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:10px]"/>
                 <af_passwordboxwidgetandtext
@@ -676,6 +677,9 @@
                     default_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:0.25rem\, 0.75rem\, 0.25rem\, 0.75rem]"
                     phone_x0023_default="[margin-right:0px,margin-left:0px]"
                     phone_x0023_default_x0023_ui="[marginLock:linkOff,marginPopover:—\, 0px\, —\, 0px]"/>
+                <af_radiobuttonitem
+                    jcr:primaryType="nt:unstructured"
+                    default_x0023_focus="[cssOverride:outline: 1px solid #3787e0;]"/>
             </af_guideContainer>
             <af_guideFooter
                 jcr:primaryType="nt:unstructured"
