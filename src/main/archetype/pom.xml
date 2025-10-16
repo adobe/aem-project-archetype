@@ -24,7 +24,6 @@
 #set( $symbol_escape = '\' )
 #set( $startbrace = "{" )
 #set( $endbrace = "}" )
-#set( $isSpaProject = $frontendModule == "angular" || $frontendModule == "react" || $frontendModule == "decoupled" )
 #set( $includeClassifierOnUberJar = $aemVersion.matches("6\.5\.[0-5]") )
 
     <modelVersion>4.0.0</modelVersion>
@@ -55,8 +54,6 @@
         <module>dispatcher.ams</module>
         <module>dispatcher.cloud</module>
         <module>ui.frontend.general</module>
-        <module>ui.frontend.angular</module>
-        <module>ui.frontend.react</module>
         <module>ui.tests</module>
     </modules>
 
@@ -93,14 +90,6 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 #if ( $isSpaProject )
         <spa.project.core.version>1.3.16</spa.project.core.version>
-#end
-#if ( $frontendModule == "angular" )
-        <!--
-          Environment for the NPM build. Possible values:
-          - "" in development (=> `npm run build`)
-          - ":production" in production (=> `npm run build:production`)
-        -->
-        <build.environment />
 #end
 #if ( $aemVersion == "cloud")
         <aem.sdk.api>SDK_VERSION</aem.sdk.api>
@@ -617,12 +606,6 @@ Bundle-DocURL:
                     </plugins>
                 </pluginManagement>
             </build>
-#if ( $frontendModule == "angular" )
-            <properties>
-                <!-- Use `build:production` instead of `build` NPM script -->
-                <build.environment>:production</build.environment>
-            </properties>
-#end
         </profile>
     </profiles>
 

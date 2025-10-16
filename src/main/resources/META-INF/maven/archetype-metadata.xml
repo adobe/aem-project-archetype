@@ -107,7 +107,7 @@
          -->
         <requiredProperty key="frontendModule">
             <defaultValue>general</defaultValue>
-            <validationRegex>^(none|general|angular|react)$</validationRegex>
+            <validationRegex>^(none|general)$</validationRegex>
         </requiredProperty>
 
         <!--
