@@ -1,14 +1,21 @@
-#if ( $aemVersion == "cloud")
 # ${appTitle}
+#if ( $aemVersion == "cloud")
 
-This is an AEM as a Cloud Service project using the Java stack. 
+This is an AEM as a Cloud Service project using the Java stack.
 
-It is built locally using Maven and tested using the AEM Cloud Service SDK, also called Quickstart/CQ Quickstart.
+It is built locally using Maven#if ( $frontendModule != "decoupled" ) and can be tested against a local Quickstart#if ( $includeDispatcherConfig != "n" ), and the Dispatcher configuration is validated locally using the Dispatcher Tools#end#end.
 
-Production deployments are done through the Adobe Cloud Manager using Full Stack Pipelines#if ( $frontendModule == "decoupled" ) and Frontend Pipelines for decoupled frontend code#end.
+Production deployments are done through Adobe Cloud Manager using Full Stack Pipelines#if ( $frontendModule == "decoupled" ) and Frontend Pipelines for decoupled frontend code#end.
 
-The Java version used in Cloud Manager pipelines is defined in the .cloudmanager/java-version file. Assume the same is used for local builds.
+The Java version used in Cloud Manager pipelines is defined in the `.cloudmanager/java-version` file. Assume the same is used for local builds.
 
+#else
+
+This is an AEM project targeting Adobe Managed Services or on-prem using the Java stack.
+
+It is built locally using Maven and can be tested against a local Quickstart. 
+
+#end
 #if ( $includeCif == "y" || $includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y" || $includeFormsheadless == "y" || $precompiledScripts == "y" )
 ${hash}${hash} Add-ons and extensions
 
@@ -16,7 +23,11 @@ ${hash}${hash} Add-ons and extensions
 - **Commerce Integration Framework (CIF)**: The commerce backend endpoint is configured in `ui.config` OSGi configurations. CIF Core Components are included for building commerce experiences (product pages, catalog, search, cart, checkout). See README-CIF.md for more details.
 #end
 #if ( $includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y" )
+#if ( $aemVersion == "cloud" )
 - **AEM Forms**: Forms Core Components are provided OOTB in AEM as a Cloud Service. The project contains Adaptive Forms components, templates, themes, and configurations for building form experiences.
+#else
+- **AEM Forms**: The project contains Adaptive Forms components, templates, themes, and configurations for building form experiences.
+#end
 #end
 #if ( $includeFormsheadless == "y" )
 - **Headless Adaptive Forms**: The `ui.frontend.react.forms.af` module provides a React-based rendering layer for forms consumed via the form model JSON. Forms can be rendered in external applications while leveraging AEM Forms capabilities for form logic and data handling.
@@ -30,7 +41,11 @@ ${hash}${hash} Modules
 
 - `core`: OSGi bundle. Contains the Java code for backend services, models, and business logic#if ( $includeCif == "y" ), including commerce-specific models and servlets#end. Uses OSGi for dependency injection, Sling models for exposing content to Sling scripts and JUnit for unit testing.
 #if ( $includeDispatcherConfig != "n" )
+#if ( $aemVersion == "cloud" )
 - `dispatcher`: Contains the cloud-optimized Dispatcher configuration, including caching and security settings. Uses immutable files that are validated by the Dispatcher SDK. 
+#else
+- `dispatcher`: Contains Dispatcher configuration suitable for Adobe Managed Services or on-prem deployments, including caching and security settings. 
+#end
 #end
 - `ui.apps`: FileVault content package. Contains the application code, including components, templates, client libraries, and content structure. Uses HTL as the scripting engine.
 - `ui.apps.structure`: FileVault content package. Empty module that defines the structure of the repository content.
@@ -46,13 +61,22 @@ ${hash}${hash} Modules
 - `ui.frontend`: Angular-based SPA module built with Angular CLI. Uses `@adobe/aem-angular-editable-components` for SPA Editor integration. During the build it's copied to the `ui.apps` module as client libraries. Run `npm start` to develop locally with a proxy to AEM (port 4200)#if ( $enableSSR == "y" ). Includes server-side rendering capabilities using Adobe I/O Runtime#end. Uses Node.js, npm, and webpack.
 #end
 #if ( $frontendModule == "decoupled" )
+#if ( $aemVersion == "cloud" )
 - `ui.frontend`: Decoupled frontend module (headless). Consumes AEM content via JSON model APIs. Deployed via the AEM as a Cloud Service Frontend Pipeline separately from backend code. No client libraries are generated in `ui.apps`.
+#else
+- `ui.frontend`: Decoupled frontend module (headless). Consumes AEM content via JSON model APIs. No client libraries are generated in `ui.apps`.
+#end
 #end
 #if ( $includeFormsheadless == "y" )
 - `ui.frontend.react.forms.af`: React-based headless Adaptive Forms rendering module. Consumes form models and renders forms in a headless manner. Uses Node.js, npm, and webpack.
 #end
+#if ( $aemVersion == "cloud" )
 - `it.tests`: Integration tests module. Uses the AEM Testing clients to run tests against running AEM instances. Executed by Cloud Manager during the _Custom Functional Testing_ step of a full stack pipeline.
 - `ui.tests`: UI tests module. Uses Cypress to run end-to-end tests against running AEM instances. Executed by Cloud Manager during the _Custom UI Testing_ step of a full stack pipeline.
+#else
+- `it.tests`: Integration tests module. Uses the AEM Testing clients to run tests against running AEM instances. 
+- `ui.tests`: UI tests module. Uses Cypress to run end-to-end tests against running AEM instances. 
+#end
 - `all`: FileVault content package. Includes all other FileVault packages for easy deployment.
 
 ${hash}${hash} Build
@@ -60,7 +84,11 @@ ${hash}${hash} Build
 The project uses Maven as the build tool. The following commands are commonly used:
 
 - full build: `mvn clean install`
+#if ( $aemVersion == "cloud" )
 - build and deploy to local AEM SDK: `mvn clean install -PautoInstallSinglePackage`
+#else
+- build and deploy to a local Quickstart: `mvn clean install -PautoInstallSinglePackage`
+#end
 - build and deploy a single FileVault content package: `mvn clean install -pl <module> -PautoInstallPackage`
 - build and deploy a single OSGi bundle: `mvn clean install -pl <module> -PautoInstallBundle`
 #if ( $frontendModule == "react" || $frontendModule == "angular" || $frontendModule == "general" )
@@ -68,13 +96,17 @@ The project uses Maven as the build tool. The following commands are commonly us
 - develop frontend locally#if ( $frontendModule == "react" || $frontendModule == "angular" ) (requires AEM running)#end: `cd ui.frontend && npm start`
 #end
 #if ( $includeDispatcherConfig != "n" )
+#if ( $aemVersion == "cloud" )
 - validate Dispatcher configuration: `cd dispatcher && ./bin/validate.sh src`
+#end
 #end
 
 ${hash}${hash} Important resources
 
-Note: When looking up resources related to this project make sure they are applicable to 'AEM as a Cloud Service'.
+Note: there are significant architectural differences between AEM as a Cloud Service and Adobe Managed Services/on-prem deployments. Make sure to refer to the appropriate documentation for this project.
 
+#if ( $aemVersion == "cloud" )
+## Cloud only resources
 - [Architecture of Adobe Experience Manager as a Cloud Service](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/overview/architecture)
 - [AEM Project Structure](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/aem-project-content-package-structure)
 - [AEM Technical Foundations](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/aem-technologies)
@@ -133,12 +165,14 @@ Note: When looking up resources related to this project make sure they are appli
 #end
 #if ( $precompiledScripts == "y" )
 - [Precompiled Bundled Scripts](https://experienceleague.adobe.com/en/docs/experience-manager-core-components/using/developing/archetype/precompiled-bundled-scripts)
-- [WCM.io AEM Mocks](https://wcm.io/testing/aem-mock/)
-- [Sling Mocks](https://sling.apache.org/documentation/development/sling-mock.html)
 #end
+#else
+## AMS/on-prem only resources
 
 #end
-#if ( $aemVersion != "cloud" )
-This is an AEM project.
-#end
+
+## shared resources
+- [WCM.io AEM Mocks](https://wcm.io/testing/aem-mock/)
+- [Sling Mocks](https://sling.apache.org/documentation/development/sling-mock.html)
+
 
