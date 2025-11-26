@@ -105,74 +105,95 @@ ${hash}${hash} Important resources
 
 Note: there are significant architectural differences between AEM as a Cloud Service and Adobe Managed Services/on-prem deployments. Make sure to refer to the appropriate documentation for this project.
 
-#if ( $aemVersion == "cloud" )
-## Cloud only resources
-- [Architecture of Adobe Experience Manager as a Cloud Service](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/overview/architecture)
-- [AEM Project Structure](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/aem-project-content-package-structure)
-- [AEM Technical Foundations](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/aem-technologies)
-- [AEM as a Cloud Service Development Guidelines](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/development-guidelines)
-- [Java API Best Practices](https://experienceleague.adobe.com/en/docs/experience-manager-learn/foundation/development/understand-java-api-best-practices)
-- [The AEM as a Cloud Service SDK](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/aem-as-a-cloud-service-sdk)
-- [Using Sling Adapters](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/full-stack/sling-adapters)
-- [Using the Sling Resource Merger in AEM as a Cloud Service](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/full-stack/sling-resource-merger)
-- [Getting Started with HTL](https://experienceleague.adobe.com/en/docs/experience-manager-htl/content/getting-started)
-- [Overlays in AEM as a Cloud Service](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/full-stack/overlays)
-- [Templates](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/full-stack/components-templates/templates)
-- [Core Components Introduction](https://experienceleague.adobe.com/en/docs/experience-manager-core-components/using/introduction)
-- [Components Reference Guide](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/full-stack/components-templates/reference)
-- [Manage digital assets with the Adobe Experience Manager Assets HTTP API](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/admin/mac-api-assets)
-- [Deprecated and Removed Features and APIs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/release-notes/deprecated-removed-features)
-- [Best Practices for Sling Service User Mapping and Service User Definition ](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/security/best-practices-for-sling-service-user-mapping-and-service-user-definition)
-- [Using Client-Side Libraries on AEM as a Cloud Service](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/full-stack/clientlibs)
-- [Getting Started with the Universal Editor in AEM](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/universal-editor/getting-started)
-- [An overview of working with Content Fragments](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/sites/administering/content-fragments/overview)
-- [Experience Fragments](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/sites/authoring/fragments/experience-fragments)
-- [AEM APIs for Structured Content Delivery and Management](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/headless/apis-headless-and-content-fragments)
-- [Developing and Extending Worfklows](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/developing/extending-aem/extending-workflows/workflows)
-- [Replication](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/operations/replication)
+## Resource data: ["title", "cloud_url", "noncloud_url"] or ["title", "shared_url"] - null means no resource for that platform
+#set($resourceData = [
+  ["Architecture of Adobe Experience Manager as a Cloud Service", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/overview/architecture", null],
+  ["AEM Project Structure", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/aem-project-content-package-structure", null],
+  ["AEM Technical Foundations", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/aem-technologies", null],
+  ["AEM as a Cloud Service Development Guidelines", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/development-guidelines", null],
+  ["Java API Best Practices", "https://experienceleague.adobe.com/en/docs/experience-manager-learn/foundation/development/understand-java-api-best-practices", null],
+  ["The AEM as a Cloud Service SDK", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/aem-as-a-cloud-service-sdk", null],
+  ["Using Sling Adapters", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/full-stack/sling-adapters", null],
+  ["Using the Sling Resource Merger in AEM as a Cloud Service", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/full-stack/sling-resource-merger", null],
+  ["Getting Started with HTL", "https://experienceleague.adobe.com/en/docs/experience-manager-htl/content/getting-started"],
+  ["Overlays in AEM as a Cloud Service", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/full-stack/overlays", null],
+  ["Templates", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/full-stack/components-templates/templates", null],
+  ["Core Components Introduction", "https://experienceleague.adobe.com/en/docs/experience-manager-core-components/using/introduction"],
+  ["Components Reference Guide", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/full-stack/components-templates/reference", null],
+  ["Manage digital assets with the Adobe Experience Manager Assets HTTP API", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/admin/mac-api-assets", null],
+  ["Deprecated and Removed Features and APIs", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/release-notes/deprecated-removed-features", null],
+  ["Best Practices for Sling Service User Mapping and Service User Definition", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/security/best-practices-for-sling-service-user-mapping-and-service-user-definition", null],
+  ["Using Client-Side Libraries on AEM as a Cloud Service", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/full-stack/clientlibs", null],
+  ["Getting Started with the Universal Editor in AEM", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/universal-editor/getting-started", null],
+  ["An overview of working with Content Fragments", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/sites/administering/content-fragments/overview", null],
+  ["Experience Fragments", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/sites/authoring/fragments/experience-fragments", null],
+  ["AEM APIs for Structured Content Delivery and Management", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/headless/apis-headless-and-content-fragments", null],
+  ["Developing and Extending Workflows", "https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/developing/extending-aem/extending-workflows/workflows"],
+  ["Replication", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/operations/replication", null],
+  ["Content Search and Indexing", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/operations/indexing", null],
+  ["CDN in AEM as a Cloud Service", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/content-delivery/cdn", null],
+  ["Deploying to AEM as a Cloud Service", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/deploying/overview", null],
+  ["API Reference Materials", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/reference-materials", null],
+  ["WCM.io AEM Mocks", "https://wcm.io/testing/aem-mock/"],
+  ["Sling Mocks", "https://sling.apache.org/documentation/development/sling-mock.html"]
+])
+
 #if ( $includeDispatcherConfig != "n" )
-- [Validating and Debugging using Dispatcher Tools](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/content-delivery/validation-debug)
+#set($dummy = $resourceData.add(["Validating and Debugging using Dispatcher Tools", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/content-delivery/validation-debug", null]))
 #end
-- [Content Search and Indexing](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/operations/indexing)
-- [CDN in AEM as a Cloud Service](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/content-delivery/cdn)
-- [Deploying to AEM as a Cloud Service](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/deploying/overview)
-- [API Reference Materials](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/reference-materials)
+
 #if ( $frontendModule == "react" || $frontendModule == "angular" || $frontendModule == "decoupled" )
-- [SPA Editor Overview](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/hybrid/introduction)
-- [Developing SPAs for AEM](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/hybrid/developing)
+#set($dummy = $resourceData.add(["SPA Editor Overview", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/hybrid/introduction", null]))
+#set($dummy = $resourceData.add(["Developing SPAs for AEM", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/hybrid/developing", null]))
 #end
+
 #if ( $frontendModule == "react" )
-- [AEM React Editable Components](https://www.npmjs.com/package/@adobe/aem-react-editable-components)
+#set($dummy = $resourceData.add(["AEM React Editable Components", "https://www.npmjs.com/package/@adobe/aem-react-editable-components"]))
 #end
+
 #if ( $frontendModule == "angular" )
-- [Create your first Angular SPA in AEM](https://experienceleague.adobe.com/en/docs/experience-manager-learn/getting-started-with-aem-headless/spa-editor/angular/overview)
-- [AEM Angular Editable Components](https://www.npmjs.com/package/@adobe/aem-angular-editable-components)
+#set($dummy = $resourceData.add(["Create your first Angular SPA in AEM", "https://experienceleague.adobe.com/en/docs/experience-manager-learn/getting-started-with-aem-headless/spa-editor/angular/overview", null]))
+#set($dummy = $resourceData.add(["AEM Angular Editable Components", "https://www.npmjs.com/package/@adobe/aem-angular-editable-components"]))
 #end
+
 #if ( $frontendModule == "decoupled" )
-- [Enabling Front-End Pipeline](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/sites/administering/site-creation/enable-front-end-pipeline)
+#set($dummy = $resourceData.add(["Enabling Front-End Pipeline", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/sites/administering/site-creation/enable-front-end-pipeline", null]))
 #end
+
 #if ( $includeCif == "y" )
-- [Getting started with AEM Commerce as a Cloud Service](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/content-and-commerce/storefront/getting-started)
-- [CIF Core Components](https://github.com/adobe/aem-core-cif-components)
+#set($dummy = $resourceData.add(["Getting started with AEM Commerce as a Cloud Service", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/content-and-commerce/storefront/getting-started", null]))
+#set($dummy = $resourceData.add(["CIF Core Components", "https://github.com/adobe/aem-core-cif-components"]))
 #end
+
 #if ( $includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y" || $includeFormsheadless == "y" )
-- [AEM Forms as a Cloud Service](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/forms/forms-overview/home)
-- [Forms Core Components](https://github.com/adobe/aem-core-forms-components)
-- [Form builder: Create forms with core components ](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/forms/adaptive-forms-authoring/authoring-adaptive-forms-core-components/create-an-adaptive-form-on-forms-cs/creating-adaptive-form-core-components)
+#set($dummy = $resourceData.add(["AEM Forms as a Cloud Service", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/forms/forms-overview/home", null]))
+#set($dummy = $resourceData.add(["Forms Core Components", "https://github.com/adobe/aem-core-forms-components"]))
+#set($dummy = $resourceData.add(["Form builder: Create forms with core components", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/forms/adaptive-forms-authoring/authoring-adaptive-forms-core-components/create-an-adaptive-form-on-forms-cs/creating-adaptive-form-core-components", null]))
 #end
+
 #if ( $includeFormsheadless == "y" )
-- [Headless Adaptive Forms](https://experienceleague.adobe.com/en/docs/experience-manager-headless-adaptive-forms/using/overview)
+#set($dummy = $resourceData.add(["Headless Adaptive Forms", "https://experienceleague.adobe.com/en/docs/experience-manager-headless-adaptive-forms/using/overview", null]))
 #end
+
 #if ( $precompiledScripts == "y" )
-- [Precompiled Bundled Scripts](https://experienceleague.adobe.com/en/docs/experience-manager-core-components/using/developing/archetype/precompiled-bundled-scripts)
-#end
-#else
-## AMS/on-prem only resources
-
+#set($dummy = $resourceData.add(["Precompiled Bundled Scripts", "https://experienceleague.adobe.com/en/docs/experience-manager-core-components/using/developing/archetype/precompiled-bundled-scripts", null]))
 #end
 
-## shared resources
-- [WCM.io AEM Mocks](https://wcm.io/testing/aem-mock/)
-- [Sling Mocks](https://sling.apache.org/documentation/development/sling-mock.html)
-
+#foreach($item in $resourceData)
+  ## Determine which URL to use based on array size
+  #if($item.size() == 2)
+    ## Single URL - applies to both cloud and non-cloud
+    #set($url = $item.get(1))
+  #elseif(${aemVersion} == "cloud")
+    ## Cloud version - use second position
+    #set($url = $item.get(1))
+  #else
+    ## Non-cloud version - use third position
+    #set($url = $item.get(2))
+  #end
+  
+  #if($url)
+- [$item.get(0)]($url)
+  #end
+#end
 
