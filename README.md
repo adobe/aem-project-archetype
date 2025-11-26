@@ -16,7 +16,6 @@ Maven template that creates a minimal, best-practices-based Adobe Experience Man
 * **[GitHub Documentation](src/main/archetype/README.md):** The README.md documentation in this repo provides detailed technical usage detail of the archetype and all of its modules.
 * **Tutorials:** The following tutorials are based off this archetype:
   - **[WKND Site](https://experienceleague.adobe.com/docs/experience-manager-learn/getting-started-wknd-tutorial-develop/overview.html):** Learn how to start a fresh new website.
-  - **WKND SPA** Learn how to build a [React](https://experienceleague.adobe.com/docs/experience-manager-learn/getting-started-with-aem-headless/spa-editor/react/overview.html) or [Angular](https://experienceleague.adobe.com/docs/experience-manager-learn/getting-started-with-aem-headless/spa-editor/angular/overview.html) webapp that is fully authorable in AEM.
 
 ## Features
 
