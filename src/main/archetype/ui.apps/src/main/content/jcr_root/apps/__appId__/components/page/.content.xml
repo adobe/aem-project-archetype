@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-    jcr:primaryType="cq:Component"
-    jcr:title="${appTitle} Page"
-#if ( $isSpaProject )
-    sling:resourceSuperType="spa-project-core/components/page"
-#elseif ( $includeCif == "y" )
-    sling:resourceSuperType="core/cif/components/structure/page/v3/page"
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          jcr:primaryType="cq:Component"
+          jcr:title="${appTitle} Page"
+#if ( $includeCif == "y" )
+	sling:resourceSuperType="core/cif/components/structure/page/v3/page"
 #elseif ( $amp == "y" )
     sling:resourceSuperType="core/wcm/extensions/amp/components/page/v1/page"
 #elseif ( $includeFormsheadless =="y" )
