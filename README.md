@@ -1,4 +1,3 @@
-
 # AEM Project Archetype
 
 ![Test](https://github.com/adobe/aem-project-archetype/workflows/Test/badge.svg)
@@ -29,9 +28,7 @@ Maven template that creates a minimal, best-practices-based Adobe Experience Man
 * **Responsive Layout:** On templates or individual pages, [define how the elements reflow](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/sites/authoring/features/responsive-layout.html) for the defined breakpoints.
 * **Header and Footer:** Assemble and localize them without code, using the [localization features of the components.](https://experienceleague.adobe.com/docs/experience-manager-core-components/using/get-started/localization.html)
 * **Style System:** Avoid building custom components by allowing authors to [apply different styles](https://experienceleague.adobe.com/docs/experience-manager-learn/getting-started-wknd-tutorial-develop/project-archetype/style-system.html) to them.
-* **Front-End Build:** Front-end devs can [mock AEM pages and build client libraries](https://experienceleague.adobe.com/docs/experience-manager-core-components/using/developing/archetype/uifrontend.html) with Webpack, TypeScript, and SASS. 
-* **Decoupled Front-End:** When choosing the frontend module to be decoupled, the project is preconfigured to use the [AEMaaCS Frontend Pipeline](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/sites/administering/site-creation/enable-front-end-pipeline.html). See [the AEM React SPA](https://github.com/adobe/aem-react-spa) template for more details how to get started with a decoupled frontend module using React.
-* **WebApp-Ready:** For sites using [React](https://experienceleague.adobe.com/docs/experience-manager-core-components/using/developing/archetype/uifrontend-react.html) or [Angular](https://experienceleague.adobe.com/docs/experience-manager-core-components/using/developing/archetype/uifrontend-angular.html), use the [SPA SDK](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/implementing/developing/hybrid/developing.html) to retain [in-context authoring of the app.](https://experienceleague.adobe.com/docs/experience-manager-learn/sites/spa-editor/spa-editor-framework-feature-video-use.html)
+* **Front-End Build:** Front-end devs can [mock AEM pages and build client libraries](https://experienceleague.adobe.com/docs/experience-manager-core-components/using/developing/archetype/uifrontend.html) with Webpack, TypeScript, and SASS.
 * **Commerce Enabled:** For projects that want to use Commerce Integration Framework ([CIF](https://github.com/adobe/aem-core-cif-components)) to integrate with commerce solutions like Magento.
 * **Forms Enabled:** For projects that want to use ([Forms](https://github.com/adobe/aem-core-forms-components)).
 * **Testing:** ready-to-use Functional and UI testing modules, start adding your own tests

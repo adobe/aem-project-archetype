@@ -20,5 +20,3 @@
           jcr:primaryType="cq:Component"
           jcr:title="New Paragraph - Container"
           sling:resourceSuperType="core/wcm/components/container/v1/container/new"/>
-        
-        
