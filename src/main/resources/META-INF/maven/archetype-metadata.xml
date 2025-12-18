@@ -630,6 +630,7 @@
         <include>README.md</include>
         <include>README-CIF.md</include>
         <include>README-precompiled-scripts.md</include>
+        <include>CLAUDE.md</include>
         <include>.gitignore</include>
         <include>.gitattributes</include>
         <include>LICENSE</include>
@@ -638,6 +639,7 @@
     <fileSet filtered="true" encoding="UTF-8">
       <directory></directory>
       <includes>
+        <include>AGENTS.md</include>
         <include>archetype.properties</include>
       </includes>
     </fileSet>

@@ -37,6 +37,7 @@ Maven template that creates a minimal, best-practices-based Adobe Experience Man
 * **Forms Enabled:** For projects that want to use ([Forms](https://github.com/adobe/aem-core-forms-components)).
 * **Testing:** ready-to-use Functional and UI testing modules, start adding your own tests
 * **Example Code:** Checkout the HelloWorld component, and the sample models, servelets, filters, and schedulers.
+* **AI Agent Ready:** Includes [AGENTS.md](src/main/archetype/AGENTS.md) and CLAUDE.md to help coding agents understand your project structure and build commands.
 * **Open Sourced:** If something is not as it should, [contribute](https://github.com/adobe/aem-core-wcm-components/blob/master/CONTRIBUTING.md) your improvements!
 
 ## Usage
