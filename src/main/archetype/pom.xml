@@ -24,7 +24,6 @@
 #set( $symbol_escape = '\' )
 #set( $startbrace = "{" )
 #set( $endbrace = "}" )
-#set( $isSpaProject = $frontendModule == "angular" || $frontendModule == "react" )
 #set( $includeClassifierOnUberJar = $aemVersion.matches("6\.5\.[0-5]") )
 
     <modelVersion>4.0.0</modelVersion>
@@ -55,8 +54,6 @@
         <module>dispatcher.ams</module>
         <module>dispatcher.cloud</module>
         <module>ui.frontend.general</module>
-        <module>ui.frontend.angular</module>
-        <module>ui.frontend.react</module>
         <module>ui.tests</module>
     </modules>
 
@@ -70,10 +67,6 @@
         <vault.user>admin</vault.user>
         <vault.password>admin</vault.password>
         <frontend-maven-plugin.version>1.12.0</frontend-maven-plugin.version>
-#if ($enableSSR == "y")
-        <aio.runtime.namespace>${env.AIO_RUNTIME_NAMESPACE}</aio.runtime.namespace>
-        <aio.runtime.auth>${env.AIO_RUNTIME_AUTH}</aio.runtime.auth>
-#end
         <core.wcm.components.version>2.19.0</core.wcm.components.version>
 #if ( $includeCommerce == "y" )
         <core.cif.components.version>2.9.0</core.cif.components.version>
@@ -93,17 +86,6 @@
         <bnd.version>5.1.2</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-#if ( $isSpaProject )
-        <spa.project.core.version>1.3.12</spa.project.core.version>
-#end
-#if ( $frontendModule == "angular" )
-        <!--
-          Environment for the NPM build. Possible values:
-          - "" in development (=> `npm run build`)
-          - ":production" in production (=> `npm run build:production`)
-        -->
-        <build.environment />
-#end
 #if ( $aemVersion == "cloud")
         <aem.sdk.api>SDK_VERSION</aem.sdk.api>
         <aemanalyser.version>1.4.10</aemanalyser.version>
@@ -617,12 +599,6 @@ Bundle-DocURL:
                     </plugins>
                 </pluginManagement>
             </build>
-#if ( $frontendModule == "angular" )
-            <properties>
-                <!-- Use `build:production` instead of `build` NPM script -->
-                <build.environment>:production</build.environment>
-            </properties>
-#end
         </profile>
     </profiles>
 
@@ -898,21 +874,6 @@ Bundle-DocURL:
                 <artifactId>core-forms-components-examples-all</artifactId>
                 <type>zip</type>
                 <version>${core.forms.components.version}</version>
-            </dependency>
-#end
-
-#if ( $isSpaProject )
-            <!-- SPA Project Core (includes hierarchy page model) -->
-            <dependency>
-                <groupId>com.adobe.aem</groupId>
-                <artifactId>spa.project.core.ui.apps</artifactId>
-                <type>zip</type>
-                <version>${spa.project.core.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.adobe.aem</groupId>
-                <artifactId>spa.project.core.core</artifactId>
-                <version>${spa.project.core.version}</version>
             </dependency>
 #end
 

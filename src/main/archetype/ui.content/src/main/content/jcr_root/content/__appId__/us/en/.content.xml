@@ -8,11 +8,6 @@
         pageTitle="${appTitle}"
         jcr:primaryType="cq:PageContent"
         jcr:title="${language}"
-#if ( $isSpaProject )
-        cq:template="/conf/${appId}/settings/wcm/templates/spa-app-template"
-        sling:resourceType="${appId}/components/spa"
-    >
-#else
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
         cq:template="/conf/${appId}/settings/wcm/templates/page-content"
@@ -105,7 +100,6 @@
                 </container>
             </container>
         </root>
-#end
 #if ( $singleCountry == "n" )
         <cq:LiveSyncConfig
             cq:isDeep="{Boolean}true"

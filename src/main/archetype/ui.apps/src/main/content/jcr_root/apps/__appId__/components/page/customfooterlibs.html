@@ -22,13 +22,4 @@
     <sly data-sly-call="${symbol_dollar}{clientlib.js @ categories='${appId}.forms.react', async=true}"/>
 #end
 </sly>
-#if ( $isSpaProject )
-<!--/*
-    SPA projects: In edit mode, include ClientLib for communication with page editor
-*/-->
-<sly
-  data-sly-test="${symbol_dollar}{wcmmode.edit || wcmmode.preview}"
-  data-sly-call="${symbol_dollar}{clientLib.js @ categories='cq.authoring.pagemodel.messaging'}"
-></sly>
-#end
 
