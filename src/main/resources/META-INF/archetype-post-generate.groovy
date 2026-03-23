@@ -28,7 +28,6 @@ def includeFormsenrollment = request.getProperties().get("includeFormsenrollment
 def includeFormscommunications = request.getProperties().get("includeFormscommunications")
 def sdkFormsVersion = request.getProperties().get("sdkFormsVersion")
 def precompiledScripts = request.getProperties().get("precompiledScripts")
-def includeFormsheadless = request.getProperties().get("includeFormsheadless")
 
 def appsFolder = new File("$uiAppsPackage/src/main/content/jcr_root/apps/$appId")
 def configFolder = new File("$uiConfigPackage/src/main/content/jcr_root/apps/$appId/osgiconfig")
@@ -191,20 +190,8 @@ if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunic
     assert new File("$appsFolder/clientlibs/clientlibs-forms").deleteDir()
 }
 
-// For Adaptive Forms 2
-if (includeFormsheadless == "n") {
-    assert new File("$appsFolder/components/adaptiveForm").deleteDir()
-    assert new File("$confFolder/settings/wcm/template-types/af-page-v2").deleteDir()
-    assert new File("$confFolder/settings/wcm/templates/blank-af-v2").deleteDir()
-    assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/af_model_sample.json").deleteDir()
-    // Remove ui.frontend.react.forms.af module entry from root pom
-    removeModule(rootPom, 'ui.frontend.react.forms.af')
-    // Delete ui.frontend.react.forms.af directory
-    assert new File(rootDir, "ui.frontend.react.forms.af").deleteDir()
-}
-
 // if forms is included and aem version is set to cloud, set the forms sdk version
-if ((includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunications == "y" || includeFormsheadless == "y") && aemVersion == "cloud") {
+if ((includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunications == "y") && aemVersion == "cloud") {
     if (sdkFormsVersion == "latest") {
         println "No Forms SDK version specified, trying to fetch latest"
         sdkFormsVersion = getLatestFormsSDK(request.getArchetypeVersion())

@@ -207,7 +207,7 @@ Import-Package: javax.annotation;version=0.0.0,*
 #end
 #end
 
-#if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
+#if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y")
         <!-- AEM Forms Dependencies -->
         <dependency>
             <groupId>com.adobe.aem</groupId>
