@@ -60,7 +60,7 @@
                             <type>zip</type>
                             <target>/apps/${appId}-packages/application/install</target>
                         </embedded>
-#if ( $precompiledScripts == "y" and $aemVersion == "cloud" )
+                        #if ( $precompiledScripts == "y" and $aemVersion == "cloud" )
                         <embedded>
                             <groupId>${groupId}</groupId>
                             <artifactId>${rootArtifactId}.ui.apps</artifactId>
@@ -68,7 +68,7 @@
                             <type>jar</type>
                             <target>/apps/${appId}-packages/application/install/21</target>
                         </embedded>
-#end
+                        #end
                         <embedded>
                             <groupId>${groupId}</groupId>
                             <artifactId>${rootArtifactId}.core</artifactId>
@@ -86,19 +86,7 @@
                             <type>zip</type>
                             <target>/apps/${appId}-packages/application/install</target>
                         </embedded>
-#if ( $isSpaProject )
-                        <embedded>
-                            <groupId>com.adobe.aem</groupId>
-                            <artifactId>spa.project.core.core</artifactId>
-                            <target>/apps/${appId}-vendor-packages/application/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>com.adobe.aem</groupId>
-                            <artifactId>spa.project.core.ui.apps</artifactId>
-                            <target>/apps/${appId}-vendor-packages/application/install</target>
-                        </embedded>
-#end
-#if ( $aemVersion != "cloud" )
+                        #if ( $aemVersion != "cloud" )
                         <embedded>
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.content</artifactId>
@@ -116,7 +104,7 @@
                             <type>zip</type>
                             <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
-#if ( $amp == "y" || $includeExamples == "y")
+                        #if ( $amp == "y" || $includeExamples == "y")
                         <embedded>
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.extensions.amp.content</artifactId>
@@ -128,9 +116,9 @@
                             <artifactId>core.wcm.components.extensions.amp</artifactId>
                             <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
-#end
-#end
-#if ( $includeExamples == "y" )
+                        #end
+                        #end
+                        #if ( $includeExamples == "y" )
                         <embedded>
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.examples.ui.config</artifactId>
@@ -149,8 +137,8 @@
                             <type>zip</type>
                             <target>/apps/${appId}-vendor-packages/content/install</target>
                         </embedded>
-#end
-#if ( $includeCif == "y" )
+                        #end
+                        #if ( $includeCif == "y" )
                         <embedded>
                             <groupId>com.adobe.commerce.cif</groupId>
                             <artifactId>core-cif-components-apps</artifactId>
@@ -173,8 +161,8 @@
                             <artifactId>magento-graphql</artifactId>
                             <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
-#end
-#if (($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and ($aemVersion != "cloud"))
+                        #end
+                        #if (($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and ($aemVersion != "cloud"))
                         <embedded>
                             <groupId>com.adobe.aem</groupId>
                             <artifactId>core-forms-components-af-apps</artifactId>
@@ -186,32 +174,32 @@
                             <artifactId>core-forms-components-af-core</artifactId>
                             <target>/apps/${appId}-vendor-packages/application/install</target>
                         </embedded>
-                      <embedded>
-                        <groupId>com.adobe.aem</groupId>
-                        <artifactId>core-forms-components-apps</artifactId>
-                        <type>zip</type>
-                        <target>/apps/${appId}-vendor-packages/application/install</target>
-                      </embedded>
-                      <embedded>
-                        <groupId>com.adobe.aem</groupId>
-                        <artifactId>core-forms-components-core</artifactId>
-                        <target>/apps/${appId}-vendor-packages/application/install</target>
-                      </embedded>
-                      #if ($includeExamples == "y")
-                      <embedded>
-                        <groupId>com.adobe.aem</groupId>
-                        <artifactId>core-forms-components-examples-apps</artifactId>
-                        <type>zip</type>
-                        <target>/apps/${appId}-vendor-packages/application/install</target>
-                      </embedded>
-                      <embedded>
-                        <groupId>com.adobe.aem</groupId>
-                        <artifactId>core-forms-components-examples-content</artifactId>
-                        <type>zip</type>
-                        <target>/apps/${appId}-vendor-packages/application/install</target>
-                      </embedded>
-                      #end
-#end
+                        <embedded>
+                            <groupId>com.adobe.aem</groupId>
+                            <artifactId>core-forms-components-apps</artifactId>
+                            <type>zip</type>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.adobe.aem</groupId>
+                            <artifactId>core-forms-components-core</artifactId>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
+                        </embedded>
+                        #if ($includeExamples == "y")
+                        <embedded>
+                            <groupId>com.adobe.aem</groupId>
+                            <artifactId>core-forms-components-examples-apps</artifactId>
+                            <type>zip</type>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.adobe.aem</groupId>
+                            <artifactId>core-forms-components-examples-content</artifactId>
+                            <type>zip</type>
+                            <target>/apps/${appId}-vendor-packages/application/install</target>
+                        </embedded>
+                        #end
+                        #end
                     </embeddeds>
                 </configuration>
             </plugin>
@@ -236,7 +224,7 @@
                     </execution>
                 </executions>
             </plugin>
-#if ( $aemVersion == "cloud" )
+            #if ( $aemVersion == "cloud" )
             <plugin>
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>aemanalyser-maven-plugin</artifactId>
@@ -244,12 +232,12 @@
                     <execution>
                         <id>aem-analyser</id>
                         <goals>
-                            <goal>project-analyse</goal>                           
+                            <goal>project-analyse</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
-#end
+            #end
         </plugins>
     </build>
 
@@ -308,14 +296,8 @@
                     </plugin>
                 </plugins>
             </build>
-#if ( $frontendModule == "angular" )
-            <properties>
-                <!-- Use `build:production` instead of `build` NPM script -->
-                <build.environment>:production</build.environment>
-            </properties>
-#end
-    </profile>
-#if ( $precompiledScripts == "y" and $aemVersion == "cloud" )
+        </profile>
+        #if ( $precompiledScripts == "y" and $aemVersion == "cloud" )
         <profile>
             <id>precompiledScripts</id>
             <activation>
@@ -333,7 +315,7 @@
                 </dependency>
             </dependencies>
         </profile>
-#end
+        #end
     </profiles>
 
     <!-- ====================================================================== -->
@@ -359,19 +341,7 @@
             <type>zip</type>
         </dependency>
 
-#if ( $isSpaProject )
-        <!-- SPA Project Core (includes hierarchy page) -->
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>spa.project.core.ui.apps</artifactId>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>spa.project.core.core</artifactId>
-        </dependency>
-#end
-#if ( $aemVersion != "cloud" )
+        #if ( $aemVersion != "cloud" )
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.content</artifactId>
@@ -382,7 +352,7 @@
             <artifactId>core.wcm.components.config</artifactId>
             <type>zip</type>
         </dependency>
-#if ( $amp == "y" || $includeExamples == "y" )
+        #if ( $amp == "y" || $includeExamples == "y" )
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.extensions.amp.content</artifactId>
@@ -392,9 +362,9 @@
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.extensions.amp</artifactId>
         </dependency>
-#end
-#end
-#if ( $includeCif == "y" )
+        #end
+        #end
+        #if ( $includeCif == "y" )
         <!-- Adobe CIF Dependencies -->
         <dependency>
             <groupId>com.adobe.commerce.cif</groupId>
@@ -406,41 +376,41 @@
             <artifactId>core-cif-components-config</artifactId>
             <type>zip</type>
         </dependency>
-#end
-#if (($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and ($aemVersion != "cloud"))
+        #end
+        #if (($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y") and ($aemVersion != "cloud"))
         <!-- AEM Forms Dependencies -->
         <dependency>
-          <groupId>com.adobe.aem</groupId>
-          <artifactId>core-forms-components-apps</artifactId>
-          <type>zip</type>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>core-forms-components-apps</artifactId>
+            <type>zip</type>
         </dependency>
         <dependency>
-          <groupId>com.adobe.aem</groupId>
-          <artifactId>core-forms-components-core</artifactId>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>core-forms-components-core</artifactId>
         </dependency>
         <dependency>
-          <groupId>com.adobe.aem</groupId>
-          <artifactId>core-forms-components-af-apps</artifactId>
-          <type>zip</type>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>core-forms-components-af-apps</artifactId>
+            <type>zip</type>
         </dependency>
         <dependency>
-          <groupId>com.adobe.aem</groupId>
-          <artifactId>core-forms-components-af-core</artifactId>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>core-forms-components-af-core</artifactId>
         </dependency>
-      #if ($includeExamples == "y")
-      <dependency>
-        <groupId>com.adobe.aem</groupId>
-        <artifactId>core-forms-components-examples-apps</artifactId>
-        <type>zip</type>
-      </dependency>
-      <dependency>
-        <groupId>com.adobe.aem</groupId>
-        <artifactId>core-forms-components-examples-content</artifactId>
-        <type>zip</type>
-      </dependency>
-      #end
-#end
-#if ( $includeExamples == "y" )
+        #if ($includeExamples == "y")
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>core-forms-components-examples-apps</artifactId>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>core-forms-components-examples-content</artifactId>
+            <type>zip</type>
+        </dependency>
+        #end
+        #end
+        #if ( $includeExamples == "y" )
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.examples.ui.config</artifactId>
@@ -456,6 +426,6 @@
             <artifactId>core.wcm.components.examples.ui.content</artifactId>
             <type>zip</type>
         </dependency>
-#end
+        #end
     </dependencies>
 </project>
