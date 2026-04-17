@@ -5,7 +5,6 @@
         jcr:primaryType="cq:PageContent"
         jcr:title="Commerce"
         sling:configPropertyInherit="true"
-        cq:catalogDataResourceProviderFactory="magento-graphql"
         cq:catalogIdentifier="default"
         cq:graphqlClient="default"
         magentoRootCategoryId="Mg=="
@@ -15,6 +14,8 @@
         cq:template="/libs/cif/shell/components/configuration/page/template"
         sling:resourceType="cif/shell/components/configuration/page"/>
 #else
+        cq:catalogPath="/var/commerce/products/${appId}-default"
+        cq:catalogDataResourceProviderFactory="magento-graphql"
         cq:template="/libs/commerce/gui/components/configuration/page/template"
         sling:resourceType="commerce/gui/components/configuration/page"/>
 #end        
