@@ -169,7 +169,6 @@ if (includeCif == "n") {
     }
 } else {
     if (aemVersion == "cloud") {
-        assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl~default.cfg.json").delete()
         assert new File("$configFolder/config.author/com.adobe.granite.resourcestatus.impl.CompositeStatusType~editor.config.cfg.json").delete()
         assert new File("$varFolder").deleteDir()
     }

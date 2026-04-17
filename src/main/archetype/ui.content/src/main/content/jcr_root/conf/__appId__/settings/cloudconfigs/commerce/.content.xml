@@ -5,17 +5,17 @@
         jcr:primaryType="cq:PageContent"
         jcr:title="Commerce"
         sling:configPropertyInherit="true"
+        cq:catalogDataResourceProviderFactory="magento-graphql"
+        cq:catalogIdentifier="default"
+        cq:graphqlClient="default"
+        magentoRootCategoryId="Mg=="
+        enableUIDSupport="true"
+        magentoStore="default"
 #if ( $aemVersion == "cloud")
         cq:template="/libs/cif/shell/components/configuration/page/template"
         sling:resourceType="cif/shell/components/configuration/page"/>
 #else
         cq:template="/libs/commerce/gui/components/configuration/page/template"
-        sling:resourceType="commerce/gui/components/configuration/page"
-        cq:catalogDataResourceProviderFactory="magento-graphql"
-        cq:catalogPath="/var/commerce/products/${appId}-default"
-        cq:catalogIdentifier="default"
-        cq:graphqlClient="default"
-        magentoRootCategoryId="2"
-        magentoStore="default"/>
+        sling:resourceType="commerce/gui/components/configuration/page"/>
 #end        
 </jcr:root>
