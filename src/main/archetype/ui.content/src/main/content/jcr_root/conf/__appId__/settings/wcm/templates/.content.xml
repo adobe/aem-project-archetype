@@ -4,11 +4,7 @@
     jcr:primaryType="cq:Page">
     <page-content/>
     <xf-web-variation/>
-#if ( $isSpaProject )
-    <spa-app-template />
-    <spa-page-template />
-#end
-#if ( $includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y" )
+#if ( $includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" )
     <blank-af-v2/>
 #end
     <rep:policy/>

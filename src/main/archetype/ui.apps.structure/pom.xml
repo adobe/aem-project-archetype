@@ -37,7 +37,7 @@
                         <filter><root>/apps</root></filter>
                         <filter><root>/apps/${appId}</root></filter>
                         <!-- Common overlay roots -->
-                        #if ( $includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y" || $includeFormsheadless == "y")
+                        #if ( $includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y")
                         <filter><root>/apps/fd</root></filter>
                         <filter><root>/apps/fd/af</root></filter>
                         #if ($aemVersion == "cloud")

@@ -3,7 +3,7 @@
     <filter root="/apps/${appId}/clientlibs"/>
     <filter root="/apps/${appId}/components"/>
     <filter root="/apps/${appId}/i18n"/>
-#if ( $includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y" || $includeFormsheadless == "y")
+#if ( $includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y")
 #if ($aemVersion == "cloud")
     <filter root="/apps/fd/af/themes" mode="merge"/>
 #else

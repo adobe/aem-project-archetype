@@ -20,9 +20,6 @@
 </sly>
 <sly data-sly-use.clientlib="core/wcm/components/commons/v1/templates/clientlib.html">
     <sly data-sly-call="${symbol_dollar}{clientlib.js @ categories='${appId}.base', async=true}"/>
-    #if ($includeFormsheadless == "y" and $aemVersion == "cloud")
-    <sly data-sly-call="${symbol_dollar}{clientlib.js @ categories='${appId}.forms.react', async=true}"/>
-    #end
     <sly data-sly-test="${symbol_dollar}{!wcmmode.edit}" data-sly-call="${symbol_dollar}{clientlib.js @ categories='core.forms.components.runtime.all', async=true}"/>
 </sly>
 #if ( $datalayer == "y")

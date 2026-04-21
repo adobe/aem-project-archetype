@@ -13,37 +13,6 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-#if ( $isSpaProject )
-
-<meta
-        property="cq:pagemodel_root_url"
-        data-sly-use.page="com.adobe.aem.spa.project.core.models.Page"
-        content="${symbol_dollar}{page.hierarchyRootJsonExportUrl}"
-/>
-
-<base href="/"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<meta property="cq:datatype" data-sly-test="${symbol_dollar}{wcmmode.edit || wcmmode.preview}" content="JSON"/>
-<meta property="cq:wcmmode" data-sly-test="${symbol_dollar}{wcmmode.edit}" content="edit"/>
-<meta property="cq:wcmmode" data-sly-test="${symbol_dollar}{wcmmode.preview}" content="preview"/>
-<meta property="cq:wcmmode" data-sly-test="${symbol_dollar}{wcmmode.disabled}" content="disabled"/>
-
-<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
-
-#if ( $frontentModule != "decoupled" ) 
-<sly data-sly-call="${symbol_dollar}{clientlib.all @ categories=['coralui3']}"/>
-<sly data-sly-call="${symbol_dollar}{clientlib.css @ categories=['${appId}.base']}"/>
-#end
-
-<sly data-sly-list="${page.htmlPageItems}">
-    <script data-sly-test="${symbol_dollar}{item.location.name == 'header'}" 
-            data-sly-element="${symbol_dollar}{item.element.name @ context='unsafe'}"  
-            data-sly-attribute="${symbol_dollar}{item.attributes}"></script>
-</sly>
-
-#else
-
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
      data-sly-call="${symbol_dollar}{clientlib.js @ categories='${appId}.dependencies'}"/>
@@ -59,6 +28,3 @@
             data-sly-element="${symbol_dollar}{item.element.name @ context='unsafe'}"
             data-sly-attribute="${symbol_dollar}{item.attributes}"></script>
 </sly>
-
-#end
-

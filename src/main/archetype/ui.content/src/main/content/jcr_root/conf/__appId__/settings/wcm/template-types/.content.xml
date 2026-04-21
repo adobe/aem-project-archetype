@@ -5,7 +5,7 @@
     <xf/>
     <rep:policy/>
     <page/>
-    #if ( $includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y" )
+    #if ( $includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" )
     <af-page-v2/>
     <afv2-fragment-page/>
     #end

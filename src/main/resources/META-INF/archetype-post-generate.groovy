@@ -11,7 +11,7 @@ def uiTestPackage = new File(rootDir, "ui.tests")
 
 def coreBundle = new File(rootDir, "core")
 def rootPom = new File(rootDir, "pom.xml")
-def frontendModules = ["general", "angular", "react"]
+def frontendModules = ["general"]
 
 def singleCountry = request.getProperties().get("singleCountry")
 def appId =  request.getProperties().get("appId")
@@ -27,10 +27,8 @@ def includeCif = request.getProperties().get("includeCif")
 def includeForms = request.getProperties().get("includeForms")
 def includeFormsenrollment = request.getProperties().get("includeFormsenrollment")
 def includeFormscommunications = request.getProperties().get("includeFormscommunications")
-def enableSSR = request.getProperties().get("enableSSR");
 def sdkFormsVersion = request.getProperties().get("sdkFormsVersion")
 def precompiledScripts = request.getProperties().get("precompiledScripts")
-def includeFormsheadless = request.getProperties().get("includeFormsheadless")
 
 def appsFolder = new File("$uiAppsPackage/src/main/content/jcr_root/apps/$appId")
 def configFolder = new File("$uiConfigPackage/src/main/content/jcr_root/apps/$appId/osgiconfig")
@@ -89,7 +87,7 @@ if (aemVersion == "cloud") {
 }
 
 buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, language, country)
-cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder,enableSSR, includeCif)
+cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder, includeCif)
 
 if (includeDispatcherConfig == "n") {
     // remove the unneeded config file
@@ -187,7 +185,7 @@ if (includeCif == "n") {
 }
 
 // if forms flag is not set, forms specific components, template-types, templates, themes, fdm, cloudconfigs should be deleted
-if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunications == "n" && includeFormsheadless == "n") {
+if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunications == "n") {
     assert new File("$appsFolder/components/aemformscontainer").deleteDir()
     assert new File("$confFolder/settings/wcm/template-types/af-page").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/basic-af").deleteDir()
@@ -220,7 +218,7 @@ if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunic
     assert new File("$confFolder/settings/wcm/templates/contact-details-update").deleteDir()
     assert new File("$confFolder/forms").deleteDir()
 }
-if ((includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunications == "y" || includeFormsheadless == "y") && aemVersion != "cloud") {
+if ((includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunications == "y") && aemVersion != "cloud") {
     assert new File("$appsFolder/components/formsandcommunicationportal").deleteDir();
     //For 6.5 remove sling context aware configuration for theme association with core component af template
     assert new File("$confFolder/forms").deleteDir()
@@ -229,17 +227,8 @@ if ((includeForms == "y" || includeFormsenrollment == "y" || includeFormscommuni
 }
 
 
-// For Headless Only
-if (includeFormsheadless == "n") {
-    assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/af_model_sample.json").deleteDir()
-    // Remove ui.frontend.react.forms.af module entry from root pom
-    removeModule(rootPom, 'ui.frontend.react.forms.af')
-    // Delete ui.frontend.react.forms.af directory
-    assert new File(rootDir, "ui.frontend.react.forms.af").deleteDir()
-}
-
 // if forms is included and aem version is set to cloud, set the forms sdk version
-if (includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunications == "y" || includeFormsheadless == "y") {
+if (includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunications == "y") {
     if (sdkFormsVersion == "latest") {
         println "No Forms SDK version specified, trying to fetch latest"
         if (aemVersion == "cloud") {
@@ -300,7 +289,7 @@ def buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, 
 /**
  * Renames and deletes frontend related files as necessary
  */
-def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder, enableSSR, includeCif) {
+def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder, includeCif) {
     // Delete unwanted frontend modules
     frontendModules.each { def frontendModule ->
         // Clean up POM file
@@ -312,83 +301,9 @@ def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDi
         }
     }
 
-    // Rename selected frontend module (e.g. "ui.frontend.angular" -> "ui.frontend")
-    if (optionFrontendModule != "none" && optionFrontendModule != "decoupled") {
+    // Rename selected frontend module (e.g. "ui.frontend.general" -> "ui.frontend")
+    if (optionFrontendModule != "none") {
         assert new File(rootDir, "ui.frontend.$optionFrontendModule").renameTo(new File(rootDir, "ui.frontend"))
-    }
-
-    // Not generating SPA: Delete SPA-specific files
-    if (optionFrontendModule != "angular" && optionFrontendModule != "react" && optionFrontendModule != "decoupled") {
-        // Delete app component
-        assert new File("$appsFolder/components/structure/spa").deleteDir()
-        assert new File("$appsFolder/components/xfpage/body.html").delete()
-
-        // Delete SPA templates
-        assert new File("$confFolder/settings/wcm/templates/spa-app-template").deleteDir()
-        assert new File("$confFolder/settings/wcm/templates/spa-next-remote-page").deleteDir()
-        assert new File("$confFolder/settings/wcm/templates/spa-page-template").deleteDir()
-        assert new File("$confFolder/settings/wcm/templates/spa-remote-page").deleteDir()
-
-        // Delete SPA template types
-        assert new File("$confFolder/settings/wcm/template-types/nextjs-page").deleteDir()
-        assert new File("$confFolder/settings/wcm/template-types/spa-app").deleteDir()
-        assert new File("$confFolder/settings/wcm/template-types/spa-page").deleteDir()
-        assert new File("$confFolder/settings/wcm/template-types/remote-page").deleteDir()
-
-        // Delete SPA content
-        assert new File("$contentFolder/language-masters/en/home").deleteDir()
-        assert new File("$contentFolder/us/en/home").deleteDir()
-
-    }else{
-        assert new File("$appsFolder/components/xfpage/content.html").delete()
-    }
-
-    //cleanup SSR related files / folders when not choosing react (only react is supported for now) or not choosing SSR
-    if(enableSSR == "n" )
-    {
-        assert new File("$appsFolder/components/page/body.html").delete();
-        assert new File("$configFolder/config/com.adobe.cq.remote.content.renderer.impl.factory.ConfigurationFactoryImpl~${appId}.cfg.json").delete()
-    }
-
-    // Generating SPA: Delete non-SPA specific files
-    if (optionFrontendModule == "angular" || optionFrontendModule == "react" || optionFrontendModule == "decoupled") {
-        assert new File("$confFolder/settings/wcm/templates/page-content").deleteDir()
-        assert new File("$confFolder/settings/wcm/template-types/page").deleteDir()
-
-        // remove JcrResourceResolverFactoryImpl configuration as Sling Mappings do not work with SPA yet
-        for (def rrfConfig in [
-            new File("$configFolder/config.publish/org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl.cfg.json"),
-            new File("$configFolder/config.publish/org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl.config")
-        ]) {
-            assert !rrfConfig.exists() || rrfConfig.delete()
-        }
-
-        if (enableSSR == "n") {
-
-            if (optionFrontendModule == "react") {
-                //cleanup IO runtime related files from react module
-                assert new File(rootDir, "ui.frontend/webpack.config.express.js").delete();
-                assert new File(rootDir, "ui.frontend/webpack.config.adobeio.js").delete();
-                assert new File(rootDir, "ui.frontend/manifest.yml").delete();
-                assert new File(rootDir, "ui.frontend/src/server").deleteDir();
-                assert new File(rootDir, "ui.frontend/actions").deleteDir();
-                assert new File(rootDir, "ui.frontend/scripts").deleteDir();
-            } else if (optionFrontendModule == "angular") {
-                assert new File(rootDir, "ui.frontend/server.ts").delete();
-                assert new File(rootDir, "ui.frontend/serverless.ts").delete();
-                assert new File(rootDir, "ui.frontend/manifest.yml").delete();
-                assert new File(rootDir, "ui.frontend/CustomModelClient.js").delete();
-                assert new File(rootDir, "ui.frontend/tsconfig.server.json").delete();
-                assert new File(rootDir, "ui.frontend/src/main.server.ts").delete();
-                assert new File(rootDir, "ui.frontend/src/app/app.server.module.ts").delete();
-            }
-
-        }
-
-        if (optionFrontendModule == "decoupled") {
-            // remove clientlibs for decoupled frontend
-            assert new File("$appsFolder/clientlibs").deleteDir();
-        }
     }
 
 }
