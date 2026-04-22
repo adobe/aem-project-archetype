@@ -296,12 +296,6 @@
                     </plugin>
                 </plugins>
             </build>
-#if ( $frontendModule == "angular" )
-            <properties>
-                <!-- Use `build:production` instead of `build` NPM script -->
-                <build.environment>:production</build.environment>
-            </properties>
-#end
     </profile>
 #if ( $precompiledScripts == "y" and $aemVersion == "cloud" )
         <profile>
