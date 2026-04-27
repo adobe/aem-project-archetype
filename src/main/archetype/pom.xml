@@ -25,7 +25,7 @@
 #set( $startbrace = "{" )
 #set( $endbrace = "}" )
 #set( $isSpaProject = $frontendModule == "angular" || $frontendModule == "react" || $frontendModule == "decoupled" )
-#set( $includeClassifierOnUberJar = $aemVersion.matches("6\.5\.[0-5]") )
+#set( $includeClassifierOnUberJar = $aemVersion.matches("6\.5\.[0-5]") || $aemVersion.matches("6\.6\.\d+"))
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>${groupId}</groupId>
