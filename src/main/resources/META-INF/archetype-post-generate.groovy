@@ -207,6 +207,7 @@ if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunic
     assert new File("$confFolder/settings/wcm/template-types/af-page-v2").deleteDir()
     assert new File("$confFolder/settings/wcm/template-types/afv2-fragment-page").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/blank-af-v2").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/blank-af-v2-fragment").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/consent-form").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/contact-us-form").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/safety-inspection").deleteDir()
