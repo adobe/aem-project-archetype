@@ -53,6 +53,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
+      # Check JAVA_HOME
+      - name: Check JAVA_HOME
+        run: |
+          echo "JAVA_HOME is: $JAVA_HOME"
+          java --version
       # Build & Test
       - name: Build & Test with Maven
         run: mvn -B integration-test
