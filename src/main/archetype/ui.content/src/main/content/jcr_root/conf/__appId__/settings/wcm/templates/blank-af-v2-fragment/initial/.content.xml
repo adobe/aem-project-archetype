@@ -15,6 +15,9 @@
             fd:type="fragment"
             fieldType="form"
             jcr:primaryType="nt:unstructured"
+#if ( $aemVersion != "cloud")
+            themeClientLibRef="adaptiveform.theme.canvas3"
+#end  
             sling:resourceType="${appId}/components/adaptiveForm/fragmentcontainer"/>
     </jcr:content>
 </jcr:root>
