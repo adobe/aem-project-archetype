@@ -42,8 +42,8 @@
         </server>
         <server>
             <id>central</id>
-            <username>${env.MAVEN_CENTRAL_USERNAME}</username>
-            <password>${env.MAVEN_CENTRAL_PASSWORD}</password>
+            <username>${env.SONATYPE_USERNAME}</username>
+            <password>${env.SONATYPE_PASSWORD}</password>
         </server>
     </servers>
 
