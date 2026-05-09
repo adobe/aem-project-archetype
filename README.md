@@ -37,6 +37,7 @@ Maven template that creates a minimal, best-practices-based Adobe Experience Man
 * **Forms Enabled:** For projects that want to use ([Forms](https://github.com/adobe/aem-core-forms-components)).
 * **Testing:** ready-to-use Functional and UI testing modules, start adding your own tests
 * **Example Code:** Checkout the HelloWorld component, and the sample models, servelets, filters, and schedulers.
+* **AI Agent Ready:** Includes [AGENTS.md](src/main/archetype/AGENTS.md) and CLAUDE.md to help coding agents understand your project structure and build commands.
 * **Open Sourced:** If something is not as it should, [contribute](https://github.com/adobe/aem-core-wcm-components/blob/master/CONTRIBUTING.md) your improvements!
 
 ## Usage
@@ -56,7 +57,7 @@ To generate a project, adjust the following command line to your needs:
 mvn -B org.apache.maven.plugins:maven-archetype-plugin:3.3.1:generate \
  -D archetypeGroupId=com.adobe.aem \
  -D archetypeArtifactId=aem-project-archetype \
- -D archetypeVersion=54\
+ -D archetypeVersion=56\
  -D appTitle="My Site" \
  -D appId="mysite" \
  -D groupId="com.mysite"
@@ -101,7 +102,7 @@ mvn -B org.apache.maven.plugins:maven-archetype-plugin:3.3.1:generate \
 
 | Archetype                                                                                  | AEM as a Cloud Service | AEM 6.5   | Java SE | Maven  |
 |--------------------------------------------------------------------------------------------|------------------------|-----------|---------|--------|
-| [54](https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-54) | Continual              | 6.5.17.0+ | 11      | 3.3.9+ |
+| [56](https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-56) | Continual              | 6.5.17.0+ | 11      | 3.3.9+ |
 
 Setup your local development environment for [AEM as a Cloud Service SDK](https://experienceleague.adobe.com/docs/experience-manager-learn/cloud-service/local-development-environment-set-up/overview.html) or for [older versions of AEM.](https://experienceleague.adobe.com/docs/experience-manager-learn/foundation/development/set-up-a-local-aem-development-environment.html)
 
