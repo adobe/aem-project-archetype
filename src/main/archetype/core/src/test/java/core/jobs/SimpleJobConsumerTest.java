@@ -13,10 +13,12 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package ${package}.core.schedulers;
+package ${package}.core.jobs;
 
 import java.util.List;
 
+import org.apache.sling.event.jobs.Job;
+import org.apache.sling.event.jobs.consumer.JobConsumer.JobResult;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -32,9 +34,9 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(AemContextExtension.class)
-class SimpleScheduledTaskTest {
+class SimpleJobConsumerTest {
 
-    private SimpleScheduledTask fixture = new SimpleScheduledTask();
+    private SimpleJobConsumer fixture = new SimpleJobConsumer();
 
     private TestLogger logger = TestLoggerFactory.getTestLogger(fixture.getClass());
 
@@ -44,18 +46,19 @@ class SimpleScheduledTaskTest {
     }
 
     @Test
-    void run() {
-        SimpleScheduledTask.Config config = mock(SimpleScheduledTask.Config.class);
-        when(config.myParameter()).thenReturn("parameter value");
+    void process() {
+        Job job = mock(Job.class);
+        when(job.getTopic()).thenReturn("com/mysite/job/sample");
 
-        fixture.activate(config);
-        fixture.run();
+        JobResult result = fixture.process(job);
+
+        assertEquals(JobResult.OK, result);
 
         List<LoggingEvent> events = logger.getLoggingEvents();
         assertEquals(1, events.size());
         LoggingEvent event = events.get(0);
         assertEquals(Level.DEBUG, event.getLevel());
         assertEquals(1, event.getArguments().size());
-        assertEquals("parameter value", event.getArguments().get(0));
+        assertEquals("com/mysite/job/sample", event.getArguments().get(0));
     }
 }
