@@ -66,7 +66,7 @@ class SimpleJobSchedulerTest {
 
         fixture.activate(config);
 
-        verify(jobManager).createJob("com/mysite/job/sample");
+        verify(jobManager).createJob("my/sample/job");
         verify(jobBuilder).properties(any());
         verify(scheduleBuilder).cron("0 0 * * * ?");
         verify(scheduleBuilder).add();

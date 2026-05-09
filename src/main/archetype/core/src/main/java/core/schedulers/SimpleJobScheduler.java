@@ -59,7 +59,7 @@ public class SimpleJobScheduler {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
-    private static final String JOB_TOPIC = "com/mysite/job/sample";
+    private static final String JOB_TOPIC = "my/sample/job";
 
     @Reference
     private JobManager jobManager;

@@ -48,7 +48,7 @@ class SimpleJobConsumerTest {
     @Test
     void process() {
         Job job = mock(Job.class);
-        when(job.getTopic()).thenReturn("com/mysite/job/sample");
+        when(job.getTopic()).thenReturn("my/sample/job");
 
         JobResult result = fixture.process(job);
 
@@ -59,6 +59,6 @@ class SimpleJobConsumerTest {
         LoggingEvent event = events.get(0);
         assertEquals(Level.DEBUG, event.getLevel());
         assertEquals(1, event.getArguments().size());
-        assertEquals("com/mysite/job/sample", event.getArguments().get(0));
+        assertEquals("my/sample/job", event.getArguments().get(0));
     }
 }

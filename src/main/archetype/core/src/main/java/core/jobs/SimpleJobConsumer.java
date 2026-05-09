@@ -25,7 +25,7 @@ import org.slf4j.LoggerFactory;
  * A simple demo for Sling Job Consumer
  */
 @Component(service = JobConsumer.class, immediate = true, property = {
-        JobConsumer.PROPERTY_TOPICS + "=com/mysite/job/sample"
+        JobConsumer.PROPERTY_TOPICS + "=my/sample/job"
 })
 public class SimpleJobConsumer implements JobConsumer {
 
