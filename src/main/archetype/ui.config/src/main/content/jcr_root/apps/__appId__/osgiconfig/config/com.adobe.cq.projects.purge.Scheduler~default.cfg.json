@@ -1,0 +1,5 @@
+{
+    "scheduledpurge.purgeGroups":true,
+    "scheduledpurge.terminateRunningWorkflows":true,
+    "scheduledpurge.name":"Purge projects over 60 days old"
+}
