@@ -42,3 +42,4 @@
 "If-Modified-Since"
 "Authorization"
 "x-request-id"
+"X-Aem-Canary"
