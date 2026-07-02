@@ -87,6 +87,7 @@
                             <target>/apps/${appId}-packages/application/install</target>
                         </embedded>
 #if ( $isSpaProject )
+                        <!-- Deprecated dependency path kept temporarily because the decoupled frontend templates still embed spa.project.core artifacts. -->
                         <embedded>
                             <groupId>com.adobe.aem</groupId>
                             <artifactId>spa.project.core.core</artifactId>
@@ -308,12 +309,6 @@
                     </plugin>
                 </plugins>
             </build>
-#if ( $frontendModule == "angular" )
-            <properties>
-                <!-- Use `build:production` instead of `build` NPM script -->
-                <build.environment>:production</build.environment>
-            </properties>
-#end
     </profile>
 #if ( $precompiledScripts == "y" and $aemVersion == "cloud" )
         <profile>
