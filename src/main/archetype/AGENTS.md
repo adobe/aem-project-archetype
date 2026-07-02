@@ -16,7 +16,7 @@ This is an AEM project targeting Adobe Managed Services or on-prem using the Jav
 It is built locally using Maven and can be tested against a local Quickstart. 
 
 #end
-#if ( $includeCif == "y" || $includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y" || $precompiledScripts == "y" )
+#if ( $includeCif == "y" || $includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y" || $includeFormsheadless == "y" || $precompiledScripts == "y" )
 ${hash}${hash} Add-ons and extensions
 
 #if ( $includeCif == "y" )
@@ -28,6 +28,9 @@ ${hash}${hash} Add-ons and extensions
 #else
 - **AEM Forms**: The project contains Adaptive Forms components, templates, themes, and configurations for building form experiences.
 #end
+#end
+#if ( $includeFormsheadless == "y" )
+- **Headless Adaptive Forms**: The `ui.frontend.react.forms.af` module provides a React-based rendering layer for forms consumed via the form model JSON. Forms can be rendered in external applications while leveraging AEM Forms capabilities for form logic and data handling.
 #end
 #if ( $precompiledScripts == "y" )
 - **Precompiled Scripts**: HTL scripts from `ui.apps` are precompiled into a bundle during the build and attached as a secondary bundle artifact for improved performance. See README-precompiled-scripts.md for more details.
@@ -50,6 +53,9 @@ ${hash}${hash} Modules
 - `ui.content`: FileVault content package. Contains the mutable content for the application, such as the initial site structure, templates, sample assets.
 #if ( $frontendModule == "general" )
 - `ui.frontend`: Frontend module built with Webpack. Compiles TypeScript/JavaScript and Sass/SCSS. During the build it's copied to the `ui.apps` module as client libraries. Uses Node.js, npm, and webpack.
+#end
+#if ( $includeFormsheadless == "y" )
+- `ui.frontend.react.forms.af`: React-based headless Adaptive Forms rendering module. Consumes form models and renders forms in a headless manner. Uses Node.js, npm, and webpack.
 #end
 #if ( $aemVersion == "cloud" )
 - `it.tests`: Integration tests module. Uses the AEM Testing clients to run tests against running AEM instances. Executed by Cloud Manager during the _Custom Functional Testing_ step of a full stack pipeline.
@@ -128,10 +134,14 @@ Note: there are significant architectural differences between AEM as a Cloud Ser
 #set($dummy = $resourceData.add(["CIF Core Components", "https://github.com/adobe/aem-core-cif-components"]))##
 #end##
 ##
-#if ( $includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y" )##
+#if ( $includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y" || $includeFormsheadless == "y" )##
 #set($dummy = $resourceData.add(["AEM Forms Overview", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/forms/forms-overview/home", "https://experienceleague.adobe.com/en/docs/experience-manager-65/content/commerce/integrations/magento"]))##
 #set($dummy = $resourceData.add(["Forms Core Components", "https://github.com/adobe/aem-core-forms-components"]))##
 #set($dummy = $resourceData.add(["Form builder: Create forms with core components", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/forms/adaptive-forms-authoring/authoring-adaptive-forms-core-components/create-an-adaptive-form-on-forms-cs/creating-adaptive-form-core-components", ""]))##
+#end##
+##
+#if ( $includeFormsheadless == "y" )##
+#set($dummy = $resourceData.add(["Headless Adaptive Forms", "https://experienceleague.adobe.com/en/docs/experience-manager-headless-adaptive-forms/using/overview", ""]))##
 #end##
 ##
 #if ( $precompiledScripts == "y" )##

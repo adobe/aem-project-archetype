@@ -27,6 +27,7 @@ def includeCif = request.getProperties().get("includeCif")
 def includeForms = request.getProperties().get("includeForms")
 def includeFormsenrollment = request.getProperties().get("includeFormsenrollment")
 def includeFormscommunications = request.getProperties().get("includeFormscommunications")
+def includeFormsheadless = request.getProperties().get("includeFormsheadless")
 def sdkFormsVersion = request.getProperties().get("sdkFormsVersion")
 def precompiledScripts = request.getProperties().get("precompiledScripts")
 
@@ -184,7 +185,7 @@ if (includeCif == "n") {
 }
 
 // if forms flag is not set, forms specific components, template-types, templates, themes, fdm, cloudconfigs should be deleted
-if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunications == "n") {
+if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunications == "n" && includeFormsheadless == "n") {
     assert new File("$appsFolder/components/aemformscontainer").deleteDir()
     assert new File("$confFolder/settings/wcm/template-types/af-page").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/basic-af").deleteDir()
@@ -226,9 +227,18 @@ if ((includeForms == "y" || includeFormsenrollment == "y" || includeFormscommuni
     assert new File("$uiAppsPackage/src/main/content/jcr_root/apps/fd/af/themes").deleteDir()
 }
 
+// For Headless Only
+if (includeFormsheadless == "n") {
+    assert new File("$uiContentPackage/src/main/content/jcr_root/content/dam/$appId/af_model_sample.json").deleteDir()
+    // Remove ui.frontend.react.forms.af module entry from root pom
+    removeModule(rootPom, 'ui.frontend.react.forms.af')
+    // Delete ui.frontend.react.forms.af directory
+    assert new File(rootDir, "ui.frontend.react.forms.af").deleteDir()
+}
+
 
 // if forms is included and aem version is set to cloud, set the forms sdk version
-if (includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunications == "y") {
+if (includeForms == "y" || includeFormsenrollment == "y" || includeFormscommunications == "y" || includeFormsheadless == "y") {
     if (sdkFormsVersion == "latest") {
         println "No Forms SDK version specified, trying to fetch latest"
         if (aemVersion == "cloud") {

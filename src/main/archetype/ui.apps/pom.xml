@@ -55,7 +55,7 @@
                     <group>${groupId}</group>
                     <name>${artifactId}</name>
                     <packageType>application</packageType>
-#if (($includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y") && $aemVersion == "cloud")
+#if (($includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y" || $includeFormsheadless == "y") && $aemVersion == "cloud")
                     <skipSubPackageValidation>true</skipSubPackageValidation>
                     <accessControlHandling>merge</accessControlHandling>
 #end
@@ -215,6 +215,14 @@ Require-Capability: osgi.extender;filter:="(&(osgi.extender=sling.scripting)(ver
             <type>zip</type>
         </dependency>
 #end
+#if ( $includeFormsheadless == "y")
+      <dependency>
+        <groupId>${groupId}</groupId>
+        <artifactId>${rootArtifactId}.ui.frontend.react.forms.af</artifactId>
+        <version>${project.version}</version>
+        <type>zip</type>
+      </dependency>
+#end
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${rootArtifactId}.ui.apps.structure</artifactId>
@@ -298,7 +306,7 @@ Require-Capability: osgi.extender;filter:="(&(osgi.extender=sling.scripting)(ver
             <scope>provided</scope>
         </dependency>
 #end
-#if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y")
+#if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
         <!-- AEM Forms Dependencies -->
       #if ($aemVersion == "cloud")
       <dependency>

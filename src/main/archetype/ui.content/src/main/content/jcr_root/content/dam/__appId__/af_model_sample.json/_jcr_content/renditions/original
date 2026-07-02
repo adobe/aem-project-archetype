@@ -1,0 +1,179 @@
+{
+  "adaptiveform": "0.10.0",
+  "data": {},
+  "items": [
+    {
+      "name": "firstName",
+      "fieldType": "text-input",
+      "default": "john",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 30,
+      "required": true,
+      "constraintMessages": {
+        "minLength": "Name cannot be empty",
+        "maxLength": "Please enter only first 30 characters of your name",
+        "required": "Name cannot be empty"
+      },
+      "description": "We need it to address you in our responses",
+      "screenReaderText": "'Enter your name as you like us to address you'",
+      "rules": {
+        "required": "isAnonymous != true()"
+      },
+      "label": {
+        "value": "First Name"
+      },
+      "properties": {
+        "afs:translationIds": {
+          "title": "firstName##7081##title##1335",
+          "description": "firstName##7081##description##9756"
+        }
+      }
+    },
+    {
+      "name": "lastName",
+      "fieldType": "text-input",
+      "default": "doe",
+      "description": "We need it to address you in our responses",
+      "screenReaderText": "Enter your name as you like us to address you",
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 30,
+      "required": true,
+      "constraintMessages": {
+        "minLength": "Name cannot be empty",
+        "maxLength": "Please enter only first 30 characters of your name",
+        "required": "Name cannot be empty"
+      },
+      "rules": {
+        "required": "isAnonymous != true()"
+      },
+      "label": {
+        "value": "Last Name"
+      },
+      "properties": {
+        "afs:translationIds": {
+          "title": "lastName##904##title##4759",
+          "description": "lastName##904##description##2371"
+        }
+      }
+    },
+    {
+      "name": "name",
+      "fieldType": "text-input",
+      "rules": {
+        "value": "firstName & ' ' & lastName"
+      },
+      "label": {
+        "value": "Your Full Name"
+      },
+      "properties": {
+        "afs:translationIds": {
+          "title": "name##6861##title##536"
+        }
+      }
+    },
+    {
+      "name": "email",
+      "fieldType": "text-input",
+      "description": "It's a promise that we will not spam you",
+      "screenReaderText": "Provide your email address so that we can reply to you.",
+      "type": "string",
+      "format": "email",
+      "required": true,
+      "constraintMessages": {
+        "format": "Please enter a valid email address",
+        "required": "The email address is mandatory"
+      },
+      "rules": {
+        "required": "isAnonymous != true()"
+      },
+      "label": {
+        "value": "Email Address"
+      },
+      "properties": {
+        "afs:translationIds": {
+          "title": "email##8831##title##4231",
+          "description": "email##8831##description##1775"
+        }
+      }
+    },
+    {
+      "name": "isAnonymous",
+      "fieldType": "checkbox",
+      "description": "In case you want to remain anonymous",
+      "type": "boolean",
+      "required": true,
+      "label": {
+        "value": "Remain Anonymous",
+        "richText": false
+      },
+      "properties": {
+        "afs:translationIds": {
+          "title": "isAnonymous##4997##title##4650",
+          "description": "isAnonymous##4997##description##4835"
+        }
+      }
+    },
+    {
+      "name": "phone",
+      "fieldType": "text-input",
+      "description": "Your mobile number where we can reach you. But only if you want",
+      "screenReaderText": "Enter you mobile number without the ISD code",
+      "pattern": "[0-9]{10}",
+      "constraintMessages": {
+        "pattern": "Phone number must be 10 digit long"
+      },
+      "label": {
+        "value": "Mobile Number"
+      },
+      "properties": {
+        "afs:translationIds": {
+          "title": "phone##2170##title##9683",
+          "description": "phone##2170##description##4677"
+        }
+      }
+    },
+    {
+      "name": "message",
+      "fieldType": "multiline-input",
+      "screenReaderText": "Enter your message in less than 1000 characters and minimum 50 characters",
+      "minLength": 50,
+      "maxLength": 1000,
+      "required": true,
+      "constraintMessages": {
+        "minLength": "Enter minimum 50 characters",
+        "maxLength": "Maximum Limit (1000 characters) reached. Please email us directly",
+        "required": "The message is "
+      },
+      "label": {
+        "value": "Message"
+      },
+      "properties": {
+        "afs:translationIds": {
+          "title": "message##4881##title##112"
+        }
+      }
+    },
+    {
+      "name": "submit",
+      "fieldType": "button",
+      "screenReaderText": "Enter your message in less than 1000 characters and minimum 50 characters",
+      "events": {
+        "click": "dispatchEvent($form, 'submit')"
+      },
+      "label": {
+        "value": "Submit"
+      },
+      "properties": {
+        "afs:translationIds": {
+          "title": "submit##313##title##7066"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "grammar": "json-formula-1.0.0",
+    "version": "1.0.0"
+  }
+}
