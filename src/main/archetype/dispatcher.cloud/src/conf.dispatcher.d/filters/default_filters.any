@@ -101,3 +101,8 @@
 
 # Allow PUT for Forms DocAssurance Services Decryption API
 /0063 { /type "allow" /method "PUT" /url "/adobe/forms/document/assure/encrypt" }
+
+# Allow POSTs to form selectors under content
+/0103 { /type “allow” /method ‘(HEAD|POST)’ /url “/content/xfaforms/profiles/default.submit.html” }
+
+/0104 { /type “allow” /method ‘(GET|HEAD|POST)’ /url “/*.xdp.html” }
