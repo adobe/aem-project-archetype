@@ -86,19 +86,6 @@
                             <type>zip</type>
                             <target>/apps/${appId}-packages/application/install</target>
                         </embedded>
-#if ( $isSpaProject )
-                        <!-- Deprecated dependency path kept temporarily because the decoupled frontend templates still embed spa.project.core artifacts. -->
-                        <embedded>
-                            <groupId>com.adobe.aem</groupId>
-                            <artifactId>spa.project.core.core</artifactId>
-                            <target>/apps/${appId}-vendor-packages/application/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>com.adobe.aem</groupId>
-                            <artifactId>spa.project.core.ui.apps</artifactId>
-                            <target>/apps/${appId}-vendor-packages/application/install</target>
-                        </embedded>
-#end
 #if ( $aemVersion != "cloud" )
                         <embedded>
                             <groupId>com.adobe.cq</groupId>
@@ -354,18 +341,6 @@
             <type>zip</type>
         </dependency>
 
-#if ( $isSpaProject )
-        <!-- SPA Project Core (includes hierarchy page) -->
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>spa.project.core.ui.apps</artifactId>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>spa.project.core.core</artifactId>
-        </dependency>
-#end
 #if ( $aemVersion != "cloud" )
         <dependency>
             <groupId>com.adobe.cq</groupId>

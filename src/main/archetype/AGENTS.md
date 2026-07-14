@@ -3,9 +3,9 @@
 
 This is an AEM as a Cloud Service project using the Java stack.
 
-It is built locally using Maven#if ( $frontendModule != "decoupled" ) and can be tested against a local Quickstart#if ( $includeDispatcherConfig != "n" ), and the Dispatcher configuration is validated locally using the Dispatcher Tools#end#end.
+It is built locally using Maven and can be tested against a local Quickstart#if ( $includeDispatcherConfig != "n" ), and the Dispatcher configuration is validated locally using the Dispatcher Tools#end.
 
-Production deployments are done through Adobe Cloud Manager using Full Stack Pipelines#if ( $frontendModule == "decoupled" ) and Frontend Pipelines for decoupled frontend code#end.
+Production deployments are done through Adobe Cloud Manager using Full Stack Pipelines.
 
 The Java version used in Cloud Manager pipelines is defined in the `.cloudmanager/java-version` file. Assume the same is used for local builds.
 
@@ -53,13 +53,6 @@ ${hash}${hash} Modules
 - `ui.content`: FileVault content package. Contains the mutable content for the application, such as the initial site structure, templates, sample assets.
 #if ( $frontendModule == "general" )
 - `ui.frontend`: Frontend module built with Webpack. Compiles TypeScript/JavaScript and Sass/SCSS. During the build it's copied to the `ui.apps` module as client libraries. Uses Node.js, npm, and webpack.
-#end
-#if ( $frontendModule == "decoupled" )
-#if ( $aemVersion == "cloud" )
-- `ui.frontend`: Decoupled frontend module (headless). Consumes AEM content via JSON model APIs. Deployed via the AEM as a Cloud Service Frontend Pipeline separately from backend code. No client libraries are generated in `ui.apps`.
-#else
-- `ui.frontend`: Decoupled frontend module (headless). Consumes AEM content via JSON model APIs. No client libraries are generated in `ui.apps`.
-#end
 #end
 #if ( $includeFormsheadless == "y" )
 - `ui.frontend.react.forms.af`: React-based headless Adaptive Forms rendering module. Consumes form models and renders forms in a headless manner. Uses Node.js, npm, and webpack.
@@ -134,10 +127,6 @@ Note: there are significant architectural differences between AEM as a Cloud Ser
 ##
 #if ( $includeDispatcherConfig != "n" )##
 #set($dummy = $resourceData.add(["Validating and Debugging using Dispatcher Tools", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/content-delivery/validation-debug", ""]))##
-#end##
-##
-#if ( $frontendModule == "decoupled" )##
-#set($dummy = $resourceData.add(["Enabling Front-End Pipeline", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/sites/administering/site-creation/enable-front-end-pipeline", ""]))##
 #end##
 ##
 #if ( $includeCif == "y" )##

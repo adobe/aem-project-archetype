@@ -11,7 +11,6 @@ def uiTestPackage = new File(rootDir, "ui.tests")
 
 def coreBundle = new File(rootDir, "core")
 def rootPom = new File(rootDir, "pom.xml")
-def frontendModules = ["general"]
 
 def singleCountry = request.getProperties().get("singleCountry")
 def appId =  request.getProperties().get("appId")
@@ -88,7 +87,7 @@ if (aemVersion == "cloud") {
 }
 
 buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, language, country)
-cleanUpFrontendModule(frontendModules, frontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder, includeCif)
+cleanUpFrontendModule(frontendModule, rootPom, rootDir)
 
 if (includeDispatcherConfig == "n") {
     // remove the unneeded config file
@@ -299,66 +298,13 @@ def buildContentSkeleton(uiContentPackage, uiAppsPackage, singleCountry, appId, 
 /**
  * Renames and deletes frontend related files as necessary
  */
-def cleanUpFrontendModule(frontendModules, optionFrontendModule, rootPom, rootDir, appsFolder, confFolder, configFolder, contentFolder, includeCif) {
-    // Delete unwanted frontend modules
-    frontendModules.each { def frontendModule ->
-        // Clean up POM file
-        removeModule(rootPom, 'ui.frontend.' + frontendModule)
-
-        // Delete corresponding "ui.frontend.*" directory
-        if (optionFrontendModule != frontendModule) {
-            assert new File(rootDir, "ui.frontend.$frontendModule").deleteDir()
-        }
+def cleanUpFrontendModule(optionFrontendModule, rootPom, rootDir) {
+    removeModule(rootPom, 'ui.frontend.general')
+    if (optionFrontendModule == "general") {
+        assert new File(rootDir, "ui.frontend.general").renameTo(new File(rootDir, "ui.frontend"))
+    } else {
+        assert new File(rootDir, "ui.frontend.general").deleteDir()
     }
-
-    // Rename selected frontend module (e.g. "ui.frontend.general" -> "ui.frontend")
-    if (optionFrontendModule != "none" && optionFrontendModule != "decoupled") {
-        assert new File(rootDir, "ui.frontend.$optionFrontendModule").renameTo(new File(rootDir, "ui.frontend"))
-    }
-
-    // Not generating decoupled frontend: Delete SPA-specific files
-    if (optionFrontendModule != "decoupled") {
-        // Delete app component
-        assert new File("$appsFolder/components/structure/spa").deleteDir()
-        assert new File("$appsFolder/components/xfpage/body.html").delete()
-
-        // Delete SPA templates
-        assert new File("$confFolder/settings/wcm/templates/spa-app-template").deleteDir()
-        assert new File("$confFolder/settings/wcm/templates/spa-next-remote-page").deleteDir()
-        assert new File("$confFolder/settings/wcm/templates/spa-page-template").deleteDir()
-        assert new File("$confFolder/settings/wcm/templates/spa-remote-page").deleteDir()
-
-        // Delete SPA template types
-        assert new File("$confFolder/settings/wcm/template-types/nextjs-page").deleteDir()
-        assert new File("$confFolder/settings/wcm/template-types/spa-app").deleteDir()
-        assert new File("$confFolder/settings/wcm/template-types/spa-page").deleteDir()
-        assert new File("$confFolder/settings/wcm/template-types/remote-page").deleteDir()
-
-        // Delete SPA content
-        assert new File("$contentFolder/language-masters/en/home").deleteDir()
-        assert new File("$contentFolder/us/en/home").deleteDir()
-
-    }else{
-        assert new File("$appsFolder/components/xfpage/content.html").delete()
-    }
-
-    // Generating decoupled frontend: Delete non-SPA specific files
-    if (optionFrontendModule == "decoupled") {
-        assert new File("$confFolder/settings/wcm/templates/page-content").deleteDir()
-        assert new File("$confFolder/settings/wcm/template-types/page").deleteDir()
-
-        // remove JcrResourceResolverFactoryImpl configuration as Sling Mappings do not work with SPA yet
-        for (def rrfConfig in [
-            new File("$configFolder/config.publish/org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl.cfg.json"),
-            new File("$configFolder/config.publish/org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl.config")
-        ]) {
-            assert !rrfConfig.exists() || rrfConfig.delete()
-        }
-
-        // remove clientlibs for decoupled frontend
-        assert new File("$appsFolder/clientlibs").deleteDir();
-    }
-
 }
 
 /**
