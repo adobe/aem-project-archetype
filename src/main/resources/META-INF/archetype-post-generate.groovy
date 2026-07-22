@@ -167,7 +167,6 @@ if (includeCif == "n") {
     }
 } else {
     if (aemVersion == "cloud") {
-        assert new File("$configFolder/config/com.adobe.cq.commerce.graphql.client.impl.GraphqlClientImpl~default.cfg.json").delete()
         assert new File("$configFolder/config.author/com.adobe.granite.resourcestatus.impl.CompositeStatusType~editor.config.cfg.json").delete()
         assert new File("$varFolder").deleteDir()
     }
@@ -205,6 +204,7 @@ if (includeForms == "n" && includeFormsenrollment == "n" && includeFormscommunic
     assert new File("$confFolder/settings/wcm/template-types/af-page-v2").deleteDir()
     assert new File("$confFolder/settings/wcm/template-types/afv2-fragment-page").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/blank-af-v2").deleteDir()
+    assert new File("$confFolder/settings/wcm/templates/blank-af-v2-fragment").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/consent-form").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/contact-us-form").deleteDir()
     assert new File("$confFolder/settings/wcm/templates/safety-inspection").deleteDir()
