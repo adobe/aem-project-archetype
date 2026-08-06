@@ -730,6 +730,29 @@
                   </cq:styleGroups>
                 </default>
               </switch>
+              <table jcr:primaryType="nt:unstructured">
+                <default
+                  jcr:lastModified="{Date}2026-08-05T00:00:00.000+00:00"
+                  jcr:lastModifiedBy="admin"
+                  jcr:primaryType="nt:unstructured"
+                  jcr:title="${appId}-table-row-striping-policy"
+                  sling:resourceType="wcm/core/components/policy/policy">
+                  <jcr:content jcr:primaryType="nt:unstructured"/>
+                  <cq:styleGroups jcr:primaryType="nt:unstructured">
+                    <item0
+                      cq:styleGroupLabel="Row Style"
+                      jcr:primaryType="nt:unstructured">
+                      <cq:styles jcr:primaryType="nt:unstructured">
+                        <item0
+                          cq:styleClasses="cmp-adaptiveform-table--striped"
+                          cq:styleId="1754179300000"
+                          cq:styleLabel="Striped Rows"
+                          jcr:primaryType="nt:unstructured"/>
+                      </cq:styles>
+                    </item0>
+                  </cq:styleGroups>
+                </default>
+              </table>
             </adaptiveForm>
 #end
         </components>
