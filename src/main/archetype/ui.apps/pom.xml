@@ -207,7 +207,7 @@ Require-Capability: osgi.extender;filter:="(&(osgi.extender=sling.scripting)(ver
             <version>${project.version}</version>
         </dependency>
 
-#if ( $frontendModule != "none" && $frontendModule != "decoupled" )
+#if ( $frontendModule != "none" )
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${rootArtifactId}.ui.frontend</artifactId>
@@ -225,18 +225,6 @@ Require-Capability: osgi.extender;filter:="(&(osgi.extender=sling.scripting)(ver
       </dependency>
 #end
 
-#if ( $isSpaProject )
-        <!-- SPA Project Core (includes hierarchy page) -->
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>spa.project.core.ui.apps</artifactId>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>spa.project.core.core</artifactId>
-        </dependency>
-#end
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${rootArtifactId}.ui.apps.structure</artifactId>

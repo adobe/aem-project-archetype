@@ -4,8 +4,6 @@
     jcr:title="${appTitle} Experience Fragment"
 #if ( $includeCif == "y" )
     sling:resourceSuperType="core/cif/components/structure/xfpage/v1/xfpage"
-#elseif ( $isSpaProject )
-    sling:resourceSuperType="spa-project-core/components/xf-page"
 #else
     sling:resourceSuperType="cq/experience-fragments/components/xfpage"
 #end
