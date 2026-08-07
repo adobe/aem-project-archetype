@@ -750,6 +750,17 @@
                           jcr:primaryType="nt:unstructured"/>
                       </cq:styles>
                     </item0>
+                    <item1
+                      cq:styleGroupLabel="Border Style"
+                      jcr:primaryType="nt:unstructured">
+                      <cq:styles jcr:primaryType="nt:unstructured">
+                        <item0
+                          cq:styleClasses="cmp-adaptiveform-table--bordered"
+                          cq:styleId="1754179300001"
+                          cq:styleLabel="Bordered"
+                          jcr:primaryType="nt:unstructured"/>
+                      </cq:styles>
+                    </item1>
                   </cq:styleGroups>
                 </default>
               </table>
