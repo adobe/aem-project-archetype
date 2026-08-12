@@ -48,10 +48,11 @@ public final class AppAemContext {
     }
 
     /**
+     * @param resourceResolverType Resource resolver type
      * @return {@link AemContextBuilder}
      */
     public static AemContextBuilder newAemContextBuilder(ResourceResolverType resourceResolverType) {
-        return new AemContextBuilder()
+        return new AemContextBuilder(resourceResolverType)
                 .plugin(CACONFIG)
                 .plugin(CORE_COMPONENTS)
                 .afterSetUp(SETUP_CALLBACK);
