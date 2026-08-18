@@ -312,6 +312,11 @@ Bundle-DocURL:
                     <configuration>
                         <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
                         <validatorsSettings>
+                            <jackrabbit-packagetype>
+                                <options>
+                                    <immutableRootNodeNames>apps,libs,oak:index</immutableRootNodeNames>
+                                </options>
+                            </jackrabbit-packagetype>
                             <jackrabbit-nodetypes>
                                 <options>
                                     <!-- use the nodetypes and namespaces from the aem-nodetypes.jar provided in the plugin dependencies -->

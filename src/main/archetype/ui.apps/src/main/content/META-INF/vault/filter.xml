@@ -17,4 +17,5 @@
 #if ( $singleCountry  == "n" )
     <filter root="/apps/msm/${appId}_blueprint" mode="merge"/>
 #end
+    <filter root="/oak:index/diff.index"/>
 </workspaceFilter>
