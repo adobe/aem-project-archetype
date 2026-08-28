@@ -83,6 +83,7 @@ Some files are immutable, meaning they cannot be altered or deleted.  These are 
 ```
 conf.d/available_vhosts/default.vhost
 conf.d/dispatcher_vhost.conf
+conf.d/includes/aso_redirect_map.conf
 conf.d/rewrites/default_rewrite.rules
 conf.dispatcher.d/available_farms/default.farm
 conf.dispatcher.d/cache/default_invalidate.any
