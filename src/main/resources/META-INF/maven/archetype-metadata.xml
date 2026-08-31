@@ -271,6 +271,7 @@
                         <exclude>**/conf.d/available_vhosts/default.vhost</exclude>
                         <exclude>**/conf.d/dispatcher_vhost.conf</exclude>
                         <exclude>**/conf.d/enabled_vhosts/vhosts.conf</exclude>
+                        <exclude>**/conf.d/includes/aso_redirect_map.conf</exclude>
                         <exclude>**/conf.d/rewrites/default_rewrite.rules</exclude>
                         <exclude>**/conf.dispatcher.d/available_farms/default.farm</exclude>
                         <exclude>**/conf.dispatcher.d/cache/default_invalidate.any</exclude>
@@ -293,6 +294,7 @@
                         <include>**/conf.d/available_vhosts/default.vhost</include>
                         <include>**/conf.d/dispatcher_vhost.conf</include>
                         <include>**/conf.d/enabled_vhosts/vhosts.conf</include>
+                        <include>**/conf.d/includes/aso_redirect_map.conf</include>
                         <include>**/conf.d/rewrites/default_rewrite.rules</include>
                         <include>**/conf.dispatcher.d/available_farms/default.farm</include>
                         <include>**/conf.dispatcher.d/cache/default_invalidate.any</include>
