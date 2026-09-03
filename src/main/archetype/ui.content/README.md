@@ -9,3 +9,22 @@ The ui.content module, like the ui.apps module, uses the FileVault Package plugi
 ## filter.xml
 
 The `filter.xml` file for the ui.content module is found at `<src>/<project>/ui.content/src/main/content/META-INF/vault/filter.xml` and contains the paths that will be included and installed with the ui.content package. Notice that a `mode="merge"` attribute is added to the path. This ensures that the configurations deployed with a code deployment do not automatically override content or configurations that have been authored on the AEM instance directly.
+
+## Maintenance Window Configuration
+
+This module includes a default Maintenance Window definition used for scheduling automated tasks within AEM.
+
+### File Location
+
+`src/main/content/jcr_root/conf/${projectName}/settings/granite/operations/maintenance/default.maintenancewindow.json`
+
+
+### Purpose
+
+This file defines a weekly maintenance window that runs every **Sunday from 3:00 AM to 4:00 AM UTC**, allowing AEM to execute registered maintenance tasks such as version purging or workflow cleanup.
+
+It is a context-aware configuration and applies to both Author and Publish instances.
+
+You can customize this JSON to define your own maintenance schedules based on your deployment needs.
+
+📘 For more info, refer to [Adobe’s official documentation on Maintenance Tasks](https://experienceleague.adobe.com/docs/experience-manager-65/administering/operations/maintenance-tasks.html).
