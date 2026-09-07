@@ -6,7 +6,7 @@ This is a project template for AEM-based applications. It is intended as a best-
 
 The main parts of the template are:
 
-* [core:](core/README.md) Java bundle containing all core functionality like OSGi services, listeners or schedulers, as well as component-related Java code such as servlets or request filters.
+* [core:](core/README.md) Java bundle containing all core functionality like OSGi services, background processing jobs, as well as component-related Java code such as servlets or request filters.
 * [it.tests:](it.tests/README.md) Java based integration tests
 * [ui.apps:](ui.apps/README.md) contains the /apps (and /etc) parts of the project, ie JS&CSS clientlibs, components, and templates
 * [ui.content:](ui.content/README.md) contains sample content using the components from the ui.apps
