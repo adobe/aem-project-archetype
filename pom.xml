@@ -107,7 +107,7 @@
                     <!-- verifies the oak:index packaging (GRANITE-72134) in the built archetype IT projects -->
                     <execution>
                         <id>verify-oak-index-packaging</id>
-                        <phase>verify</phase>
+                        <phase>integration-test</phase>
                         <goals>
                             <goal>execute</goal>
                         </goals>
