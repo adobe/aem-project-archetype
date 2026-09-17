@@ -77,7 +77,20 @@ if (!failures.isEmpty()) {
 }
 
 if (checked.isEmpty()) {
-    throw new RuntimeException('oak:index packaging verification did not actually check any project (all were skipped as not built)')
+    // Distinguish "no archetype IT project was generated at all in this run" (e.g. -Darchetype.test.skip,
+    // used by the "Test dispatcher SDK update" workflow, which generates its own project by hand outside
+    // of archetype:integration-test) from "other IT projects were generated but none matched the
+    // hardcoded names above" (a real bug in this script's projectsToCheck list).
+    def anyProjectGenerated = projectsDir.exists() &&
+        projectsDir.listFiles()?.any { new File(it, 'project').listFiles() }
+    if (anyProjectGenerated) {
+        throw new RuntimeException('oak:index packaging verification did not actually check any project, even ' +
+            'though other archetype IT projects were generated under ' + projectsDir + ' - the projectsToCheck ' +
+            'list in this script is likely stale')
+    }
+    println 'oak:index verification: no archetype IT projects were generated in this run at all ' +
+        '(e.g. -Darchetype.test.skip) - nothing to verify, skipping.'
+    return
 }
 
 println 'oak:index packaging verification passed for: ' + checked.join(', ')
