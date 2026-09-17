@@ -29,10 +29,14 @@
                 <groupId>org.apache.jackrabbit</groupId>
                 <artifactId>filevault-package-maven-plugin</artifactId>
                 <configuration>
+#if ( $aemVersion == "cloud" )
                     <allowIndexDefinitions>true</allowIndexDefinitions>
+#end
                     <properties>
                         <cloudManagerTarget>none</cloudManagerTarget>
+#if ( $aemVersion == "cloud" )
                         <noIntermediateSaves>true</noIntermediateSaves>
+#end
                     </properties>
                     <filters>
                         <!-- /apps root -->
@@ -60,7 +64,9 @@
                         <!-- DAM folder root, will be created via repoinit -->
                         <filter><root>/content/dam/${appId}</root></filter>
 
+#if ( $aemVersion == "cloud" )
                         <filter><root>/oak:index</root></filter>
+#end
 
                     </filters>
                 </configuration>
