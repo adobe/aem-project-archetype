@@ -75,7 +75,7 @@ if (includeErrorHandler == "n") {
 }
 
 if (aemVersion != "cloud") {
-    // the oak:index/diff.index example (GRANITE-72134) is only relevant for AEM as a Cloud Service
+    // the oak:index/diff.index is only relevant for AEM as a Cloud Service
     assert new File(uiAppsPackage, "src/main/content/jcr_root/_oak_index").deleteDir()
 }
 

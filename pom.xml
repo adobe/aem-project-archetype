@@ -104,7 +104,7 @@
                             </properties>
                         </configuration>
                     </execution>
-                    <!-- verifies the oak:index packaging (GRANITE-72134) in the built archetype IT projects. Bound
+                    <!-- verifies the oak:index packaging in the built archetype IT projects. Bound
                          to the "integration-test" phase so it runs right after the default-bound
                          archetype:integration-test goal (which generates and builds the IT projects) but before
                          maven-checkstyle-plugin's "verify" phase execution. -->

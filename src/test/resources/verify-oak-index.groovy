@@ -1,8 +1,13 @@
-// Verifies that the oak:index packaging introduced for GRANITE-72134 (immutableRootNodeNames,
-// allowIndexDefinitions, noIntermediateSaves, the /oak:index filters and the diff.index example) is
-// only present in generated projects targeting AEM as a Cloud Service, and absent for AEM 6.5
+// Verifies that the oak:index packaging introduced for Index Management
+// (immutableRootNodeNames, allowIndexDefinitions, noIntermediateSaves) and
+// Simplified Index Management (/oak:index/diff.index) is
+// present in generated projects targeting AEM as a Cloud Service, and absent for AEM 6.5
 // projects. Runs in the "integration-test" phase, right after the default-bound
 // archetype:integration-test goal has generated and built the IT projects.
+//
+// See https://oak-indexing.github.io/oakTools/simplified.html and
+// https://docs.adobe.com/content/help/en/experience-manager-cloud-service/operations/indexing.html
+// for details.
 //
 // Known limitation: building the cloud "ui.apps" package emits a FileVault warning from the
 // jackrabbit-nodetypes validator ("... is not allowed as child of node with potential default types
@@ -12,6 +17,7 @@
 // It is left unsuppressed, because the options available to suppress the warning would
 // make it worse: using severityForDefaultNodeTypeViolations global and not only for this path, and
 // adding a .content.xml file for the oak:index node would just result in a different warning.
+
 import groovy.json.JsonSlurper
 import java.util.zip.ZipFile
 
