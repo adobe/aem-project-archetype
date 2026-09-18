@@ -23,22 +23,33 @@ import java.util.zip.ZipFile
 
 def projectsDir = new File(properties['projectsDir'])
 
-// testProject (directory name under src/test/resources/projects) -> [generated artifactId, cloud?]
-def projectsToCheck = [
-    'cloud'      : ['testing-cloud', true],
-    'basic'      : ['testing-basic', false],
-    'basic-6.5.0': ['testing-basic', false]
-]
-
 def failures = []
 def checked = []
 
-projectsToCheck.each { testProject, config ->
-    def (artifactId, cloud) = config
-    def projectDir = new File(projectsDir, "${testProject}/project/${artifactId}")
+// Discover every IT project fixture under src/test/resources/projects (identified by having an
+// archetype.properties) instead of hard-coding a subset - this automatically covers all current and
+// future test projects, cloud or not, rather than silently skipping the ones nobody remembered to list.
+def testProjectDirs = projectsDir.exists() ?
+    projectsDir.listFiles({ f -> f.isDirectory() && new File(f, 'archetype.properties').exists() } as FileFilter).sort { it.name } :
+    []
+
+testProjectDirs.each { testProjectDir ->
+    def testProject = testProjectDir.name
+    def fixtureProps = new Properties()
+    new File(testProjectDir, 'archetype.properties').withInputStream { fixtureProps.load(it) }
+    def artifactId = fixtureProps.getProperty('artifactId')
+    def aemVersion = fixtureProps.getProperty('aemVersion')
+    def version = fixtureProps.getProperty('version')
+    if (!artifactId || !aemVersion || !version) {
+        failures << "[${testProject}] archetype.properties is missing artifactId, aemVersion or version"
+        return
+    }
+    def cloud = (aemVersion == 'cloud')
+
+    def projectDir = new File(testProjectDir, "project/${artifactId}")
     if (!projectDir.exists()) {
         // e.g. the "it-basic" profile restricts archetype.test.projectsDirectory to just the "basic"
-        // project, so "cloud" and "basic-6.5.0" are intentionally absent - not built here, nothing to check.
+        // project, so the other fixtures are intentionally absent - not built here, nothing to check.
         println "oak:index verification: '${testProject}' was not generated in this run (expected " +
             "when a profile like it-basic limits which IT projects are built) - ${projectDir} does not exist, skipping"
         return
@@ -53,8 +64,6 @@ projectsToCheck.each { testProject, config ->
     }
 
     checkImmutableRootNodeNames(testProject, projectDir, failures)
-
-    def version = readVersion(projectDir)
 
     def uiAppsZip = findZip(new File(projectDir, 'ui.apps/target'), "${artifactId}.ui.apps-${version}.zip", "[${testProject}] ui.apps", failures)
     def uiAppsStructureZip = findZip(new File(projectDir, 'ui.apps.structure/target'), "${artifactId}.ui.apps.structure-${version}.zip", "[${testProject}] ui.apps.structure", failures)
@@ -77,29 +86,16 @@ if (!failures.isEmpty()) {
 }
 
 if (checked.isEmpty()) {
-    // Distinguish "no archetype IT project was generated at all in this run" (e.g. -Darchetype.test.skip,
-    // used by the "Test dispatcher SDK update" workflow, which generates its own project by hand outside
-    // of archetype:integration-test) from "other IT projects were generated but none matched the
-    // hardcoded names above" (a real bug in this script's projectsToCheck list).
-    def anyProjectGenerated = projectsDir.exists() &&
-        projectsDir.listFiles()?.any { new File(it, 'project').listFiles() }
-    if (anyProjectGenerated) {
-        throw new RuntimeException('oak:index packaging verification did not actually check any project, even ' +
-            'though other archetype IT projects were generated under ' + projectsDir + ' - the projectsToCheck ' +
-            'list in this script is likely stale')
-    }
+    // With dynamic discovery above, this can only mean no IT project was generated at all in this run
+    // (e.g. -Darchetype.test.skip, used by the "Test dispatcher SDK update" workflow, which generates its
+    // own project by hand outside of archetype:integration-test) - there is no longer a hard-coded list
+    // that could go stale relative to what is actually on disk.
     println 'oak:index verification: no archetype IT projects were generated in this run at all ' +
         '(e.g. -Darchetype.test.skip) - nothing to verify, skipping.'
     return
 }
 
 println 'oak:index packaging verification passed for: ' + checked.join(', ')
-
-String readVersion(File projectDir) {
-    def props = new Properties()
-    new File(projectDir, 'archetype.properties').withInputStream { props.load(it) }
-    return props.getProperty('version')
-}
 
 File findZip(File targetDir, String expectedName, String label, List failures) {
     if (!targetDir.exists()) {
