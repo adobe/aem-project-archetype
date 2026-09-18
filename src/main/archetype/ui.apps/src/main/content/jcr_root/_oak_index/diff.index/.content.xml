@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Simplified Index Management diff.index, see https://oak-indexing.github.io/oakTools/simplified.html -->
+<jcr:root
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    type="lucene" includedPaths="/same" queryPaths="/same" async="async">
+<diff.json jcr:primaryType="nt:file"/></jcr:root>
