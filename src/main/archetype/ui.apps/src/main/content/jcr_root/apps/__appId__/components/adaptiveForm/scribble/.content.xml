@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    cq:icon="scribble"
+    jcr:description="Add a field to capture scribble signature."
+    jcr:primaryType="cq:Component"
+    jcr:title="Adaptive Form Scribble"
+    sling:resourceSuperType="core/fd/components/form/scribble/v1/scribble"
+    componentGroup="${appTitle} - Adaptive Form"/>
