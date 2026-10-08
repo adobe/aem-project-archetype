@@ -3,9 +3,9 @@
 
 This is an AEM as a Cloud Service project using the Java stack.
 
-It is built locally using Maven#if ( $frontendModule != "decoupled" ) and can be tested against a local Quickstart#if ( $includeDispatcherConfig != "n" ), and the Dispatcher configuration is validated locally using the Dispatcher Tools#end#end.
+It is built locally using Maven and can be tested against a local Quickstart#if ( $includeDispatcherConfig != "n" ), and the Dispatcher configuration is validated locally using the Dispatcher Tools#end.
 
-Production deployments are done through Adobe Cloud Manager using Full Stack Pipelines#if ( $frontendModule == "decoupled" ) and Frontend Pipelines for decoupled frontend code#end.
+Production deployments are done through Adobe Cloud Manager using Full Stack Pipelines.
 
 The Java version used in Cloud Manager pipelines is defined in the `.cloudmanager/java-version` file. Assume the same is used for local builds.
 
@@ -54,19 +54,6 @@ ${hash}${hash} Modules
 #if ( $frontendModule == "general" )
 - `ui.frontend`: Frontend module built with Webpack. Compiles TypeScript/JavaScript and Sass/SCSS. During the build it's copied to the `ui.apps` module as client libraries. Uses Node.js, npm, and webpack.
 #end
-#if ( $frontendModule == "react" )
-- `ui.frontend`: React-based SPA module built with Create React App. Uses `@adobe/aem-react-editable-components` for SPA Editor integration. During the build it's copied to the `ui.apps` module as client libraries. Run `npm start` to develop locally with a proxy to AEM (port 3000)#if ( $enableSSR == "y" ). Includes server-side rendering capabilities using Adobe I/O Runtime#end. Uses Node.js, npm, and webpack.
-#end
-#if ( $frontendModule == "angular" )
-- `ui.frontend`: Angular-based SPA module built with Angular CLI. Uses `@adobe/aem-angular-editable-components` for SPA Editor integration. During the build it's copied to the `ui.apps` module as client libraries. Run `npm start` to develop locally with a proxy to AEM (port 4200)#if ( $enableSSR == "y" ). Includes server-side rendering capabilities using Adobe I/O Runtime#end. Uses Node.js, npm, and webpack.
-#end
-#if ( $frontendModule == "decoupled" )
-#if ( $aemVersion == "cloud" )
-- `ui.frontend`: Decoupled frontend module (headless). Consumes AEM content via JSON model APIs. Deployed via the AEM as a Cloud Service Frontend Pipeline separately from backend code. No client libraries are generated in `ui.apps`.
-#else
-- `ui.frontend`: Decoupled frontend module (headless). Consumes AEM content via JSON model APIs. No client libraries are generated in `ui.apps`.
-#end
-#end
 #if ( $includeFormsheadless == "y" )
 - `ui.frontend.react.forms.af`: React-based headless Adaptive Forms rendering module. Consumes form models and renders forms in a headless manner. Uses Node.js, npm, and webpack.
 #end
@@ -91,9 +78,9 @@ The project uses Maven as the build tool. The following commands are commonly us
 #end
 - build and deploy a single FileVault content package: `mvn clean install -pl <module> -PautoInstallPackage`
 - build and deploy a single OSGi bundle: `mvn clean install -pl <module> -PautoInstallBundle`
-#if ( $frontendModule == "react" || $frontendModule == "angular" || $frontendModule == "general" )
+#if ( $frontendModule == "general" )
 - build frontend only: `cd ui.frontend && npm run build`
-- develop frontend locally#if ( $frontendModule == "react" || $frontendModule == "angular" ) (requires AEM running)#end: `cd ui.frontend && npm start`
+- develop frontend locally: `cd ui.frontend && npm start`
 #end
 #if ( $includeDispatcherConfig != "n" )
 #if ( $aemVersion == "cloud" )
@@ -140,24 +127,6 @@ Note: there are significant architectural differences between AEM as a Cloud Ser
 ##
 #if ( $includeDispatcherConfig != "n" )##
 #set($dummy = $resourceData.add(["Validating and Debugging using Dispatcher Tools", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/content-delivery/validation-debug", ""]))##
-#end##
-##
-#if ( $frontendModule == "react" || $frontendModule == "angular" || $frontendModule == "decoupled" )##
-#set($dummy = $resourceData.add(["SPA Editor Overview", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/hybrid/introduction", "https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/developing/spas/spa-overview"]))##
-#set($dummy = $resourceData.add(["Developing SPAs for AEM", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/hybrid/developing", "https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/developing/spas/spa-architecture"]))##
-#end##
-##
-#if ( $frontendModule == "react" )##
-#set($dummy = $resourceData.add(["AEM React Editable Components", "https://www.npmjs.com/package/@adobe/aem-react-editable-components"]))##
-#end##
-##
-#if ( $frontendModule == "angular" )##
-#set($dummy = $resourceData.add(["Create your first Angular SPA in AEM", "https://experienceleague.adobe.com/en/docs/experience-manager-learn/getting-started-with-aem-headless/spa-editor/angular/overview"]))##
-#set($dummy = $resourceData.add(["AEM Angular Editable Components", "https://www.npmjs.com/package/@adobe/aem-angular-editable-components"]))##
-#end##
-##
-#if ( $frontendModule == "decoupled" )##
-#set($dummy = $resourceData.add(["Enabling Front-End Pipeline", "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/sites/administering/site-creation/enable-front-end-pipeline", ""]))##
 #end##
 ##
 #if ( $includeCif == "y" )##

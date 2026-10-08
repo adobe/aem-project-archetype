@@ -465,32 +465,7 @@
                     clientlibsJsHead="${appId}.dependencies">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy>
-#if ( $isSpaProject )
-                <policy_spa
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="${appTitle} SPA Page Policy"
-#if ( $frontendModule != "decoupled" ) 
-                    clientlibs="[${appId}.${frontendModule}]"
-#end
-                    sling:resourceType="wcm/core/components/policy/policy">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                </policy_spa>
-#end
             </page>
-#if ( $isSpaProject )
-            <spa jcr:primaryType="nt:unstructured">
-                <default
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="${appTitle} App Policy"
-                    sling:resourceType="wcm/core/components/policy/policy"
-#if ( $frontendModule != "decoupled" ) 
-                    clientlibs="[${appId}.${frontendModule}]"
-#end
-                    isRoot="{Boolean}true"
-                    structureDepth="3"
-                />
-            </spa>
-#end
 #if ( $includeCif == "y" )
             <commerce jcr:primaryType="nt:unstructured">
                 <productlist jcr:primaryType="nt:unstructured">
@@ -755,6 +730,40 @@
                   </cq:styleGroups>
                 </default>
               </switch>
+              <table jcr:primaryType="nt:unstructured">
+                <default
+                  jcr:lastModified="{Date}2026-08-05T00:00:00.000+00:00"
+                  jcr:lastModifiedBy="admin"
+                  jcr:primaryType="nt:unstructured"
+                  jcr:title="${appId}-table-row-striping-policy"
+                  sling:resourceType="wcm/core/components/policy/policy">
+                  <jcr:content jcr:primaryType="nt:unstructured"/>
+                  <cq:styleGroups jcr:primaryType="nt:unstructured">
+                    <item0
+                      cq:styleGroupLabel="Row Style"
+                      jcr:primaryType="nt:unstructured">
+                      <cq:styles jcr:primaryType="nt:unstructured">
+                        <item0
+                          cq:styleClasses="cmp-adaptiveform-table--striped"
+                          cq:styleId="1754179300000"
+                          cq:styleLabel="Striped Rows"
+                          jcr:primaryType="nt:unstructured"/>
+                      </cq:styles>
+                    </item0>
+                    <item1
+                      cq:styleGroupLabel="Border Style"
+                      jcr:primaryType="nt:unstructured">
+                      <cq:styles jcr:primaryType="nt:unstructured">
+                        <item0
+                          cq:styleClasses="cmp-adaptiveform-table--bordered"
+                          cq:styleId="1754179300001"
+                          cq:styleLabel="Bordered"
+                          jcr:primaryType="nt:unstructured"/>
+                      </cq:styles>
+                    </item1>
+                  </cq:styleGroups>
+                </default>
+              </table>
             </adaptiveForm>
 #end
         </components>
@@ -763,16 +772,6 @@
         <foundation jcr:primaryType="nt:unstructured">
             <components jcr:primaryType="nt:unstructured">
                 <responsivegrid jcr:primaryType="nt:unstructured">
-    #if ( $isSpaProject )                
-                    <spa-default
-                        jcr:description="Includes only SPA-Enabled components."
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="SPA Content"
-                        sling:resourceType="wcm/core/components/policy/policy"
-                        components="[group:${appTitle} - Content]">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
-                    </spa-default>
-    #end
     #if ( ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y") and $aemVersion == "cloud")
                     <afpolicy
                             jcr:description="Policy of the Adaptive Form"

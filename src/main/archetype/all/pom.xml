@@ -86,18 +86,6 @@
                             <type>zip</type>
                             <target>/apps/${appId}-packages/application/install</target>
                         </embedded>
-#if ( $isSpaProject )
-                        <embedded>
-                            <groupId>com.adobe.aem</groupId>
-                            <artifactId>spa.project.core.core</artifactId>
-                            <target>/apps/${appId}-vendor-packages/application/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>com.adobe.aem</groupId>
-                            <artifactId>spa.project.core.ui.apps</artifactId>
-                            <target>/apps/${appId}-vendor-packages/application/install</target>
-                        </embedded>
-#end
 #if ( $aemVersion != "cloud" )
                         <embedded>
                             <groupId>com.adobe.cq</groupId>
@@ -308,12 +296,6 @@
                     </plugin>
                 </plugins>
             </build>
-#if ( $frontendModule == "angular" )
-            <properties>
-                <!-- Use `build:production` instead of `build` NPM script -->
-                <build.environment>:production</build.environment>
-            </properties>
-#end
     </profile>
 #if ( $precompiledScripts == "y" and $aemVersion == "cloud" )
         <profile>
@@ -359,18 +341,6 @@
             <type>zip</type>
         </dependency>
 
-#if ( $isSpaProject )
-        <!-- SPA Project Core (includes hierarchy page) -->
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>spa.project.core.ui.apps</artifactId>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>spa.project.core.core</artifactId>
-        </dependency>
-#end
 #if ( $aemVersion != "cloud" )
         <dependency>
             <groupId>com.adobe.cq</groupId>

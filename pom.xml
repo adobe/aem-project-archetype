@@ -20,7 +20,7 @@
 
     <groupId>com.adobe.aem</groupId>
     <artifactId>aem-project-archetype</artifactId>
-    <version>57-SNAPSHOT</version>
+    <version>58-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
 
     <name>AEM Multi-Module Archetype</name>
@@ -101,6 +101,23 @@
                             <source>${project.basedir}/src/main/resources/META-INF/archetype-pre-package.groovy</source>
                             <properties>
                                 <rootDir>${project.build.outputDirectory}/archetype-resources</rootDir>
+                            </properties>
+                        </configuration>
+                    </execution>
+                    <!-- verifies the oak:index packaging in the built archetype IT projects. Bound
+                         to the "integration-test" phase so it runs right after the default-bound
+                         archetype:integration-test goal (which generates and builds the IT projects) but before
+                         maven-checkstyle-plugin's "verify" phase execution. -->
+                    <execution>
+                        <id>verify-oak-index-packaging</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration>
+                            <source>${project.basedir}/src/test/resources/verify-oak-index.groovy</source>
+                            <properties>
+                                <projectsDir>${project.build.testOutputDirectory}/projects</projectsDir>
                             </properties>
                         </configuration>
                     </execution>
