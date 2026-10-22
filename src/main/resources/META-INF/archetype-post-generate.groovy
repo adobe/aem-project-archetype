@@ -74,6 +74,11 @@ if (includeErrorHandler == "n") {
     assert new File(uiAppsPackage, "src/main/content/jcr_root/apps/sling").deleteDir()
 }
 
+if (aemVersion != "cloud") {
+    // the oak:index/diff.index is only relevant for AEM as a Cloud Service
+    assert new File(uiAppsPackage, "src/main/content/jcr_root/_oak_index").deleteDir()
+}
+
 if (aemVersion == "cloud") {
     if (sdkVersion == "latest") {
         println "No SDK version specified, trying to fetch latest"

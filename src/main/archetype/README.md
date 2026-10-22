@@ -117,6 +117,15 @@ A ClientLib will consist of the following files and directories:
 - `js.txt` (tells AEM the order and names of files in `js/` so they can be merged
 - `resources/`: Source maps, non-entrypoint code chunks (resulting from code splitting), static assets (e.g. icons), etc.
 
+## Simplified Index Management
+
+If you're building for AEM as a Cloud Service, this project includes a `diff.index` under
+`ui.apps/src/main/content/jcr_root/_oak_index` ([documentation](https://oak-indexing.github.io/oakTools/simplified.html)).
+Packaging it triggers a benign Maven build warning from the `jackrabbit-nodetypes` validator
+(`... is not allowed as child of node with potential default types [nt:folder] ... /oak:index/diff.index`),
+because `/oak:index`'s real node type isn't declared in any content package. It's a known false
+positive and safe to ignore.
+
 ## Maven settings
 
 The project comes with the auto-public repository configured. To setup the repository in your Maven settings, refer to:
