@@ -48,8 +48,8 @@
     </developers>
 
     <properties>
-        <maven.archetype.version>3.3.1</maven.archetype.version>
-        <groovy.version>4.0.22</groovy.version>
+        <maven.archetype.version>3.4.1</maven.archetype.version>
+        <groovy.version>4.0.28</groovy.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -171,6 +171,14 @@
                 <plugin>
                     <artifactId>maven-archetype-plugin</artifactId>
                     <version>${maven.archetype.version}</version>
+                    <dependencies>
+                        <!-- Fix ZIP creation heap exhaustion on Java 21+ (plexus-archiver#399). -->
+                        <dependency>
+                            <groupId>org.codehaus.plexus</groupId>
+                            <artifactId>plexus-archiver</artifactId>
+                            <version>4.10.4</version>
+                        </dependency>
+                    </dependencies>
                     <configuration>
                         <useDefaultExcludes>false</useDefaultExcludes>
                     </configuration>
