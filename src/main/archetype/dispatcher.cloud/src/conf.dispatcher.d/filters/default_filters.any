@@ -105,3 +105,21 @@
 # Allow Sites Content Fragment Delivery API (read-only + CORS preflight; see SITES-42114)
 /aem0064 { /type "allow" /method '(GET|HEAD|OPTIONS)' /url "/adobe/contentFragments" }
 /aem0065 { /type "allow" /method '(GET|HEAD|OPTIONS)' /url "/adobe/contentFragments/*" }
+
+# Allow Forms IC on Cloud Services List API
+/aem0066 { /type "allow" /method '(GET|HEAD|OPTIONS)' /url "/adobe/communications" }
+
+# Allow Forms IC on Cloud Services List Fragments API
+/aem0067 { /type "allow" /method '(GET|HEAD|OPTIONS)' /url "/adobe/communications/fragments" }
+
+# Allow Forms IC on Cloud Services DOM Resolve API
+/aem0068 { /type "allow" /method '(POST|OPTIONS)' /url "/adobe/communications/*/resolve" }
+
+# Allow Forms IC on Cloud Services ad-hoc PDF generation
+/aem0069 { /type "allow" /method '(POST|OPTIONS)' /url "/adobe/communications/generate/pdf" }
+
+# Allow Forms IC on Cloud Services submission
+/aem0070 { /type "allow" /method '(POST|OPTIONS)' /url "/adobe/communications/submit" }
+
+# Allow Forms IC on Cloud Services submission with AEM workflow trigger
+/aem0071 { /type "allow" /method '(POST|OPTIONS)' /url "/adobe/communications/submit/workflow" }
