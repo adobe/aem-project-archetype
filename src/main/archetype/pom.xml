@@ -86,7 +86,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 #if ( $aemVersion == "cloud")
         <aem.sdk.api>SDK_VERSION</aem.sdk.api>
-        <aemanalyser.version>1.6.6</aemanalyser.version>
+        <aemanalyser.version>1.6.20</aemanalyser.version>
 #end
         <componentGroupName>$appTitle</componentGroupName>
     </properties>
