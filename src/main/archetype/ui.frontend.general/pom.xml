@@ -46,6 +46,18 @@
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
                 <executions>
+#if ( $includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y" || $includeFormsheadless == "y" )
+                    <execution>
+                        <id>npm run lint:forms</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>run lint:forms</arguments>
+                        </configuration>
+                    </execution>
+#end
                     <execution>
                         <id>npm run prod</id>
                         <phase>generate-resources</phase>
