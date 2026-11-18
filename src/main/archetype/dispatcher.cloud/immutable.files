@@ -1,6 +1,7 @@
 src/conf.d/available_vhosts/default.vhost
 src/conf.d/dispatcher_vhost.conf
 src/conf.d/enabled_vhosts/vhosts.conf
+src/conf.d/includes/aso_redirect_map.conf
 src/conf.d/rewrites/default_rewrite.rules
 src/conf.dispatcher.d/available_farms/default.farm
 src/conf.dispatcher.d/cache/default_invalidate.any
