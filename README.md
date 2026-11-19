@@ -60,7 +60,7 @@ mvn -B org.apache.maven.plugins:maven-archetype-plugin:3.4.1:generate \
  -D groupId="com.mysite"
 ```
 
-**Note**: Use Maven Archetype Plugin 3.4.1 or later for project generation on Java 25. This plugin requires Maven 3.6.3 or later.
+**Note**: Use Maven Archetype Plugin 3.4.1 or later. Version 3.3.1 is the minimum on Java 11 to 21 ([#400](https://github.com/adobe/aem-project-archetype/issues/400)), and Java 25 requires 3.4.1. This plugin requires Maven 3.6.3 or later.
 
 **Note**: To run above command with older versions, you have to use the old `archetypeGroupId`: `-D archetypeGroupId=com.adobe.granite.archetype`
 

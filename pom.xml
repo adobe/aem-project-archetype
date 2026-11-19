@@ -172,7 +172,7 @@
                     <artifactId>maven-archetype-plugin</artifactId>
                     <version>${maven.archetype.version}</version>
                     <dependencies>
-                        <!-- Fix ZIP creation heap exhaustion on Java 21+ (plexus-archiver#399). -->
+                        <!-- Fix ZIP creation heap exhaustion on Java 21+ (plexus-archiver#399). Remove once maven-archetype-plugin ships plexus-archiver >= 4.10.4 (apache/maven-archetype#988). -->
                         <dependency>
                             <groupId>org.codehaus.plexus</groupId>
                             <artifactId>plexus-archiver</artifactId>
