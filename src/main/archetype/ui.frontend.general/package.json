@@ -11,6 +11,9 @@
   "license": "SEE LICENSE IN LICENSE.txt",
   "scripts": {
     "dev": "webpack --env dev --config ./webpack.dev.js && clientlib --verbose",
+#if ( $includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y" || $includeFormsheadless == "y" )
+    "lint:forms": "cd .. && cross-env ESLINT_USE_FLAT_CONFIG=true eslint --config ui.frontend/eslint.config.js --no-inline-config --no-error-on-unmatched-pattern \"ui.frontend/src/**/*.js\" \"ui.apps*/src/main/content/jcr_root/apps/**/*.js\"",
+#end
     "prod": "webpack --config ./webpack.prod.js && clientlib --verbose",
     "start": "webpack-dev-server --open --config ./webpack.dev.js",
     "sync": "aemsync -d -p ../ui.apps/src/main/content",
@@ -19,6 +22,9 @@
     "watch": "npm-run-all --parallel start chokidar aemsyncro"
   },
   "devDependencies": {
+#if ( $includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y" || $includeFormsheadless == "y" )
+    "@aemforms/eslint-plugin": "1.0.26",
+#end
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.3.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.3.2",
@@ -32,10 +38,17 @@
     "chokidar-cli": "^3.0.0",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^10.1.0",
+#if ( $includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y" || $includeFormsheadless == "y" )
+    "cross-env": "7.0.3",
+#end
     "css-loader": "^6.5.1",
     "css-minimizer-webpack-plugin": "^3.2.0",
     "cssnano": "^5.0.12",
+#if ( $includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y" || $includeFormsheadless == "y" )
+    "eslint": "8.57.1",
+#else
     "eslint": "^8.4.1",
+#end
     "eslint-webpack-plugin": "^3.1.1",
     "glob-import-loader": "^1.2.0",
     "html-webpack-plugin": "^5.5.0",
